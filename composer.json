@@ -31,12 +31,18 @@
     "soberwp/controller": "2.1.2",
     "roots/sage-woocommerce": "^1.0",
     "squizlabs/php_codesniffer": "^2.8.0",
-    "roots/sage-installer": "~1.6"
+    "roots/sage-installer": "1.6.4"
   },
   "scripts": {
     "test": ["phpcs"],
     "post-create-project-cmd": [
       "Roots\\Sage\\Installer\\ComposerScript::postCreateProject"
     ]
+  },
+  "config": {
+    "allow-plugins": {
+      "kylekatarnls/update-helper": true,
+      "composer/installers": true
+    }
   }
 }

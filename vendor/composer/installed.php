@@ -5,7 +5,7 @@
         'type' => 'wordpress-theme',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '7ba74420a6757f42a2441b902530beb998237856',
+        'reference' => '6fb00afaf6f4e0ce1d14f8225015aa69a8b9e4b6',
         'name' => 'newcoolstudio/growtype',
         'dev' => true,
     ),
@@ -133,7 +133,7 @@
             'type' => 'wordpress-theme',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '7ba74420a6757f42a2441b902530beb998237856',
+            'reference' => '6fb00afaf6f4e0ce1d14f8225015aa69a8b9e4b6',
             'dev_requirement' => false,
         ),
         'paragonie/random_compat' => array(
