@@ -70,9 +70,7 @@ mix
     .copyDirectory('resources/icons', 'public/icons')
 
     .copyDirectory('resources/fonts/icons/', 'public/fonts/icons')
-    .copyDirectory('resources/fonts/plugins/woocommerce', 'public/styles/plugins/fonts')
-
-    .copyDirectory('resources/video', 'public/video');
+    .copyDirectory('resources/fonts/plugins/woocommerce', 'public/styles/plugins/fonts');
 
 mix.copy('node_modules/@fancyapps/', 'public/vendor/@fancyapps')
     .copy('node_modules/jquery/', 'public/vendor/jquery')
