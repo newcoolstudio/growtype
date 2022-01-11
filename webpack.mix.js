@@ -14,18 +14,14 @@ require('@tinypixelco/laravel-mix-wp-blocks');
  */
 let sassOptions = {};
 
-if (process.env.STATIC_URL !== undefined) {
-    sassOptions['data'] = '$STATIC_ASSETS_URL: "' + process.env.STATIC_URL + '";'
-} else {
-    sassOptions['data'] = '$STATIC_ASSETS_URL: "";'
-}
+// if (process.env.STATIC_URL !== undefined) {
+//     sassOptions['data'] = '$STATIC_ASSETS_URL: "' + process.env.STATIC_URL + '";'
+// } else {
+//     sassOptions['data'] = '$STATIC_ASSETS_URL: "";'
+// }
 
 mix.setPublicPath('./public');
 mix.setResourceRoot('./../')
-
-// mix
-//     .setPublicPath('./public')
-// .browserSync('sage.test');
 
 mix
     .sass('resources/styles/app.scss', 'styles', sassOptions)
@@ -35,35 +31,48 @@ mix
     .sass('resources/styles/admin.scss', 'styles', sassOptions)
     .sass('resources/styles/backend-standard-editor.scss', 'styles', sassOptions)
 
-// mix.options({
-//     processCssUrls: false,
-//     postCss: [require('tailwindcss')],
-// });
-
-mix.autoload({
-    jquery: ['$', 'window.jQuery']
-})
+    .sass('resources/styles/plugins/woocommerce/woocommerce.scss', 'styles/plugins/woocommerce', sassOptions)
+    .sass('resources/styles/plugins/acf/acf.scss', 'styles/plugins/acf', sassOptions)
+    .sass('resources/styles/plugins/buddypress/buddypress.scss', 'styles/plugins/buddypress', sassOptions)
 
 mix
     .js('resources/scripts/app.js', 'scripts')
-    .js('resources/scripts/plugins/woocommerce/wc-cart.js', 'scripts')
-    .js('resources/scripts/plugins/woocommerce/wc-main.js', 'scripts')
-    .js('resources/scripts/plugins/woocommerce/wc-wishlist.js', 'scripts')
-    .js('resources/scripts/plugins/woocommerce/wc-checkout.js', 'scripts')
-    .js('resources/scripts/plugins/woocommerce/wc-login.js', 'scripts')
-    .js('resources/scripts/plugins/woocommerce/wc-coupon.js', 'scripts')
+    .js('resources/scripts/frontend-block-editor.js', 'scripts')
 
-    .js('resources/scripts/plugins/acf/acf-main.js', 'scripts')
+    .js('resources/scripts/plugins/woocommerce/wc-cart.js', 'scripts/plugins/woocommerce')
+    .js('resources/scripts/plugins/woocommerce/wc-main.js', 'scripts/plugins/woocommerce')
+    .js('resources/scripts/plugins/woocommerce/wc-widgets.js', 'scripts/plugins/woocommerce')
+    .js('resources/scripts/plugins/woocommerce/wc-wishlist.js', 'scripts/plugins/woocommerce')
+    .js('resources/scripts/plugins/woocommerce/wc-checkout.js', 'scripts/plugins/woocommerce')
+    .js('resources/scripts/plugins/woocommerce/wc-login.js', 'scripts/plugins/woocommerce')
+    .js('resources/scripts/plugins/woocommerce/wc-coupon.js', 'scripts/plugins/woocommerce')
 
-    // .extract(['axios', 'jquery', 'vue', 'slick-carousel', '@fancyapps/fancybox'])
+    .js('resources/scripts/plugins/acf/acf.js', 'scripts/plugins/acf')
+    .js('resources/scripts/plugins/slick-carousel/slick-main.js', 'scripts/plugins/slick-carousel')
+
+    .js('resources/scripts/plugins/buddypress/like.js', 'scripts/plugins/buddypress')
+    .js('resources/scripts/plugins/buddypress/general.js', 'scripts/plugins/buddypress')
+
     .version();
+
+mix
+    .js('resources/scripts/backend-block-editor.js', 'scripts')
+    .react()
+
+mix
+    .scripts(['resources/scripts/plugins/flexmenu/flexmenu.js'], 'public/scripts/plugins/flexmenu/flexmenu.js')
 
 mix
     .scripts(['resources/scripts/plugins/cookie/cookie.js'], 'public/scripts/cookie.js')
 
 mix
     .copyDirectory('resources/images', 'public/images')
-    .copyDirectory('resources/fonts', 'public/fonts');
+    .copyDirectory('resources/icons', 'public/icons')
+
+    .copyDirectory('resources/fonts/icons/', 'public/fonts/icons')
+    .copyDirectory('resources/fonts/plugins/woocommerce', 'public/styles/plugins/fonts')
+
+    .copyDirectory('resources/video', 'public/video');
 
 mix.copy('node_modules/@fancyapps/', 'public/vendor/@fancyapps')
     .copy('node_modules/jquery/', 'public/vendor/jquery')

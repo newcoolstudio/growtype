@@ -40,6 +40,7 @@
     "node": ">= 8.0.0"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.16.0",
     "@tailwindcss/typography": "^0.4.0",
     "@tinypixelco/laravel-mix-wp-blocks": "^1.1.0",
     "@wordpress/babel-preset-default": "^5.0.1",
@@ -52,19 +53,21 @@
     "eslint-plugin-import": "^2.22.1",
     "laravel-mix": "^6.0.11",
     "postcss": "^8.2.6",
+    "resolve-url-loader": "^4.0.0",
     "sass": "^1.32.7",
     "sass-loader": "11.0.1",
-    "stylelint": "^13.10.0",
-    "stylelint-config-standard": "^20.0.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0",
     "tailwindcss": "^2.0.3"
   },
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.7",
-    "bootstrap": "v4.3.1",
+    "@popperjs/core": "^2.9.3",
+    "bootstrap": "v5.1.0",
     "chosen-js": "^1.8.7",
-    "copy-webpack-plugin": "^5.1.1",
+    "copy-webpack-plugin": "^9.0.1",
     "jquery": "^3.5.1",
-    "select2": "*",
+    "select2": "4.0.13",
     "slick-carousel": "*"
   }
 }
