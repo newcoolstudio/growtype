@@ -1,0 +1,200 @@
+body {
+  .main {
+    margin-top: 0;
+  }
+}
+
+main.main, main#main {
+  min-height: 500px;
+  @include bp-phone-xl() {
+    min-height: 400px;
+  }
+
+  .section {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.container {
+  max-width: 1230px;
+  padding-left: $padding-left-container;
+  padding-right: $padding-right-container;
+}
+
+/**
+Admin bar frontend
+ */
+
+#wpadminbar {
+  position: fixed;
+  top: 0;
+}
+
+/**
+Default admin bar
+ */
+.admin-bar {
+  .b-mainsearch, .main-navigation-mobile {
+    margin-top: 32px !important;
+    @include bp-phone-xl() {
+      margin-top: 46px !important;
+    }
+  }
+
+  &.has-fixed-header, &.has-absolute-header {
+    .site-header {
+      top: 32px;
+    }
+  }
+}
+
+.has-promo-bar {
+  .b-mainsearch, .main-navigation-mobile {
+    margin-top: 65px !important;
+  }
+}
+
+/**
+Admin bar frontend END
+ */
+
+b, strong {
+  font-weight: bold;
+}
+
+.site-content {
+  padding-top: 60px;
+}
+
+.section {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  @include bp-phone-xl() {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.aligncenter {
+  margin: auto;
+  display: flex;
+}
+
+.site-header + .wrap {
+  .maincontent {
+    padding-top: 10px;
+  }
+}
+
+/**
+Main content wrapper
+ */
+.main-content-wrapper {
+  max-width: $max-width-container;
+  margin: auto;
+  padding-top: 40px;
+  padding-bottom: 50px;
+  @include bp-phone-xl-reverse() {
+    min-height: 650px;
+  }
+  @include bp-phone-xl() {
+    padding-top: 20px;
+  }
+}
+
+.home, .page-template-template-nopadding, .single, .page-template-template-home {
+  .main-content-wrapper {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.archive {
+  .main-content-wrapper {
+    padding-top: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/**
+Adjusting for navbar and header fixed main content
+ */
+
+.has-extraspace-header {
+  .main-content-wrapper {
+    margin-top: 90px;
+    padding-top: 0;
+    @include bp-tablet-portrait() {
+      margin-top: 70px;
+    }
+  }
+}
+
+body.has-fixed-header {
+  &.has-extraspace-header {
+    .main-content-wrapper {
+      //margin-top: 130px;
+      margin-bottom: 0;
+      @include bp-tablet-portrait() {
+        margin-top: 70px;
+      }
+      @include bp-phone-xl() {
+        margin-top: 70px;
+      }
+    }
+
+    &.header-type-2 {
+      .main-content-wrapper {
+        margin-top: 75px;
+        margin-bottom: 0;
+        @include bp-phone-xl() {
+          margin-top: 70px;
+        }
+      }
+    }
+  }
+}
+
+body.has-fixed-header.has-navbar-enabled {
+  &.has-extraspace-header, &:not(.home) {
+    .main-content-wrapper {
+      margin-top: 164px;
+      @include bp-phone-xl() {
+        margin-top: 118px;
+      }
+    }
+
+    &.header-type-2, &.header-type-3 {
+      .main-content-wrapper {
+        margin-top: 108px;
+        @include bp-phone-xl() {
+          margin-top: 104px;
+        }
+      }
+    }
+  }
+}
+
+/**
+Admin bar
+ */
+#wpadminbar {
+  height: initial;
+}
+
+/**
+Action bar
+ */
+
+.actionbar {
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}

@@ -1,0 +1,13 @@
+.wp-block-cover {
+  &.alignfull {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: initial;
+  }
+
+  .wp-block-cover__inner-container {
+    max-width: $max-width-container;
+    padding-left: $padding-left-container;
+    padding-right: $padding-right-container;
+  }
+}

@@ -1,0 +1,470 @@
+.e-cart {
+  //margin-bottom: -5px;
+  //transition: all 0.5s;
+  //position: relative;
+  //width: 22px;
+  //height: 22px;
+  //margin-left: 20px;
+  cursor: pointer;
+  position: relative;
+  //@include bp-tablet-portrait() {
+  //  margin-bottom: 5px;
+  //}
+  //
+  //@include bp-phone-xl() {
+  //  margin-left: 5px;
+  //}
+
+  //svg {
+  //  width: 22px;
+  //  height: 22px;
+  //
+  //  path {
+  //    fill: black;
+  //  }
+  //}
+
+  &.is-loading {
+    animation: scale 1s infinite;
+  }
+
+  &:hover {
+    @include bp-phone-xl-reverse() {
+      opacity: 0.7;
+      transition: all 0.5s;
+    }
+  }
+
+  &[data-amount] {
+    &:before {
+      content: attr(data-amount);
+      height: 17px;
+      width: 17px;
+      position: absolute;
+      right: -5px;
+      top: -10px;
+      background: #EC1D24;
+      border-radius: 30px;
+      color: white;
+      text-align: center;
+      font-size: 11px;
+      padding-top: 1px;
+      line-height: 15px;
+      font-weight: 500;
+    }
+  }
+
+  &[data-amount="0"] {
+    &:before {
+      display: none;
+    }
+  }
+}
+
+.b-shoppingcart {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  min-width: 260px;
+  padding: 0px;
+  box-sizing: border-box;
+  transform: translateX(100%);
+  z-index: 10011;
+  display: flex;
+  width: 100%;
+  @include bp-phone-xl() {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  &.is-active {
+    transform: translateX(0);
+    transition: all 0.5s;
+  }
+
+  &.is-pasive {
+    transition: all 0.5s;
+  }
+
+  .title {
+    margin: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .b-shoppingcart--intro {
+    padding: 30px 30px 15px;
+    box-shadow: 0px 1px 5px 0px rgba(128, 128, 128, 0.16);
+    @include bp-phone-xl() {
+      padding: 30px 20px 15px;
+    }
+  }
+
+  .e-btn--close {
+    right: 30px;
+    top: 30px;
+    @include bp-phone-xl() {
+      right: 20px;
+    }
+  }
+
+  .buttons {
+    .btn {
+      margin-bottom: 5px;
+      width: 100%;
+    }
+  }
+
+  .b-shoppingcart-inner {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    max-width: 260px;
+    margin-left: auto;
+    background: white;
+    box-shadow: 6px 0px 13px 5px rgba(0, 0, 0, 0.18);
+    z-index: 1;
+
+    .addToCart-loader {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
+
+    .shoppingcart-products {
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        padding: 0;
+      }
+
+      .product-changeQuantity {
+        margin-top: 10px;
+        @include bp-phone-xl() {
+          margin: 5px;
+        }
+      }
+
+      .shoppingcart-products-item {
+        position: relative;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        border-bottom: 1px solid #d4d4d4;
+        padding-bottom: 21px;
+        display: flex;
+        justify-content: center;
+        @include bp-phone-xl-reverse() {
+          flex-wrap: wrap;
+        }
+        @include bp-phone-xl() {
+          padding-bottom: 16px;
+          max-width: 100%;
+          margin-top: 17px;
+          margin-bottom: 5px;
+          margin-right: 5px
+        }
+
+        .product-changeQuantity {
+          .arrow.arrow-right {
+            background-color: white;
+          }
+        }
+
+        &:last-child {
+          border: none;
+        }
+
+        .remove {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+
+        .addToCart-loader {
+          position: absolute;
+          top: 10%;
+          left: 0;
+          right: 0;
+          z-index: 1;
+          border-left: 1.1em solid #ffffff;
+        }
+      }
+
+      .product-image {
+        width: 100%;
+        display: inline-block;
+        opacity: 1;
+        @include bp-phone-xl() {
+          max-width: 130px;
+          width: 35%;
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      .product-details {
+        @include bp-phone-xl() {
+          width: 65%;
+          padding-left: 11px;
+          padding-right: 15px;
+        }
+      }
+
+      .product-name {
+        color: black;
+        text-align: center;
+        display: inline-block;
+        width: 100%;
+        opacity: 1;
+        margin-top: 20px;
+        font-size: 15px;
+        line-height: 22px;
+        @include bp-phone-xl() {
+          margin-top: 0;
+          text-align: left;
+        }
+
+        p {
+          font-size: 16px;
+          margin: auto;
+          font-weight: 500;
+        }
+
+        .product-name-title {
+          font-weight: 500;
+          font-size: 15px;
+          line-height: 19px;
+        }
+
+        .product-name-summary {
+          font-size: 13px;
+          line-height: 17px;
+          padding-top: 5px;
+          font-weight: 300;
+        }
+      }
+
+      .quantity {
+        width: 100%;
+        text-align: center;
+        color: #808080;
+        margin-top: 10px;
+        font-weight: 300;
+        display: flex;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        @include bp-phone-xl() {
+          text-align: left;
+          justify-content: flex-start;
+          margin-top: 5px;
+          font-size: 15px;
+        }
+
+        .amount {
+          margin-left: 5px;
+        }
+
+        .e-multiply {
+          margin-left: 5px;
+        }
+
+        .quantity-price {
+          del {
+            display: none;
+          }
+
+          ins {
+            text-decoration: none !important;
+          }
+        }
+      }
+    }
+
+    .b-shoppingcart-content {
+      padding: 30px;
+      padding-top: 0;
+      overflow: scroll;
+      padding-bottom: 0;
+      height: calc(100% - 345px);
+      @include bp-phone-xl() {
+        padding: 10px 20px;
+        height: calc(100% - 320px);
+      }
+    }
+
+    .shoppingcart-total {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #F8FAFB;
+      text-align: center;
+      padding: 20px;
+      padding-bottom: 35px;
+      padding-top: 30px;
+      z-index: 1;
+      border-top: 1px solid #eeeeee;
+      @include bp-phone-xl() {
+        padding-top: 20px;
+        padding-bottom: 30px;
+      }
+
+      .text {
+        text-transform: uppercase;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .e-subtotal_price {
+        font-size: 24px;
+        color: black;
+      }
+    }
+
+    .text-extra {
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .b-shoppingcart-main {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .e-message {
+      padding: 10px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 400;
+      margin-top: 20px;
+    }
+  }
+}
+
+.b-shoppingcart-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  display: none;
+}
+
+.e-btn--close {
+  background: $color-text;
+  height: 22px;
+  width: 22px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 3px;
+  cursor: pointer;
+
+  &:before, &:after {
+    content: '';
+    transform: rotate(45deg);
+    height: 15px;
+    background: white;
+    width: 2px;
+    display: inline-block;
+    top: 1px;
+    left: 8px;
+    position: relative;
+    border-radius: 2px;
+  }
+
+  &:before {
+    transform: rotate(-45deg);
+    left: 10px;
+  }
+}
+
+.e-remove {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  z-index: 2;
+  background: red;
+  color: white !important;
+  width: 22px;
+  height: 22px;
+  border-radius: 20px;
+
+  &:before, &:after {
+    content: '';
+    transform: rotate(45deg);
+    height: 15px;
+    background: white;
+    width: 2px;
+    display: inline-block;
+    top: 2px;
+    left: 8px;
+    position: relative;
+    border-radius: 2px;
+  }
+
+  &:before {
+    transform: rotate(-45deg);
+    left: 10px;
+  }
+}
+
+.product-changeQuantity {
+  position: relative;
+  max-width: 70px;
+  margin: auto;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+
+  .arrow-left, .arrow-right {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    top: 0;
+    position: absolute;
+    bottom: 0;
+    margin: auto;
+    z-index: 2;
+    cursor: pointer;
+    padding: 0;
+    line-height: 16px;
+    font-size: 16px;
+  }
+
+  .arrow-left {
+    left: 0;
+  }
+
+  .arrow-right {
+    right: 0;
+  }
+
+  .amount {
+    width: 50px;
+    text-align: center;
+    border: none;
+    pointer-events: none;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0;
+    @include bp-phone-xl() {
+      margin-right: 0px;
+    }
+  }
+}

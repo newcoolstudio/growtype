@@ -1,0 +1,28 @@
+.page-checkout-data {
+  .woocommerce-order-overview {
+    padding: 0;
+
+    li {
+      margin-bottom: 10px;
+    }
+  }
+
+  ul.order_details {
+    margin-bottom: 25px;
+  }
+
+  .woocommerce-order-details__title, .woocommerce-column__title {
+    font-size: 20px;
+    @include bp-phone-xl() {
+      font-size: 18px;
+    }
+  }
+
+  .woocommerce-table--order-details {
+    .wc-item-meta {
+      margin: 0;
+      padding: 0;
+      margin-top: 10px;
+    }
+  }
+}

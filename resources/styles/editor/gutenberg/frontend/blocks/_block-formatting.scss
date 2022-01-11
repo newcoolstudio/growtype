@@ -1,0 +1,28 @@
+/*--------------------------------------------------------------
+3.0 Blocks - Formatting
+--------------------------------------------------------------*/
+
+/* Code */
+
+.wp-block-code {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+}
+
+/* Pullquote */
+
+.wp-block-pullquote__citation,
+.wp-block-pullquote cite,
+.wp-block-pullquote footer {
+  color: #141412;
+}
+
+.wp-block-pullquote.alignleft {
+  margin-right: 1.625em;
+}
+
+.wp-block-pullquote.alignright {
+  margin-left: 1.625em;
+}
+

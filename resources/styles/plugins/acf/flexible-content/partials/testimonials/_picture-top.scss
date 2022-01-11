@@ -1,0 +1,132 @@
+.s-testimonials-picture-top {
+
+  .slick-prev, .slick-next {
+    height: 40px;
+    width: 40px;
+    background: $color-theme;
+    border-radius: 40px;
+  }
+
+  .slick-prev {
+    left: -50px;
+  }
+
+  .slick-next {
+    right: -50px;
+  }
+
+  .slick-prev:before, .slick-next:before {
+    font-family: dashicons;
+    color: $color-text;
+    font-size: 21px;
+  }
+
+  .slick-prev:before {
+    content: "\f340";
+  }
+
+  .slick-next:before {
+    content: "\f344";
+  }
+
+  .b-testimonial {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    display: inline-block;
+    padding-top: 40px;
+
+    .b-testimonial-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .b-testimonial-inner {
+      box-shadow: 0px -1px 13px 0px #e8e8e8;
+      padding: 20px 30px;
+      padding-top: 15px;
+      border-radius: 10px;
+      background: white;
+    }
+
+    .b-testimonial-avatar-subtitle {
+      opacity: 0.5;
+    }
+
+    .b-testimonial-content {
+      background: #fff;
+      border-radius: 5px;
+      color: $color-text;
+      position: relative;
+      font-size: 16px;
+      box-shadow: none;
+      padding-top: 20px;
+      min-height: 170px;
+      padding-bottom: 30px;
+
+      &:before {
+        content: '';
+        width: 15px;
+        height: 15px;
+        transform: rotate(135deg);
+        position: absolute;
+        bottom: -5px;
+        left: 22px;
+        background: white;
+      }
+
+      h5 {
+        margin-top: 10px;
+      }
+    }
+
+    .e-quate {
+      font-size: 160px;
+      font-weight: bold;
+      line-height: 160px;
+      color: $color-theme;
+      height: 50px;
+    }
+
+    .b-testimonial-avatar {
+      display: flex;
+      padding-top: 0;
+    }
+
+    .b-testimonial-avatar-image {
+      width: 130px;
+      height: 130px;
+      border-radius: 110px;
+      position: relative;
+      margin-top: -50px;
+    }
+
+    .b-testimonial-avatar-description {
+      text-align: left;
+      padding-left: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 7px;
+    }
+
+    .b-testimonial-avatar-title {
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 3px;
+    }
+
+    .b-testimonial-avatar-position {
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .slick-dots {
+      margin-top: 30px;
+    }
+  }
+}
+

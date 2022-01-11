@@ -1,0 +1,156 @@
+@import "autoload/bootstrap/bootstrap";
+@import "common/variables";
+@import "common/mixins";
+
+///** Import theme styles */
+@import "common/typography";
+@import "components/tinymce";
+@import "components/lists";
+
+@import "editor/components/buttons";
+
+/**
+Gutenberg
+ */
+@import "editor/gutenberg/backend/blocks/block-slider";
+@import "editor/gutenberg/backend/blocks/block-cover";
+
+.btn-primary {
+  display: inline-block;
+  text-align: center;
+}
+
+.editor-styles-wrapper a.add_to_cart_button, .wp-block-button__link {
+  @extend .btn-primary;
+}
+
+p {
+  margin-top: 5px;
+}
+
+h1, h2, h3, h4 {
+  margin-bottom: 5px;
+  display: inline-block;
+  margin-top: 5px;
+  width: 100%;
+}
+
+
+/**
+Grid
+ */
+
+.row {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-lg-6, .col-md-6, .col-sm-6, .col-xs-6 {
+  width: calc(100% / 2);
+}
+
+.col-lg-3, .col-md-3, .col-sm-3, .col-xs-3 {
+  width: calc(100% / 4);
+}
+
+.col-lg-4, .col-md-4, .col-sm-4, .col-xs-4 {
+  width: calc(100% / 3);
+}
+
+.mx-auto {
+  margin: auto;
+  display: block;
+}
+
+p + p a {
+  margin-top: 10px;
+}
+
+/**
+Gutenberg
+ */
+.block-editor__container {
+  .wp-block {
+    max-width: $max-width-container;
+  }
+
+  .wp-block-column {
+    max-width: initial;
+  }
+
+  .wp-block-cover {
+    max-width: initial;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .wp-block[data-align="wide"] {
+    @extend .container;
+  }
+
+  .wp-block[data-align="full"] {
+    max-width: initial;
+  }
+
+  .editor-styles-wrapper p {
+    margin-bottom: 0;
+  }
+
+  .ep-custom-buttons-icon .wp-block-button__link {
+    display: inline-block !important;
+  }
+
+  .wp-block-button {
+    padding: 0;
+  }
+
+  p {
+    padding: 0;
+  }
+}
+
+.block-editor-block-list__block {
+  margin: 5px;
+}
+
+.edit-post-visual-editor .block-editor-writing-flow__click-redirect {
+  min-height: 10vh;
+}
+
+.editor-post-title {
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0px;
+  background: white;
+  margin-bottom: 20px;
+  font-size: 14px;
+  padding-left: 10px;
+  border: 1px solid #dedede;
+  border-left: 5px solid #9b9b9b;
+}
+
+#post-title-1 {
+  height: initial;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.block-editor-block-list__layout {
+  .block-editor-block-list__block {
+    position: relative;
+    z-index: 1;
+  }
+
+  .block-editor-rich-text__editable {
+    display: block;
+  }
+}
+
+/**
+Image block
+ */
+.wp-block-cover img.wp-block-cover__image-background {
+  height: initial;
+  position: relative;
+}

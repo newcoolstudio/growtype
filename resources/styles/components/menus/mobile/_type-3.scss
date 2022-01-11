@@ -1,0 +1,129 @@
+.main-navigation-mobile-type-3 {
+  &.main-navigation-mobile:before {
+    background: #27303B;
+    opacity: 0.8;
+  }
+
+  .menu-mobile-container .menu .sub-menu {
+    margin-top: 10px;
+    padding-left: 0;
+    display: none;
+
+    li {
+      padding-bottom: 10px;
+
+      a {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .menu-item-has-children {
+    > a {
+      position: relative;
+
+      &:before {
+        content: "\f345";
+        font-family: Dashicons;
+        height: 23px;
+        width: 20px;
+        position: absolute;
+        right: 12%;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        font-size: 18px;
+        line-height: 20px;
+      }
+    }
+  }
+
+  .main-navigation-mobile-content {
+    max-width: 500px;
+    margin-left: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    @include bp-phone-xl() {
+      max-width: 100%;
+    }
+  }
+
+  .menu-mobile-container .menu {
+    padding-left: 0;
+    max-width: 410px;
+    overflow: auto;
+    max-height: 97%;
+    @include bp-phone-xl() {
+      padding-top: 0;
+      padding-left: 10px;
+      max-width: 100%;
+      padding-right: 30px;
+    }
+
+    li {
+      text-align: left;
+      padding-bottom: 20px;
+      @include bp-phone-xl() {
+        padding-bottom: 10px;
+      }
+
+      &.is-active {
+        .sub-menu {
+          display: block;
+        }
+
+        > a {
+          &:before {
+            transform: rotate(90deg);
+          }
+        }
+      }
+
+      &.btn {
+        padding: 0;
+        min-width: initial;
+        width: initial;
+        margin-left: 70px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        @include bp-phone-xl() {
+          margin-left: 25px;
+        }
+
+        a {
+          padding: 15px 40px;
+          min-width: 180px;
+
+          &:hover {
+            border: none;
+          }
+        }
+      }
+    }
+
+    a {
+      text-transform: uppercase;
+      font-size: 21px;
+      padding-left: 40px;
+      text-decoration: none;
+      display: inline-block;
+      width: 100%;
+      @include bp-phone-xl() {
+        padding-left: 20px;
+      }
+
+      &:hover {
+        border-left: 1px solid $color-theme;
+      }
+    }
+  }
+
+  .language-selector {
+    margin-left: auto;
+    margin-right: 60px;
+    top: 9px;
+  }
+}

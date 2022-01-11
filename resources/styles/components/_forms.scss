@@ -1,0 +1,71 @@
+/** Search form */
+.search-form label {
+  @extend .form-group;
+
+  font-weight: normal;
+}
+
+.search-form .search-field {
+  @extend .form-control;
+}
+
+.search-form .search-submit {
+  @extend .btn;
+  @extend .btn-secondary;
+}
+
+//forms general
+
+.form-row {
+  flex-wrap: nowrap;
+
+  .form-group {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.form-group {
+  label {
+    width: 100%;
+    font-weight: 500;
+  }
+}
+
+.form-control {
+  background-color: $color-extra-light-grey;
+  border: 1px solid $color-light-grey;
+
+  input {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border: none;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    bottom: 0;
+    left: 0px;
+    right: 0;
+    background: none;
+    min-height: 50px;
+  }
+
+  textarea {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border: none;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    bottom: 0;
+    left: 0px;
+    right: 0;
+    background: none;
+  }
+
+  & + label {
+    margin-top: 5px;
+  }
+}

@@ -1,0 +1,29 @@
+.template-wishlist {
+  .wishlist-preview {
+    min-height: 300px;
+    position: relative;
+    margin-top: 15px;
+    @include bp-phone-xl() {
+      margin-top: 25px;
+    }
+
+    .addToCart-loader {
+      margin: auto;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+    .woocommerce-info {
+      margin-top: 20px;
+    }
+  }
+
+  .woocommerce ul.products {
+    display: flex;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+  }
+}

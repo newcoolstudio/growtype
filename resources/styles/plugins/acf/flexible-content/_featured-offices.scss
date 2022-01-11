@@ -1,0 +1,7 @@
+.s-offices {
+  @import "../../../pages/single/offices/preview/horizontal";
+  .b-offices-inner {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

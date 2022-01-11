@@ -1,0 +1,53 @@
+@import "autoload/bootstrap/bootstrap";
+@import "common/variables";
+@import "common/mixins";
+
+///** Import theme styles */
+@import "common/typography";
+@import "components/tinymce";
+@import "components/lists";
+
+@import "editor/components/buttons";
+
+p {
+  margin-top: 5px;
+}
+
+h1, h2, h3, h4 {
+  margin-bottom: 5px;
+  display: inline-block;
+  margin-top: 5px;
+  width: 100%;
+}
+
+
+/**
+Grid
+ */
+
+.row {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-lg-6, .col-md-6, .col-sm-6, .col-xs-6 {
+  width: calc(100% / 2);
+}
+
+.col-lg-3, .col-md-3, .col-sm-3, .col-xs-3 {
+  width: calc(100% / 4);
+}
+
+.col-lg-4, .col-md-4, .col-sm-4, .col-xs-4 {
+  width: calc(100% / 3);
+}
+
+.mx-auto {
+  margin: auto;
+  display: block;
+}
+
+p + p a {
+  margin-top: 10px;
+}

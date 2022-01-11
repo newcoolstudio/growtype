@@ -1,0 +1,34 @@
+// BP Single User Specific Header Styles
+// @version 3.0.0
+
+.bp-user {
+
+  .users-header {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+
+    .user-nicename {
+      margin-bottom: 0 !important;
+      margin-right: .5rem !important;
+      font-size: 1.25rem !important;
+      width: initial;
+    }
+  }
+
+  .member-header-actions {
+    overflow: hidden;
+
+    * > * {
+      display: block;
+    }
+  }
+
+}
+
+.has-panel {
+  &.bp-user {
+    .users-header {
+      margin: 0;
+    }
+  }
+}

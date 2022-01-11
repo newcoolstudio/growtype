@@ -1,0 +1,11 @@
+.b-acfcontacts {
+  .b-contacts-single {
+    &[data-type="button"] {
+      a {
+        display: inline-block;
+        text-align: center;
+        margin-top: 20px;
+      }
+    }
+  }
+}

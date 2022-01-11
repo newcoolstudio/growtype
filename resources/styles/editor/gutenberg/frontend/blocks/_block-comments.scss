@@ -1,0 +1,50 @@
+/* Latest Comments */
+
+.wp-block-latest-comments {
+  margin: 0;
+  padding: 0;
+}
+
+.wp-block-latest-comments .avatar,
+.wp-block-latest-comments__comment-avatar {
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 2px #ccc;
+  -moz-box-shadow: 0 1px 2px #ccc;
+  box-shadow: 0 1px 2px #ccc;
+}
+
+.wp-block-latest-comments__comment,
+.wp-block-latest-comments__comment-excerpt,
+.wp-block-latest-comments__comment-excerpt p {
+  font-size: 15px;
+}
+
+.wp-block-latest-comments__comment-excerpt p:last-child {
+  margin-bottom: 0;
+}
+
+.wp-block-latest-comments__comment-meta,
+.wp-block-latest-comments__comment-date {
+  color: #666;
+  font-size: 12px;
+  line-height: 2.2em;
+}
+
+.wp-block-latest-comments__comment-meta a {
+  font-weight: bold;
+}
+
+.wp-block-latest-comments .wp-block-latest-comments__comment {
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  margin: 0 0 2.625em;
+  position: relative;
+}
+
+/* Latest Posts */
+
+.wp-block-latest-posts.is-grid {
+  margin-left: 0;
+  margin-right: 0;
+}

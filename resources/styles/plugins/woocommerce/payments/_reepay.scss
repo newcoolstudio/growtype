@@ -1,0 +1,23 @@
+.payment_method_reepay_checkout{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.reepay-logos {
+  display: flex;
+  padding: 0;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0;
+  margin-left: 20px!important;
+
+  .reepay-logo {
+    max-width: 50px;
+    padding: 0!important;
+
+    img {
+      margin: 0 !important;
+      max-width: 100%;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+.b-navbar {
+  .container {
+    min-height: 33px;
+    align-items: center;
+    display: flex;
+    @include bp-phone-xl() {
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+  }
+
+  .s-icons {
+    margin-left: auto;
+    @include bp-phone-xl() {
+      display: none;
+    }
+
+    a {
+      font-size: 21px;
+    }
+  }
+
+  .e-text {
+    margin: auto;
+    margin-left: 0;
+    font-size: 14px;
+    @include bp-phone-xl() {
+      font-size: 12px;
+      line-height: 16px;
+    }
+  }
+}

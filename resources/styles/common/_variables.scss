@@ -1,0 +1,138 @@
+/**
+Colors
+ */
+$color-black: #3a3a3a;
+$color-white: white;
+$color-extra-light-grey: #f7f7f7;
+$color-light-grey: #e4e4e4;
+$color-dark-grey: #5f5f5f;
+$color-grey: #adadad;
+$color-red: #dc3232;
+$color-green: #46b450;
+$color-light-green: #9CDF36;
+
+/**
+Font
+ */
+$font-body: "Roboto", sans-serif;
+$font-weight-intro: bold;
+
+/**
+Typography
+ */
+$h2-font-size: 2.3em;
+$h2-line-height: 140%;
+
+/**
+Main
+ */
+$color-theme: #5561e2;
+$color-primary: $color-theme;
+$color-secondary: #3a3a3a;
+
+/**
+Status
+ */
+$color-pasive: #d6d6d6;
+$color-active: #5561e2;
+$color-error: $color-red;
+$color-success: $color-green;
+
+/**
+Body
+ */
+$color-body-bg: $color-white;
+$font-size-body: 14px;
+
+/**
+Link
+ */
+$color-link: $color-black;
+$color-link-hover: $color-black;
+
+/**
+Text
+ */
+$color-text: #3a3a3a;
+
+/**
+Header
+ */
+$color-header: $color-white;
+$color-header-scroll: $color-white;
+
+/**
+Footer
+ */
+$color-footer: #1f1c1b;
+
+/**
+Navbar
+ */
+$color-navbar: none;
+$color-navbar-scroll: $color-pasive;
+
+/**
+Menu
+ */
+$color-menu: $color-white;
+$color-menu-scroll: $color-black;
+
+/**
+Buttons
+ */
+/**
+btn-primary
+ */
+$color-btn-bg: $color-theme;
+$color-btn-text: $color-white;
+$color-btn-visited: $color-white;
+$color-btn-hover: $color-white;
+$color-btn-border: $color-theme;
+$radius-btn: 5px;
+$line-height-btn: 17px;
+$padding-btn: 15px 30px;
+$min-width-btn: 200px;
+$border-btn: none;
+$text-align-btn: center;
+$transition-btn: all 0.5s;
+$text-transform-btn: uppercase;
+$font-size-btn: 14px;
+
+/**
+btn-secondary
+ */
+$color-btn2-bg: none;
+$color-btn2-text: $color-theme;
+$color-btn2-visited: none;
+$color-btn2-hover: none;
+$color-btn2-border: $color-theme;
+$radius-btn2: 5px;
+$line-height-btn2: 17px;
+$padding-btn2: 15px 30px;
+$min-width-btn2: 200px;
+$border-btn2: none;
+$text-align-btn2: center;
+$transition-btn2: all 0.5s;
+$text-transform-btn2: uppercase;
+$font-size-btn2: 14px;
+
+/**
+Input
+ */
+$color-input-bg: white; //#f7f7f7
+$color-input: #252525;
+
+//Margin
+$section-margin-top: 60px;
+
+/**
+Container
+ */
+$max-width-container: 1230px;
+$padding-left-container: 15px;
+$padding-right-container: $padding-left-container;
+
+///** Bootstrap navbar fix (https://git.io/fADqW) */
+//$navbar-dark-toggler-icon-bg: none;
+//$navbar-light-toggler-icon-bg: none;

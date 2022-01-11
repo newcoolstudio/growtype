@@ -1,0 +1,23 @@
+.wp-block-group {
+  .video-cover {
+    position: relative;
+
+    .wp-block-group__inner-container {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+
+      .wp-block-cover {
+        cursor: pointer;
+        @include position-absolute;
+        min-height: initial;
+      }
+
+      figure {
+        iframe {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

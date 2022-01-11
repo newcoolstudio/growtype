@@ -1,0 +1,44 @@
+.quantity {
+  position: relative;
+  display: flex;
+  margin-right: 15px;
+
+  &.hidden {
+    margin: 0 !important;
+  }
+
+  .qty {
+    margin: 0 !important;
+    background: #f7f8fa;
+    border: none;
+
+    &:not(.bid) {
+      pointer-events: none;
+    }
+
+    &[name="bid_value"] {
+      min-width: 75px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+  .btn {
+    padding: 8px;
+    background: #f7f8fa;
+    color: #666666;
+    width: 50%;
+    min-width: 40px;
+    font-weight: 300;
+    max-width: 45px;
+    cursor: pointer;
+    border-radius: 0;
+    font-size: 20px;
+  }
+}
+
+.auction_form {
+  .quantity {
+    min-height: 47px;
+  }
+}

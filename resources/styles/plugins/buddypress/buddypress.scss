@@ -1,0 +1,69 @@
+@import "../../common/variables";
+@import "../../common/mixins";
+
+@import "partials/widgets/members";
+
+@import "partials/cards/member";
+@import "partials/cards/search";
+
+$marg-xsml: '10px';
+$pad-med: '10px';
+$pad-sml: '10px';
+
+.flexMenu-viewMore {
+  .flexMenu-popup {
+    right: 0;
+  }
+}
+
+.buddypress-wrap .profile-fields td {
+  font-size: $font-size-body;
+}
+
+@import "common-styles/_bp_activity_comments";
+@import "common-styles/_bp_activity_entries";
+@import "common-styles/_bp_buttons";
+@import "common-styles/_bp_cover_image";
+@import "common-styles/_bp_filters";
+@import "common-styles/_bp_forms";
+@import "common-styles/_bp_info_messages";
+@import "common-styles/_bp_item_header_general";
+@import "common-styles/_bp_members_loop";
+@import "common-styles/_bp_navigation";
+@import "common-styles/_bp_registration";
+@import "common-styles/_bp_tables";
+@import "common-styles/_bp_update_form";
+@import "common-styles/_bp_user_header";
+@import "common-styles/_bp_user_profile";
+@import "common-styles/_bp_widgets";
+
+/**
+Rtmedia
+ */
+@import "rtmedia/main";
+
+/**
+Forum
+ */
+@import "forum/main";
+
+#buddypress #item-body {
+  @include bp-phone-xl() {
+    padding: 0 !important;
+  }
+}
+
+/**
+Activity hide specific posts
+ */
+.activity .activity-list .new_member, .activity .activity-list .updated_profile, .activity .activity-list .new_avatar {
+  display: none !important;
+}
+
+/*
+Profile tabs
+ */
+
+#data-personal-li {
+  display: none;
+}

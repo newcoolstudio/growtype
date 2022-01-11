@@ -1,0 +1,370 @@
+// BP User Profiles screen
+// @version 3.0.0
+//
+// 0/ General :)
+// 1/ Profile Edit
+// 2/ Profile Public Display
+// 3/ Profile Photo
+
+// General
+
+.bp-user {
+  .s-content {
+    padding-top: 0!important;
+  }
+}
+
+.buddypress-wrap {
+
+  .profile {
+
+    .bp-widget {
+      margin-bottom: 2.5rem;
+
+      a {
+        color: $color-primary;
+      }
+    }
+  }
+
+  .public {
+
+    .profile-fields {
+
+      td.label {
+        background: white;
+        width: 35%;
+        padding-left: 1rem;
+      }
+    }
+  }
+
+}
+
+// Edit Screen
+
+.buddypress-wrap {
+
+  .profile.edit {
+
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    input[type="password"],
+    input[type="search"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="datetime-local"],
+    input[type="month"],
+    input[type="week"],
+    input[type="time"] {
+      width: auto;
+    }
+
+    .editfield {
+
+      fieldset {
+        border: 0;
+
+        label {
+          font-weight: 400;
+          font-size: em;
+
+          &.xprofile-field-label {
+            display: inline;
+          }
+        }
+      }
+
+      &.field_name {
+
+        input[type="text"] {
+          width: 100%;
+        }
+      }
+    }
+
+    // The visual layout of the form controls and group description
+    .editfield {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      .description {
+        order: 2;
+        display: none;
+      }
+
+      > fieldset {
+        order: 1;
+        margin-bottom: 1rem;
+        position: relative;
+
+        @include bp-phone-xl-reverse() {
+          padding-left: 25%;
+
+          > legend {
+            position: absolute;
+            left: 0;
+            width: 25%;
+            padding-right: 1rem;
+            text-align: right;
+            margin-top: .375rem;
+          }
+        }
+      }
+
+      &.field_type_checkbox,
+      &.field_type_radio {
+
+        > fieldset {
+
+          > legend {
+            margin-top: 0;
+          }
+        }
+      }
+
+      .field-visibility-settings-toggle,
+      .field-visibility-settings {
+        order: 3;
+
+        .field-visibility-text {
+          color: $color-text;
+          font-size: 12px;
+        }
+      }
+
+      .field-visibility-settings-open {
+        margin-top: .75rem;
+      }
+
+      .datebox-selects {
+        display: -ms-flexbox;
+        display: flex;
+
+        .xprofile-field-label {
+          display: none !important;
+        }
+
+        select {
+          margin-right: .25rem;
+        }
+      }
+
+      .checkbox-options,
+      .radio-button-options {
+
+        label {
+          display: inline-block;
+          margin: 0 .5rem 0 0;
+        }
+      }
+    }
+
+    @include bp-phone-xl-reverse() {
+      div.submit {
+        margin-left: 25%;
+      }
+    }
+
+    .select2-container {
+      min-width: 150px;
+    }
+
+    .select2-container--default .select2-selection--single,
+    .select2-container--default .select2-selection--multiple {
+      height: calc(2.5rem - 2px);
+      border-color: transparent;
+    }
+
+  }
+
+  // .profile
+}
+
+// close .buddypress-wrap
+
+body.no-js {
+
+  .buddypress-wrap .field-visibility-settings-toggle,
+  .buddypress-wrap .field-visibility-settings-close {
+    display: none;
+  }
+
+  .buddypress-wrap .field-visibility-settings {
+    display: block;
+  }
+}
+
+.buddypress-wrap {
+
+  .current-visibility-level {
+    font-style: normal;
+    font-weight: 600;
+  }
+
+
+  p.field-visibility-settings-toggle,
+  p.field-visibility-settings-notoggle {
+    margin-bottom: 0;
+    color: $color-text;
+  }
+
+  .field-visibility-settings {
+
+    fieldset {
+      margin: $marg-xsml 0;
+    }
+  }
+
+  .standard-form { // this needs to be a specific profile edit form class
+
+    .editfield {
+
+      fieldset {
+        margin: 0;
+      }
+    }
+
+    .field-visibility-settings {
+
+      label {
+        font-weight: 400;
+        margin: 0;
+      }
+
+      .radio {
+        list-style: none;
+        margin-bottom: 0;
+
+        label {
+          display: inline-block;
+          margin: 0 .25rem 0 0;
+        }
+      }
+
+      .field-visibility-settings-close {
+        font-size: 12px;
+        font-weight: 400;
+      }
+    }
+
+    .wp-editor-container {
+      border: 1px solid #dedede;
+
+      textarea {
+        background: $color-white;
+        width: 100%;
+      }
+    }
+
+    .field-visibility-settings-header {
+
+      font-size: 12px;
+    }
+
+    .visibility-toggle-link {
+      min-height: initial;
+      padding: 0 .25rem;
+      font-weight: normal;
+    }
+
+    .field-visibility-settings-close {
+      background: none;
+      min-height: initial;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background: none;
+        color: $color-primary;
+        text-decoration: underline;
+      }
+    }
+
+    .field-visibility select {
+      margin: 0;
+    }
+
+    &.profile-edit {
+
+      div.submit {
+        margin-top: 0;
+      }
+    }
+
+  }
+
+  // close .standard-form
+
+  .wp-editor-tools {
+    display: none;
+  }
+
+  .html-active button.switch-html {
+    background: #f5f5f5;
+    border-bottom-color: transparent;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .tmce-active button.switch-tmce {
+    background: #f5f5f5;
+    border-bottom-color: transparent;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+}
+
+// close .buddypress-wrap
+
+// Public Profile
+
+.buddypress-wrap {
+
+  .screen-heading.profile-group-title {
+    font-size: 1em !important;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid $color-black;
+  }
+}
+
+// This needs to be reviewed and re-located!?
+body.register .buddypress-wrap .page ul {
+  list-style: none;
+}
+
+// Avatars & Cover Image
+
+.buddypress-wrap {
+
+  .profile {
+
+    .bp-avatar-nav {
+      margin-top: 10px;
+    }
+
+    #bp-webcam-avatar {
+
+      #avatar-to-crop {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .avatar-crop-management {
+        float: none;
+      }
+    }
+  }
+}
+
+table.profile-fields tbody tr:not(:last-child) {
+  border-bottom: 1px solid #e7edf2;
+}

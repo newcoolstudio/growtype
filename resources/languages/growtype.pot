@@ -1,0 +1,688 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Growtype\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-04 10:44+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.5.2; wp-5.8\n"
+"X-Domain: growtype"
+
+#. 1: credit card type 2: last 4 digits
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/payment-methods.blade.php:49
+#, php-format
+msgid "%1$s ending in %2$s"
+msgstr ""
+
+#. %s location.
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:72
+#, php-format
+msgid "(estimated for %s)"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:117
+msgid "A password will be sent to your email address."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product/short-description.blade.php:33
+msgid "About product"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/archive-activity.blade.php:8
+msgid "Activities"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:63
+msgid "Add"
+msgstr ""
+
+#. %s is product title
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:70
+msgid "Add a review"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/payment-methods.blade.php:77
+msgid "Add payment method"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:13
+msgid "Add to bag"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/plugins/acf/contacts/basic.blade.php:25
+msgid "Address:"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/content/content-panel.blade.php:25
+msgid "Administrator"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/archive-project.blade.php:16
+msgid "All"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:135
+msgid "Already have an account?"
+msgstr ""
+
+#. %1$s Site title, %2$s Order pay link
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/emails/customer-invoice.php:59
+#, php-format
+msgid ""
+"An order has been created for you on %1$s. Your invoice is below, with a "
+"link to make payment when you’re ready: %2$s"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/form-coupon.blade.php:38
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:152
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:152
+msgid "Apply coupon"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:17
+msgid "Attach media"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product/meta.blade.php:52
+msgid "Author"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/functions.php:44
+msgid "Autoloader not found."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:94
+msgid "Available on backorder"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:124
+msgid "Average"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product/product-image.blade.php:55
+msgid "Awaiting product image"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:70
+#, php-format
+msgid "Be the first to review &ldquo;%s&rdquo;"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/form-billing.blade.php:21
+msgid "Billing &amp; Shipping"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:26
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:35
+msgid "Billing address"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/form-billing.blade.php:23
+msgid "Billing details"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:18
+msgid "Clear selected options"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/form-coupon.blade.php:26
+msgid "Click here to enter your code"
+msgstr ""
+
+#. 1: comment count number, 2: title.
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/sections/comments.blade.php:18
+#, php-format
+msgctxt "comments title"
+msgid "%1$s Comment"
+msgid_plural "%1$s Comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:59
+msgid "Confirm new password"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/plugins/acf/contacts/basic.blade.php:29
+msgid "Contact person:"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:20
+msgid "Contacts"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/content/post/preview/basic.blade.php:17
+msgid "Continue reading"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/form-coupon.blade.php:34
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:151
+msgid "Coupon code"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:88
+msgid "Create a new account"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/form-billing.blade.php:60
+msgid "Create an account?"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:79
+msgid "Create here"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/components/header/menu-mobile.blade.php:61
+msgid "Currency"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:51
+msgid "Current password (leave blank to leave unchanged)"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:62
+msgid "Date:"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/components/product-single-description.blade.php:5
+msgid "Description"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:37
+msgid "Display name"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:148
+msgid "Do you have a coupon code?"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:78
+msgid "Don't have an account?"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:14
+msgid "Download"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:63
+msgid "Edit"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:6
+msgid "Edit profile"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:91
+msgid "Email"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:43
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:104
+msgid "Email address"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:68
+msgid "Email:"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:150
+msgid "Enter your coupon code here:"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/functions.php:59
+#, php-format
+msgid "Error locating <code>%s</code> for inclusion."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:27
+msgid "First name"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:10
+msgid "Friends"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:123
+msgid "Good"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:11
+msgid "Groups"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/functions.php:17
+msgid "Growtype &rsaquo; Error"
+msgstr ""
+
+#. Name of the theme
+msgid "growtype/growtype/resources"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/form-coupon.blade.php:26
+msgid "Have a coupon?"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:33
+msgid "Hello"
+msgstr ""
+
+#. %s Order date
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/emails/customer-invoice.php:86
+#, php-format
+msgid "Here are the details of your order placed on %s:"
+msgstr ""
+
+#. %s: Customer first name
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/emails/customer-completed-order.php:41
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/emails/customer-invoice.php:52
+#, php-format
+msgid "Hi %s,"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/form-coupon.blade.php:31
+msgid "If you have a coupon code, please apply it below."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/functions.php:27
+msgid "Invalid PHP version"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/functions.php:34
+msgid "Invalid WordPress version"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/content/content-404.blade.php:3
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:31
+msgid "Last name"
+msgstr ""
+
+#. %s is product title
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:72
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:5
+msgid "Like"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:4
+msgid "Liked"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:67
+msgid "Log in"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:136
+msgid "Login here"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:59
+msgid "Lost your password?"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/content/content-panel.blade.php:27
+msgid "Member"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/archive-member.blade.php:10
+msgid "Members"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:15
+msgid "More"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:42
+msgid "My account"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:27
+msgid "My Bag"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product/meta.blade.php:31
+msgid "N/A"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:85
+msgid "Name"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:55
+msgid "New password (leave blank to leave unchanged)"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/payment-methods.blade.php:70
+msgid "No saved methods found."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:125
+msgid "Not that bad"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/sections/comments.blade.php:14
+msgid "One Comment"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:137
+msgid ""
+"Only logged in customers who have purchased this product may leave a review."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/content/content-404.blade.php:2
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:57
+msgid "Order number:"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/archive.blade.php:20
+msgid "Pages:"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:47
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:111
+msgid "Password"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:48
+msgid "Password change"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:39
+msgid "Pay"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/emails/customer-invoice.php:67
+msgid "Pay for this order"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:80
+msgid "Payment method:"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:122
+msgid "Perfect"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/payment.blade.php:33
+msgid "Please fill in your details above to see available payment methods."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:148
+msgid "Press here."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:19
+msgid "Preview"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:73
+msgid "Price"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/proceed-to-checkout-button.blade.php:26
+msgid "Proceed to checkout"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:79
+msgid "Product"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:8
+msgid "Profile settings"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:99
+msgid "Quantity"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:121
+msgid "Rate&hellip;"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:9
+msgid "read"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:16
+msgid "Read close"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/sections/related-posts.blade.php:26
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/content/post/preview/arrow.blade.php:7
+msgid "Read more"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:86
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:126
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:126
+msgid "Register"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:56
+msgid "Remember me"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:50
+msgid "Remove this item"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/cart-errors.blade.php:25
+msgid "Return to cart"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart-empty.blade.php:28
+msgid "Return to shop"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:32
+msgid "Reviews"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:69
+msgid "Save changes"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:12
+msgid "Select"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/archive-service.blade.php:10
+msgid "Services"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/form-shipping.blade.php:31
+msgid "Ship to a different address?"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:52
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:53
+msgid "Shipping"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:27
+msgid "Shipping address"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/plugins/acf/flexible-content/featured-activities.blade.php:42
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/plugins/acf/flexible-content/featured-posts.blade.php:52
+msgid "Show more"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:36
+msgid "Sign in to your account"
+msgstr ""
+
+#. $1 and $2 opening and closing emphasis tags respectively
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/payment.blade.php:42
+#, php-format
+msgid ""
+"Since your browser does not support JavaScript, or it is disabled, please "
+"ensure you click the %1$sUpdate Totals%2$s button before placing your order. "
+"You may be charged more than the amount stated above if you fail to do so."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product/add-to-cart/variable.blade.php:62
+msgid "Size"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product/meta.blade.php:30
+msgid "SKU:"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/payment.blade.php:33
+msgid ""
+"Sorry, it seems that there are no available payment methods for your state. "
+"Please contact us if you require assistance or wish to make alternate "
+"arrangements."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/index.blade.php:12
+msgid "Sorry, no results were found."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:76
+msgid "Submit"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:30
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:31
+msgid "Subtotal"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:27
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:97
+msgid "Thank you. Your order has been received."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:46
+msgid "The following addresses will be used on the checkout page by default."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:58
+msgid "There are no reviews yet."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/cart-errors.blade.php:21
+msgid ""
+"There are some issues with the items in your cart. Probably we do not have "
+"enough items in our stock. Please go back to the cart page and resolve these "
+"issues before checking out."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product/add-to-cart/variable.blade.php:35
+msgid "This product is currently out of stock and unavailable."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:38
+msgid ""
+"This will be how your name will be displayed in the account section and in "
+"reviews"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:25
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:98
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:99
+msgid "Total"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:74
+msgid "Total:"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:35
+msgid ""
+"Unfortunately your order cannot be processed as the originating "
+"bank/merchant has declined your transaction. Please attempt your purchase "
+"again."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:134
+msgid "Update cart"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:7
+msgid "Update cover"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/payment.blade.php:44
+msgid "Update totals"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:97
+msgid "Username"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:43
+msgid "Username or email address"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:126
+msgid "Very poor"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/content/project/preview/basic.blade.php:17
+msgid "View"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/components/search.blade.php:18
+msgid "View all products"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/emails/customer-completed-order.php:42
+msgid "We have finished processing your order."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:67
+msgid "You have not set up this type of address yet."
+msgstr ""
+
+#. %s opening and closing link tags respectively
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:116
+#, php-format
+msgid "You must be %1$slogged in%2$s to post a review."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/form-checkout.blade.php:27
+msgid "You must be logged in to checkout."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/functions.php:27
+msgid "You must be using PHP 7.1 or greater."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/functions.php:34
+msgid "You must be using WordPress 4.7.0 or greater."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/functions.php:43
+msgid "You must run <code>composer install</code> from the Sage directory."
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/form-checkout.blade.php:64
+msgid "Your order"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:120
+msgid "Your rating"
+msgstr ""
+
+#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:130
+msgid "Your review"
+msgstr ""

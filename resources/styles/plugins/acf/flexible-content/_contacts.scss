@@ -1,0 +1,140 @@
+.b-contactdetais {
+
+  a {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .b-contact-single {
+    width: 100%;
+    margin-bottom: 15px;
+
+    .e-title {
+      margin-bottom: 5px;
+    }
+
+    p {
+      margin-bottom: 3px;
+    }
+  }
+
+  .e-title-section {
+    margin-bottom: 15px;
+  }
+
+  .b-contactform {
+    width: 60%;
+    margin-bottom: 15px;
+    @include bp-phone-xl() {
+      width: 100%;
+    }
+  }
+
+  .b-contacts {
+    width: 40%;
+    margin-bottom: 15px;
+    @include bp-phone-xl() {
+      width: 100%;
+    }
+  }
+
+  .b-introimage {
+    width: 41%;
+    display: flex;
+    align-items: center;
+    @include bp-phone-xl() {
+      width: 100%;
+    }
+  }
+
+  .b-contactdetais-maincontent {
+    display: flex;
+    padding-top: 20px;
+    @include bp-phone-xl() {
+      flex-direction: column;
+    }
+
+    &.with-image {
+      .b-contactform {
+        width: 38%;
+        @include bp-phone-xl() {
+          width: 100%;
+        }
+      }
+
+      .b-contacts {
+        width: 22%;
+        @include bp-phone-xl() {
+          width: 100%;
+        }
+      }
+
+      .b-introimage {
+        width: 40%;
+        @include bp-phone-xl() {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+
+  .form-control {
+    height: initial;
+    border-radius: 0;
+    border: 1px solid rgb(230, 230, 230);
+    font-size: 12px;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  form {
+    margin: auto;
+  }
+
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-left: -5px;
+    width: calc(100% + 10px);
+
+    .form-group {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+
+  label {
+    width: 100%;
+  }
+
+  .e-contact {
+    margin-top: 10px;
+    position: relative;
+
+    svg {
+      width: 15px;
+      height: 15px;
+      fill: #000;
+      min-width: 20px;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      margin: 0;
+
+      path, polyline {
+        stroke: black;
+      }
+    }
+
+    .e-contact-inner {
+      padding-left: 30px;
+      padding-right: 30px;
+      max-width: 360px;
+    }
+  }
+
+  .form-group--submit {
+    margin-top: 30px;
+  }
+}

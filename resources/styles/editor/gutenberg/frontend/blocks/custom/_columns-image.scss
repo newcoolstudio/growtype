@@ -1,0 +1,29 @@
+.wp-block-group {
+  .columns-image {
+    position: relative;
+
+    .wp-block-image {
+      max-width: 125px;
+      margin: auto;
+
+      & + p {
+        margin-top: 20px;
+      }
+    }
+
+  }
+}
+
+.columns-image-full {
+  .wp-block-group__inner-container, .wp-block-columns {
+    max-width: initial;
+    padding: 0;
+  }
+
+  .wp-block-column {
+    &:first-child {
+      max-width: 450px;
+      margin-left: auto;
+    }
+  }
+}

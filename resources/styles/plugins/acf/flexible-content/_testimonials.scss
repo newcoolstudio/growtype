@@ -1,0 +1,44 @@
+.s-testimonials--inner {
+  display: block;
+}
+
+.s-testimonials {
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  .s-testimonials--inner {
+    padding-top: 20px;
+  }
+
+  .slick-list {
+    overflow: hidden;
+  }
+
+  &.s-testimonials-fullwidth {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+
+    .slick-list {
+      overflow: visible;
+    }
+
+    .s-testimonials--wrapper {
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    .slick-slide {
+      opacity: 0.5;
+      transition: all 0.5s;
+
+      &.slick-active {
+        opacity: 1;
+        transition: all 0.5s;
+      }
+    }
+  }
+}
+
+@import "./partials/testimonials/picture-top";
+@import "./partials/testimonials/picture-bottom";

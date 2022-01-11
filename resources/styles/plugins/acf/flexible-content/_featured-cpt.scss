@@ -1,0 +1,41 @@
+.s-cpt {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+
+  .b-cpts {
+    overflow: hidden;
+  }
+
+  .b-cpts-inner {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    position: relative;
+    padding-bottom: 50px;
+
+    &.slick-initialized {
+      display: inline-block;
+      @include bp-phone-xl() {
+        .slick-next {
+          right: 20px;
+        }
+        .slick-prev {
+          left: 20px;
+        }
+      }
+
+      .slick-track {
+        overflow: hidden;
+      }
+    }
+
+    .b-cpt {
+      width: calc(100% / 3);
+      padding: 15px;
+      float: left;
+      @include bp-phone-xl() {
+        width: 100%;
+      }
+    }
+  }
+}

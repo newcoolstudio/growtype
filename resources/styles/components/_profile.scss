@@ -1,0 +1,45 @@
+.avatar {
+  border-radius: 50%;
+  height: auto;
+}
+
+.user-profile {
+  .dropdown-toggle {
+    border: none;
+    box-shadow: none;
+    background: none;
+    padding: 10px;
+    font-size: 14px;
+
+    img {
+      margin-right: 10px;
+      border-radius: 30px;
+    }
+  }
+
+  .dropdown-menu {
+    padding: 0;
+    margin: 0;
+
+    ul {
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin: 0;
+        font-size: 14px;
+        border-bottom: 1px solid $color-light-grey;
+        list-style-type: none;
+
+        a {
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
+          padding-top: 8px;
+          padding-bottom: 8px;
+          display: inline-block;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

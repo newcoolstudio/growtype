@@ -1,0 +1,20 @@
+/* Separator */
+
+.wp-block-separator {
+  border: 0;
+  max-width: 100px;
+}
+
+.wp-block-separator.is-style-wide {
+  max-width: 100%;
+}
+
+/* Media & Text */
+
+.wp-block-media-text {
+  margin-bottom: 1.625em;
+}
+
+.wp-block-media-text *:last-child {
+  margin-bottom: 0;
+}

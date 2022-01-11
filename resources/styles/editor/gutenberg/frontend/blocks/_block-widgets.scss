@@ -1,0 +1,20 @@
+/*--------------------------------------------------------------
+5.0 Blocks - Widgets
+--------------------------------------------------------------*/
+
+/* Archives, Categories & Latest Posts */
+
+.wp-block-archives.aligncenter,
+.wp-block-categories.aligncenter,
+.wp-block-latest-posts.aligncenter {
+  list-style-position: inside;
+  margin-left: 2.5em;
+  text-align: center;
+}
+
+.rtl .wp-block-archives.aligncenter,
+.rtl .wp-block-categories.aligncenter,
+.rtl .wp-block-latest-posts.aligncenter {
+  margin-left: 0;
+  margin-right: 2.5em;
+}

@@ -1,0 +1,151 @@
+.c-contentmultiple-content {
+  .icon {
+    max-width: 30px;
+    margin-bottom: 10px;
+  }
+}
+
+.c-contentblock--half {
+  position: relative;
+
+  .e-bgoverlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .c-contentblock-inner{
+    position: relative;
+    z-index: 1;
+  }
+
+  .c-contentmultiple-content {
+    p {
+      margin-bottom: 7px;
+    }
+  }
+
+  &.m-general {
+    .c-contentblock-inner {
+      max-width: $max-width-container;
+      margin: auto;
+    }
+  }
+
+  &.m-spacing-5-7 {
+    .m-dir-right {
+      .c-contentmultiple-img {
+        width: 60%;
+        @include bp-phone-xl() {
+          width: 100%;
+        }
+      }
+
+      .c-contentmultiple-content {
+        width: 40%;
+        @include bp-phone-xl() {
+          width: 100%;
+        }
+      }
+    }
+
+    .m-dir-left {
+      .c-contentmultiple-img {
+        width: 40%;
+        @include bp-phone-xl() {
+          width: 100%;
+        }
+      }
+
+      .c-contentmultiple-content {
+        width: 60%;
+        @include bp-phone-xl() {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.c-contentmultiple-img {
+  width: 50%;
+  @include bp-phone-xl() {
+    width: 100%;
+  }
+
+  .img-inner {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    @include bp-phone-xl() {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      margin-bottom: 25px;
+    }
+  }
+}
+
+.b-imagetext {
+  display: flex;
+  width: 100%;
+  @include bp-phone-large() {
+    flex-direction: column;
+    flex-direction: column;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  .c-contentmultiple-content {
+    width: 50%;
+    padding-left: 40px;
+    display: flex;
+    align-items: center;
+    @include bp-phone-xl-reverse() {
+      min-height: 400px;
+    }
+    @include bp-phone-xl() {
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .e-subtitle {
+      margin-bottom: 10px;
+    }
+
+    .e-title {
+      h2 {
+        margin-top: 0;
+        font-weight: $font-weight-intro;
+      }
+    }
+  }
+
+  &.m-dir-right {
+    flex-direction: row-reverse;
+    @include bp-phone-large() {
+      flex-direction: column;
+    }
+
+    .c-contentmultiple-content {
+      padding-left: 0;
+      padding-right: 60px;
+      @include bp-phone-xl() {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
+    .img-inner {
+      margin-right: 0;
+      margin-left: 0;
+      @include bp-phone-large() {
+        margin-left: 0;
+      }
+    }
+  }
+}

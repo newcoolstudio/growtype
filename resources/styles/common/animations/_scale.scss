@@ -1,0 +1,18 @@
+.anim-scale {
+  animation: scale 1.5s cubic-bezier(.36, .07, .19, .97) infinite;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  65% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

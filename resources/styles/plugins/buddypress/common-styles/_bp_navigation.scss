@@ -1,0 +1,949 @@
+// BP primary & secondary navigation - directory and single screens
+// @version 3.0.0
+
+// all devices & generic styles sitewide
+.bp-navs {
+  background: transparent;
+  clear: both;
+
+  > ul {
+    white-space: nowrap;
+
+    > li {
+
+      display: inline-block;
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    li {
+      list-style: none;
+      margin: 0;
+      float: none;
+    }
+
+    li.last {
+
+      select {
+        max-width: 185px;
+      }
+    }
+
+    li.flexMenu-viewMore {
+      float: right;
+
+      > a {
+        color: $color-text;
+        padding-right: 0;
+
+        i {
+          font-size: 1.125rem;
+          vertical-align: middle;
+        }
+      }
+
+      &.flexMenu-viewMore {
+        &.selected,
+        &.current {
+          border-bottom: none;
+        }
+      }
+    }
+
+    li {
+
+      a,
+      span {
+        border: 0;
+        display: block;
+        padding: 5px 10px;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .count {
+        background: transparent;
+        border: 1px solid $color-black;
+        border-radius: 20px;
+        display: inline;
+        font-size: 12px;
+        margin-left: 2px;
+        padding: 3px 6px;
+        text-align: center;
+        vertical-align: middle;
+      }
+    }
+
+    // these selected/current should apply to all navs
+    // if not pull out & move to end.
+    li.selected,
+    li.current {
+
+      a {
+        font-weight: 600;
+        opacity: 1;
+      }
+    }
+
+    &.dropdown-menu {
+
+      li {
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-black;
+        }
+
+        a {
+          padding: .25rem 2rem;
+        }
+
+        &.current,
+        &.selected {
+
+          a {
+            color: $color-primary;
+          }
+        }
+      }
+    }
+
+  }
+
+  // close ul
+
+  &.bp-invites-filters,
+  &.bp-messages-filters {
+
+    ul {
+
+      li {
+
+        a {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  &.dir-navs {
+
+    > ul {
+      border-bottom: 1px solid $color-light-grey;
+
+      > li {
+
+        > a {
+          padding: 0 calc(0.5em + 2px) $pad-sml;
+        }
+
+        &.selected,
+        &.current {
+          border-bottom: 2px solid $color-primary;
+
+          > a {
+            color: $color-primary;
+          }
+        }
+      }
+    }
+  }
+
+  &.bp-subnavs {
+
+    > ul {
+
+      > li {
+
+        &.selected,
+        &.current {
+          border-bottom: 2px solid $color-primary;
+
+          > a {
+            color: $color-primary;
+          }
+        }
+      }
+
+      li {
+
+        &.selected,
+        &.current {
+
+          > a {
+            color: $color-primary;
+          }
+        }
+
+        &.has-current {
+
+          > a {
+            color: $color-primary;
+          }
+        }
+      }
+    }
+  }
+
+  &.single-screen-navs {
+    &:after {
+      content: "";
+      background: $color-extra-light-grey;
+      height: 1px;
+      position: absolute;
+      bottom: 0;
+      //margin-left: calc(-50vw
+      //+ 50%);
+      //margin-right: calc(-50vw
+      //+ 50%);
+      left: 0;
+      right: 0;
+    }
+
+    ul {
+      white-space: initial;
+      overflow-x: initial;
+
+      li {
+        background: none !important;
+        display: block;
+        float: left;
+        @include bp-phone-xl() {
+          border: none !important;
+        }
+
+        a {
+          position: relative;
+
+          &:before {
+            font-family: 'growtype-main';
+            content: "\e810";
+            display: block;
+            font-size: 1.25rem;
+            text-align: center;
+            font-weight: normal !important;
+          }
+
+          &:hover {
+            color: $color-primary;
+
+            span.nav-link-text {
+              color: $color-primary;
+            }
+          }
+        }
+
+        span.nav-link-text {
+          border: none;
+        }
+
+        &#front-personal-li {
+
+          a::before {
+            content: "\ea4e";
+          }
+        }
+
+        &#activity-personal-li {
+
+          a::before {
+            content: "\ea5e";
+          }
+        }
+
+        &#xprofile-personal-li {
+
+          a::before {
+            content: "\e95c";
+          }
+        }
+
+        &#notifications-personal-li {
+
+          a::before {
+            content: "\ea0c";
+          }
+        }
+
+        &#messages-personal-li {
+
+          a::before {
+            content: "\e9b7";
+          }
+        }
+
+        &#blogs-personal-li {
+
+          a::before {
+            content: "\e97d";
+          }
+        }
+
+        &#friends-personal-li {
+
+          a::before {
+            content: "\e9be";
+          }
+        }
+
+        &#groups-personal-li {
+
+          a::before {
+            content: "\e9be";
+          }
+        }
+
+        &#settings-personal-li {
+
+          a::before {
+            content: "\e9ae";
+          }
+        }
+
+        &#media-personal-li {
+
+          a::before {
+            content: "\ea6f";
+          }
+        }
+
+        &#my-adverts-personal-li {
+
+          a::before {
+            content: "\ec04";
+          }
+        }
+
+        &#shop-personal-li {
+
+          a::before {
+            content: "\e9ed";
+          }
+        }
+
+        &#forums-personal-li {
+
+          a::before {
+            content: "\e94f";
+          }
+        }
+
+        &#courses-personal-li {
+
+          a::before {
+            content: "\ea3b";
+          }
+        }
+
+        &#quizzes-personal-li {
+
+          a::before {
+            content: "\eb39";
+          }
+        }
+
+        &#orders-personal-li {
+
+          a::before {
+            content: "\eb40";
+          }
+        }
+
+
+        // groups profile menu icons
+
+        &#home-groups-li {
+
+          a::before {
+            content: "\ea4e";
+          }
+        }
+
+        &#activity-groups-li {
+
+          a::before {
+            content: "\eaf5";
+          }
+        }
+
+        &#members-groups-li {
+
+          a::before {
+            content: "\ec19";
+          }
+        }
+
+        &#invite-groups-li {
+
+          a::before {
+            content: "\e9e6";
+          }
+        }
+
+        &#admin-groups-li {
+
+          a::before {
+            content: "\e918";
+          }
+        }
+
+        &#request-membership-groups-li {
+
+          a::before {
+            content: "\ec16";
+          }
+        }
+
+        &#nav-forum-groups-li {
+
+          a::before {
+            content: "\e94f";
+          }
+        }
+
+        &#media-groups-li {
+
+          a::before {
+            content: "\ea6f";
+          }
+        }
+
+
+        &.flexMenu-viewMore {
+
+          > a::before {
+            content: "\e99e";
+          }
+        }
+
+      }
+    }
+
+    &.vertical {
+
+      ul {
+
+        li {
+
+          &.current,
+          &.selected {
+
+            a {
+              color: $color-primary;
+            }
+
+            span.nav-link-text {
+              color: $color-primary;
+            }
+          }
+        }
+      }
+
+      @include bp-phone-xl() {
+        padding: 1rem 0;
+        border-bottom: 1px solid $color-black;
+        margin-bottom: 30px;
+
+        ul {
+          overflow: initial;
+          text-align: center;
+
+          li {
+            float: none;
+            display: inline-block;
+
+            a {
+              color: $color-text;
+              font-size: 11px;
+              text-align: center;
+              font-weight: 600;
+              padding-left: 1.125rem;
+              padding-right: 1.125rem;
+
+              &:before {
+                padding-top: 5px;
+              }
+
+              span.nav-link-text {
+                padding: 0;
+                color: $color-text;
+              }
+            }
+
+            .count {
+              background: #fff;
+              position: absolute;
+              top: 0;
+              right: .25rem;
+              line-height: 1;
+            }
+          }
+        }
+      }
+    }
+
+    &.horizontal {
+      padding: 1rem 0;
+      overflow: initial;
+      position: relative;
+
+      @media screen and (max-width: 1199.98px) and (min-width: 991.98px) {
+
+        .col-lg-6 {
+          -ms-flex: 0 0 65%;
+          flex: 0 0 65%;
+          max-width: 65%;
+
+          &.ml-auto {
+            margin-left: 25% !important;
+          }
+
+          &.mr-auto {
+            margin-right: 0 !important;
+          }
+        }
+      }
+
+      ul {
+
+        &.profile-nav {
+          display: flex;
+          white-space: nowrap;
+          overflow: hidden;
+          flex-wrap: wrap;
+
+
+          @include bp-phone-xl() {
+            padding-left: $padding-left-container;
+            padding-right: $padding-right-container;
+            margin: 0;
+          }
+
+
+          &.has-dropdown {
+            overflow: initial;
+          }
+
+          li {
+            float: none;
+          }
+
+          > li {
+            a {
+
+            }
+          }
+        }
+
+        li {
+
+          a {
+            color: $color-text;
+            font-size: 90%;
+            text-align: center;
+            padding-left: 1.125rem;
+            padding-right: 1.125rem;
+
+            &:before {
+              padding-top: 5px;
+            }
+
+            span.nav-link-text {
+              padding: 0;
+              color: $color-text;
+            }
+          }
+
+          .count {
+            background: $color-text;
+            font-size: .5rem;
+            font-weight: bold;
+            line-height: 1;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            border: none;
+            color: white;
+          }
+
+          .dropdown-toggle:after {
+            content: "";
+          }
+        }
+
+        .dropdown-menu {
+
+          li {
+            padding: 0;
+
+            > a {
+              text-align: left;
+              padding-left: calc(1.125rem + 1.375rem) !important;
+              font-size: 1em;
+
+              &::before {
+                position: absolute;
+                left: 1.125rem;
+                top: 50%;
+                transform: translateY(-50%);
+                padding: 0;
+                font-size: 1rem;
+                line-height: inherit;
+              }
+
+              span {
+                display: inline-block !important;
+                position: relative;
+              }
+
+              .count {
+                top: initial;
+                left: initial;
+                right: initial;
+              }
+            }
+
+            &.current,
+            &.selected {
+
+              a {
+                background: none;
+                height: auto;
+                width: auto;
+                border-radius: 0;
+                color: $color-primary;
+                box-shadow: none;
+                font-weight: normal;
+
+                .nav-link-text {
+                  color: $color-primary;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      ul {
+        text-align: center;
+
+        li {
+          float: none;
+          display: inline-block;
+
+          &.current,
+          &.selected,
+          &.has-current {
+
+            > a {
+              color: $color-primary;
+
+              span {
+                color: $color-primary;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+// close .bp-navs
+
+.main-navs.dir-navs {
+  margin-bottom: 1.5rem;
+}
+
+
+// visual styling of default single navs - adds background/padding to
+// the parent elements if vertical nav not selected
+.buddypress-wrap:not(.bp-single-vert-nav) {
+
+  .user-subnav#subsubnav,
+  .group-subnav#subsubnav {
+    background: none;
+  }
+}
+
+// Specifically default subnav elements
+.buddypress-wrap {
+
+  .bp-subnavs,
+  ul.subnav {
+    width: 100%;
+    border-bottom: 1px solid $color-light-grey;
+  }
+
+  .bp-subnavs {
+
+    margin-bottom: 1.5rem;
+
+    ul {
+
+      li {
+        margin-top: 0;
+
+        &.selected,
+        &.current {
+          border-bottom: 2px solid #5561e2;
+
+          :focus,
+          :hover {
+            background: none;
+          }
+        }
+
+      }
+    }
+  }
+
+  .bp-navs.bp-invites-nav#subnav,
+  .bp-navs.bp-invites-filters#subsubnav,
+  .bp-navs.bp-messages-filters#subsubnav {
+
+    ul {
+
+      li.last {
+        margin-top: 0;
+      }
+    }
+  }
+
+}
+
+// close .buddypress-wrap
+
+.buddypress_object_nav,
+.buddypress-wrap {
+
+  .bp-navs {
+
+    // close li
+
+    li.dynamic,
+    li.dynamic.selected,
+    li.dynamic.current {
+
+      a {
+
+        .count {
+          background-color: $color-primary;
+          border: 0;
+          color: #fff;
+        }
+      }
+    }
+
+    li.dynamic {
+
+      a:hover {
+
+        .count {
+          background-color: lighten($color-primary, 10%);
+          border: 0;
+          color: #fff;
+        }
+      }
+    }
+
+    li {
+
+      a {
+
+        .count:empty {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // bp-navs
+
+  // Create steps current position tabs highlight
+  .bp-navs.group-create-links {
+
+    ul {
+
+      li:not(.current) {
+        color: $color-text;
+
+        a {
+          color: $color-text;
+
+          &:focus,
+          &:hover {
+            background: none;
+          }
+        }
+
+        a[disabled] {
+
+          &:focus,
+          &:hover {
+            color: $color-text;
+          }
+        }
+      }
+
+      li.current {
+
+        a {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+// Just buddypress_object_nav rules
+.buddypress_object_nav {
+
+  .bp-navs {
+
+    li {
+
+      a {
+
+        .count {
+          display: inline-block;
+          float: right;
+        }
+      }
+    }
+
+  }
+}
+
+.bp-user {
+  .buddypress-wrap {
+    .main-navs.bp-navs {
+      padding-left: 25%;
+    }
+  }
+}
+
+.buddypress-wrap {
+  @include bp-phone-xl {
+
+    // Profile group labels links
+    // Button navigation as tabbed effect for wide screen
+
+    .bp-navs.tabbed-links {
+      background: none;
+      // For tabbed nav we remove any default button nav styles.
+      ul {
+
+        li.last {
+          float: right;
+          margin: 0;
+        }
+
+        li,
+        li.current {
+
+          a,
+          a:focus,
+          a:hover {
+            background: none;
+            border: 0;
+          }
+
+          a:active {
+            outline: none;
+          }
+        }
+      }
+    }
+    // close .bp-navs.tabbed-links
+  }
+  // @media
+}
+
+// Bp avatar nav overrides
+.bp-avatar-nav {
+
+  ul {
+    border-bottom: 1px solid $color-black;
+
+    &.avatar-nav-items {
+
+      li.current {
+        border: 1px solid $color-black;
+        border-bottom-color: #fff;
+      }
+    }
+  }
+}
+
+body {
+
+  &.beehive-guest-user {
+
+    &.my-groups,
+    &.my-friends {
+
+      .profile-col-main {
+
+        > .bp-subnavs {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.buddypress-wrap.bp-dir-hori-nav:not(.bp-vertical-navs) nav:not(.tabbed-links) {
+  box-shadow: none;
+}
+
+.buddypress .buddypress-wrap .generic-button a {
+  border-style: initial;
+  color: $color-text;
+
+  &:hover {
+    background: none;
+  }
+}
+
+.buddypress-wrap .bp-navs li.selected a {
+  background: none;
+}
+
+.activity-update-form #whats-new-textarea textarea:focus {
+  box-shadow: none;
+}
+
+.buddypress-wrap:not(.bp-single-vert-nav) .bp-navs li {
+  background: none !important;
+}
+
+#buddypress div#item-header #item-header-cover-image #item-header-content {
+  @include bp-phone-xl() {
+    flex-direction: column;
+  }
+}
+
+.bp-user .buddypress-wrap .main-navs.bp-navs {
+  @include bp-phone-xl() {
+    padding: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .mx-auto {
+    @include bp-phone-xl() {
+      padding: 0;
+    }
+  }
+}
+
+#buddypress div#item-header-cover-image h2 {
+  @include bp-phone-xl() {
+    margin: 0!important;
+  }
+}

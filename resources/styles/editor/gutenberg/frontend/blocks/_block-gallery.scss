@@ -1,0 +1,12 @@
+.gallery-middle {
+  .blocks-gallery-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .blocks-gallery-item {
+      margin: auto;
+      padding: 20px;
+    }
+  }
+}

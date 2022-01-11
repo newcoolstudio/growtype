@@ -1,0 +1,138 @@
+.dashicons {
+  color: $color-text;
+}
+
+i {
+  font-size: 18px;
+  position: relative;
+  top: 1px;
+}
+
+.icon-n-02:before {
+  content: "\ea5e"
+}
+
+.icon-n-05:before {
+  content: "\ea5f"
+}
+
+.icon-n-06:before {
+  content: "\ea60"
+}
+
+.icon-n-07:before {
+  content: "\ea61"
+}
+
+.icon-f-46:before {
+  content: "\e98d"
+}
+
+.icon-f-39:before {
+  content: "\e986"
+}
+
+.icon-f-40:before {
+  content: "\e987"
+}
+
+.icon-n-072:before {
+  content: "\eb16"
+}
+
+.icon-g-80:before {
+  content: "\ea0f"
+}
+
+.icon-g-81:before {
+  content: "\ea10"
+}
+
+.icon-f-82:before {
+  content: "\e9b1"
+}
+
+.icon-f-83:before {
+  content: "\e9b2"
+}
+
+.icon-f-84:before {
+  content: "\e9b3"
+}
+
+.icon-f-85:before {
+  content: "\e9b4";
+}
+
+.icon-f-86:before {
+  content: "\e9b5"
+}
+
+.icon-f-94:before {
+  content: "\e9bd"
+}
+
+.icon-f-95:before {
+  content: "\e9be"
+}
+
+.icon-f-96:before {
+  content: "\e9bf"
+}
+
+.icon-f-37:before {
+  content: "\e984"
+}
+
+.icon-check:before {
+  content: "\e9a3"
+}
+
+.icon-like:before {
+  content: "\e9ba"
+}
+
+[class*=" icon-"], [class^=icon-] {
+  font-family: growtype-main !important;
+  speak: none;
+  font-style: normal;
+  font-weight: 600;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/**
+Icons documentation/examples/icons/main/
+ */
+.page-icons {
+  .glyph {
+    font-size: 16px;
+    width: 15em;
+    padding-bottom: 1em;
+    margin-right: 4em;
+    margin-bottom: 1em;
+    float: left;
+    overflow: hidden;
+
+    .unitRight {
+      visibility: hidden;
+    }
+  }
+
+  .hidden-true, .talign-right {
+    display: none;
+  }
+
+  [class*=" icon-"], [class^=icon-] {
+    &:before {
+      font-size: 32px;
+    }
+  }
+}
+
+/**
+Icons
+ */

@@ -1,0 +1,67 @@
+.b-benefits {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .b-benefits-single-inner {
+    max-width: 300px;
+    margin: auto;
+    padding: 20px 20px 30px 20px;
+    height: 100%;
+    @include bp-phone-xl() {
+      width: 100%;
+    }
+  }
+
+  .b-benefits-single {
+    width: calc(100% / 5);
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 20px;
+    @include bp-phone-xl() {
+      width: 100% !important;
+    }
+
+    &.m-vertical {
+      text-align: center;
+
+      img {
+        margin-bottom: 13px;
+      }
+
+      .b-benefits-single-inner {
+        text-align: center;
+      }
+    }
+
+    &.m-horizontal {
+      display: flex;
+      margin-top: 0;
+      width: 23%;
+
+      .e-img {
+        padding-right: 12px;
+      }
+
+      .b-benefits-single {
+        margin: auto;
+      }
+
+      .b-benefits-single-inner {
+        display: flex;
+        margin-top: 0;
+      }
+    }
+
+    img {
+      max-width: 55px;
+    }
+  }
+}
+
+.b-benefits-boxed {
+  .b-benefits-single-inner {
+    box-shadow: 0 1px 16px 0 #e6e6e6e6;
+    border-radius: 5px;
+  }
+}

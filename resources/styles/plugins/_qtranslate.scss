@@ -1,0 +1,147 @@
+.language-selector {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  top: 0;
+  height: 20px;
+  display: inline-block;
+  width: 30px;
+  margin-left: 9px;
+  @include bp-phone-xl() {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    top: 0;
+  }
+}
+
+#qtranslate-chooser {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 30px;
+
+  li {
+    transition: all .5s;
+    margin: 0;
+    display: none;
+    order: 1;
+
+    &.active {
+      display: block;
+      order: 0;
+    }
+
+    a {
+      display: inline-block;
+      width: 24px;
+      height: 14px;
+    }
+  }
+
+  &:hover {
+    li {
+      display: block;
+    }
+  }
+
+  span {
+    font-weight: 400;
+    margin-top: 1px;
+    font-size: 16px;
+    display: none;
+  }
+
+  li.lang-lt {
+    a {
+      background-image: url('./../../icons/lang/lt.svg');
+      background-size: cover;
+    }
+  }
+
+  li.lang-en {
+    a {
+      background-image: url('./../../icons/lang/uk.svg');
+      background-size: cover;
+    }
+  }
+
+  li.lang-pl {
+    a {
+      background-image: url('./../../icons/lang/pl.svg');
+      background-size: cover;
+    }
+  }
+
+  li.lang-dk {
+    a {
+      background-image: url('./../../icons/lang/dk.svg');
+      background-size: cover;
+    }
+  }
+
+  li.lang-no {
+    a {
+      background-image: url('./../../icons/lang/no.svg');
+      background-size: cover;
+    }
+  }
+}
+
+#header-side-menu {
+  .qtranxs-lang-menu {
+    top: 2px;
+    @include bp-tablet-big() {
+      display: none;
+    }
+  }
+}
+
+.qtranxs-lang-menu {
+  position: relative;
+  min-height: 27px;
+
+  li {
+    margin: 0 !important;
+  }
+
+  &:hover {
+    .sub-menu {
+      display: block;
+    }
+  }
+
+  .sub-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 30px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: none !important;
+    border: none !important;
+
+    li {
+      margin: 0;
+    }
+  }
+
+  a {
+    max-width: 25px;
+    display: inline-block;
+    min-width: 43px;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}

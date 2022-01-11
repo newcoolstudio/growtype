@@ -1,0 +1,22 @@
+@import "common/variables";
+@import "common/mixins";
+
+@import "editor/components/buttons";
+
+/**
+Gutenberg
+ */
+@import "editor/gutenberg/frontend/blocks/block-buttons";
+@import "editor/gutenberg/frontend/blocks/block-colors";
+@import "editor/gutenberg/frontend/blocks/block-comments";
+@import "editor/gutenberg/frontend/blocks/block-common";
+@import "editor/gutenberg/frontend/blocks/block-cover";
+@import "editor/gutenberg/frontend/blocks/block-custom";
+@import "editor/gutenberg/frontend/blocks/block-formatting";
+@import "editor/gutenberg/frontend/blocks/block-gallery";
+@import "editor/gutenberg/frontend/blocks/block-general";
+@import "editor/gutenberg/frontend/blocks/block-product";
+@import "editor/gutenberg/frontend/blocks/block-separator";
+@import "editor/gutenberg/frontend/blocks/block-slider";
+@import "editor/gutenberg/frontend/blocks/block-table";
+@import "editor/gutenberg/frontend/blocks/block-widgets";

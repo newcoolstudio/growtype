@@ -1,0 +1,99 @@
+body {
+  //#buddypress li {
+  //  border: none;
+  //  box-shadow: none;
+  //}
+
+  .activity-list.bp-list {
+    background: none;
+    border: none;
+  }
+
+  #buddypress .bp-list .action {
+    padding: 1rem 0;
+    margin-top: 1rem;
+    border-top: 1px solid $color-light-grey;
+    border-bottom: 1px solid $color-light-grey;
+  }
+
+  .activity-list .activity-item > div.item-avatar img {
+    width: 40px !important;
+    height: auto;
+    max-width: initial !important;
+  }
+
+  .activity-list .activity-item .activity-content {
+    margin-left: 55px;
+  }
+
+  .activity-list .activity-item.mini .activity-avatar {
+    width: initial;
+  }
+
+  .activity-list {
+    position: relative;
+    padding: 0;
+
+    &:before {
+      content: "";
+      display: block;
+      background: $color-extra-light-grey;
+      width: 2px;
+      height: 100%;
+      position: absolute;
+      left: 20px;
+      top: 2px;
+      z-index: -1;
+      opacity: .7;
+    }
+  }
+
+  .item-list, .activity-list.bp-list {
+    padding: 0;
+  }
+
+  .activity-list.bp-list .activity-item {
+    box-shadow: none;
+    border: none;
+    background: none;
+  }
+
+  .activity-list .activity-item div.item-avatar {
+    width: initial;
+    margin-left: 0 !important;
+
+    a {
+      width: 40px;
+    }
+  }
+
+  .activity-list .activity-item > div.item-avatar {
+    margin: 0;
+    position: absolute;
+    left: 0;
+    top: 2px;
+  }
+}
+
+.activity-list .activity-item .buddypress-mini-activity .mini-content .mini-actions .generic-button a.add::before {
+  content: "\ea35" !important;
+  font-family: growtype-main !important;
+}
+
+.activity-list .activity-item .buddypress-mini-activity .mini-content .mini-actions .generic-button a.requested::before {
+  content: "\ea37" !important;
+  font-family: growtype-main !important;
+}
+
+.buddypress-wrap .bp-feedback.success .bp-icon {
+  background: none !important;
+}
+
+.buddypress-wrap .bp-feedback.info .bp-icon{
+  background-color: initial;
+}
+
+.buddypress-wrap .bp-feedback.loading .bp-icon {
+  background: none !important;
+}
+

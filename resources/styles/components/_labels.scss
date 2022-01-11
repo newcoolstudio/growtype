@@ -1,0 +1,14 @@
+label {
+  margin-bottom: 3px;
+  font-size: 14px;
+
+  &.error {
+    color: $color-error;
+    display: inline-block;
+    width: 100%;
+  }
+
+  a {
+    color: $color-active;
+  }
+}

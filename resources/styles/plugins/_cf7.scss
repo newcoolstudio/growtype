@@ -1,0 +1,85 @@
+.wpcf7 {
+  position: relative;
+  padding-bottom: 20px;
+
+  input[type=submit] {
+    width: 100%;
+  }
+
+  .form-group {
+    margin-bottom: 10px;
+  }
+
+  .ajax-loader {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: -5px;
+  }
+
+  .wpcf7-checkbox, .wpcf7-acceptance {
+    .wpcf7-list-item-label {
+      font-weight: 300;
+      text-transform: initial;
+      margin-left: 8px;
+      font-size: 16px;
+      position: relative;
+      top: 1px;
+      line-height: 20px;
+    }
+  }
+
+  .wpcf7-checkbox {
+    margin-top: 3px;
+    display: inline-block;
+  }
+
+  .wpcf7-list-item {
+    margin: 0;
+    margin-right: 15px;
+    margin-bottom: 10px;
+
+    label {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+span.wpcf7-not-valid-tip {
+  padding: 10px;
+  padding-top: 0;
+}
+
+div.wpcf7-validation-errors {
+  margin: 0;
+}
+
+.wpcf7 form .wpcf7-response-output {
+  margin: 0;
+  font-size: 13px;
+  margin-top: 10px;
+  border: none;
+  padding: 0;
+}
+
+span.wpcf7-not-valid-tip {
+  padding: 5px 0px;
+  font-size: 13px;
+  color: $color-error;
+}
+
+/**
+Response messages
+ */
+.wpcf7 form.sent .wpcf7-response-output {
+  color: $color-success;
+  border: none;
+  padding: 0;
+}
+
+.wpcf7 form.invalid .wpcf7-response-output {
+  color: $color-error;
+}
+

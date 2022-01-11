@@ -1,0 +1,125 @@
+.s-member-fullwidth {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  overflow: hidden;
+
+  .slick-prev, .slick-next {
+    top: 35%;
+  }
+}
+
+.s-member {
+  @import "../../../pages/single/member/preview/horizontal";
+  @import "../../../pages/single/member/preview/vertical";
+  padding-bottom: 35px;
+  padding-top: 20px;
+
+  &.slider-style-fullwidth {
+    .slick-slide {
+      opacity: 0.5;
+    }
+
+    .slick-current, .slick-active {
+      opacity: 1;
+    }
+
+    .container {
+      max-width: 100%;
+    }
+
+    .slick-list {
+      overflow: visible;
+    }
+
+    .b-member {
+      display: flex;
+      justify-content: center;
+    }
+
+    .b-member-inner {
+      max-width: 940px;
+      width: 100%;
+    }
+  }
+
+  .b-member-single {
+    width: calc(100% / 4);
+  }
+
+  .b-member {
+    margin-left: -5px;
+    width: calc(100% + 10px);
+    padding-top: 5px;
+
+    .b-member-inner {
+      display: flex;
+      flex-wrap: wrap;
+
+      &.slick-initialized {
+        display: inline-block;
+        width: 100%;
+      }
+
+      &[data-slides-existing-amount="3"] {
+        .b-member-single {
+          width: calc(100% / 3);
+          @include bp-phone-xl() {
+            width: 100%;
+          }
+        }
+      }
+
+      &[data-slides-existing-amount="5"] {
+        .b-member-single {
+          width: calc(100% / 5);
+          @include bp-phone-xl() {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .slick-active {
+      .b-member-single {
+        &[data-content="1"]:hover {
+          opacity: 1;
+          transition: all 0.5s;
+
+          .b-mainimg {
+            width: 60px;
+            height: 60px;
+            padding: 0;
+            margin: auto;
+            z-index: 1;
+            position: relative;
+            transition: all 0.5s;
+            min-width: 60px;
+            margin-top: 10px;
+          }
+
+          .b-content {
+            background: white;
+            border-radius: 10px;
+            top: 43px;
+            box-shadow: 2px 4px 4px rgb(0 0 0 / 5%);
+            padding-top: 45px;
+            padding-bottom: 10px;
+            position: absolute;
+            transition: all 0.5s;
+            left: 0;
+            right: 0;
+          }
+
+          .e-content {
+            display: block;
+            transition: all 0.5s;
+          }
+        }
+      }
+    }
+
+    .b-member-basic {
+
+    }
+  }
+}

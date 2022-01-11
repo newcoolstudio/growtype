@@ -1,0 +1,12 @@
+.anim-slide-in {
+  animation: slideInUp 2s forwards;
+}
+
+@keyframes slideInUp {
+  0% {
+    transform: translateY(900px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,28 @@
+.slick-slide {
+  &:focus {
+    outline: none;
+  }
+}
+
+.slick-slider {
+  .slick-prev, .slick-next {
+    z-index: 1;
+    top: 47%;
+  }
+
+  .slick-prev {
+    &:before {
+      content: "\f341";
+      font-family: Dashicons;
+      color: $color-black;
+    }
+  }
+
+  .slick-next {
+    &:before {
+      content: "\f345";
+      font-family: Dashicons;
+      color: $color-black;
+    }
+  }
+}

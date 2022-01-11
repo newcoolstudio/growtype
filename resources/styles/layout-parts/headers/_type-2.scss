@@ -1,0 +1,37 @@
+/**
+Header type 2
+ */
+.header-type-2 {
+  .header-inner {
+    flex-direction: row;
+    min-height: 75px;
+    @include bp-phone-xl() {
+      min-height: 70px;
+    }
+
+    .mainlogo {
+      margin: 0;
+    }
+
+    .main-navigation {
+      margin-left: 20px;
+      margin-right: auto;
+      margin-bottom: 0;
+    }
+  }
+
+  .side-nav {
+    position: relative;
+    margin-right: 0;
+    margin-left: 0px;
+    right: 0;
+
+    #header-side-menu {
+      margin-right: 0;
+    }
+  }
+
+  .side-nav .menu {
+    margin: auto 10px auto 10px;
+  }
+}

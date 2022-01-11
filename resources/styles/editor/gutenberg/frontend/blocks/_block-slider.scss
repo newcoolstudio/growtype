@@ -1,0 +1,11 @@
+/**
+Block slider
+ */
+.wp-block-cb-carousel {
+  &.wp-block-cb-carousel-align-center {
+    .slick-track {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

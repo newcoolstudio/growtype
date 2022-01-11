@@ -1,0 +1,450 @@
+.header-logo-wrapper {
+  padding: 5px;
+  max-width: 190px;
+  position: relative;
+  @include bp-tablet-portrait() {
+    padding: 5px;
+    max-width: 130px;
+  }
+}
+
+.mainlogo {
+  display: inline-block;
+  width: 100%;
+  transition: all 0.5s;
+
+  svg {
+    max-width: 130px;
+    height: initial;
+
+    path {
+      fill: black;
+    }
+  }
+
+  &.m-oposite {
+    svg {
+      path {
+        fill: white;
+      }
+    }
+  }
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0;
+  padding-bottom: 0;
+  min-height: 95px;
+  transition: all 0.5s;
+  @include bp-phone-xl() {
+    min-height: 66px;
+  }
+
+  .mainlogo {
+    margin-right: auto;
+    margin-left: 0;
+  }
+}
+
+.b-header {
+  padding: 0;
+}
+
+header, header a {
+  color: #3a3a3a;
+}
+
+#header_logo_scroll {
+  display: none;
+}
+
+#header_logo_home {
+  display: none;
+}
+
+.header_logo:empty {
+  display: none;
+}
+
+.home {
+  #header_logo {
+    display: none;
+  }
+
+  #header_logo_home:empty {
+    display: none;
+  }
+
+  #header_logo_home {
+    display: block;
+  }
+}
+
+.has-absolute-header {
+  .site-header {
+    position: absolute;
+  }
+}
+
+.has-fixed-header {
+  .site-header {
+    position: fixed;
+  }
+}
+
+.site-header {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 98;
+  transition: all 0.5s;
+
+  &.site-header-transparent {
+    background: none;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 15px;
+
+    a {
+      color: $color-navbar;
+      font-size: 13px;
+      padding-left: 30px;
+
+      @include bp-phone-large() {
+        padding: 0;
+      }
+
+      img {
+        padding: 0 15px;
+        margin-bottom: -2px;
+
+        @include bp-phone-large() {
+          padding: 0 10px;
+        }
+      }
+    }
+
+    .navbar-inner {
+      max-width: 1200px;
+      margin: auto;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  &.is-scroll {
+    transition: all 0.5s;
+    box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.08);
+
+    .main-navigation {
+      bottom: 0;
+      transition: all 0.5s;
+    }
+
+    .navbar {
+      background: $color-navbar-scroll;
+      transition: all 0.5s;
+    }
+
+    #header_logo {
+      display: none;
+    }
+
+    #header_logo_home {
+      display: none;
+    }
+
+    #header_logo_scroll:empty {
+      display: none;
+    }
+
+    #header_logo_scroll {
+      display: block;
+    }
+  }
+
+  li.btn {
+    padding: 10px;
+    min-width: initial;
+  }
+}
+
+.menu-header-container {
+  .menu {
+    @include bp-phone-xl() {
+      display: none;
+    }
+  }
+}
+
+#header-menu {
+  li {
+    position: relative;
+
+    a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      display: inline-block;
+    }
+
+    &:hover {
+      > .sub-menu {
+        display: block;
+      }
+    }
+  }
+
+  .sub-menu {
+    background: white;
+    border: 1px solid whitesmoke;
+    border-top: 2px solid black;
+    padding: 10px;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    display: none;
+
+    a {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      font-size: 13px;
+    }
+  }
+
+  li.btn {
+    padding: 0;
+    margin-left: 15px;
+
+    a {
+      padding: 10px 15px;
+      color: white;
+    }
+  }
+}
+
+.mainlogo {
+  display: inline-block;
+  width: 100%;
+
+  svg {
+    path {
+      fill: black;
+    }
+  }
+
+  &.m-oposite {
+    svg {
+      path {
+        fill: white;
+      }
+    }
+  }
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0;
+  padding-bottom: 0;
+  position: relative;
+  flex-direction: column;
+  min-height: 130px;
+  @include bp-tablet-big() {
+    flex-direction: row;
+    min-height: 70px;
+  }
+
+  .mainlogo {
+    margin: auto;
+  }
+}
+
+.main-navigation {
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: all 0.5s;
+  margin-left: 10px;
+  @include bp-phone-xl-reverse() {
+    margin: 0 auto auto;
+    margin-bottom: 5px;
+  }
+  @include bp-phone-xl() {
+    bottom: 0;
+  }
+
+  ul {
+    margin: 0;
+  }
+}
+
+.main-navigation-always-visible {
+  z-index: 10;
+
+  .menu-header-container .menu {
+    display: flex;
+  }
+}
+
+.b-header {
+  padding: 0;
+}
+
+.menu-header-container {
+  .menu {
+    @include bp-tablet-big() {
+      display: none;
+    }
+  }
+}
+
+.menu li a {
+  @include bp-phone-xl-reverse() {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.side-nav {
+  position: relative;
+  right: 20px;
+  bottom: 0;
+  margin: auto;
+  top: 0px;
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+
+  .menu {
+    display: inline-block;
+    margin: auto;
+    //margin-left: 15px;
+    margin-right: 10px;
+    //@include bp-phone-xl() {
+    //  margin-left: 10px;
+    //}
+  }
+
+  .menu {
+    @include bp-phone-xl() {
+      display: none;
+    }
+
+    li a {
+      padding: 0;
+    }
+  }
+}
+
+#header_navbar_text {
+  p {
+    margin: 0;
+    font-size: 13px;
+  }
+}
+
+.burger-open {
+  .site-header:not(.has-fixed-header .site-header) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .site-header {
+    z-index: 100;
+  }
+}
+
+.side-nav-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 10px;
+  @include bp-phone-xl() {
+    padding-left: 5px;
+  }
+
+  .woo-multi-currency {
+    position: relative;
+    top: -1px;
+  }
+
+  .language-selector {
+    @include bp-phone-xl() {
+      display: none;
+    }
+  }
+
+  .customizer {
+    top: 3px;
+    position: relative;
+  }
+
+  .menu {
+    li {
+      padding: 0;
+      padding-right: 10px;
+      cursor: pointer;
+
+      a {
+        padding: 0;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      i {
+        font-size: 22px;
+      }
+
+      &.e-wishlist {
+        i {
+          font-size: 20px;
+        }
+      }
+
+      &.e-cart {
+        top: 1px;
+
+        i {
+          font-size: 23px;
+          top: -1px;
+        }
+      }
+
+      &.e-profile {
+        @include bp-phone-xl() {
+          display: none;
+        }
+      }
+
+      &.customizer {
+        position: relative;
+        top: 1px;
+      }
+    }
+  }
+}
+
+.header-extra-content-wrapper {
+  margin-left: 20px;
+  margin-right: auto;
+}
+
+@import "headers/type-1";
+@import "headers/type-2";
+@import "headers/type-3";

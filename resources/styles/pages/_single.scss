@@ -1,0 +1,11 @@
+.single {
+  .maincontent {
+    min-height: 400px;
+  }
+}
+
+@import "single/post/post";
+@import "single/activity/activity";
+@import "single/service/service";
+@import "single/member/member";
+@import "single/offices/offices";

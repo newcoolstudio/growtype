@@ -1,0 +1,66 @@
+.sidebar {
+  padding: 30px;
+  border-width: 0px 1px 0px 0px;
+  border-color: $color-light-grey;
+  border-style: solid;
+  width: 29%;
+  float: right;
+  position: sticky;
+  top: 0;
+  @include bp-tablet() {
+    padding: 20px;
+  }
+  @include bp-phone-xl() {
+    display: none;
+  }
+
+  & + .main {
+    width: 71%;
+    float: left;
+    margin: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    @include bp-phone-xl() {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+/**
+
+ */
+
+.buddypress.widget img.avatar {
+  width: 40px;
+}
+
+aside.widget-area ul li {
+  list-style: none;
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  position: relative;
+}
+
+aside.widget-area > .widget .widget-title:after {
+  content: "";
+  background: #5561e2;
+  height: 2px;
+  width: 40px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+aside.widget-area .widget {
+  padding: 30px;
+  @include bp-tablet() {
+    padding: 20px;
+  }
+}
+
+.has-sidebar-primary {
+  .site-header.is-scroll {
+    box-shadow: none;
+  }
+}

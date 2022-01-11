@@ -1,0 +1,23 @@
+.s-posts {
+  position: relative;
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .b-posts-inner {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.s-posts-fullwidth {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+
+  .b-posts-inner {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

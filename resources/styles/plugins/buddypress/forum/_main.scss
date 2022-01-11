@@ -1,0 +1,11 @@
+#bbpress-forums {
+  padding-top: 20px;
+}
+
+#bbpress-forums fieldset.bbp-form label {
+  @include bp-phone-xl() {
+    margin-left: 10px;
+    top: 0;
+    width: 80%;
+  }
+}

@@ -1,0 +1,15 @@
+.s-activities {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+
+  .b-activities-inner {
+    display: flex;
+
+    .b-activity-wrapper {
+      width: calc(100% / 3);
+      padding: 15px;
+    }
+  }
+}
+
+@import "partials/activities/basic";

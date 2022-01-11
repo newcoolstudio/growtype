@@ -1,0 +1,18 @@
+$color-red: red;
+.anim-pulse {
+  border-radius: 50%;
+  box-shadow: 0 0 0 $color-red;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba($color-red, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba($color-red, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba($color-red, 0);
+  }
+}

@@ -1,0 +1,124 @@
+.archive {
+  .site-main {
+    padding-top: 25px;
+    @include bp-phone-xl() {
+      padding-top: 10px;
+      overflow: hidden;
+    }
+  }
+}
+
+.shop-header-featured {
+  min-height: 160px;
+  margin-bottom: 25px;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  background-position: center;
+  background-size: cover;
+  margin-top: -25px;
+}
+
+.woocommerce {
+  .woocommerce-ordering {
+    min-width: 200px;
+    margin-bottom: 20px;
+    float: right;
+    display: inline-block;
+    @include bp-phone-xl() {
+      margin-top: 10px;
+      min-width: 160px;
+    }
+  }
+
+  &.shop {
+
+    .woocommerce {
+      margin-bottom: 50px;
+    }
+
+    //.is-loading {
+    //  display: flex;
+    //  align-items: center;
+    //  justify-content: center;
+    //  min-height: 300px;
+    //}
+  }
+}
+
+.woocommerce ul.products li.product .price ins, .woocommerce div.product span.price ins {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.woocommerce nav.woocommerce-pagination {
+  margin-bottom: 40px;
+
+  ul {
+    border: none;
+
+    li {
+      border: none;
+
+      span, a {
+        padding-left: 12px;
+        padding-right: 12px;
+        line-height: 22px;
+        color: black;
+
+        &:hover {
+          background: none;
+        }
+
+        &.current {
+          background: none;
+          font-weight: bold;
+          color: black;
+          border-bottom: 3px solid black;
+        }
+      }
+
+      .prev, .next {
+        border: 1px solid black;
+        border-radius: 40px
+      }
+
+      .prev {
+        margin-right: 7px;
+      }
+
+      .next {
+        margin-left: 7px;
+      }
+    }
+  }
+}
+
+.product {
+  .imagewrapper {
+    position: relative;
+
+    .wishlist-toggle {
+      position: absolute;
+      right: 13px;
+      left: initial;
+      bottom: 15px;
+    }
+  }
+}
+
+/**
+Products display style
+ */
+.display-list {
+  .woocommerce-loop-product__link {
+    display: flex;
+
+    .content-wrapper {
+      padding-left: 15px;
+    }
+
+    .imagewrapper {
+      max-width: 140px;
+    }
+  }
+}

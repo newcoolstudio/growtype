@@ -1,0 +1,23 @@
+.alert-position-bottom {
+  position: fixed;
+  bottom: 10px;
+  left: $padding-left-container;
+  right: $padding-right-container;
+  margin: auto;
+  max-width: $max-width-container;
+  z-index: 100;
+}
+
+.alert-position-top {
+  position: fixed;
+  top: 100px;
+  left: $padding-left-container;
+  right: $padding-right-container;
+  margin: auto;
+  max-width: $max-width-container;
+  z-index: 100;
+}
+
+.alert-font-sm{
+  font-size: 14px;
+}

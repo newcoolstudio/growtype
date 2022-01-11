@@ -1,0 +1,40 @@
+.header-type-1 {
+  .header-inner {
+    flex-direction: row;
+    min-height: 90px;
+    justify-content: flex-end;
+    @include bp-phone-xl() {
+      min-height: 70px;
+    }
+
+    .mainlogo {
+      margin: 0;
+    }
+
+    .main-navigation {
+      margin-bottom: 0;
+      margin-left: auto;
+      margin-right: 0px;
+      margin-bottom: 0;
+    }
+  }
+
+  .side-nav {
+    position: relative;
+    margin-right: 0;
+    margin-left: 0px;
+    right: 0;
+
+    #header-side-menu {
+      margin-right: 0;
+    }
+  }
+
+  .side-nav .menu {
+    margin: auto 10px auto 10px;
+  }
+
+  .header-logo-wrapper {
+    margin-right: auto;
+  }
+}

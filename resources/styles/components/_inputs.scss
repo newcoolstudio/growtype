@@ -1,0 +1,126 @@
+/**
+Input / textarea
+ */
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea,
+input:not([type='checkbox']):not([type='radio']):not([type='submit']):not(.qty),
+textarea {
+  padding: 9px 10px;
+  background-color: $color-input-bg;
+  color: $color-input;
+  outline: 0;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-weight: 400;
+  border: 1px solid #e4e4e4;
+  width: 100%;
+  margin: 0;
+  line-height: normal;
+  font-size: 15px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  &::placeholder {
+    font-size: 15px;
+    opacity: 0.7;
+  }
+}
+
+/**
+Checkbox
+ */
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  min-width: 20px;
+  min-height: 20px;
+
+  &:before {
+    content: "";
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    position: absolute;
+    color: white;
+    font-size: 19px;
+    border: 1px solid $color-dark-grey;
+  }
+
+  &:checked {
+    &:before {
+      content: "\f15e";
+      font-family: dashicons;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background: $color-theme;
+      position: absolute;
+      color: white;
+      font-size: 19px;
+      border: 1px solid $color-theme;
+      line-height: 18px;
+      text-indent: -1px;
+    }
+  }
+}
+
+/**
+Radio
+ */
+input[type="radio"] {
+  position: relative;
+  min-width: 15px;
+  min-height: 15px;
+  width: 15px;
+  height: 15px;
+  top: 3px;
+  left: 3px;
+  margin-right: 11px;
+
+  &:before {
+    content: "";
+    border-radius: 20px;
+    left: -3px;
+    right: -3px;
+    top: -3px;
+    bottom: -3px;
+    position: absolute;
+    background: white;
+    pointer-events: none;
+    box-shadow: 0px 0px 1px black;
+  }
+
+  &:checked {
+    &:before {
+      content: "";
+      border: 2px solid white;
+      background: $color-active;
+    }
+  }
+
+  & + label {
+    margin-left: 6px;
+    margin-right: 20px;
+    position: relative;
+    top: 1px;
+  }
+}
+
+/**
+Bootstrap form inputs
+ */
+.form-check {
+  .form-check-label {
+    position: relative;
+    top: 3px;
+    left: 3px;
+  }
+
+  .form-check-input {
+    border: none;
+  }
+}

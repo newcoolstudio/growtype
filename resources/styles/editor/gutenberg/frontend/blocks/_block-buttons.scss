@@ -1,0 +1,38 @@
+/*--------------------------------------------------------------
+4.0 Blocks - Layout Elements
+--------------------------------------------------------------*/
+
+/* Buttons */
+
+.is-style-outline .wp-block-button__link:not(.has-text-color) {
+  color: #222;
+  text-shadow: none;
+}
+
+.wp-block-button {
+  &.aligncenter {
+    .wp-block-button__link {
+      margin: auto;
+    }
+  }
+
+  .wp-block-button__link {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.wp-block-buttons.aligncenter {
+  justify-content: center;
+}
+
+.wp-block-button__link {
+  @extend .btn-primary;
+}
+
+.wc-block-grid__product-add-to-cart.wp-block-button .wp-block-button__link {
+  padding: 15px 30px;
+  font-size: 14px;
+  min-width: initial;
+}

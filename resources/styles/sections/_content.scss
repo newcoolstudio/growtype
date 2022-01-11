@@ -1,0 +1,18 @@
+.s-content {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+
+  .col-content {
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    @include bp-phone-xl() {
+      width: 100%;
+      flex: initial;
+    }
+  }
+}
+
+.b-intro-content {
+  padding-bottom: 25px;
+}

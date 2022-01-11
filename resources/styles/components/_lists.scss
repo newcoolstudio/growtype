@@ -1,0 +1,33 @@
+ul {
+  &.list-check {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 5px;
+
+    i {
+      padding-right: 5px;
+    }
+
+    li {
+      position: relative;
+      padding-left: 24px;
+
+      &:before {
+        content: "\f147";
+        font-family: Dashicons;
+        position: absolute;
+        left: 0;
+        top: -4px;
+        font-size: 22px;
+      }
+    }
+  }
+}
+
+a {
+  ul {
+    li {
+      color: $color-text;
+    }
+  }
+}

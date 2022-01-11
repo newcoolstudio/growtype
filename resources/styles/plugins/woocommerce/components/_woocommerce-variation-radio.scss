@@ -1,0 +1,104 @@
+.woocommerce div.product form.cart .variations label {
+  font-weight: 500;
+}
+
+.woocommerce div.product form.cart .variations select {
+  min-width: initial;
+  width: 100%;
+}
+
+.variations {
+  .variations-single {
+    .label {
+      font-size: 14px;
+      margin-bottom: 3px;
+
+      .e-type {
+        //text-transform: uppercase;
+      }
+    }
+  }
+
+  .variations-single[data-type="pa_color"] {
+    .option {
+      height: 30px;
+      width: 30px;
+      border-radius: 50px;
+
+      &[data-type="white"] {
+        &:before {
+          color: black;
+        }
+      }
+
+      &.is-active:before {
+        background: none;
+        font-family: "Dashicons";
+        font-weight: 900;
+        content: "\f15e";
+        width: 13px;
+        height: 20px;
+        margin: auto;
+        opacity: 1;
+      }
+    }
+  }
+
+  .options {
+    display: flex;
+
+    &[data-type="radio"] {
+      margin-left: -5px;
+    }
+
+    .option {
+      position: relative;
+      border: 1px solid #dedede;
+      padding: 7px 10px;
+      border-radius: 5px;
+      margin-left: 5px;
+      margin-right: 2px;
+      font-size: 14px;
+      display: inline-block;
+      cursor: pointer;
+      overflow: hidden;
+
+      &.is-active {
+        color: white;
+
+        &:before {
+          content: '';
+          position: absolute;
+          @include position-absolute;
+          background: black;
+          z-index: 0;
+        }
+
+      }
+
+      input {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        z-index: 1;
+        cursor: pointer;
+
+        &:checked {
+          & + span {
+            border: 1px solid black;
+          }
+        }
+      }
+
+      .e-label {
+        position: relative;
+        z-index: 0;
+      }
+    }
+  }
+}

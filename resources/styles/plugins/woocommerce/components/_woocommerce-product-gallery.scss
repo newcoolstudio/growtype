@@ -1,0 +1,305 @@
+/**
+Style 1, thumbnails bottom
+ */
+
+.woocommerce div.product div.images .flex-control-thumbs {
+  position: relative;
+  padding-top: 5px;
+  margin-left: -5px;
+  width: calc(100% + 10px);
+
+  &.slick-slider {
+    max-width: 90%;
+    overflow: initial;
+    margin: auto;
+
+    .slick-list {
+      overflow: hidden;
+    }
+
+    .slick-prev:before, .slick-next:before {
+      color: black;
+    }
+  }
+
+  li {
+    padding: 5px;
+  }
+}
+
+.woocommerce div.product div.images .flex-control-thumbs li {
+  float: initial;
+  display: inline-block;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs {
+  padding: 0;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active {
+  background: initial;
+  border: none;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+  background: none;
+  border: none;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li::before, .woocommerce div.product .woocommerce-tabs ul.tabs li::after {
+  border: none;
+  content: none;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+  &.active {
+    a {
+      color: $color-text;
+      font-weight: 500;
+    }
+  }
+
+  a {
+    font-size: 18px;
+    color: #c2c2c2;
+    font-weight: 500;
+  }
+}
+
+.woocommerce div.product .woocommerce-tabs .panel {
+  h2 {
+    display: none;
+  }
+}
+
+div.product .woocommerce-tabs {
+  border-bottom: 1px solid #ededed;
+  margin-bottom: 40px;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs::before {
+  border-bottom: 1px solid #ededed;
+}
+
+.woocommerce div.product .woocommerce-tabs .panel {
+  padding-top: 3px;
+}
+
+/**
+Style 2, thumbnails on left side
+ */
+
+.woocommerce {
+  div.product {
+    div.woocommerce-product-gallery-type-2 {
+      .flex-direction-nav{
+        width: 82%;
+        top: 46%;
+        @include bp-phone-xl(){
+          width: 100%;
+        }
+      }
+
+      .flex-control-thumbs {
+        margin-left: 0;
+        width: 100%;
+        padding-right: 13px;
+      }
+
+      .flex-viewport {
+        width: 82%;
+        float: right;
+        @include bp-phone-xl() {
+          width: 100%;
+        }
+      }
+
+      &.woocommerce-product-gallery-height-small {
+        .flex-control-nav {
+          width: 15%;
+        }
+
+        .flex-direction-nav {
+          width: 85%;
+          @include bp-phone-xl() {
+            width: 100%;
+          }
+        }
+
+        .flex-viewport {
+          width: 85%;
+          @include bp-phone-xl() {
+            width: 100%;
+          }
+        }
+      }
+
+      .flex-control-nav {
+        width: 18%;
+        float: left;
+        padding-top: 0;
+        display: flex;
+        flex-direction: column;
+
+        li {
+          width: 100%;
+          padding: 0;
+          margin-bottom: 7px;
+
+          img {
+            border: none;
+          }
+        }
+
+        &.slick-initialized {
+          margin-top: 40px;
+          max-width: initial;
+          @include bp-phone-xl() {
+            margin-top: 26px;
+          }
+
+          .slick-prev {
+            top: -30px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            transform: rotate(90deg);
+          }
+
+          .slick-next {
+            bottom: -30px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            transform: rotate(90deg);
+            top: initial;
+          }
+
+          .slick-track {
+            display: flex;
+            flex-direction: column;
+
+            li {
+              margin-top: 4px;
+              margin-bottom: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.flex-direction-nav {
+  position: absolute;
+  right: 0;
+  top: 40%;
+  margin: auto;
+  height: 50px;
+  width: 100%;
+  padding: 0 20px;
+  @include bp-phone-xl() {
+    width: 100%;
+    bottom: initial;
+    top: 45%;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+
+  .flex-nav-prev {
+    width: 40px;
+    height: 30px;
+    float: left;
+    text-indent: 1000px;
+    overflow: hidden;
+    position: relative;
+    @include bp-phone-xl() {
+      width: 35px;
+      height: 25px;
+    }
+
+    .flex-prev {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-image: url('./../../../../icons/arrow.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      transform: rotate(180deg);
+    }
+  }
+
+  .flex-nav-next {
+    width: 40px;
+    height: 30px;
+    float: right;
+    text-indent: 1000px;
+    overflow: hidden;
+    position: relative;
+    @include bp-phone-xl() {
+      width: 35px;
+      height: 25px;
+    }
+
+    .flex-next {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-image: url('./../../../../icons/arrow.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+
+.woocommerce div.product div.woocommerce-product-gallery-type-2 .flex-control-paging {
+  position: absolute;
+  width: 100%;
+  padding: 0;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  bottom: 0;
+  max-width: 60%;
+  margin: auto;
+  left: 0;
+  right: 0;
+  margin-bottom: 15px;
+
+  li {
+    max-width: 20px;
+    text-align: center;
+    display: inline-block;
+    background: #ffffff;
+    border-radius: 20px;
+    text-indent: 1000px;
+    overflow: hidden;
+    width: 10px;
+    height: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+    position: relative;
+    border: 1px solid black;
+
+    a {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+  }
+}
+
+/**
+Lightbox settings
+ */
+.pswp__ui .pswp__top-bar {
+  opacity: 1;
+}

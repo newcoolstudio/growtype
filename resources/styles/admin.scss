@@ -1,0 +1,17 @@
+@import "common/variables";
+@import "common/mixins";
+@import "components/lists";
+
+table.wp-list-table .column-product_type {
+  width: 10% !important;
+  text-align: left !important;
+}
+
+/**
+Editor autosize fix
+ */
+@media (min-width: 783px) {
+  body.acf-autosize-enabled .acf-field:not(.no-autosize) .mce-top-part {
+    top: 0 !important;
+  }
+}

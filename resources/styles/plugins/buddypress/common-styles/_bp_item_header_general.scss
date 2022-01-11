@@ -1,0 +1,378 @@
+// BP Single Screens Item Header General Styles.
+// @version 3.0.0
+
+.single-headers {
+
+  // Breakpoint element positioning
+
+  #item-header-avatar { // todo: this ought to be a class!
+
+    a {
+      display: inline-block;
+      text-align: center;
+      position: relative;
+
+      img {
+        float: none;
+
+        &.avatar {
+          margin-bottom: .75rem;
+          border-radius: 1rem;
+
+          @includepb-phone-xl() {
+            width: 150px;
+          }
+        }
+      }
+    }
+
+    .item-avatar {
+      position: relative;
+
+      .upload-profile-photo {
+        display: block;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        bottom: -.75rem;
+        transform: translate(-50%, -50%);
+        background: $color-theme;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i {
+          line-height: 30px;
+          font-size: 1rem;
+        }
+
+        .dashicons {
+          color: white;
+        }
+
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+
+    .profile-name {
+      font-size: 20px;
+      margin-bottom: 1rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 8px;
+
+      @includepb-phone-xl() {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  div#item-header-content {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    float: none;
+    float: none !important;
+    margin: auto !important;
+    max-width: initial !important;
+    width: 100% !important;
+
+    @include bp-phone-xl-reverse() {
+      margin: 0 1.5rem 1.5rem 0 !important;
+    }
+
+    margin-top: auto;
+
+    .action {
+      margin-left: auto;
+      margin-top: auto;
+      margin-bottom: auto;
+
+      .generic-button {
+        margin: 0;
+      }
+
+      @include bp-phone-xl() {
+        width: 100%;
+        display: -ms-flexbox;
+        display: flex;
+
+        .generic-button {
+          flex-grow: 1;
+          flex-basis: 0;
+
+          &:not(:last-child) {
+            border-right: 1px solid $color-black;
+          }
+
+          a,
+          button {
+            background: transparent;
+            position: relative;
+            width: 100%;
+            color: $color-primary;
+            border-radius: 0;
+            padding-left: .125rem;
+            padding-right: .125rem;
+            text-shadow: none;
+          }
+        }
+      }
+
+      @include bp-phone-xl-reverse() {
+
+        &.member-header-actions {
+
+          li {
+            margin: 0 !important;
+          }
+
+          .generic-button {
+
+            a, button {
+              padding: 10px 20px !important;
+              border-radius: 30px;
+              color: white !important;
+              background: rgba(255, 255, 255, 0.2) !important;
+              border: none !important;
+              font-size: 14px !important;
+            }
+
+          }
+        }
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  // End breakpoint positioning
+
+  .group-status,
+  .activity {
+    display: inline;
+    color: #fff;
+  }
+
+  .group-status {
+
+    font-size: 18px;
+    padding-right: $pad-med;
+
+    @include bp-phone-xl-reverse() {
+      display: none;
+    }
+  }
+
+  .activity {
+    display: inline-block;
+    font-size: 12px;
+    padding: 0;
+  }
+
+  div#message,
+  #sitewide-notice {
+
+    p {
+      background-color: #ffd;
+      border: 1px solid #cb2;
+      color: #440;
+      font-weight: 400;
+      margin-top: 3px;
+      text-decoration: none;
+    }
+  }
+
+  // @mention user name
+  h2 {
+    line-height: 1.2;
+    margin: 0 0 $marg-xsml;
+
+    a {
+      color: $color-white;
+      text-decoration: none;
+    }
+
+    span.highlight {
+      display: inline-block;
+      font-size: 60%;
+      font-weight: 400;
+      line-height: 1.7;
+      vertical-align: middle;
+
+      span {
+        background: #a1dcfa;
+        color: $color-white;
+        cursor: pointer;
+        font-size: 80%;
+        font-weight: 700;
+        margin-bottom: 2px;
+        padding: 1px 4px;
+        position: relative;
+        right: -2px;
+        top: -2px;
+        vertical-align: middle;
+      }
+
+    }
+
+  }
+
+  // close h2
+
+  img.avatar {
+    float: left;
+  }
+
+  .item-meta {
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    margin-bottom: 0;
+    padding: 0;
+
+    li {
+      float: right;
+      list-style: none;
+    }
+  }
+
+  div.generic-button {
+    text-align: center;
+  }
+
+  li.generic-button {
+    display: inline-block;
+    text-align: center;
+  }
+
+  @include bp-phone-xl() {
+
+    div.generic-button,
+    a.button,
+    li.generic-button {
+      float: left;
+    }
+  }
+
+  div.generic-button,
+  li.generic-button {
+    padding: .125rem;
+  }
+
+  div#message.info {
+    line-height: 0.8;
+  }
+
+  button,
+  .generic-button a {
+    background: rgba(#fff, .2);
+    border: 1px solid transparent;
+    color: #fff;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    text-shadow: none !important;
+    box-shadow: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: rgba(#fff, .3);
+    }
+  }
+
+  .bp-feedback {
+    display: none !important;
+  }
+
+}
+
+// close .single-headers
+
+body {
+
+  &.beehive-guest-user {
+
+    .single-headers {
+
+      div#item-header-content {
+
+        .action {
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+body.no-js .single-item-header .js-self-profile-button {
+  display: none;
+}
+
+.no-cover {
+  padding-top: 30px;
+  position: relative;
+
+  @include bp-phone-xl-reverse() {
+    border-bottom: 1px solid $color-black;
+  }
+
+  #item-header-avatar {
+    text-align: center;
+  }
+
+  .group-status {
+    color: $color-white;
+  }
+
+  #item-header-content {
+    width: 100%;
+    @include bp-phone-xl() {
+      flex-direction: column;
+      padding-bottom: 20px;
+      padding-top: 0;
+    }
+
+    .item-meta {
+      color: $color-text;
+    }
+
+    p.activity,
+    span.activity {
+      color: $color-text;
+    }
+
+    .action {
+
+      @include bp-phone-xl-reverse() {
+
+        .generic-button {
+
+          a,
+          button {
+            background: $color-primary;
+          }
+        }
+      }
+
+      //@include bp-phone-xl-reverse() {
+      //  border: 1px solid $color-black;
+      //}
+
+    }
+  }
+}

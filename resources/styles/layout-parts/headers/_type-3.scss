@@ -1,0 +1,33 @@
+/**
+Header type 3
+ */
+.header-type-3 {
+  .side-nav-wrapper {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 15px;
+    margin: auto;
+    height: 40px;
+    @include bp-tablet-big-reverse() {
+      top: -25px;
+      bottom: 0;
+    }
+
+    @include bp-tablet-big() {
+      right: 60px;
+    }
+
+    .side-nav {
+      position: relative;
+      right: 0;
+
+      .menu {
+        position: relative;
+        top: 0;
+        margin-right: 0;
+        //margin-left: 10px;
+      }
+    }
+  }
+}

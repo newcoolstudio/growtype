@@ -1,0 +1,5 @@
+.spinner-grow, .spinner-border {
+  @include position-absolute;
+  margin: auto;
+  z-index: 11;
+}

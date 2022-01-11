@@ -1,0 +1,50 @@
+{
+  "entry": {
+    "main": [
+      "./scripts/main.js",
+      "./styles/main.scss"
+    ],
+    "admin": [
+      "./styles/admin.scss"
+    ],
+    "backend-standard-editor": [
+      "./styles/backend-standard-editor.scss"
+    ],
+    "backend-block-editor": [
+      "./styles/backend-block-editor.scss"
+    ],
+    "frontend-block-editor": [
+      "./styles/frontend-block-editor.scss"
+    ],
+    "acf-main": [
+      "./scripts/plugins/acf/acf-main.js"
+    ],
+    "wc-main": [
+      "./scripts/plugins/woocommerce/wc-main.js"
+    ],
+    "wc-wishlist": [
+      "./scripts/plugins/woocommerce/wc-wishlist.js"
+    ],
+    "wc-login": [
+      "./scripts/plugins/woocommerce/wc-login.js"
+    ],
+    "wc-cart": [
+      "./scripts/plugins/woocommerce/wc-cart.js"
+    ],
+    "wc-checkout": [
+      "./scripts/plugins/woocommerce/wc-checkout.js"
+    ],
+    "wc-coupon": [
+      "./scripts/plugins/woocommerce/wc-coupon.js"
+    ]
+  },
+  "publicPath": "/app/themes/growtype",
+  "devUrl": "http://example.test",
+  "proxyUrl": "http://localhost:3000",
+  "cacheBusting": "[name]_[hash:8]",
+  "watch": [
+    "app/**/*.php",
+    "config/**/*.php",
+    "resources/views/**/*.php"
+  ]
+}

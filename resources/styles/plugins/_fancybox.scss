@@ -1,0 +1,69 @@
+.fancybox-nav span {
+  visibility: visible;
+}
+
+.fancybox-wrap-project {
+  min-width: 500px;
+  @include bp-phone-xl() {
+    min-width: 320px;
+  }
+  @include bp-phone-small() {
+    min-width: 280px;
+  }
+
+  .e-title {
+    color: $color-text;
+    padding-top: 10px;
+    font-size: 14px;
+  }
+
+  .fancybox-title-float-wrap {
+    left: 0;
+    right: 0;
+    bottom: -65px;
+
+    .child {
+      margin: 0;
+      width: 100%;
+      background: white;
+      text-shadow: none;
+      min-height: 105px;
+      border-top: 1px solid #eeeeee;
+      border-radius: 0px 0px 5px 5px;
+    }
+  }
+
+  .fancybox-inner {
+    margin: auto;
+  }
+
+  .project-details {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 7px;
+    max-width: 410px;
+    margin: auto;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+
+  .btn {
+    padding: 10px 30px;
+    font-size: 14px;
+    line-height: 18px;
+    min-width: 200px;
+    @include bp-phone-xl() {
+      min-width: 130px;
+      padding: 10px 25px;
+    }
+    @include bp-phone-small() {
+      min-width: 110px;
+    }
+
+    & + .btn {
+      width: initial;
+    }
+  }
+}
