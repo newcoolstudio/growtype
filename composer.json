@@ -3,22 +3,12 @@
   "type": "wordpress-theme",
   "license": "MIT",
   "description": "WordPress starter theme with a modern development workflow",
-  "homepage": "https://roots.io/sage/",
+  "homepage": "https://newcoolstudio.com/",
   "authors": [
     {
-      "name": "Ben Word",
-      "email": "ben@benword.com",
-      "homepage": "https://github.com/retlehs"
-    },
-    {
-      "name": "Scott Walkinshaw",
-      "email": "scott.walkinshaw@gmail.com",
-      "homepage": "https://github.com/swalkinshaw"
-    },
-    {
-      "name": "QWp6t",
-      "email": "hi@qwp6t.me",
-      "homepage": "https://github.com/qwp6t"
+      "name": "Vytautas Dir",
+      "email": "newcoolstudio@gmail.com",
+      "homepage": "https://newcoolstudio.com/"
     }
   ],
   "keywords": ["wordpress"],
