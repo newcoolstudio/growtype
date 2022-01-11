@@ -1,4 +1,4 @@
-Growtype is a WordPress starter theme with a modern development tools.
+Growtype is a starter theme with a modern structure and development tools.
 
 ## Features
 
