@@ -5,7 +5,7 @@
         'type' => 'wordpress-theme',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '3d79ccf6179685839c4101448b9d388288fa45c1',
+        'reference' => '7ba74420a6757f42a2441b902530beb998237856',
         'name' => 'newcoolstudio/growtype',
         'dev' => true,
     ),
@@ -17,7 +17,7 @@
             'install_path' => __DIR__ . '/../brain/hierarchy',
             'aliases' => array(),
             'reference' => 'd5d46c6a44f84e59384b0d4d61b27cb5b91bc523',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'composer/installers' => array(
             'pretty_version' => 'v1.12.0',
@@ -26,7 +26,7 @@
             'install_path' => __DIR__ . '/./installers',
             'aliases' => array(),
             'reference' => 'd20a64ed3c94748397ff5973488761b22f6d3f19',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'doctrine/inflector' => array(
             'pretty_version' => '1.4.4',
@@ -35,7 +35,7 @@
             'install_path' => __DIR__ . '/../doctrine/inflector',
             'aliases' => array(),
             'reference' => '4bd5c1cdfcd00e9e2d8c484f79150f67e5d355d9',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'illuminate/config' => array(
             'pretty_version' => 'v5.6.39',
@@ -44,7 +44,7 @@
             'install_path' => __DIR__ . '/../illuminate/config',
             'aliases' => array(),
             'reference' => '61f4eb8145a1473577a9876471c92fa4de4718a7',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'illuminate/console' => array(
             'pretty_version' => 'v5.6.39',
@@ -62,7 +62,7 @@
             'install_path' => __DIR__ . '/../illuminate/container',
             'aliases' => array(),
             'reference' => '779b56b37396b888414622d5667d3bcc205964ab',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'illuminate/contracts' => array(
             'pretty_version' => 'v5.6.39',
@@ -71,7 +71,7 @@
             'install_path' => __DIR__ . '/../illuminate/contracts',
             'aliases' => array(),
             'reference' => '66b653fd430bf06f59cef1112197d009bd02da84',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'illuminate/events' => array(
             'pretty_version' => 'v5.6.39',
@@ -80,7 +80,7 @@
             'install_path' => __DIR__ . '/../illuminate/events',
             'aliases' => array(),
             'reference' => 'c702e65fe37458fece6ae87ce7906aaa614383d6',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'illuminate/filesystem' => array(
             'pretty_version' => 'v5.6.39',
@@ -89,7 +89,7 @@
             'install_path' => __DIR__ . '/../illuminate/filesystem',
             'aliases' => array(),
             'reference' => 'b25940b428c9fd284feaad20e176ace8d780973b',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'illuminate/support' => array(
             'pretty_version' => 'v5.6.39',
@@ -98,7 +98,7 @@
             'install_path' => __DIR__ . '/../illuminate/support',
             'aliases' => array(),
             'reference' => 'e2fce24254b8f60a2f92a3ab485799b372625a06',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'illuminate/view' => array(
             'pretty_version' => 'v5.6.39',
@@ -107,7 +107,7 @@
             'install_path' => __DIR__ . '/../illuminate/view',
             'aliases' => array(),
             'reference' => '60fd8f12340417a4312e5d90961510333d4f1d46',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'kylekatarnls/update-helper' => array(
             'pretty_version' => '1.2.1',
@@ -116,7 +116,7 @@
             'install_path' => __DIR__ . '/../kylekatarnls/update-helper',
             'aliases' => array(),
             'reference' => '429be50660ed8a196e0798e5939760f168ec8ce9',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'nesbot/carbon' => array(
             'pretty_version' => '1.25.3',
@@ -125,7 +125,7 @@
             'install_path' => __DIR__ . '/../nesbot/carbon',
             'aliases' => array(),
             'reference' => 'ad6afecd38ce2d7f7bd1b5d47ffd8e93ebbd3ed8',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'newcoolstudio/growtype' => array(
             'pretty_version' => 'dev-master',
@@ -133,7 +133,7 @@
             'type' => 'wordpress-theme',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '3d79ccf6179685839c4101448b9d388288fa45c1',
+            'reference' => '7ba74420a6757f42a2441b902530beb998237856',
             'dev_requirement' => false,
         ),
         'paragonie/random_compat' => array(
@@ -152,7 +152,7 @@
             'install_path' => __DIR__ . '/../psr/container',
             'aliases' => array(),
             'reference' => '513e0666f7216c7459170d56df27dfcefe1689ea',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'psr/log' => array(
             'pretty_version' => '1.1.4',
@@ -161,7 +161,7 @@
             'install_path' => __DIR__ . '/../psr/log',
             'aliases' => array(),
             'reference' => 'd49695b909c3b7628b6289db5479a1c204601f11',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'psr/log-implementation' => array(
             'dev_requirement' => true,
@@ -176,7 +176,7 @@
             'install_path' => __DIR__ . '/../psr/simple-cache',
             'aliases' => array(),
             'reference' => '408d5eafb83c57f6365a3ca330ff23aa4a5fa39b',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'ramsey/uuid' => array(
             'pretty_version' => '3.9.6',
@@ -209,7 +209,7 @@
             'install_path' => __DIR__ . '/../roots/sage-lib',
             'aliases' => array(),
             'reference' => 'b9adfbd72faf997b226d5a9f06b8ea74260e72fd',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'roots/sage-woocommerce' => array(
             'pretty_version' => '1.0.5',
@@ -218,16 +218,16 @@
             'install_path' => __DIR__ . '/../roots/sage-woocommerce',
             'aliases' => array(),
             'reference' => 'f4e790b04481087e952f9cddb172832a5cce3a6c',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'roundcube/plugin-installer' => array(
-            'dev_requirement' => false,
+            'dev_requirement' => true,
             'replaced' => array(
                 0 => '*',
             ),
         ),
         'shama/baton' => array(
-            'dev_requirement' => false,
+            'dev_requirement' => true,
             'replaced' => array(
                 0 => '*',
             ),
@@ -239,7 +239,7 @@
             'install_path' => __DIR__ . '/../soberwp/controller',
             'aliases' => array(),
             'reference' => '4604826307b4e552c5fb69888ac882c3139dde81',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'squizlabs/php_codesniffer' => array(
             'pretty_version' => '2.9.2',
@@ -266,7 +266,7 @@
             'install_path' => __DIR__ . '/../symfony/debug',
             'aliases' => array(),
             'reference' => '346e1507eeb3f566dcc7a116fefaa407ee84691b',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'symfony/deprecation-contracts' => array(
             'pretty_version' => 'v2.5.0',
@@ -284,7 +284,7 @@
             'install_path' => __DIR__ . '/../symfony/finder',
             'aliases' => array(),
             'reference' => '1fef05633cd61b629e963e5d8200fb6b67ecf42c',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'symfony/polyfill-ctype' => array(
             'pretty_version' => 'v1.24.0',
@@ -302,7 +302,7 @@
             'install_path' => __DIR__ . '/../symfony/polyfill-mbstring',
             'aliases' => array(),
             'reference' => '0abb51d2f102e00a4eefcf46ba7fec406d245825',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'symfony/polyfill-php73' => array(
             'pretty_version' => 'v1.24.0',
@@ -320,7 +320,7 @@
             'install_path' => __DIR__ . '/../symfony/polyfill-php80',
             'aliases' => array(),
             'reference' => '57b712b08eddb97c762a8caa32c84e037892d2e9',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'symfony/process' => array(
             'pretty_version' => 'v3.4.47',
@@ -347,7 +347,7 @@
             'install_path' => __DIR__ . '/../symfony/translation',
             'aliases' => array(),
             'reference' => '26d330720627b234803595ecfc0191eeabc65190',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'symfony/translation-contracts' => array(
             'pretty_version' => 'v2.5.0',
@@ -356,10 +356,10 @@
             'install_path' => __DIR__ . '/../symfony/translation-contracts',
             'aliases' => array(),
             'reference' => 'd28150f0f44ce854e942b671fc2620a98aae1b1e',
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'symfony/translation-implementation' => array(
-            'dev_requirement' => false,
+            'dev_requirement' => true,
             'provided' => array(
                 0 => '1.0|2.0',
             ),
