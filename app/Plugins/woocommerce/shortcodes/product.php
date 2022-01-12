@@ -18,9 +18,9 @@ function products_custom_shortcode($atts, $content = null)
         'columns' => '',
         'orderby' => 'date',
         'order' => 'desc',
-        'visibility' => 'any',
+        'visibility' => 'catalog',
         'type' => '',
-        'post_status' => '',
+        'post_status' => 'publish',
     ), $atts));
 
     $args = array (
