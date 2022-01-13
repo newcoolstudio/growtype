@@ -37,6 +37,21 @@ if (empty($product) || !$is_visible) {
  * Remove firs,last classes
  */
 $classes = wc_get_product_class(get_theme_mod('woocommerce_product_preview_style'), $product);
+
+/**
+ * Cta disabled class
+ */
+if (product_preview_cta_disabled() && !get_query_var('cta_btn')) {
+    array_push($classes, 'cta-disabled');
+}
+
+/**
+ * Add auction classes
+ */
+if (Growtype_Auction::has_started()) {
+    array_push($classes, 'auction-has-started');
+}
+
 $classes = implode(' ', $classes);
 
 if ($filterClasses ?? '') {

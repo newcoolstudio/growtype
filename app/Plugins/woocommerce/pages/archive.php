@@ -1,6 +1,25 @@
 <?php
 
 /**
+ * @param $orderby
+ * @return mixed
+ * Edit WooCommerce orderby dropdown menu items of shop page
+ */
+add_filter("woocommerce_catalog_orderby", "growtype_woocommerce_catalog_orderby", 20);
+function growtype_woocommerce_catalog_orderby($orderby)
+{
+    $disabled_options = explode(',', get_theme_mod('catalog_orderby_switch_disabled_options')) ?? null;
+
+    if (!empty($disabled_options)) {
+        foreach ($disabled_options as $option) {
+            unset($orderby[$option]);
+        }
+    }
+
+    return $orderby;
+}
+
+/**
  * Default catalog products ordering
  */
 add_filter('woocommerce_default_catalog_orderby', 'default_catalog_orderby');

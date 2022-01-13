@@ -56,14 +56,14 @@ $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_custom
 /**
  * Products display style
  */
-$wp_customize->add_setting('wc_catalog_products_display_style',
+$wp_customize->add_setting('wc_catalog_products_preview_style',
     array (
         'default' => 'grid',
         'transport' => 'refresh',
     )
 );
 
-$wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'wc_catalog_products_display_style',
+$wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'wc_catalog_products_preview_style',
     array (
         'label' => __('Products display style', 'growtype'),
         'description' => esc_html__('Choose how products should be displayed', 'growtype'),

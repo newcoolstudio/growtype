@@ -18,5 +18,6 @@
 if (!defined('ABSPATH')) {
     exit;
 }
+
 ?>
-<ul class="products columns-<?php echo esc_attr(wc_get_loop_prop('columns')); ?> display-<?php echo get_theme_mod('wc_catalog_products_display_style'); ?>">
+<ul class="products columns-<?php echo esc_attr(wc_get_loop_prop('columns')); ?> preview-style--<?php echo isset($preview_style) && !empty($preview_style) ? $preview_style : get_theme_mod('wc_catalog_products_preview_style'); ?>">

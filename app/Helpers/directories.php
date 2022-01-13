@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Template
+ * Parent template
  */
 
 /**
  * @return string
  */
-function get_template_public_path()
+function get_parent_template_public_path()
 {
     return dirname(get_template_directory_uri()) . '/public';
 }
@@ -15,7 +15,7 @@ function get_template_public_path()
 /**
  * @return string
  */
-function get_template_resource_path()
+function get_parent_template_resource_path()
 {
     return dirname(get_template_directory()) . '/resources';
 }
@@ -23,7 +23,7 @@ function get_template_resource_path()
 /**
  * @return string
  */
-function get_template_views_path()
+function get_parent_template_views_path()
 {
     return dirname(get_template_directory()) . '/resources/views';
 }
@@ -31,19 +31,19 @@ function get_template_views_path()
 /**
  * @return string
  */
-function get_template_app_path()
+function get_parent_template_app_path()
 {
     return dirname(get_template_directory()) . '/app';
 }
 
 /**
- * Stylesheet
+ * Child template
  */
 
 /**
  * @return string
  */
-function get_stylesheet_public_path()
+function get_child_template_public_path()
 {
     return dirname(get_stylesheet_directory_uri()) . '/public';
 }
@@ -51,7 +51,7 @@ function get_stylesheet_public_path()
 /**
  * @return string
  */
-function get_stylesheet_resource_path()
+function get_child_template_resource_path()
 {
     return dirname(get_stylesheet_directory()) . '/resources';
 }

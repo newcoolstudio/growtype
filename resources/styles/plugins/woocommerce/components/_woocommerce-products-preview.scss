@@ -28,9 +28,11 @@
       }
     }
 
-    //&.first {
-    //  clear: both;
-    //}
+    &.cta-disabled {
+      .button {
+        display: none;
+      }
+    }
 
     a {
       &:focus {
@@ -342,12 +344,19 @@
   }
 }
 
-
 .woocommerce .products.products-amount-3 {
   .product {
     width: calc(100% / 3);
     @include bp-phone-xl() {
       width: 100%;
+    }
+  }
+}
+
+.woocommerce-loop-product__link {
+  &:hover {
+    .content-wrapper {
+      color: $color-text;
     }
   }
 }

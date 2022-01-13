@@ -19,32 +19,48 @@ include('payments/gateways.php');
 
 include('orders/orders.php');
 
-include('components/messages.php');
-include('components/cart.php');
-include('components/checkout.php');
-include('components/product-loop-thumbnail.php');
-include('components/product-loop-link.php');
-include('components/reviews.php');
-include('components/products-ordering.php');
-include('components/product.php');
-include('components/coupon.php');
-include('components/buttons.php');
+/**
+ * Product single
+ */
+include('components/product-single-meta.php');
+include('components/product-single-intro.php');
 include('components/product-single-tabs.php');
 include('components/product-single-description.php');
 include('components/product-single-excerpt.php');
 include('components/product-single-details.php');
 include('components/product-single-gallery.php');
-include('components/product-preview.php');
 include('components/product-single-related-products.php');
-include('components/product-single-meta.php');
+include('components/product-single-button.php');
+include('components/product-single-reviews.php');
 
+/**
+ * Product loop
+ */
+include('components/product-loop-thumbnail.php');
+include('components/product-loop-button.php');
+include('components/product-loop-rating.php');
+
+include('components/product-price.php');
+
+/**
+ * Product cart
+ */
+include('cart/main.php');
+
+/**
+ * Widgets
+ */
 include('widgets/widgets.php');
 
+/**
+ * Pages
+ */
 include('pages/wishlist.php');
-include('pages/product-single.php');
+include('pages/product-inner.php');
 include('pages/login.php');
 include('pages/archive.php');
 include('pages/checkout.php');
+include('pages/cart.php');
 include('pages/account/account.php');
 
 /**

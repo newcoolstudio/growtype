@@ -5,7 +5,7 @@
  */
 function get_bp_template_path()
 {
-    return get_template_app_path() . '/Plugins/buddypress/templates';
+    return get_parent_template_app_path() . '/Plugins/buddypress/templates';
 }
 
 /**

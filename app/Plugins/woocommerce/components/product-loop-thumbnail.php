@@ -3,7 +3,6 @@
 /**
  * WooCommerce Loop Product Thumbs
  **/
-
 if (!function_exists('woocommerce_template_loop_product_thumbnail')) {
     function woocommerce_template_loop_product_thumbnail()
     {

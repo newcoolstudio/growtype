@@ -89,8 +89,18 @@
   }
 
   &.woocommerce {
-    ul.products li.product.first {
-      clear: none;
+    ul.products {
+      li.product {
+        &.cta-disabled {
+          .button {
+            display: none;
+          }
+        }
+
+        .first {
+          clear: none;
+        }
+      }
     }
   }
 }

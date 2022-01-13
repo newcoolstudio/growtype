@@ -19,34 +19,18 @@ function products_custom_shortcode($atts, $content = null)
         'orderby' => 'date',
         'order' => 'desc',
         'visibility' => 'catalog',
-        'type' => '',
+        'products_cat' => 'default',
+        'preview_style' => '',
+        'edit_product' => false,
         'post_status' => 'publish',
+        'cta_btn' => '',
     ), $atts));
 
     $args = array (
         'post_type' => 'product',
         'post_status' => $post_status,
         'orderby' => $orderby,
-        'order' => $order,
-//        'meta_query' => array (
-//            array (
-//                'key' => '_visibility',
-//                'value' => array ('catalog', 'visible'),
-//                'compare' => 'IN'
-//            ),
-//            array (
-//                'key' => '_featured',
-//                'value' => 'yes'
-//            )
-//        ),
-//        'tax_query' => array (
-//            array (
-//                'taxonomy' => 'product_cat',
-//                'terms' => array (esc_attr($category)),
-//                'field' => 'slug',
-//                'operator' => 'IN'
-//            )
-//        )
+        'order' => $order
     );
 
     if (!empty($ids)) {
@@ -57,8 +41,37 @@ function products_custom_shortcode($atts, $content = null)
         $args['posts_per_page'] = $per_page;
     }
 
+    /**
+     * Display type
+     */
+    if ($products_cat === 'active-auctions') {
+        $args['meta_query'] = [
+            array (
+                'key' => '_auction_has_started',
+                'compare' => '1'
+            )
+        ];
+    } elseif ($products_cat === 'active-upcoming-auctions') {
+        $args['meta_query'] = [
+            array (
+                'key' => '_auction_closed',
+                'compare' => 'NOT EXISTS'
+            ),
+            array (
+                'key' => '_auction_start_price',
+                'compare' => 'EXISTS'
+            )
+        ];
+    }
+
+    /**
+     * Permalink
+     */
     $permalink = null;
 
+    /**
+     * Render
+     */
     ob_start();
 
     $products = new WP_Query($args);
@@ -67,23 +80,31 @@ function products_custom_shortcode($atts, $content = null)
         $woocommerce_loop['columns'] = $columns;
     }
 
+    if ($cta_btn) {
+        set_query_var('cta_btn', $cta_btn);
+    }
+
     if ($products->have_posts()) : ?>
 
-        <?php wc_get_template('loop/loop-start.php'); ?>
+        <?php wc_get_template('loop/loop-start.php', ['preview_style' => $preview_style]); ?>
 
-            <?php while ($products->have_posts()) : $products->the_post(); ?>
+        <?php while ($products->have_posts()) : $products->the_post(); ?>
 
-                <?php
-                if ($type === 'edit') {
-                    $permalink = get_permalink() . '?customize=preview';
-                }
+            <?php
+            /**
+             * Permalink change
+             */
+            if ($edit_product) {
+                $permalink = get_permalink() . '?customize=preview';
+            }
 
-                set_query_var('is_visible', $visibility);
-                set_query_var('permalink', $permalink);
-                wc_get_template_part('content', 'product');
-                ?>
+            set_query_var('is_visible', $visibility);
+            set_query_var('permalink', $permalink);
 
-            <?php endwhile; // end of the loop. ?>
+            wc_get_template_part('content', 'product');
+            ?>
+
+        <?php endwhile; // end of the loop. ?>
 
         <?php wc_get_template('loop/loop-end.php'); ?>
 

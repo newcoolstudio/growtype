@@ -24,12 +24,12 @@ function gutenberg_block_editor_assets()
     if (get_post_type()) {
         wp_enqueue_style(
             'gutenberg-block-editor-styles',
-            get_template_public_path() . '/styles/backend-block-editor.css',
+            get_parent_template_public_path() . '/styles/backend-block-editor.css',
             false
         );
 
         wp_enqueue_script('gutenberg-block-editor-scripts',
-            get_template_public_path() . '/scripts/backend-block-editor.js',
+            get_parent_template_public_path() . '/scripts/backend-block-editor.js',
             [], '1.0.0', true);
     }
 
