@@ -275,7 +275,7 @@ function customizer_update_css()
         input[type=submit]:hover,
         .wp-block-button__link,
         .wp-block-button__link:hover {
-            background: <?php echo get_theme_mod('primary_button_background_color')?>;
+            background: <?php echo get_theme_mod('primary_button_background_color')?>!important;
             border: 1px solid<?php echo get_theme_mod('primary_button_background_color')?>;
         }
 
@@ -415,6 +415,16 @@ function customizer_update_css()
         .btn-secondary,
         input[type=submit] {
             text-transform: <?php echo get_theme_mod('button_text_transform'); ?>;
+        }
+
+        <?php } ?>
+
+        <?php
+       if(get_theme_mod('button_border_radius')){ ?>
+        .btn-primary,
+        .btn-secondary,
+        input[type=submit] {
+            border-radius: <?php echo get_theme_mod('button_border_radius'); ?>;
         }
 
         <?php } ?>

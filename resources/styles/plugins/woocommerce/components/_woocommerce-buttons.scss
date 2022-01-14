@@ -56,7 +56,6 @@
     &:not(.btn) {
       text-align: $text-align-btn;
       background: #fff;
-      border-radius: $radius-btn;
       transition: $transition-btn;
       background: $color-btn-bg;
       border: $border-btn;
@@ -102,7 +101,6 @@
     background: $color-btn-bg;
     text-align: $text-align-btn;
     background: #fff;
-    border-radius: $radius-btn;
     transition: $transition-btn;
     background: $color-btn-bg;
     border: $border-btn;

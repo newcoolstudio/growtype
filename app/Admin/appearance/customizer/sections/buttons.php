@@ -20,7 +20,7 @@ function buttons_customize_register($wp_customize)
 
     $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'button_text_transform',
         array (
-            'label' => __('Button Text Transform', 'growtype'),
+            'label' => __('Button "Text Transform"', 'growtype'),
             'description' => esc_html__('Choose button text transform', 'growtype'),
             'section' => 'buttons',
             'input_attrs' => array (
@@ -31,6 +31,19 @@ function buttons_customize_register($wp_customize)
                 'uppercase' => __('Uppercase', 'growtype')
             )
         )
+    ));
+
+    /**
+     * Border radius
+     */
+    $wp_customize->add_setting("button_border_radius", array (
+        "default" => "5px",
+    ));
+
+    $wp_customize->add_control('button_border_radius', array (
+        'label' => esc_html__('Button "Border Radius"'),
+        'section' => 'buttons',
+        'description' => __('Choose button border radius', 'growtype'),
     ));
 
     /**
