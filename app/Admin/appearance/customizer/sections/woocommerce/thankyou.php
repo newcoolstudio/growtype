@@ -38,7 +38,7 @@ $wp_customize->add_setting('woocommerce_thankyou_page_style',
 
 $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'woocommerce_thankyou_page_style',
     array (
-        'label' => __('Page Style', 'skyrocket'),
+        'label' => __('Page Style', 'growtype'),
         'description' => esc_html__('Choose page style', 'growtype'),
         'section' => 'woocommerce_thankyou_page',
         'input_attrs' => array (

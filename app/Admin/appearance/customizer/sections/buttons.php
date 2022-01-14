@@ -9,6 +9,31 @@ function buttons_customize_register($wp_customize)
     ));
 
     /**
+     * Button text transform
+     */
+    $wp_customize->add_setting('button_text_transform',
+        array (
+            'default' => 'uppercase',
+            'transport' => 'refresh',
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'button_text_transform',
+        array (
+            'label' => __('Button Text Transform', 'growtype'),
+            'description' => esc_html__('Choose button text transform', 'growtype'),
+            'section' => 'buttons',
+            'input_attrs' => array (
+                'multiselect' => false,
+            ),
+            'choices' => array (
+                'initial' => __('Initial', 'growtype'),
+                'uppercase' => __('Uppercase', 'growtype')
+            )
+        )
+    ));
+
+    /**
      * Button style 1
      */
     $wp_customize->add_setting('primary_button_style_select',
@@ -20,7 +45,7 @@ function buttons_customize_register($wp_customize)
 
     $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'primary_button_style_select',
         array (
-            'label' => __('"Primary" Button Style', 'skyrocket'),
+            'label' => __('"Primary" Button Style', 'growtype'),
             'description' => esc_html__('Choose primary button style', 'growtype'),
             'section' => 'buttons',
             'input_attrs' => array (
@@ -71,7 +96,7 @@ function buttons_customize_register($wp_customize)
 
     $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'secondary_button_style_select',
         array (
-            'label' => __('"Secondary" Button Style', 'skyrocket'),
+            'label' => __('"Secondary" Button Style', 'growtype'),
             'description' => esc_html__('Choose secondary button style', 'growtype'),
             'section' => 'buttons',
             'input_attrs' => array (
@@ -171,7 +196,7 @@ function buttons_customize_register($wp_customize)
 
     $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'checkout_button_style_select',
         array (
-            'label' => __('"Checkout" Button Style', 'skyrocket'),
+            'label' => __('"Checkout" Button Style', 'growtype'),
             'description' => esc_html__('Choose checkout button style', 'growtype'),
             'section' => 'buttons',
             'input_attrs' => array (

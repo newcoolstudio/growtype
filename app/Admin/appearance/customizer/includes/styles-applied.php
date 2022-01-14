@@ -408,6 +408,16 @@ function customizer_update_css()
         }
 
         <?php } ?>
+
+        <?php
+        if(get_theme_mod('button_text_transform')){ ?>
+        .btn-primary,
+        .btn-secondary,
+        input[type=submit] {
+            text-transform: <?php echo get_theme_mod('button_text_transform'); ?>;
+        }
+
+        <?php } ?>
     </style>
     <?php
 }

@@ -403,7 +403,7 @@ if (class_exists('WP_Customize_Control')) {
             // Merge the passed button labels with our default labels
             $this->button_labels = wp_parse_args($this->button_labels,
                 array (
-                    'add' => __('Add', 'skyrocket'),
+                    'add' => __('Add', 'growtype'),
                 )
             );
         }
@@ -783,7 +783,7 @@ if (class_exists('WP_Customize_Control')) {
                             ?>
                         </select>
                     </div>
-                    <div class="customize-control-description"><?php esc_html_e('Select weight & style for regular text', 'skyrocket') ?></div>
+                    <div class="customize-control-description"><?php esc_html_e('Select weight & style for regular text', 'growtype') ?></div>
                     <div class="weight-style">
                         <select class="google-fonts-regularweight-style">
                             <?php
@@ -793,8 +793,8 @@ if (class_exists('WP_Customize_Control')) {
                             ?>
                         </select>
                     </div>
-                    <div class="customize-control-description"><?php esc_html_e('Select weight for', 'skyrocket') ?>
-                        <italic><?php esc_html_e('italic text', 'skyrocket') ?></italic>
+                    <div class="customize-control-description"><?php esc_html_e('Select weight for', 'growtype') ?>
+                        <italic><?php esc_html_e('italic text', 'growtype') ?></italic>
                     </div>
                     <div class="weight-style">
                         <select class="google-fonts-italicweight-style" <?php disabled(in_array('italic', $this->fontList[$this->fontListIndex]->variants), false); ?>>
@@ -813,7 +813,7 @@ if (class_exists('WP_Customize_Control')) {
                             ?>
                         </select>
                     </div>
-                    <div class="customize-control-description"><?php esc_html_e('Select weight for', 'skyrocket') ?> <strong><?php esc_html_e('bold text', 'skyrocket') ?></strong></div>
+                    <div class="customize-control-description"><?php esc_html_e('Select weight for', 'growtype') ?> <strong><?php esc_html_e('bold text', 'skyrocket') ?></strong></div>
                     <div class="weight-style">
                         <select class="google-fonts-boldweight-style">
                             <?php

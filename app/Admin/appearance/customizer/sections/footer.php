@@ -62,7 +62,7 @@ function footer_customize_register($wp_customize)
     );
     $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'footer_type_select',
         array (
-            'label' => __('Footer Style', 'skyrocket'),
+            'label' => __('Footer Style', 'growtype'),
             'description' => esc_html__('Choose footer style', 'growtype'),
             'section' => 'footer',
             'input_attrs' => array (

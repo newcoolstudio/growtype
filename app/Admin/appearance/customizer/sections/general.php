@@ -94,7 +94,7 @@ function theme_general_customize_register($wp_customize)
 
     $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'theme_general_gdpr_position',
         array (
-            'label' => __('GDPR Position', 'skyrocket'),
+            'label' => __('GDPR Position', 'growtype'),
             'description' => esc_html__('Choose GDPR position', 'growtype'),
             'section' => 'theme-general',
             'input_attrs' => array (
