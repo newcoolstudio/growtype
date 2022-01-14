@@ -1,2 +1,1 @@
 !function(e){"use strict";e("select#billing_country, select#shipping_country").on("change",(function(){window.select.chosen("destroy"),setTimeout((function(){window.select=e("select:visible"),window.select.chosen(window.selectArgs)}),200)})),e("body").on("updated_checkout",(function(){e(".wc_payment_methods .payment_box").each((function(t,n){0===e(n).find("p").length&&e(this).hasClass("payment_method_braintree_paypal")&&e(this).addClass("is-disabled")}))}))}(jQuery);
-//# sourceMappingURL=wc-checkout.js.map

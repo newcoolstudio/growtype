@@ -35,6 +35,8 @@ mix
     .sass('resources/styles/plugins/acf/acf.scss', 'styles/plugins/acf', sassOptions)
     .sass('resources/styles/plugins/buddypress/buddypress.scss', 'styles/plugins/buddypress', sassOptions)
 
+    .version();
+
 mix
     .js('resources/scripts/app.js', 'scripts')
     .js('resources/scripts/frontend-block-editor.js', 'scripts')
@@ -77,7 +79,3 @@ mix.copy('node_modules/@fancyapps/', 'public/vendor/@fancyapps')
     .copy('node_modules/slick-carousel/', 'public/vendor/slick-carousel')
     .copy('node_modules/chosen-js/', 'public/vendor/chosen-js')
     .copy('node_modules/select2/', 'public/vendor/select2');
-
-mix
-    .sourceMaps()
-    .version();
