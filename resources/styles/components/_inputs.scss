@@ -30,23 +30,29 @@ textarea {
 Checkbox
  */
 input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
+  width: 19px;
+  height: 19px;
   position: relative;
-  min-width: 20px;
-  min-height: 20px;
+  min-width: 19px;
+  min-height: 19px;
+  cursor: pointer;
+  margin-left: 1px;
+  margin-right: 7px;
+  top: -1px;
 
   &:before {
     content: "";
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background: white;
+    left: -1px;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
     position: absolute;
     color: white;
     font-size: 19px;
     border: 1px solid $color-dark-grey;
+    border-radius: 5px;
+    background: #f0f0f0;
+    border-color: #e6e6e6;
   }
 
   &:checked {

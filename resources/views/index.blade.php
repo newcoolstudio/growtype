@@ -21,7 +21,7 @@
             </div>
 
             <nav class="pagination pagination-posts">
-                {!! get_posts_pagination() !!}
+                {!! growtype_get_pagination() !!}
             </nav>
         </div>
     </section>

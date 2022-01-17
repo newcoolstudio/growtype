@@ -5,7 +5,22 @@
  * @param int $length
  * @return string
  */
-function get_post_content_limited($initial_content, $length = 125)
+function growtype_get_post_content($postId)
+{
+    $content_post = get_post($postId);
+    $content = $content_post->post_content;
+    $content = apply_filters('the_content', $content);
+    $content = str_replace(']]>', ']]&gt;', $content);
+
+    return $content;
+}
+
+/**
+ * @param $initial_content
+ * @param int $length
+ * @return string
+ */
+function growtype_get_post_content_limited($initial_content, $length = 125)
 {
     $content = $initial_content;
     $content = strip_shortcodes($content);
@@ -22,7 +37,7 @@ function get_post_content_limited($initial_content, $length = 125)
  * @param $post
  * @return string
  */
-function get_post_reading_time($post)
+function growtype_get_post_reading_time($post)
 {
     if (!isset($post->ID)) {
         return false;
@@ -44,7 +59,7 @@ function get_post_reading_time($post)
 /**
  * @param null $custom_query
  */
-function get_posts_pagination($custom_query = null)
+function growtype_get_pagination($custom_query = null)
 {
     if (empty($custom_query)) {
         global $wp_query;

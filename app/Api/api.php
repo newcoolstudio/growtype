@@ -23,7 +23,7 @@ function add_custom_fields()
         'post',
         'reading_time',
         array (
-            'get_callback' => 'get_post_reading_time',
+            'get_callback' => 'growtype_get_post_reading_time',
             'update_callback' => null,
             'schema' => null,
         )

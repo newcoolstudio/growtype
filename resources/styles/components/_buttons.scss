@@ -4,6 +4,17 @@
   cursor: pointer;
 }
 
+div[class^='btn-'], button[class^='btn-'], a[class^='btn-'] {
+  cursor: pointer;
+  z-index: 1;
+  position: relative;
+
+  &:hover {
+    opacity: 0.7;
+    transition: 0.5s;
+  }
+}
+
 .btn-primary,
 .btn-secondary,
 input[type=submit] {
@@ -112,5 +123,52 @@ Add remove
     margin-right: 6px;
     position: relative;
     top: 2px;
+  }
+}
+
+.btn-close {
+  background: none;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+  opacity: 1;
+
+  &:before {
+    content: "\f335";
+    font-family: dashicons;
+    width: 20px;
+    height: 20px;
+    font-size: 22px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    line-height: 20px;
+  }
+}
+
+.btn-back {
+  background: none;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+
+  &:before {
+    content: "\f340";
+    font-family: dashicons;
+    width: 20px;
+    height: 20px;
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    line-height: 20px;
   }
 }

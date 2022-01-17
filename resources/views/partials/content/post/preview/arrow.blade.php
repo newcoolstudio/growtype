@@ -2,7 +2,7 @@
     <div class="b-post-single-img" style="<?php echo get_featured_image_tag($post) ?>"></div>
     <div class="b-post-single-content">
         <p class="e-title">{{$post->post_title}}</p>
-        <p class="e-details">{{get_post_content_limited($post->post_excerpt)}}</p>
+        <p class="e-details">{{growtype_get_post_content_limited($post->post_excerpt)}}</p>
         <div class="b-post-single-footer">
             <button class="btn btn-basic"><?php echo __('Read more', 'growtype') ?></button>
             <span class="e-arrow"></span>

@@ -25,8 +25,11 @@ function woocommerce_blocks_product_grid_item_html_custom($content, $data, $prod
     /**
      * Change button text if different
      */
-    if (get_add_to_cart_btn_text($product) !== 'Add to bag') {
-        $data->button = str_replace('Add to bag', get_add_to_cart_btn_text($product), $data->button);
+    $default_add_to_cart_text = '';
+    $default_add_to_cart_text = apply_filters('woocommerce_product_single_add_to_cart_text', $default_add_to_cart_text);
+
+    if (!empty(get_add_to_cart_btn_text($product))) {
+        $data->button = str_replace($default_add_to_cart_text, get_add_to_cart_btn_text($product), $data->button);
     }
 
     $price_disabled = get_post_meta($product->get_id(), '_hide_product_price', true);

@@ -10,7 +10,7 @@
             <h4>{!! $post->post_title !!}</h4>
             <p>{{$post->post_excerpt}}</p>
             <div class="e-intro">
-                {{get_post_content_limited($post->post_content)}}
+                {{growtype_get_post_content_limited($post->post_content)}}
             </div>
         </div>
         <div class="read-more">

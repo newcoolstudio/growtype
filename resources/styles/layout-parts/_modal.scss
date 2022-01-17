@@ -1,0 +1,56 @@
+.modal {
+  .modal-header {
+    background: $color-theme;
+
+    .btn-close {
+      position: absolute;
+      right: 25px;
+      top: 28px;
+      color: white;
+      background: none;
+      padding: 0;
+
+      .dashicons {
+        color: white;
+        font-size: 28px;
+        position: relative;
+        left: -7px;
+        top: -6px;
+      }
+    }
+
+    .modal-title {
+      margin: auto;
+      font-size: 18px;
+      color: white;
+    }
+  }
+
+  .modal-body {
+    padding: 30px;
+    font-size: 14px;
+    position: relative;
+  }
+
+  .content-shadow {
+    height: 100px;
+    position: sticky;
+    width: 100%;
+    z-index: 1;
+    bottom: -30px;
+    left: 0;
+    right: 0;
+
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+    }
+  }
+}
+
+@import "modals/terms";
