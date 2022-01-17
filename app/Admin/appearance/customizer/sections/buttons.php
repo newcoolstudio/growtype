@@ -137,6 +137,9 @@ function buttons_customize_register($wp_customize)
         'alpha' => true,
     )));
 
+    /**
+     * Text
+     */
     $wp_customize->add_setting('secondary_button_text_color', array (
         'sanitize_callback' => 'sanitize_hex_color',
         'transport' => 'postMessage',
@@ -144,6 +147,20 @@ function buttons_customize_register($wp_customize)
 
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'secondary_button_text_color', array (
         'label' => __('Secondary button text color', 'growtype'),
+        'section' => 'buttons',
+        'alpha' => true,
+    )));
+
+    /**
+     * Border
+     */
+    $wp_customize->add_setting('secondary_button_border_color', array (
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'postMessage',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'secondary_button_border_color', array (
+        'label' => __('Secondary button border color', 'growtype'),
         'section' => 'buttons',
         'alpha' => true,
     )));

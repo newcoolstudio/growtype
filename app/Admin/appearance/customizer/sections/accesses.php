@@ -103,7 +103,7 @@ class Accesses_Customizer_Register
 
         $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'theme_access_pages_available_when_not_logged_in',
             array (
-                'label' => __('Pages available when not granted', 'growtype'),
+                'label' => __('Pages available', 'growtype'),
                 'description' => esc_html__('Which pages should be available when user is not loged in or granted access to platform.', 'growtype'),
                 'section' => 'theme-access',
                 'input_attrs' => array (

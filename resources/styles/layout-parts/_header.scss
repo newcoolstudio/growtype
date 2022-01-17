@@ -450,6 +450,23 @@ header, header a {
   margin-right: auto;
 }
 
+.menu-login-menu-container {
+  @include bp-phone-xl() {
+    display: none;
+  }
+}
+
+#login-menu {
+  .btn {
+    min-width: 50px;
+
+    a {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+}
+
 @import "headers/type-1";
 @import "headers/type-2";
 @import "headers/type-3";

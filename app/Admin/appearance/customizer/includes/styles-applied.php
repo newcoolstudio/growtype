@@ -275,7 +275,7 @@ function customizer_update_css()
         input[type=submit]:hover,
         .wp-block-button__link,
         .wp-block-button__link:hover {
-            background: <?php echo get_theme_mod('primary_button_background_color')?>!important;
+            background: <?php echo get_theme_mod('primary_button_background_color')?> !important;
             border: 1px solid<?php echo get_theme_mod('primary_button_background_color')?>;
         }
 
@@ -288,7 +288,8 @@ function customizer_update_css()
         input[type=submit],
         input[type=submit]:hover,
         .wp-block-button__link,
-        .wp-block-button__link:hover {
+        .wp-block-button__link:hover,
+        .btn-link {
             color: <?php echo get_theme_mod('primary_button_text_color')?>;
         }
 
@@ -423,8 +424,17 @@ function customizer_update_css()
        if(get_theme_mod('button_border_radius')){ ?>
         .btn-primary,
         .btn-secondary,
-        input[type=submit] {
+        input[type=submit],
+        .wp-block-button__link {
             border-radius: <?php echo get_theme_mod('button_border_radius'); ?>;
+        }
+
+        <?php } ?>
+
+        <?php
+       if(get_theme_mod('secondary_button_border_color')){ ?>
+        .btn-secondary {
+            border-color: <?php echo get_theme_mod('secondary_button_border_color'); ?>;
         }
 
         <?php } ?>

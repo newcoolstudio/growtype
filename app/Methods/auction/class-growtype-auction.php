@@ -23,7 +23,7 @@ class Growtype_Auction
     {
         global $product;
 
-        if (class_exists('WC_Product_Auction')) {
+        if ($product->is_type('auction') && class_exists('WC_Product_Auction')) {
             $start_time = date_create($product->get_auction_start_time());
             $end_time = date_create($product->get_auction_end_time());
 
@@ -52,7 +52,7 @@ class Growtype_Auction
     {
         global $product;
 
-        if (class_exists('WC_Product_Auction')) {
+        if ($product->is_type('auction') && class_exists('WC_Product_Auction')) {
             return '<div class="auction-time-countdown" data-time="' . $product->get_seconds_remaining() . '" data-auctionid="' . $product->get_id() . '" data-format="' . get_option('simple_auctions_countdown_format') . '"></div>';
         }
 
@@ -66,7 +66,7 @@ class Growtype_Auction
     {
         global $product;
 
-        if (class_exists('WC_Product_Auction')) {
+        if ($product->is_type('auction') && class_exists('WC_Product_Auction')) {
             return $product->get_seconds_to_auction();
         }
 

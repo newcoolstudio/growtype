@@ -29,10 +29,10 @@ input[type=submit] {
   }
 
   &:disabled {
-    background: #6c757d!important;
-    color: #fff!important;
-    border: none!important;
-    border-color: #6c757d!important;
+    background: #6c757d !important;
+    color: #fff !important;
+    border: none !important;
+    border-color: #6c757d !important;
 
     &:hover {
       opacity: 1;
@@ -74,9 +74,43 @@ Button link
 .btn-link {
   padding: 0;
   border-bottom: 1px solid;
-  line-height: 16px;
+  line-height: 18px;
   border-radius: 0;
   text-decoration: none;
   display: inline-block;
+  font-size: $font-size-btn;
 }
 
+/**
+Add button
+ */
+.btn-add {
+  position: relative;
+
+  &:before {
+    content: '';
+    content: "\f502";
+    font-family: Dashicons;
+    margin-right: 6px;
+    position: relative;
+    top: 2px;
+  }
+}
+
+/**
+Add remove
+ */
+.btn-remove {
+  position: relative;
+  border: none;
+  color: $color-active;
+
+  &:before {
+    content: '';
+    content: "\f182";
+    font-family: Dashicons;
+    margin-right: 6px;
+    position: relative;
+    top: 2px;
+  }
+}
