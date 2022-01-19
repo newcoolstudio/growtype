@@ -1,105 +1,167 @@
-import { useState } from '@wordpress/element';
-
 const {assign} = lodash;
 const {addFilter} = wp.hooks;
 const {__} = wp.i18n;
 const {createHigherOrderComponent} = wp.compose;
-const {Fragment} = wp.element;
+const {Fragment, useState, cloneElement} = wp.element;
 const {InspectorControls} = wp.editor;
-const {PanelBody, RangeControl} = wp.components;
+const {PanelBody, RangeControl, SelectControl} = wp.components;
 
-const enableSpacingControlOnBlocks = [
-    'core/spacer',
-];
-
-const spacingControlOptions = [
-    {
-        label: __('None'),
-        value: '',
-    },
-    {
-        label: __('Small'),
-        value: 'small',
-    },
-    {
-        label: __('Medium'),
-        value: 'medium',
-    },
-    {
-        label: __('Large'),
-        value: 'large',
-    },
-];
+const enableMaxWidthControlOnBlocks = ['core/paragraph'];
 
 /**
- * Add spacing control attribute to block.
- *
- * @param {object} settings Current block settings.
- * @param {string} name Name of block.
- *
- * @returns {object} Modified block settings.
+ * Create attributes
  */
-const addSpacingControlAttribute = (settings, name) => {
-
-    // Do nothing if it's another block than our defined ones.
-    if (!enableSpacingControlOnBlocks.includes(name)) {
-        return settings;
+addFilter('blocks.registerBlockType', 'jb/core-button', (props, name) => {
+    if (!enableMaxWidthControlOnBlocks.includes(name)) {
+        return props;
     }
 
-    // Use Lodash's assign to gracefully handle if attributes are undefined
-    settings.attributes = assign(settings.attributes, {
-        spacing: {
-            type: 'string',
-            default: spacingControlOptions[0].value,
+    const attributes = {
+        ...props.attributes, maxWidth: { // here is our new attribute
+            type: 'integer', default: ''
+        }, position: { // here is our new attribute
+            type: 'string', default: ''
         },
-    });
+    };
 
-    return settings;
-};
-
-addFilter('blocks.registerBlockType', 'extend-block-example/attribute/spacing', addSpacingControlAttribute);
-
+    return {...props, attributes};
+});
 
 /**
- * Create HOC to add spacing control to inspector controls of block.
+ * Gutenberg create MaxWidth in control panel
  */
-const withSpacingControl = createHigherOrderComponent((BlockEdit) => {
+const withMaxWidthControl = createHigherOrderComponent((BlockEdit) => {
     return (props) => {
-        // Do nothing if it's another block than our defined ones.
-        if (!enableSpacingControlOnBlocks.includes(props.name)) {
-            return (
-                <BlockEdit {...props} />
-            );
+
+        if (!enableMaxWidthControlOnBlocks.includes(props.name)) {
+            return (<BlockEdit {...props} />);
         }
 
-        const {spacing} = props.attributes;
-        const [width, setWidth] = useState(2);
+        const {maxWidth} = props.attributes;
 
-        // add has-spacing-xy class to block
-        if (spacing) {
-            props.attributes.className = `has-spacing-${spacing}`;
+        function setMaxWidth(value) {
+            props.setAttributes({
+                maxWidth: value
+                // style: {
+                //     ...props.attributes.style,
+                //     typography: {
+                //         fontSize: value + 'px',
+                //     },
+                // }
+            });
         }
 
-        return (
-            <Fragment>
-                <BlockEdit {...props} />
-                <InspectorControls>
-                    <PanelBody
-                        title={__('Spacing')}
-                        initialOpen={true}
-                    >
-                        <RangeControl
-                            label="Columns"
-                            value={width}
-                            onChange={(value) => setWidth(value)}
-                            min={2}
-                            max={10}
-                        />
-                    </PanelBody>
-                </InspectorControls>
-            </Fragment>
-        );
+        const {position} = props.attributes;
+
+        function setPosition(value) {
+            props.setAttributes({
+                position: value
+            });
+        }
+
+        return (<Fragment>
+            <BlockEdit {...props} />
+            <InspectorControls>
+                <PanelBody
+                    title={__('Growtype - Maximum width')}
+                    initialOpen={true}
+                >
+                    <RangeControl
+                        label="Max width"
+                        value={maxWidth}
+                        allowReset
+                        onChange={(value) => setMaxWidth(value)}
+                        min={1}
+                        max={2000}
+                    />
+                    <SelectControl
+                        label={__('Select position:')}
+                        value={position} // e.g: value = [ 'a', 'c' ]
+                        onChange={(value) => {
+                            setPosition(value)
+                        }}
+                        options={[{value: '', label: 'Default', disabled: false}, {
+                            value: 'left', label: 'Left'
+                        }, {value: 'auto', label: 'Center'}, {value: 'right', label: 'Right'},]}
+                    />
+                </PanelBody>
+            </InspectorControls>
+        </Fragment>);
     };
-}, 'withSpacingControl');
+}, 'withMaxWidthControl');
 
-addFilter('editor.BlockEdit', 'extend-block-example/with-spacing-control', withSpacingControl);
+addFilter('editor.BlockEdit', 'extend-block-example/with-maxwidth-control', withMaxWidthControl);
+
+/**
+ * Gutenberg render block
+ */
+const withToolbarButtonProp = createHigherOrderComponent((BlockListBlock) => {
+    return (props) => {
+
+        // If current block is not allowed
+        if (!enableMaxWidthControlOnBlocks.includes(props.name)) {
+            return (<BlockListBlock {...props} />);
+        }
+
+        const {attributes} = props;
+        const {maxWidth, position} = attributes;
+
+        let divStyle = {};
+
+        if (maxWidth) {
+            divStyle['maxWidth'] = maxWidth;
+        }
+
+        if (position === 'auto') {
+            divStyle['margin'] = position;
+        } else if (position === 'left') {
+            divStyle['marginRight'] = 'auto';
+        } else if (position === 'right') {
+            divStyle['marginLeft'] = 'auto';
+        }
+
+        if (Object.entries(divStyle).length !== 0) {
+            return (<div style={divStyle}>
+                <BlockListBlock {...props}/>
+            </div>)
+        } else {
+            return <BlockListBlock {...props} />
+        }
+    };
+}, 'withToolbarButtonProp');
+
+wp.hooks.addFilter('editor.BlockListBlock', 'custom-attributes/with-toolbar-button-prop', withToolbarButtonProp);
+
+/**
+ * Save values
+ */
+addFilter('blocks.getSaveElement', 'jb/core-button', (element, block, attributes) => {
+
+    if (!enableMaxWidthControlOnBlocks.includes(block.name)) {
+        return element;
+    }
+
+    const {maxWidth, position} = attributes;
+
+    let divStyle = {};
+
+    if (maxWidth) {
+        divStyle['maxWidth'] = maxWidth;
+    }
+
+    if (position === 'auto') {
+        divStyle['margin'] = position;
+    } else if (position === 'left') {
+        divStyle['marginRight'] = 'auto';
+    } else if (position === 'right') {
+        divStyle['marginLeft'] = 'auto';
+    }
+
+    if (Object.entries(divStyle).length !== 0) {
+        return (<div style={divStyle}>
+            {element}
+        </div>);
+    }
+
+    return element;
+});
