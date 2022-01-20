@@ -3,19 +3,14 @@
 /**
  * Check profile menu status
  */
-function profile_menu_is_enabled()
+function growtype_user_profile_menu_is_enabled()
 {
     $status = get_theme_mod('profile_menu_enabled');
-
-    if (!empty(get_theme_mod('theme_access_pages_available_when_not_logged_in'))) {
-        $page_available_when_not_logged_in = page_is_among_enabled_pages(get_theme_mod('theme_access_pages_available_when_not_logged_in'));
-        $status = !$page_available_when_not_logged_in;
-    }
 
     /**
      * Check if user can access platform
      */
-    if (!is_user_logged_in() || !user_can_access_platform()) {
+    if (!is_user_logged_in()) {
         $status = false;
     }
 

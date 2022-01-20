@@ -32,7 +32,7 @@
                 @include('partials.components.header.menu-login')
             @endif
 
-            @if(profile_menu_is_enabled())
+            @if(growtype_user_profile_menu_is_enabled())
                 @include('partials.components.user-profile')
             @endif
 
