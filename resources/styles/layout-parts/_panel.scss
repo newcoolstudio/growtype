@@ -170,16 +170,20 @@
     align-items: center;
     justify-content: center;
     background-color: #383a45;
-    background-image: linear-gradient(
-                    135deg, #4f5261 0%, #383a45 50%);
     padding-bottom: 125px;
     position: relative;
+  }
 
-    &:before {
-      content: '';
-      @include position-absolute;
-      background: #383a45;
-      margin-left: -10000%;
+  &.panel-style-2 {
+    .panel-header {
+      background-image: linear-gradient(
+                      135deg, #4f5261 0%, #383a45 50%);
+      &:before {
+        content: '';
+        @include position-absolute;
+        background: #383a45;
+        margin-left: -10000%;
+      }
     }
   }
 

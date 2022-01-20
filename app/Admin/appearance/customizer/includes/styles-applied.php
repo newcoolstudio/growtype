@@ -370,6 +370,7 @@ function customizer_update_css()
         <?php
         if(!empty(get_theme_mod('secondary_button_text_color'))) { ?>
         .btn-secondary,
+        .btn-secondary a,
         .btn-secondary:hover {
             color: <?php echo get_theme_mod('secondary_button_text_color')?>;
         }

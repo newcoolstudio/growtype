@@ -451,8 +451,14 @@ header, header a {
 }
 
 .menu-login-menu-container {
-  @include bp-phone-xl() {
+  @include bp-tablet-big() {
     display: none;
+  }
+
+  li {
+    @include bp-phone-xl-reverse() {
+      margin-left: 10px;
+    }
   }
 }
 

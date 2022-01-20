@@ -42,5 +42,23 @@ function woocommerce_blocks_product_grid_item_html_custom($content, $data, $prod
         $data->button = null;
     }
 
+    /**
+     * Promo label
+     */
+    $promo_label = get_post_meta($product->get_id(), '_promo_label', true);
+
+    if (!empty($promo_label)) {
+        $data->promo_label = $promo_label;
+    }
+
+    /**
+     * Price details
+     */
+    $price_details = get_post_meta($product->get_id(), '_price_details', true);
+
+    if (!empty($price_details)) {
+        $data->price_details = $price_details;
+    }
+
     return \App\template('woocommerce.blocks.product-preview', ['data' => $data]);
 }

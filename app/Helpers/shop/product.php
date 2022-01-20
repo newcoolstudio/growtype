@@ -41,15 +41,16 @@ function product_is_among_required_products($product_id)
  * @param $products
  * @return bool
  */
-function user_has_bought_required_products()
+function user_has_bought_required_products($user_id = null)
 {
+    $user_id = !empty($user_id) ? $user_id : get_current_user_id();
     $must_have_products = get_theme_mod('theme_access_user_must_have_products');
 
     if ($must_have_products) {
         $must_have_products_list = get_theme_mod('theme_access_user_must_have_products_list');
         $must_have_products_list = !empty($must_have_products_list) ? explode(',', $must_have_products_list) : null;
 
-        $customer_has_bought_products = user_has_bought_wc_products($must_have_products_list);
+        $customer_has_bought_products = user_has_bought_wc_products($user_id, $must_have_products_list);
 
         return $customer_has_bought_products;
     }
@@ -62,13 +63,13 @@ function user_has_bought_required_products()
  * @param $user_var
  * @return bool
  */
-function user_has_bought_wc_products($products_ids, $one_is_enough = true, $user_var = null)
+function user_has_bought_wc_products($user_id, $products_ids, $one_is_enough = true, $user_var = null)
 {
     global $wpdb;
 
     if (empty($user_var) || is_numeric($user_var)) {
         $meta_key = '_customer_user';
-        $meta_value = $user_var ? (int)$user_var : (int)get_current_user_id();
+        $meta_value = $user_var ? (int)$user_var : (int)$user_id;
     } else {
         $meta_key = '_billing_email';
         $meta_value = sanitize_email($user_var);
@@ -107,7 +108,7 @@ function user_has_bought_wc_products($products_ids, $one_is_enough = true, $user
  */
 function get_user_purchased_products_ids($user_id = null)
 {
-    $user_id = $user_id ?? wp_get_current_user()->ID ?? null;
+    $user_id = !empty($user_id) ? $user_id : get_current_user_id();
 
     if (empty($user_id)) {
         return null;
@@ -145,7 +146,7 @@ function get_user_purchased_products_ids($user_id = null)
  */
 function get_user_uploaded_products_ids($user_id = null)
 {
-    $user_id = $user_id ?? wp_get_current_user()->ID ?? null;
+    $user_id = !empty($user_id) ? $user_id : get_current_user_id();
 
     if (empty($user_id)) {
         return null;
@@ -175,7 +176,7 @@ function get_user_uploaded_products_ids($user_id = null)
  */
 function user_has_uploaded_product($product_id, $user_id = null)
 {
-    $user_id = $user_id ?? wp_get_current_user()->ID ?? null;
+    $user_id = !empty($user_id) ? $user_id : get_current_user_id();
 
     if (empty($user_id)) {
         return false;

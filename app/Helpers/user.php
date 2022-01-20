@@ -113,3 +113,14 @@ function get_user_meta_details($filtered = true)
     return $filtered_meta_values;
 }
 
+/**
+ * @param $user_id
+ * @return void
+ * User has bought products
+ */
+function growtype_user_is_paying_customer($user_id = null)
+{
+    $user_id = !empty($user_id) ? $user_id : get_current_user_id();
+
+    return get_user_meta($user_id, 'paying_customer', true) == true ? true : false;
+}

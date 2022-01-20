@@ -102,6 +102,36 @@ function growtype_woocommerce_product_options_advanced()
     echo '</div>';
 
     /**
+     * Extra details about price
+     */
+    echo '<div class="options_group price_details">';
+
+    // External Url
+    woocommerce_wp_text_input(array (
+        'id' => '_price_details',
+        'label' => 'Extra details about price',
+        'description' => 'F.e. how ofter this price will be charged',
+        'desc_tip' => 'true'
+    ));
+
+    echo '</div>';
+
+    /**
+     * Promo label
+     */
+    echo '<div class="options_group promo_label">';
+
+    // External Url
+    woocommerce_wp_text_input(array (
+        'id' => '_promo_label',
+        'label' => 'Promo label',
+        'description' => 'F.e. label form discount or promo info',
+        'desc_tip' => 'true'
+    ));
+
+    echo '</div>';
+
+    /**
      * Product creator
      */
     echo '<div class="options_group author">';
@@ -160,6 +190,20 @@ function growtype_woocommerce_admin_process_product_object_advanced($product)
      * Hide price
      */
     $product->update_meta_data('_hide_product_price', $_POST['_hide_product_price'] ?? false);
+
+    /**
+     * Extra details about price
+     */
+    if (isset($_POST['_price_details'])) {
+        $product->update_meta_data('_price_details', stripslashes($_POST['_price_details']));
+    }
+
+    /**
+     * Extra details about price
+     */
+    if (isset($_POST['_promo_label'])) {
+        $product->update_meta_data('_promo_label', stripslashes($_POST['_promo_label']));
+    }
 
     /**
      * Extra details

@@ -62,6 +62,32 @@ class Panel_Customizer_Register
         ));
 
         /**
+         * Panel style
+         */
+        $wp_customize->add_setting('panel_style',
+            array (
+                'default' => 'style-1',
+                'transport' => 'refresh',
+            )
+        );
+
+        $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'panel_style',
+            array (
+                'label' => __('Panel Style', 'growtype'),
+                'description' => esc_html__('Choose panel style', 'growtype'),
+                'section' => 'panel',
+                'input_attrs' => array (
+                    'placeholder' => __('Please select a panel style...', 'growtype'),
+                    'multiselect' => false,
+                ),
+                'choices' => array (
+                    'style-1' => __('Style 1', 'growtype'),
+                    'style-2' => __('Style 2', 'growtype')
+                )
+            )
+        ));
+
+        /**
          * Panel pages
          */
         $wp_customize->add_setting('panel_enabled_pages',
@@ -112,7 +138,6 @@ class Panel_Customizer_Register
         /**
          * Panel logo
          */
-
         $wp_customize->add_setting('panel_logo_simple_notice',
             array (
                 'default' => '',

@@ -117,11 +117,19 @@ function check_and_apply_custom_page_redirect()
 }
 
 /**
+ * @param $user_id
  * @return bool
  */
-function user_has_required_role_to_access_platform()
+function user_has_required_role_to_access_platform($user_id = null)
 {
-    $user = wp_get_current_user();
+    $user_id = !empty($user_id) ? $user_id : get_current_user_id();
+
+    if (empty($user_id)) {
+        return false;
+    }
+
+    $user = get_user_by('id', $user_id);
+
     $roles = ( array )$user->roles;
     $prevented_roles = !empty(get_theme_mod('theme_access_disabled_roles')) ? explode(',', get_theme_mod('theme_access_disabled_roles')) : [];
 

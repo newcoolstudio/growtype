@@ -111,10 +111,10 @@
 
     .woocommerce-loop-product__title, .wc-block-grid__product-title {
       text-align: left;
-      font-size: 20px !important;
-      padding-bottom: 10px !important;
-      padding-top: 10px !important;
-      font-weight: 600 !important;
+      font-size: 20px;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      font-weight: 600;
       display: inline-block;
       width: initial;
     }
@@ -133,6 +133,7 @@
       top: -1px;
       display: flex;
       flex-direction: column-reverse;
+      margin: 0;
 
       bdi, .woocommerce-Price-amount {
         display: inline-block;
@@ -155,6 +156,42 @@
           top: -5px;
         }
       }
+    }
+
+    .price-wrapper {
+      display: flex;
+      align-items: baseline;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      position: relative;
+
+      .price-details {
+        position: relative;
+        margin-left: 13px;
+        top: -3px;
+        padding-left: 10px;
+        color: $color-grey;
+
+        &:before {
+          content: "";
+          width: 1px;
+          background: #D8D8D8;
+          height: 30px;
+          position: absolute;
+          left: 0;
+          transform: rotate(20deg);
+          bottom: 0px;
+        }
+      }
+    }
+
+    .badge-promo {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      padding: 12px 20px;
+      font-size: 14px;
+      border-radius: 30px;
     }
   }
 }

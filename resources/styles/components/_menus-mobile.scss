@@ -20,6 +20,7 @@ $mobilemenu-color-background: black;
     padding-left: 10px;
     padding-right: 10px;
     max-width: 340px;
+    margin: auto;
     @include bp-phone-xl() {
       max-width: 100%;
     }
@@ -38,6 +39,7 @@ $mobilemenu-color-background: black;
         font-size: 19px;
         margin-left: 0;
         padding-left: 0;
+        padding-right: 0;
       }
     }
   }
@@ -134,6 +136,28 @@ $mobilemenu-color-background: black;
 
     li {
       padding-bottom: 0;
+    }
+  }
+}
+
+.main-navigation-mobile-content {
+  .menu-login-menu-container {
+    display: block;
+    position: relative;
+    z-index: 1;
+    margin-top: 20px;
+    padding: 20px;
+
+    .menu {
+      flex-direction: column;
+      max-width: 300px;
+      margin: auto;
+
+      li {
+        margin: 0;
+        width: 100%;
+        margin-bottom: 15px;
+      }
     }
   }
 }

@@ -1,0 +1,49 @@
+.page-checkout-data {
+  .b-intro-content {
+    padding-bottom: 30px;
+  }
+}
+
+.woocommerce-order-details {
+  margin: auto;
+  border: 1px solid #E4E6E8;
+  border-radius: 14px;
+  overflow: hidden;
+
+  .woocommerce-order-details-intro {
+    background-color: #7963F0;
+    padding: 25px 40px;
+    color: white;
+  }
+
+  .woocommerce-table-wrapper {
+    padding: 20px 30px 40px 30px;
+    @include bp-phone-xl() {
+      padding: 15px 15px 20px 15px;
+    }
+  }
+
+  .woocommerce-table {
+    tr {
+      th:last-child {
+        text-align: right;
+      }
+    }
+
+    td:last-child {
+      text-align: right;
+      font-weight: bold;
+    }
+
+    tfoot {
+      tr {
+        &:last-child {
+          th, td {
+            font-weight: bold;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -71,6 +71,10 @@ input[type=submit] {
   color: $color-btn-bg;
   border: 1px solid $color-btn-bg;
 
+  a {
+    color: $color-btn-bg;
+  }
+
   &:hover, &:focus {
     background: none;
     opacity: 0.7;

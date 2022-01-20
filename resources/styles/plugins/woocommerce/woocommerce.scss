@@ -4,20 +4,21 @@
 
 /** Woocommerce */
 @import "plugin/woocommerce";
-@import "components/woocommerce-buttons";
-@import "components/woocommerce-cart";
-@import "components/woocommerce-lightbox";
-@import "components/woocommerce-products-preview";
-@import "components/woocommerce-product-gallery";
-@import "components/woocommerce-notices";
-@import "components/woocommerce-loader";
-@import "components/woocommerce-photoswipe";
-@import "components/woocommerce-wishlist";
-@import "components/woocommerce-account";
-@import "components/woocommerce-login";
-@import "components/woocommerce-sidebar";
-@import "components/woocommerce-slider";
-@import "components/woocommerce-form";
+@import "components/buttons";
+@import "components/cart";
+@import "components/lightbox";
+@import "components/products-preview";
+@import "components/product-gallery";
+@import "components/notices";
+@import "components/loader";
+@import "components/photoswipe";
+@import "components/wishlist";
+@import "components/account";
+@import "components/login";
+@import "components/sidebar";
+@import "components/slider";
+@import "components/form";
+@import "components/order-details";
 
 @import "widgets/woocommerce-widget-price-filter";
 

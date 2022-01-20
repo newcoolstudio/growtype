@@ -64,7 +64,7 @@
 }
 
 .wc-block-grid, .wc-block-grid:not(.alignwide):not(.alignfull) {
-  .wc-block-grid__products, {
+  .wc-block-grid__products {
     @include bp-phone-xl() {
       width: calc(100% + 20px);
       margin-left: -5px;
@@ -81,6 +81,25 @@
         max-width: initial;
         border: none;
         font-size: initial;
+      }
+    }
+  }
+
+  &.wc-block-handpicked-products {
+    .wc-block-grid__products {
+      @include bp-phone-xl() {
+        margin: 0;
+        width: 100%;
+      }
+
+      .wc-block-grid__product {
+        @include bp-phone-xl() {
+          width: 100%;
+          margin: 0;
+          border: 1px solid #E4E6E8 !important;
+          padding: 20px !important;
+          margin-bottom: 25px;
+        }
       }
     }
   }
