@@ -41,7 +41,7 @@ $classes = wc_get_product_class(get_theme_mod('woocommerce_product_preview_style
 /**
  * Cta disabled class
  */
-if (product_preview_cta_disabled() && !get_query_var('cta_btn')) {
+if (Growtype_Product::product_preview_cta_disabled() && !get_query_var('cta_btn')) {
     array_push($classes, 'cta-disabled');
 }
 

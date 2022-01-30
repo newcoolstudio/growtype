@@ -92,10 +92,10 @@ Style 2, thumbnails on left side
 .woocommerce {
   div.product {
     div.woocommerce-product-gallery-type-2 {
-      .flex-direction-nav{
+      .flex-direction-nav {
         width: 82%;
         top: 46%;
-        @include bp-phone-xl(){
+        @include bp-phone-xl() {
           width: 100%;
         }
       }
@@ -184,6 +184,63 @@ Style 2, thumbnails on left side
               margin-bottom: 4px;
             }
           }
+        }
+      }
+    }
+
+    .woocommerce-product-gallery-type-3 {
+      .woocommerce-product-gallery__wrapper {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -5px!important;
+        width: calc(100% + 10px)!important;
+
+        .btn-gallery {
+          position: absolute;
+          bottom: 30px;
+          right: 20px;
+          background: white;
+          font-size: 14px;
+          font-weight: bold;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          padding-right: 17px;
+          border: 1px solid #ececec;
+          box-shadow: 1px 1px 4px 0px rgb(236 236 236 / 30%);
+        }
+
+        figure {
+          margin: 0;
+        }
+      }
+
+      .e-img-wrapper {
+        padding: 6px;
+        width: 100% !important;
+
+        .wp-post-image {
+          border-radius: 10px;
+          padding-top: 60%;
+          background-size: cover !important;
+          background-position: center !important;
+          background-repeat: no-repeat !important;
+        }
+      }
+
+      .img-primary {
+        width: 100%;
+      }
+
+      &.woocommerce-product-gallery--with-images {
+        .img-primary {
+          width: 67.1%;
+        }
+
+        .img-secondary {
+          width: 32.9%;
+          display: flex;
+          flex-direction: column;
         }
       }
     }

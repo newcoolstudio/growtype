@@ -3,9 +3,6 @@
   width: 100%;
   margin-top: 30px;
   padding-bottom: 20px;
-  padding-left: $padding-left-container;
-  padding-right: $padding-right-container;
-
 
   img.alignright {
     padding-left: 30px;
@@ -15,8 +12,10 @@
   }
 }
 
-.woocommerce-product-details__short-description {
-  .description > ul:first-child {
-    margin-top: 5px;
+.woocommerce.single-product {
+  .woocommerce-product-details__short-description {
+    .description > ul:first-child {
+      margin-top: 5px;
+    }
   }
 }

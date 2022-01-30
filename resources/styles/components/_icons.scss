@@ -1,3 +1,5 @@
+//https://www.portotheme.com/shopify/wokiee/icons/
+
 .dashicons {
   color: $color-text;
 }
@@ -6,6 +8,10 @@ i {
   font-size: 18px;
   position: relative;
   top: 1px;
+}
+
+.icon-f-08:before {
+  content: "\e967"
 }
 
 .icon-n-02:before {
@@ -82,6 +88,14 @@ i {
 
 .icon-f-37:before {
   content: "\e984"
+}
+
+.icon-f-35:before {
+  content: "\e982"
+}
+
+.icon-f-73:before {
+  content: "\e9a8"
 }
 
 .icon-check:before {

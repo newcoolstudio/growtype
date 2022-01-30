@@ -1,0 +1,18 @@
+.table-basic {
+  font-size: 13px;
+
+  tr {
+    &:last-child {
+      td {
+        border-bottom: none;
+      }
+    }
+
+    td {
+      &:last-child {
+        font-weight: bold;
+        text-align: right;
+      }
+    }
+  }
+}

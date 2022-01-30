@@ -8,7 +8,7 @@
     max-width: initial;
   }
 
-  .s-product-details-inner, .s-product-description-inner {
+  .product-summary-inner, .product-extra-inner {
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -19,7 +19,9 @@
     display: none;
   }
 
-  margin-bottom: 30px;
+  & > div {
+    margin-top: 20px !important;
+  }
 }
 
 .woocommerce.single-product {
@@ -39,25 +41,25 @@
   }
 
   .e-title-section {
-    margin-bottom: 15px;
-    font-size: 22px;
+    margin-bottom: 10px;
+    font-size: 14px;
   }
 
-  .s-product-details {
+  .product-summary {
     display: inline-block;
     width: 100%;
   }
 
-  .s-product-details-inner, .s-product-description-inner {
+  .product-summary-inner, .product-extra-inner {
     max-width: $max-width-container;
     margin: auto;
   }
 
-  .s-product-description-inner {
+  .product-extra-inner {
     padding-bottom: 30px;
   }
 
-  .s-product-details-inner {
+  .product-summary-inner {
     padding-top: 30px;
     @include bp-phone-xl() {
       padding: 0;
@@ -112,7 +114,8 @@
     }
 
     @include bp-phone-xl() {
-      padding: 15px;
+      padding-left: 0;
+      padding-right: 0;
     }
 
     .e-title {
@@ -202,11 +205,14 @@
 
   .related.products, .up-sells {
     padding-bottom: 0;
-    display: inline-block;
     width: 100%;
-    border-top: 1px solid #eee;
+    border-top: 1px solid $color-light-grey;
     padding-top: 30px;
+    margin: auto;
     margin-top: 20px;
+    max-width: $max-width-container;
+    padding-left: $padding-left-container;
+    padding-right: $padding-right-container;
     @include bp-phone-xl() {
       margin-top: 10px;
       justify-content: space-between;
@@ -349,7 +355,7 @@
     }
   }
 
-  .product {
+  .product-summary {
     .badge {
       left: auto;
       right: 0;
@@ -403,5 +409,18 @@
 .has-panel {
   &.woocommerce.single-product .woocommerce-breadcrumb {
     margin: 0;
+  }
+}
+
+/**
+Related products with panel
+ */
+.panel-area + .main {
+  .related.products {
+    padding-left: 20px;
+    padding-right: 0;
+    margin-left: -20px;
+    background: #FAFAFA;
+    width: calc(100% + 40px);
   }
 }

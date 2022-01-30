@@ -61,4 +61,16 @@ class Customizer_Available_Data
 
         return $roles_map;
     }
+
+    /**
+     * Wc product preview styles
+     */
+    function get_available_product_preview_styles()
+    {
+        return array (
+            'grid' => __('Grid', 'growtype'),
+            'list' => __('List', 'growtype'),
+            'table' => __('Table', 'growtype')
+        );
+    }
 }

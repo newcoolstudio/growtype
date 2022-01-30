@@ -51,7 +51,7 @@ function check_and_apply_custom_page_redirect()
             }
         } else {
             if (class_exists('woocommerce')) {
-                $user_has_bought_required_products = user_has_bought_required_products();
+                $user_has_bought_required_products = Growtype_Product::user_has_bought_required_products();
                 $redirect_page = get_theme_mod('theme_access_must_have_products_redirect_page');
                 $redirect_page = !empty($redirect_page) ? get_permalink($redirect_page) : null;
 
@@ -150,7 +150,7 @@ function user_has_required_role_to_access_platform($user_id = null)
  */
 function user_can_access_platform()
 {
-    return user_has_bought_required_products() && user_has_required_role_to_access_platform();
+    return Growtype_Product::user_has_bought_required_products() && user_has_required_role_to_access_platform();
 }
 
 /**

@@ -1,16 +1,14 @@
 <?php
 
-/*
- * DISABLE DEFAULT WOOCOMMERCE SCRIPTS
- */
-
 use function App\config;
 
-add_action('wp_enqueue_scripts', 'crunchify_disable_woocommerce_loading_css_js');
-
-function crunchify_disable_woocommerce_loading_css_js()
+/*
+ * Disable default woocommerce scripts
+ */
+add_action('wp_enqueue_scripts', 'growtype_disable_woocommerce_scripts');
+function growtype_disable_woocommerce_scripts()
 {
-    if (function_exists('is_woocommerce')) {
+    if (class_exists('woocommerce')) {
 
         ## Dequeue WooCommerce styles
         wp_dequeue_style('woocommerce-general');
@@ -34,14 +32,10 @@ function crunchify_disable_woocommerce_loading_css_js()
          * Flexslider
          */
         //remove_theme_support( 'wc-product-gallery-slider' );
-    }
-}
 
-add_action('wp_enqueue_scripts', 'alter_woocommerce_select2', 100);
-
-function alter_woocommerce_select2()
-{
-    if (class_exists('woocommerce')) {
+        /**
+         * Select
+         */
         wp_dequeue_style('selectWoo');
         wp_deregister_style('selectWoo');
 
@@ -51,13 +45,23 @@ function alter_woocommerce_select2()
 }
 
 /**
- * Custom scrips
+ * Default scrips
  */
-add_action('wp_enqueue_scripts', 'custom_woocommerce_scripts', 100);
-function custom_woocommerce_scripts()
+add_action('wp_enqueue_scripts', 'growtype_default_woocommerce_scripts', 10);
+function growtype_default_woocommerce_scripts()
 {
     if (class_exists('woocommerce') && !is_admin()) {
+        wp_enqueue_style('growtype/woocommerce/woocommerce-styles', get_parent_template_public_path() . '/styles/plugins/woocommerce/woocommerce.css', false, null);
+    }
+}
 
+/**
+ * Custom scrips
+ */
+add_action('wp_enqueue_scripts', 'growtype_custom_woocommerce_scripts', 100);
+function growtype_custom_woocommerce_scripts()
+{
+    if (class_exists('woocommerce') && !is_admin()) {
         /**
          * External Scripts
          */
@@ -66,7 +70,6 @@ function custom_woocommerce_scripts()
         /**
          * Local scripts
          */
-        wp_enqueue_style('growtype/woocommerce/woocommerce-styles', get_parent_template_public_path() . '/styles/plugins/woocommerce/woocommerce.css', false, null);
         wp_enqueue_script('growtype/woocommerce/wc-main', get_parent_template_public_path() . '/scripts/plugins/woocommerce/wc-main.js', ['jquery'], config('theme.version'), true);
     }
 }
@@ -75,19 +78,16 @@ function custom_woocommerce_scripts()
  * Ajax
  */
 
-add_filter('woocommerce_ajax_variation_threshold', 'marce_wc_inc_ajax_threshold');
-function marce_wc_inc_ajax_threshold()
+add_filter('woocommerce_ajax_variation_threshold', 'growtype_woocommerce_ajax_variation_threshold');
+function growtype_woocommerce_ajax_variation_threshold()
 {
     return 150;
 }
 
 /**
- * Theme setup
+ * Register theme support
  */
 add_action('after_setup_theme', function () {
-    /**
-     * WOOCOMMERCE
-     */
     if (class_exists('WooCommerce')) {
         add_theme_support('woocommerce');
         add_theme_support('wc-product-gallery-zoom');

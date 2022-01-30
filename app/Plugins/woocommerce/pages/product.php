@@ -1,6 +1,22 @@
 <?php
 
 /**
+ * Related products amount
+ */
+add_filter('woocommerce_output_related_products_args', 'growtype_woocommerce_output_related_products_args', 20);
+function growtype_woocommerce_output_related_products_args($args)
+{
+    $products_amount = 4;
+    if (!empty(get_theme_mod('woocommerce_product_page_related_products_amount'))) {
+        $products_amount = get_theme_mod('woocommerce_product_page_related_products_amount');
+    }
+
+    $args['posts_per_page'] = $products_amount;
+    $args['columns'] = $products_amount;
+    return $args;
+}
+
+/**
  * Wishlist button
  */
 add_filter('woocommerce_after_add_to_cart_button', 'wc_add_wishlist_to_product_page', 5);

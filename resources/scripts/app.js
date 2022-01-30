@@ -7,6 +7,8 @@ const routes = new Router({
     common,
 });
 
+$=jQuery
+
 // Load Events
 jQuery(document).ready(() => routes.loadEvents());
 

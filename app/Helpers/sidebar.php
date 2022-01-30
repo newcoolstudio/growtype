@@ -45,11 +45,12 @@ function display_sidebar_primary($display = false)
 /**
  * @return false|mixed
  */
-function display_sidebar_shop()
+function display_shop_catalog_sidebar()
 {
-    $display = get_theme_mod('sidebar_shop_disabled') ? get_theme_mod('sidebar_shop_disabled') : true;
+    $catalog_sidebar_disabled = get_theme_mod('catalog_sidebar_disabled') ? get_theme_mod('catalog_sidebar_disabled') : false;
+    $display = true;
 
-    if (function_exists('is_shop') && !is_shop() && !is_product_category()) {
+    if (function_exists('is_shop') && is_shop() && !is_product_category() && $catalog_sidebar_disabled) {
         $display = false;
     }
 

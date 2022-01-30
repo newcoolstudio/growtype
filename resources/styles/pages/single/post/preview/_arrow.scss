@@ -40,7 +40,7 @@
   .btn-basic {
     padding: 0;
     min-width: initial;
-    color: $color-theme;
+    color: $color-primary;
   }
 
   .e-arrow {
@@ -48,7 +48,7 @@
     height: 40px;
     background: none;
     border-radius: 20px;
-    border: 1px solid $color-theme;
+    border: 1px solid $color-primary;
     position: relative;
 
     &:before {

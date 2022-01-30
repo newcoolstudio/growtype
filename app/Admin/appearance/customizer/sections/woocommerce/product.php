@@ -3,7 +3,7 @@
 $wp_customize->add_section(
     'woocommerce_product_page',
     array (
-        'title' => __('Single Product Page', 'growtype'),
+        'title' => __('Product Single Page', 'growtype'),
         'priority' => 5,
         'panel' => 'woocommerce',
     )
@@ -151,7 +151,8 @@ $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_cus
         ),
         'choices' => array (
             'woocommerce-product-gallery-type-1' => __('Type 1', 'growtype'),
-            'woocommerce-product-gallery-type-2' => __('Type 2', 'growtype')
+            'woocommerce-product-gallery-type-2' => __('Type 2', 'growtype'),
+            'woocommerce-product-gallery-type-3' => __('Type 3', 'growtype')
         )
     )
 ));
@@ -300,14 +301,14 @@ $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_custom
 /**
  * Related products
  */
-$wp_customize->add_setting('woocommerce_product_page_related_products_details',
+$wp_customize->add_setting('woocommerce_product_page_related_products_notice',
     array (
         'default' => '',
         'transport' => 'postMessage'
     )
 );
 
-$wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_customize, 'woocommerce_product_page_related_products_details',
+$wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_customize, 'woocommerce_product_page_related_products_notice',
     array (
         'label' => __('Related products'),
         'description' => __('Below you can change related products settings'),
@@ -318,17 +319,115 @@ $wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_custom
 /**
  * Breadcrumb status
  */
-$wp_customize->add_setting('woocommerce_product_page_related_products_status',
+$wp_customize->add_setting('woocommerce_product_page_related_products_disabled',
     array (
         'default' => 0,
         'transport' => 'refresh',
     )
 );
 
-$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_product_page_related_products_status',
+$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_product_page_related_products_disabled',
     array (
-        'label' => esc_html__('Disabled'),
+        'label' => esc_html__('Status Disabled'),
         'section' => 'woocommerce_product_page',
-        'description' => __('Is disabled', 'growtype'),
+        'description' => __('Related products are disabled.', 'growtype'),
+    )
+));
+
+/**
+ * Products preview style
+ */
+$wp_customize->add_setting('woocommerce_product_page_related_products_preview_style',
+    array (
+        'default' => 'grid',
+        'transport' => 'refresh',
+    )
+);
+
+$wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'woocommerce_product_page_related_products_preview_style',
+    array (
+        'label' => __('Products preview style', 'growtype'),
+        'description' => esc_html__('Choose how products should be displayed', 'growtype'),
+        'section' => 'woocommerce_product_page',
+        'input_attrs' => array (
+            'multiselect' => false,
+        ),
+        'choices' => $this->product_preview_styles
+    )
+));
+
+/**
+ * Related products amount
+ */
+$wp_customize->add_setting('woocommerce_product_page_related_products_amount', array (
+    'default' => '2',
+));
+
+$wp_customize->add_control('woocommerce_product_page_related_products_amount', array (
+    'type' => 'text',
+    'section' => 'woocommerce_product_page',
+    'label' => __('Amount'),
+    'description' => __('Related products amount')
+));
+
+/**
+ * Sidebar
+ */
+$wp_customize->add_setting('woocommerce_product_page_sidebar_notice',
+    array (
+        'default' => '',
+        'transport' => 'postMessage'
+    )
+);
+
+$wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_customize, 'woocommerce_product_page_sidebar_notice',
+    array (
+        'label' => __('Sidebar'),
+        'description' => __('Below you can change sidebar settings'),
+        'section' => 'woocommerce_product_page'
+    )
+));
+
+/**
+ * Sidebar enabled
+ */
+$wp_customize->add_setting('woocommerce_product_page_sidebar_enabled',
+    array (
+        'default' => 0,
+        'transport' => 'refresh',
+    )
+);
+
+$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_product_page_sidebar_enabled',
+    array (
+        'label' => esc_html__('Sidebar Enabled'),
+        'section' => 'woocommerce_product_page',
+        'description' => __('Sidebar is enabled', 'growtype'),
+    )
+));
+
+/**
+ * Product summary in sidebar
+ */
+$wp_customize->add_setting('woocommerce_product_page_sidebar_content',
+    array (
+        'default' => '',
+        'transport' => 'postMessage',
+        'sanitize_callback' => 'woocommerce_product_page_sidebar_content_translation'
+    )
+);
+
+$wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control($wp_customize, 'woocommerce_product_page_sidebar_content',
+    array (
+        'label' => __('Sidebar Content'),
+        'description' => __('Content for product sidebar.'),
+        'section' => 'woocommerce_product_page',
+        'priority' => 10,
+        'input_attrs' => array (
+            'class' => 'qtranxs-translatable',
+            'toolbar1' => 'bold italic bullist numlist alignleft aligncenter alignright link',
+            'toolbar2' => 'formatselect',
+            'mediaButtons' => true,
+        )
     )
 ));

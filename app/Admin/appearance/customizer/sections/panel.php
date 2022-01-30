@@ -62,6 +62,24 @@ class Panel_Customizer_Register
         ));
 
         /**
+         * Panel sticky
+         */
+        $wp_customize->add_setting('panel_is_sticky',
+            array (
+                'default' => 0,
+                'transport' => 'refresh',
+            )
+        );
+
+        $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'panel_is_sticky',
+            array (
+                'label' => esc_html__('Panel Sticky'),
+                'section' => 'panel',
+                'description' => __('Panel is sticky', 'growtype'),
+            )
+        ));
+
+        /**
          * Panel style
          */
         $wp_customize->add_setting('panel_style',
@@ -99,7 +117,7 @@ class Panel_Customizer_Register
 
         $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'panel_enabled_pages',
             array (
-                'label' => __('Panel pages', 'growtype'),
+                'label' => __('Panel Pages', 'growtype'),
                 'description' => esc_html__('In which pages panel should be visible. If empty, panel will be visible in all pages.', 'growtype'),
                 'section' => 'panel',
                 'input_attrs' => array (
@@ -121,7 +139,7 @@ class Panel_Customizer_Register
         );
         $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'panel_position',
             array (
-                'label' => __('Panel position', 'growtype'),
+                'label' => __('Panel Position', 'growtype'),
                 'description' => esc_html__('Choose panel position', 'growtype'),
                 'section' => 'panel',
                 'input_attrs' => array (
@@ -170,6 +188,24 @@ class Panel_Customizer_Register
             array (
                 'label' => __('Logo', 'growtype'),
                 'section' => 'panel',
+            )
+        ));
+
+        /**
+         * Panel user profile
+         */
+        $wp_customize->add_setting('panel_show_user_profile',
+            array (
+                'default' => 0,
+                'transport' => 'refresh',
+            )
+        );
+
+        $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'panel_show_user_profile',
+            array (
+                'label' => esc_html__('Show User Profile'),
+                'section' => 'panel',
+                'description' => __('Enable user profile in panel', 'growtype'),
             )
         ));
     }

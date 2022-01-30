@@ -3,19 +3,20 @@
 /**
  *
  */
-add_action('woocommerce_after_product_attribute_settings', 'add_product_attribute_select', 10, 1);
-add_action('wp_ajax_woocommerce_save_attributes', 'wcb_ajax_woocommerce_save_attributes', 0);
-
-function get_attribute_radio($attribute_name)
+function growtype_get_attribute_radio($attribute_name)
 {
     global $post;
     $val = get_post_meta($post->ID, "attribute_" . $attribute_name . "_radio", true);
     return !empty($val) ? $val : false;
 }
 
-function add_product_attribute_select($attribute, $i = 0)
+/**
+ *
+ */
+add_action('woocommerce_after_product_attribute_settings', 'growtype_woocommerce_after_product_attribute_settings', 10, 1);
+function growtype_woocommerce_after_product_attribute_settings($attribute, $i = 0)
 {
-    $value = !empty(WC()->session) ? WC()->session->get("attribute_" . $attribute->get_name() . "_radio") : get_attribute_radio($attribute->get_name());
+    $value = !empty(WC()->session) ? WC()->session->get("attribute_" . $attribute->get_name() . "_radio") : growtype_get_attribute_radio($attribute->get_name());
     ?>
     <?php
     global $post;
@@ -34,7 +35,11 @@ function add_product_attribute_select($attribute, $i = 0)
     <?php
 }
 
-function wcb_ajax_woocommerce_save_attributes()
+/**
+ *
+ */
+add_action('wp_ajax_woocommerce_save_attributes', 'growtype_wp_ajax_woocommerce_save_attributes', 0);
+function growtype_wp_ajax_woocommerce_save_attributes()
 {
     check_ajax_referer('save-attributes', 'security');
     parse_str($_POST['data'], $data);

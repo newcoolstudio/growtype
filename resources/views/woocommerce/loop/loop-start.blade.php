@@ -18,7 +18,18 @@
 if (!defined('ABSPATH')) {
     exit;
 }
-
-$preview_style_class = 'preview-style--' . (isset($preview_style) && !empty($preview_style) ? $preview_style : get_theme_mod('wc_catalog_products_preview_style'));
 ?>
+
+@if(is_single())
+    @php
+        $customizer_preview_style = !get_theme_mod('woocommerce_product_page_related_products_preview_style') ? 'grid' : get_theme_mod('woocommerce_product_page_related_products_preview_style');
+        $preview_style_class = 'preview-style--' . (isset($preview_style) && !empty($preview_style) ? $preview_style : $customizer_preview_style);
+    @endphp
+@else
+    @php
+        $customizer_preview_style = !get_theme_mod('wc_catalog_products_preview_style') ? 'grid' : get_theme_mod('wc_catalog_products_preview_style');
+        $preview_style_class = 'preview-style--' . (isset($preview_style) && !empty($preview_style) ? $preview_style : $customizer_preview_style);
+    @endphp
+@endif
+
 <ul class="products columns-<?php echo esc_attr(wc_get_loop_prop('columns')); ?> {!! $preview_style_class !!}">

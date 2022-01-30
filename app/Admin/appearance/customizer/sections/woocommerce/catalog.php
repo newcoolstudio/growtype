@@ -18,16 +18,38 @@ $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_custom
 ));
 
 /**
+ * Products preview style
+ */
+$wp_customize->add_setting('wc_catalog_products_preview_style',
+    array (
+        'default' => 'grid',
+        'transport' => 'refresh',
+    )
+);
+
+$wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'wc_catalog_products_preview_style',
+    array (
+        'label' => __('Products preview style', 'growtype'),
+        'description' => esc_html__('Choose how products should be displayed', 'growtype'),
+        'section' => 'woocommerce_product_catalog',
+        'input_attrs' => array (
+            'multiselect' => false,
+        ),
+        'choices' => $this->product_preview_styles
+    )
+));
+
+/**
  * Intro access
  */
-$wp_customize->add_setting('wc_catalog_access_intro',
+$wp_customize->add_setting('wc_catalog_access_notice',
     array (
         'default' => '',
         'transport' => 'postMessage',
     )
 );
 
-$wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_customize, 'wc_catalog_access_intro',
+$wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_customize, 'wc_catalog_access_notice',
     array (
         'label' => __('Access'),
         'description' => __('Below you can change shop page access settings'),
@@ -50,31 +72,6 @@ $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_custom
         'label' => esc_html__('Disable Access'),
         'section' => 'woocommerce_product_catalog',
         'description' => __('Disable access to "shop" page', 'growtype'),
-    )
-));
-
-/**
- * Products display style
- */
-$wp_customize->add_setting('wc_catalog_products_preview_style',
-    array (
-        'default' => 'grid',
-        'transport' => 'refresh',
-    )
-);
-
-$wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'wc_catalog_products_preview_style',
-    array (
-        'label' => __('Products display style', 'growtype'),
-        'description' => esc_html__('Choose how products should be displayed', 'growtype'),
-        'section' => 'woocommerce_product_catalog',
-        'input_attrs' => array (
-            'multiselect' => false,
-        ),
-        'choices' => array (
-            'grid' => __('Grid', 'growtype'),
-            'list' => __('List', 'growtype')
-        )
     )
 ));
 
@@ -165,14 +162,14 @@ $wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_custom
 /**
  * Sidebar switch
  */
-$wp_customize->add_setting('sidebar_shop_disabled',
+$wp_customize->add_setting('catalog_sidebar_disabled',
     array (
         'default' => 0,
         'transport' => 'refresh',
     )
 );
 
-$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'sidebar_shop_disabled',
+$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'catalog_sidebar_disabled',
     array (
         'label' => esc_html__('"Shop" Sidebar Disabled'),
         'section' => 'woocommerce_product_catalog',

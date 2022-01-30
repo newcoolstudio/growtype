@@ -176,3 +176,25 @@ Add remove
     line-height: 20px;
   }
 }
+
+.btn-gallery {
+  position: relative;
+  cursor: pointer;
+  padding-left: 46px;
+
+  &:before {
+    content: "\f233";
+    font-family: dashicons;
+    width: 20px;
+    height: 20px;
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    line-height: 20px;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}

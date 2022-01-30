@@ -384,3 +384,59 @@
     }
   }
 }
+
+/**
+Product type auction
+ */
+.product.product-type-auction {
+  .auction-details-time {
+    background: $color-light-grey;
+    border-radius: 10px;
+    padding: 15px 15px;
+    position: relative;
+    padding-left: 45px;
+    font-size: 14px;
+
+    &:before {
+      content: "\f469";
+      font-family: Dashicons;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      background-size: contain;
+      left: 15px;
+      top: 15px;
+      font-size: 22px;
+    }
+
+    .b-time {
+      font-size: 14px;
+      display: flex;
+      font-weight: bold;
+    }
+
+    .auction-time-countdown {
+      padding: 0;
+
+      .countdown_row {
+        word-break: keep-all;
+      }
+    }
+
+    .countdown_amount {
+      font-size: 14px;
+    }
+  }
+
+  &.auction-has-started {
+    .auction-details-time {
+      background: #EBE8FD;
+      color: $color-primary;
+
+      &:before {
+        content: "\f469";
+        font-family: Dashicons;
+      }
+    }
+  }
+}

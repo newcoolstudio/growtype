@@ -90,14 +90,14 @@
 		}
 		
 		&.loading {
-			border-top: 2px solid $color-theme;
-			background-image: linear-gradient(60deg, rgba($color-theme, .08), #fff, rgba($color-theme, .08), #fff, rgba($color-theme, .08) );
+			border-top: 2px solid $color-primary;
+			background-image: linear-gradient(60deg, rgba($color-primary, .08), #fff, rgba($color-primary, .08), #fff, rgba($color-primary, .08) );
 			background-size: 300% 300%;
 			-webkit-animation: animatedgradient 3s ease alternate infinite;
 			animation: animatedgradient 2s ease alternate infinite;
 
 			.bp-icon {
-				color: $color-theme;
+				color: $color-primary;
 
 				&:before {
 					content: "\f469";

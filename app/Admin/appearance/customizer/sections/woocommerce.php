@@ -1,6 +1,6 @@
 <?php
 
-class WC_Shop_Customizer_Extension
+class WC_Shop_Customizer_Extend
 {
 
     /**
@@ -11,6 +11,9 @@ class WC_Shop_Customizer_Extension
         if (class_exists('woocommerce')) {
             add_action('customize_register', array ($this, 'add_sections'));
             add_action('customize_controls_print_scripts', array ($this, 'add_scripts'), 30);
+
+            $customizer_available_data = new Customizer_Available_Data();
+            $this->product_preview_styles = $customizer_available_data->get_available_product_preview_styles();
         }
     }
 
@@ -115,7 +118,7 @@ class WC_Shop_Customizer_Extension
      */
     public function extend_product_catalog_page_section($wp_customize)
     {
-        require_once 'woocommerce/product-catalog.php';
+        require_once 'woocommerce/catalog.php';
     }
 
     /**
@@ -191,7 +194,7 @@ class WC_Shop_Customizer_Extension
     }
 }
 
-new WC_Shop_Customizer_Extension();
+new WC_Shop_Customizer_Extend();
 
 /**
  * @param $checked
@@ -215,6 +218,20 @@ function woocommerce_thankyou_page_intro_content_disabled_account_translation($v
 {
     if (function_exists('qtrans_getLanguage')) {
         $translation = get_theme_mod('woocommerce_thankyou_page_intro_content_disabled_account');
+        return formatTranslation($translation, $value, true);
+    }
+
+    return $value;
+}
+
+/**
+ * @param $checked
+ * Translate text input textarea
+ */
+function woocommerce_product_page_sidebar_content_translation($value)
+{
+    if (function_exists('qtrans_getLanguage')) {
+        $translation = get_theme_mod('woocommerce_product_page_sidebar_content');
         return formatTranslation($translation, $value, true);
     }
 

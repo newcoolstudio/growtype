@@ -3,7 +3,7 @@ Colors
  */
 $color-black: #3a3a3a;
 $color-white: white;
-$color-extra-light-grey: #f7f7f7;
+$color-extra-light-grey: #EEEEEE;
 $color-light-grey: #e4e4e4;
 $color-dark-grey: #5f5f5f;
 $color-grey: #adadad;
@@ -26,8 +26,7 @@ $h2-line-height: 140%;
 /**
 Main
  */
-$color-theme: #5561e2;
-$color-primary: $color-theme;
+$color-primary: #5561e2;
 $color-secondary: #3a3a3a;
 
 /**
@@ -79,16 +78,13 @@ $color-menu: $color-white;
 $color-menu-scroll: $color-black;
 
 /**
-Buttons
- */
-/**
 btn-primary
  */
-$color-btn-bg: $color-theme;
+$color-btn-bg: $color-primary;
 $color-btn-text: $color-white;
 $color-btn-visited: $color-white;
 $color-btn-hover: $color-white;
-$color-btn-border: $color-theme;
+$color-btn-border: $color-primary;
 $line-height-btn: 17px;
 $padding-btn: 15px 30px;
 $min-width-btn: 200px;
@@ -101,10 +97,10 @@ $font-size-btn: 14px;
 btn-secondary
  */
 $color-btn2-bg: none;
-$color-btn2-text: $color-theme;
+$color-btn2-text: $color-primary;
 $color-btn2-visited: none;
 $color-btn2-hover: none;
-$color-btn2-border: $color-theme;
+$color-btn2-border: $color-primary;
 $line-height-btn2: 17px;
 $padding-btn2: 15px 30px;
 $min-width-btn2: 200px;
@@ -116,7 +112,7 @@ $font-size-btn2: 14px;
 /**
 Input
  */
-$color-input-bg: white; //#f7f7f7
+$color-input-bg: white;
 $color-input: #252525;
 
 //Margin
@@ -128,7 +124,3 @@ Container
 $max-width-container: 1230px;
 $padding-left-container: 15px;
 $padding-right-container: $padding-left-container;
-
-///** Bootstrap navbar fix (https://git.io/fADqW) */
-//$navbar-dark-toggler-icon-bg: none;
-//$navbar-light-toggler-icon-bg: none;

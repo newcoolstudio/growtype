@@ -18,6 +18,22 @@
   z-index: 100;
 }
 
-.alert-font-sm{
+.alert-font-sm {
   font-size: 14px;
+}
+
+.alert {
+  .btn-close {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 20px;
+    padding: 0;
+    margin-right: 20px;
+  }
+
+  &.woocommerce-message {
+    border-top: 3px solid #8fae1b;
+    padding: 1em 2em 1em 3.5em;
+  }
 }

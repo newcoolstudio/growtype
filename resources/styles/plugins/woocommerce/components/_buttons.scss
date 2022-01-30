@@ -36,7 +36,7 @@
     }
 
     &:active, &:focus {
-      border: 2px solid $color-theme;
+      border: 2px solid $color-primary;
     }
 
     &.is-loading {

@@ -48,6 +48,7 @@ function qtranslate_fields_parse()
             'woocommerce_thankyou_page_intro_title',
             'woocommerce_thankyou_page_intro_content',
             'woocommerce_thankyou_page_intro_content_disabled_account',
+            'woocommerce_product_page_sidebar_content',
             'woocommerce_product_preview_cta_label',
             'header_extra_content',
         ];

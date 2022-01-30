@@ -33,7 +33,7 @@ $max_min_bid_text = $product->get_auction_type() == 'reverse' ? esc_html__( 'You
 
 			<input type="button" value="-" class="minus" />
 
-			<input type="text" name="bid_value" 
+			<input type="text" name="bid_value"
 				data-auction-id="<?php echo esc_attr( $product_id ); ?>"
 			<?php if ( $product->get_auction_sealed() != 'yes' ) { ?> 
 				value="<?php echo esc_attr( $product->bid_value() ); ?>" 
@@ -47,10 +47,10 @@ $max_min_bid_text = $product->get_auction_type() == 'reverse' ? esc_html__( 'You
 					min="<?php echo esc_attr( $product->bid_value() ); ?>" 
 				<?php } ?>
 			<?php } ?>
-				step="<?php echo $product->get_increase_bid_value() ?>"
+				step="<?php echo Growtype_Auction::bid_increase_value() ?>"
 				size="<?php echo strlen( $product->get_curent_bid() ) + 2; ?>" 
 				title="bid" 
-				class="input-text qty bid text left" 
+				class="input-text qty bid text left"
 			/>
 			<input type="button" value="+" class="plus" />
 		</div>

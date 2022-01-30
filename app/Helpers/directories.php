@@ -55,3 +55,11 @@ function get_child_template_resource_path()
 {
     return dirname(get_stylesheet_directory()) . '/resources';
 }
+
+/**
+ * @return string
+ */
+function get_child_template_app_path()
+{
+    return dirname(get_stylesheet_directory()) . '/app';
+}

@@ -1,11 +1,6 @@
 <?php
 
 /**
- * Add to cart message
- */
-add_filter( 'wc_add_to_cart_message_html', '__return_false' );
-
-/**
  * Add to cart ajax
  */
 add_action('wp_ajax_add_to_cart_ajax', 'add_to_cart_ajax_callback');
@@ -188,17 +183,17 @@ function wc_custom_ajax_added_to_cart($product_id)
 
     $user_can_buy = get_theme_mod('only_registered_users_can_buy') ? is_user_logged_in() : true;
 
-    $is_required_product = product_is_among_required_products($product_id);
+    $is_required_product = Growtype_Product::product_is_among_required_products($product_id);
 
     /**
      * Check if user can buy product and redirect accordingly
      */
-    if ($instant_checkout || !$user_can_buy || !user_has_bought_required_products()) {
+    if ($instant_checkout || !$user_can_buy || !Growtype_Product::user_has_bought_required_products()) {
 
         /**
          * Check if user can buy and if product is required and user did not buy required product already
          */
-        if (!$user_can_buy || (!$is_required_product && !user_has_bought_required_products())) {
+        if (!$user_can_buy || (!$is_required_product && !Growtype_Product::user_has_bought_required_products())) {
             $woocommerce->cart->empty_cart();
             $custom_redirect_url = get_permalink(wc_get_page_id('myaccount'));
         } elseif ($instant_checkout) {

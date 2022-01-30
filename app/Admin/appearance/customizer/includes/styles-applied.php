@@ -439,6 +439,14 @@ function customizer_update_css()
         }
 
         <?php } ?>
+
+        <?php
+       if(get_theme_mod('panel_is_sticky')){ ?>
+        .panel-area {
+            position: sticky;
+        }
+
+        <?php } ?>
     </style>
     <?php
 }

@@ -153,4 +153,3 @@ require_once 'Helpers/language.php';
 
 require_once 'Helpers/shop/cart.php';
 require_once 'Helpers/shop/wishlist.php';
-require_once 'Helpers/shop/product.php';

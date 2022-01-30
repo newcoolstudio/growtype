@@ -9,7 +9,7 @@ function woocommerce_product_add_to_cart_text_custom()
 {
     global $product;
 
-    $add_to_cart_button_custom_text = get_add_to_cart_btn_text($product);
+    $add_to_cart_button_custom_text = Growtype_Product::get_add_to_cart_btn_text($product);
 
     if (empty($product)) {
         return $add_to_cart_button_custom_text;

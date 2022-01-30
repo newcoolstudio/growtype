@@ -65,7 +65,7 @@
     "bootstrap": "v5.1.0",
     "chosen-js": "^1.8.7",
     "copy-webpack-plugin": "^9.0.1",
-    "jquery": "^3.5.1",
+    "jquery": "^3.6.0",
     "select2": "4.0.13",
     "slick-carousel": "*"
   }

@@ -28,8 +28,8 @@ function woocommerce_blocks_product_grid_item_html_custom($content, $data, $prod
     $default_add_to_cart_text = '';
     $default_add_to_cart_text = apply_filters('woocommerce_product_single_add_to_cart_text', $default_add_to_cart_text);
 
-    if (!empty(get_add_to_cart_btn_text($product))) {
-        $data->button = str_replace($default_add_to_cart_text, get_add_to_cart_btn_text($product), $data->button);
+    if (!empty(Growtype_Product::get_add_to_cart_btn_text($product))) {
+        $data->button = str_replace($default_add_to_cart_text, Growtype_Product::get_add_to_cart_btn_text($product), $data->button);
     }
 
     $price_disabled = get_post_meta($product->get_id(), '_hide_product_price', true);
@@ -38,7 +38,7 @@ function woocommerce_blocks_product_grid_item_html_custom($content, $data, $prod
         $data->price = null;
     }
 
-    if (product_preview_cta_disabled() && $preview_style !== 'plan') {
+    if (Growtype_Product::product_preview_cta_disabled() && $preview_style !== 'plan') {
         $data->button = null;
     }
 

@@ -1,3 +1,5 @@
+$ = jQuery;
+
 $(document).ready(function ($) {
 
     wp.customize('blogname', (value) => {
@@ -289,6 +291,15 @@ $(document).ready(function ($) {
     wp.customize("woocommerce_thankyou_page_intro_content_disabled_account", function (value) {
         value.bind(function (newval) {
             $(".woocommerce-order .b-intro-content").html(newval);
+        });
+    });
+
+    /**
+     * Product single
+     */
+    wp.customize("woocommerce_product_page_sidebar_content", function (value) {
+        value.bind(function (newval) {
+            $(".sidebar-product .sidebar-inner").html(newval);
         });
     });
 

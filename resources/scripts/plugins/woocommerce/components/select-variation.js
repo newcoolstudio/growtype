@@ -3,9 +3,9 @@ function selectVariation() {
         if ($('body').hasClass('single-product')) {
 
             /**
-             * Check if enabled
+             * Disable script if only radio select is enabled
              */
-            if ($('.single-product').find('.options[data-type="radio"]').length === 1) {
+            if ($('.single-product').find('.options[data-type="radio"]').length === 1 && $('.single-product').find('.options[data-type="select"]').length === 0) {
                 return false;
             }
 
@@ -28,6 +28,7 @@ function selectVariation() {
 
             if (window.cartSelect !== undefined) {
                 window.cartSelect.change(function (e) {
+
                     $('.variations_form button[type="submit"]').attr('disabled', true);
 
                     if ($('.variation-parent input[type="radio"]:checked').length > 0) {
