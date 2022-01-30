@@ -20,7 +20,7 @@ add_filter('body_class', function (array $classes) {
 
     /** Clean up class names for custom templates */
     $classes = array_map(function ($class) {
-        return preg_replace(['/-blade(-php)?$/', '/^page-template-views/'], '', $class);
+        return preg_replace(['/-blade(-php)?$/', '/^page-template-views/', '/\/resources/'], '', $class);
     }, $classes);
 
     return array_filter($classes);

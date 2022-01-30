@@ -33,7 +33,7 @@ function custom_login_enqueue_scripts()
     }
 
     ?>
-    <style type="text/css">
+    <style>
         .login h1 a {
             background-image: url(<?php echo get_login_logo()['url']?>) !important;
             width: 240px !important;

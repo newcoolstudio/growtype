@@ -3,12 +3,7 @@
 
 @include('partials.sections.head')
 
-<body
-        @php
-            body_class($body_class ?? null)
-        @endphp
-        role="document"
->
+<body @php body_class($body_class ?? null) @endphp role="document">
 
 <?php wp_body_open(); ?>
 

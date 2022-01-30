@@ -43,7 +43,7 @@ function extra_admin_columns_custom($column_name)
 add_action('admin_head', 'wp_admin_custom_column_style');
 
 function wp_admin_custom_column_style() {
-    echo '<style type="text/css">';
+    echo '<style>';
     echo '.woocommerce-embed-page table #language { width:8%; }';
     echo '</style>';
 }
