@@ -1,4 +1,4 @@
-<section class="section s-content {!! $section_class ?? null !!}">
+<div class="content-wrapper {!! $section_class ?? null !!}">
     <div class="container">
         <div class="content">
             <?php
@@ -9,4 +9,4 @@
             ?>
         </div>
     </div>
-</section>
+</div>

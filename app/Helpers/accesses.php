@@ -199,5 +199,12 @@ function page_is_among_enabled_pages($enabled_pages)
         }
     }
 
+    /**
+     * Check search results
+     */
+    if (in_array('search_results', $enabled_pages) && is_search()) {
+        $page_enabled = true;
+    }
+
     return $page_enabled;
 }

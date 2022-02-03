@@ -21,6 +21,7 @@ class Customizer_Available_Data
         }
 
         $customizer_available_pages['lost_password_page'] = 'Lost password page (important: no id)';
+        $customizer_available_pages['search_results'] = 'Search results (important: no id)';
 
         return $customizer_available_pages;
     }

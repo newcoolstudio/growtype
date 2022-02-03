@@ -1,0 +1,76 @@
+/**
+List products as table
+ */
+.products.preview-style--table {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+
+  tr.product {
+    float: initial;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: revert;
+    position: relative;
+
+    td:first-child {
+      padding: 0;
+      width: 0;
+    }
+  }
+
+  .e-heading, .e-heading span {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .e-heading div {
+    padding: 0;
+  }
+
+  .e-description {
+    font-size: 12px;
+  }
+
+  thead {
+    th {
+      &:first-child {
+        width: 0;
+        padding: 0;
+      }
+
+      font-size: 12px;
+    }
+  }
+
+  .e-img {
+    border-radius: 5px;
+    min-width: 100px;
+    min-height: 90px;
+  }
+
+  tbody {
+    td {
+      vertical-align: middle;
+      display: table-cell;
+
+      .e-separator {
+        color: #C4C4C4;
+      }
+    }
+  }
+
+  tr {
+    .badge {
+      padding: 5px 17px;
+      min-width: initial;
+      border-radius: 9px;
+      font-size: 12px;
+      left: 15px;
+      top: 8px;
+      right: initial;
+      text-transform: initial;
+    }
+  }
+}

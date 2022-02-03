@@ -3,8 +3,8 @@
 /**
  * Woocommerce custom products shortcode
  */
-add_shortcode('products_custom', 'products_custom_shortcode');
-function products_custom_shortcode($atts, $content = null)
+add_shortcode('products_growtype', 'products_growtype_shortcode');
+function products_growtype_shortcode($atts, $content = null)
 {
     global $woocommerce_loop;
 
@@ -62,6 +62,17 @@ function products_custom_shortcode($atts, $content = null)
                 'compare' => 'EXISTS'
             )
         ];
+    } elseif ($products_cat === 'watchlist') {
+        $user_ID = get_current_user_id();
+        $watchlist_ids = get_user_meta($user_ID, '_auction_watch');
+
+        if (!empty($watchlist_ids)) {
+            $args['orderby'] = 'meta_value';
+            $args['meta_key'] = '_auction_dates_to';
+            $args['post__in'] = $watchlist_ids;
+        } else {
+            return '';
+        }
     }
 
     /**
@@ -88,23 +99,29 @@ function products_custom_shortcode($atts, $content = null)
 
         <?php wc_get_template('loop/loop-start.php', ['preview_style' => $preview_style]); ?>
 
-        <?php while ($products->have_posts()) : $products->the_post(); ?>
-
+        <?php
+        if ($preview_style === 'table') { ?>
             <?php
-            /**
-             * Permalink change
-             */
-            if ($edit_product) {
-                $permalink = get_permalink() . '?customize=preview';
-            }
-
-            set_query_var('is_visible', $visibility);
-            set_query_var('permalink', $permalink);
-
-            wc_get_template_part('content', 'product');
+            echo \App\template('woocommerce.components.table.product-table', ['products' => $products]);
             ?>
+        <?php } else { ?>
+            <?php while ($products->have_posts()) : $products->the_post(); ?>
+                <?php
+                /**
+                 * Permalink change
+                 */
+                if ($edit_product) {
+                    $permalink = get_permalink() . '?customize=preview';
+                }
 
-        <?php endwhile; // end of the loop. ?>
+                set_query_var('is_visible', $visibility);
+                set_query_var('permalink', $permalink);
+
+                wc_get_template_part('content', 'product');
+                ?>
+
+            <?php endwhile; // end of the loop. ?>
+        <?php } ?>
 
         <?php wc_get_template('loop/loop-end.php'); ?>
 

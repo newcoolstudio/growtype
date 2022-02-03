@@ -16,11 +16,17 @@
             <div class="container">
                 <div class="woocommerce b-products">
                     <?php wc_get_template('loop/loop-start.php'); ?>
-                    @while(have_posts()) @php the_post() @endphp
-                    <?php
-                    wc_get_template_part('content', 'product');
-                    ?>
-                    @endwhile
+
+                    @if(get_theme_mod('wc_catalog_products_preview_style') === 'table')
+                        @include('woocommerce.components.table.product-table')
+                    @else
+                        @while(have_posts()) @php the_post() @endphp
+                        <?php
+                        wc_get_template_part('content', 'product');
+                        ?>
+                        @endwhile
+                    @endif
+
                     <?php wc_get_template('loop/loop-end.php'); ?>
                 </div>
             </div>
@@ -32,6 +38,14 @@
             </div>
         @endif
     @endif
+@endsection
+
+@section('panel')
+    @include('partials.content.content-panel')
+@endsection
+
+@section('sidebar')
+    @include('partials.content.content-sidebar-primary')
 @endsection
 
 @section('footer')
