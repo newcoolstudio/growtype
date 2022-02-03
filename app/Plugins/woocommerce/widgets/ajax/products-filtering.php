@@ -11,8 +11,8 @@ function get_filtered_products()
 
     if (!empty($filtered_products->products)) {
         foreach ($filtered_products->products as $filtered_product) {
-            $post_object = get_post($filtered_product);
-            setup_postdata($GLOBALS['post'] =& $post_object);
+            $product = get_post($filtered_product);
+            setup_postdata($GLOBALS['post'] =& $product);
             wc_get_template_part('content', 'product');
         }
         wp_reset_postdata();

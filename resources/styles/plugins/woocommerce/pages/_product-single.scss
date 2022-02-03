@@ -20,7 +20,7 @@
   }
 
   & > div {
-    margin-top: 20px !important;
+    margin-bottom: 10px !important;
   }
 }
 
@@ -60,7 +60,7 @@
   }
 
   .product-summary-inner {
-    padding-top: 30px;
+    padding-top: 25px;
     @include bp-phone-xl() {
       padding: 0;
     }

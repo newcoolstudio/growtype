@@ -2,7 +2,6 @@
   .wishlist-preview {
     min-height: 300px;
     position: relative;
-    margin-top: 15px;
     @include bp-phone-xl() {
       margin-top: 25px;
     }
@@ -14,10 +13,6 @@
       right: 0;
       top: 0;
       bottom: 0;
-    }
-
-    .woocommerce-info {
-      margin-top: 20px;
     }
   }
 

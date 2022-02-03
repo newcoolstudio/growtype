@@ -1,6 +1,7 @@
 body {
   .main {
     margin-top: 0;
+    padding-top: 25px;
   }
 }
 
@@ -98,7 +99,6 @@ Main content wrapper
 .main-content-wrapper {
   max-width: $max-width-container;
   margin: auto;
-  padding-top: 40px;
   padding-bottom: 50px;
   @include bp-phone-xl-reverse() {
     min-height: 650px;

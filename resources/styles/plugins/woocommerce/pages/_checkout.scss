@@ -2,10 +2,6 @@
   display: inline-block;
   width: 100%;
 
-  .main-content-wrapper {
-    padding-top: 25px;
-  }
-
   button[type="submit"] {
     @include bp-phone-xl() {
       width: 100%;
