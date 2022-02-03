@@ -73,4 +73,27 @@ class Customizer_Available_Data
             'table' => __('Table', 'growtype')
         );
     }
+
+    /**
+     * Post types
+     */
+    function get_available_post_types()
+    {
+        $post_types_args = apply_filters(
+            'wpes_post_types_args',
+            array (
+                'show_ui' => true,
+                'public' => true,
+            )
+        );
+
+        $all_post_types = apply_filters('wpes_post_types', get_post_types($post_types_args, 'objects'));
+
+        $post_types = [];
+        foreach ($all_post_types as $key => $post_type) {
+            $post_types[$key] = $post_type->label;
+        }
+
+        return $post_types;
+    }
 }

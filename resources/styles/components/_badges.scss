@@ -1,0 +1,16 @@
+.badge {
+  &[data-status="live"] {
+    color: #EF8354;
+    background-color: #FDECE5;
+  }
+
+  &[data-status="upcoming"] {
+    color: #0091E6;
+    background-color: #D9EFFB;
+  }
+
+  &[data-status="ended"] {
+    color: #9A9EA7;
+    background-color: #F5F6F7;
+  }
+}

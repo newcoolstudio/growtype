@@ -36,63 +36,63 @@ class Custom_WC_Widget_Product_Categories extends WC_Widget
     public function __construct()
     {
         $this->widget_cssclass = 'woocommerce widget_product_categories';
-        $this->widget_description = __('A list or dropdown of product categories.', 'woocommerce');
+        $this->widget_description = __('A list or dropdown of product categories.', 'growtype');
         $this->widget_id = 'woocommerce_product_categories';
-        $this->widget_name = __('Product Categories - Growtype extended', 'woocommerce');
+        $this->widget_name = __('Product Categories - Growtype extended', 'growtype');
         $this->settings = array (
             'title' => array (
                 'type' => 'text',
-                'std' => __('Product categories', 'woocommerce'),
-                'label' => __('Title', 'woocommerce'),
+                'std' => __('Product categories', 'growtype'),
+                'label' => __('Title', 'growtype'),
             ),
             'orderby' => array (
                 'type' => 'select',
                 'std' => 'name',
-                'label' => __('Order by', 'woocommerce'),
+                'label' => __('Order by', 'growtype'),
                 'options' => array (
-                    'order' => __('Category order', 'woocommerce'),
-                    'name' => __('Name', 'woocommerce'),
+                    'order' => __('Category order', 'growtype'),
+                    'name' => __('Name', 'growtype'),
                 ),
             ),
             'dropdown' => array (
                 'type' => 'checkbox',
                 'std' => 0,
-                'label' => __('Show as dropdown', 'woocommerce'),
+                'label' => __('Show as dropdown', 'growtype'),
             ),
             'count' => array (
                 'type' => 'checkbox',
                 'std' => 0,
-                'label' => __('Show product counts', 'woocommerce'),
+                'label' => __('Show product counts', 'growtype'),
             ),
             'hierarchical' => array (
                 'type' => 'checkbox',
                 'std' => 1,
-                'label' => __('Show hierarchy', 'woocommerce'),
+                'label' => __('Show hierarchy', 'growtype'),
             ),
             'show_children_only' => array (
                 'type' => 'checkbox',
                 'std' => 0,
-                'label' => __('Only show children of the current category', 'woocommerce'),
+                'label' => __('Only show children of the current category', 'growtype'),
             ),
             'hide_empty' => array (
                 'type' => 'checkbox',
                 'std' => 0,
-                'label' => __('Hide empty categories', 'woocommerce'),
+                'label' => __('Hide empty categories', 'growtype'),
             ),
             'allow_multiple' => array (
                 'type' => 'checkbox',
                 'std' => 0,
-                'label' => __('Allow multiple categories', 'woocommerce'),
+                'label' => __('Allow multiple categories', 'growtype'),
             ),
             'multiple_include_parent' => array (
                 'type' => 'checkbox',
                 'std' => 0,
-                'label' => __('Multiple categories include parent category', 'woocommerce'),
+                'label' => __('Multiple categories include parent category', 'growtype'),
             ),
             'max_depth' => array (
                 'type' => 'text',
                 'std' => '',
-                'label' => __('Maximum depth', 'woocommerce'),
+                'label' => __('Maximum depth', 'growtype'),
             ),
         );
 
@@ -278,13 +278,13 @@ class Custom_WC_Widget_Product_Categories extends WC_Widget
 				if ( jQuery().selectWoo ) {
 					var wc_product_cat_select = function() {
 						jQuery( '.dropdown_product_cat' ).selectWoo( {
-							placeholder: '" . esc_js(__('Select a category', 'woocommerce')) . "',
+							placeholder: '" . esc_js(__('Select a category', 'growtype')) . "',
 							minimumResultsForSearch: 5,
 							width: '100%',
 							allowClear: true,
 							language: {
 								noResults: function() {
-									return '" . esc_js(_x('No matches found', 'enhanced select', 'woocommerce')) . "';
+									return '" . esc_js(_x('No matches found', 'enhanced select', 'growtype')) . "';
 								}
 							}
 						} );
@@ -299,7 +299,7 @@ class Custom_WC_Widget_Product_Categories extends WC_Widget
             $list_args['walker'] = new WC_Product_Cat_List_Walker();
             $list_args['title_li'] = '';
             $list_args['pad_counts'] = 1;
-            $list_args['show_option_none'] = __('No product categories exist.', 'woocommerce');
+            $list_args['show_option_none'] = __('No product categories exist.', 'growtype');
             $list_args['current_category'] = ($this->current_cat) ? $this->current_cat->term_id : '';
             $list_args['current_category_ancestors'] = $this->cat_ancestors;
             $list_args['max_depth'] = $max_depth;

@@ -1,12 +1,12 @@
 <div class="options_group">
     <div class="form-field downloadable_files">
-        <label><?php esc_html_e('Shipping documents', 'woocommerce'); ?></label>
+        <label><?php esc_html_e('Shipping documents', 'growtype'); ?></label>
         <table class="widefat">
             <thead>
             <tr>
                 <th class="sort">&nbsp;</th>
-                <th><?php esc_html_e('Name', 'woocommerce'); ?><?php echo wc_help_tip(__('This is the name of the download shown to the customer.', 'woocommerce')); ?></th>
-                <th colspan="2"><?php esc_html_e('File URL', 'woocommerce'); ?><?php echo wc_help_tip(__('This is the URL or absolute path to the file which customers will get access to. URLs entered here should already be encoded.', 'woocommerce')); ?></th>
+                <th><?php esc_html_e('Name', 'growtype'); ?><?php echo wc_help_tip(__('This is the name of the download shown to the customer.', 'growtype')); ?></th>
+                <th colspan="2"><?php esc_html_e('File URL', 'growtype'); ?><?php echo wc_help_tip(__('This is the URL or absolute path to the file which customers will get access to. URLs entered here should already be encoded.', 'growtype')); ?></th>
                 <th>&nbsp;</th>
             </tr>
             </thead>
@@ -34,7 +34,7 @@
                     require 'documents-table-row.php';
                     echo esc_attr(ob_get_clean());
                     ?>">
-                        <?php esc_html_e('Add File', 'woocommerce'); ?></a>
+                        <?php esc_html_e('Add File', 'growtype'); ?></a>
                 </th>
             </tr>
             </tfoot>

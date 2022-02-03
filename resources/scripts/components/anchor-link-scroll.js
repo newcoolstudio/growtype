@@ -20,7 +20,7 @@ function anchorLinkScroll() {
             }
 
             $('html, body').animate({
-                scrollTop: $(hashAttribute).offset().top - 100
+                scrollTop: ($(hashAttribute).offset().top - 100)
             }, 500);
         } else {
             window.location.href = $.attr(this, 'href');
@@ -32,7 +32,7 @@ function anchorLinkScroll() {
      */
     if (window.location.hash) {
         let hash = window.location.hash;
-        if (typeof $(hash).offset() !== "undefined") {
+        if ($(decodeURI(hash)).length > 1 && typeof $(hash).offset() !== "undefined") {
             setTimeout(function () {
                 let offset = screen.width < 600 ? 80 : 90;
                 document.documentElement.scrollTop = $(window.location.hash).offset().top - offset

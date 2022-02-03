@@ -1,15 +1,16 @@
 function contentSearch() {
     $('.e-search').click(function () {
-        if ($('.b-mainsearch').is(':visible')) {
-            $('.b-mainsearch').fadeOut();
+        if ($('.search-main').is(':visible')) {
+            $('.search-main').fadeOut();
         } else {
-            $('.b-mainsearch').fadeIn();
+            $('.search-main').fadeIn();
             $('#search-form').focus();
         }
     });
 
-    $('.b-mainsearch .e-close').click(function () {
-        $('.b-mainsearch').fadeOut();
+    $('.search-main .btn-close').click(function (e) {
+        e.preventDefault();
+        $('.search-main').fadeOut();
     });
 }
 

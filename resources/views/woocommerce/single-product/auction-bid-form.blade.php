@@ -16,7 +16,7 @@ if ( ! ( $product && $product->get_type() == 'auction' ) ) {
 $current_user     = wp_get_current_user();
 $product_id       = $product->get_id();
 $user_max_bid     = $product->get_user_max_bid( $product_id, $current_user->ID );
-$max_min_bid_text = $product->get_auction_type() == 'reverse' ? esc_html__( 'Your min bid is', 'wc_simple_auctions' ) : esc_html__( 'Your max bid is', 'wc_simple_auctions' );
+$max_min_bid_text = $product->get_auction_type() == 'reverse' ? esc_html__( 'Your min bid is', 'growtype' ) : esc_html__( 'Your max bid is', 'growtype' );
 ?>
 
 <?php if ( ( $product->is_closed() === false ) and ( $product->is_started() === true ) ) : ?>	
@@ -55,7 +55,7 @@ $max_min_bid_text = $product->get_auction_type() == 'reverse' ? esc_html__( 'You
 			<input type="button" value="+" class="plus" />
 		</div>
 
-		<button type="submit" class="bid_button button alt"><?php echo apply_filters( 'bid_text', esc_html__( 'Bid', 'wc_simple_auctions' ), $product ); ?></button>
+		<button type="submit" class="bid_button button alt"><?php echo apply_filters( 'bid_text', esc_html__( 'Bid', 'growtype' ), $product ); ?></button>
 		
 		<input type="hidden" name="place-bid" value="<?php echo esc_attr( $product_id ); ?>" />
 		<input type="hidden" name="product_id" value="<?php echo esc_attr( $product_id ); ?>" />

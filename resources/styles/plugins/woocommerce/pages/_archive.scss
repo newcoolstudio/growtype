@@ -10,6 +10,12 @@
   #main {
     padding-top: 25px;
   }
+
+  .woocommerce-result-count {
+    float: left;
+    margin-top: 11px;
+    color: $color-grey;
+  }
 }
 
 .shop-header-featured {
@@ -204,6 +210,7 @@ List products as table
       left: 15px;
       top: 8px;
       right: initial;
+      text-transform: initial;
     }
   }
 }

@@ -138,18 +138,15 @@ require_once 'Helpers/accesses.php';
 require_once 'Helpers/emails.php';
 require_once 'Helpers/headers.php';
 require_once 'Helpers/menus.php';
-require_once 'Helpers/blog.php';
 require_once 'Helpers/directories.php';
 require_once 'Helpers/time.php';
 require_once 'Helpers/code.php';
-require_once 'Helpers/posts.php';
 require_once 'Helpers/editor.php';
 require_once 'Helpers/font.php';
 require_once 'Helpers/gdpr.php';
 require_once 'Helpers/sidebar.php';
 require_once 'Helpers/panel.php';
 require_once 'Helpers/user.php';
-require_once 'Helpers/language.php';
 
 require_once 'Helpers/shop/cart.php';
 require_once 'Helpers/shop/wishlist.php';

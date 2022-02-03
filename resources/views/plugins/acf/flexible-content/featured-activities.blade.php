@@ -12,7 +12,7 @@
 
 @if(empty($postsToDisplay))
     @php
-        $postsToDisplay = get_posts_ordered_by_start_time(3);
+        $postsToDisplay = Growtype_Post::ordered_by_start_time(3);
     @endphp
 @endif
 

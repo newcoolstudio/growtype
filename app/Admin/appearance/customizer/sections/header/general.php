@@ -134,6 +134,47 @@ $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_cus
 ));
 
 /**
+ * Page title switch
+ */
+$wp_customize->add_setting('header_page_title_enabled',
+    array (
+        'default' => 0,
+        'transport' => 'refresh',
+    )
+);
+
+$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'header_page_title_enabled',
+    array (
+        'label' => esc_html__('Page Title'),
+        'section' => 'header_general',
+        'description' => __('Header has page title', 'growtype'),
+    )
+));
+
+/**
+ * Page title pages
+ */
+$wp_customize->add_setting('header_page_title_pages',
+    array (
+        'default' => '',
+        'transport' => 'refresh',
+    )
+);
+
+$wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'header_page_title_pages',
+    array (
+        'label' => __('Page Title Pages', 'growtype'),
+        'description' => esc_html__('In which pages, page title should be visible.', 'growtype'),
+        'section' => 'header_general',
+        'input_attrs' => array (
+            'placeholder' => __('Please select pages...', 'growtype'),
+            'multiselect' => true,
+        ),
+        'choices' => $this->customizer_available_pages
+    )
+));
+
+/**
  * Header extra space
  */
 $wp_customize->add_setting('header_extra_space_switch',

@@ -41,7 +41,7 @@
             <?php } ?>
 
             <?php
-            if (language_selector()) { ?>
+            if (Growtype_Language::selector()) { ?>
             <li class="language-selector">
                 <?php echo qtranxf_generateLanguageSelectCode('text')?>
             </li>

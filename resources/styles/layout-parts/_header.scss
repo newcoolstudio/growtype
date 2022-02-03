@@ -39,8 +39,16 @@
   padding-bottom: 0;
   min-height: 95px;
   transition: all 0.5s;
+  flex-wrap: wrap;
   @include bp-phone-xl() {
     min-height: 66px;
+  }
+
+  .page-title {
+    margin: 0;
+    display: inline-block;
+    width: initial;
+    margin-right: auto;
   }
 
   .mainlogo {

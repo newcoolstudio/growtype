@@ -19,10 +19,7 @@
 
     .header-inner {
       margin: auto;
-      padding-left: 350px;
-      @include bp-page-content() {
-        padding-left: 23%;
-      }
+      padding-left: calc(100% - 78% - 30px + 55px);
       @include bp-phone-xl() {
         padding-left: 0;
         padding-right: 0;

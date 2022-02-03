@@ -198,3 +198,26 @@ Add remove
     margin-bottom: auto;
   }
 }
+
+.btn-view {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:after {
+    content: "\f344";
+    font-family: dashicons;
+    width: 20px;
+    height: 20px;
+    font-size: 18px;
+    position: relative;
+    top: 2px;
+    bottom: 0;
+    left: initial;
+    right: 0;
+    line-height: 20px;
+    margin: 0;
+    padding-left: 10px;
+  }
+}

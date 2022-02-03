@@ -33,7 +33,7 @@
                         </a>
                     </div>
                     <div class="b-datetime">
-                        <p class="e-time">{{ growtype_get_post_reading_time(get_post()) }}</p>
+                        <p class="e-time">{{ Growtype_Post::reading_time(get_post()) }}</p>
                         <span class="e-dot">•</span>
                         <p class="e-date">{{ get_the_date() }}</p>
                     </div>
@@ -79,7 +79,7 @@
             </div>
 
             <nav class="pagination pagination-posts mt-3 pt-4 pb-5">
-                <?php growtype_get_pagination($loop); ?>
+                {!! Growtype_Post::pagination($loop) !!}
             </nav>
 
             <?php wp_reset_postdata();

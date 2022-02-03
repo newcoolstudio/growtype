@@ -39,6 +39,7 @@ function qtranslate_fields_parse()
             'footer_textarea',
             'header_navbar_text',
             'theme_general_gdpr_content',
+            'theme_general_created_by_content',
             'woocommerce_product_page_payment_details',
             'woocommerce_checkout_billing_section_title',
             'woocommerce_checkout_additional_section_title',

@@ -119,7 +119,7 @@ class Growtype_Auction
      */
     public static function duration_in_days_formatted(): string
     {
-        $days = '';
+        $days = '-';
 
         if (!empty(self::duration_in_days())) {
             $days_amount = self::duration_in_days();
@@ -419,11 +419,11 @@ class Growtype_Auction
 
         if ($product->is_type('auction') && class_exists('WC_Product_Auction')) {
             if (self::has_started() && !self::has_closed()) {
-                $output .= '<div class="badge bg-info" data-status="live">' . __('Live', 'growtype-child') . '</div>';
+                $output .= '<div class="badge" data-status="live">' . __('Live', 'growtype-child') . '</div>';
             } elseif (self::has_closed()) {
-                $output .= '<div class="badge bg-warning" data-status="live">' . __('Ended', 'growtype-child') . '</div>';
+                $output .= '<div class="badge" data-status="ended">' . __('Ended', 'growtype-child') . '</div>';
             } else {
-                $output .= '<div class="badge bg-success" data-status="live">' . __('Upcoming', 'growtype-child') . '</div>';
+                $output .= '<div class="badge" data-status="upcoming">' . __('Upcoming', 'growtype-child') . '</div>';
             }
         }
 
@@ -480,5 +480,20 @@ class Growtype_Auction
     public static function rules_formatted()
     {
         return \App\template('plugins.woocommerce-simple-auctions.rules');
+    }
+
+    /**
+     * @return string
+     */
+    public static function add_to_watchlist()
+    {
+        global $product, $watchlist;
+
+        if ($product->is_type('auction') && class_exists('WC_Product_Auction')) {
+            $WooCommerce_simple_auction = new WooCommerce_simple_auction();
+            return wc_get_template( 'single-product/watchlist-link.php' );
+        }
+
+        return '';
     }
 }

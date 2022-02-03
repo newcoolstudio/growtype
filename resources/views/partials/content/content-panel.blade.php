@@ -1,4 +1,4 @@
-<div id="panel" class="panel panel-area panel-<?= get_theme_mod('panel_style') ?>">
+<div id="panel" class="panel panel-area panel-<?php echo esc_html(get_theme_mod('panel_style')) ?>">
     <div class="panel-header">
         @include('partials.components.panel.logo')
     </div>

@@ -10,11 +10,12 @@
             <h4>{!! $post->post_title !!}</h4>
             <p>{{$post->post_excerpt}}</p>
             <div class="e-intro">
-                {{growtype_get_post_content_limited($post->post_content)}}
+                {{Growtype_Post::content_limited($post->post_content)}}
             </div>
         </div>
         <div class="read-more">
-            <button class="btn read-more-link color-primary btn-basic"><?php echo __( 'Continue reading', 'growtype' ) . '...'; ?></button>
+            <button class="btn read-more-link color-primary btn-basic"><?php echo __('Continue reading',
+                        'growtype') . '...'; ?></button>
         </div>
     </div>
 </a>

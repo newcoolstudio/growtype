@@ -14,7 +14,7 @@ function add_extra_classes_to_body($classes)
     $classes[] = display_sidebar_primary() ? 'has-sidebar-primary' : null;
     $classes[] = display_shop_catalog_sidebar() ? 'has-sidebar-catalog' : null;
     $classes[] = Growtype_Product::sidebar() ? 'has-sidebar-product' : null;
-    $classes[] = is_front_post() ? 'is-front-post' : null;
+    $classes[] = Growtype_Post::is_front() ? 'is-front-post' : null;
     $classes[] = header_is_absolute() ? 'has-absolute-header' : null;
     $classes[] = header_is_fixed() ? 'has-fixed-header' : null;
     $classes[] = get_theme_mod('burger_always_visible') ? 'has-always-visible-burger' : null;

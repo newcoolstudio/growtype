@@ -44,7 +44,7 @@ function customizer_update_css()
         <?php } ?>
 
         <?php if(!empty(get_theme_mod('mobile_menu_burger_color'))){ ?>
-        .site-header.is-scroll .hamburger-inner {
+        .site-header.is-scroll .hamburger-inner, .is-pasive .hamburger-inner {
             background: <?php echo get_theme_mod('mobile_menu_burger_color'); ?>;
         }
 

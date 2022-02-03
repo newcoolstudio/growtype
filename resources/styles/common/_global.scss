@@ -40,7 +40,7 @@ Admin bar frontend
 Default admin bar
  */
 .admin-bar {
-  .b-mainsearch, .main-navigation-mobile {
+  .search-fixed, .main-navigation-mobile {
     margin-top: 32px !important;
     @include bp-phone-xl() {
       margin-top: 46px !important;
@@ -55,7 +55,7 @@ Default admin bar
 }
 
 .has-promo-bar {
-  .b-mainsearch, .main-navigation-mobile {
+  .search-fixed, .main-navigation-mobile {
     margin-top: 65px !important;
   }
 }

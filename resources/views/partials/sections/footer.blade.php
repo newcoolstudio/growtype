@@ -8,15 +8,15 @@
 
                 @if(!empty(get_theme_mod('footer_copyright')))
                     <div id="footer_copyright" class="copyright">
-                        <?php echo get_theme_mod('footer_copyright') ?>
+                        <?php echo get_theme_mod('footer_copyright'); ?>
                     </div>
                 @endif
 
                 @if(get_theme_mod('footer_type_select') !== 'type-3')
                     @include('partials.components.social-icons')
-                @else
-                    @include('partials.components.credits')
                 @endif
+
+                @include('partials.components.credits')
             </div>
         </div><!-- .site-info -->
     </footer><!-- #colophon -->

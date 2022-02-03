@@ -8,7 +8,7 @@ function growtype_woocommerce_product_options_shipping_product_data()
 {
     global $post, $thepostid, $product_object;
 
-    $field_options = array ('' => __('Select a country / region&hellip;', 'woocommerce')) + WC()->countries->get_allowed_countries();
+    $field_options = array ('' => __('Select a country / region&hellip;', 'growtype')) + WC()->countries->get_allowed_countries();
 
     /**
      * Country

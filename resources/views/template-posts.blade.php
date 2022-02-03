@@ -55,7 +55,7 @@
             </div>
 
             <nav class="pagination pagination-posts mt-3 pt-4 pb-5">
-                {!! growtype_get_pagination($query); !!}
+                {!! Growtype_Post::pagination($query); !!}
             </nav>
             <?php
 

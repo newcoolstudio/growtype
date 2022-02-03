@@ -1,4 +1,5 @@
-<p class="credits">
-    <span style="opacity: 0.7">Created by</span>
-    <a href="https://www.newcoolstudio.com/" target="_blank" style="font-weight: bold;">Newcool</a>
-</p>
+@if(get_theme_mod('theme_general_created_by_enabled'))
+    <p class="credits">
+        <?php echo get_theme_mod('theme_general_created_by_content'); ?>
+    </p>
+@endif

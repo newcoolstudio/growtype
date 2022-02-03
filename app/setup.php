@@ -16,9 +16,6 @@ if (defined('VENDOR_DIR')) {
  */
 add_action('wp_enqueue_scripts', function () {
     if (!is_admin()) {
-//        wp_deregister_script('jquery');
-//        wp_enqueue_script('jquery', get_parent_template_public_path() . '/vendor/jquery/dist/jquery.js', array (), '3.6.0', true);
-
         /**
          * Local Plugins
          */

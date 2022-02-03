@@ -25,6 +25,10 @@
     @yield('sidebar')
 
     <main id="main" @php post_class('main') @endphp role="main">
+        @if(Growtype_Search::enabled())
+            @include('partials.components.search')
+        @endif
+
         @yield('content')
     </main>
 </div>

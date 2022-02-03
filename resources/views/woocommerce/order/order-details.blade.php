@@ -43,7 +43,7 @@ if ( $show_downloads ) {
 	<?php do_action( 'woocommerce_order_details_before_order_table', $order ); ?>
 
 	<div class="woocommerce-order-details-intro">
-		<h2 class="woocommerce-order-details__title"><?php esc_html_e( 'Order details', 'woocommerce' ); ?></h2>
+		<h2 class="woocommerce-order-details__title"><?php esc_html_e( 'Order details', 'growtype' ); ?></h2>
 	</div>
 
 	<div class="woocommerce-table-wrapper">
@@ -51,8 +51,8 @@ if ( $show_downloads ) {
 
 			<thead>
 			<tr>
-				<th class="woocommerce-table__product-name product-name"><?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
-				<th class="woocommerce-table__product-table product-total"><?php esc_html_e( 'Total', 'woocommerce' ); ?></th>
+				<th class="woocommerce-table__product-name product-name"><?php esc_html_e( 'Product', 'growtype' ); ?></th>
+				<th class="woocommerce-table__product-table product-total"><?php esc_html_e( 'Total', 'growtype' ); ?></th>
 			</tr>
 			</thead>
 
@@ -93,7 +93,7 @@ if ( $show_downloads ) {
 			?>
 			<?php if ( $order->get_customer_note() ) : ?>
 			<tr>
-				<th><?php esc_html_e( 'Note:', 'woocommerce' ); ?></th>
+				<th><?php esc_html_e( 'Note:', 'growtype' ); ?></th>
 				<td><?php echo wp_kses_post( nl2br( wptexturize( $order->get_customer_note() ) ) ); ?></td>
 			</tr>
 			<?php endif; ?>

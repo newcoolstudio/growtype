@@ -1,6 +1,6 @@
-<div class="b-mainsearch">
-    <div class="b-mainsearch-inner container">
-        <p class="e-label">What are you Looking for?</p>
+<div class="search-main search-{!! get_theme_mod('search_style') !!}">
+    <div class="search-main-inner container">
+        <p class="e-label"><?php echo __('What are you Looking for?', 'growtype') ?></p>
 
         <form role="search" method="get" id="searchform" action="{!! home_url('/') !!}">
             <input type="text" value="" name="s" id="search-form" placeholder="Search products..."/>
@@ -9,12 +9,13 @@
             </button>
         </form>
 
-        <div class="e-close">
-            <a href="#" class="icon-g-80"></a>
-        </div>
+        @if(get_theme_mod('search_style') === 'fixed')
+            <div class="btn btn-close"></div>
+        @endif
+
         <div class="b-search-results" style="display: none;">
             @if(function_exists( 'is_woocommerce_activated' ))
-                <a href="{{get_permalink( woocommerce_get_page_id( 'shop' ) )}}" type="button" class="btn btn-primary">
+                <a href="{{get_permalink( wc_get_page_id( 'shop' ) )}}" type="button" class="btn btn-primary">
                     <?php echo __('View all products', 'growtype') ?>
                 </a>
             @endif

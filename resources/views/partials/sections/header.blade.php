@@ -13,46 +13,45 @@
             </div>
         @endif
 
-        <div class="container header-inner">
-            @include('partials.components.header.logo')
+        <div class="container">
+            <div class="header-inner">
+                @include('partials.components.header.logo')
 
-            @include('partials.components.header.extra')
+                {!! Growtype_Post::title_render() !!}
 
-            @if(header_main_menu_is_enabled())
-                @include('partials.components.header.menu-main')
-            @endif
+                @include('partials.components.header.extra')
 
-            @if(header_mobile_menu_is_enabled())
-                @include('partials.components.header.menu-mobile')
-            @endif
+                @if(header_main_menu_is_enabled())
+                    @include('partials.components.header.menu-main')
+                @endif
 
-            @include('partials.components.header.menu-side')
+                @if(header_mobile_menu_is_enabled())
+                    @include('partials.components.header.menu-mobile')
+                @endif
 
-            @if(header_login_menu_is_enabled())
-                @include('partials.components.header.menu-login')
-            @endif
+                @include('partials.components.header.menu-side')
 
-            @if(growtype_user_profile_menu_is_enabled())
-                @include('partials.components.user-profile')
-            @endif
+                @if(header_login_menu_is_enabled())
+                    @include('partials.components.header.menu-login')
+                @endif
 
-            @if(get_theme_mod('search_icon_enabled'))
-                @include('partials.components.search')
-            @endif
+                @if(growtype_user_profile_menu_is_enabled())
+                    @include('partials.components.user-profile')
+                @endif
 
-            @if(!get_theme_mod('mobile_menu_disabled'))
-                <button class="hamburger hamburger--squeeze is-pasive" type="button">
-                    <div class="hamburger-box">
-                        <span class="hamburger-inner"></span>
-                    </div>
-                </button>
-            @endif
+                @if(!get_theme_mod('mobile_menu_disabled'))
+                    <button class="hamburger hamburger--squeeze is-pasive" type="button">
+                        <div class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </div>
+                    </button>
+                @endif
+            </div>
         </div>
 
         @if(class_exists( 'woocommerce' ) && cart_page_icon_is_active())
             @include('partials.components.woocommerce-cart')
         @endif
-
     </header><!-- #masthead -->
 @endif
 
