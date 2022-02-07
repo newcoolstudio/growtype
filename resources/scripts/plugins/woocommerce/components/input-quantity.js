@@ -1,5 +1,4 @@
 function inputQuantity() {
-
     function changeInputQuantityWithArrows() {
         $('.quantity .btn').click(function () {
             var currentQuantityInput = $(this).closest('.quantity').find('input[type="number"]');

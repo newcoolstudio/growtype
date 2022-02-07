@@ -6,12 +6,6 @@
       overflow: hidden;
     }
   }
-
-  .woocommerce-result-count {
-    float: left;
-    margin-top: 11px;
-    color: $color-grey;
-  }
 }
 
 .shop-header-featured {
@@ -25,6 +19,12 @@
 }
 
 .woocommerce {
+  .woocommerce-result-count {
+    float: left;
+    margin-top: 11px;
+    color: $color-grey;
+  }
+
   .woocommerce-ordering {
     min-width: 200px;
     margin-bottom: 20px;

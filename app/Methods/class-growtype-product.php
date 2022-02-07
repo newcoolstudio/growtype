@@ -6,6 +6,9 @@
  */
 class Growtype_Product
 {
+    const KEY_PRICE_PER_UNIT = 'price_per_unit';
+    const META_KEY_PRICE_PER_UNIT = '_price_per_unit';
+
     /**
      * @return mixed
      */

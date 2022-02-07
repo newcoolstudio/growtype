@@ -244,7 +244,6 @@
 
   .woocommerce-breadcrumb {
     margin-bottom: 0;
-    //display: none;
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
     background: #f7f8fa;
@@ -253,7 +252,6 @@
     padding-bottom: 10px;
     font-size: 12px;
     @include bp-phone-xl() {
-      //padding-top: 15px;
       font-size: 13px;
     }
 
@@ -335,7 +333,7 @@
   }
 
   .woocommerce div.product div.images .flex-control-thumbs li img:hover {
-    opacity: .5;
+    opacity: 0.5;
   }
 
   div.product form.cart div.quantity {
@@ -420,7 +418,7 @@ Related products with panel
     padding-left: 20px;
     padding-right: 0;
     margin-left: -20px;
-    background: #FAFAFA;
+    background: $color-extra-light-grey;
     width: calc(100% + 40px);
   }
 }

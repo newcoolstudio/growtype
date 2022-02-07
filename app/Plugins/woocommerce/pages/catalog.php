@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * Catalog search
+ */
+add_filter( 'woocommerce_redirect_single_search_result', '__return_false' );
+
+/**
  * @param $orderby
  * @return mixed
  * Edit WooCommerce orderby dropdown menu items of shop page

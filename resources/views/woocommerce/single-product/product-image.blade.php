@@ -51,14 +51,14 @@ $wrapper_classes = apply_filters(
         <div class="woocommerce-product-gallery__wrapper">
             @if ($featured_image_id)
                 @php
-                    $shop_single_img = wp_get_attachment_metadata( $featured_image_id )['sizes']['shop_single'];
+                    $shop_single_img = wp_get_attachment_metadata( $featured_image_id )['sizes']['shop_single'] ?? null;
                 @endphp
 
                 <div class="img-primary">
                     <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
                         <div class="e-img-wrapper">
                             <a href="{!! wp_get_attachment_url( $featured_image_id ) !!}" class="e-img-wrapper-inner">
-                                <div class="wp-post-image" data-index="0" style="background: url('{!! wp_get_attachment_image_url( $featured_image_id , 'medium') !!}');" data-src="{!! wp_get_attachment_url( $featured_image_id ) !!}" data-large_image="{!! wp_get_attachment_url( $featured_image_id ) !!}" data-large_image_width="{!! $shop_single_img['width'] ?? '' !!}" data-large_image_height="{!! $shop_single_img['height'] ?? '' !!}"></div>
+                                <div class="wp-post-image" data-index="0" style="background: url('{!! wp_get_attachment_image_url( $featured_image_id , 'medium') !!}');" data-src="{!! wp_get_attachment_url( $featured_image_id ) !!}" data-large_image="{!! wp_get_attachment_url( $featured_image_id ) !!}" data-large_image_width="{!! $shop_single_img['width'] ?? '400' !!}" data-large_image_height="{!! $shop_single_img['height'] ?? '400' !!}"></div>
                             </a>
                         </div>
                     </figure>

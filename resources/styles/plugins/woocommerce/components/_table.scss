@@ -21,7 +21,7 @@ List products as table
   }
 
   .e-heading, .e-heading span {
-    font-size: 12px;
+    font-size: $font-size-body;
     font-weight: bold;
   }
 
@@ -30,7 +30,7 @@ List products as table
   }
 
   .e-description {
-    font-size: 12px;
+    font-size: $font-size-body;
   }
 
   thead {
@@ -40,7 +40,7 @@ List products as table
         padding: 0;
       }
 
-      font-size: 12px;
+      font-size: $font-size-body;
     }
   }
 
@@ -66,11 +66,21 @@ List products as table
       padding: 5px 17px;
       min-width: initial;
       border-radius: 9px;
-      font-size: 12px;
+      font-size: $font-size-body;
       left: 15px;
       top: 8px;
       right: initial;
       text-transform: initial;
+    }
+  }
+
+  .btn-view {
+    padding: 5px 10px;
+    max-width: 100px;
+    min-width: initial;
+
+    &:after {
+      top: 1px;
     }
   }
 }

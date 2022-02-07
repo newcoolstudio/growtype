@@ -8,6 +8,10 @@ function products_growtype_shortcode($atts, $content = null)
 {
     global $woocommerce_loop;
 
+    if (!function_exists('wc_get_products')) {
+        return '';
+    }
+
     /**
      * Get properties from shortcode
      */
@@ -24,6 +28,7 @@ function products_growtype_shortcode($atts, $content = null)
         'edit_product' => false,
         'post_status' => 'publish',
         'cta_btn' => '',
+        'before_shop_loop' => '',
     ), $atts));
 
     $args = array (
@@ -76,16 +81,27 @@ function products_growtype_shortcode($atts, $content = null)
     }
 
     /**
-     * Permalink
+     * Page
      */
-    $permalink = null;
+    $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
+    $args['page'] = $paged;
+
+    /**
+     * Get products
+     */
+    $products = new WP_Query($args);
+
+    wc_set_loop_prop('current_page', $paged);
+    wc_set_loop_prop('is_paginated', wc_string_to_bool(true));
+    wc_set_loop_prop('page_template', get_page_template_slug());
+    wc_set_loop_prop('per_page', $per_page);
+    wc_set_loop_prop('total', $products->post_count);
+    wc_set_loop_prop('total_pages', $products->max_num_pages);
 
     /**
      * Render
      */
     ob_start();
-
-    $products = new WP_Query($args);
 
     if (!empty($columns)) {
         $woocommerce_loop['columns'] = $columns;
@@ -96,34 +112,32 @@ function products_growtype_shortcode($atts, $content = null)
     }
 
     if ($products->have_posts()) : ?>
-
-        <?php wc_get_template('loop/loop-start.php', ['preview_style' => $preview_style]); ?>
-
         <?php
-        if ($preview_style === 'table') { ?>
-            <?php
+        if (isset($before_shop_loop) && $before_shop_loop) {
+            do_action('woocommerce_before_shop_loop');
+        }
+
+        wc_get_template('loop/loop-start.php', ['preview_style' => $preview_style]);
+
+        if ($preview_style === 'table') {
             echo \App\template('woocommerce.components.table.product-table', ['products' => $products]);
-            ?>
-        <?php } else { ?>
-            <?php while ($products->have_posts()) : $products->the_post(); ?>
-                <?php
-                /**
-                 * Permalink change
-                 */
-                if ($edit_product) {
+        } else {
+            while ($products->have_posts()) : $products->the_post();
+                if (isset($edit_product) && $edit_product) {
                     $permalink = get_permalink() . '?customize=preview';
                 }
 
-                set_query_var('is_visible', $visibility);
-                set_query_var('permalink', $permalink);
+                set_query_var('is_visible', $visibility ?? 'catalog');
+                set_query_var('permalink', $permalink ?? null);
 
                 wc_get_template_part('content', 'product');
-                ?>
+            endwhile;
+        }
 
-            <?php endwhile; // end of the loop. ?>
-        <?php } ?>
+        wc_get_template('loop/loop-end.php');
 
-        <?php wc_get_template('loop/loop-end.php'); ?>
+        do_action('woocommerce_after_shop_loop');
+        ?>
 
     <?php endif;
 

@@ -6,9 +6,6 @@
  */
 class Growtype_Auction
 {
-    const KEY_AUCTION_BID_VALUE_PER_UNIT = 'auction_bid_value_per_unit';
-    const META_KEY_AUCTION_BID_VALUE_PER_UNIT = '_auction_bid_value_per_unit';
-
     /**
      * @return string
      * percent
@@ -259,13 +256,17 @@ class Growtype_Auction
     /**
      * @return float|int
      */
-    public static function price_per_unit()
+    public static function price_per_unit($product_id = null)
     {
         global $product;
 
+        if (!empty($product_id)) {
+            $product = wc_get_product($product_id);
+        }
+
         if (!empty(Growtype_Product::amount_in_units())) {
             if ($product->is_type('auction') && class_exists('WC_Product_Auction')) {
-                return round(self::bid_value() / Growtype_Product::amount_in_units(), 2);
+                return round(self::bid_value() / Growtype_Product::amount_in_units($product->get_id()), 2);
             }
         }
 
@@ -377,7 +378,7 @@ class Growtype_Auction
      */
     public static function current_bid_with_buyers_premium(): string
     {
-        return self::current_bid() + (self::current_bid() * self::buyers_premium());
+        return self::bid_value() + (self::bid_value() * self::buyers_premium());
     }
 
     /**
@@ -491,9 +492,28 @@ class Growtype_Auction
 
         if ($product->is_type('auction') && class_exists('WC_Product_Auction')) {
             $WooCommerce_simple_auction = new WooCommerce_simple_auction();
-            return wc_get_template( 'single-product/watchlist-link.php' );
+            return wc_get_template('single-product/watchlist-link.php');
         }
 
         return '';
+    }
+
+    /**
+     * @param $product_id
+     * @return array
+     */
+    public static function history($product_id = null)
+    {
+        global $product;
+
+        if (!empty($product_id)) {
+            $product = wc_get_product($product_id);
+        }
+
+        if ($product->is_type('auction') && class_exists('WC_Product_Auction')) {
+            return $product->auction_history();
+        }
+
+        return [];
     }
 }

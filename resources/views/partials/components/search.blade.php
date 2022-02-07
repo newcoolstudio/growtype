@@ -2,9 +2,9 @@
     <div class="search-main-inner container">
         <p class="e-label"><?php echo __('What are you Looking for?', 'growtype') ?></p>
 
-        <form role="search" method="get" id="searchform" action="{!! home_url('/') !!}">
+        <form role="search" method="get" id="searchform" action="{!! Growtype_Post::permalink() !!}">
             <input type="text" value="" name="s" id="search-form" placeholder="Search products..."/>
-            <button id="searchsubmit" type="submit" value="Search">
+            <button class="btn btn-primary" id="searchsubmit" type="submit" value="Search">
                 <i class="icon-f-85"></i>
             </button>
         </form>

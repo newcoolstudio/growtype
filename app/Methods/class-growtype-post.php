@@ -8,10 +8,39 @@ class Growtype_Post
     /**
      * @return string
      */
+    public static function permalink()
+    {
+        if (class_exists('woocommerce') && is_shop()) {
+            return get_permalink(wc_get_page_id('shop'));
+        } elseif (is_search()) {
+            return home_url('/');
+        }
+
+        return get_permalink();
+    }
+
+    /**
+     * @return string
+     */
     public static function title()
     {
         if (class_exists('woocommerce') && is_shop()) {
-            return woocommerce_page_title(false);
+            if (is_search() && !empty(get_search_query())) {
+                $page_title = sprintf(__('Search results: &ldquo;%s&rdquo;', 'woocommerce'), get_search_query());
+
+                if (get_query_var('paged')) {
+                    $page_title .= sprintf(__('&nbsp;&ndash; Page %s', 'woocommerce'), get_query_var('paged'));
+                }
+            } elseif (is_tax()) {
+                $page_title = single_term_title('', false);
+            } else {
+                $shop_page_id = wc_get_page_id('shop');
+                $page_title = get_the_title($shop_page_id);
+            }
+
+            $page_title = apply_filters('woocommerce_page_title', $page_title);
+
+            return $page_title;
         }
 
         return get_the_title();

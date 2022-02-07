@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Catelog product select filter
+ */
 add_action('wp_ajax_filter_products', 'get_filtered_products');
 add_action('wp_ajax_nopriv_filter_products', 'get_filtered_products');
 function get_filtered_products()
@@ -7,13 +10,15 @@ function get_filtered_products()
     $orderby = isset($_POST['orderby']) && !empty($_POST['orderby']) ? $_POST['orderby'] : 'menu_order title';
     $categories_ids = isset($_POST['categories_ids']) && !empty($_POST['categories_ids']) ? $_POST['categories_ids'] : [];
 
-    $filtered_products = get_filtered_wc_products($orderby, $categories_ids);
+    $products = get_ordered_wc_products($orderby, $categories_ids);
 
-    if (!empty($filtered_products->products)) {
-        foreach ($filtered_products->products as $filtered_product) {
-            $product = get_post($filtered_product);
-            setup_postdata($GLOBALS['post'] =& $product);
-            wc_get_template_part('content', 'product');
+    if ($products->have_posts()) {
+        if (get_theme_mod('wc_catalog_products_preview_style') === 'table') {
+            echo \App\template('woocommerce.components.table.product-table', ['products' => $products]);
+        } else {
+            while ($products->have_posts()) : $products->the_post();
+                wc_get_template_part('content', 'product');
+            endwhile;
         }
         wp_reset_postdata();
     } else {
@@ -26,9 +31,9 @@ function get_filtered_products()
 /**
  * @param $orderby
  * @param $categories_ids
- * @return array|stdClass
+ * @return WP_Query
  */
-function get_filtered_wc_products($orderby, $categories_ids)
+function get_ordered_wc_products($orderby, $categories_ids)
 {
     $meta_key = '';
     $order = 'ASC';
@@ -68,15 +73,22 @@ function get_filtered_wc_products($orderby, $categories_ids)
     }
 
     $args = array (
-        'status' => 'publish',
-        'meta_key' => $meta_key,
+        'post_type' => 'product',
+        'post_status' => 'publish',
         'orderby' => $orderby,
         'order' => $order,
-        'return' => 'ids',
         'paginate' => true,
         'featured' => false,
-        'visibility' => 'catalog',
+        'visibility' => 'catalog'
     );
+
+    if (!empty($meta_key)) {
+        $args['meta_query'] = array (
+            'meta_value' => array (
+                'key' => $meta_key,
+            )
+        );
+    }
 
     if (!empty($categories_ids)) {
         $args['tax_query'] = array (
@@ -95,5 +107,10 @@ function get_filtered_wc_products($orderby, $categories_ids)
     $args['page'] = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
     $args['limit'] = apply_filters('loop_shop_per_page', wc_get_default_products_per_row() * wc_get_default_product_rows_per_page());
 
-    return wc_get_products($args);
+    /**
+     * Extend arguments
+     */
+    $args = apply_filters('extend_growtype_woocommerce_catalog_ordering_args', $args);
+
+    return new WP_Query($args);
 }
