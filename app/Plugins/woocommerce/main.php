@@ -65,7 +65,7 @@ include('pages/login.php');
 include('pages/catalog.php');
 include('pages/checkout.php');
 include('pages/cart.php');
-include('pages/account/account.php');
+include('pages/account/main.php');
 
 /**
  * Blocks

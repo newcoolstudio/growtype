@@ -167,7 +167,6 @@
 }
 
 .woocommerce form h3 {
-  padding: 3px;
   float: right;
   font-size: 16px;
   line-height: 30px;
@@ -293,5 +292,16 @@ Billing details
       top: -4px;
       left: 3px;
     }
+  }
+}
+
+h3 {
+  & + .woocommerce-checkout-review-order {
+    margin-top: 20px;
+  }
+
+  & + .woocommerce-billing-fields__field-wrapper {
+    margin-top: 20px;
+    display: inline-block;
   }
 }

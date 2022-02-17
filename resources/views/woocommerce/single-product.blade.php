@@ -8,11 +8,11 @@
     <style>
         @if(class_exists('ACF') && get_field('top_section_color'))
         .site-header, .woocommerce-breadcrumb, .product-summary {
-            background: <?php echo get_field('top_section_color')?>              !important;
+            background: <?php echo get_field('top_section_color')?>                        !important;
         }
 
         header a, .product-summary, .woocommerce.single-product .woocommerce-breadcrumb a {
-            color: <?php echo get_field('top_section_text_color')?>!important;
+            color: <?php echo get_field('top_section_text_color')?>          !important;
         }
         @endif
     </style>
@@ -54,7 +54,9 @@
     <?php while (have_posts()) : the_post(); ?>
 
     @if(Growtype_Product::user_has_uploaded_product(get_the_ID()) && is_user_logged_in() && isset($_REQUEST['customize']) && $_REQUEST['customize'] === 'preview')
-        <a href="{!! get_permalink(get_the_ID()) . '?customize=edit' !!}">Edit product</a>
+
+        {!! wc_add_notice('Your listing is saved as a draft. You can edit it <a href="'.Growtype_Product::edit_permalink().'" class="btn-link">here</a>.', 'notice') !!}
+
         <?php wc_get_template_part('content', 'single-product'); ?>
     @elseif(Growtype_Product::user_has_uploaded_product(get_the_ID()) && is_user_logged_in() && isset($_REQUEST['customize']) && $_REQUEST['customize'] === 'edit')
         <div class="container pb-5 pt-2">

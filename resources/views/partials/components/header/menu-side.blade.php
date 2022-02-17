@@ -1,7 +1,7 @@
 @if(class_exists('WOOMULTI_CURRENCY_F') ||
 has_nav_menu('header-side') ||
 get_theme_mod('search_icon_enabled') ||
-user_account_icon_enabled() ||
+Growtype_User::account_icon_enabled() ||
 wishlist_page_icon() ||
 cart_page_icon_is_active())
     <div class="side-nav-wrapper">
@@ -29,7 +29,7 @@ cart_page_icon_is_active())
                 </li>
             @endif
 
-            @if(user_account_icon_enabled())
+            @if(Growtype_User::account_icon_enabled())
                 <li class="e-profile">
                     <a href="{!! wc_get_page_permalink( 'myaccount' ) !!}">
                         <i class="icon-f-94"></i>

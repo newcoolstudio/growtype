@@ -6,6 +6,10 @@
       width: 100%;
     }
 
+    & + .woocommerce-MyAccount-content {
+      width: 75%;
+    }
+
     ul {
       margin: 0;
       padding: 0;
@@ -126,14 +130,28 @@
     }
   }
 
+  .woocommerce-MyAccount-navigation {
+    & + .woocommerce-MyAccount-content {
+      padding: 0 30px;
+    }
+  }
+
   .woocommerce-MyAccount-content {
-    width: 75%;
+    width: 100%;
     float: right;
-    padding: 20px 30px;
+    padding: 0 0;
     min-height: 500px;
-    @include bp-phone-xl() {
-      width: 100%;
-      padding: 25px 0;
+
+    .woocommerce-notices-wrapper {
+      > * {
+        margin-bottom: 40px !important;
+      }
+    }
+
+    .woocommerce-EditAccountForm {
+      .col-auto {
+        width: 50%;
+      }
     }
   }
 }

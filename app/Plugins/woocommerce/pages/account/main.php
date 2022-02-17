@@ -1,5 +1,20 @@
 <?php
 
+include('subpages/edit-account.php');
+
+/**
+ *
+ */
+add_action('wp_loaded', 'woocommerce_account_remove_navigation');
+function woocommerce_account_remove_navigation()
+{
+    $navigation_enabled = Growtype_User_Account::is_dashboard_page();
+
+    if (!$navigation_enabled) {
+        remove_action('woocommerce_account_navigation', 'woocommerce_account_navigation', 10, 1);
+    }
+}
+
 /**
  * @param $items
  * @return mixed
@@ -82,14 +97,12 @@ function woocommerce_account_extend_query_vars($vars)
  * Products tab
  */
 if (!get_theme_mod('woocommerce_account_purchased_products_tab_disabled')) {
-    include('tabs/purchased-products.php');
+    include('subpages/purchased-products.php');
 }
 
 /**
  * Products tab
  */
 if (!get_theme_mod('woocommerce_account_uploaded_products_tab_disabled')) {
-    include('tabs/uploaded-products.php');
+    include('subpages/uploaded-products.php');
 }
-
-

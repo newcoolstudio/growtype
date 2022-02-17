@@ -79,7 +79,8 @@ function get_ordered_wc_products($orderby, $categories_ids)
         'order' => $order,
         'paginate' => true,
         'featured' => false,
-        'visibility' => 'catalog'
+        'visibility' => 'catalog',
+        'posts_per_page' => wc_get_default_products_per_row() * wc_get_default_product_rows_per_page(),
     );
 
     if (!empty($meta_key)) {
@@ -104,7 +105,7 @@ function get_ordered_wc_products($orderby, $categories_ids)
         }
     }
 
-    $args['page'] = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
+    $args['paged'] = isset($_POST['page_nr']) ? (int)$_POST['page_nr'] : 1;
     $args['limit'] = apply_filters('loop_shop_per_page', wc_get_default_products_per_row() * wc_get_default_product_rows_per_page());
 
     /**

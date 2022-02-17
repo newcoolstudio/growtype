@@ -23,7 +23,7 @@
         @endif
 
         <div class="menu menu-extra">
-            @if(user_account_icon_enabled())
+            @if(Growtype_User::account_icon_enabled())
                 <li class="e-profile">
                     <a href="{!! wc_get_page_permalink( 'myaccount' ) !!}">
                         <i class="icon-f-94"></i> My Account

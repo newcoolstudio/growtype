@@ -35,7 +35,7 @@
                     @include('partials.components.header.menu-login')
                 @endif
 
-                @if(growtype_user_profile_menu_is_enabled())
+                @if(Growtype_User::profile_menu_is_enabled())
                     @include('partials.components.user-profile')
                 @endif
 

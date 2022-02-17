@@ -6,13 +6,15 @@
             <tr>
                 <th class="sort">&nbsp;</th>
                 <th><?php esc_html_e('Name', 'growtype'); ?><?php echo wc_help_tip(__('This is the name of the download shown to the customer.', 'growtype')); ?></th>
-                <th colspan="2"><?php esc_html_e('File URL', 'growtype'); ?><?php echo wc_help_tip(__('This is the URL or absolute path to the file which customers will get access to. URLs entered here should already be encoded.', 'growtype')); ?></th>
+                <th colspan="1"><?php esc_html_e('File URL', 'growtype'); ?><?php echo wc_help_tip(__('This is the URL or absolute path to the file which customers will get access to. URLs entered here should already be encoded.', 'growtype')); ?></th>
+                <th><?php esc_html_e('Key', 'growtype'); ?><?php echo wc_help_tip(__('This is the key of the product.', 'growtype')); ?></th>
                 <th>&nbsp;</th>
             </tr>
             </thead>
             <tbody>
             <?php
             $downloadable_files = Growtype_Product::shipping_documents($_GET['post']);
+
             if ($downloadable_files) {
                 foreach ($downloadable_files as $key => $file) {
                     include 'documents-table-row.php';

@@ -17,10 +17,11 @@
 .woocommerce-notices-wrapper {
   &:empty {
     display: none;
+    margin: 0;
   }
 
   & > div {
-    margin-bottom: 10px !important;
+    margin-bottom: 20px !important;
   }
 }
 
@@ -416,9 +417,9 @@ Related products with panel
 .panel-area + .main {
   .related.products {
     padding-left: 20px;
-    padding-right: 0;
     margin-left: -20px;
     background: $color-extra-light-grey;
     width: calc(100% + 40px);
+    padding-right: 20px
   }
 }

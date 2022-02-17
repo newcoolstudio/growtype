@@ -83,4 +83,8 @@ List products as table
       top: 1px;
     }
   }
+
+  & + .woocommerce-pagination {
+    text-align: left;
+  }
 }

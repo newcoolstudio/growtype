@@ -365,7 +365,7 @@ class Growtype_Product
     /**
      * @return void
      */
-    public static function prepare_shipping_documents($file_names, $file_urls, $file_hashes)
+    public static function prepare_shipping_documents($file_names, $file_urls, $file_hashes, $file_keys)
     {
         $downloads = array ();
 
@@ -376,12 +376,14 @@ class Growtype_Product
                 if (!empty($file_urls[$i])) {
                     $downloads[] = array (
                         'name' => wc_clean($file_names[$i]),
-                        'file' => wp_unslash(trim($file_urls[$i])),
+                        'url' => wp_unslash(trim($file_urls[$i])),
                         'download_id' => wc_clean($file_hashes[$i]),
+                        'key' => wc_clean($file_keys[$i]),
                     );
                 }
             }
         }
+
         return $downloads;
     }
 
@@ -395,5 +397,48 @@ class Growtype_Product
         $product_id = !empty($product_id) ? $product_id : $product->get_id();
 
         return get_post_meta($product_id, '_shipping_documents', true);
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function preview_permalink($product_id = null): string
+    {
+        global $product;
+
+        $product_id = !empty($product_id) ? $product_id : $product->get_id();
+
+        return get_permalink($product_id) . '?customize=preview';
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function edit_permalink($product_id = null): string
+    {
+        global $product;
+
+        $product_id = !empty($product_id) ? $product_id : $product->get_id();
+
+        return get_permalink($product_id) . '?customize=edit';
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function permalink($product_id = null): string
+    {
+        global $product;
+
+        $product_id = !empty($product_id) ? $product_id : $product->get_id();
+
+        /**
+         * Check if preview permalink applied
+         */
+        if (!empty(get_query_var('preview_permalink')) && get_query_var('preview_permalink')) {
+            return self::preview_permalink($product_id);
+        }
+
+        return get_permalink($product_id);
     }
 }

@@ -286,7 +286,7 @@ function customizer_update_css()
         .wp-block-button__link,
         .wp-block-button__link:hover {
             background: <?php echo get_theme_mod('primary_button_background_color')?> !important;
-            border: 1px solid<?php echo get_theme_mod('primary_button_background_color')?>;
+            border: 1px solid<?php echo get_theme_mod('primary_button_background_color')?>!important;
         }
 
         <?php } ?>

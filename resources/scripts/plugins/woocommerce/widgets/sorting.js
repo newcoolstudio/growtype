@@ -36,10 +36,13 @@ function sorting() {
                 }
             });
 
-            if (window.location.pathname.includes("/page/")) {
-                window.location = $('a.page-numbers').first().attr('href');
-                return false;
-            }
+            /**
+             * Redirect if not first page
+             */
+            // if (window.location.pathname.includes("/page/")) {
+            //     window.location = $('a.page-numbers').first().attr('href');
+            //     return false;
+            // }
 
             /**
              * Set current orderby value
@@ -60,6 +63,7 @@ function sorting() {
                     orderby: woocommerce_params_widgets.orderby,
                     action: 'filter_products',
                     categories_ids: woocommerce_params_widgets.categories_ids,
+                    page_nr: growtype_params.page_nr,
                 },
                 beforeSend: function () {
                     $('.products').addClass('is-loading');

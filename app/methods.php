@@ -6,6 +6,8 @@
 include('Methods/class-growtype-post.php');
 include('Methods/class-growtype-language.php');
 include('Methods/class-growtype-search.php');
+include('Methods/class-growtype-user.php');
+include('Methods/class-growtype-user-account.php');
 
 /**
  * Auction

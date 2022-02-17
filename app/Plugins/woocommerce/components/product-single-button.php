@@ -85,5 +85,12 @@ function adjust_add_to_cart_button_link($add_to_cart_url, $product)
         $add_to_cart_url = wc_get_checkout_url();
     }
 
+    /**
+     * Permalink update
+     */
+    if ($add_to_cart_url === get_permalink($product->get_id())) {
+        $add_to_cart_url = Growtype_Product::permalink($product->get_id());
+    }
+
     return $add_to_cart_url;
 }

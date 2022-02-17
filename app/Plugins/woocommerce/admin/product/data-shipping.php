@@ -20,7 +20,7 @@ function growtype_woocommerce_product_options_shipping_product_data()
         'id' => '_product_location_country',
         'label' => 'Product location - Country',
         'options' => $field_options,
-        'value' => get_post_meta($_GET['post'], '_product_country'),
+        'value' => get_post_meta($_GET['post'], '_product_location_country', true),
     ));
 
     echo '</div>';
@@ -53,7 +53,6 @@ function growtype_woocommerce_product_options_shipping_product_data()
 add_action('woocommerce_admin_process_product_object', 'growtype_woocommerce_admin_process_product_object_shipping');
 function growtype_woocommerce_admin_process_product_object_shipping($product)
 {
-//    d($_POST);
     /**
      * Country
      */
@@ -70,7 +69,8 @@ function growtype_woocommerce_admin_process_product_object_shipping($product)
     $downloads = Growtype_Product::prepare_shipping_documents(
         isset($_POST['_wc_shipping_file_names']) ? wp_unslash($_POST['_wc_shipping_file_names']) : array (),
         isset($_POST['_wc_shipping_file_urls']) ? wp_unslash($_POST['_wc_shipping_file_urls']) : array (),
-        isset($_POST['_wc_shipping_file_hashes']) ? wp_unslash($_POST['_wc_shipping_file_hashes']) : array ()
+        isset($_POST['_wc_shipping_file_hashes']) ? wp_unslash($_POST['_wc_shipping_file_hashes']) : array (),
+        isset($_POST['_wc_shipping_file_keys']) ? wp_unslash($_POST['_wc_shipping_file_keys']) : array ()
     );
 
     if (!empty($downloads)) {

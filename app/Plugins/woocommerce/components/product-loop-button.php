@@ -20,11 +20,11 @@ function change_product_link($link, $product)
             break;
     }
 
-    /***
-     * Check if permalink query is set
+    /**
+     * Permalink update
      */
-    if (!empty(get_query_var('permalink'))) {
-        $link = get_query_var('permalink');
+    if ($link === get_permalink($product->get_id())) {
+        $link = Growtype_Product::permalink($product->get_id());
     }
 
     return $link;

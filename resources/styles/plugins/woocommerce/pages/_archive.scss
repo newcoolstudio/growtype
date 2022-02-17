@@ -56,6 +56,9 @@
   text-decoration: none;
 }
 
+/**
+Pagination
+ */
 .woocommerce nav.woocommerce-pagination {
   margin-bottom: 40px;
 
@@ -70,22 +73,38 @@
         padding-right: 12px;
         line-height: 22px;
         color: black;
+        min-width: 40px;
+        text-align: center;
 
         &:hover {
           background: none;
         }
 
         &.current {
-          background: none;
+          background: $color-primary;
           font-weight: bold;
-          color: black;
-          border-bottom: 3px solid black;
+          color: white;
         }
       }
 
+      > span {
+        border-radius: 8px;
+        color: $color-primary;
+      }
+
       .prev, .next {
-        border: 1px solid black;
-        border-radius: 40px
+        border: 1px solid $color-text;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        color: $color-text;
+
+        span {
+          padding: 0;
+          padding-left: 5px;
+          padding-right: 5px;
+          color: $color-text;
+        }
       }
 
       .prev {

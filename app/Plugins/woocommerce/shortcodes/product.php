@@ -29,6 +29,7 @@ function products_growtype_shortcode($atts, $content = null)
         'post_status' => 'publish',
         'cta_btn' => '',
         'before_shop_loop' => '',
+        'after_shop_loop' => '',
     ), $atts));
 
     $args = array (
@@ -91,57 +92,57 @@ function products_growtype_shortcode($atts, $content = null)
      */
     $products = new WP_Query($args);
 
-    wc_set_loop_prop('current_page', $paged);
-    wc_set_loop_prop('is_paginated', wc_string_to_bool(true));
-    wc_set_loop_prop('page_template', get_page_template_slug());
-    wc_set_loop_prop('per_page', $per_page);
-    wc_set_loop_prop('total', $products->post_count);
-    wc_set_loop_prop('total_pages', $products->max_num_pages);
+    if ($products->have_posts()) {
+        wc_set_loop_prop('current_page', $paged);
+        wc_set_loop_prop('is_paginated', wc_string_to_bool(true));
+        wc_set_loop_prop('page_template', get_page_template_slug());
+        wc_set_loop_prop('per_page', $per_page);
+        wc_set_loop_prop('total', $products->post_count);
+        wc_set_loop_prop('total_pages', $products->max_num_pages);
 
-    /**
-     * Render
-     */
-    ob_start();
+        if (!empty($columns)) {
+            $woocommerce_loop['columns'] = $columns;
+        }
 
-    if (!empty($columns)) {
-        $woocommerce_loop['columns'] = $columns;
-    }
+        if ($cta_btn) {
+            set_query_var('cta_btn', $cta_btn);
+        }
 
-    if ($cta_btn) {
-        set_query_var('cta_btn', $cta_btn);
-    }
+        /**
+         * Render
+         */
+        ob_start();
 
-    if ($products->have_posts()) : ?>
-        <?php
         if (isset($before_shop_loop) && $before_shop_loop) {
             do_action('woocommerce_before_shop_loop');
         }
 
         wc_get_template('loop/loop-start.php', ['preview_style' => $preview_style]);
 
+        set_query_var('is_visible', $visibility ?? 'catalog');
+
+        if (isset($edit_product) && $edit_product) {
+            set_query_var('preview_permalink', true);
+        }
+
         if ($preview_style === 'table') {
             echo \App\template('woocommerce.components.table.product-table', ['products' => $products]);
         } else {
             while ($products->have_posts()) : $products->the_post();
-                if (isset($edit_product) && $edit_product) {
-                    $permalink = get_permalink() . '?customize=preview';
-                }
-
-                set_query_var('is_visible', $visibility ?? 'catalog');
-                set_query_var('permalink', $permalink ?? null);
-
                 wc_get_template_part('content', 'product');
             endwhile;
         }
 
         wc_get_template('loop/loop-end.php');
 
-        do_action('woocommerce_after_shop_loop');
-        ?>
+        if (isset($after_shop_loop) && $after_shop_loop) {
+            do_action('woocommerce_after_shop_loop');
+        }
 
-    <?php endif;
+        wp_reset_postdata();
 
-    wp_reset_postdata();
+        $render = '<div class="woocommerce">' . ob_get_clean() . '</div>';
+    }
 
-    return '<div class="woocommerce">' . ob_get_clean() . '</div>';
+    return $render ?? '';
 }

@@ -14,11 +14,11 @@
 
             @include('plugins.acf.flexible-content.main-gallery')
 
-        @elseif (class_exists( 'WooCommerce' ) && get_row_layout() == 'featured_product_categories')
+        @elseif (class_exists( 'woocommerce' ) && get_row_layout() == 'featured_product_categories')
 
             @include('plugins.acf.flexible-content.featured-product-categories')
 
-        @elseif (class_exists( 'WooCommerce' ) && get_row_layout() == 'featured_products')
+        @elseif (class_exists( 'woocommerce' ) && get_row_layout() == 'featured_products')
 
             @include('plugins.acf.flexible-content.featured-products')
 
