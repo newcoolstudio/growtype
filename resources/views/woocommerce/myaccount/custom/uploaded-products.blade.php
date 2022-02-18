@@ -4,7 +4,7 @@ defined('ABSPATH') || exit;
 $uploaded_product_content = '';
 
 if (!empty($products_ids)) {
-    $uploaded_product_content = do_shortcode('[products_growtype ids="' . $products_ids . '" visibility="any" edit_product="true" preview_style="table" before_shop_loop="true"]');
+    $uploaded_product_content = do_shortcode('[products_growtype ids="' . $products_ids . '" visibility="any" products_group="' . ($products_group ?? null) . '" edit_product="true" preview_style="table" before_shop_loop="true"]');
 }
 
 ?>

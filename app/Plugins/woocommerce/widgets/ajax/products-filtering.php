@@ -9,8 +9,9 @@ function get_filtered_products()
 {
     $orderby = isset($_POST['orderby']) && !empty($_POST['orderby']) ? $_POST['orderby'] : 'menu_order title';
     $categories_ids = isset($_POST['categories_ids']) && !empty($_POST['categories_ids']) ? $_POST['categories_ids'] : [];
+    $products_group = isset($_POST['products_group']) && !empty($_POST['products_group']) ? $_POST['products_group'] : [];
 
-    $products = get_ordered_wc_products($orderby, $categories_ids);
+    $products = get_ordered_wc_products($orderby, $categories_ids, $products_group);
 
     if ($products->have_posts()) {
         if (get_theme_mod('wc_catalog_products_preview_style') === 'table') {
@@ -33,7 +34,7 @@ function get_filtered_products()
  * @param $categories_ids
  * @return WP_Query
  */
-function get_ordered_wc_products($orderby, $categories_ids)
+function get_ordered_wc_products($orderby, $categories_ids, $products_group)
 {
     $meta_key = '';
     $order = 'ASC';
@@ -89,6 +90,21 @@ function get_ordered_wc_products($orderby, $categories_ids)
                 'key' => $meta_key,
             )
         );
+    }
+
+    /**
+     * Take product group ids
+     */
+    if ($products_group === 'watchlist') {
+        $user_ID = get_current_user_id();
+        $watchlist_ids = get_user_meta($user_ID, '_auction_watch');
+        $args['post__in'] = $watchlist_ids;
+    } elseif ($products_group === 'user_uploaded') {
+        $user_ID = get_current_user_id();
+        $post__in = Growtype_Product::get_user_uploaded_products_ids($user_ID);
+        $args['post__in'] = $post__in;
+        $args['visibility'] = 'any';
+        set_query_var('is_visible', 'any');
     }
 
     if (!empty($categories_ids)) {

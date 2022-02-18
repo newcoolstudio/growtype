@@ -18,6 +18,12 @@ class Customizer_Available_Data
 
         if (class_exists('woocommerce')) {
             $customizer_available_pages['single_shop_page'] = 'Single shop page (important: no id)';
+
+            $wc_menu_items = wc_get_account_menu_items();
+
+            foreach ($wc_menu_items as $key => $menu_item) {
+                $customizer_available_pages[$key] = 'Account - ' . $menu_item;
+            }
         }
 
         $customizer_available_pages['lost_password_page'] = 'Lost password page (important: no id)';

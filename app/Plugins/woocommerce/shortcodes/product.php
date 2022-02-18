@@ -23,7 +23,7 @@ function products_growtype_shortcode($atts, $content = null)
         'orderby' => 'date',
         'order' => 'desc',
         'visibility' => 'catalog',
-        'products_cat' => 'default',
+        'products_group' => 'default',
         'preview_style' => '',
         'edit_product' => false,
         'post_status' => 'publish',
@@ -45,19 +45,21 @@ function products_growtype_shortcode($atts, $content = null)
 
     if (!empty($per_page)) {
         $args['posts_per_page'] = $per_page;
+    } else {
+        $per_page = wc_get_default_products_per_row() * wc_get_default_product_rows_per_page();
     }
 
     /**
      * Display type
      */
-    if ($products_cat === 'active-auctions') {
+    if ($products_group === 'active-auctions') {
         $args['meta_query'] = [
             array (
                 'key' => '_auction_has_started',
                 'compare' => '1'
             )
         ];
-    } elseif ($products_cat === 'active-upcoming-auctions') {
+    } elseif ($products_group === 'active-upcoming-auctions') {
         $args['meta_query'] = [
             array (
                 'key' => '_auction_closed',
@@ -68,7 +70,7 @@ function products_growtype_shortcode($atts, $content = null)
                 'compare' => 'EXISTS'
             )
         ];
-    } elseif ($products_cat === 'watchlist') {
+    } elseif ($products_group === 'watchlist') {
         $user_ID = get_current_user_id();
         $watchlist_ids = get_user_meta($user_ID, '_auction_watch');
 
@@ -117,7 +119,7 @@ function products_growtype_shortcode($atts, $content = null)
             do_action('woocommerce_before_shop_loop');
         }
 
-        wc_get_template('loop/loop-start.php', ['preview_style' => $preview_style]);
+        wc_get_template('loop/loop-start.php', ['preview_style' => $preview_style, 'products_group' => $products_group]);
 
         set_query_var('is_visible', $visibility ?? 'catalog');
 

@@ -390,13 +390,17 @@ class Growtype_Product
     /**
      * @return mixed
      */
-    public static function shipping_documents($product_id = null)
+    public static function shipping_documents($product_id = null): array
     {
         global $product;
 
-        $product_id = !empty($product_id) ? $product_id : $product->get_id();
+        $product_id = !empty($product_id) ? $product_id : (!empty($product) ? $product->get_id() : null);
 
-        return get_post_meta($product_id, '_shipping_documents', true);
+        if (!empty($product_id)) {
+            return get_post_meta($product_id, '_shipping_documents', true);
+        }
+
+        return [];
     }
 
     /**

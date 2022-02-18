@@ -37,14 +37,6 @@ function sorting() {
             });
 
             /**
-             * Redirect if not first page
-             */
-            // if (window.location.pathname.includes("/page/")) {
-            //     window.location = $('a.page-numbers').first().attr('href');
-            //     return false;
-            // }
-
-            /**
              * Set current orderby value
              */
             woocommerce_params_widgets.orderby = orderby;
@@ -52,6 +44,8 @@ function sorting() {
             if (categoryId.length > 0) {
                 woocommerce_params_widgets.categories_ids = [categoryId];
             }
+
+            let current_products_group = $('.products').attr('data-group');
 
             /**
              * Get products
@@ -64,6 +58,7 @@ function sorting() {
                     action: 'filter_products',
                     categories_ids: woocommerce_params_widgets.categories_ids,
                     page_nr: growtype_params.page_nr,
+                    products_group: current_products_group,
                 },
                 beforeSend: function () {
                     $('.products').addClass('is-loading');
