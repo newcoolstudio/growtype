@@ -73,6 +73,17 @@ class Growtype_Post
     }
 
     /**
+     * @return false|mixed|string
+     */
+    public static function get_url_slug(): string
+    {
+        global $wp;
+        $path = explode('/', $wp->request);
+
+        return end($path);
+    }
+
+    /**
      * @param $post
      * @return int|null
      */

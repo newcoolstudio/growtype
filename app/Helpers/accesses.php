@@ -184,10 +184,20 @@ function page_is_among_enabled_pages($enabled_pages)
 
     $enabled_pages = explode(",", $enabled_pages);
 
+    $page_enabled = false;
+
+    /**
+     * Check if exists among enabled pages
+     */
+
     if (class_exists('woocommerce') && is_product()) {
         $page_enabled = in_array('single_shop_page', $enabled_pages);
-    } else {
+    } elseif (!empty($page_id)) {
         $page_enabled = in_array($page_id, $enabled_pages);
+    }
+
+    if ($page_enabled) {
+        return $page_enabled;
     }
 
     /**
@@ -195,7 +205,7 @@ function page_is_among_enabled_pages($enabled_pages)
      */
     if (in_array('lost_password_page', $enabled_pages)) {
         if (str_contains($_SERVER['REQUEST_URI'], 'lost-password') || str_contains($_SERVER['REQUEST_URI'], 'lostpassword')) {
-            $page_enabled = true;
+            return true;
         }
     }
 
@@ -203,7 +213,15 @@ function page_is_among_enabled_pages($enabled_pages)
      * Check search results
      */
     if (in_array('search_results', $enabled_pages) && is_search()) {
-        $page_enabled = true;
+        return true;
+    }
+
+    /**
+     * Check search results
+     */
+    $post = get_post($page_id);
+    if (!empty($post) && $post->post_name === 'my-account' && in_array(Growtype_Post::get_url_slug(), $enabled_pages)) {
+        return true;
     }
 
     return $page_enabled;

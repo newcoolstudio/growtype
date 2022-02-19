@@ -1,10 +1,7 @@
 .woocommerce-account {
   .woocommerce-MyAccount-navigation {
-    width: 25%;
+    width: 100%;
     float: left;
-    @include bp-phone-xl() {
-      width: 100%;
-    }
 
     & + .woocommerce-MyAccount-content {
       width: 75%;
@@ -14,39 +11,78 @@
       margin: 0;
       padding: 0;
       position: relative;
+      display: flex;
+      flex-wrap: wrap;
 
       li {
         list-style-type: none;
-        background: white;
+        background: none;
         color: white;
         border-radius: 2px;
-        box-shadow: 1px 3px 14px 0px #eeeeee;
         position: relative;
+        width: calc(100% / 3);
+        padding: 10px;
+        margin: 0;
+        @include bp-tablet() {
+          width: 50%;
+        }
         @include bp-phone-xl() {
+          width: 100%;
           display: none;
         }
 
+        &.woocommerce-MyAccount-navigation-link {
+          font-weight: bold;
+          display: none;
+
+          .e-subtitle {
+            font-weight: 300;
+            font-size: 12px;
+            color: $color-grey;
+            word-break: break-word;
+          }
+
+          a {
+            &:before {
+              content: "\f108";
+              font-family: Dashicons;
+              position: absolute;
+              left: 18px;
+              top: 15px;
+              background: $color-light-grey;
+              padding: 3px 10px;
+              border-radius: 5px;
+              font-size: 22px;
+              color: $color-text;
+            }
+          }
+
+          &.woocommerce-MyAccount-navigation-link--orders {
+            a {
+              &:before {
+                content: "\f174";
+              }
+            }
+          }
+
+          &.woocommerce-MyAccount-navigation-link--edit-address {
+            a {
+              &:before {
+                content: "\f541";
+              }
+            }
+          }
+
+          &.woocommerce-MyAccount-navigation-link--edit-account {
+            a {
+              &:before {
+                content: "\f110";
+              }
+            }
+          }
+        }
+
         &.is-active {
-          background: #f8f8f8;
-          @include bp-phone-xl() {
-            display: inline-block;
-            width: 100%;
-            text-align: center;
-            text-transform: uppercase;
-            font-weight: bold;
-          }
-
-          &:before {
-            content: "";
-            width: 4px;
-            height: 100%;
-            background: black;
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-          }
-
           a {
             font-weight: 500;
           }
@@ -56,9 +92,13 @@
           color: $color-text;
           font-size: 14px;
           padding: 15px;
-          padding-left: 15px;
           display: inline-block;
           width: 100%;
+          background: white;
+          box-shadow: 1px 3px 14px 0px #eeeeee;
+          border-radius: 5px;
+          padding-left: 70px;
+          position: relative;
 
           @include bp-phone-xl() {
             font-weight: 500;
@@ -151,6 +191,36 @@
     .woocommerce-EditAccountForm {
       .col-auto {
         width: 50%;
+      }
+    }
+  }
+
+  .b-info-header {
+    display: flex;
+    align-items: center;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    padding: 25px 30px;
+    margin-bottom: 35px;
+
+    .b-info-header-cta {
+      margin-right: 20px;
+    }
+
+    .btn-back-bg {
+      padding: 20px;
+    }
+
+    .b-info-header-content {
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 22px;
+
+      .e-subtitle {
+        font-size: 14px;
+        font-weight: 300;
+        margin-top: 2px;
       }
     }
   }

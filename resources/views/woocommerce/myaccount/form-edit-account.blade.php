@@ -23,7 +23,11 @@ do_action('woocommerce_before_edit_account_form'); ?>
     <div class="row g-3 main-fields">
         <?php do_action('woocommerce_edit_account_form_start'); ?>
 
-        <h3><?php esc_html_e('Account details', 'growtype'); ?></h3>
+        <div class="b-wrapper col-12 mt-0 pt-3">
+            <div class="e-wrapper">
+                <h3><?php esc_html_e('Account details', 'growtype'); ?></h3>
+            </div>
+        </div>
 
         <div class="e-wrapper col-md-6">
             <label for="account_email" class="form-label"><?php esc_html_e('Email address', 'growtype'); ?>

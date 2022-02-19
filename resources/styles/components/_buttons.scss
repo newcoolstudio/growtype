@@ -154,7 +154,7 @@ Add remove
   }
 }
 
-.btn-back {
+.btn-back, .btn-back-bg {
   background: none;
   width: 20px;
   height: 20px;
@@ -174,7 +174,12 @@ Add remove
     left: 0;
     right: 0;
     line-height: 20px;
+    margin: auto;
   }
+}
+
+.btn-back-bg {
+  background: $color-light-grey;
 }
 
 .btn-gallery {
