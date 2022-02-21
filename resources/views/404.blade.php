@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    @include('partials.content.content-404')
+    @include('partials.content.404.page')
 @endsection
 
 @section('panel')

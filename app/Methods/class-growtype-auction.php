@@ -6,13 +6,23 @@
  */
 class Growtype_Auction
 {
+    const AUCTION_STATUSES = [
+        'live' => 'live',
+        'disabled' => 'disabled',
+        'ended' => 'ended',
+        'upcoming' => 'upcoming',
+    ];
+
+    const BUYERS_PREMIUM = 0.1;
+    const BID_INCREMENT = 0.01;
+
     /**
      * @return string
      * percent
      */
     public static function buyers_premium(): string
     {
-        return 0.1;
+        return self::BUYERS_PREMIUM;
     }
 
     /**
@@ -27,9 +37,13 @@ class Growtype_Auction
     /**
      * @return bool
      */
-    public static function has_started(): bool
+    public static function has_started($product_id = null): bool
     {
         global $product;
+
+        if (!empty($product_id)) {
+            $product = wc_get_product($product_id);
+        }
 
         if ($product->is_type('auction') && class_exists('WC_Product_Auction')) {
             return $product->is_started();
@@ -41,9 +55,13 @@ class Growtype_Auction
     /**
      * @return bool
      */
-    public static function has_closed(): bool
+    public static function has_ended($product_id = null): bool
     {
         global $product;
+
+        if (!empty($product_id)) {
+            $product = wc_get_product($product_id);
+        }
 
         if ($product->is_type('auction') && class_exists('WC_Product_Auction')) {
             return $product->is_closed();
@@ -326,11 +344,11 @@ class Growtype_Auction
     {
         global $product;
 
-        if (!empty(Growtype_Product::amount_in_units())) {
+        if (!empty(Growtype_Product::amount_in_units()) && $product->get_increase_bid_value()) {
             return $product->get_increase_bid_value();
         }
 
-        return 0;
+        return self::BID_INCREMENT;
     }
 
     /**
@@ -412,18 +430,44 @@ class Growtype_Auction
     /**
      * @return string
      */
-    public static function status_badge(): string
+    public static function status($product_id = null): string
     {
         global $product;
+
+        if (!empty($product_id)) {
+            $product = wc_get_product($product_id);
+        }
+
+        if ($product->get_catalog_visibility() === 'hidden') {
+            return self::AUCTION_STATUSES['disabled'];
+        } elseif (self::has_started($product->get_id()) && !self::has_ended($product->get_id())) {
+            return self::AUCTION_STATUSES['live'];
+        } elseif (self::has_ended($product->get_id())) {
+            return self::AUCTION_STATUSES['ended'];
+        }
+
+        return self::AUCTION_STATUSES['upcoming'];
+    }
+
+    /**
+     * @return string
+     */
+    public static function status_badge($product_id = null): string
+    {
+        global $product;
+
+        if (!empty($product_id)) {
+            $product = wc_get_product($product_id);
+        }
 
         $output = '';
 
         if ($product->is_type('auction') && class_exists('WC_Product_Auction')) {
-            if (self::has_started() && !self::has_closed()) {
+            if (self::status($product->get_id()) === self::AUCTION_STATUSES['live']) {
                 $output .= '<div class="badge" data-status="live">' . __('Live', 'growtype-child') . '</div>';
-            } elseif (self::has_closed()) {
+            } elseif (self::status($product->get_id()) === self::AUCTION_STATUSES['ended']) {
                 $output .= '<div class="badge" data-status="ended">' . __('Ended', 'growtype-child') . '</div>';
-            } else {
+            } elseif (self::status($product->get_id()) === self::AUCTION_STATUSES['upcoming']) {
                 $output .= '<div class="badge" data-status="upcoming">' . __('Upcoming', 'growtype-child') . '</div>';
             }
         }
@@ -439,6 +483,10 @@ class Growtype_Auction
         global $product;
 
         ob_start();
+
+        if (self::has_ended()) {
+            return '';
+        }
         ?>
 
         <div class="auction-details-time">

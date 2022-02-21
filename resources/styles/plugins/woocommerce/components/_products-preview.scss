@@ -389,12 +389,13 @@ Product type auction
  */
 .product.product-type-auction {
   .auction-details-time {
-    background: $color-light-grey;
+    background: $color-extra-light-grey;
     border-radius: 10px;
     padding: 15px 15px;
     position: relative;
     padding-left: 45px;
     font-size: 14px;
+    color: $color-dark-grey;
 
     &:before {
       content: "\f469";
@@ -429,9 +430,6 @@ Product type auction
 
   &.auction-has-started {
     .auction-details-time {
-      background: #EBE8FD;
-      color: $color-primary;
-
       &:before {
         content: "\f469";
         font-family: Dashicons;

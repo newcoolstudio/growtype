@@ -22,7 +22,7 @@ function products_growtype_shortcode($atts, $content = null)
         'columns' => '',
         'orderby' => 'date',
         'order' => 'desc',
-        'visibility' => 'catalog',
+        'visibility' => ['catalog', 'search'],
         'products_group' => 'default',
         'preview_style' => '',
         'edit_product' => false,
@@ -79,7 +79,7 @@ function products_growtype_shortcode($atts, $content = null)
             $args['meta_key'] = '_auction_dates_to';
             $args['post__in'] = $watchlist_ids;
         } else {
-            return '';
+            return \App\template('partials.content.404.general');
         }
     }
 
@@ -88,6 +88,22 @@ function products_growtype_shortcode($atts, $content = null)
      */
     $paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
     $args['page'] = $paged;
+
+    /**
+     * Set prodcut visibility
+     */
+    if ($visibility !== 'any') {
+        $visibility_tax_data = array (
+            array (
+                'taxonomy' => 'product_visibility',
+                'field' => 'name',
+                'terms' => array ('exclude-from-catalog', 'exclude-from-search'),
+                'operator' => 'NOT IN',
+            )
+        );
+
+        $args['tax_query'] = $visibility_tax_data;
+    }
 
     /**
      * Get products
@@ -121,7 +137,7 @@ function products_growtype_shortcode($atts, $content = null)
 
         wc_get_template('loop/loop-start.php', ['preview_style' => $preview_style, 'products_group' => $products_group]);
 
-        set_query_var('is_visible', $visibility ?? 'catalog');
+        set_query_var('visibility', $visibility);
 
         if (isset($edit_product) && $edit_product) {
             set_query_var('preview_permalink', true);

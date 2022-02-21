@@ -12,9 +12,10 @@ if (!empty($products_ids)) {
 @if(!empty($uploaded_product_content))
     {!! $uploaded_product_content !!}
 @else
-    <p>{!! __('You have no uploaded content yet.','growtype') !!}</p>
-
     @if(class_exists('Growtype_Form'))
-        <a href="{!! growtype_form_product_upload_page_url() !!}" class="btn btn-primary mt-3">{!! __('Upload a new product','growtype') !!}</a>
+        @php
+            $extra_data['cta'] = '<a href="'.growtype_form_product_upload_page_url().'" class="btn btn-primary mt-3">'.__('Upload a new product','growtype').'</a>';
+        @endphp
     @endif
+    @include('partials.content.404.general', $extra_data ?? null)
 @endif

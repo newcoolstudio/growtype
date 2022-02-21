@@ -22,7 +22,7 @@ global $product;
 /**
  * Check if visability is set with shortcode function
  */
-if (get_query_var('is_visible') === 'any') {
+if (get_query_var('visibility') === 'any') {
     $is_visible = true;
 } else {
     $is_visible = $product->is_visible();

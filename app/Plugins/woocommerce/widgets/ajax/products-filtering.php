@@ -80,7 +80,6 @@ function get_ordered_wc_products($orderby, $categories_ids, $products_group)
         'order' => $order,
         'paginate' => true,
         'featured' => false,
-        'visibility' => 'catalog',
         'posts_per_page' => wc_get_default_products_per_row() * wc_get_default_product_rows_per_page(),
     );
 
@@ -103,8 +102,7 @@ function get_ordered_wc_products($orderby, $categories_ids, $products_group)
         $user_ID = get_current_user_id();
         $post__in = Growtype_Product::get_user_uploaded_products_ids($user_ID);
         $args['post__in'] = $post__in;
-        $args['visibility'] = 'any';
-        set_query_var('is_visible', 'any');
+        set_query_var('visibility', 'any');
     }
 
     if (!empty($categories_ids)) {
@@ -118,6 +116,23 @@ function get_ordered_wc_products($orderby, $categories_ids, $products_group)
 
         if (count($categories_ids) > 1) {
             $args['tax_query'][0]['operator'] = 'AND';
+        }
+    }
+
+    if ($products_group !== 'user_uploaded') {
+        $visibility_tax_data = array (
+            array (
+                'taxonomy' => 'product_visibility',
+                'field' => 'name',
+                'terms' => 'exclude-from-catalog',
+                'operator' => 'NOT IN',
+            )
+        );
+
+        if (isset($args['tax_query'])) {
+            array_push($args['tax_query'], $visibility_tax_data);
+        } else {
+            $args['tax_query'] = $visibility_tax_data;
         }
     }
 

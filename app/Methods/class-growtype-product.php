@@ -397,7 +397,7 @@ class Growtype_Product
         $product_id = !empty($product_id) ? $product_id : (!empty($product) ? $product->get_id() : null);
 
         if (!empty($product_id)) {
-            return get_post_meta($product_id, '_shipping_documents', true);
+            return is_array(get_post_meta($product_id, '_shipping_documents', true)) ? get_post_meta($product_id, '_shipping_documents', true) : [];
         }
 
         return [];
