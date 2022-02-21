@@ -17,8 +17,7 @@ if (!gutenberg_block_editor_is_active()) {
 /**
  * Gutenberg styles support
  */
-add_action('enqueue_block_editor_assets', 'gutenberg_block_editor_assets');
-
+add_action('enqueue_block_editor_assets', 'gutenberg_block_editor_assets', 10);
 function gutenberg_block_editor_assets()
 {
     if (get_post_type()) {
@@ -130,13 +129,14 @@ function admin_enqueue_custom_scripts()
 }
 
 
-function wporg_block_wrapper( $block_content, $block ) {
-    if ( $block['blockName'] === 'core/paragraph' ) {
+function wporg_block_wrapper($block_content, $block)
+{
+    if ($block['blockName'] === 'core/paragraph') {
         $content = '<div class="wp-block-paragraph">';
         $content .= $block_content;
         $content .= '</div>';
         return $content;
-    } elseif ( $block['blockName'] === 'core/heading' ) {
+    } elseif ($block['blockName'] === 'core/heading') {
         $content = '<div class="wp-block-heading">';
         $content .= $block_content;
         $content .= '</div>';

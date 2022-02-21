@@ -160,6 +160,18 @@ add_filter('woocommerce_add_cart_item_data', 'add_to_cart_only_single_product');
 function add_to_cart_only_single_product($cart_item_data)
 {
     global $woocommerce;
+
+    /**
+     * Check product type
+     */
+    if (isset($_POST['product_id'])) {
+        $only_as_single_purchase = Growtype_Product::only_as_single_purchase($_POST['product_id']);
+
+        if ($only_as_single_purchase) {
+            $woocommerce->cart->empty_cart();
+        }
+    }
+
     /**
      * If selling type single clear all other products and add a new one
      */
@@ -184,7 +196,6 @@ function wc_custom_ajax_added_to_cart($product_id)
     $user_can_buy = get_theme_mod('only_registered_users_can_buy') ? is_user_logged_in() : true;
 
     $is_required_product = Growtype_Product::product_is_among_required_products($product_id);
-
     /**
      * Check if user can buy product and redirect accordingly
      */

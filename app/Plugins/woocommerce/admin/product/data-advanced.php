@@ -87,6 +87,21 @@ function growtype_woocommerce_product_options_advanced()
     echo '</div>';
 
     /**
+     * Single purchase
+     */
+    echo '<div class="options_group only_as_single_purchase">';
+
+    // External Url
+    woocommerce_wp_checkbox(array (
+        'id' => '_only_as_single_purchase',
+        'label' => 'Allow only as single purchase',
+        'description' => 'Check this if you want to allow this product only as single purchase.',
+        'desc_tip' => 'true'
+    ));
+
+    echo '</div>';
+
+    /**
      * Hide price
      */
     echo '<div class="options_group hide_product_price">';
@@ -180,6 +195,11 @@ function growtype_woocommerce_admin_process_product_object_advanced($product)
      * Instant checkout
      */
     $product->update_meta_data('_instant_checkout_enabled', $_POST['_instant_checkout_enabled'] ?? false);
+
+    /**
+     * Only as single purchase
+     */
+    $product->update_meta_data('_only_as_single_purchase', $_POST['_only_as_single_purchase'] ?? false);
 
     /**
      * Img placeholder

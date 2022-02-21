@@ -252,11 +252,15 @@ class Growtype_Auction
     /**
      * @return string
      */
-    public static function bid_value(): string
+    public static function bid_value($product_id = null): string
     {
         global $product;
 
-        if ($product->is_type('auction') && class_exists('WC_Product_Auction')) {
+        if (!empty($product_id)) {
+            $product = wc_get_product($product_id);
+        }
+
+        if (!empty($product) && $product->is_type('auction') && class_exists('WC_Product_Auction')) {
             return $product->bid_value();
         }
 
@@ -282,9 +286,9 @@ class Growtype_Auction
             $product = wc_get_product($product_id);
         }
 
-        if (!empty(Growtype_Product::amount_in_units())) {
+        if (!empty($product) && !empty(Growtype_Product::amount_in_units($product->get_id()))) {
             if ($product->is_type('auction') && class_exists('WC_Product_Auction')) {
-                return round(self::bid_value() / Growtype_Product::amount_in_units($product->get_id()), 2);
+                return round(self::bid_value($product->get_id()) / Growtype_Product::amount_in_units($product->get_id()), 2);
             }
         }
 

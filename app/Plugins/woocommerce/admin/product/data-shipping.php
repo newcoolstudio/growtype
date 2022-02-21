@@ -73,7 +73,9 @@ function growtype_woocommerce_admin_process_product_object_shipping($product)
         isset($_POST['_wc_shipping_file_keys']) ? wp_unslash($_POST['_wc_shipping_file_keys']) : array ()
     );
 
-    if (!empty($downloads)) {
+    if (empty($downloads)) {
+        $product->delete_meta_data('_shipping_documents');
+    } else {
         $product->update_meta_data('_shipping_documents', $downloads, true);
     }
 }

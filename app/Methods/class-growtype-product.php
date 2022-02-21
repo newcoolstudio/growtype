@@ -12,6 +12,34 @@ class Growtype_Product
     /**
      * @return mixed
      */
+    public static function preview_style($product_id): string
+    {
+        $product = wc_get_product($product_id);
+
+        if (!empty($product)) {
+            $preview_style = get_post_meta($product->get_id(), '_preview_style', true);
+        }
+
+        return $preview_style ?? '';
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function only_as_single_purchase($product_id): string
+    {
+        $product = wc_get_product($product_id);
+
+        if (!empty($product)) {
+            $preview_style = get_post_meta($product->get_id(), '_only_as_single_purchase', true);
+        }
+
+        return $preview_style ?? '';
+    }
+
+    /**
+     * @return mixed
+     */
     public static function category_children($category_slug): array
     {
         global $product;
@@ -303,6 +331,10 @@ class Growtype_Product
 
         if ($product_id) {
             $product = wc_get_product($product_id);
+        }
+
+        if (empty($product)) {
+            return null;
         }
 
         return get_post_meta($product->get_id(), '_amount_in_units', true);

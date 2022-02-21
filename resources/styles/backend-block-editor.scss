@@ -15,6 +15,10 @@ Gutenberg
 @import "editor/gutenberg/backend/blocks/block-slider";
 @import "editor/gutenberg/backend/blocks/block-cover";
 
+html :where(.editor-styles-wrapper) {
+  font-family: Arial;
+}
+
 .btn-primary {
   display: inline-block;
   text-align: center;
@@ -124,7 +128,6 @@ Gutenberg
   padding-bottom: 0px;
   background: white;
   margin-bottom: 20px;
-  font-size: 14px;
   padding-left: 10px;
   border: 1px solid #dedede;
   border-left: 5px solid #9b9b9b;
