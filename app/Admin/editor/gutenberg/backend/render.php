@@ -27,6 +27,12 @@ function gutenberg_block_editor_assets()
             false
         );
 
+        wp_enqueue_style(
+            'gutenberg-block-editor-styles-child',
+            get_child_template_public_path() . '/styles/backend-block-editor-child.css',
+            false
+        );
+
         wp_enqueue_script('gutenberg-block-editor-scripts',
             get_parent_template_public_path() . '/scripts/backend-block-editor.js',
             [], '1.0.0', true);
@@ -56,22 +62,6 @@ function gutenberg_block_editor_assets()
             );
         }
     }
-}
-
-/**
- * Frontend render fix
- */
-add_filter('render_block', 'wrap_block_extra_div', 10, 2);
-function wrap_block_extra_div($block_content, $block)
-{
-    if ('core/columns' !== $block['blockName']) {
-        return $block_content;
-    }
-    $return = '<div class="wp-block">';
-    $return .= $block_content;
-    $return .= '</div>';
-
-    return $return;
 }
 
 /**
@@ -125,24 +115,18 @@ function admin_enqueue_custom_scripts()
         }';
     }
 
+    if (get_theme_mod('primary_button_background_color')) {
+        $inlineCss .= '.wp-block-button__link {
+    background:' . get_theme_mod('primary_button_background_color') . ';
+        border: 1px solid ' . get_theme_mod('primary_button_background_color') . ';
+        }';
+    }
+
+    if (get_theme_mod('primary_button_text_color')) {
+        $inlineCss .= '.wp-block-button__link {
+    color:' . get_theme_mod('primary_button_text_color') . ';
+        }';
+    }
+
     wp_add_inline_style('gutenberg-block-editor-styles', $inlineCss);
 }
-
-
-function wporg_block_wrapper($block_content, $block)
-{
-    if ($block['blockName'] === 'core/paragraph') {
-        $content = '<div class="wp-block-paragraph">';
-        $content .= $block_content;
-        $content .= '</div>';
-        return $content;
-    } elseif ($block['blockName'] === 'core/heading') {
-        $content = '<div class="wp-block-heading">';
-        $content .= $block_content;
-        $content .= '</div>';
-        return $content;
-    }
-    return $block_content;
-}
-
-//add_filter( 'render_block', 'wporg_block_wrapper', 10, 2 );

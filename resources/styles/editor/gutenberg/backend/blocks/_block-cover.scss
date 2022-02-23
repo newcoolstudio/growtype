@@ -3,10 +3,6 @@
     position: relative;
     overflow: hidden;
 
-    .wp-block-cover__inner-container {
-      position: absolute;
-    }
-
     img.wp-block-cover__image-background {
       position: absolute !important;
       top: 0;
@@ -17,4 +13,3 @@
     }
   }
 }
-

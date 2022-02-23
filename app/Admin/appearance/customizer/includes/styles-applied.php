@@ -3,8 +3,8 @@
 /**
  * Styles applied
  */
-
-function customizer_update_css()
+add_action('wp_head', 'growtype_customizer_general_css');
+function growtype_customizer_general_css()
 {
     ?>
     <style>
@@ -167,28 +167,6 @@ function customizer_update_css()
 
         <?php } ?>
 
-        <?php if(get_theme_mod('primary_button_style_select') === 'button_style_2') { ?>
-        .btn-primary,
-        #sb_instagram .sbi_follow_btn a,
-        .woocommerce-Reviews #respond input#submit {
-            background: none;
-            border-radius: 2px;
-            color: black;
-            border: 2px solid black;
-            font-weight: bold;
-        }
-
-        <?php } ?>
-
-        <?php if(get_theme_mod('secondary_button_style_select') === 'button_style_2') { ?>
-        .btn-secondary {
-            border: 1px solid #000;
-            border-radius: 2px;
-            text-transform: initial;
-        }
-
-        <?php } ?>
-
         <?php if(get_theme_mod('checkout_button_style_select') === 'button_style_2') { ?>
         .woocommerce-checkout .woocommerce button.button.alt,
         .b-shoppingcart .buttons .btn-primary {
@@ -278,32 +256,6 @@ function customizer_update_css()
 
         <?php } ?>
 
-        <?php if(!empty(get_theme_mod('primary_button_background_color'))) { ?>
-        .btn-primary,
-        .btn-primary:hover,
-        input[type=submit],
-        input[type=submit]:hover,
-        .wp-block-button__link,
-        .wp-block-button__link:hover {
-            background: <?php echo get_theme_mod('primary_button_background_color')?> !important;
-            border: 1px solid<?php echo get_theme_mod('primary_button_background_color')?>!important;
-        }
-
-        <?php } ?>
-
-        <?php if(!empty(get_theme_mod('primary_button_text_color'))) { ?>
-        .btn-primary,
-        .btn-primary:hover,
-        input[type=submit],
-        input[type=submit]:hover,
-        .wp-block-button__link,
-        .wp-block-button__link:hover,
-        .btn-link {
-            color: <?php echo get_theme_mod('primary_button_text_color')?>;
-        }
-
-        <?php } ?>
-
         <?php if(!empty(get_theme_mod('add_to_cart_button_background_color'))) { ?>
         .woocommerce ul.products li.product .button,
         .woocommerce ul.products li.product .button:hover,
@@ -362,24 +314,6 @@ function customizer_update_css()
 
         <?php } ?>
 
-        <?php if(!empty(get_theme_mod('secondary_button_background_color'))) { ?>
-        .btn-secondary,
-        .btn-secondary:hover {
-            background: <?php echo get_theme_mod('secondary_button_background_color')?>;
-            border: 1px solid<?php echo get_theme_mod('secondary_button_background_color')?>;
-        }
-
-        <?php } ?>
-
-        <?php if(!empty(get_theme_mod('secondary_button_text_color'))) { ?>
-        .btn-secondary,
-        .btn-secondary a,
-        .btn-secondary:hover {
-            color: <?php echo get_theme_mod('secondary_button_text_color')?>;
-        }
-
-        <?php } ?>
-
         <?php  if(get_theme_mod('sidebar_primary_position') === 'right'){ ?>
         #sidebar-primary {
             float: right;
@@ -410,6 +344,53 @@ function customizer_update_css()
 
         <?php } ?>
 
+        <?php if(get_theme_mod('panel_is_sticky')){ ?>
+        .panel-area {
+            position: sticky;
+        }
+
+        <?php } ?>
+    </style>
+    <?php
+}
+
+/**
+ *
+ */
+add_action('wp_head', 'growtype_customizer_buttons_css');
+function growtype_customizer_buttons_css()
+{
+    ?>
+    <style>
+        <?php if(get_theme_mod('primary_button_style_select') === 'button_style_2') { ?>
+        .btn-primary,
+        #sb_instagram .sbi_follow_btn a,
+        .woocommerce-Reviews #respond input#submit {
+            background: none;
+            border-radius: 2px;
+            color: black;
+            border: 2px solid black;
+            font-weight: bold;
+        }
+
+        <?php } ?>
+
+        <?php if(get_theme_mod('secondary_button_style_select') === 'button_style_2') { ?>
+        .btn-secondary {
+            border: 1px solid #000;
+            border-radius: 2px;
+            text-transform: initial;
+        }
+
+        <?php } ?>
+
+        <?php if(get_theme_mod('secondary_button_border_color')){ ?>
+        .btn-secondary {
+            border-color: <?php echo get_theme_mod('secondary_button_border_color'); ?>;
+        }
+
+        <?php } ?>
+
         <?php if(get_theme_mod('button_text_transform')){ ?>
         .btn-primary,
         .btn-secondary,
@@ -429,21 +410,49 @@ function customizer_update_css()
 
         <?php } ?>
 
-        <?php if(get_theme_mod('secondary_button_border_color')){ ?>
-        .btn-secondary {
-            border-color: <?php echo get_theme_mod('secondary_button_border_color'); ?>;
+        <?php if(!empty(get_theme_mod('secondary_button_background_color'))) { ?>
+        .btn-secondary,
+        .btn-secondary:hover {
+            background: <?php echo get_theme_mod('secondary_button_background_color')?>;
+            border: 1px solid<?php echo get_theme_mod('secondary_button_background_color')?>;
         }
 
         <?php } ?>
 
-        <?php if(get_theme_mod('panel_is_sticky')){ ?>
-        .panel-area {
-            position: sticky;
+        <?php if(!empty(get_theme_mod('secondary_button_text_color'))) { ?>
+        .btn-secondary,
+        .btn-secondary a,
+        .btn-secondary:hover {
+            color: <?php echo get_theme_mod('secondary_button_text_color')?>;
+        }
+
+        <?php } ?>
+
+        <?php if(!empty(get_theme_mod('primary_button_background_color'))) { ?>
+        .btn-primary,
+        .btn-primary:hover,
+        input[type=submit],
+        input[type=submit]:hover,
+        .wp-block-button__link,
+        .wp-block-button__link:hover {
+            background: <?php echo get_theme_mod('primary_button_background_color')?> !important;
+            border: 1px solid <?php echo get_theme_mod('primary_button_background_color')?> !important;
+        }
+
+        <?php } ?>
+
+        <?php if(!empty(get_theme_mod('primary_button_text_color'))) { ?>
+        .btn-primary,
+        .btn-primary:hover,
+        input[type=submit],
+        input[type=submit]:hover,
+        .wp-block-button__link,
+        .wp-block-button__link:hover,
+        .btn-link {
+            color: <?php echo get_theme_mod('primary_button_text_color')?>;
         }
 
         <?php } ?>
     </style>
     <?php
 }
-
-add_action('wp_head', 'customizer_update_css');

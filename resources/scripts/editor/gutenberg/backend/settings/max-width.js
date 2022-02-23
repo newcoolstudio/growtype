@@ -135,33 +135,35 @@ wp.hooks.addFilter('editor.BlockListBlock', 'custom-attributes/with-toolbar-butt
 /**
  * Save values
  */
-addFilter('blocks.getSaveElement', 'jb/core-button', (element, block, attributes) => {
-
-    if (!enableMaxWidthControlOnBlocks.includes(block.name)) {
-        return element;
-    }
-
-    const {maxWidth, position} = attributes;
-
-    let divStyle = {};
-
-    if (maxWidth) {
-        divStyle['maxWidth'] = maxWidth;
-    }
-
-    if (position === 'auto') {
-        divStyle['margin'] = position;
-    } else if (position === 'left') {
-        divStyle['marginRight'] = 'auto';
-    } else if (position === 'right') {
-        divStyle['marginLeft'] = 'auto';
-    }
-
-    if (Object.entries(divStyle).length !== 0) {
-        return (<div style={divStyle}>
-            {element}
-        </div>);
-    }
-
-    return element;
-});
+// addFilter('blocks.getSaveElement', 'growtype/core-button', (element, block, attributes) => {
+//
+//     if (!enableMaxWidthControlOnBlocks.includes(block.name)) {
+//         return element;
+//     }
+//
+//     const {maxWidth, position} = attributes;
+//
+//     let divStyle = {};
+//
+//     if (maxWidth) {
+//         divStyle['maxWidth'] = maxWidth;
+//     }
+//
+//     if (position === 'auto') {
+//         divStyle['margin'] = position;
+//     } else if (position === 'left') {
+//         divStyle['marginRight'] = 'auto';
+//     } else if (position === 'right') {
+//         divStyle['marginLeft'] = 'auto';
+//     }
+//
+//     console.log(block)
+//
+//     if (Object.entries(divStyle).length !== 0) {
+//         return (<div style={divStyle}>
+//             {element}
+//         </div>);
+//     }
+//
+//     return element;
+// });

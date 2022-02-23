@@ -87,6 +87,10 @@ Gutenberg
     max-width: initial;
     display: flex;
     flex-wrap: wrap;
+
+    .wp-block-cover__inner-container {
+      max-width: $max-width-container;
+    }
   }
 
   .wp-block[data-align="wide"] {
@@ -156,4 +160,11 @@ Image block
 .wp-block-cover img.wp-block-cover__image-background {
   height: initial;
   position: relative;
+}
+
+/**
+Block height disble
+ */
+.wp-block-cb-carousel > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="cb/slide"] .block-editor-inner-blocks, .wp-block-cb-carousel > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="cb/slide"] .block-editor-block-list__layout {
+  height: initial;
 }
