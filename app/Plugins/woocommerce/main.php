@@ -3,6 +3,8 @@
 /**
  * Admin
  */
+include('payments/gateways.php');
+
 include('admin/menu/features.php');
 include('admin/menu/orders.php');
 include('admin/list/columns.php');
@@ -16,8 +18,6 @@ include('admin/product/description.php');
 include('scripts/scripts.php');
 
 include('emails/preview.php');
-
-include('payments/gateways.php');
 
 include('orders/orders.php');
 
