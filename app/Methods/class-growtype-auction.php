@@ -436,6 +436,25 @@ class Growtype_Auction
     }
 
     /**
+     * @param $product_id
+     * @return string
+     */
+    public static function is_disabled($product_id = null): string
+    {
+        global $product;
+
+        if (!empty($product_id)) {
+            $product = wc_get_product($product_id);
+        }
+
+        if (self::status($product->get_id()) !== self::AUCTION_STATUSES['live']) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * @return string
      */
     public static function status($product_id = null): string
@@ -490,11 +509,11 @@ class Growtype_Auction
     {
         global $product;
 
-        ob_start();
-
         if (self::has_ended()) {
             return '';
         }
+
+        ob_start();
         ?>
 
         <div class="auction-details-time">
