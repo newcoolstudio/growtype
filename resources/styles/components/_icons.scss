@@ -1,113 +1,16 @@
-//https://www.portotheme.com/shopify/wokiee/icons/
+/**
+Icons documentation/examples/icons/main/
+https://fontello.com/
+ */
 
-.dashicons {
-  color: $color-text;
-}
-
-i {
-  font-size: 18px;
-  position: relative;
-  top: 1px;
-}
-
-.icon-f-08:before {
-  content: "\e967"
-}
-
-.icon-n-02:before {
-  content: "\ea5e"
-}
-
-.icon-n-05:before {
-  content: "\ea5f"
-}
-
-.icon-n-06:before {
-  content: "\ea60"
-}
-
-.icon-n-07:before {
-  content: "\ea61"
-}
-
-.icon-f-46:before {
-  content: "\e98d"
-}
-
-.icon-f-39:before {
-  content: "\e986"
-}
-
-.icon-f-40:before {
-  content: "\e987"
-}
-
-.icon-n-072:before {
-  content: "\eb16"
-}
-
-.icon-g-80:before {
-  content: "\ea0f"
-}
-
-.icon-g-81:before {
-  content: "\ea10"
-}
-
-.icon-f-82:before {
-  content: "\e9b1"
-}
-
-.icon-f-83:before {
-  content: "\e9b2"
-}
-
-.icon-f-84:before {
-  content: "\e9b3"
-}
-
-.icon-f-85:before {
-  content: "\e9b4";
-}
-
-.icon-f-86:before {
-  content: "\e9b5"
-}
-
-.icon-f-94:before {
-  content: "\e9bd"
-}
-
-.icon-f-95:before {
-  content: "\e9be"
-}
-
-.icon-f-96:before {
-  content: "\e9bf"
-}
-
-.icon-f-37:before {
-  content: "\e984"
-}
-
-.icon-f-35:before {
-  content: "\e982"
-}
-
-.icon-f-73:before {
-  content: "\e9a8"
-}
-
-.icon-check:before {
-  content: "\e9a3"
-}
-
-.icon-like:before {
-  content: "\e9ba"
+@font-face {
+  font-family: 'growtype-icons';
+  src: url('./../../fonts/icons/fontello.ttf') format('truetype'),
+  url('./../../fonts/icons/fontello.woff') format('woff');
 }
 
 [class*=" icon-"], [class^=icon-] {
-  font-family: growtype-main !important;
+  font-family: growtype-icons !important;
   speak: none;
   font-style: normal;
   font-weight: 600;
@@ -118,9 +21,6 @@ i {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/**
-Icons documentation/examples/icons/main/
- */
 .page-icons {
   .glyph {
     font-size: 16px;
@@ -147,6 +47,52 @@ Icons documentation/examples/icons/main/
   }
 }
 
+.dashicons {
+  color: $color-text;
+}
+
+i {
+  font-size: 18px;
+  position: relative;
+  top: 1px;
+}
+
 /**
 Icons
  */
+
+.icon-check:before {
+  content: "\e9a3"
+}
+
+.icon-like:before {
+  content: "\e9ba"
+}
+
+.icon-hammer:before {
+  content: "\E801"
+}
+
+.icon-watchlist:before {
+  content: "\E806"
+}
+
+.icon-listings:before {
+  content: "\E966"
+}
+
+.icon-listing:before {
+  content: "\E967"
+}
+
+.icon-help:before {
+  content: "\E982"
+}
+
+.icon-search:before {
+  content: "\E9B4"
+}
+
+.icon-clock-ticking:before {
+  content: "\E806"
+}

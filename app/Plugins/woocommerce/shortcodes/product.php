@@ -6,7 +6,7 @@
 add_shortcode('products_growtype', 'products_growtype_shortcode');
 function products_growtype_shortcode($atts, $content = null)
 {
-    global $woocommerce_loop;
+    global $woocommerce_loop, $wpdb;
 
     if (!function_exists('wc_get_products')) {
         return '';
@@ -78,6 +78,25 @@ function products_growtype_shortcode($atts, $content = null)
             $args['orderby'] = 'meta_value';
             $args['meta_key'] = '_auction_dates_to';
             $args['post__in'] = $watchlist_ids;
+        } else {
+            return \App\template('partials.content.404.general');
+        }
+    } elseif ($products_group === 'user-active-bids') {
+        $user_ID = get_current_user_id();
+
+        $postids = array ();
+        $userauction = $wpdb->get_results("SELECT DISTINCT auction_id FROM " . $wpdb->prefix . "simple_auction_log WHERE userid = $user_ID ", ARRAY_N);
+
+        if (isset($userauction) && !empty($userauction)) {
+            foreach ($userauction as $auction) {
+                $postids[] = $auction[0];
+            }
+        }
+
+        if (!empty($postids)) {
+            $args['orderby'] = 'meta_value';
+            $args['meta_key'] = '_auction_dates_to';
+            $args['post__in'] = $postids;
         } else {
             return \App\template('partials.content.404.general');
         }

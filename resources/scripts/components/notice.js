@@ -1,0 +1,5 @@
+function notice() {
+   
+}
+
+export {notice};

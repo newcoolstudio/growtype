@@ -118,7 +118,7 @@ Add remove
 .btn-remove {
   position: relative;
   border: none;
-  color: $color-active;
+  color: $color-error;
 
   &:before {
     content: '';

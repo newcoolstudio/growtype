@@ -3,18 +3,19 @@
 /**
  * Add payment method
  */
-add_filter('woocommerce_payment_gateways', 'add_custom_gateway_class');
-function add_custom_gateway_class($methods)
+add_filter('woocommerce_payment_gateways', 'growtype_woocommerce_payment_gateways');
+function growtype_woocommerce_payment_gateways($gateways)
 {
-    $methods[] = 'WC_Gateway_No_Charge';
-    return $methods;
+    $gateways[] = 'WC_Gateway_Free';
+
+    return $gateways;
 }
 
 /**
- * Class WC_Gateway_No_Charge
+ * Class WC_Gateway_Free
  * No charge payment method
  */
-class WC_Gateway_No_Charge extends WC_Payment_Gateway
+class WC_Gateway_Free extends WC_Payment_Gateway
 {
     public $domain;
 
@@ -23,10 +24,10 @@ class WC_Gateway_No_Charge extends WC_Payment_Gateway
      */
     public function __construct()
     {
-        $this->id = 'nocharge';
+        $this->id = 'free';
         $this->has_fields = false;
-        $this->method_title = __('No Change', 'growtype');
-        $this->method_description = __('Allow to make orders without charging any money', 'growtype');
+        $this->method_title = __('Free', 'growtype');
+        $this->method_description = __('Allow to make orders without charging any money.', 'growtype');
 
         $this->supports = array (
             'products'
@@ -35,13 +36,11 @@ class WC_Gateway_No_Charge extends WC_Payment_Gateway
         $this->init_form_fields();
         $this->init_settings();
 
-        // Define user set variables
         $this->title = $this->get_option('title');
         $this->description = $this->get_option('description');
         $this->enabled = $this->get_option('enabled');
         $this->visible_in_frontend = $this->get_option('visible_in_frontend');
 
-        // Actions
         add_action('woocommerce_update_options_payment_gateways_' . $this->id, array ($this, 'process_admin_options'));
     }
 
@@ -74,7 +73,7 @@ class WC_Gateway_No_Charge extends WC_Payment_Gateway
                 'title' => __('Description', 'growtype'),
                 'type' => 'textarea',
                 'description' => __('Payment method description that the customer will see on your checkout.', 'growtype'),
-                'default' => __('This method is for testing purpose.', 'growtype'),
+                'default' => __('Try our product without paying any money.', 'growtype'),
                 'desc_tip' => true,
             )
         );

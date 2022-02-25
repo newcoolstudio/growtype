@@ -348,7 +348,7 @@ class Growtype_Auction
     {
         global $product;
 
-        if (!empty(Growtype_Product::amount_in_units()) && $product->get_increase_bid_value()) {
+        if (!empty(Growtype_Product::amount_in_units()) && $product->is_type('auction') && $product->get_increase_bid_value()) {
             return $product->get_increase_bid_value();
         }
 
@@ -400,7 +400,11 @@ class Growtype_Auction
      */
     public static function current_bid_with_buyers_premium(): string
     {
-        return self::bid_value() + (self::bid_value() * self::buyers_premium());
+        if (!empty(self::bid_value())) {
+            return self::bid_value() + (self::bid_value() * self::buyers_premium());
+        }
+
+        return '';
     }
 
     /**

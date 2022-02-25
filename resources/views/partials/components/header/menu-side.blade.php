@@ -25,7 +25,7 @@ cart_page_icon_is_active())
         <div class="menu customizer">
             @if(get_theme_mod('search_icon_enabled'))
                 <li class="e-search">
-                    <i class="icon-f-85"></i>
+                    <i class="icon-search"></i>
                 </li>
             @endif
 

@@ -2,6 +2,7 @@ import "../autoload/bootstrap.js";
 
 import {headerScroll} from "../components/header-scroll";
 import {panelBg} from "../components/panel-bg";
+import {notice} from "../components/notice";
 import {menu} from "../components/menu";
 import {menuBurger} from "../components/menu-burger";
 import {contentSearch} from "../components/content-search";
@@ -22,6 +23,7 @@ export default {
         select();
         headerScroll();
         panelBg();
+        notice();
         menu();
         menuBurger();
         fancyboxGallery();

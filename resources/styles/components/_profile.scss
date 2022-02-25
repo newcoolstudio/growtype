@@ -19,6 +19,12 @@
     }
   }
 
+  .account-name {
+    @include bp-phone-xl() {
+      display: none;
+    }
+  }
+
   .dropdown-menu {
     padding: 0;
     margin: 0;

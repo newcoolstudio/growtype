@@ -5,7 +5,7 @@
         <form role="search" method="get" id="searchform" action="{!! Growtype_Post::permalink() !!}">
             <input type="text" value="" name="s" id="search-form" placeholder="Search products..."/>
             <button class="btn btn-primary" id="searchsubmit" type="submit" value="Search">
-                <i class="icon-f-85"></i>
+                <i class="icon-search"></i>
             </button>
         </form>
 

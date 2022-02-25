@@ -1,5 +1,6 @@
 @mixin bg($filename, $size: contain, $position:center, $repeat: no-repeat) {
-  $imagedir: '#{$STATIC_ASSETS_URL}/public/';
+  //$imagedir: '#{$STATIC_ASSETS_URL}/public/';
+  $imagedir: './../../../public/';
   background: transparent url('#{$imagedir}#{$filename}') $repeat $position;
   background-size: $size;
 }
@@ -39,7 +40,6 @@
 /**
 Max-width
  */
-
 @mixin bp-page-content($bp:"<=1440") {
   @media only screen and (max-width: 1440px) {
     @content;

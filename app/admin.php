@@ -43,4 +43,7 @@ include('Admin/users.php');
 include('Admin/appearance/menu/menu-icon.php');
 include('Admin/appearance/menu/custom-walker.php');
 
+/**
+ * Customizer
+ */
 include('Admin/appearance/customizer/customizer.php');

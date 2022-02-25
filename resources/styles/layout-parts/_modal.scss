@@ -1,12 +1,10 @@
 .modal {
   .modal-header {
-    background: $color-primary;
-
     .btn-close {
       position: absolute;
       right: 25px;
       top: 28px;
-      color: white;
+      color: $color-text;
       background: none;
       padding: 0;
 
@@ -22,7 +20,7 @@
     .modal-title {
       margin: auto;
       font-size: 18px;
-      color: white;
+      color: $color-text;
     }
   }
 
@@ -50,6 +48,14 @@
       top: 0;
       background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
     }
+  }
+
+  .modal-footer {
+    background: $color-extra-light-grey;
+  }
+
+  .btn-secondary {
+    background: white;
   }
 }
 
