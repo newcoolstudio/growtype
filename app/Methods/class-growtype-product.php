@@ -233,7 +233,7 @@ class Growtype_Product
     /**
      * @return void
      */
-    public static function get_user_purchased_products_ids($user_id = null)
+    public static function get_user_purchased_products_ids($user_id = null, $product_type = null)
     {
         $user_id = !empty($user_id) ? $user_id : get_current_user_id();
 
@@ -259,6 +259,11 @@ class Growtype_Product
             $items = $order->get_items();
             foreach ($items as $item) {
                 $product_id = $item->get_product_id();
+
+//                if($product_type === 'plan'){
+//                    get_post_meta($product_id)
+//                }
+
                 $product_ids[] = $product_id;
             }
         }
@@ -297,11 +302,54 @@ class Growtype_Product
     }
 
     /**
+     * @return void
+     */
+    public static function get_plans_ids()
+    {
+        $args = array (
+            'limit' => -1,
+            'return' => 'ids',
+            'meta_value' => array (
+                'key' => '_preview_style',
+                'value' => 'plan',
+                'compare' => '=',
+            )
+        );
+
+        $product_ids = wc_get_products($args);
+
+        return !empty($product_ids) ? $product_ids : null;
+    }
+
+    /**
+     * @return void
+     */
+    public static function get_user_plans_ids($user_id = null)
+    {
+        $user_id = !empty($user_id) ? $user_id : get_current_user_id();
+
+        if (empty($user_id)) {
+            return null;
+        }
+
+        $user_products_ids = self::get_user_purchased_products_ids($user_id);
+
+        foreach ($user_products_ids as $product_id) {
+            $is_a_plan = get_post_meta($product_id, '_hide_product_price', true);
+            $is_a_plan = !empty($is_a_plan) ? true : false;
+        }
+
+
+
+        return !empty($product_ids) ? $product_ids : null;
+    }
+
+    /**
      * @param $product_id
      * @param $user_id
      * @return bool
      */
-    public static function user_has_uploaded_product($product_id, $user_id = null)
+    public static function user_has_uploaded_product($product_id, $user_id = null): bool
     {
         $user_id = !empty($user_id) ? $user_id : get_current_user_id();
 

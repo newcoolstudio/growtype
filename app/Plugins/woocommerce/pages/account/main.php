@@ -10,7 +10,8 @@ function get_account_subpage_intro_details($subpage)
         'edit-address' => __('Addresses', 'growtype') . ' <div class="e-subtitle">' . __('Shipping and billing details', 'growtype') . '</div>',
         'auctions-endpoint' => __('Auctions', 'growtype') . ' <div class="e-subtitle">' . __('Auctions details', 'growtype') . '</div>',
         'purchased-products' => __('Purchased products', 'growtype') . ' <div class="e-subtitle">' . __('Your products', 'growtype') . '</div>',
-        'uploaded-products' => __('Uploaded products', 'growtype') . ' <div class="e-subtitle">' . __('Your uploads', 'growtype') . '</div>'
+        'uploaded-products' => __('Uploaded products', 'growtype') . ' <div class="e-subtitle">' . __('Your uploads', 'growtype') . '</div>',
+        'subscriptions' => __('Subscription', 'growtype') . ' <div class="e-subtitle">' . __('Subscription details', 'growtype') . '</div>'
     ];
 
     return $details[$subpage] ?? null;
@@ -92,6 +93,13 @@ function woocommerce_account_extend_menu_items($items)
         if (!get_theme_mod('woocommerce_account_uploaded_products_tab_disabled') && $key === 'dashboard') {
             $new_items['uploaded-products'] = get_account_subpage_intro_details('uploaded-products');
         }
+
+        /**
+         * Subscription
+         */
+        if (!get_theme_mod('woocommerce_account_subscriptions_tab_disabled') && $key === 'dashboard') {
+            $new_items['subscriptions'] = get_account_subpage_intro_details('subscriptions');
+        }
     }
 
     return $new_items;
@@ -104,8 +112,8 @@ add_action('init', 'woocommerce_account_extend_endpoints');
 function woocommerce_account_extend_endpoints()
 {
     add_rewrite_endpoint('purchased-products', EP_ROOT | EP_PAGES);
-
     add_rewrite_endpoint('uploaded-products', EP_ROOT | EP_PAGES);
+    add_rewrite_endpoint('subscriptions', EP_ROOT | EP_PAGES);
 }
 
 /**
@@ -115,8 +123,8 @@ add_filter('query_vars', 'woocommerce_account_extend_query_vars', 0);
 function woocommerce_account_extend_query_vars($vars)
 {
     $vars[] = 'purchased-products';
-
     $vars[] = 'uploaded-products';
+    $vars[] = 'subscriptions';
 
     return $vars;
 }
@@ -130,3 +138,8 @@ include('subpages/purchased-products.php');
  * Products tab
  */
 include('subpages/uploaded-products.php');
+
+/**
+ * Subscriptions
+ */
+include('subpages/subscriptions.php');

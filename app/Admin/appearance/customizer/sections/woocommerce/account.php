@@ -100,7 +100,7 @@ $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_custom
 ));
 
 /**
- * Uplaoded products tab
+ * Uploaded products tab
  */
 $wp_customize->add_setting('woocommerce_account_uploaded_products_tab_disabled',
     array (
@@ -113,6 +113,24 @@ $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_custom
     array (
         'label' => esc_html__('Uploaded Products Disable'),
         'description' => __('Enable/disable uploaded products tab in user account.', 'growtype'),
+        'section' => 'woocommerce_account_page',
+    )
+));
+
+/**
+ * Subscriptions tab
+ */
+$wp_customize->add_setting('woocommerce_account_subscriptions_tab_disabled',
+    array (
+        'default' => 0,
+        'transport' => 'refresh',
+    )
+);
+
+$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_account_subscriptions_tab_disabled',
+    array (
+        'label' => esc_html__('Subscriptions Disable'),
+        'description' => __('Enable/disable subscriptions tab in user account.', 'growtype'),
         'section' => 'woocommerce_account_page',
     )
 ));

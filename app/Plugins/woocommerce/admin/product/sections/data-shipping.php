@@ -8,6 +8,24 @@ function growtype_woocommerce_product_options_shipping_product_data()
 {
     global $post, $thepostid, $product_object;
 
+    /**
+     * Volume
+     */
+    echo '<div class="options_group">';
+
+    woocommerce_wp_text_input(array (
+        'id' => '_product_volume',
+        'label' => 'Volume (L)',
+        'description' => 'Set product volume in litres.',
+        'desc_tip' => 'true',
+        'placeholder' => '',
+    ));
+
+    echo '</div>';
+
+    /**
+     *
+     */
     $field_options = array ('' => __('Select a country / region&hellip;', 'growtype')) + WC()->countries->get_allowed_countries();
 
     /**
@@ -15,7 +33,6 @@ function growtype_woocommerce_product_options_shipping_product_data()
      */
     echo '<div class="options_group">';
 
-    // External Url
     woocommerce_wp_select(array (
         'id' => '_product_location_country',
         'label' => 'Product location - Country',
@@ -30,7 +47,6 @@ function growtype_woocommerce_product_options_shipping_product_data()
      */
     echo '<div class="options_group">';
 
-    // External Url
     woocommerce_wp_text_input(array (
         'id' => '_product_location_city',
         'label' => 'Product location - City',
@@ -53,6 +69,11 @@ function growtype_woocommerce_product_options_shipping_product_data()
 add_action('woocommerce_admin_process_product_object', 'growtype_woocommerce_admin_process_product_object_shipping');
 function growtype_woocommerce_admin_process_product_object_shipping($product)
 {
+    /**
+     * Volume
+     */
+    $product->update_meta_data('_product_volume', $_POST['_product_volume'] ?? 0);
+
     /**
      * Country
      */

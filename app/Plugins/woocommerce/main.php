@@ -8,12 +8,15 @@ include('payments/gateways.php');
 include('admin/menu/features.php');
 include('admin/menu/orders.php');
 include('admin/list/columns.php');
-include('admin/product/data-attributes.php');
-include('admin/product/data-general.php');
-include('admin/product/data-advanced.php');
-include('admin/product/data-inventory.php');
-include('admin/product/data-shipping.php');
-include('admin/product/description.php');
+
+include('admin/product/sections/data-attributes.php');
+include('admin/product/sections/data-general.php');
+include('admin/product/sections/data-advanced.php');
+include('admin/product/sections/data-inventory.php');
+include('admin/product/sections/data-shipping.php');
+include('admin/product/sections/description.php');
+
+include('admin/product/types/subscription.php');
 
 include('scripts/scripts.php');
 

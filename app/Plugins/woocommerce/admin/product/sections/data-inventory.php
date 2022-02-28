@@ -45,7 +45,6 @@ function growtype_woocommerce_product_options_inventory_product_data()
      */
     echo '<div class="options_group">';
 
-    // External Url
     woocommerce_wp_text_input(array (
         'id' => '_cases_per_pallet',
         'label' => 'Cases per pallet',
