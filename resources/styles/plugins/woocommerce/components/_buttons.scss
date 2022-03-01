@@ -1,5 +1,19 @@
-.woocommerce button.button.alt {
-  //@extend .btn-primary;
+.ajax_add_to_cart {
+  &.loading {
+    opacity: 0.25;
+    pointer-events: none;
+
+    &:after {
+      font-family: WooCommerce;
+      content: "";
+      -webkit-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+      margin-left: 0.5em;
+      display: inline-block;
+      width: auto;
+      height: auto;
+    }
+  }
 }
 
 .woocommerce-cart .wc-proceed-to-checkout a.checkout-button {

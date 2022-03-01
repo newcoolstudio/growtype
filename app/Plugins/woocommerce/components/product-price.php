@@ -7,6 +7,10 @@ add_filter('woocommerce_variable_sale_price_html', 'wc_shop_variable_product_pri
 add_filter('woocommerce_variable_price_html', 'wc_shop_variable_product_price', 10, 2);
 function wc_shop_variable_product_price($price, $product)
 {
+    if (empty($product)) {
+        return $price;
+    }
+
     $variation_min_reg_price = $product->get_variation_regular_price('min', true);
     $variation_min_sale_price = $product->get_variation_sale_price('min', true);
     if ($product->is_on_sale() && !empty($variation_min_sale_price)) {
@@ -21,5 +25,6 @@ function wc_shop_variable_product_price($price, $product)
             $price = '<ins class="highlight">' . wc_price($product->regular_price) . '</ins>';
         }
     }
+
     return $price;
 }

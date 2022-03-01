@@ -8,7 +8,7 @@ function growtype_child_woocommerce_before_shop_loop_item()
 {
     global $product;
 
-    if ($product->is_type('auction')) {
+    if (!empty($product) && $product->is_type('auction')) {
         echo Growtype_Auction::status_badge();
     }
 }

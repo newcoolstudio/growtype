@@ -1,12 +1,10 @@
 <li class="wc-block-grid__product {!! isset($data->classes) ? implode(' ', $data->classes) : null !!}">
     @if(isset($data->promo_label))
-        <span class="badge badge-promo bg-primary">{!! $data->promo_label !!}</span>
+        {!! $data->promo_label !!}
     @endif
 
-    <a href="{!! $data->permalink !!}" class="wc-block-grid__product-link">
-        {!! $data->image !!}
-        {!! $data->title !!}
-    </a>
+    {!! $data->image !!}
+    {!! $data->title !!}
 
     {!! $data->badge !!}
 

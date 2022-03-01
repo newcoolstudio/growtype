@@ -304,16 +304,12 @@ class Growtype_Product
     /**
      * @return void
      */
-    public static function get_plans_ids()
+    public static function get_subscriptions_ids()
     {
         $args = array (
             'limit' => -1,
-            'return' => 'ids',
-            'meta_value' => array (
-                'key' => '_preview_style',
-                'value' => 'plan',
-                'compare' => '=',
-            )
+            'type' => 'subscription',
+            'return' => 'ids'
         );
 
         $product_ids = wc_get_products($args);
@@ -324,7 +320,7 @@ class Growtype_Product
     /**
      * @return void
      */
-    public static function get_user_plans_ids($user_id = null)
+    public static function get_user_subscriptions_ids($user_id = null)
     {
         $user_id = !empty($user_id) ? $user_id : get_current_user_id();
 
@@ -338,7 +334,6 @@ class Growtype_Product
             $is_a_plan = get_post_meta($product_id, '_hide_product_price', true);
             $is_a_plan = !empty($is_a_plan) ? true : false;
         }
-
 
 
         return !empty($product_ids) ? $product_ids : null;
@@ -524,5 +519,73 @@ class Growtype_Product
         }
 
         return get_permalink($product_id);
+    }
+
+    /**
+     * @param $product_id
+     * @return string
+     */
+    public static function get_price_details($product_id = null): string
+    {
+        global $product;
+
+        $product_id = !empty($product_id) ? $product_id : $product->get_id();
+
+        if (!empty($product_id)) {
+            $price_details = get_post_meta($product_id, '_price_details', true);
+        }
+
+        return $price_details ?? '';
+    }
+
+    /**
+     * @param $product_id
+     * @return bool
+     */
+    public static function price_is_hidden($product_id = null): bool
+    {
+        global $product;
+
+        $product_id = !empty($product_id) ? $product_id : $product->get_id();
+
+        if (!empty($product_id)) {
+            $price_hidden = get_post_meta($product_id, '_hide_product_price', true);
+        }
+
+        return $price_hidden ?? false;
+    }
+
+    /**
+     * @param $product_id
+     * @return bool
+     */
+    public static function get_promo_label($product_id = null): string
+    {
+        global $product;
+
+        $product_id = !empty($product_id) ? $product_id : $product->get_id();
+
+        if (!empty($product_id)) {
+            $promo_label = get_post_meta($product_id, '_promo_label', true);
+        }
+
+        return $promo_label ?? '';
+    }
+
+    /**
+     * @param $product_id
+     * @return bool
+     */
+    public static function get_promo_label_formatted($product_id = null): string
+    {
+        global $product;
+
+        $promo_label = self::get_promo_label($product_id);
+
+        if (!empty($promo_label)) {
+            return '<span class="badge badge-promo bg-primary">' . $promo_label . '</span>';
+        }
+
+        return '';
     }
 }

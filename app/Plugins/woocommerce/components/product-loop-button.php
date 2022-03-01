@@ -6,6 +6,10 @@
 add_filter('woocommerce_loop_product_link', 'change_product_link', 99, 2);
 function change_product_link($link, $product)
 {
+    if (empty($product)) {
+        return $link;
+    }
+
     $product_type = $product->get_type();
 
     switch ($product_type) {

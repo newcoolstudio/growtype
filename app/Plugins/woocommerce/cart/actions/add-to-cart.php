@@ -276,3 +276,31 @@ function woocommerce_cart_redirect_after_error_extend($url)
         }
     }
 }
+
+/**
+ * Add to cart link
+ */
+add_filter('woocommerce_product_add_to_cart_url', 'adjust_add_to_cart_button_link', 10, 2);
+function adjust_add_to_cart_button_link($add_to_cart_url, $product)
+{
+    if (empty(WC()->cart)) {
+        return null;
+    }
+
+    $product_in_cart = product_is_in_cart($product);
+
+    if ($product->is_purchasable()
+        && $product_in_cart
+        && $product->is_in_stock()) {
+        $add_to_cart_url = wc_get_checkout_url();
+    }
+
+    /**
+     * Permalink update
+     */
+    if ($add_to_cart_url === get_permalink($product->get_id())) {
+        $add_to_cart_url = Growtype_Product::permalink($product->get_id());
+    }
+
+    return $add_to_cart_url;
+}

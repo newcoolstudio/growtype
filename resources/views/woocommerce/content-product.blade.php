@@ -20,7 +20,7 @@ defined('ABSPATH') || exit;
 global $product;
 
 /**
- * Check if visability is set with shortcode function
+ * Check if visibility is set with shortcode function
  */
 if (get_query_var('visibility') === 'any') {
     $is_visible = true;

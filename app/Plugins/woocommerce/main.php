@@ -43,6 +43,7 @@ include('components/auction/status.php');
 /**
  * Product loop
  */
+include('components/product-loop-link.php');
 include('components/product-loop-thumbnail.php');
 include('components/product-loop-button.php');
 include('components/product-loop-rating.php');

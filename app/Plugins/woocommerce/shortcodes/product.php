@@ -20,10 +20,11 @@ function products_growtype_shortcode($atts, $content = null)
         'category' => '',
         'per_page' => '',
         'columns' => '',
-        'orderby' => 'date',
-        'order' => 'desc',
+        'orderby' => 'menu_order',
+        'order' => 'asc',
         'visibility' => ['catalog', 'search'],
         'products_group' => 'default',
+        'product_type' => '',
         'preview_style' => '',
         'edit_product' => false,
         'post_status' => 'publish',
@@ -124,6 +125,11 @@ function products_growtype_shortcode($atts, $content = null)
         $args['tax_query'] = $visibility_tax_data;
     }
 
+    if (isset($product_type) && $product_type === 'subscription') {
+        $subscription_ids = Growtype_Product::get_subscriptions_ids();
+        $args['post__in'] = isset($args['post__in']) ? array_merge($args['post__in'], $subscription_ids) : $subscription_ids;
+    }
+
     /**
      * Get products
      */
@@ -164,6 +170,10 @@ function products_growtype_shortcode($atts, $content = null)
 
         if ($preview_style === 'table') {
             echo \App\template('woocommerce.components.table.product-table', ['products' => $products]);
+        } elseif ($preview_style === 'plan') {
+            while ($products->have_posts()) : $products->the_post();
+                echo \App\template('woocommerce.content-product-plans');
+            endwhile;
         } else {
             while ($products->have_posts()) : $products->the_post();
                 wc_get_template_part('content', 'product');
