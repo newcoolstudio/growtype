@@ -20,10 +20,11 @@ function get_account_subpage_intro_details($subpage)
 /**
  * Add intro section
  */
-add_action('woocommerce_before_account_orders', 'growtype_woocommerce_before_edit_account_form');
-add_action('woocommerce_before_edit_account_form', 'growtype_woocommerce_before_edit_account_form');
-add_action('woocommerce_before_edit_account_address_form', 'growtype_woocommerce_before_edit_account_form');
-function growtype_woocommerce_before_edit_account_form()
+add_action('woocommerce_before_subscription_form', 'growtype_woocommerce_before_edit_form');
+add_action('woocommerce_before_account_orders', 'growtype_woocommerce_before_edit_form');
+add_action('woocommerce_before_edit_account_form', 'growtype_woocommerce_before_edit_form');
+add_action('woocommerce_before_edit_account_address_form', 'growtype_woocommerce_before_edit_form');
+function growtype_woocommerce_before_edit_form()
 {
     $url_slug = Growtype_Post::get_url_slug();
 

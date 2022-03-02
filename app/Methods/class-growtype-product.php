@@ -320,23 +320,25 @@ class Growtype_Product
     /**
      * @return void
      */
-    public static function get_user_subscriptions_ids($user_id = null)
+    public static function get_user_subscriptions($user_id = null): array
     {
         $user_id = !empty($user_id) ? $user_id : get_current_user_id();
 
         if (empty($user_id)) {
-            return null;
+            return [];
         }
 
         $user_products_ids = self::get_user_purchased_products_ids($user_id);
 
+        $products = [];
         foreach ($user_products_ids as $product_id) {
-            $is_a_plan = get_post_meta($product_id, '_hide_product_price', true);
-            $is_a_plan = !empty($is_a_plan) ? true : false;
+            $product = wc_get_product($product_id);
+            if ($product->is_type('subscription')) {
+                array_push($products, $product);
+            }
         }
 
-
-        return !empty($product_ids) ? $product_ids : null;
+        return !empty($products) ? $products : [];
     }
 
     /**
