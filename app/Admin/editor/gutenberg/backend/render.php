@@ -24,7 +24,7 @@ function gutenberg_block_editor_assets()
         wp_enqueue_style(
             'gutenberg-block-editor-styles',
             get_parent_template_public_path() . '/styles/backend-block-editor.css',
-            false
+            false,
         );
 
         wp_enqueue_style(

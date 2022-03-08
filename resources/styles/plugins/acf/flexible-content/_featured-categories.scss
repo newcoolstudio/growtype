@@ -113,6 +113,8 @@
     }
 
     &:first-child {
+      padding: 5px;
+
       .categories-single {
         min-height: 500px;
         height: 100%;
@@ -125,6 +127,7 @@
     &:last-child {
       .categories-wrap {
         width: 50%;
+        padding: 5px;
       }
 
       .categories-single-footer {

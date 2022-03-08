@@ -131,25 +131,49 @@ class Growtype_Product
      * @param $product
      * @return mixed|string|void
      */
-    public static function get_add_to_cart_btn_text($product = null)
+    public static function get_add_to_cart_btn_text($product = null, $default_label = null)
     {
-        $add_to_cart_button_custom_text = get_theme_mod('woocommerce_product_preview_cta_label');
+        $add_to_cart_button_label = !empty($default_label) ? $default_label : __('Add to cart', 'growtype');
 
-        if (empty($product)) {
-            if (!empty($add_to_cart_button_custom_text)) {
-                return $add_to_cart_button_custom_text;
-            } else {
-                return __('Add to bag', 'growtype');
+        /**
+         * Default custom label
+         */
+        if (!empty($default_label) && !str_contains($default_label, 'cart')) {
+            $add_to_cart_button_label_custom_default = get_theme_mod('woocommerce_product_preview_cta_label');
+
+            if (isset($add_to_cart_button_label_custom_default) && !empty($add_to_cart_button_label_custom_default)) {
+                $add_to_cart_button_label = $add_to_cart_button_label_custom_default;
             }
         }
 
-        $button_text_custom_product = get_post_meta($product->get_id(), '_add_to_cart_button_custom_text', true);
-
-        if (!empty($button_text_custom_product)) {
-            $add_to_cart_button_custom_text = $button_text_custom_product;
+        if (empty($product)) {
+            return $add_to_cart_button_label;
         }
 
-        return !empty($add_to_cart_button_custom_text) ? $add_to_cart_button_custom_text : __('Add to bag', 'growtype');
+        $add_to_cart_button_label_custom = get_post_meta($product->get_id(), '_add_to_cart_button_custom_text', true);
+
+        if (!empty($add_to_cart_button_label_custom)) {
+            return $add_to_cart_button_label_custom;
+        }
+
+        $product_type = $product->get_type();
+
+        switch ($product_type) {
+            case 'external':
+                return $add_to_cart_button_label;
+                break;
+            case 'grouped':
+                return __('Select', 'growtype');
+                break;
+            case 'simple':
+                return $add_to_cart_button_label;
+                break;
+            case 'variable':
+                return $add_to_cart_button_label;
+                break;
+            default:
+                return $add_to_cart_button_label;
+        }
     }
 
     /**

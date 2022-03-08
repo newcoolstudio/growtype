@@ -24,13 +24,14 @@ input[type=submit] {
   line-height: $line-height-btn;
   padding: $padding-btn;
   -webkit-font-smoothing: antialiased;
-  font-weight: 500;
   text-decoration: none;
   transition: $transition-btn;
   color: $color-btn-text;
   border: $border-btn;
   cursor: pointer;
   text-align: $text-align-btn;
+  border-radius: $border-radius-btn;
+  font-weight: bold;
 
   &:hover {
     @include bp-phone-xl-reverse() {

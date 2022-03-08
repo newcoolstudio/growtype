@@ -29,3 +29,14 @@
         @endif
     </div>
 </div>
+<div class="footer-inner-bottom">
+    @if(!empty(get_theme_mod('footer_copyright')))
+        <div id="footer_copyright" class="copyright">
+            <?php echo get_theme_mod('footer_copyright'); ?>
+        </div>
+    @endif
+
+    @include('partials.components.social-icons')
+
+    @include('partials.components.credits')
+</div>

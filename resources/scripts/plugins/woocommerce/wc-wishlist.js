@@ -3,7 +3,8 @@
     document.addEventListener('filterProductsByPrice', wishlistInit)
 
     "use strict";
-    let loadingAnimation = "<span class='addToCart-loader'><div></div><div></div></span>";
+    let loadingAnimation = "<span class='addToCart-loader' style='width:100%;top:50px;'><div></div><div></div></span>";
+    let wishlist_container = $('.wishlist main .content');
 
     Array.prototype.unique = function () {
         return this.filter(function (value, index, self) {
@@ -52,7 +53,7 @@
             wishlistIds = ls;
         }
 
-        if ($('.wishlist-preview').length > 0) {
+        if (wishlist_container.length > 0) {
             fetchWishlistUserData();
         } else {
             wishlistInit();
@@ -60,9 +61,8 @@
     }
 
     function fetchWishlistUserData() {
-        if ($('.wishlist-preview').is(':empty')) {
-            $('.wishlist-preview').append(loadingAnimation);
-        }
+
+        wishlist_container.append(loadingAnimation);
 
         $.ajax({
             type: 'POST',
@@ -73,14 +73,16 @@
                 'wishlist_ids': wishlistIds
             },
             success: function (data) {
+                wishlist_container.find('.addToCart-loader').remove();
+
                 userData = JSON.parse(data);
                 wishlistIds = userData['wishlist_ids'];
 
-                if ($('.wishlist-preview').length > 0) {
-                    if ($('.wishlist-preview .products').length === 0) {
-                        $('.wishlist-preview').hide().html(userData['wishlist']).fadeIn();
+                if (wishlist_container.length > 0) {
+                    if (wishlist_container.find('.products').length === 0) {
+                        wishlist_container.hide().html(userData['wishlist']).fadeIn();
                     } else {
-                        $('.wishlist-preview').html(userData['wishlist']);
+                        wishlist_container.html(userData['wishlist']);
                     }
                 }
 
@@ -105,7 +107,7 @@
                 if ($(this).hasClass('is-active')) {
                     $(this).removeClass('is-active');
 
-                    if ($('body').hasClass('template-wishlist')) {
+                    if ($('body').hasClass('wishlist')) {
                         $(this).closest('.product').fadeOut().promise().done(function () {
                             $(this).remove();
                         });
@@ -125,8 +127,8 @@
                     return v !== ''
                 });
 
-                if (wishlistIds.length === 0 && $('.wishlist-preview').length > 0) {
-                    $('.wishlist-preview').append(loadingAnimation);
+                if (wishlistIds.length === 0 && wishlist_container.length > 0) {
+                    wishlist_container.append(loadingAnimation);
                 }
 
                 $('.e-wishlist').attr('data-amount', wishlistIds.length)

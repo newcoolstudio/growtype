@@ -32,7 +32,7 @@ cart_page_icon_is_active())
             @if(Growtype_User::account_icon_enabled())
                 <li class="e-profile">
                     <a href="{!! wc_get_page_permalink( 'myaccount' ) !!}">
-                        <i class="icon-f-94"></i>
+                        <i class="icon-profile"></i>
                     </a>
                 </li>
             @endif
@@ -41,7 +41,7 @@ cart_page_icon_is_active())
             if (wishlist_page_icon()) { ?>
             <li class="e-wishlist">
                 <a href="{!! get_permalink( get_page_by_path( 'wishlist' ) ) !!}">
-                    <i class="icon-n-072"></i>
+                    <i class="icon-wishlist"></i>
                 </a>
             </li>
             <?php } ?>
@@ -49,7 +49,14 @@ cart_page_icon_is_active())
             <?php
             if (cart_page_icon_is_active()) { ?>
             <li class="e-cart">
-                <i class="icon-f-39"></i>
+                <i class="icon-cart"></i>
+            </li>
+            <?php } ?>
+
+            <?php
+            if (Growtype_Language::selector()) { ?>
+            <li class="language-selector">
+                <?php echo qtranxf_generateLanguageSelectCode('text')?>
             </li>
             <?php } ?>
         </div>

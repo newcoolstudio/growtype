@@ -12,15 +12,16 @@
   display: inline-block;
 
   &:before {
-    font-family: "growtype-main";
+    font-family: growtype-icons;
     font-weight: 500;
-    content: "\ea2c";
+    content: "\E804";
     color: #9d9d9d;
   }
 
   &.is-active {
     &:before {
-      color: black;
+      content: "\E805";
+      color: $color-text;
     }
   }
 
@@ -65,6 +66,7 @@
       padding-top: 1px;
       line-height: 15px;
       font-weight: 500;
+      z-index: 1;
     }
   }
 

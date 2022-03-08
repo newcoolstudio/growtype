@@ -36,10 +36,6 @@ function woocommerce_blocks_product_grid_item_html_custom($content, $data, $prod
         $data->price = null;
     }
 
-    if (Growtype_Product::product_preview_cta_disabled() && $preview_style !== 'plan') {
-        $data->button = null;
-    }
-
     /**
      * Promo label
      */

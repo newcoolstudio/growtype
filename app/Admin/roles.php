@@ -3,6 +3,7 @@
 /**
  * Add extra abilities to roles
  */
+add_action('admin_menu', 'users_roles_update', 10);
 function users_roles_update()
 {
     $user = wp_get_current_user();
@@ -16,8 +17,6 @@ function users_roles_update()
         }
     }
 }
-
-add_action('admin_menu', 'users_roles_update', 10);
 
 /**
  * Enable unfiltered_html capability for Specific users
@@ -37,6 +36,7 @@ add_filter('map_meta_cap', 'add_unfiltered_html_capability_to_users', 1, 3);
 /**
  * Add new role
  */
+add_action('init', 'add_editor_plus_shop_manager_role');
 function add_editor_plus_shop_manager_role()
 {
     global $wp_roles;
@@ -108,7 +108,7 @@ function add_editor_plus_shop_manager_role()
         )
     );
 
-    if (class_exists('WC_Install')) {
+    if (class_exists('WC_Install') && function_exists('get_core_capabilities')) {
         $wcIntall = new WC_Install();
         $capabilities = $wcIntall->get_core_capabilities();
 
@@ -120,9 +120,6 @@ function add_editor_plus_shop_manager_role()
     }
 }
 
-add_action('init', 'add_editor_plus_shop_manager_role');
-
-
 /**
  * Remove roles from shop_manager role
  */
@@ -130,7 +127,7 @@ add_action('admin_init', 'remove_roles_from_shop_manager');
 function remove_roles_from_shop_manager()
 {
     $role = get_role('shop_manager');
-    if ('' != $role) {
+    if (!empty($role)) {
         $role->remove_cap('edit_pages');
         $role->remove_cap('edit_posts');
         $role->remove_cap('list_users');

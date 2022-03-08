@@ -149,8 +149,5 @@ Products preview style
 }
 
 .woocommerce ul.products.preview-style--grid {
-  @include bp-phone-xl() {
-    width: 100%;
-    margin: 0;
-  }
+  width: calc(100% + 10px);
 }

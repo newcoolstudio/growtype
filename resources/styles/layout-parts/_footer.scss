@@ -30,7 +30,6 @@
       }
 
       a {
-        border-bottom: none;
         @include bp-phone-xl() {
           margin-bottom: 0;
         }
@@ -129,11 +128,11 @@
       &:hover {
         text-decoration: none;
       }
-    }
 
-    & > a {
-      border-bottom: 1px solid white;
-      margin-bottom: 10px;
+      & + .sub-menu {
+        border-top: 1px solid white;
+        padding-top: 10px;
+      }
     }
 
     .sub-menu {
@@ -142,7 +141,6 @@
 
       li {
         width: 100%;
-        padding-bottom: 2px;
       }
 
       p {
@@ -153,9 +151,7 @@
 
       a {
         font-weight: 300;
-        margin-bottom: 0;
         border: none;
-        padding-bottom: 3px;
 
         &:hover {
           text-decoration: underline;
@@ -316,6 +312,22 @@
 }
 
 .site-footer-type-2 {
+  #footer_textarea {
+    padding-top: 5px;
+    padding-left: 20px;
+    max-width: 270px;
+    @include bp-phone-xl() {
+      padding-left: 0;
+    }
+
+    ul {
+      margin: 0;
+      @include bp-phone-xl() {
+        padding-left: 0;
+      }
+    }
+  }
+
   .footer-inner-top {
     padding-top: 20px;
     padding-bottom: 10px;
@@ -324,12 +336,23 @@
     .col-12 {
       display: flex;
     }
+
+    .c-footernav {
+      width: initial;
+      margin-left: initial;
+    }
   }
 
   #footer_logo {
     margin: 0;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 10%;
     @include bp-phone-xl() {
-      max-width: 30%;
+      max-width: 50%;
+      margin: auto;
+      margin-top: 15px;
     }
 
     img {
@@ -385,6 +408,16 @@
 
   .s-icons {
     text-align: right;
+    display: flex;
+
+    a {
+      margin-left: 10px;
+    }
+
+    span {
+      font-size: 24px;
+    }
+
     @include bp-phone-xl() {
       text-align: center;
     }

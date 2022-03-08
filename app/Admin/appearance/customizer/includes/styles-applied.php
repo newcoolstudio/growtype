@@ -58,7 +58,7 @@ function growtype_customizer_general_css()
         <?php } ?>
 
         <?php if(!empty(get_theme_mod('mobile_menu_bg_color'))){ ?>
-        .main-navigation-mobile-content {
+        .main-navigation-mobile {
             background: <?php echo get_theme_mod('mobile_menu_bg_color') ?>
         }
 
@@ -100,7 +100,9 @@ function growtype_customizer_general_css()
 
         .site-header .main-navigation-mobile .menu li a,
         .main-navigation-mobile-type-2 .menu-item-has-children:before,
-        .site-header.is-scroll .menu-mobile-container .menu li a {
+        .site-header.is-scroll .menu-mobile-container .menu li a,
+        .main-navigation-mobile .menu-extra li a,
+        .menu-mobile-container .menu li a{
             color: <?php echo get_theme_mod('mobile_menu_text_color') ?>;
         }
 
@@ -121,7 +123,7 @@ function growtype_customizer_general_css()
         <?php } ?>
 
         <?php if(!empty(get_theme_mod('header_logo_size_mobile'))){ ?>
-        @media only screen and (max-width: 769px) {
+        @media only screen and (max-width: 830px) {
             .header-logo-wrapper {
                 max-width: <?php echo!empty(get_theme_mod('header_logo_size_mobile')) ? get_theme_mod('header_logo_size_mobile') : '200'?>px;
             }
@@ -130,7 +132,7 @@ function growtype_customizer_general_css()
         <?php } ?>
 
         <?php if(!empty(get_theme_mod('header_logo_position_vertical_mobile'))){ ?>
-        @media only screen and (max-width: 769px) {
+        @media only screen and (max-width: 830px) {
             .header-logo-wrapper {
                 top: <?php echo!empty(get_theme_mod('header_logo_position_vertical_mobile')) ? get_theme_mod('header_logo_position_vertical_mobile') : '0'?>px;
             }

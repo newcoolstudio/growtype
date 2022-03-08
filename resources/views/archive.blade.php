@@ -8,10 +8,8 @@
     <div class="container">
         <div class="row">
             <?php while ( have_posts() ) : the_post(); ?>
-            <div class="col-md-4">
                 @php($post = get_post())
                 @include('partials.content.post.preview.basic')
-            </div>
             <?php endwhile; // end of the loop. ?>
 
             <?php

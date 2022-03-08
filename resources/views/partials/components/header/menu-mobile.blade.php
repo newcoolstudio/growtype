@@ -1,10 +1,12 @@
 <nav id="site-navigation-mobile" class="main-navigation-mobile main-navigation-mobile-{{get_theme_mod('header_mobile_menu_style')}}" role="navigation">
 
-    <div class="header-logo-wrapper">
-        <div id="mobile_burger_logo" class="mainlogo">
-            <img class="img-fluid" src="{{get_mobile_burger_logo()['url']}}" alt="header_mobile_logo">
+    @if(!empty(get_mobile_burger_logo()))
+        <div class="header-logo-wrapper">
+            <div id="mobile_burger_logo" class="mainlogo">
+                <img class="img-fluid" src="{{get_mobile_burger_logo()['url']}}" alt="header_mobile_logo">
+            </div>
         </div>
-    </div>
+    @endif
 
     <div class="main-navigation-mobile-content">
         <?php
@@ -26,7 +28,7 @@
             @if(Growtype_User::account_icon_enabled())
                 <li class="e-profile">
                     <a href="{!! wc_get_page_permalink( 'myaccount' ) !!}">
-                        <i class="icon-f-94"></i> My Account
+                        <i class="icon-profile"></i> My Account
                     </a>
                 </li>
             @endif
@@ -35,7 +37,7 @@
             if (wishlist_page_icon()) { ?>
             <li class="e-wishlist">
                 <a href="{!! get_permalink( get_page_by_path( 'wishlist' ) ) !!}">
-                    <i class="icon-n-072"></i> My Wishlist
+                    <i class="icon-wishlist"></i>
                 </a>
             </li>
             <?php } ?>

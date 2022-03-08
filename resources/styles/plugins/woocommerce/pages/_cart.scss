@@ -204,6 +204,20 @@
   }
 }
 
+.woocommerce ul#shipping_method {
+  margin-top: 10px !important;
+  margin-bottom: 20px;
+
+  li {
+    margin-bottom: 10px !important;
+    font-size: 12px;
+
+    input {
+      margin-top: 0;
+    }
+  }
+}
+
 #calc_shipping_country_chosen {
   width: 100% !important;
 }

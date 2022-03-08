@@ -386,9 +386,6 @@
   div.product div.images.woocommerce-product-gallery {
     display: inline-block;
     margin-bottom: 15px;
-    @include bp-phone-xl() {
-      margin: 0;
-    }
   }
 
   .product-type-variable {

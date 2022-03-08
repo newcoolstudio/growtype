@@ -15,6 +15,6 @@
   margin-bottom: 1.625em;
 }
 
-.wp-block-media-text *:last-child {
+.wp-block-media-text *:last-child:not(h2) {
   margin-bottom: 0;
 }

@@ -30,4 +30,11 @@ Header type 3
       }
     }
   }
+
+  &.has-extraspace-header .main-content-wrapper {
+    margin-top: 130px;
+    @include bp-tablet-portrait() {
+      margin-top: 70px;
+    }
+  }
 }

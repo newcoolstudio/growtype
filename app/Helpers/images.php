@@ -127,9 +127,7 @@ function get_mobile_burger_logo()
     $logo_url = get_theme_mod('mobile_burger_logo') ? wp_get_attachment_url(get_theme_mod('mobile_burger_logo')) : null;
 
     if (empty($logo_url)) {
-        $logo_url = get_theme_mod('header_logo') ?
-            wp_get_attachment_url(get_theme_mod('header_logo')) :
-            dirname(get_template_directory_uri()) . '/public/images/logo/growtype.png';
+        return null;
     }
 
     return [

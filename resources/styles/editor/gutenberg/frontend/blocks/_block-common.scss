@@ -179,6 +179,15 @@ p.has-drop-cap:not(:focus)::first-letter {
   padding-left: $padding-left-container;
   padding-right: $padding-right-container;
   margin: auto;
+  @include bp-phone-xl() {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .wp-block-media-text__content {
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
 
   &.alignfull {
     max-width: 100%;

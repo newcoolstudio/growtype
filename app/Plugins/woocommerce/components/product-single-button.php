@@ -5,34 +5,11 @@
  */
 add_filter('woocommerce_product_single_add_to_cart_text', 'woocommerce_product_add_to_cart_text_custom');
 add_filter('woocommerce_product_add_to_cart_text', 'woocommerce_product_add_to_cart_text_custom');
-function woocommerce_product_add_to_cart_text_custom()
+function woocommerce_product_add_to_cart_text_custom($default_label)
 {
     global $product;
 
-    $add_to_cart_button_custom_text = Growtype_Product::get_add_to_cart_btn_text($product);
-
-    if (empty($product)) {
-        return $add_to_cart_button_custom_text;
-    }
-
-    $product_type = $product->get_type();
-
-    switch ($product_type) {
-        case 'external':
-            return $add_to_cart_button_custom_text;
-            break;
-        case 'grouped':
-            return __('Select', 'growtype');
-            break;
-        case 'simple':
-            return $add_to_cart_button_custom_text;
-            break;
-        case 'variable':
-            return $add_to_cart_button_custom_text;
-            break;
-        default:
-            return $add_to_cart_button_custom_text;
-    }
+    return Growtype_Product::get_add_to_cart_btn_text($product, $default_label);
 }
 
 /**

@@ -61,8 +61,12 @@
   padding: 0;
 }
 
-header, header a {
+header, header a, header a:hover {
   color: #3a3a3a;
+}
+
+header a:hover {
+  opacity: 0.8;
 }
 
 #header_logo_scroll {
@@ -226,6 +230,7 @@ header, header a {
     top: 40px;
     left: 0;
     display: none;
+    min-width: 180px;
 
     a {
       padding-top: 5px;
@@ -368,12 +373,12 @@ header, header a {
 }
 
 .burger-open {
-  .site-header:not(.has-fixed-header .site-header) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
+  //.site-header:not(.has-fixed-header .site-header) {
+  //  position: fixed;
+  //  top: 0;
+  //  left: 0;
+  //  right: 0;
+  //}
 
   .site-header {
     z-index: 100;
@@ -409,7 +414,7 @@ header, header a {
   .menu {
     li {
       padding: 0;
-      padding-right: 10px;
+      padding-left: 10px;
       cursor: pointer;
 
       a {
@@ -448,6 +453,21 @@ header, header a {
       &.customizer {
         position: relative;
         top: 1px;
+      }
+    }
+  }
+
+  .menu {
+    li {
+      padding-left: 10px;
+    }
+
+    .language-selector {
+      margin-left: 15px;
+      padding-left: 0;
+
+      li {
+        padding-left: 0;
       }
     }
   }

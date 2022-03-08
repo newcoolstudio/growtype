@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    @include('partials.content.content-page')
+    @include('partials.sections.content')
 @endsection
 
 @section('footer')
