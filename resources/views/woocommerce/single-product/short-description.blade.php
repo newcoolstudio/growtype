@@ -30,6 +30,6 @@ if (!$short_description) {
 ?>
 
 <section class="woocommerce-product-details__short-description">
-    <h6 class="e-title-section"><?php echo __('Product description', 'growtype') ?></h6>
+    <h6 class="e-title-section"><?php echo __('About product', 'growtype') ?></h6>
     <?php echo $short_description; // WPCS: XSS ok. ?>
 </section>
