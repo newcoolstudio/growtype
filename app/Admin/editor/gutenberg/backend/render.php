@@ -80,6 +80,19 @@ function admin_enqueue_custom_scripts()
         }';
     }
 
+    if (!empty(get_theme_mod('primary_button_background_color'))) {
+        $inlineCss .= '.editor-styles-wrapper .wp-block-button__link {
+            background: ' . get_theme_mod('primary_button_background_color') . ';
+            border: 1px solid ' . get_theme_mod('primary_button_background_color') . ';
+        }';
+    }
+
+    if (!empty(get_theme_mod('primary_button_text_color'))) {
+        $inlineCss .= '.editor-styles-wrapper .wp-block-button__link {
+            color: ' . get_theme_mod('primary_button_text_color') . ';
+        }';
+    }
+
     if (!empty(get_theme_mod('body_background_color'))) {
         $inlineCss .= 'body.wp-admin .block-editor-block-list__layout {
             background: ' . get_theme_mod('body_background_color') . ';
