@@ -72,10 +72,17 @@ add_action('admin_enqueue_scripts', 'admin_enqueue_custom_scripts');
 function admin_enqueue_custom_scripts()
 {
     $inlineCss = '';
+
     if (get_option('theme_font_enabled') && !empty(get_fonts_details()['primaryFontDetails'])) {
-        $inlineCss = 'body.wp-admin .block-editor-block-list__layout {
+        $inlineCss .= 'body.wp-admin .block-editor-block-list__layout {
             font-family: "' . get_fonts_details()['primaryFontDetails']->font . '", sans-serif;
             font-weight: ' . urlencode(get_fonts_details()['primaryFontDetails']->regularweight) . ';
+        }';
+    }
+
+    if (!empty(get_theme_mod('body_background_color'))) {
+        $inlineCss .= 'body.wp-admin .block-editor-block-list__layout {
+            background: ' . get_theme_mod('body_background_color') . ';
         }';
     }
 

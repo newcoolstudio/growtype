@@ -63,24 +63,6 @@ p.has-drop-cap:not(:focus)::first-letter {
   width: 100%;
 }
 
-/* Cover */
-
-.wp-block-cover-image.aligncenter,
-.wp-block-cover.aligncenter {
-  clear: both;
-  display: flex;
-}
-
-.wp-block-cover-image.alignleft,
-.wp-block-cover.alignleft {
-  margin-right: 1.625em;
-}
-
-.wp-block-cover-image.alignright,
-.wp-block-cover.alignright {
-  margin-left: 1.625em;
-}
-
 /* File */
 
 .wp-block-file .wp-block-file__button {

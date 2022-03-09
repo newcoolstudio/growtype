@@ -1,3 +1,23 @@
+.wp-block-cover-image.aligncenter,
+.wp-block-cover.aligncenter {
+  clear: both;
+  display: flex;
+}
+
+.wp-block-cover-image.alignleft,
+.wp-block-cover.alignleft {
+  margin-right: 1.625em;
+}
+
+.wp-block-cover-image.alignright,
+.wp-block-cover.alignright {
+  margin-left: 1.625em;
+}
+
+.wp-block-cover .has-background-dim:not([class*=-background-color]) {
+  background: none;
+}
+
 .wp-block-cover {
   min-height: 200px;
 

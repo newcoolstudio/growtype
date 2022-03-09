@@ -48,6 +48,21 @@ function theme_colors_customize_register($wp_customize)
     ));
 
     /**
+     * Main
+     */
+    $wp_customize->add_setting('main_color', array (
+        'default' => $color_scheme['main_color'],
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'postMessage',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'main_color', array (
+        'label' => __('Main', 'growtype'),
+        'section' => 'theme-colors',
+        'alpha' => true,
+    )));
+
+    /**
      * Body background
      */
     $wp_customize->add_setting('body_background_color', array (
@@ -106,6 +121,7 @@ if (!function_exists('get_theme_color_schemes')):
             'default' => array (
                 'label' => __('Default', 'growtype'),
                 'general' => array (
+                    'main_color' => '#5561e2',
                     'body_background_color' => '#ffffff',
                     'body_text_color' => '#212529',
                     'header_background_color' => '',
@@ -126,6 +142,7 @@ if (!function_exists('get_theme_color_schemes')):
             'dark' => array (
                 'label' => __('Dark', 'growtype'),
                 'general' => array (
+                    'main_color' => '#5561e2',
                     'body_background_color' => '#ffffff',
                     'body_text_color' => '#212529',
                     'header_background_color' => '#000000',
@@ -146,6 +163,7 @@ if (!function_exists('get_theme_color_schemes')):
             'light' => array (
                 'label' => __('Light', 'growtype'),
                 'general' => array (
+                    'main_color' => '#5561e2',
                     'body_background_color' => '#ffffff',
                     'body_text_color' => '#212529',
                     'header_background_color' => '#ffffff',

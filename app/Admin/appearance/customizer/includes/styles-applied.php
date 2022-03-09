@@ -8,6 +8,13 @@ function growtype_customizer_general_css()
 {
     ?>
     <style>
+        <?php if(!empty(get_theme_mod('main_color'))){ ?>
+        aside.widget-area > .widget .widget-title:after {
+            background-color: <?php echo get_theme_mod('main_color'); ?>;
+        }
+
+        <?php } ?>
+
         <?php if(!empty(get_theme_mod('header_background_color'))){ ?>
         .site-header {
             background-color: <?php echo get_theme_mod('header_background_color'); ?>;
