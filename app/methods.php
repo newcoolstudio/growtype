@@ -17,6 +17,13 @@ if (!class_exists('Growtype_Auction')) {
 }
 
 /**
+ * Shop
+ */
+if (!class_exists('Growtype_Shop')) {
+    include('Methods/class-growtype-shop.php');
+}
+
+/**
  * Product
  */
 if (!class_exists('Growtype_Product')) {

@@ -10,8 +10,8 @@ aside.widget-area > .widget .widget-title:after {
 }
 
 aside.widget-area>.widget {
-  background: rgba(85,97,226,0.02);
-  background: linear-gradient(135deg, rgba(85,97,226,0.04) 0%, rgba(255,255,255,0) 25%, rgba(85,97,226,0.07) 100%);
+  background: white;
+  box-shadow: 0px 0px 14px 0px rgba(184, 184, 184, 0.2);
   padding: 1.5rem;
   margin-bottom: 20px;
   border-radius: 12px;

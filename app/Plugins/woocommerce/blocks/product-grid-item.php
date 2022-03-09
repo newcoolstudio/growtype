@@ -20,7 +20,10 @@ function woocommerce_blocks_product_grid_item_html_custom($content, $data, $prod
 
         $data->description = $product->get_short_description();
         $data->classes[] = 'wc-block-grid__product_plan';
+        $data->permalink = '';
     }
+
+    $data->classes[] = get_theme_mod('woocommerce_product_preview_style');
 
     /**
      * Change button text if different

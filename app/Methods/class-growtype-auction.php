@@ -2,7 +2,7 @@
 
 /**
  * Growtype auction methods
- * Requires woocommerce-simple-auction plugin
+ * Requires: woocommerce-simple-auction plugin
  */
 class Growtype_Auction
 {

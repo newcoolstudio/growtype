@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Growtype auction methods
- * Requires woocommerce-simple-auction plugin
+ * Growtype product methods
+ * Requires: woocommerce plugin
  */
 class Growtype_Product
 {

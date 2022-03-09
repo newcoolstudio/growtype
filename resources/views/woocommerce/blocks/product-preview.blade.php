@@ -1,4 +1,6 @@
 <li class="wc-block-grid__product {!! isset($data->classes) ? implode(' ', $data->classes) : null !!}">
+    {!! !empty($data->permalink) ? '<a href="'.$data->permalink.'">' : '<div>' !!}
+
     @if(isset($data->promo_label))
         {!! $data->promo_label !!}
     @endif
@@ -27,6 +29,8 @@
     @endif
 
     {!! $data->rating !!}
+
+    {!! !empty($data->permalink) ? '</a>' : '</div>' !!}
 
     {!! $data->button !!}
 </li>

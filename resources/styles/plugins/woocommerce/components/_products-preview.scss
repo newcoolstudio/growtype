@@ -4,7 +4,7 @@
   }
 }
 
-.woocommerce .products {
+.woocommerce .products, .wc-block-product-new {
   .product {
     margin-left: 10px;
     margin-right: 10px;
@@ -40,33 +40,42 @@
         outline: none;
       }
     }
+  }
 
-    &.product-style-2 {
-      .onsale {
-        left: 20px;
-        right: initial;
-        padding: 3px;
-        top: 20px;
-        min-width: initial;
-        padding-left: 11px;
-        padding-right: 11px;
-        text-transform: initial;
-        background: white;
-        color: black;
-      }
+  .product-style-2 {
+    background: white;
+    padding: 15px !important;
+    border-radius: 5px;
 
-      .badge {
-        left: 20px;
-        right: initial;
-        padding: 3px;
-        top: 20px;
-        min-width: initial;
-        padding-left: 11px;
-        padding-right: 11px;
-        text-transform: initial;
-        background: white;
-        color: black;
-      }
+    .content-wrapper {
+      padding-top: 10px;
+      margin: 0;
+    }
+
+    .onsale {
+      left: 20px;
+      right: initial;
+      padding: 3px;
+      top: 20px;
+      min-width: initial;
+      padding-left: 11px;
+      padding-right: 11px;
+      text-transform: initial;
+      background: white;
+      color: black;
+    }
+
+    .badge {
+      left: 20px;
+      right: initial;
+      padding: 3px;
+      top: 20px;
+      min-width: initial;
+      padding-left: 11px;
+      padding-right: 11px;
+      text-transform: initial;
+      background: white;
+      color: black;
     }
   }
 
@@ -256,6 +265,36 @@
       margin: -5px;
     }
   }
+}
+
+.wc-block-grid__products {
+  margin: 0;
+  margin-left: -10px;
+  width: calc(100% + 20px);
+
+  .wc-block-grid__product {
+    margin: 15px 10px;
+  }
+
+  .wc-block-grid__product-add-to-cart {
+    margin-bottom: 0;
+  }
+}
+
+.wc-block-grid.has-2-columns .wc-block-grid__product {
+  max-width: calc(100% / 2 - 20px);
+}
+
+.wc-block-grid.has-3-columns .wc-block-grid__product {
+  max-width: calc(100% / 3 - 20px);
+}
+
+.wc-block-grid.has-4-columns .wc-block-grid__product {
+  max-width: calc(100% / 4 - 20px);
+}
+
+.wc-block-grid.has-5-columns .wc-block-grid__product {
+  max-width: calc(100% / 5 - 20px);
 }
 
 .woocommerce span.onsale, .woocommerce ul.products li.product .onsale, .wc-block-grid .wc-block-grid__product .wc-block-grid__product-onsale {

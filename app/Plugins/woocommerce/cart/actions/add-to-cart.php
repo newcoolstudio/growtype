@@ -154,10 +154,10 @@ function add_to_cart_ajax_callback()
 }
 
 /**
- * Allow to add only single product
+ * Add to cart ajax
  */
-add_filter('woocommerce_add_cart_item_data', 'add_to_cart_only_single_product');
-function add_to_cart_only_single_product($cart_item_data)
+add_filter('woocommerce_add_cart_item_data', 'growtype_woocommerce_add_cart_item_data');
+function growtype_woocommerce_add_cart_item_data($cart_item_data)
 {
     global $woocommerce;
 
@@ -175,7 +175,7 @@ function add_to_cart_only_single_product($cart_item_data)
     /**
      * If selling type single clear all other products and add a new one
      */
-    if (get_theme_mod('shop_selling_type_select') === 'shop_selling_type_single') {
+    if (Growtype_Shop::selling_type_single()) {
         $woocommerce->cart->empty_cart();
     }
 
@@ -185,8 +185,8 @@ function add_to_cart_only_single_product($cart_item_data)
 /**
  * Added to cart ajax
  */
-add_action('woocommerce_ajax_added_to_cart', 'wc_custom_ajax_added_to_cart');
-function wc_custom_ajax_added_to_cart($product_id)
+add_action('woocommerce_ajax_added_to_cart', 'growtype_woocommerce_ajax_added_to_cart');
+function growtype_woocommerce_ajax_added_to_cart($product_id)
 {
     global $woocommerce;
 
@@ -242,8 +242,8 @@ function wc_add_to_cart_redirect($url = false)
         $sold_individually = $product->is_sold_individually();
     }
 
-    if ((!empty($instant_checkout) && $instant_checkout === 'yes') || $sold_individually) {
-        $url = get_permalink(get_option('woocommerce_checkout_page_id'));
+    if ((!empty($instant_checkout) && $instant_checkout === 'yes') || $sold_individually || Growtype_Shop::selling_type_single()) {
+        $url = wc_get_checkout_url();
     }
 
     if (isset($url) && !empty($url) || get_option('woocommerce_cart_redirect_after_add') === 'yes') {
@@ -285,14 +285,6 @@ function adjust_add_to_cart_button_link($add_to_cart_url, $product)
 {
     if (empty(WC()->cart)) {
         return null;
-    }
-
-    $product_in_cart = product_is_in_cart($product);
-
-    if ($product->is_purchasable()
-        && $product_in_cart
-        && $product->is_in_stock()) {
-        $add_to_cart_url = wc_get_checkout_url();
     }
 
     /**
