@@ -1,9 +1,11 @@
 <?php
 
-function my_customizer_script_styles() {
-    wp_enqueue_style( 'customizer',  get_template_directory_uri() . '/../app/Admin/appearance/customizer/assets/css/customizer-theme.css' );
+function my_customizer_script_styles()
+{
+    wp_enqueue_style('customizer', get_template_directory_uri() . '/../app/Admin/appearance/customizer/assets/css/customizer-theme.css');
 }
-add_action( 'customize_controls_enqueue_scripts', 'my_customizer_script_styles' );
+
+add_action('customize_controls_enqueue_scripts', 'my_customizer_script_styles');
 
 /*
 * Customizer preview js
@@ -11,7 +13,11 @@ add_action( 'customize_controls_enqueue_scripts', 'my_customizer_script_styles' 
 function customizer_preview()
 {
     wp_enqueue_script('customizer_preview', get_template_directory_uri() . '/../app/Admin/appearance/customizer/assets/js/customizer-preview.js', array ('jquery'));
-    wp_localize_script('customizer_preview', 'colorScheme', get_theme_color_schemes()); // color schemes global variable
+
+    if (function_exists('get_theme_color_schemes')) {
+        wp_localize_script('customizer_preview', 'colorScheme', get_theme_color_schemes()); // color schemes global variable
+    }
+
     wp_localize_script('customizer_preview', 'ajax_object',
         array (
             'ajaxurl' => admin_url('admin-ajax.php'),
@@ -42,7 +48,11 @@ add_action('customize_controls_enqueue_scripts', 'customizer_translate');
 function customizer_control_colors()
 {
     wp_enqueue_script('customizer_control_colors', get_template_directory_uri() . '/../app/Admin/appearance/customizer/assets/js/customizer-control-colors.js', array ('jquery', 'customize-preview', 'wp-color-picker'));
-    wp_localize_script('customizer_control_colors', 'colorScheme', get_theme_color_schemes()); // color schemes global variable
+
+    if (function_exists('get_theme_color_schemes')) {
+        wp_localize_script('customizer_control_colors', 'colorScheme', get_theme_color_schemes()); // color schemes global variable
+    }
+
     wp_localize_script('customizer_control_colors', 'ajax_object',
         array (
             'ajaxurl' => admin_url('admin-ajax.php'),

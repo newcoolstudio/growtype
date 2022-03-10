@@ -9,6 +9,8 @@ $mobile_menu = wp_get_nav_menu_object('mobile-menu');
 if (!empty($mobile_menu)) {
     $mobile_menu_section = 'nav_menu[' . $mobile_menu->term_id . ']';
 
+    $color_scheme = get_theme_color_scheme();
+
     /**
      * Menu enabled
      */
@@ -24,6 +26,25 @@ if (!empty($mobile_menu)) {
             'label' => esc_html__('Menu is disabled'),
             'section' => $mobile_menu_section,
             'description' => __('Enable or disable', 'growtype'),
+            'priority' => 1000000,
+        )
+    ));
+
+    /**
+     * Mobile menu text color
+     */
+    $wp_customize->add_setting('theme_general_mobile_menu_settings_notice',
+        array (
+            'default' => '',
+            'transport' => 'postMessage'
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_customize, 'theme_general_mobile_menu_settings_notice',
+        array (
+            'label' => __('Settings'),
+            'description' => __('Below you can change mobile menu settings'),
+            'section' => $mobile_menu_section,
             'priority' => 1000000,
         )
     ));
@@ -74,4 +95,71 @@ if (!empty($mobile_menu)) {
             'priority' => 1000000,
         )
     ));
+
+    /**
+     * Mobile menu text color
+     */
+    $wp_customize->add_setting('theme_general_mobile_menu_simple_notice',
+        array (
+            'default' => '',
+            'transport' => 'postMessage'
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_customize, 'theme_general_mobile_menu_simple_notice',
+        array (
+            'label' => __('Colors'),
+            'description' => __('Below you can change mobile menu colors'),
+            'section' => $mobile_menu_section,
+            'priority' => 1000000,
+        )
+    ));
+
+    /**
+     * Background color
+     */
+    $wp_customize->add_setting('mobile_menu_bg_color', array (
+        'default' => $color_scheme['mobile_menu_bg_color'],
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'postMessage',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'mobile_menu_bg_color', array (
+        'label' => __('Mobile Menu Background Color', 'growtype'),
+        'section' => $mobile_menu_section,
+        'alpha' => true,
+        'priority' => 1000000,
+    )));
+
+    /**
+     * Burger color
+     */
+    $wp_customize->add_setting('mobile_menu_burger_color', array (
+        'default' => $color_scheme['mobile_menu_burger_color'],
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'postMessage',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'mobile_menu_burger_color', array (
+        'label' => __('Mobile Menu Burger Color', 'growtype'),
+        'section' => $mobile_menu_section,
+        'alpha' => true,
+        'priority' => 1000000,
+    )));
+
+    /**
+     * Text color
+     */
+    $wp_customize->add_setting('mobile_menu_text_color', array (
+        'default' => $color_scheme['mobile_menu_text_color'],
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'postMessage',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'mobile_menu_text_color', array (
+        'label' => __('Mobile Menu Text Color', 'growtype'),
+        'section' => $mobile_menu_section,
+        'alpha' => true,
+        'priority' => 1000000,
+    )));
 }

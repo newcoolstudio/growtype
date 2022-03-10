@@ -31,5 +31,10 @@
     max-width: $max-width-container;
     padding-left: $padding-left-container;
     padding-right: $padding-right-container;
+
+    .wp-block-group__inner-container {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 }

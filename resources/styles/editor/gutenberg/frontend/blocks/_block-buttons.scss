@@ -35,4 +35,8 @@
   padding: 15px 30px;
   font-size: 14px;
   min-width: initial;
+  @include bp-phone-xl() {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
