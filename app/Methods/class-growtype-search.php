@@ -6,6 +6,22 @@
 class Growtype_Search
 {
     /**
+     * @return string
+     */
+    public static function permalink()
+    {
+        if (class_exists('woocommerce')) {
+            if (is_search() && !is_shop()) {
+                return home_url('/');
+            }
+
+            return get_permalink(wc_get_page_id('shop'));
+        }
+
+        return get_permalink();
+    }
+
+    /**
      * @return bool
      */
     public static function enabled()

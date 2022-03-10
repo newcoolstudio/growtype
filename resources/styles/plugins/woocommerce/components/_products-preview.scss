@@ -45,7 +45,8 @@
   .product-style-2 {
     background: white;
     padding: 15px !important;
-    border-radius: 5px;
+    border-radius: $border-radius-card;
+    box-shadow: $box-shadow-card;
 
     .content-wrapper {
       padding-top: 10px;

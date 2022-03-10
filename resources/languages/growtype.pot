@@ -706,7 +706,7 @@ msgid "We have finished processing your order."
 msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/views/partials/components/search.blade.php:3
-msgid "What are you Looking for?"
+msgid "What are you looking for?"
 msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:67

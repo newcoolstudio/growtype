@@ -1924,7 +1924,7 @@ p.demo_store,
 
   #payment {
     background: $secondary;
-    border-radius: 5px;
+    border-radius: $border-radius-card;
 
     ul.payment_methods {
 

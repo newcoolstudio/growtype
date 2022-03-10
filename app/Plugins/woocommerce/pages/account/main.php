@@ -11,7 +11,10 @@ function get_account_subpage_intro_details($subpage)
         'auctions-endpoint' => __('Auctions', 'growtype') . ' <div class="e-subtitle">' . __('Auctions details', 'growtype') . '</div>',
         'purchased-products' => __('Purchased products', 'growtype') . ' <div class="e-subtitle">' . __('Your products', 'growtype') . '</div>',
         'uploaded-products' => __('Uploaded products', 'growtype') . ' <div class="e-subtitle">' . __('Your uploads', 'growtype') . '</div>',
-        'subscriptions' => __('Subscription', 'growtype') . ' <div class="e-subtitle">' . __('Subscription details', 'growtype') . '</div>'
+        'subscriptions' => __('Subscription', 'growtype') . ' <div class="e-subtitle">' . __('Subscription details', 'growtype') . '</div>',
+        'downloads' => __('Downloads', 'growtype') . ' <div class="e-subtitle">' . __('Available to download products', 'growtype') . '</div>',
+        'payment-methods' => __('Payment methods', 'growtype') . ' <div class="e-subtitle">' . __('Adjust payment method', 'growtype') . '</div>',
+        'customer-logout' => __('Logout', 'growtype') . ' <div class="e-subtitle">' . __('Sign out from system', 'growtype') . '</div>'
     ];
 
     return $details[$subpage] ?? null;
@@ -20,11 +23,15 @@ function get_account_subpage_intro_details($subpage)
 /**
  * Add intro section
  */
-add_action('woocommerce_before_subscription_form', 'growtype_woocommerce_before_edit_form');
-add_action('woocommerce_before_account_orders', 'growtype_woocommerce_before_edit_form');
-add_action('woocommerce_before_edit_account_form', 'growtype_woocommerce_before_edit_form');
-add_action('woocommerce_before_edit_account_address_form', 'growtype_woocommerce_before_edit_form');
-function growtype_woocommerce_before_edit_form()
+add_action('woocommerce_before_account_payment_methods', 'growtype_woocommerce_account_page_intro_block');
+add_action('woocommerce_before_account_downloads', 'growtype_woocommerce_account_page_intro_block');
+add_action('woocommerce_before_account_purchased_products', 'growtype_woocommerce_account_page_intro_block');
+add_action('woocommerce_before_account_uploaded_products', 'growtype_woocommerce_account_page_intro_block');
+add_action('woocommerce_before__account_subscriptions', 'growtype_woocommerce_account_page_intro_block');
+add_action('woocommerce_before_account_orders', 'growtype_woocommerce_account_page_intro_block');
+add_action('woocommerce_before_edit_account_form', 'growtype_woocommerce_account_page_intro_block');
+add_action('woocommerce_before_edit_account_address_form', 'growtype_woocommerce_account_page_intro_block');
+function growtype_woocommerce_account_page_intro_block()
 {
     $url_slug = Growtype_Post::get_url_slug();
 
@@ -57,10 +64,7 @@ function woocommerce_account_extend_menu_items($items)
      */
     $new_items = [];
     foreach ($items as $key => $item) {
-
-        if ($key === 'orders' || $key === 'edit-account' || $key === 'edit-address' || $key === 'auctions-endpoint') {
-            $item = get_account_subpage_intro_details($key);
-        }
+        $item = get_account_subpage_intro_details($key) ?? $item;
 
         if ($key === 'dashboard') {
             $get_id = get_option('woocommerce_myaccount_page_id');

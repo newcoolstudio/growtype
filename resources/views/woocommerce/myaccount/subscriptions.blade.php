@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-do_action('woocommerce_before_subscription_form');
+do_action('woocommerce_before__account_subscriptions');
 ?>
 
 @if(!empty($products))
@@ -28,4 +28,6 @@ do_action('woocommerce_before_subscription_form');
             </div>
         @endforeach
     </div>
+@else
+    @include('partials.content.404.general', ['subtitle' => __('You have no subscriptions.', 'growtype')])
 @endif

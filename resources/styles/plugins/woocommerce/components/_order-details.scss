@@ -18,6 +18,7 @@
 
   .woocommerce-table-wrapper {
     padding: 20px 30px 40px 30px;
+    background: white;
     @include bp-phone-xl() {
       padding: 15px 15px 20px 15px;
     }

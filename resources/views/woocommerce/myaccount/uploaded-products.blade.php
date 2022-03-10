@@ -1,6 +1,8 @@
 <?php
 defined('ABSPATH') || exit;
 
+do_action('woocommerce_before_account_uploaded_products');
+
 $uploaded_product_content = '';
 
 if (!empty($products_ids)) {
@@ -12,10 +14,5 @@ if (!empty($products_ids)) {
 @if(!empty($uploaded_product_content))
     {!! $uploaded_product_content !!}
 @else
-    @if(class_exists('Growtype_Form'))
-        @php
-            $extra_data['cta'] = '<a href="'.growtype_form_product_upload_page_url().'" class="btn btn-primary mt-3">'.__('Upload a new product','growtype').'</a>';
-        @endphp
-    @endif
-    @include('partials.content.404.general', $extra_data ?? null)
+    @include('partials.content.404.general', ['cta' => class_exists('Growtype_Form') ? '<a href="'.growtype_form_product_upload_page_url().'" class="btn btn-primary mt-3">'.__('Upload a new product.','growtype').'</a>' : '', 'subtitle' => __('You have no products uploaded.','growtype')])
 @endif

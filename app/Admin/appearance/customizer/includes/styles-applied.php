@@ -9,7 +9,8 @@ function growtype_customizer_general_css()
     ?>
     <style>
         <?php if(!empty(get_theme_mod('main_color'))){ ?>
-        aside.widget-area > .widget .widget-title:after {
+        aside.widget-area > .widget .widget-title:after,
+        .woocommerce-order-details .woocommerce-order-details-intro{
             background-color: <?php echo get_theme_mod('main_color'); ?>;
         }
 
@@ -445,7 +446,8 @@ function growtype_customizer_buttons_css()
         input[type=submit],
         input[type=submit]:hover,
         .wp-block-button__link,
-        .wp-block-button__link:hover {
+        .wp-block-button__link:hover,
+        .woocommerce-cart .woocommerce button.button {
             background: <?php echo get_theme_mod('primary_button_background_color')?> !important;
             border: 1px solid <?php echo get_theme_mod('primary_button_background_color')?> !important;
         }
@@ -459,7 +461,8 @@ function growtype_customizer_buttons_css()
         input[type=submit]:hover,
         .wp-block-button__link,
         .wp-block-button__link:hover,
-        .btn-link {
+        .btn-link,
+        .woocommerce-cart .woocommerce button.button {
             color: <?php echo get_theme_mod('primary_button_text_color')?>;
         }
 

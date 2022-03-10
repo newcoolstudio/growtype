@@ -354,6 +354,10 @@ class Growtype_Product
 
         $user_products_ids = self::get_user_purchased_products_ids($user_id);
 
+        if (empty($user_products_ids)) {
+            return [];
+        }
+
         $products = [];
         foreach ($user_products_ids as $product_id) {
             $product = wc_get_product($product_id);
