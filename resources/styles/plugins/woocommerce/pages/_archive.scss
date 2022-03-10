@@ -9,13 +9,18 @@
 }
 
 .shop-header-featured {
-  min-height: 160px;
+  min-height: 140px;
   margin-bottom: 25px;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
   background-position: center;
   background-size: cover;
   margin-top: -25px;
+
+  .has-sidebar-catalog & {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .woocommerce {

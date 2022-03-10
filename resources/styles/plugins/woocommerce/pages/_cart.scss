@@ -79,6 +79,7 @@
     width: 66%;
     float: left;
     background: white;
+    margin-bottom: 30px;
     @include bp-tablet() {
       width: 55%;
     }
@@ -95,8 +96,13 @@
     font-weight: 500;
   }
 
-  .wc-proceed-to-checkout .checkout-button.button.alt {
-    @extend .btn-primary;
+  .wc-proceed-to-checkout {
+    padding-bottom: 5px;
+
+    .checkout-button.button.alt {
+      @extend .btn-primary;
+      margin-bottom: 0;
+    }
   }
 
   .cart_totals {
@@ -177,6 +183,7 @@
     padding-left: 25px;
     width: 34%;
     float: right;
+    margin-bottom: 30px;
     @include bp-tablet() {
       width: 45%;
     }

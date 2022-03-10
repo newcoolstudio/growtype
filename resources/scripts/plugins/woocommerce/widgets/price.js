@@ -10,9 +10,13 @@ function price() {
         if (JSON.stringify(price_values) == JSON.stringify(ui.values)) {
             return false;
         }
+
+        woocommerce_params_widgets.min_price = ui.values[0];
+        woocommerce_params_widgets.max_price = ui.values[1];
+
         var filter = $('.widget_price_filter form');
         var existing_products = $('body').find('.products');
-        var existing_main = $('body').find('.site-main');
+        var existing_main = $('body').find('#main');
 
         $.ajax({
             url: filter.attr('action'),
@@ -22,12 +26,13 @@ function price() {
                 existing_products.addClass('is-loading');
             },
             success: function (data) {
+                existing_products.removeClass('is-loading');
                 var filtered_products = $(data).find('.products');
-                var filtered_main = $(data).find('.site-main');
+                var filtered_main = $(data).find('#main');
                 window.history.pushState('page-url', 'url', filter.attr('action') + '?' + filter.serialize());
                 $('.woocommerce-info').remove();
                 if (filtered_products.html().length === 1) {
-                    $('.site-main').prepend($(data).find('.woocommerce-info'));
+                    $('#main').prepend($(data).find('.woocommerce-info'));
                 }
                 existing_main.replaceWith(filtered_main);
                 document.dispatchEvent(filterProductsByPriceEvent);

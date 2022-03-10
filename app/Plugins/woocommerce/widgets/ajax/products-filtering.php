@@ -3,15 +3,19 @@
 /**
  * Catelog product select filter
  */
-add_action('wp_ajax_filter_products', 'get_filtered_products');
-add_action('wp_ajax_nopriv_filter_products', 'get_filtered_products');
-function get_filtered_products()
+add_action('wp_ajax_filter_products', 'growtype_wc_filter_products');
+add_action('wp_ajax_nopriv_filter_products', 'growtype_wc_filter_products');
+function growtype_wc_filter_products()
 {
-    $orderby = isset($_POST['orderby']) && !empty($_POST['orderby']) ? $_POST['orderby'] : 'menu_order title';
-    $categories_ids = isset($_POST['categories_ids']) && !empty($_POST['categories_ids']) ? $_POST['categories_ids'] : [];
-    $products_group = isset($_POST['products_group']) && !empty($_POST['products_group']) ? $_POST['products_group'] : [];
+    $filter_params = [
+        'orderby' => $_POST['orderby'] ?? 'menu_order title',
+        'categories_ids' => $_POST['categories_ids'] ?? [],
+        'products_group' => $_POST['products_group'] ?? [],
+        'min_price' => $_POST['min_price'] ?? [],
+        'max_price' => $_POST['max_price'] ?? [],
+    ];
 
-    $products = get_ordered_wc_products($orderby, $categories_ids, $products_group);
+    $products = growtype_wc_get_filtered_products($filter_params);
 
     if ($products->have_posts()) {
         if (get_theme_mod('wc_catalog_products_preview_style') === 'table') {
@@ -34,13 +38,13 @@ function get_filtered_products()
  * @param $categories_ids
  * @return WP_Query
  */
-function get_ordered_wc_products($orderby, $categories_ids, $products_group)
+function growtype_wc_get_filtered_products($filter_params)
 {
     $meta_key = '';
     $order = 'ASC';
 
-    if (!empty($orderby)) {
-        switch ($orderby) {
+    if (isset($filter_params['orderby']) && !empty($filter_params['orderby'])) {
+        switch ($filter_params['orderby']) {
             case 'menu_order':
                 $meta_key = '';
                 $order = 'ASC';
@@ -92,34 +96,52 @@ function get_ordered_wc_products($orderby, $categories_ids, $products_group)
     }
 
     /**
-     * Take product group ids
+     * Price params
      */
-    if ($products_group === 'watchlist') {
-        $user_ID = get_current_user_id();
-        $watchlist_ids = get_user_meta($user_ID, '_auction_watch');
-        $args['post__in'] = $watchlist_ids;
-    } elseif ($products_group === 'user_uploaded') {
-        $user_ID = get_current_user_id();
-        $post__in = Growtype_Product::get_user_uploaded_products_ids($user_ID);
-        $args['post__in'] = $post__in;
-        set_query_var('visibility', 'any');
+    if (isset($filter_params['min_price']) && !empty($filter_params['min_price']) && isset($filter_params['max_price']) && !empty($filter_params['max_price'])) {
+        $price_meta_data = array (
+            'meta_value' => array (
+                'key' => '_price',
+                'value' => array ($filter_params['min_price'], $filter_params['max_price']),
+                'compare' => 'BETWEEN',
+                'type' => 'DECIMAL(10,' . wc_get_price_decimals() . ')',
+            )
+        );
+
+        $args['meta_query'] = isset($args['meta_query']) ? array_merge($args['meta_query'], $price_meta_data) : $price_meta_data;
     }
 
-    if (!empty($categories_ids)) {
+    /**
+     * Take product group ids
+     */
+    if (isset($filter_params['products_group'])) {
+        if ($filter_params['products_group'] === 'watchlist') {
+            $user_ID = get_current_user_id();
+            $watchlist_ids = get_user_meta($user_ID, '_auction_watch');
+            $args['post__in'] = $watchlist_ids;
+        } elseif ($filter_params['products_group'] === 'user_uploaded') {
+            $user_ID = get_current_user_id();
+            $post__in = Growtype_Product::get_user_uploaded_products_ids($user_ID);
+            $args['post__in'] = $post__in;
+            set_query_var('visibility', 'any');
+        }
+    }
+
+    if (isset($filter_params['categories_ids']) && !empty($filter_params['categories_ids'])) {
         $args['tax_query'] = array (
             array (
                 'taxonomy' => 'product_cat',
                 'field' => 'term_id',
-                'terms' => $categories_ids
+                'terms' => $filter_params['categories_ids']
             ),
         );
 
-        if (count($categories_ids) > 1) {
+        if (count($filter_params['categories_ids']) > 1) {
             $args['tax_query'][0]['operator'] = 'AND';
         }
     }
 
-    if ($products_group !== 'user_uploaded') {
+    if (isset($filter_params['products_group']) && $filter_params['products_group'] !== 'user_uploaded') {
         $visibility_tax_data = array (
             array (
                 'taxonomy' => 'product_visibility',
