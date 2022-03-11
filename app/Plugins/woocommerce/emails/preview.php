@@ -43,8 +43,6 @@ function woo_preview_email()
         $email->object = $order;
         $email_html = apply_filters('woocommerce_mail_content', $email->style_inline($email->get_content_html()));
     }
-
-
     ?>
     <!DOCTYPE HTML>
     <html>
