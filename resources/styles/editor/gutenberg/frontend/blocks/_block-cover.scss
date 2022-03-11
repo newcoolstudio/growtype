@@ -38,3 +38,12 @@
     }
   }
 }
+
+.container {
+  .wp-block-cover__inner-container {
+    @include bp-phone-xl() {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

@@ -254,6 +254,7 @@
     font-size: 12px;
     @include bp-phone-xl() {
       font-size: 13px;
+      margin-bottom: 15px;
     }
 
     a {

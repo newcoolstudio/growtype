@@ -4,6 +4,11 @@
     opacity: 0.8;
   }
 
+  .menu-extra{
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
   .menu-mobile-container .menu .sub-menu {
     margin-top: 10px;
     padding-left: 0;
@@ -124,6 +129,6 @@
   .language-selector {
     margin-left: auto;
     margin-right: 60px;
-    top: 9px;
+    top: 0;
   }
 }

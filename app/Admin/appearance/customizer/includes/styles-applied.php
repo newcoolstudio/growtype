@@ -16,6 +16,13 @@ function growtype_customizer_general_css()
 
         <?php } ?>
 
+        <?php if(!empty(get_theme_mod('main_color'))){ ?>
+        .main-navigation-mobile-type-3 .menu-mobile-container .menu a:hover {
+            border-left: 1px solid <?php echo get_theme_mod('main_color'); ?>;
+        }
+
+        <?php } ?>
+
         <?php if(!empty(get_theme_mod('header_background_color'))){ ?>
         .site-header {
             background-color: <?php echo get_theme_mod('header_background_color'); ?>;

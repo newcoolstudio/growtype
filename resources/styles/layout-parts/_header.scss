@@ -2,8 +2,8 @@
   padding: 5px;
   max-width: 190px;
   position: relative;
+  padding-left: 0;
   @include bp-tablet-portrait() {
-    padding: 5px;
     max-width: 130px;
   }
 }

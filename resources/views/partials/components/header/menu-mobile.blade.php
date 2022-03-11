@@ -28,7 +28,7 @@
             @if(Growtype_User::account_icon_enabled())
                 <li class="e-profile">
                     <a href="{!! wc_get_page_permalink( 'myaccount' ) !!}">
-                        <i class="icon-profile"></i> My Account
+                        <i class="icon-profile"></i>
                     </a>
                 </li>
             @endif

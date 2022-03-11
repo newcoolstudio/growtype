@@ -97,6 +97,7 @@ Style 2, thumbnails on left side
         top: 46%;
         @include bp-phone-xl() {
           width: 100%;
+          top: 150px;
         }
       }
 
@@ -140,11 +141,24 @@ Style 2, thumbnails on left side
         padding-top: 0;
         display: flex;
         flex-direction: column;
+        @include bp-phone-xl() {
+          flex-direction: row;
+          flex-wrap: wrap;
+          padding-right: 0;
+          margin-left: -5px;
+          width: calc(100% + 10px);
+        }
 
         li {
           width: 100%;
           padding: 0;
           margin-bottom: 7px;
+          @include bp-phone-xl() {
+            margin: 0;
+            margin-top: 5px;
+            width: calc(100% / 4);
+            padding: 5px;
+          }
 
           img {
             border: none;
@@ -220,7 +234,7 @@ Style 2, thumbnails on left side
         width: 100% !important;
 
         .wp-post-image {
-          border-radius: 10px;
+          border-radius: $border-radius-card;
           padding-top: 60%;
           background-size: cover !important;
           background-position: center !important;

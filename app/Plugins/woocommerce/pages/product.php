@@ -81,6 +81,7 @@ add_filter('woocommerce_get_breadcrumb', 'wc_breadcrumbs_alter', 10, 2);
 function wc_breadcrumbs_alter($crumbs, $breadcrumb)
 {
     if (is_product()) {
+        array_shift($crumbs);
         array_pop($crumbs);
     }
 

@@ -152,9 +152,21 @@
 }
 
 .woocommerce div.product form.cart .button {
+  @include bp-phone-xl() {
+    width: 100%;
+  }
+
   &:hover {
     @include bp-phone-xl() {
       opacity: 1;
+    }
+  }
+}
+
+.single {
+  div.product form.cart .button {
+    @include bp-phone-xl() {
+      width: 100%;
     }
   }
 }
