@@ -1,25 +1,20 @@
 .sidebar {
-  padding: 30px;
+  padding: 15px;
   border-width: 0px 1px 0px 0px;
   border-color: $color-light-grey;
   border-style: solid;
-  width: 29%;
+  width: 27%;
   float: right;
   position: sticky;
   top: 0;
-  @include bp-tablet() {
-    padding: 20px;
-  }
   @include bp-phone-xl() {
     display: none;
   }
 
   & + .main {
-    width: 71%;
+    width: 73%;
     float: left;
     margin: 0;
-    padding-left: 15px;
-    padding-right: 15px;
     @include bp-phone-xl() {
       padding-left: 0;
       padding-right: 0;
