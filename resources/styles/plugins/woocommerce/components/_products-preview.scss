@@ -44,9 +44,12 @@
 
   .product-style-2 {
     background: white;
-    padding: 15px !important;
+    padding: 20px !important;
     border-radius: $border-radius-card;
     box-shadow: $box-shadow-card;
+    @include bp-phone-xl() {
+      padding: 15px !important;
+    }
 
     .content-wrapper {
       padding-top: 10px;
@@ -275,10 +278,12 @@
 
   .wc-block-grid__product {
     margin: 15px 10px;
+    border: none;
   }
 
   .wc-block-grid__product-add-to-cart {
     margin-bottom: 0;
+    margin-top: 1em;
   }
 }
 
