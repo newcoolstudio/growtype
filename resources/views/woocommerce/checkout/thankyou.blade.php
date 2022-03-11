@@ -24,7 +24,7 @@ defined('ABSPATH') || exit;
 
     $woocommerce_thankyou_page_intro_content = get_theme_mod('woocommerce_thankyou_page_intro_content_disabled_account');
 
-    if(user_can_access_platform()){
+    if (user_can_access_platform()) {
         $woocommerce_thankyou_page_intro_content = get_theme_mod('woocommerce_thankyou_page_intro_content');
     }
 
@@ -32,7 +32,7 @@ defined('ABSPATH') || exit;
 
     $woocommerce_thankyou_page_intro_content = !empty($woocommerce_thankyou_page_intro_content) ? $woocommerce_thankyou_page_intro_content : '<h3 class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received">' . apply_filters('woocommerce_thankyou_order_received_text',
             esc_html__('Thank you. Your order has been received.', 'growtype'),
-            $order) . '</h3>';
+            $order) . '</h3><p>' . esc_html__('Below are the details of your order.', 'growtype') . '</p>';
 
     do_action('woocommerce_before_thankyou', $order->get_id());
     ?>
@@ -99,10 +99,10 @@ defined('ABSPATH') || exit;
 
     <?php else :
 
-        $woocommerce_thankyou_page_intro_content = !empty($woocommerce_thankyou_page_intro_content) ? $woocommerce_thankyou_page_intro_content : apply_filters('woocommerce_thankyou_order_received_text',
-            esc_html__('Thank you. Your order has been received.', 'growtype'),
-            null);
-        ?>
+    $woocommerce_thankyou_page_intro_content = !empty($woocommerce_thankyou_page_intro_content) ? $woocommerce_thankyou_page_intro_content : apply_filters('woocommerce_thankyou_order_received_text',
+        esc_html__('Thank you. Your order has been received.', 'growtype'),
+        null);
+    ?>
 
     <p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received">
         <?php echo $woocommerce_thankyou_page_intro_content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>

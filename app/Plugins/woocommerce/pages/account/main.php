@@ -14,7 +14,9 @@ function get_account_subpage_intro_details($subpage)
         'subscriptions' => __('Subscription', 'growtype') . ' <div class="e-subtitle">' . __('Subscription details', 'growtype') . '</div>',
         'downloads' => __('Downloads', 'growtype') . ' <div class="e-subtitle">' . __('Available to download products', 'growtype') . '</div>',
         'payment-methods' => __('Payment methods', 'growtype') . ' <div class="e-subtitle">' . __('Adjust payment method', 'growtype') . '</div>',
-        'customer-logout' => __('Logout', 'growtype') . ' <div class="e-subtitle">' . __('Sign out from system', 'growtype') . '</div>'
+        'customer-logout' => __('Logout', 'growtype') . ' <div class="e-subtitle">' . __('Sign out from system', 'growtype') . '</div>',
+        'billing' => __('Billing address', 'growtype') . ' <div class="e-subtitle">' . __('Adjust billing address details', 'growtype') . '</div>',
+        'shipping' => __('Shipping address', 'growtype') . ' <div class="e-subtitle">' . __('Adjust shipping address details', 'growtype') . '</div>',
     ];
 
     return $details[$subpage] ?? null;

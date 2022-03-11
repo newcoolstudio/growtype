@@ -2,6 +2,10 @@
   max-width: 640px;
   margin: auto;
 
+  .b-intro-content {
+    text-align: center;
+  }
+
   .woocommerce-notice {
     text-align: center;
   }
@@ -12,7 +16,7 @@
 }
 
 .woocommerce-order-details, .woocommerce-customer-details {
-  max-width: 600px;
+  max-width: 700px;
 }
 
 .woocommerce-page {

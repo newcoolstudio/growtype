@@ -70,6 +70,7 @@ include('pages/catalog.php');
 include('pages/checkout.php');
 include('pages/cart.php');
 include('pages/account/main.php');
+include('pages/thank-you.php');
 
 /**
  * Blocks

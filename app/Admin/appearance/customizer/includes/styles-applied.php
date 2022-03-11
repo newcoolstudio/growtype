@@ -10,7 +10,8 @@ function growtype_customizer_general_css()
     <style>
         <?php if(!empty(get_theme_mod('main_color'))){ ?>
         aside.widget-area > .widget .widget-title:after,
-        .woocommerce-order-details .woocommerce-order-details-intro{
+        .woocommerce-order-details .woocommerce-order-details-intro,
+        .woocommerce-account .b-info-header {
             background-color: <?php echo get_theme_mod('main_color'); ?>;
         }
 
@@ -468,7 +469,6 @@ function growtype_customizer_buttons_css()
         input[type=submit]:hover,
         .wp-block-button__link,
         .wp-block-button__link:hover,
-        .btn-link,
         .woocommerce-cart .woocommerce button.button {
             color: <?php echo get_theme_mod('primary_button_text_color')?>;
         }
