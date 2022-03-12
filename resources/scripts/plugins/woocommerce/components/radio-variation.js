@@ -89,8 +89,8 @@ function radioVariation() {
             function update_price(variation) {
                 if (variation['price_html'].length > 0) {
                     $('.product .summary .price').replaceWith(variation['price_html']);
-                    $('.product .summary .price').show();
                 }
+                $('.product .summary .price').show();
             }
 
             function find_matching_variations(product_variations, attribute_name, value) {
