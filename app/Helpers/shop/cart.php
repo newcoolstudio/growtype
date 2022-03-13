@@ -11,14 +11,22 @@ function render_current_cart_single_item($cart_item)
     }
 
     $_product = wc_get_product($cart_item['product_id']);
-    $productPriceHtml = WC()->cart->get_product_price($_product);
-    $productImage = $_product->get_image();
+    $product_price_html = WC()->cart->get_product_price($_product);
+    $product_image = $_product->get_image();
 
     if ($_product->is_type('variable')) {
-        $productVariation = new WC_Product_Variation($cart_item['variation_id']);
-        $productPriceHtml = !empty($productVariation->get_price_html()) ? $productVariation->get_price_html() : $productPriceHtml;
-        $productImage = !empty($productVariation->get_image()) ? $productVariation->get_image() : $productImage;
-        $product_attributes = $productVariation->get_attributes();
+        $product_variation = new WC_Product_Variation($cart_item['variation_id']);
+        $product_price_html = !empty($product_variation->get_price_html()) ? $product_variation->get_price_html() : $product_price_html;
+        $product_image = !empty($product_variation->get_image()) ? $product_variation->get_image() : $product_image;
+        $product_attributes = $product_variation->get_attributes();
+    }
+
+    /**
+     * Printful
+     */
+    if (class_exists('Printful_Customizer')) {
+        $printful_customizer = new Printful_Customizer();
+        $product_image = $printful_customizer->change_woocommerce_cart_item_thumbnail($product_image, $cart_item);
     }
 
     $product_permalink = esc_url($_product->get_permalink($cart_item));
@@ -33,7 +41,7 @@ function render_current_cart_single_item($cart_item)
            data-product_sku="<?php echo $_product->get_sku() ?>"
         ></a>
         <a href="<?php echo esc_url($_product->get_permalink($cart_item)) ?>" class="product-image">
-            <?php echo $productImage ?>
+            <?php echo $product_image ?>
         </a>
         <div class="product-details">
             <a href="<?php echo $product_permalink ?>" class="product-name">
@@ -45,7 +53,7 @@ function render_current_cart_single_item($cart_item)
             <div class="quantity">
                 <span class="quantity-amount"><?php echo $cart_item['quantity'] ?></span>
                 <span class="e-multiply"> x </span>
-                <span class="quantity-price"><?php echo $productPriceHtml ?></span>
+                <span class="quantity-price"><?php echo $product_price_html ?></span>
             </div>
             <div class="product-changeQuantity"
                  data-product_id="<?php echo $cart_item['product_id'] ?>"

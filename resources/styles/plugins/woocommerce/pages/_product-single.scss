@@ -86,7 +86,7 @@
   }
 
   .b-paymentdetails {
-    border-top: 1px solid #f1f1f1;
+    border-top: 1px solid $color-border;
     padding-top: 20px;
     margin-top: 5px;
     display: inline-block;
@@ -207,7 +207,7 @@
   .related.products, .up-sells {
     padding-bottom: 0;
     width: 100%;
-    border-top: 1px solid $color-light-grey;
+    border-top: 1px solid $color-border;
     padding-top: 30px;
     margin: auto;
     margin-top: 20px;
@@ -286,6 +286,28 @@
     margin-top: 15px;
 
     .addtocart-wrapper {
+      .personalize-btn-wrapper {
+        display: inline-block;
+        width: 100%;
+        margin-top: 20px;
+        border-top: 1px solid $color-border;
+        @include bp-phone-xl() {
+          margin-top: 35px;
+        }
+
+        p {
+          margin-bottom: 20px;
+          font-weight: bold;
+          margin-top: 30px;
+        }
+
+        .btn {
+          @include bp-phone-xl() {
+            width: 100%;
+          }
+        }
+      }
+
       .wishlist-toggle {
         position: relative;
         margin-top: 7px;
