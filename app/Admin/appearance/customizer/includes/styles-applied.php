@@ -11,7 +11,8 @@ function growtype_customizer_general_css()
         <?php if(!empty(get_theme_mod('main_color'))){ ?>
         aside.widget-area > .widget .widget-title:after,
         .woocommerce-order-details .woocommerce-order-details-intro,
-        .woocommerce-account .b-info-header {
+        .woocommerce-account .b-info-header,
+        .woocommerce nav.woocommerce-pagination ul li span.current {
             background-color: <?php echo get_theme_mod('main_color'); ?>;
         }
 

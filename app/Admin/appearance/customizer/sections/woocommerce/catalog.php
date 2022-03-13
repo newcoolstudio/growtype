@@ -215,9 +215,27 @@ $wp_customize->add_setting('wc_catalog_featured_intro',
 
 $wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_customize, 'wc_catalog_featured_intro',
     array (
-        'label' => __('Featured Intro'),
+        'label' => __('Intro'),
         'description' => __('Below you can change shop page featured intro settings'),
         'section' => 'woocommerce_product_catalog'
+    )
+));
+
+/**
+ * Featured intro
+ */
+$wp_customize->add_setting('catalog_header_enabled',
+    array (
+        'default' => 0,
+        'transport' => 'refresh',
+    )
+);
+
+$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'catalog_header_enabled',
+    array (
+        'label' => esc_html__('Products Header Enabled'),
+        'section' => 'woocommerce_product_catalog',
+        'description' => __('Enable shop "products Header".', 'growtype'),
     )
 ));
 
