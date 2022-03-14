@@ -20,7 +20,7 @@ class Custom_WC_Widget_Layered_Nav_Filters extends WC_Widget {
 		$this->widget_cssclass    = 'woocommerce widget_layered_nav_filters';
 		$this->widget_description = __( 'Display a list of active product filters.', 'growtype' );
 		$this->widget_id          = 'woocommerce_layered_nav_filters';
-		$this->widget_name        = __( 'Active Product Filters - Growtype extended', 'growtype' );
+		$this->widget_name        = __( 'Growtype - Show Active Filters', 'growtype' );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',

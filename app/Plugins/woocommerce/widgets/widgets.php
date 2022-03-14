@@ -47,4 +47,13 @@ function override_woocommerce_widgets()
         include('components/Custom_WC_Widget_Product_Categories.php');
         register_widget('Custom_WC_Widget_Product_Categories');
     }
+
+    /**
+     * WC_Widget_Product_Categories
+     */
+    if (class_exists('WC_Widget_Product_Tag_Cloud')) {
+        unregister_widget('WC_Widget_Product_Tag_Cloud');
+        include('components/Custom_WC_Widget_Product_Tag_Cloud.php');
+        register_widget('Custom_WC_Widget_Product_Tag_Cloud');
+    }
 }

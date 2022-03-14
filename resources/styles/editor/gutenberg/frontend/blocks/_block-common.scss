@@ -156,6 +156,15 @@ p.has-drop-cap:not(:focus)::first-letter {
   }
 }
 
+.container {
+  .content {
+    & > .wp-block-media-text {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
 .wp-block-media-text {
   max-width: $max-width-container;
   padding-left: $padding-left-container;

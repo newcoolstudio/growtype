@@ -382,6 +382,10 @@
   text-align: center;
   padding-top: 13px;
   padding-bottom: 13px;
+  @include bp-phone-xl() {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
 }
 
 .woocommerce ul.products li.product .woocommerce-loop-product__title {
