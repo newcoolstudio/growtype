@@ -3,7 +3,7 @@
     document.addEventListener('filterProductsByPrice', wishlistInit)
 
     "use strict";
-    let loadingAnimation = "<span class='spinner-border' style='width:100%;top:50px;'><div></div><div></div></span>";
+    let loadingAnimation = "<span class='spinner-border'><div></div><div></div></span>";
     let wishlist_container = $('.wishlist main .content');
 
     Array.prototype.unique = function () {

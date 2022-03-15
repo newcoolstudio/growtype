@@ -1,5 +1,8 @@
 .spinner-grow, .spinner-border {
-  @include position-absolute;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 35%;
   margin: auto;
   z-index: 11;
   width: 20px;
