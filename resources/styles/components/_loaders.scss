@@ -1,0 +1,13 @@
+.spinner-grow, .spinner-border {
+  @include position-absolute;
+  margin: auto;
+  z-index: 11;
+  width: 20px;
+  height: 20px;
+}
+
+.spinner-border{
+  border-width: 2px;
+  border-color: $color-primary;
+  border-right-color: transparent;
+}

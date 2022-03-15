@@ -344,6 +344,16 @@
 
   div.product .stock {
     color: black;
+
+    &.out-of-stock {
+      color: $color-error;
+      font-size: $font-size-body;
+      margin-top: 10px;
+      border: 1px solid $color-error;
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: $border-radius-btn;
+    }
   }
 
   .woocommerce-variation-price {

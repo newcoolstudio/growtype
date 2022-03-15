@@ -1,0 +1,9 @@
+.container {
+  .wp-block-group:where(.has-background) {
+    padding: 0 !important;
+  }
+
+  .wp-block-group__inner-container {
+    padding: 0;
+  }
+}

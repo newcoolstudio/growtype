@@ -16,11 +16,13 @@ function growtype_customizer_general_css()
             background-color: <?php echo get_theme_mod('main_color'); ?>;
         }
 
-        <?php } ?>
-
-        <?php if(!empty(get_theme_mod('main_color'))){ ?>
         .main-navigation-mobile-type-3 .menu-mobile-container .menu a:hover {
             border-left: 1px solid <?php echo get_theme_mod('main_color'); ?>;
+        }
+
+        .spinner-border {
+            border-color: <?php echo get_theme_mod('main_color'); ?>;
+            border-right-color: transparent!important;
         }
 
         <?php } ?>
@@ -87,14 +89,14 @@ function growtype_customizer_general_css()
         }
 
         .hamburger-inner {
-            background: <?php echo !empty(get_theme_mod('header_text_color')) ? get_theme_mod('header_text_color') : 'black' ?>
+            background: <?php echo get_theme_mod('header_text_color') ?>
         }
 
         <?php } ?>
 
         <?php if(!empty(get_theme_mod('header_home_background_color'))){ ?>
         .home .site-header {
-            background: <?php echo !empty(get_theme_mod('header_home_background_color')) ? get_theme_mod('header_home_background_color') : 'none' ?>
+            background: <?php echo get_theme_mod('header_home_background_color') ?>
         }
 
         <?php } ?>
@@ -105,14 +107,14 @@ function growtype_customizer_general_css()
         }
 
         .home .hamburger-inner {
-            background: <?php echo !empty(get_theme_mod('header_text_color_home')) ? get_theme_mod('header_text_color_home') : 'black' ?>;
+            background: <?php echo get_theme_mod('header_text_color_home') ?>;
         }
 
         <?php } ?>
 
         <?php if(!empty(get_theme_mod('mobile_menu_text_color'))){ ?>
         .hamburger.is-active .hamburger-inner {
-            background: <?php echo !empty(get_theme_mod('mobile_menu_text_color')) ? get_theme_mod('mobile_menu_text_color') : 'white'; ?>;
+            background: <?php echo get_theme_mod('mobile_menu_text_color') ?>;
         }
 
         .site-header .main-navigation-mobile .menu li a,
@@ -127,14 +129,14 @@ function growtype_customizer_general_css()
 
         <?php if(!empty(get_theme_mod('header_logo_size_desktop'))){ ?>
         .header-logo-wrapper {
-            max-width: <?php echo!empty(get_theme_mod('header_logo_size_desktop')) ? get_theme_mod('header_logo_size_desktop') : '180'?>px;
+            max-width: <?php echo get_theme_mod('header_logo_size_desktop') ?>px;
         }
 
         <?php } ?>
 
         <?php if(!empty(get_theme_mod('header_logo_position_vertical_desktop'))){ ?>
         .header-logo-wrapper {
-            top: <?php echo!empty(get_theme_mod('header_logo_position_vertical_desktop')) ? get_theme_mod('header_logo_position_vertical_desktop') : '0'?>px;
+            top: <?php echo get_theme_mod('header_logo_position_vertical_desktop') ?>px;
         }
 
         <?php } ?>
@@ -142,7 +144,7 @@ function growtype_customizer_general_css()
         <?php if(!empty(get_theme_mod('header_logo_size_mobile'))){ ?>
         @media only screen and (max-width: 830px) {
             .header-logo-wrapper {
-                max-width: <?php echo!empty(get_theme_mod('header_logo_size_mobile')) ? get_theme_mod('header_logo_size_mobile') : '200'?>px;
+                max-width: <?php echo get_theme_mod('header_logo_size_mobile') ?>px;
             }
         }
 
@@ -151,7 +153,7 @@ function growtype_customizer_general_css()
         <?php if(!empty(get_theme_mod('header_logo_position_vertical_mobile'))){ ?>
         @media only screen and (max-width: 830px) {
             .header-logo-wrapper {
-                top: <?php echo!empty(get_theme_mod('header_logo_position_vertical_mobile')) ? get_theme_mod('header_logo_position_vertical_mobile') : '0'?>px;
+                top: <?php echo get_theme_mod('header_logo_position_vertical_mobile') ?>px;
             }
         }
 

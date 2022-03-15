@@ -59,14 +59,6 @@
       transition: all 0.6s;
     }
 
-    .addToCart-loader {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-      left: 10px;
-    }
-
     &:not(.btn) {
       text-align: $text-align-btn;
       background: #fff;
@@ -147,6 +139,9 @@
       font-size: 12px;
       height: 15px;
       border-width: 2px;
+      left: inherit;
+      border-color: #ffffff!important;
+      border-right-color: transparent!important;
     }
   }
 }
