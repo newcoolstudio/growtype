@@ -78,32 +78,6 @@ $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_cus
 ));
 
 /**
- * State
- */
-$wp_customize->add_setting('woocommerce_checkout_state',
-    array (
-        'default' => 'required',
-        'transport' => 'refresh'
-    )
-);
-
-$wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'woocommerce_checkout_state',
-    array (
-        'label' => __('State', 'growtype'),
-        'section' => 'woocommerce_checkout',
-        'input_attrs' => array (
-            'multiselect' => false,
-        ),
-        'choices' => [
-            'hidden' => 'Hidden',
-            'optional' => 'Optional',
-            'required' => 'Required'
-        ],
-        'priority' => 10
-    )
-));
-
-/**
  * Postcode
  */
 $wp_customize->add_setting('woocommerce_checkout_postcode',

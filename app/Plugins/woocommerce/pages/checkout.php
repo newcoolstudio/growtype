@@ -59,6 +59,24 @@ function woocommerce_checkout_fields_extend($fields)
 }
 
 /**
+ * Locales data update
+ */
+add_filter('woocommerce_get_script_data', 'growtype_woocommerce_get_script_data', 10, 2);
+function growtype_woocommerce_get_script_data($data, $handle)
+{
+    switch ($handle) :
+        case 'wc-address-i18n':
+//            $country = WC()->customer->get_shipping_country();
+            $locale_data = json_decode($data['locale'], true);
+            $locale_data['LT']['state']['required'] = false;
+            $data['locale'] = json_encode($locale_data);
+            break;
+    endswitch;
+
+    return $data;
+}
+
+/**
  * Billing fields
  */
 add_filter('woocommerce_billing_fields', 'growtype_woocommerce_billing_fields');
@@ -75,22 +93,6 @@ function growtype_woocommerce_billing_fields($fields)
             break;
         case 'hidden':
             array_push($fields['billing_email']['class'], 'd-none');
-    }
-
-    /**
-     * State
-     */
-    $state = get_theme_mod('woocommerce_checkout_state');
-
-    switch ($state) {
-        case 'required':
-            $fields['billing_state']['required'] = true;
-            break;
-        case 'optional':
-            $fields['billing_state']['required'] = false;
-            break;
-        case 'hidden':
-            unset($fields['billing_state']);
     }
 
     /**
