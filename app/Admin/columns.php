@@ -23,11 +23,7 @@ add_action('manage_pages_custom_column', 'extra_admin_columns_custom', 5, 2);
 function extra_admin_columns_custom($column_name)
 {
     if ($column_name === 'featured_image') {
-        if (has_post_thumbnail()) {
-            echo the_post_thumbnail('thumbnail');
-        } else {
-            echo '<div style="width: 300px;display: inline-block;height: 90px;"></div>';
-        }
+        echo the_post_thumbnail('thumbnail');
     }
 
     if ($column_name === 'slug') {
@@ -45,6 +41,7 @@ add_action('admin_head', 'wp_admin_custom_column_style');
 function wp_admin_custom_column_style() {
     echo '<style>';
     echo '.woocommerce-embed-page table #language { width:8%; }';
+    echo '.woocommerce-embed-page table #featured_image { width:8%; }';
     echo '</style>';
 }
 
