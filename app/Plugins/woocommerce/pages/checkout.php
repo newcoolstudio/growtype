@@ -5,8 +5,8 @@
  */
 function checkout_scripts_styles()
 {
-    if (class_exists('woocommerce') && is_checkout()) {;
-        wp_enqueue_script( 'wc-custom-checkout', get_parent_template_public_path() . '/scripts/plugins/woocommerce/wc-checkout.js', [], '1.0.0', true );
+    if (class_exists('woocommerce') && is_checkout()) {
+        wp_enqueue_script('wc-custom-checkout', get_parent_template_public_path() . '/scripts/plugins/woocommerce/wc-checkout.js', [], '1.0.0', true);
     }
 }
 
@@ -61,8 +61,8 @@ function woocommerce_checkout_fields_extend($fields)
 /**
  * Billing fields
  */
-add_filter('woocommerce_billing_fields', 'woocommerce_billing_fields_extend');
-function woocommerce_billing_fields_extend($fields)
+add_filter('woocommerce_billing_fields', 'growtype_woocommerce_billing_fields');
+function growtype_woocommerce_billing_fields($fields)
 {
     /**
      * Email
@@ -85,6 +85,9 @@ function woocommerce_billing_fields_extend($fields)
     switch ($state) {
         case 'required':
             $fields['billing_state']['required'] = true;
+            break;
+        case 'optional':
+            $fields['billing_state']['required'] = false;
             break;
         case 'hidden':
             unset($fields['billing_state']);
@@ -130,8 +133,8 @@ function woocommerce_billing_fields_extend($fields)
 /**
  * Shipping fields
  */
-add_filter('woocommerce_shipping_fields', 'woocommerce_shipping_fields_extend');
-function woocommerce_shipping_fields_extend($fields)
+add_filter('woocommerce_shipping_fields', 'growtype_woocommerce_shipping_fields');
+function growtype_woocommerce_shipping_fields($fields)
 {
     return $fields;
 }
@@ -139,12 +142,14 @@ function woocommerce_shipping_fields_extend($fields)
 /**
  * Set default country
  */
-add_filter('default_checkout_billing_country', 'default_checkout_billing_country_extend');
-function default_checkout_billing_country_extend()
+add_filter('default_checkout_billing_country', 'growtype_default_checkout_billing_country');
+function growtype_default_checkout_billing_country($country)
 {
     if (!empty(get_user_meta(get_current_user_id(), 'country', true))) {
         return get_user_meta(get_current_user_id(), 'country', true);
     }
+
+    return $country;
 }
 
 /**
