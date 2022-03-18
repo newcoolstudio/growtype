@@ -1,10 +1,12 @@
 @if(!empty(get_post_field('post_content', get_the_ID())))
-    <div class="b-product-description">
+    <div class="product-extra-content product-extra-details">
         @if(get_theme_mod('woocommerce_product_page_description_section_title'))
-            <p class="e-title-section mb-3">
-                <?php esc_html_e('Product details','growtype') ?>
-            </p>
+            <h6 class="e-title-section">
+                <?php esc_html_e('Product details', 'growtype') ?>
+            </h6>
         @endif
-        {!! apply_filters( 'the_content', get_post_field('post_content', get_the_ID()) ) !!}
+        <div class="e-content-main">
+            {!! apply_filters( 'the_content', get_post_field('post_content', get_the_ID()) ) !!}
+        </div>
     </div>
 @endif
