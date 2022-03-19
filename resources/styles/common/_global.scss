@@ -129,6 +129,18 @@ Adjusting for navbar and header fixed main content
   }
 }
 
+.has-extraspace-header {
+  &.has-promo-header {
+    .main-content-wrapper {
+      margin-top: 130px;
+      padding-top: 0;
+      @include bp-tablet-portrait() {
+        margin-top: 110px!important;
+      }
+    }
+  }
+}
+
 body.has-fixed-header {
   &.has-extraspace-header {
     .main-content-wrapper {

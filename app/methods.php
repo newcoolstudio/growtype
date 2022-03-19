@@ -29,3 +29,10 @@ if (!class_exists('Growtype_Shop')) {
 if (!class_exists('Growtype_Product')) {
     include('Methods/class-growtype-product.php');
 }
+
+/**
+ * Header
+ */
+if (!class_exists('Growtype_Header')) {
+    include('Methods/class-growtype-header.php');
+}

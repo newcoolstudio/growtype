@@ -13,21 +13,6 @@ function header_is_absolute()
 /**
  * @return bool
  */
-function header_is_fixed()
-{
-    $fixedHeader = !empty(get_theme_mod('header_is_fixed_switch')) ? get_theme_mod('header_is_fixed_switch') : false;
-    $fixedHeaderPages = get_theme_mod('header_fixed_dropdown_control');
-
-    if ($fixedHeader && !empty($fixedHeaderPages)) {
-        $fixedHeader = page_is_among_enabled_pages($fixedHeaderPages);
-    }
-
-    return $fixedHeader === true ? true : false;
-}
-
-/**
- * @return bool
- */
 function header_is_enabled()
 {
     $disabled = !empty(get_theme_mod('header_is_disabled')) ? get_theme_mod('header_is_disabled') : false;

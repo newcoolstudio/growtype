@@ -13,7 +13,7 @@
         @endif
     @endif
 
-    @if(header_is_fixed() && !empty(get_header_logo_scroll()['url']))
+    @if(Growtype_Header::is_fixed() && !empty(get_header_logo_scroll()['url']))
         <a id="header_logo_scroll" href="<?php echo get_home_url_custom() ?>" class="mainlogo">
             <img class="img-fluid" src="{{get_header_logo_scroll()['url']}}" alt="header_logo">
         </a>

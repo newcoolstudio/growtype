@@ -4,11 +4,11 @@
             role="banner"
     >
 
-        @if(get_theme_mod('header_promo_enabled'))
+        @if(Growtype_Header::has_promo())
             <div class="b-promo">
                 <div class="container">
                     <div class="b-promo-text">
-                        {!! apply_filters('the_content', get_theme_mod('header_promo_content')) !!}
+                        {!! Growtype_Header::promo_content() !!}
                     </div>
                 </div>
             </div>
