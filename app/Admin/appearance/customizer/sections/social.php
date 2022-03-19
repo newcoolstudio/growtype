@@ -37,7 +37,6 @@ function social_customize_register($wp_customize)
 
     $wp_customize->add_setting('header_navbar_social_facebook', array (
         'capability' => 'edit_theme_options',
-//        'sanitize_callback' => 'themeslug_sanitize_checkbox',
     ));
 
     $wp_customize->add_control('header_navbar_social_facebook', array (
@@ -62,7 +61,6 @@ function social_customize_register($wp_customize)
 
     $wp_customize->add_setting('header_navbar_social_twitter', array (
         'capability' => 'edit_theme_options',
-//        'sanitize_callback' => 'themeslug_sanitize_checkbox',
     ));
 
     $wp_customize->add_control('header_navbar_social_twitter', array (
@@ -87,7 +85,6 @@ function social_customize_register($wp_customize)
 
     $wp_customize->add_setting('header_navbar_social_instagram', array (
         'capability' => 'edit_theme_options',
-//        'sanitize_callback' => 'themeslug_sanitize_checkbox',
     ));
 
     $wp_customize->add_control('header_navbar_social_instagram', array (
@@ -111,7 +108,6 @@ function social_customize_register($wp_customize)
      */
     $wp_customize->add_setting('header_navbar_social_pinterest', array (
         'capability' => 'edit_theme_options',
-//        'sanitize_callback' => 'themeslug_sanitize_checkbox',
     ));
 
     $wp_customize->add_control('header_navbar_social_pinterest', array (
@@ -135,7 +131,6 @@ function social_customize_register($wp_customize)
      */
     $wp_customize->add_setting('header_navbar_social_linkedin', array (
         'capability' => 'edit_theme_options',
-//        'sanitize_callback' => 'themeslug_sanitize_checkbox',
     ));
 
     $wp_customize->add_control('header_navbar_social_linkedin', array (

@@ -35,46 +35,8 @@ class Header_Customizer_Register
         require_once 'header/logo.php';
         require_once 'header/navbar.php';
         require_once 'header/colors.php';
+        require_once 'header/promo.php';
         require_once 'header/extra.php';
-    }
-
-    /**
-     * @param $checked
-     * @return bool
-     * Sanitize checkbox
-     */
-
-    function themeslug_sanitize_checkbox($checked)
-    {
-        return ((isset($checked) && true == $checked) ? true : false);
-    }
-
-    /**
-     * @param $checked
-     * Translate text input copyright
-     */
-    function header_navbar_text_translation($value)
-    {
-        if (function_exists('qtrans_getLanguage')) {
-            $translation = get_theme_mods()["header_navbar_text"];
-            return formatTranslation($translation, $value);
-        }
-
-        return $value;
-    }
-
-    /**
-     * @param $checked
-     * Translate text input textarea
-     */
-    function header_extra_content_translation($value)
-    {
-        if (function_exists('qtrans_getLanguage')) {
-            $translation = get_theme_mod('header_extra_content');
-            return formatTranslation($translation, $value, true);
-        }
-
-        return $value;
     }
 
     /**

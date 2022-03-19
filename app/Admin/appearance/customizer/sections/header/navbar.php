@@ -60,8 +60,8 @@ $wp_customize->add_setting('header_navbar_text',
 
 $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control($wp_customize, 'header_navbar_text',
     array (
-        'label' => __('Header - Navbar Message'),
-        'description' => __('This is short navbar message'),
+        'label' => __('Header - Navbar Message', 'growtype'),
+        'description' => __('This is short navbar message', 'growtype'),
         'section' => 'header_navbar',
         'input_attrs' => array (
             'class' => 'qtranxs-translatable',
@@ -71,3 +71,17 @@ $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control($wp_customize, '
         )
     )
 ));
+
+/**
+ * @param $checked
+ * Translate text input copyright
+ */
+function header_navbar_text_translation($value)
+{
+    if (class_exists('QTX_Translator')) {
+        $translation = get_theme_mods()["header_navbar_text"];
+        return formatTranslation($translation, $value);
+    }
+
+    return $value;
+}

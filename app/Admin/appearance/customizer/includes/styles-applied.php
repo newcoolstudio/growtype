@@ -55,6 +55,20 @@ function growtype_customizer_general_css()
 
         <?php } ?>
 
+        <?php if(!empty(get_theme_mod('header_promo_background_color'))){ ?>
+        .site-header .b-promo {
+            background-color: <?php echo get_theme_mod('header_promo_background_color'); ?>;
+        }
+
+        <?php } ?>
+
+        <?php if(!empty(get_theme_mod('header_promo_elements_color'))){ ?>
+        .site-header .b-promo, .site-header .b-promo a {
+            color: <?php echo get_theme_mod('header_promo_elements_color'); ?>;
+        }
+
+        <?php } ?>
+
         <?php if(!empty(get_theme_mod('header_text_color_scroll'))){ ?>
         .site-header.is-scroll .header-inner a {
             color: <?php echo get_theme_mod('header_text_color_scroll') ?>;

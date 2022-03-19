@@ -110,6 +110,7 @@ function footer_customize_register($wp_customize)
             'sanitize_callback' => 'footer_textarea_translation'
         )
     );
+
     $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control($wp_customize, 'footer_textarea',
         array (
             'label' => __('Extra Content'),
@@ -126,6 +127,20 @@ function footer_customize_register($wp_customize)
     ));
 
     /**
+     * @param $checked
+     * Translate text input textarea
+     */
+    function footer_textarea_translation($value)
+    {
+        if (class_exists('QTX_Translator')) {
+            $translation = get_theme_mod('footer_textarea');
+            return formatTranslation($translation, $value, true);
+        }
+
+        return $value;
+    }
+
+    /**
      * Footer copyright
      */
     $wp_customize->add_setting('footer_copyright',
@@ -135,6 +150,7 @@ function footer_customize_register($wp_customize)
             'sanitize_callback' => 'footer_copyright_translation'
         )
     );
+
     $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control($wp_customize, 'footer_copyright',
         array (
             'label' => __('Copyright Text'),
@@ -148,6 +164,20 @@ function footer_customize_register($wp_customize)
             )
         )
     ));
+
+    /**
+     * @param $checked
+     * Translate text input copyright
+     */
+    function footer_copyright_translation($value)
+    {
+        if (class_exists('QTX_Translator')) {
+            $translation = get_theme_mods()["footer_copyright"];
+            return formatTranslation($translation, $value);
+        }
+
+        return $value;
+    }
 
     /**
      * Footer general Explanation
@@ -202,6 +232,8 @@ function footer_customize_register($wp_customize)
 /**
  * Update logo on upload
  */
+add_action('wp_ajax_update-logo-customizer', 'update_footer_logo');
+add_action('wp_ajax_nopriv_update-logo-customizer', 'update_footer_logo');
 function update_footer_logo()
 {
     $att_id = $_POST['attachment_id'];
@@ -211,35 +243,4 @@ function update_footer_logo()
     }
     exit;
 
-}
-
-add_action('wp_ajax_update-logo-customizer', 'update_footer_logo');
-add_action('wp_ajax_nopriv_update-logo-customizer', 'update_footer_logo');
-
-/**
- * @param $checked
- * Translate text input copyright
- */
-function footer_copyright_translation($value)
-{
-    if (function_exists('qtrans_getLanguage')) {
-        $translation = get_theme_mods()["footer_copyright"];
-        return formatTranslation($translation, $value);
-    }
-
-    return $value;
-}
-
-/**
- * @param $checked
- * Translate text input textarea
- */
-function footer_textarea_translation($value)
-{
-    if (function_exists('qtrans_getLanguage')) {
-        $translation = get_theme_mod('footer_textarea');
-        return formatTranslation($translation, $value, true);
-    }
-
-    return $value;
 }

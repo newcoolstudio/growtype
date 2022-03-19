@@ -202,7 +202,7 @@ function theme_general_customize_register($wp_customize)
  */
 function gdpr_content_text_translation($value)
 {
-    if (function_exists('qtrans_getLanguage')) {
+    if (class_exists('QTX_Translator')) {
         $translation = get_theme_mods()["theme_general_gdpr_content"];
         return formatTranslation($translation, $value);
     }
@@ -216,7 +216,7 @@ function gdpr_content_text_translation($value)
  */
 function theme_general_created_by_content_translation($value)
 {
-    if (function_exists('qtrans_getLanguage')) {
+    if (class_exists('QTX_Translator')) {
         $translation = get_theme_mods()["theme_general_created_by_content"];
         return formatTranslation($translation, $value);
     }

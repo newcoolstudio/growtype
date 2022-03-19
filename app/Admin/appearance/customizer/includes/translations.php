@@ -28,10 +28,12 @@ function formatTranslation($translation, $value, $applyHtmlFormating = false)
 /**
  * Qtranslate fields parcing
  */
+add_action('wp_ajax_qtranslate_fields_parse', 'qtranslate_fields_parse');
+add_action('wp_ajax_nopriv_qtranslate_fields_parse', 'qtranslate_fields_parse');
 function qtranslate_fields_parse()
 {
     $result = '';
-    if (function_exists('qtrans_getLanguage')) {
+    if (class_exists('QTX_Translator')) {
         $themeMods = get_theme_mods();
 
         $themeModsValuesArray = [
@@ -52,6 +54,7 @@ function qtranslate_fields_parse()
             'woocommerce_product_page_sidebar_content',
             'woocommerce_product_preview_cta_label',
             'header_extra_content',
+            'header_promo_content',
         ];
 
         $themeModsValues = [];
@@ -72,6 +75,3 @@ function qtranslate_fields_parse()
     echo json_encode($result);
     exit();
 }
-
-add_action('wp_ajax_qtranslate_fields_parse', 'qtranslate_fields_parse');
-add_action('wp_ajax_nopriv_qtranslate_fields_parse', 'qtranslate_fields_parse');

@@ -14,6 +14,7 @@ class WC_Shop_Customizer_Extend
 
             $customizer_available_data = new Customizer_Available_Data();
             $this->product_preview_styles = $customizer_available_data->get_available_product_preview_styles();
+            $this->available_wc_coupons = $customizer_available_data->get_available_wc_coupons();
         }
     }
 
@@ -28,6 +29,7 @@ class WC_Shop_Customizer_Extend
             $wp_customize->get_panel('woocommerce')->title = __('Store', 'growtype');
 
             $this->add_general_page_section($wp_customize);
+            $this->add_coupons_page_section($wp_customize);
             $this->add_product_page_section($wp_customize);
             $this->add_product_preview_section($wp_customize);
             $this->add_thankyou_page_section($wp_customize);
@@ -46,6 +48,14 @@ class WC_Shop_Customizer_Extend
     public function add_general_page_section($wp_customize)
     {
         require_once 'woocommerce/general.php';
+    }
+
+    /**
+     * @param $wp_customize
+     */
+    public function add_coupons_page_section($wp_customize)
+    {
+        require_once 'woocommerce/coupons.php';
     }
 
     /**
@@ -202,7 +212,7 @@ new WC_Shop_Customizer_Extend();
  */
 function woocommerce_thankyou_page_intro_content_translation($value)
 {
-    if (function_exists('qtrans_getLanguage')) {
+    if (class_exists('QTX_Translator')) {
         $translation = get_theme_mod('woocommerce_thankyou_page_intro_content');
         return formatTranslation($translation, $value, true);
     }
@@ -216,7 +226,7 @@ function woocommerce_thankyou_page_intro_content_translation($value)
  */
 function woocommerce_thankyou_page_intro_content_disabled_account_translation($value)
 {
-    if (function_exists('qtrans_getLanguage')) {
+    if (class_exists('QTX_Translator')) {
         $translation = get_theme_mod('woocommerce_thankyou_page_intro_content_disabled_account');
         return formatTranslation($translation, $value, true);
     }
@@ -230,7 +240,7 @@ function woocommerce_thankyou_page_intro_content_disabled_account_translation($v
  */
 function woocommerce_product_page_sidebar_content_translation($value)
 {
-    if (function_exists('qtrans_getLanguage')) {
+    if (class_exists('QTX_Translator')) {
         $translation = get_theme_mod('woocommerce_product_page_sidebar_content');
         return formatTranslation($translation, $value, true);
     }
@@ -244,7 +254,7 @@ function woocommerce_product_page_sidebar_content_translation($value)
  */
 function woocommerce_product_page_payment_details_translation($value)
 {
-    if (function_exists('qtrans_getLanguage')) {
+    if (class_exists('QTX_Translator')) {
         $translation = get_theme_mod('woocommerce_product_page_payment_details');
         return formatTranslation($translation, $value, true);
     }
@@ -258,7 +268,7 @@ function woocommerce_product_page_payment_details_translation($value)
  */
 function woocommerce_checkout_billing_section_title_translation($value)
 {
-    if (function_exists('qtrans_getLanguage')) {
+    if (class_exists('QTX_Translator')) {
         $translation = get_theme_mods()["woocommerce_checkout_billing_section_title"];
         return formatTranslation($translation, $value);
     }
@@ -272,7 +282,7 @@ function woocommerce_checkout_billing_section_title_translation($value)
  */
 function woocommerce_checkout_additional_section_title_translation($value)
 {
-    if (function_exists('qtrans_getLanguage')) {
+    if (class_exists('QTX_Translator')) {
         $translation = get_theme_mods()["woocommerce_checkout_additional_section_title"] ?? '';
         return formatTranslation($translation, $value);
     }
@@ -286,7 +296,7 @@ function woocommerce_checkout_additional_section_title_translation($value)
  */
 function woocommerce_checkout_account_section_title_translation($value)
 {
-    if (function_exists('qtrans_getLanguage')) {
+    if (class_exists('QTX_Translator')) {
         $translation = get_theme_mods()["woocommerce_checkout_account_section_title"] ?? '';
         return formatTranslation($translation, $value);
     }
@@ -300,7 +310,7 @@ function woocommerce_checkout_account_section_title_translation($value)
  */
 function woocommerce_checkout_place_order_button_title_translation($value)
 {
-    if (function_exists('qtrans_getLanguage')) {
+    if (class_exists('QTX_Translator')) {
         $translation = get_theme_mods()["woocommerce_checkout_place_order_button_title"];
         return formatTranslation($translation, $value);
     }
@@ -315,7 +325,7 @@ function woocommerce_checkout_place_order_button_title_translation($value)
  */
 function woocommerce_thankyou_page_intro_title_translation($value)
 {
-    if (function_exists('qtrans_getLanguage')) {
+    if (class_exists('QTX_Translator')) {
         $translation = get_theme_mods()["woocommerce_thankyou_page_intro_title"];
         return formatTranslation($translation, $value);
     }
@@ -329,7 +339,7 @@ function woocommerce_thankyou_page_intro_title_translation($value)
  */
 function woocommerce_checkout_intro_text_translation($value)
 {
-    if (function_exists('qtrans_getLanguage')) {
+    if (class_exists('QTX_Translator')) {
         $translation = get_theme_mods()["woocommerce_checkout_intro_text"];
         return formatTranslation($translation, $value);
     }
@@ -343,7 +353,7 @@ function woocommerce_checkout_intro_text_translation($value)
  */
 function woocommerce_product_preview_cta_label_translation($value)
 {
-    if (function_exists('qtrans_getLanguage')) {
+    if (class_exists('QTX_Translator')) {
         $translation = get_theme_mods()["woocommerce_product_preview_cta_label"];
         return formatTranslation($translation, $value);
     }

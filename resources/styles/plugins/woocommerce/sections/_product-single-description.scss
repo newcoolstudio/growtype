@@ -9,7 +9,7 @@
     flex-direction: column;
   }
 
-  .e-title-section {
+  .b-content-intro {
     width: 24%;
     @include bp-phone-xl() {
       width: 100%;
@@ -18,7 +18,7 @@
   }
 
   &:first-child {
-    border-top: 1px solid $color-border!important;
+    border-top: 1px solid $color-border !important;
     padding-top: 30px;
   }
 
@@ -27,11 +27,35 @@
     margin: 0;
   }
 
-  .e-content-main {
+  .b-content-main {
     font-size: 14px;
+    width: 76%;
+    @include bp-phone-xl() {
+      width: 100%;
+    }
 
     p {
       font-size: 14px;
+    }
+
+    table {
+      min-width: 50%;
+      margin-bottom: 20px;
+      @include bp-phone-xl() {
+        min-width: initial;
+        width: 100%;
+      }
+
+      tr {
+        &:nth-child(even) {
+          background-color: #f7f7f7;
+        }
+
+        td {
+          border: 1px solid #e3e4e5;
+          padding: 16px;
+        }
+      }
     }
 
     img.alignright {
@@ -44,7 +68,7 @@
 }
 
 .product-extra-size_chart {
-  .e-content-main {
+  .b-content-main {
     h2 {
       display: none;
     }

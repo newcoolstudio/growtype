@@ -103,4 +103,27 @@ class Customizer_Available_Data
 
         return $post_types;
     }
+
+    /**
+     * Post types
+     */
+    function get_available_wc_coupons()
+    {
+        $args = array (
+            'posts_per_page' => -1,
+            'orderby' => 'title',
+            'order' => 'asc',
+            'post_type' => 'shop_coupon',
+            'post_status' => 'publish',
+        );
+
+        $posts_data = get_posts($args);
+
+        $posts_data_formatted = [];
+        foreach ($posts_data as $post) {
+            $posts_data_formatted[$post->ID] = $post->post_title;
+        }
+
+        return $posts_data_formatted;
+    }
 }

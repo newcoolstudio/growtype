@@ -651,13 +651,7 @@ if (class_exists('WP_Customize_Control')) {
                     <span class="customize-control-description"><?php echo esc_html($this->description); ?></span>
                 <?php } ?>
                 <textarea id="<?php echo esc_attr($this->id); ?>" class="customize-control-tinymce-editor" <?php $this->link(); ?>>
-                    <?php
-                    if (function_exists('qtrans_getLanguage')) {
-                        echo qtrans_useCurrentLanguageIfNotFoundUseDefaultLanguage(esc_html($this->value()));
-                    } else {
-                        echo esc_html($this->value());
-                    }
-                    ?>
+                    <?php echo esc_html($this->value()); ?>
                 </textarea>
             </div>
             <?php

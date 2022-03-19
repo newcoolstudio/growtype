@@ -32,11 +32,13 @@ if ( !empty($product_tabs) ) : ?>
 
 <?php foreach ( $product_tabs as $key => $product_tab ) : ?>
 <div class="product-extra-content product-extra-<?php echo esc_attr($key); ?>">
-    <h6 class="e-title-section">
-        <?php echo wp_kses_post(apply_filters('woocommerce_product_' . $key . '_tab_title', $product_tab['title'],
-            $key)); ?>
-    </h6>
-    <div class="e-content-main">
+    <div class="b-content-intro">
+        <h6 class="e-title-section">
+            <?php echo wp_kses_post(apply_filters('woocommerce_product_' . $key . '_tab_title', $product_tab['title'],
+                $key)); ?>
+        </h6>
+    </div>
+    <div class="b-content-main">
         <?php
         if (isset($product_tab['callback'])) {
             call_user_func($product_tab['callback'], $key, $product_tab);

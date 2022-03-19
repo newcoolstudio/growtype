@@ -33,14 +33,14 @@ $wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_custom
 /**
  * Extra content
  */
-
 $wp_customize->add_setting('header_extra_content',
     array (
         'default' => '',
         'transport' => 'postMessage',
-//        'sanitize_callback' => 'footer_textarea_translation'
+        'sanitize_callback' => 'header_extra_content_translation'
     )
 );
+
 $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control($wp_customize, 'header_extra_content',
     array (
         'label' => __('Extra Content'),
@@ -54,3 +54,17 @@ $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control($wp_customize, '
         )
     )
 ));
+
+/**
+ * @param $checked
+ * Translate text input textarea
+ */
+function header_extra_content_translation($value)
+{
+    if (class_exists('QTX_Translator')) {
+        $translation = get_theme_mod('header_extra_content');
+        return formatTranslation($translation, $value, true);
+    }
+
+    return $value;
+}

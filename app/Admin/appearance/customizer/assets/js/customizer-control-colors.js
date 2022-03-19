@@ -11,5 +11,7 @@ wp.customize("bg_color_scheme", function (value) {
         $('#customize-control-footer_text_color input.wp-color-picker').wpColorPicker('color', colors['footer_text_color']);
         $('#customize-control-header_navbar_background_color input.wp-color-picker').wpColorPicker('color', colors['header_navbar_background_color']);
         $('#customize-control-header_navbar_elements_color input.wp-color-picker').wpColorPicker('color', colors['header_navbar_elements_color']);
+        $('#customize-control-header_promo_background_color input.wp-color-picker').wpColorPicker('color', colors['header_promo_background_color']);
+        $('#customize-control-header_promo_elements_color input.wp-color-picker').wpColorPicker('color', colors['header_promo_elements_color']);
     });
 });

@@ -4,6 +4,16 @@
             role="banner"
     >
 
+        @if(get_theme_mod('header_promo_enabled'))
+            <div class="b-promo">
+                <div class="container">
+                    <div class="b-promo-text">
+                        {!! apply_filters('the_content', get_theme_mod('header_promo_content')) !!}
+                    </div>
+                </div>
+            </div>
+        @endif
+
         @if(get_theme_mod('header_navbar_switch'))
             <div class="b-navbar">
                 <div class="container">

@@ -46,7 +46,7 @@ $wp_customize->add_setting('only_registered_users_can_buy',
 
 $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'only_registered_users_can_buy',
     array (
-        'label' => esc_html__('Only Registerd Users Can Buy'),
+        'label' => esc_html__('Registered Users'),
         'section' => 'woocommerce_general_page',
         'description' => __('Enable that only registered users would be able to buy products.', 'growtype'),
     )

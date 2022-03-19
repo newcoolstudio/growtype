@@ -116,6 +116,15 @@ header a:hover {
   z-index: 98;
   transition: all 0.5s;
 
+  .b-promo {
+    padding: 10px;
+
+    p {
+      margin: 0;
+      font-size: 14px;
+    }
+  }
+
   &.site-header-transparent {
     background: none;
   }

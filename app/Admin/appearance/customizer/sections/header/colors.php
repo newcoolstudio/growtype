@@ -198,3 +198,55 @@ $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'header
     'alpha' => true,
 )));
 
+/**
+ * Promo colors
+ */
+
+/**
+ * Header navbar general Explanation
+ */
+$wp_customize->add_setting('header_colors_promo_intro',
+    array (
+        'default' => '',
+        'transport' => 'postMessage'
+    )
+);
+
+$wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_customize, 'header_colors_promo_intro',
+    array (
+        'label' => __('Colors - Promo'),
+        'description' => __('Below you can change promo colors'),
+        'section' => 'header_colors'
+    )
+));
+
+/**
+ * Navbar general
+ */
+$wp_customize->add_setting('header_promo_background_color', array (
+    'default' => $color_scheme['header_promo_background_color'],
+    'sanitize_callback' => 'sanitize_hex_color',
+    'transport' => 'postMessage',
+));
+
+$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'header_promo_background_color', array (
+    'label' => __('Header Promo Background', 'growtype'),
+    'section' => 'header_colors',
+    'alpha' => true,
+)));
+
+/**
+ * Navbar elements general
+ */
+$wp_customize->add_setting('header_promo_elements_color', array (
+    'default' => $color_scheme['header_promo_elements_color'],
+    'sanitize_callback' => 'sanitize_hex_color',
+    'transport' => 'postMessage',
+));
+
+$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'header_promo_elements_color', array (
+    'label' => __('Header Promo Elements', 'growtype'),
+    'section' => 'header_colors',
+    'alpha' => true,
+)));
+
