@@ -20,3 +20,7 @@ $speedTimes: 2;
   z-index: 1;
   color: $color-text;
 }
+
+.woocommerce-page .blockUI.blockOverlay, .woocommerce .blockUI.blockOverlay {
+  z-index: 1 !important;
+}
