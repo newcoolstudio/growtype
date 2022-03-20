@@ -4,7 +4,11 @@
     opacity: 0.8;
   }
 
-  .menu-extra{
+  .menu-mobile-container {
+    padding-top: 50px;
+  }
+
+  .menu-extra {
     align-items: flex-start;
     justify-content: flex-start;
   }
@@ -46,7 +50,6 @@
   .main-navigation-mobile-content {
     max-width: 500px;
     margin-left: auto;
-    position: absolute;
     right: 0;
     top: 0;
     bottom: 0;
@@ -63,9 +66,7 @@
     max-height: 97%;
     @include bp-phone-xl() {
       padding-top: 0;
-      padding-left: 10px;
       max-width: 100%;
-      padding-right: 30px;
     }
 
     li {
@@ -112,13 +113,10 @@
     a {
       text-transform: uppercase;
       font-size: 21px;
-      padding-left: 40px;
       text-decoration: none;
       display: inline-block;
       width: 100%;
-      @include bp-phone-xl() {
-        padding-left: 20px;
-      }
+      padding-left: 20px;
 
       &:hover {
         border-left: 1px solid $color-primary;

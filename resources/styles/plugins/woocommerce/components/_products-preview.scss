@@ -4,7 +4,9 @@
   }
 }
 
-.woocommerce .products, .wc-block-product-new {
+.woocommerce .products,
+.wc-block-product-new,
+.wp-block-handpicked-products {
   .product {
     margin-left: 10px;
     margin-right: 10px;

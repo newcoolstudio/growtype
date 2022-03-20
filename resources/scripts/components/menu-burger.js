@@ -19,7 +19,7 @@ function menuBurger() {
         window.burgerClose();
     });
 
-    $('.main-navigation-mobile .main-navigation-mobile-content').on('click', function () {
+    $('.main-navigation-mobile .main-navigation-mobile-inner').on('click', function () {
         event.stopPropagation();
     });
 

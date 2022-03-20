@@ -25,6 +25,12 @@
 
         <div class="container">
             <div class="header-inner">
+                @if(get_theme_mod('header_mobile_menu_position') === 'left')
+                    @if(!get_theme_mod('mobile_menu_disabled'))
+                        @include('partials.components.hamburger')
+                    @endif
+                @endif
+
                 @include('partials.components.header.logo')
 
                 {!! Growtype_Post::title_render() !!}
@@ -49,12 +55,10 @@
                     @include('partials.components.user-profile')
                 @endif
 
-                @if(!get_theme_mod('mobile_menu_disabled'))
-                    <button class="hamburger hamburger--squeeze is-pasive" type="button">
-                        <div class="hamburger-box">
-                            <span class="hamburger-inner"></span>
-                        </div>
-                    </button>
+                @if(get_theme_mod('header_mobile_menu_position') === 'right')
+                    @if(!get_theme_mod('mobile_menu_disabled'))
+                        @include('partials.components.hamburger')
+                    @endif
                 @endif
             </div>
         </div>

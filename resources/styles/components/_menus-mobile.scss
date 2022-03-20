@@ -7,7 +7,7 @@ $mobilemenu-color-background: black;
   right: 0;
   width: 100%;
   z-index: 1;
-  padding-top: 100px;
+  padding-top: 80px;
   color: white;
   padding-left: 0;
 
@@ -17,10 +17,6 @@ $mobilemenu-color-background: black;
     right: 0;
     width: 100%;
     top: 0;
-    padding-left: 10px;
-    padding-right: 10px;
-    max-width: 340px;
-    margin: auto;
     @include bp-phone-xl() {
       max-width: 100%;
     }
@@ -78,10 +74,28 @@ $mobilemenu-color-background: black;
     opacity: 0.93;
   }
 
-  .header-logo-wrapper {
-    top: 7px;
+  .main-navigation-mobile-inner {
     position: relative;
-    left: 12px;
+    height: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .main-navigation-mobile-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 25px;
+    min-height: 60px;
+
+    .hamburger {
+      margin-left: auto;
+      display: block;
+    }
+  }
+
+  .header-logo-wrapper {
+    position: relative;
     z-index: 10;
   }
 
@@ -100,7 +114,8 @@ $mobilemenu-color-background: black;
 
       a {
         color: #3e3e3e;
-        padding-left: 9px;
+        padding-left: 5px;
+        padding-right: 5px;
 
         i {
           top: 2px;

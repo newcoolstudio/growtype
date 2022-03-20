@@ -121,7 +121,7 @@ p.has-drop-cap:not(:focus)::first-letter {
   .wp-block-column {
     margin-left: 10px;
     margin-right: 10px;
-    @include bp-phone-xl() {
+    @include bp-tablet-big() {
       margin-left: 0;
       margin-right: 0;
     }

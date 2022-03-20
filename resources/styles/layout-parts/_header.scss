@@ -402,6 +402,7 @@ header a:hover {
   padding-left: 10px;
   @include bp-phone-xl() {
     padding-left: 5px;
+    top: -2px;
   }
 
   .woo-multi-currency {

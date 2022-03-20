@@ -97,6 +97,33 @@ if (!empty($mobile_menu)) {
     ));
 
     /**
+     * Menu position
+     */
+    $wp_customize->add_setting('header_mobile_menu_position',
+        array (
+            'default' => 'type-1',
+            'transport' => 'refresh',
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'header_mobile_menu_position',
+        array (
+            'label' => __('Mobile Menu Position', 'growtype'),
+            'description' => esc_html__('Choose mobile menu position', 'growtype'),
+            'section' => $mobile_menu_section,
+            'input_attrs' => array (
+                'placeholder' => __('Please select ...', 'growtype'),
+                'multiselect' => false,
+            ),
+            'choices' => array (
+                'right' => __('Right', 'growtype'),
+                'left' => __('Left', 'growtype'),
+            ),
+            'priority' => 1000000,
+        )
+    ));
+
+    /**
      * Mobile menu text color
      */
     $wp_customize->add_setting('theme_general_mobile_menu_simple_notice',

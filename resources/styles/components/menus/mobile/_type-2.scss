@@ -5,10 +5,13 @@
     opacity: 1;
   }
 
-  .main-navigation-mobile-content {
-    padding-top: 4px;
+  .main-navigation-mobile-inner {
     padding-left: 20px;
     padding-right: 20px;
+  }
+
+  .main-navigation-mobile-content {
+    padding-top: 4px;
     margin-top: 14px;
     position: relative;
     overflow: auto;
@@ -37,8 +40,14 @@
     left: 15px;
   }
 
+  .menu-extra {
+    justify-content: flex-start;
+    padding: 0;
+    padding-top: 20px;
+  }
+
   .menu-mobile-container {
-    padding-top: 13px;
+    padding-top: 20px;
     position: relative;
 
     ul {
