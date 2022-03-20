@@ -224,10 +224,10 @@ function woocommerce_thankyou_page_intro_content_translation($value)
  * @param $checked
  * Translate text input textarea
  */
-function woocommerce_thankyou_page_intro_content_disabled_account_translation($value)
+function woocommerce_thankyou_page_intro_content_access_platform_translation($value)
 {
     if (class_exists('QTX_Translator')) {
-        $translation = get_theme_mod('woocommerce_thankyou_page_intro_content_disabled_account');
+        $translation = get_theme_mod('woocommerce_thankyou_page_intro_content_access_platform');
         return formatTranslation($translation, $value, true);
     }
 

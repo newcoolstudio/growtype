@@ -306,7 +306,7 @@ $(document).ready(function ($) {
     /**
      * Success page extra content
      */
-    wp.customize("woocommerce_thankyou_page_intro_content_disabled_account", function (value) {
+    wp.customize("woocommerce_thankyou_page_intro_content_access_platform", function (value) {
         value.bind(function (newval) {
             $(".woocommerce-order .b-intro-content").html(newval);
         });

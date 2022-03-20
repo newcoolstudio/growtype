@@ -80,18 +80,18 @@ $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control($wp_customize, '
 /**
  * Intro content not active account
  */
-$wp_customize->add_setting('woocommerce_thankyou_page_intro_content_disabled_account',
+$wp_customize->add_setting('woocommerce_thankyou_page_intro_content_access_platform',
     array (
         'default' => '',
         'transport' => 'postMessage',
-        'sanitize_callback' => 'woocommerce_thankyou_page_intro_content_disabled_account_translation'
+        'sanitize_callback' => 'woocommerce_thankyou_page_intro_content_access_platform_translation'
     )
 );
 
-$wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control($wp_customize, 'woocommerce_thankyou_page_intro_content_disabled_account',
+$wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control($wp_customize, 'woocommerce_thankyou_page_intro_content_access_platform',
     array (
-        'label' => __('Intro Content - Disabled Account'),
-        'description' => __('Extra details when account is not activated.'),
+        'label' => __('Intro Content - Access Platform'),
+        'description' => __('Extra details when account access is enabled.'),
         'section' => 'woocommerce_thankyou_page',
         'priority' => 10,
         'input_attrs' => array (

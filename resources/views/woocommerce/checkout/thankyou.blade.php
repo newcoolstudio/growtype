@@ -22,10 +22,10 @@ defined('ABSPATH') || exit;
 
     <?php
 
-    $woocommerce_thankyou_page_intro_content = get_theme_mod('woocommerce_thankyou_page_intro_content_disabled_account');
+    $woocommerce_thankyou_page_intro_content = get_theme_mod('woocommerce_thankyou_page_intro_content');
 
     if (user_can_access_platform()) {
-        $woocommerce_thankyou_page_intro_content = get_theme_mod('woocommerce_thankyou_page_intro_content');
+        $woocommerce_thankyou_page_intro_content = get_theme_mod('woocommerce_thankyou_page_intro_content_access_platform');
     }
 
     if ( $order ) :
