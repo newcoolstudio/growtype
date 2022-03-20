@@ -55,7 +55,7 @@
                     @include('partials.components.user-profile')
                 @endif
 
-                @if(get_theme_mod('header_mobile_menu_position') === 'right')
+                @if(empty(get_theme_mod('header_mobile_menu_position')) || get_theme_mod('header_mobile_menu_position') === 'right')
                     @if(!get_theme_mod('mobile_menu_disabled'))
                         @include('partials.components.hamburger')
                     @endif

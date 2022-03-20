@@ -35,7 +35,17 @@ function menuBurger() {
         $('.hamburger').removeClass('is-pasive').addClass('is-active');
         $('body', 'html').addClass('stopscroll');
         $('body', 'html').addClass('burger-open');
-        $('.main-navigation-mobile').addClass('is-active').removeClass('is-pasive').fadeIn();
+
+        if ($('.main-navigation-mobile').hasClass('main-navigation-mobile-animation-slide-in-left') || $('.main-navigation-mobile').hasClass('main-navigation-mobile-animation-slide-in-right')) {
+            $('.main-navigation-mobile').show();
+
+            setTimeout(function () {
+                $('.main-navigation-mobile').addClass('is-active').removeClass('is-pasive')
+            }, 1)
+        } else {
+            $('.main-navigation-mobile').addClass('is-active').removeClass('is-pasive').fadeIn();
+        }
+
         // $('body').bind('touchmove', function () {
         //     event.preventDefault()
         // });

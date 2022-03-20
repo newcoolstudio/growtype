@@ -30,7 +30,7 @@ $hamburger-color-active: white;
   overflow: visible;
   display: none;
   height: 28px;
-  margin-left: 10px;
+  margin-left: 15px;
   @include bp-tablet-big() {
     display: block;
   }
@@ -41,7 +41,7 @@ $hamburger-color-active: white;
 
   &.position-left {
     margin-left: 0;
-    margin-right: 10px;
+    margin-right: 15px;
   }
 }
 

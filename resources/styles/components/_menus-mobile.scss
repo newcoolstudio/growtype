@@ -91,6 +91,7 @@ $mobilemenu-color-background: black;
     .hamburger {
       margin-left: auto;
       display: block;
+      margin-right: 0;
     }
   }
 
@@ -177,3 +178,23 @@ $mobilemenu-color-background: black;
 
 @import "menus/mobile/type-2";
 @import "menus/mobile/type-3";
+
+.main-navigation-mobile-animation-slide-in-left {
+  transform: translateX(-100%);
+  transition: all 0.5s;
+
+  &.is-active {
+    transform: translateX(0%);
+    transition: all 0.5s;
+  }
+}
+
+.main-navigation-mobile-animation-slide-in-right {
+  transform: translateX(100%);
+  transition: all 0.5s;
+
+  &.is-active {
+    transform: translateX(0%);
+    transition: all 0.5s;
+  }
+}

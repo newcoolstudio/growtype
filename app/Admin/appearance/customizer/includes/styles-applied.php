@@ -91,7 +91,7 @@ function growtype_customizer_general_css()
         <?php } ?>
 
         <?php if(!empty(get_theme_mod('mobile_menu_bg_color'))){ ?>
-        .main-navigation-mobile {
+        .main-navigation-mobile-inner {
             background: <?php echo get_theme_mod('mobile_menu_bg_color') ?>
         }
 

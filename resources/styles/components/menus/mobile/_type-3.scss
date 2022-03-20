@@ -4,6 +4,10 @@
     opacity: 0.8;
   }
 
+  .main-navigation-mobile-inner {
+    max-width: 85%;
+  }
+
   .menu-mobile-container {
     padding-top: 50px;
   }
@@ -49,7 +53,7 @@
 
   .main-navigation-mobile-content {
     max-width: 500px;
-    margin-left: auto;
+    margin-left: initial;
     right: 0;
     top: 0;
     bottom: 0;
