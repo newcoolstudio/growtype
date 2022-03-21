@@ -116,6 +116,9 @@ p.has-drop-cap:not(:focus)::first-letter {
     max-width: initial;
     padding-left: 0;
     padding-right: 0;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: initial;
   }
 
   .wp-block-column {
