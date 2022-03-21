@@ -405,11 +405,6 @@ header a:hover {
     top: -2px;
   }
 
-  .woo-multi-currency {
-    position: relative;
-    top: -1px;
-  }
-
   .language-selector {
     @include bp-phone-xl() {
       display: none;
@@ -417,8 +412,10 @@ header a:hover {
   }
 
   .customizer {
-    top: 3px;
     position: relative;
+    @include bp-phone-xl() {
+      top: 2px;
+    }
   }
 
   .menu {

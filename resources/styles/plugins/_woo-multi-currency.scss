@@ -17,11 +17,18 @@
   }
 }
 
+.side-nav-wrapper {
+  .woo-multi-currency {
+    position: relative;
+  }
+}
+
 .woo-multi-currency.wmc-shortcode.plain-vertical .wmc-currency-wrapper span.wmc-current-currency {
   font-size: 14px;
   color: #1f1f1f !important;
   border: none;
   font-weight: 300;
+  background: initial;
 
   a {
     font-size: 14px;
