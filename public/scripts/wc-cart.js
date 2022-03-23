@@ -7,7 +7,7 @@ var __webpack_exports__ = {};
   "use strict";
 
   var initialCartContentLoad = true;
-  var loadingAnimation = "<span class='addToCart-loader'><div></div><div></div></span>";
+  var loadingAnimation = "<span class='spinner-border'><div></div><div></div></span>";
 
   function loadCartContent() {
     $('.b-shoppingcart .b-shoppingcart-content').html('');
@@ -20,7 +20,7 @@ var __webpack_exports__ = {};
       }
     }).done(function (data) {
       $('.e-cart').attr('data-amount', data.cart_contents_count);
-      $('.b-shoppingcart .addToCart-loader').remove();
+      $('.b-shoppingcart .spinner-border').remove();
       $('.b-shoppingcart').find('.e-loader').remove();
       $('.b-shoppingcart .b-shoppingcart-inner .b-shoppingcart-main').remove();
       $('.b-shoppingcart .b-shoppingcart-inner').append(data['fragments']['shopping_cart_content']);

@@ -7,16 +7,16 @@
             </div>
             <div class="modal-body">
                 <div class="b-value">
-                    <div class="e-value b-bid-current">$0</div>
-                    <div class="e-label">{!! __('Your bid','growtype') !!}</div>
+                    <div class="e-value e-price" data-price="unit">$0</div>
+                    <div class="e-label">{!! __('Your current bid','growtype') !!}</div>
                 </div>
                 <div class="b-value">
-                    <div class="e-value woocommerce-Price-amount">$0</div>
-                    <div class="e-label">{!! __("Price inc. buyer’s premium",'growtype') !!}</div>
-                </div>
-                <div class="b-value">
-                    <div class="e-value woocommerce-Price-amount">$0</div>
+                    <div class="e-value e-price" data-price="total">$0</div>
                     <div class="e-label">{!! __('Total price','growtype') !!}</div>
+                </div>
+                <div class="b-value">
+                    <div class="e-value e-price" data-price="total-premium">$0</div>
+                    <div class="e-label">{!! __("Total price including buyer’s premium",'growtype') !!}</div>
                 </div>
             </div>
             <div class="modal-footer justify-content-center">

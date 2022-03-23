@@ -20,8 +20,15 @@ function add_extra_classes_to_body($classes)
     $classes[] = get_theme_mod('burger_always_visible') ? 'has-always-visible-burger' : null;
     $classes[] = Growtype_Header::has_promo() ? 'has-promo-header' : null;
 
-    if (class_exists('woocommerce') && get_option('woocommerce_cart_redirect_after_add') !== 'yes') {
-        $classes[] = 'ajaxcart-enabled';
+    if (class_exists('woocommerce')) {
+        if (is_account_page()) {
+            $url_slug = Growtype_Post::get_url_slug();
+            $classes[] = 'page-' . $url_slug;
+        }
+
+        if (get_option('woocommerce_cart_redirect_after_add') !== 'yes') {
+            $classes[] = 'ajaxcart-enabled';
+        }
     }
 
     return $classes;

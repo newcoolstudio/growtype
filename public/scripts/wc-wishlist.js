@@ -8,7 +8,8 @@ var __webpack_exports__ = {};
   document.addEventListener('filterProductsByPrice', wishlistInit);
   "use strict";
 
-  var loadingAnimation = "<span class='addToCart-loader'><div></div><div></div></span>";
+  var loadingAnimation = "<span class='spinner-border'><div></div><div></div></span>";
+  var wishlist_container = $('.wishlist main .content');
 
   Array.prototype.unique = function () {
     return this.filter(function (value, index, self) {
@@ -56,7 +57,7 @@ var __webpack_exports__ = {};
       wishlistIds = ls;
     }
 
-    if ($('.wishlist-preview').length > 0) {
+    if (wishlist_container.length > 0) {
       fetchWishlistUserData();
     } else {
       wishlistInit();
@@ -64,10 +65,7 @@ var __webpack_exports__ = {};
   }
 
   function fetchWishlistUserData() {
-    if ($('.wishlist-preview').is(':empty')) {
-      $('.wishlist-preview').append(loadingAnimation);
-    }
-
+    wishlist_container.append(loadingAnimation);
     $.ajax({
       type: 'POST',
       url: woocommerce_params.ajax_url,
@@ -77,14 +75,15 @@ var __webpack_exports__ = {};
         'wishlist_ids': wishlistIds
       },
       success: function success(data) {
+        wishlist_container.find('.spinner-border').remove();
         userData = JSON.parse(data);
         wishlistIds = userData['wishlist_ids'];
 
-        if ($('.wishlist-preview').length > 0) {
-          if ($('.wishlist-preview .products').length === 0) {
-            $('.wishlist-preview').hide().html(userData['wishlist']).fadeIn();
+        if (wishlist_container.length > 0) {
+          if (wishlist_container.find('.products').length === 0) {
+            wishlist_container.hide().html(userData['wishlist']).fadeIn();
           } else {
-            $('.wishlist-preview').html(userData['wishlist']);
+            wishlist_container.html(userData['wishlist']);
           }
         }
 
@@ -108,7 +107,7 @@ var __webpack_exports__ = {};
         if ($(this).hasClass('is-active')) {
           $(this).removeClass('is-active');
 
-          if ($('body').hasClass('template-wishlist')) {
+          if ($('body').hasClass('wishlist')) {
             $(this).closest('.product').fadeOut().promise().done(function () {
               $(this).remove();
             });
@@ -128,8 +127,8 @@ var __webpack_exports__ = {};
           return v !== '';
         });
 
-        if (wishlistIds.length === 0 && $('.wishlist-preview').length > 0) {
-          $('.wishlist-preview').append(loadingAnimation);
+        if (wishlistIds.length === 0 && wishlist_container.length > 0) {
+          wishlist_container.append(loadingAnimation);
         }
 
         $('.e-wishlist').attr('data-amount', wishlistIds.length);
