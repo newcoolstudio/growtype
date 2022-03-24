@@ -86,10 +86,10 @@
       max-width: initial;
       display: flex;
       flex-wrap: wrap;
+    }
 
-      .wp-block-cover__inner-container {
-        max-width: $max-width-container;
-      }
+    .wp-block-cover__inner-container {
+      max-width: $max-width-container;
     }
 
     .wp-block[data-align="wide"] {

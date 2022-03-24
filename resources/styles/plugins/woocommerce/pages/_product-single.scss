@@ -449,6 +449,10 @@ Related products with panel
     margin-left: -20px;
     background: $color-extra-light-grey;
     width: calc(100% + 40px);
-    padding-right: 20px
+    padding-right: 20px;
+    @include bp-phone-xl() {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 }

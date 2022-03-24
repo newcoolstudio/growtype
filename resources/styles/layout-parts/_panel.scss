@@ -16,6 +16,10 @@
     width: initial;
     padding-left: $padding-left-container;
     padding-right: $padding-right-container;
+    @include bp-phone-xl() {
+      padding-left: 0;
+      padding-right: 0;
+    }
 
     .header-inner {
       margin: auto;
@@ -147,6 +151,8 @@
       width: 65%;
     }
     @include bp-phone-xl() {
+      padding-left: 0;
+      padding-right: 0;
       width: 100%;
     }
 

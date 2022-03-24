@@ -491,11 +491,17 @@ class Growtype_Auction
 
         if ($product->is_type('auction') && class_exists('WC_Product_Auction')) {
             if (self::status($product->get_id()) === self::AUCTION_STATUSES['live']) {
-                $output .= '<div class="badge" data-status="live">' . __('Live', 'growtype-child') . '</div>';
+                $output .= '<div class="badge" data-status="live">' . __('Live', 'growtype') . '</div>';
             } elseif (self::status($product->get_id()) === self::AUCTION_STATUSES['ended']) {
-                $output .= '<div class="badge" data-status="ended">' . __('Ended', 'growtype-child') . '</div>';
+                $output .= '<div class="badge" data-status="ended">' . __('Ended', 'growtype') . '</div>';
             } elseif (self::status($product->get_id()) === self::AUCTION_STATUSES['upcoming']) {
-                $output .= '<div class="badge" data-status="upcoming">' . __('Upcoming', 'growtype-child') . '</div>';
+                $output .= '<div class="badge" data-status="upcoming">' . __('Upcoming', 'growtype') . '</div>';
+            } elseif (!$product->is_visible()) {
+                if (has_term(['requires-evaluation'], 'product_tag', $product->get_id())) {
+                    $output .= '<div class="badge" data-status="ended">' . __('In review', 'growtype') . '</div>';
+                } else {
+                    $output .= '<div class="badge" data-status="ended">' . __('Draft', 'growtype') . '</div>';
+                }
             }
         }
 
