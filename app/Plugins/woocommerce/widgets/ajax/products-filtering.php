@@ -42,9 +42,10 @@ function growtype_wc_get_filtered_products($filter_params)
 {
     $meta_key = '';
     $order = 'ASC';
+    $orderby = $filter_params['orderby'] ?? null;
 
-    if (isset($filter_params['orderby']) && !empty($filter_params['orderby'])) {
-        switch ($filter_params['orderby']) {
+    if (!empty($orderby)) {
+        switch ($orderby) {
             case 'menu_order':
                 $meta_key = '';
                 $order = 'ASC';

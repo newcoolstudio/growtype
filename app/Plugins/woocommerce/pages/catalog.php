@@ -3,7 +3,7 @@
 /**
  * Catalog search
  */
-add_filter( 'woocommerce_redirect_single_search_result', '__return_false' );
+add_filter('woocommerce_redirect_single_search_result', '__return_false');
 
 /**
  * @param $orderby
@@ -25,19 +25,10 @@ function growtype_woocommerce_catalog_orderby($orderby)
 }
 
 /**
- * Default catalog products ordering
- */
-add_filter('woocommerce_default_catalog_orderby', 'default_catalog_orderby');
-function default_catalog_orderby($sort_by)
-{
-    return 'menu_order';
-}
-
-/**
  * Products filtering by specific properties
  */
-add_action('woocommerce_product_query', 'archive_product_query');
-function archive_product_query($query)
+add_action('woocommerce_product_query', 'growtype_woocommerce_product_query');
+function growtype_woocommerce_product_query($query)
 {
     $uri = $_SERVER['REQUEST_URI'];
 
@@ -73,22 +64,16 @@ function archive_product_query($query)
 /**
  * Disable shop page access if enabled
  */
-add_action('template_redirect', 'catalog_disable_access');
-function catalog_disable_access()
+add_action('template_redirect', 'growtype_catalog_disable_access');
+function growtype_catalog_disable_access()
 {
     if (is_shop() && get_theme_mod('catalog_disable_access')) {
         wp_redirect(home_url());
         exit();
-    }
-}
-
-/**
- * Disable product category access if enabled
- */
-add_action('template_redirect', 'product_category_disable_access');
-function product_category_disable_access()
-{
-    if (get_theme_mod('catalog_disable_access') && is_product_category()) {
+    } elseif (get_theme_mod('catalog_disable_access') && is_product_category()) {
+        /**
+         * Disable product category access if enabled
+         */
         wp_redirect(home_url());
         exit();
     }
