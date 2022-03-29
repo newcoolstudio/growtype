@@ -33,18 +33,13 @@
 }
 
 .alert {
+  border-radius: $border-radius-card;
+
   .btn-close {
-    top: 0;
-    bottom: 0;
-    margin: auto;
+    top: 15px;
     height: 20px;
     padding: 0;
     margin-right: 20px;
-  }
-
-  &.woocommerce-message {
-    border-top: 3px solid #8fae1b;
-    padding: 1em 2em 1em 3.5em;
   }
 }
 
@@ -63,11 +58,12 @@
     content: "\f534";
     font-family: "Dashicons";
     font-size: 18px;
+    line-height: 100%;
     width: 20px;
     height: 20px;
     position: absolute;
     left: 20px;
-    top: -5px;
+    top: 0;
     bottom: 0;
     margin: auto;
     color: $color-error;

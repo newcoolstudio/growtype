@@ -36,6 +36,7 @@ $color-pasive: #d6d6d6;
 $color-active: #5561e2;
 $color-error: $color-red;
 $color-success: $color-green;
+$color-info: #1e85be;
 
 /**
 Body
@@ -115,6 +116,8 @@ Input
  */
 $color-input-bg: white;
 $color-input: #252525;
+$border-radius-input: 3px;
+$border-color-input: #aaa;
 
 //Margin
 $section-margin-top: 60px;

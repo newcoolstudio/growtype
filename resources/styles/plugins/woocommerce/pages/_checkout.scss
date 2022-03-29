@@ -56,6 +56,16 @@
   .woocommerce-privacy-policy-text {
     font-size: 13px;
   }
+
+  .checkout_coupon {
+    display: none;
+    border-radius: $border-radius-card;
+    box-shadow: $box-shadow-card;
+    background: white;
+    padding: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+  }
 }
 
 .woocommerce-checkout-payment {
@@ -173,14 +183,6 @@
   text-align: left;
   width: 100%;
   font-weight: bold;
-}
-
-/**
-Woocommerce login toggle, Woocommerce coupon toggle
- */
-.woocommerce-form-coupon-toggle,
-.woocommerce-form-login-toggle {
-  display: none;
 }
 
 /**

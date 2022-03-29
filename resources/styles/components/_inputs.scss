@@ -9,10 +9,10 @@ textarea {
   background-color: $color-input-bg;
   color: $color-input;
   outline: 0;
-  border-radius: 3px;
+  border-radius: $border-radius-input;
   box-sizing: border-box;
   font-weight: 400;
-  border: 1px solid #e4e4e4;
+  border: 1px solid $border-color-input;
   width: 100%;
   margin: 0;
   line-height: normal;

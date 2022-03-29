@@ -31,7 +31,7 @@ cart_page_icon_is_active())
 
             @if(Growtype_User::account_icon_enabled())
                 <li class="e-profile">
-                    <a href="{!! wc_get_page_permalink( 'myaccount' ) !!}">
+                    <a href="{!! Growtype_User::account_permalink() !!}">
                         <i class="icon-profile"></i>
                     </a>
                 </li>

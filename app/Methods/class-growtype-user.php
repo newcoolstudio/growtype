@@ -89,9 +89,9 @@ class Growtype_User
      */
     public static function account_icon_enabled()
     {
-        $status = get_theme_mod('woocommerce_account_page_icon_enabled') ?? true;
+        $status = get_theme_mod('user_account_icon_enabled') ?? true;
 
-        return class_exists('woocommerce') && $status ? true : false;
+        return $status ? true : false;
     }
 
     /**
@@ -123,5 +123,22 @@ class Growtype_User
         }
 
         return $status;
+    }
+
+    /**
+     * Check profile menu status
+     */
+    public static function account_permalink()
+    {
+        $permalink = get_theme_mod('user_account_permalink');
+
+        /**
+         * Check if user can access platform
+         */
+        if (empty($permalink) && class_exists('woocommerce')) {
+            $permalink = wc_get_page_permalink('myaccount');
+        }
+
+        return $permalink;
     }
 }

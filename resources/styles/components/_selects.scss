@@ -63,9 +63,11 @@ Select2
 Chosen
  */
 .chosen-container-single .chosen-single {
-  border-radius: 0 !important;
+  border-radius: $border-radius-input !important;
   background: white !important;
-  height: 40px !important;
+  height: 42px !important;
+  border: 1px solid $border-color-input;
+  box-shadow: none;
 
   div b {
     position: relative;
@@ -83,8 +85,9 @@ Chosen
 .chosen-container-multi .chosen-choices {
   border-radius: 0 !important;
   background: white !important;
-  height: 43px !important;
-  border: 1px solid #e4e4e4;
+  height: 42px !important;
+  border: 1px solid $border-color-input;
+  box-shadow: none;
 
   .search-field {
     font-size: 14px;

@@ -204,6 +204,11 @@ class Growtype_Post
     public static function content($postId)
     {
         $content_post = get_post($postId);
+
+        if (empty($content_post)) {
+            return '';
+        }
+
         $content = $content_post->post_content;
         $content = apply_filters('the_content', $content);
         $content = str_replace(']]>', ']]&gt;', $content);

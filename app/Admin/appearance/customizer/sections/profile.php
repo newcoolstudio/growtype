@@ -43,4 +43,35 @@ function profile_customize_register($wp_customize)
             'description' => __('Enable or disable', 'growtype'),
         )
     ));
+
+    /**
+     * Account icon
+     */
+    $wp_customize->add_setting('user_account_icon_enabled',
+        array (
+            'default' => 1,
+            'transport' => 'refresh',
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'user_account_icon_enabled',
+        array (
+            'label' => esc_html__('User Account Icon'),
+            'description' => __('Enable/disable user account page icon in header.', 'growtype'),
+            'section' => 'profile',
+        )
+    ));
+
+    /**
+     * Redirect after login
+     */
+    $wp_customize->add_setting("user_account_permalink", array (
+        "default" => "",
+    ));
+
+    $wp_customize->add_control('user_account_permalink', array (
+        'label' => esc_html__('User Account Url'),
+        'section' => 'profile',
+        'description' => __('User account url without domain', 'growtype'),
+    ));
 }

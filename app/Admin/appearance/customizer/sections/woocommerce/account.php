@@ -27,24 +27,6 @@ $wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_custom
 ));
 
 /**
- * Account icon
- */
-$wp_customize->add_setting('woocommerce_account_page_icon_enabled',
-    array (
-        'default' => 1,
-        'transport' => 'refresh',
-    )
-);
-
-$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_account_page_icon_enabled',
-    array (
-        'label' => esc_html__('User Account Icon'),
-        'description' => __('Enable/disable user account page icon in header.', 'growtype'),
-        'section' => 'woocommerce_account_page',
-    )
-));
-
-/**
  * Intro
  */
 $wp_customize->add_setting('woocommerce_account_page_tabs_intro',

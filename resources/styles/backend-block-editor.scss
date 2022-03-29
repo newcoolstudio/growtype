@@ -1,3 +1,7 @@
+html.wp-toolbar :where(.editor-styles-wrapper) {
+  font-family: Arial;
+}
+
 .editor-styles-wrapper {
   @import "autoload/bootstrap/bootstrap";
   @import "common/variables";
@@ -13,10 +17,6 @@
    */
   @import "editor/gutenberg/backend/blocks/block-slider";
   @import "editor/gutenberg/backend/blocks/block-cover";
-
-  html :where(.editor-styles-wrapper) {
-    font-family: Arial;
-  }
 
   .btn-primary {
     display: inline-block;

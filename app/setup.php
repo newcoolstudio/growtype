@@ -298,6 +298,6 @@ add_action('template_redirect', function () {
         } catch (\Exception $ex) {
             wp_redirect(home_url());
         }
-        die;
+        exit;
     }
 });

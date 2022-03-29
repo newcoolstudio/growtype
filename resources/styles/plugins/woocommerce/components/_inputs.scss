@@ -1,0 +1,7 @@
+.woocommerce form .form-row.woocommerce-invalid input.input-text {
+  border-color: $color-error;
+}
+
+.woocommerce form .form-row.woocommerce-invalid label, .woocommerce-page form .form-row.woocommerce-invalid label {
+  color: $color-error;
+}

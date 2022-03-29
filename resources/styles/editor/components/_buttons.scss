@@ -25,8 +25,8 @@
   }
 }
 
-.is-style-outline > .wp-block-button__link, .wp-block-button__link.is-style-outline, .is-style-outline > .wp-block-button__link:not(.has-text-color), .wp-block-button__link.is-style-outline:not(.has-text-color) {
-  @extend .btn-secondary;
+.is-style-outline > .wp-block-button__link:not(.has-text-color),
+.wp-block-button__link.is-style-outline:not(.has-text-color) {
   @include bp-phone-xl() {
     width: 100%;
   }
