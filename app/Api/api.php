@@ -23,7 +23,7 @@ function add_custom_fields()
         'post',
         'reading_time',
         array (
-            'get_callback' => 'growtype_get_post_reading_time',
+            'get_callback' => 'growtype_rest_api_get_post_reading_time',
             'update_callback' => null,
             'schema' => null,
         )
@@ -38,4 +38,13 @@ function add_custom_fields()
             'schema' => null,
         )
     );
+
+    /**
+     * @param $post
+     * @return false|string
+     */
+    function growtype_rest_api_get_post_reading_time($post)
+    {
+        return Growtype_Post::reading_time($post['id']);
+    }
 }

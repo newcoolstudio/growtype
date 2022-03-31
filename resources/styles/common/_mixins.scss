@@ -1,6 +1,6 @@
 @mixin bg($filename, $size: contain, $position:center, $repeat: no-repeat) {
   //$imagedir: '#{$STATIC_ASSETS_URL}/public/';
-  $imagedir: './../../../public/';
+  $imagedir: './../../';
   background: transparent url('#{$imagedir}#{$filename}') $repeat $position;
   background-size: $size;
 }

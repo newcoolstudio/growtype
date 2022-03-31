@@ -33,7 +33,7 @@
                         </a>
                     </div>
                     <div class="b-datetime">
-                        <p class="e-time">{{ Growtype_Post::reading_time(get_post()) }}</p>
+                        <p class="e-time">{{ Growtype_Post::reading_time(get_the_ID()) }}</p>
                         <span class="e-dot">•</span>
                         <p class="e-date">{{ get_the_date() }}</p>
                     </div>

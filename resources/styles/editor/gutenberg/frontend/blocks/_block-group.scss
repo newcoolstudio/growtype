@@ -1,6 +1,7 @@
 .container {
   .wp-block-group:where(.has-background) {
-    padding: 0 !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
   }
 
   .wp-block-group__inner-container {

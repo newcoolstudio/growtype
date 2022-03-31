@@ -238,13 +238,13 @@ class Growtype_Post
      * @param $post
      * @return string
      */
-    public static function reading_time($post)
+    public static function reading_time($post_id)
     {
-        if (!isset($post->ID)) {
+        if (empty($post_id)) {
             return false;
         }
 
-        $content = get_post_field('post_content', $post->ID);
+        $content = get_post_field('post_content', $post_id);
         $word_count = str_word_count(strip_tags($content));
         $reading_time = ceil($word_count / 200);
 
