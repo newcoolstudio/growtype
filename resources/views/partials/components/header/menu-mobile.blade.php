@@ -57,7 +57,6 @@
                 <?php
                 if (class_exists('WOOMULTI_CURRENCY_F')) { ?>
                 <li class="currency-selector">
-                    <span><?php echo __('Currency', 'growtype') ?></span>
                     {!! do_shortcode('[woo_multi_currency_plain_vertical]') !!}
                 </li>
                 <?php } ?>

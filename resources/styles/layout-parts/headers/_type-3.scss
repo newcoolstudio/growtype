@@ -9,13 +9,14 @@ Header type 3
     right: 15px;
     margin: auto;
     height: 40px;
+    bottom: 0;
     @include bp-tablet-big-reverse() {
       top: -25px;
-      bottom: 0;
     }
 
     @include bp-tablet-big() {
-      right: 60px;
+      right: 50px;
+      top: 0;
     }
 
     .side-nav {
