@@ -11,14 +11,29 @@
             </div>
         </div>
     </div>
-    <div class="row pt-4">
-        <div class="col-12 text-center">
-            @include('partials.components.social-icons')
-            <a id="footer_logo" href="<?php echo get_home_url_custom() ?>" class="mainlogo mx-auto">
+
+    @if(Growtype_Social::icons_enabled() || !empty(get_footer_logo()['url']))
+        <div class="row pt-4">
+            <div class="col-12 text-center">
+                @include('partials.components.social-icons')
                 @if(!empty(get_footer_logo()['url']))
-                    <img class="img-fluid" src="{{get_footer_logo()['url']}}" style="padding-top: 0;" alt="footer_logo">
+                    <a id="footer_logo" href="<?php echo get_home_url_custom() ?>" class="mainlogo mx-auto">
+                        <img class="img-fluid" src="{{get_footer_logo()['url']}}" style="padding-top: 0;" alt="footer_logo">
+                    </a>
                 @endif
-            </a>
+            </div>
         </div>
-    </div>
+    @endif
+
+</div>
+<div class="footer-inner-bottom">
+    @if(!empty(get_theme_mod('footer_copyright')))
+        <div id="footer_copyright" class="copyright">
+            <?php echo get_theme_mod('footer_copyright'); ?>
+        </div>
+    @endif
+
+    @include('partials.components.social-icons')
+
+    @include('partials.components.credits')
 </div>

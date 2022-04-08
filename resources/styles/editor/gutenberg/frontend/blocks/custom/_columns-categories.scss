@@ -1,0 +1,28 @@
+.columns-categories {
+  > .wp-block-column {
+    &:first-child {
+      margin: 10px !important;
+      @include bp-phone-xl() {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+    }
+  }
+
+  .wp-block-column {
+    margin: 5px !important;
+    @include bp-phone-xl() {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    .wp-block-cover {
+      height: 100%;
+      padding-top: 60%;
+
+      .wp-block-paragraph-wrapper {
+        margin-bottom: 15px;
+      }
+    }
+  }
+}

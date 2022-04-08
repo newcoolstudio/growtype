@@ -10,3 +10,7 @@
     }
   }
 }
+
+.wp-block-gallery.has-nested-images figure.wp-block-image img{
+  width: fit-content;
+}

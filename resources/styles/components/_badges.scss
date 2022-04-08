@@ -4,6 +4,11 @@
     background-color: #FDECE5;
   }
 
+  &[data-status="winning"] {
+    color: #18DA4E;
+    background-color: #E8FBED;
+  }
+
   &[data-status="upcoming"] {
     color: #0091E6;
     background-color: #D9EFFB;

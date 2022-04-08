@@ -66,6 +66,15 @@
         }
       }
     }
+
+    &.menu-column-3 {
+      > li {
+        width: calc(100% / 3);
+        @include bp-phone-xl() {
+          width: 100%;
+        }
+      }
+    }
   }
 
   .mainlogo {
@@ -457,6 +466,18 @@
     align-items: flex-start;
     @include bp-tablet-portrait() {
       flex-direction: column;
+    }
+
+    li {
+      a {
+        text-transform: uppercase;
+      }
+
+      &.menu-item-has-children {
+        > * {
+          font-weight: bold;
+        }
+      }
     }
   }
 }

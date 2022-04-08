@@ -31,9 +31,8 @@ function mail_options_content()
     echo '</form></div>';
 }
 
-add_action('admin_init', 'mail_options_setting');
-
-function mail_options_setting()
+add_action('admin_init', 'mail_options_register_settings');
+function mail_options_register_settings()
 {
     add_settings_section(
         'mail_options_settings', // section ID

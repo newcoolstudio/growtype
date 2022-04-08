@@ -289,7 +289,7 @@ function growtype_customizer_general_css()
         <?php } ?>
 
         <?php if(!empty(get_theme_mod('fonts_font_size_p')) && get_theme_mod('fonts_font_size_p')) { ?>
-        p {
+        p, li {
             font-size: <?php echo get_theme_mod('fonts_font_size_p')?>px;
         }
 

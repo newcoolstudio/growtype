@@ -8,3 +8,4 @@ include('editor/standard/text/quicktags/quicktags.php');
 
 include('editor/gutenberg/frontend/render.php');
 include('editor/gutenberg/backend/render.php');
+include('editor/gutenberg/backend/blocks.php');

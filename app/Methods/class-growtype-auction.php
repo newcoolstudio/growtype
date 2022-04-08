@@ -490,7 +490,9 @@ class Growtype_Auction
         $output = '';
 
         if ($product->is_type('auction') && class_exists('WC_Product_Auction')) {
-            if (self::status($product->get_id()) === self::AUCTION_STATUSES['live']) {
+            if (!$product->get_auction_reserved_price() && $product->is_reserve_met() === true && get_current_user_id() == $product->get_auction_current_bider() && get_option('simple_auctions_curent_bidder_can_bid') === 'yes') {
+                $output .= '<div class="badge" data-status="winning">' . __('Winning bid', 'growtype') . '</div>';
+            } elseif (self::status($product->get_id()) === self::AUCTION_STATUSES['live']) {
                 $output .= '<div class="badge" data-status="live">' . __('Live', 'growtype') . '</div>';
             } elseif (self::status($product->get_id()) === self::AUCTION_STATUSES['ended']) {
                 $output .= '<div class="badge" data-status="ended">' . __('Ended', 'growtype') . '</div>';

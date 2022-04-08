@@ -10,10 +10,6 @@
     }
   }
 
-  a {
-    text-decoration: underline;
-  }
-
   .alert & {
 
   }
@@ -28,6 +24,10 @@
   &.woocommerce-message {
     border-top: 3px solid $color-success;
     padding: 1em 2em 1em 3.5em;
+
+    &::before {
+      color: $color-success;
+    }
   }
 
   &.woocommerce-error {

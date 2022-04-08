@@ -78,21 +78,6 @@ add_action('wp_enqueue_scripts', function () {
         }
 
         /**
-         * General scripts
-         */
-        add_action('wp_footer', function () { ?>
-            <script type="text/javascript">
-                let growtype_params = {
-                    page_nr: <?php echo get_query_var('paged') ?>,
-                    text_more: '<?php echo __('More', 'growtype') ?>',
-                    text_read_close: '<?php echo __('Read close', 'growtype') ?>',
-                    text_read_more: '<?php echo __('Read more', 'growtype') ?>',
-                    text_attach_media: '<?php echo __('Attach media', 'growtype') ?>',
-                }
-            </script>
-        <?php });
-
-        /**
          * Comments
          */
         if (is_single() && comments_open() && get_option('thread_comments')) {
@@ -100,6 +85,21 @@ add_action('wp_enqueue_scripts', function () {
         }
     }
 }, 100);
+
+/**
+ * Growtype params
+ */
+add_action('wp_footer', function () { ?>
+    <script type="text/javascript">
+        let growtype_params = {
+            page_nr: <?php echo get_query_var('paged') ?>,
+            text_more: '<?php echo __('More', 'growtype') ?>',
+            text_read_close: '<?php echo __('Read close', 'growtype') ?>',
+            text_read_more: '<?php echo __('Read more', 'growtype') ?>',
+            text_attach_media: '<?php echo __('Attach media', 'growtype') ?>',
+        }
+    </script>
+<?php });
 
 /**
  * Theme setup

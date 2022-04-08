@@ -93,13 +93,13 @@ Pagination
       }
 
       > span {
-        border-radius: 8px;
+        border-radius: $border-radius-btn;
         color: $color-primary;
       }
 
       .prev, .next {
         border: 1px solid $color-text;
-        border-radius: 8px;
+        border-radius: $border-radius-btn;
         display: flex;
         align-items: center;
         color: $color-text;

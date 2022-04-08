@@ -18,6 +18,12 @@ html.wp-toolbar :where(.editor-styles-wrapper) {
   @import "editor/gutenberg/backend/blocks/block-slider";
   @import "editor/gutenberg/backend/blocks/block-cover";
 
+  /**
+  Custom blocks
+   */
+  @import "editor/gutenberg/frontend/blocks/custom/columns-categories";
+  @import "editor/gutenberg/frontend/blocks/custom/media-text-cover";
+
   .btn-primary {
     display: inline-block;
     text-align: center;
