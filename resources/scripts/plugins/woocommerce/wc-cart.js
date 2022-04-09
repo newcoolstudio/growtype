@@ -141,6 +141,7 @@
 
         cart.find('button[type="submit"]').append('<div class="spinner-border" role="status"></div>')
 
+        const addToCartSuccessEvent = new Event('addToCartSuccess');
         let productIsGrouped = cart.hasClass('grouped_form');
         let serializedCartData = cart.serialize();
 
@@ -195,6 +196,8 @@
                 cart.find('button[type="submit"]').removeClass("is-added").addClass("is-loading");
             },
             success: function (data) {
+
+                document.dispatchEvent(addToCartSuccessEvent);
 
                 loadCartContent()
 

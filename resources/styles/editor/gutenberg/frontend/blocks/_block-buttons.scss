@@ -23,8 +23,21 @@
   }
 }
 
-.wp-block-buttons.aligncenter {
-  justify-content: center;
+.wp-block-buttons {
+  &.alignfull {
+    .wp-block-button {
+      width: 100%;
+    }
+
+    .wp-block-button__link {
+      width: 100%;
+      min-width: initial;
+    }
+  }
+
+  &.aligncenter {
+    justify-content: center;
+  }
 }
 
 .wp-block-button__link {

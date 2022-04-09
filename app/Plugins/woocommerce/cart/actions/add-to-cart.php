@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Add to cart ajax
+ * Add to cart action
  */
 add_action('wp_ajax_add_to_cart_ajax', 'add_to_cart_ajax_callback');
 add_action('wp_ajax_nopriv_add_to_cart_ajax', 'add_to_cart_ajax_callback');
