@@ -13,8 +13,12 @@
                     @endif
                     <div class="b-content">
                         <p class="e-date">{!! get_the_date() !!}</p>
-                        <h4>{!! $post->post_title !!}</h4>
-                        <p>{{$post->post_excerpt}}</p>
+                        @if(!empty($post->post_title))
+                            <h4>{!! $post->post_title !!}</h4>
+                        @endif
+                        @if(!empty($post->post_excerpt))
+                            <p>{{$post->post_excerpt}}</p>
+                        @endif
                         <div class="e-intro">
                             @if(isset($content_length) && $content_length === -1)
                                 {!! $post->post_content !!}
