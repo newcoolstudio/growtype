@@ -79,5 +79,3 @@ if (class_exists('Bbpress')) {
 if (class_exists('WooCommerce_simple_auction')) {
     include(__DIR__ . "/Plugins/woocommerce-simple-auctions/main.php");
 }
-
-

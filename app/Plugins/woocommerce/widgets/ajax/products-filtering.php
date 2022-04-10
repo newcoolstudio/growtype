@@ -18,7 +18,7 @@ function growtype_wc_filter_products()
     $products = growtype_wc_get_filtered_products($filter_params);
 
     if ($products->have_posts()) {
-        if (get_theme_mod('wc_catalog_products_preview_style') === 'table') {
+        if (Growtype_Product::catalog_default_preview_style() === 'table') {
             echo \App\template('woocommerce.components.table.product-table', ['products' => $products]);
         } else {
             while ($products->have_posts()) : $products->the_post();
@@ -122,7 +122,7 @@ function growtype_wc_get_filtered_products($filter_params)
             $args['post__in'] = $watchlist_ids;
         } elseif ($filter_params['products_group'] === 'user_uploaded') {
             $user_ID = get_current_user_id();
-            $post__in = Growtype_Product::get_user_uploaded_products_ids($user_ID);
+            $post__in = Growtype_Product::get_user_created_products_ids($user_ID);
             $args['post__in'] = $post__in;
             set_query_var('visibility', 'any');
         }

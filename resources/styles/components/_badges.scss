@@ -1,20 +1,20 @@
 .badge {
-  &[data-status="live"] {
-    color: #EF8354;
-    background-color: #FDECE5;
-  }
-
-  &[data-status="winning"] {
-    color: #18DA4E;
-    background-color: #E8FBED;
-  }
-
-  &[data-status="upcoming"] {
+  &[data-status="active"] {
     color: #0091E6;
     background-color: #D9EFFB;
   }
 
-  &[data-status="ended"] {
+  &[data-status="success"] {
+    color: #18DA4E;
+    background-color: #E8FBED;
+  }
+
+  &[data-status="pending"] {
+    color: #EF8354;
+    background-color: #FDECE5;
+  }
+
+  &[data-status="pasive"] {
     color: #9A9EA7;
     background-color: #F5F6F7;
   }

@@ -82,3 +82,8 @@ include('blocks/product-grid-item.php');
  */
 include('shortcodes/product.php');
 include('shortcodes/coupon.php');
+
+/**
+ * Notices
+ */
+include('notices/general.php');

@@ -8,7 +8,7 @@ function get_account_subpage_intro_details($subpage)
         'orders' => __('Orders', 'growtype') . ' <div class="e-subtitle">' . __('Purchase history', 'growtype') . '</div>',
         'edit-account' => __('Profile', 'growtype') . ' <div class="e-subtitle">' . __('Profile & business details', 'growtype') . '</div>',
         'edit-address' => __('Addresses', 'growtype') . ' <div class="e-subtitle">' . __('Shipping and billing details', 'growtype') . '</div>',
-        'auctions-endpoint' => __('Auctions', 'growtype') . ' <div class="e-subtitle">' . __('Auctions details', 'growtype') . '</div>',
+        'auctions-endpoint' => __('Auctions', 'growtype') . ' <div class="e-subtitle">' . __('Auctions settings', 'growtype') . '</div>',
         'purchased-products' => __('Purchased products', 'growtype') . ' <div class="e-subtitle">' . __('Your products', 'growtype') . '</div>',
         'uploaded-products' => __('Uploaded products', 'growtype') . ' <div class="e-subtitle">' . __('Your uploads', 'growtype') . '</div>',
         'subscriptions' => __('Subscription', 'growtype') . ' <div class="e-subtitle">' . __('Subscription details', 'growtype') . '</div>',

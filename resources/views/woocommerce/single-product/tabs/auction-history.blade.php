@@ -9,10 +9,11 @@ if (!defined('ABSPATH'))
 
 global $woocommerce, $post, $product;
 
+$auction_history = apply_filters('woocommerce__auction_history_data', $product->auction_history());
+
 $heading = esc_html(apply_filters('woocommerce_auction_history_heading',
     esc_html__('Auction History', 'wc_simple_auctions')));
 $datetimeformat = get_option('date_format') . ' ' . get_option('time_format');
-
 ?>
 
 <h2><?php echo $heading; ?></h2>
@@ -45,66 +46,60 @@ if ( $product->get_auction_closed() == '3' ){ ?>
 
 <?php endif; ?>
 
-<?php
-$auction_history = apply_filters('woocommerce__auction_history_data', $product->auction_history());
-?>
+<table id="auction-history-table-<?php echo esc_attr($product->get_id()); ?>" class="auction-history-table">
+    <?php
 
-@if(!empty($auction_history))
-    <table id="auction-history-table-<?php echo esc_attr($product->get_id()); ?>" class="auction-history-table">
+    if ( !empty($auction_history) ): ?>
+
+    <thead>
+    <tr>
+        <th><?php esc_html_e('Date', 'wc_simple_auctions') ?></th>
+        <th><?php esc_html_e('Bid', 'wc_simple_auctions') ?></th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php if ($product->is_sealed()) {
+
+        echo "<tr>";
+        echo "<td colspan='4'  class='sealed'>" . esc_html__('This auction is sealed. Upon auction finish auction history and winner will be available to the public.',
+                'wc_simple_auctions') . "</td>";
+        echo "</tr>";
+
+    } else {
+
+        foreach ($auction_history as $history_value) {
+            echo "<tr>";
+            echo "<td class='date'>" . mysql2date($datetimeformat, $history_value->date) . "</td>";
+            echo "<td class='bid'>" . wc_price($history_value->bid) . "</td>";
+            echo "</tr>";
+        }
+    }?>
+    </tbody>
+
+    <?php endif;?>
+
+    <tr class="start">
         <?php
 
-        if ( !empty($auction_history) ): ?>
+        if ($product->is_started() === TRUE) {
 
-        <thead>
-        <tr>
-            <th><?php esc_html_e('Date', 'wc_simple_auctions') ?></th>
-            <th><?php esc_html_e('Bid', 'wc_simple_auctions') ?></th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php if ($product->is_sealed()) {
-
-            echo "<tr>";
-            echo "<td colspan='4'  class='sealed'>" . esc_html__('This auction is sealed. Upon auction finish auction history and winner will be available to the public.',
-                    'wc_simple_auctions') . "</td>";
-            echo "</tr>";
+            echo '<td class="date">' . esc_html(mysql2date($datetimeformat,
+                    $product->get_auction_start_time())) . '</td>';
+            echo '<td colspan="3" class="started">';
+            echo apply_filters('auction_history_started_text', esc_html__('Auction started', 'wc_simple_auctions'),
+                $product);
+            echo '</td>';
 
         } else {
 
-            foreach ($auction_history as $history_value) {
-                echo "<tr>";
-                echo "<td class='date'>" . mysql2date($datetimeformat, $history_value->date) . "</td>";
-                echo "<td class='bid'>" . wc_price($history_value->bid) . "</td>";
-                echo "</tr>";
-            }
-        }?>
-        </tbody>
-
-        <?php endif;?>
-
-        <tr class="start">
-            <?php
-
-            if ($product->is_started() === TRUE) {
-
-                echo '<td class="date">' . esc_html(mysql2date($datetimeformat,
-                        $product->get_auction_start_time())) . '</td>';
-                echo '<td colspan="3" class="started">';
-                echo apply_filters('auction_history_started_text', esc_html__('Auction started', 'wc_simple_auctions'),
-                    $product);
-                echo '</td>';
-
-            } else {
-
-                echo '<td  class="date">' . esc_html(mysql2date($datetimeformat,
-                        $product->get_auction_start_time())) . '</td>';
-                echo '<td colspan="3"  class="starting">';
-                echo apply_filters('auction_history_starting_text',
-                    esc_html__('Auction starting', 'wc_simple_auctions'),
-                    $product);
-                echo '</td>';
-            }
-            ?>
-        </tr>
-    </table>
-@endif
+            echo '<td  class="date">' . esc_html(mysql2date($datetimeformat,
+                    $product->get_auction_start_time())) . '</td>';
+            echo '<td colspan="3"  class="starting">';
+            echo apply_filters('auction_history_starting_text',
+                esc_html__('Auction starting', 'wc_simple_auctions'),
+                $product);
+            echo '</td>';
+        }
+        ?>
+    </tr>
+</table>

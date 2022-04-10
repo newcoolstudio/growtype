@@ -53,7 +53,7 @@
 
         if (wc_get_loop_prop('total')) {
 
-        if (get_theme_mod('wc_catalog_products_preview_style') === 'table') { ?>
+        if (Growtype_Product::catalog_default_preview_style() === 'table') { ?>
 
         @include('woocommerce.components.table.product-table')
 

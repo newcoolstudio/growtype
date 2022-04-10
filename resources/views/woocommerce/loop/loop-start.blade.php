@@ -27,7 +27,7 @@ if (!defined('ABSPATH')) {
     @endphp
 @else
     @php
-        $customizer_preview_style = !get_theme_mod('wc_catalog_products_preview_style') ? 'grid' : get_theme_mod('wc_catalog_products_preview_style');
+        $customizer_preview_style = Growtype_Product::catalog_default_preview_style();
         $preview_style_class = 'preview-style--' . (isset($preview_style) && !empty($preview_style) ? $preview_style : $customizer_preview_style);
     @endphp
 @endif

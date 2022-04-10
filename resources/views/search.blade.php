@@ -17,7 +17,7 @@
                 <div class="woocommerce b-products">
                     <?php wc_get_template('loop/loop-start.php'); ?>
 
-                    @if(get_theme_mod('wc_catalog_products_preview_style') === 'table')
+                    @if(Growtype_Product::catalog_default_preview_style() === 'table')
                         @include('woocommerce.components.table.product-table')
                     @else
                         @while(have_posts()) @php the_post() @endphp

@@ -16,6 +16,8 @@ class Growtype_Auction
     const BUYERS_PREMIUM = 0.1;
     const BID_INCREMENT = 0.01;
 
+    const PAYMENT_PAGE_SLUG = 'auction-payment';
+
     /**
      * @return string
      * percent
@@ -435,6 +437,7 @@ class Growtype_Auction
         return !empty(self::buy_now_with_buyers_premium()) ? wc_price(self::buy_now_with_buyers_premium()) : '-';
     }
 
+
     /**
      * @param $product_id
      * @return string
@@ -447,7 +450,7 @@ class Growtype_Auction
             $product = wc_get_product($product_id);
         }
 
-        if (self::status($product->get_id()) !== self::AUCTION_STATUSES['live']) {
+        if (self::user_has_created_auction($product->get_id()) || self::status($product->get_id()) !== self::AUCTION_STATUSES['live'] || self::is_reserved($product->get_id())) {
             return true;
         }
 
@@ -490,19 +493,23 @@ class Growtype_Auction
         $output = '';
 
         if ($product->is_type('auction') && class_exists('WC_Product_Auction')) {
-            if (!$product->get_auction_reserved_price() && $product->is_reserve_met() === true && get_current_user_id() == $product->get_auction_current_bider() && get_option('simple_auctions_curent_bidder_can_bid') === 'yes') {
-                $output .= '<div class="badge" data-status="winning">' . __('Winning bid', 'growtype') . '</div>';
-            } elseif (self::status($product->get_id()) === self::AUCTION_STATUSES['live']) {
-                $output .= '<div class="badge" data-status="live">' . __('Live', 'growtype') . '</div>';
+            if (Growtype_Product::user_has_bought_wc_products(get_current_user_id(), $product->get_id())) {
+                $output .= '<div class="badge" data-status="success">' . __('Purchased', 'growtype') . '</div>';
+            } elseif (self::is_reserved($product->get_id())) {
+                $output .= '<div class="badge" data-status="pending">' . __('Reserved', 'growtype') . '</div>';
             } elseif (self::status($product->get_id()) === self::AUCTION_STATUSES['ended']) {
-                $output .= '<div class="badge" data-status="ended">' . __('Ended', 'growtype') . '</div>';
+                $output .= '<div class="badge" data-status="pasive">' . __('Ended', 'growtype') . '</div>';
             } elseif (self::status($product->get_id()) === self::AUCTION_STATUSES['upcoming']) {
-                $output .= '<div class="badge" data-status="upcoming">' . __('Upcoming', 'growtype') . '</div>';
+                $output .= '<div class="badge" data-status="pending">' . __('Upcoming', 'growtype') . '</div>';
+            } elseif (!$product->get_auction_reserved_price() && $product->is_reserve_met() === true && get_current_user_id() == $product->get_auction_current_bider() && get_option('simple_auctions_curent_bidder_can_bid') === 'yes') {
+                $output .= '<div class="badge" data-status="success">' . __('Winning bid', 'growtype') . '</div>';
+            } elseif (self::status($product->get_id()) === self::AUCTION_STATUSES['live']) {
+                $output .= '<div class="badge" data-status="active">' . __('Live', 'growtype') . '</div>';
             } elseif (!$product->is_visible()) {
                 if (has_term(['requires-evaluation'], 'product_tag', $product->get_id())) {
-                    $output .= '<div class="badge" data-status="ended">' . __('In review', 'growtype') . '</div>';
+                    $output .= '<div class="badge" data-status="pasive">' . __('In review', 'growtype') . '</div>';
                 } else {
-                    $output .= '<div class="badge" data-status="ended">' . __('Draft', 'growtype') . '</div>';
+                    $output .= '<div class="badge" data-status="pasive">' . __('Draft', 'growtype') . '</div>';
                 }
             }
         }
@@ -598,5 +605,53 @@ class Growtype_Auction
         }
 
         return [];
+    }
+
+    /**
+     * @param $product_id
+     * @param $user_id
+     * @return array|bool
+     */
+    public static function reserve_for_user($product_id, $user_id)
+    {
+        return Growtype_Product::reserve_for_user($product_id, $user_id);
+    }
+
+    /**
+     * @param $product_id
+     * @param $user_id
+     * @return array|bool
+     */
+    public static function is_reserved($product_id)
+    {
+        return Growtype_Product::is_reserved($product_id);
+    }
+
+    /**
+     * @param $product_id
+     * @param $user_id
+     * @return array|bool
+     */
+    public static function is_reserved_for_user($product_id, $user_id)
+    {
+        return Growtype_Product::is_reserved_for_user($product_id, $user_id);
+    }
+
+    /**
+     * @return false|string|WP_Error
+     */
+    public static function get_checkout_url()
+    {
+        return get_permalink(get_page_by_path(self::PAYMENT_PAGE_SLUG));
+    }
+
+    /**
+     * @param $product_id
+     * @param $user_id
+     * @return false|void
+     */
+    public static function user_has_created_auction($product_id, $user_id = null)
+    {
+        return Growtype_Product::user_has_created_product($product_id, $user_id);
     }
 }

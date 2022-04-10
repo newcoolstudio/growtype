@@ -257,7 +257,7 @@ class Growtype_Product
     /**
      * @return void
      */
-    public static function get_user_purchased_products_ids($user_id = null, $product_type = null)
+    public static function get_user_purchased_products_ids($user_id = null, $product_types = [])
     {
         $user_id = !empty($user_id) ? $user_id : get_current_user_id();
 
@@ -267,10 +267,15 @@ class Growtype_Product
 
         $customer_orders = get_posts(array (
             'numberposts' => -1,
-            'meta_key' => '_customer_user',
-            'meta_value' => $user_id,
             'post_type' => wc_get_order_types(),
             'post_status' => array_keys(wc_get_is_paid_statuses()),
+            'meta_query' => array (
+                array (
+                    'key' => '_customer_user',
+                    'value' => $user_id,
+                    'compare' => 'LIKE'
+                )
+            )
         ));
 
         if (!$customer_orders) {
@@ -283,24 +288,44 @@ class Growtype_Product
             $items = $order->get_items();
             foreach ($items as $item) {
                 $product_id = $item->get_product_id();
+                $product = wc_get_product($product_id);
 
-//                if($product_type === 'plan'){
-//                    get_post_meta($product_id)
-//                }
-
-                $product_ids[] = $product_id;
+                if (!empty($product_types)) {
+                    if (in_array($product->get_type(), $product_types)) {
+                        $product_ids[] = $product_id;
+                    }
+                } else {
+                    $product_ids[] = $product_id;
+                }
             }
         }
 
-        $product_ids = !empty($product_ids) ? array_values(array_unique($product_ids)) : null;
+        $ordered_products_ids = !empty($product_ids) ? array_values(array_unique($product_ids)) : [];
 
-        return $product_ids;
+        /**
+         * Get reserved products
+         */
+        $reserved_products_ids = get_posts(array (
+            'numberposts' => -1,
+            'post_type' => 'product',
+            'post_status' => 'publish',
+            'meta_query' => array (
+                array (
+                    'key' => '_reservation_user_id',
+                    'value' => $user_id,
+                    'compare' => 'LIKE'
+                )
+            ),
+            'fields' => 'ids'
+        ));
+
+        return array_merge($ordered_products_ids, $reserved_products_ids);
     }
 
     /**
      * @return void
      */
-    public static function get_user_uploaded_products_ids($user_id = null)
+    public static function get_user_created_products_ids($user_id = null)
     {
         $user_id = !empty($user_id) ? $user_id : get_current_user_id();
 
@@ -323,6 +348,24 @@ class Growtype_Product
         }
 
         return !empty($product_ids) ? array_values(array_unique($product_ids)) : null;
+    }
+
+    /**
+     * @param $product_id
+     * @param $user_id
+     * @return false|void
+     */
+    public static function user_has_created_product($product_id, $user_id = null)
+    {
+        $user_id = !empty($user_id) ? $user_id : get_current_user_id();
+
+        if (empty($user_id)) {
+            return false;
+        }
+
+        $creator_id = get_post_meta($product_id, '_product_creator_id', true);
+
+        return $creator_id == $user_id;
     }
 
     /**
@@ -352,7 +395,7 @@ class Growtype_Product
             return [];
         }
 
-        $user_products_ids = self::get_user_purchased_products_ids($user_id);
+        $user_products_ids = self::get_user_purchased_products_ids($user_id, ['subscription']);
 
         if (empty($user_products_ids)) {
             return [];
@@ -617,5 +660,81 @@ class Growtype_Product
         }
 
         return '';
+    }
+
+    /**
+     * @param $product_id
+     * @return array
+     */
+    public static function reserve_for_user($product_id, $user_id)
+    {
+        $product = wc_get_product($product_id);
+
+        if (empty($product)) {
+            return false;
+        }
+
+        update_post_meta($product_id, '_is_reserved', true);
+        update_post_meta($product_id, '_reservation_user_id', $user_id);
+
+        $product->set_catalog_visibility('hidden');
+
+        Growtype_Product::add_tag($product, 'requires-evaluation');
+
+        return true;
+    }
+
+    /**
+     * @param $product
+     * @param $tag
+     * @return mixed
+     */
+    public static function add_tag($product, $tag)
+    {
+        $term = get_term_by('slug', $tag, 'product_tag');
+
+        if (!empty($term)) {
+            $requires_evaluation_tag_id = $term->term_id;
+            $product_tags = $product->get_tag_ids();
+            array_push($product_tags, $requires_evaluation_tag_id);
+            $product->set_tag_ids($product_tags);
+        }
+
+        return $product;
+    }
+
+    /**
+     * @param $product_id
+     * @return array
+     */
+    public static function is_reserved($product_id)
+    {
+        $is_reserved = get_post_meta($product_id, '_is_reserved', true);
+
+        return $is_reserved ?? false;
+    }
+
+    /**
+     * @param $product_id
+     * @return array
+     */
+    public static function is_reserved_for_user($product_id, $user_id)
+    {
+        $is_reserved = self::is_reserved($product_id);
+        $reservation_user_id = get_post_meta($product_id, '_reservation_user_id', true);
+
+        if ($is_reserved && $reservation_user_id == $user_id) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function catalog_default_preview_style()
+    {
+        return !empty(get_theme_mod('wc_catalog_products_preview_style')) ? get_theme_mod('wc_catalog_products_preview_style') : 'grid';
     }
 }

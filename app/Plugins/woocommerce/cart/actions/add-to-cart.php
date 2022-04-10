@@ -21,7 +21,15 @@ function add_to_cart_ajax_callback()
         return wp_send_json($data);
     }
 
-    foreach (WC()->cart->get_cart() as $cart_item) {
+    /**
+     * Get current cart data
+     */
+//    WC()->cart->empty_cart();
+//    die();
+
+    $cart_data = WC()->cart->get_cart();
+
+    foreach ($cart_data as $cart_item) {
         if ($product_id === $cart_item['product_id']) {
             $product_cart_quantity += $cart_item['quantity'];
         }
@@ -33,18 +41,7 @@ function add_to_cart_ajax_callback()
     $product_status = get_post_status($product_id);
 
     /**
-     * Auction product
-     */
-    if ($product->is_type('auction') && !empty($_REQUEST['place-bid'])) {
-        $data = [
-            'message' => __('Bid added.', 'growtype'),
-        ];
-
-        return wp_send_json($data);
-    }
-
-    /**
-     * Variable product
+     * Manage product according to type
      */
     $variation_attributes = [];
     $variation_stock_quantity_enabled = false;
@@ -54,7 +51,7 @@ function add_to_cart_ajax_callback()
         $variation_stock = $variation->get_stock_quantity();
         if ($variation->get_manage_stock() === true) {
             $variation_stock_quantity_enabled = true;
-            foreach (WC()->cart->get_cart() as $cart_item) {
+            foreach ($cart_data as $cart_item) {
                 if ($variation_id === $cart_item['variation_id']) {
                     if ($cart_item['quantity'] >= $variation_stock) {
                         $data = [
@@ -66,6 +63,44 @@ function add_to_cart_ajax_callback()
                 }
             }
         }
+    } elseif ($product->is_type('auction')) {
+
+        $is_reserved = Growtype_Auction::is_reserved($product->get_id());
+
+        if (!$is_reserved && !empty($_REQUEST['place-bid'])) {
+            $data = [
+                'message' => __('Bid added.', 'growtype'),
+            ];
+        } else {
+
+            if (!$is_reserved) {
+                $reservation = Growtype_Auction::reserve_for_user($product->get_id(), get_current_user_id());
+
+                if ($reservation === false) {
+                    $data = [
+                        'error' => true,
+                        'message' => __('Something went wrong. We can not reserve your order.', 'growtype'),
+                    ];
+
+                    return wp_send_json($data);
+                }
+            }
+
+            $is_reserved_for_user = Growtype_Auction::is_reserved_for_user($product->get_id(), get_current_user_id());
+
+            if ($is_reserved_for_user) {
+                $data = [
+                    'redirect_url' => Growtype_Auction::get_checkout_url(),
+                ];
+            } else {
+                $data = [
+                    'error' => true,
+                    'message' => __('Sorry to tell you, but this auction is already reserved for another user. Best of luck next time.', 'growtype'),
+                ];
+            }
+        }
+
+        return wp_send_json($data);
     }
 
     if (!$variation_stock_quantity_enabled && isset($product_stock) && $product_stock < $product_cart_quantity + $_POST['quantity']) {
@@ -73,7 +108,7 @@ function add_to_cart_ajax_callback()
         $message = __('Not enough items exist in stock.', 'growtype');
 
         if ($product->is_type('auction')) {
-            $message = __('Somebody already placed an order to buy this product.', 'growtype');
+            $message = __('You already placed an order to buy this product.', 'growtype');
         }
 
         $data = [
@@ -118,7 +153,7 @@ function add_to_cart_ajax_callback()
             wc_add_to_cart_message(array ($product_id => $quantity), true);
         }
 
-        foreach (WC()->cart->get_cart() as $cart_item) {
+        foreach ($cart_data as $cart_item) {
             $cart_item_variation_id = $cart_item['variation_id'] ?? '';
             if (!empty($cart_item_variation_id) && !empty($variation_id)) {
                 if ($cart_item['variation_id'] === $variation_id) {
@@ -213,7 +248,7 @@ function growtype_woocommerce_ajax_added_to_cart($product_id)
 
         $data = array (
             'error' => true,
-            'product_url' => $custom_redirect_url
+            'redirect_url' => $custom_redirect_url
         );
 
         wp_send_json($data);

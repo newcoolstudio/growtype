@@ -197,9 +197,14 @@
             },
             success: function (data) {
 
+                if (data.redirect_url) {
+                    window.location = data.redirect_url;
+                    return false;
+                }
+
                 document.dispatchEvent(addToCartSuccessEvent);
 
-                loadCartContent()
+                loadCartContent();
 
                 $('.e-cart').addClass('is-scaling');
 
@@ -224,10 +229,6 @@
                             icon: 'info',
                             text: data.message,
                         });
-                    }
-
-                    if (data.product_url) {
-                        window.location = data.product_url;
                     }
 
                     return false;

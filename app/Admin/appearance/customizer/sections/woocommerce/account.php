@@ -75,7 +75,7 @@ $wp_customize->add_setting('woocommerce_account_purchased_products_tab_disabled'
 
 $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_account_purchased_products_tab_disabled',
     array (
-        'label' => esc_html__('Purchased Products Disable'),
+        'label' => esc_html__('Purchases Disabled'),
         'description' => __('Enable/disable purchased products tab in user account.', 'growtype'),
         'section' => 'woocommerce_account_page',
     )
@@ -93,7 +93,7 @@ $wp_customize->add_setting('woocommerce_account_uploaded_products_tab_disabled',
 
 $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_account_uploaded_products_tab_disabled',
     array (
-        'label' => esc_html__('Uploaded Products Disable'),
+        'label' => esc_html__('Uploaded Products Disabled'),
         'description' => __('Enable/disable uploaded products tab in user account.', 'growtype'),
         'section' => 'woocommerce_account_page',
     )
@@ -111,7 +111,7 @@ $wp_customize->add_setting('woocommerce_account_subscriptions_tab_disabled',
 
 $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_account_subscriptions_tab_disabled',
     array (
-        'label' => esc_html__('Subscriptions Disable'),
+        'label' => esc_html__('Subscriptions Disabled'),
         'description' => __('Enable/disable subscriptions tab in user account.', 'growtype'),
         'section' => 'woocommerce_account_page',
     )
