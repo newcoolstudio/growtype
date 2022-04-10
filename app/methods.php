@@ -15,6 +15,7 @@ include('Methods/class-growtype-social.php');
  */
 if (!class_exists('Growtype_Auction')) {
     include('Methods/class-growtype-auction.php');
+    new Growtype_Auction();
 }
 
 /**

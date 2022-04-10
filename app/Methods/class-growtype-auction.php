@@ -18,6 +18,48 @@ class Growtype_Auction
 
     const PAYMENT_PAGE_SLUG = 'auction-payment';
 
+    public function __construct()
+    {
+        if (!self::payment_page_exists()) {
+            add_action('init', array ($this, 'custom_payment_page_url'), 1);
+            add_action('template_redirect', array ($this, 'custom_payment_page_template'));
+        }
+    }
+
+    public static function payment_page_exists()
+    {
+        return get_page_by_path(self::PAYMENT_PAGE_SLUG) ? true : false;
+    }
+
+    /**
+     * @return void
+     */
+    function custom_payment_page_url()
+    {
+        add_rewrite_endpoint(self::PAYMENT_PAGE_SLUG, EP_ALL);
+    }
+
+    /**
+     * @return void
+     */
+    function custom_payment_page_template()
+    {
+        if (isset($_SERVER['REQUEST_URI'])) {
+            $current_url_slug = str_replace('/', '', $_SERVER['REQUEST_URI']);
+
+            if (strtok($current_url_slug, '?') === self::PAYMENT_PAGE_SLUG) {
+
+                if (isset($_GET['order_id'])) {
+                    $order_id = $_GET['order_id'];
+                    $order = wc_get_order($order_id);
+                }
+
+                echo \App\template('plugins.woocommerce-simple-auctions.pages.payments', ['order' => $order ?? null]);
+                exit();
+            }
+        }
+    }
+
     /**
      * @return string
      * percent
@@ -570,7 +612,7 @@ class Growtype_Auction
      */
     public static function rules_formatted()
     {
-        return \App\template('plugins.woocommerce-simple-auctions.rules');
+        return \App\template('plugins.woocommerce-simple-auctions.components.rules');
     }
 
     /**
@@ -632,7 +674,7 @@ class Growtype_Auction
      * @param $user_id
      * @return array|bool
      */
-    public static function is_reserved_for_user($product_id, $user_id)
+    public static function is_reserved_for_user($product_id, $user_id = null)
     {
         return Growtype_Product::is_reserved_for_user($product_id, $user_id);
     }
@@ -642,7 +684,11 @@ class Growtype_Auction
      */
     public static function get_checkout_url()
     {
-        return get_permalink(get_page_by_path(self::PAYMENT_PAGE_SLUG));
+        if (self::payment_page_exists()) {
+            return get_permalink(get_page_by_path(self::PAYMENT_PAGE_SLUG));
+        }
+
+        return home_url(self::PAYMENT_PAGE_SLUG);
     }
 
     /**

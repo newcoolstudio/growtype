@@ -674,12 +674,42 @@ class Growtype_Product
             return false;
         }
 
-        update_post_meta($product_id, '_is_reserved', true);
-        update_post_meta($product_id, '_reservation_user_id', $user_id);
+        update_post_meta($product->get_id(), '_is_reserved', true);
+        update_post_meta($product->get_id(), '_reservation_user_id', $user_id);
 
         $product->set_catalog_visibility('hidden');
 
-        Growtype_Product::add_tag($product, 'requires-evaluation');
+        Growtype_Product::add_tag($product, 'reserved');
+
+        update_post_meta($product->get_id(), '_auction_closed', '2');
+
+//        // Set order address
+//        $address = array (
+//            'first_name' => 'Joe ' . rand(1, 200),
+//            'last_name' => 'Njenga',
+//            'company' => 'njengah.com',
+//            'email' => 'joe@example.com',
+//            'phone' => '894-672-780',
+//            'address_1' => '123 Main st.',
+//            'address_2' => '100',
+//            'city' => 'Nairobi',
+//            'state' => 'Nairobi',
+//            'postcode' => '00100',
+//            'country' => 'KE'
+//        );
+//
+//        // Now we create the order
+//        $order = wc_create_order();
+//
+//        // Add products randomly selected above to the order
+//        foreach ($products as $product) {
+//            $order->add_product(wc_get_product($product->ID), 1); // This is an existing SIMPLE product
+//        }
+//
+//        $order->set_address($address, 'billing');
+//
+//        $order->calculate_totals();
+//        $order->update_status("Completed", 'Imported order', true);
 
         return true;
     }
@@ -718,8 +748,14 @@ class Growtype_Product
      * @param $product_id
      * @return array
      */
-    public static function is_reserved_for_user($product_id, $user_id)
+    public static function is_reserved_for_user($product_id, $user_id = null)
     {
+        $user_id = !empty($user_id) ? $user_id : get_current_user_id();
+
+        if (empty($user_id)) {
+            return false;
+        }
+
         $is_reserved = self::is_reserved($product_id);
         $reservation_user_id = get_post_meta($product_id, '_reservation_user_id', true);
 
@@ -736,5 +772,13 @@ class Growtype_Product
     public static function catalog_default_preview_style()
     {
         return !empty(get_theme_mod('wc_catalog_products_preview_style')) ? get_theme_mod('wc_catalog_products_preview_style') : 'grid';
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function upload_page_url()
+    {
+        return class_exists('Growtype_Form') ? get_permalink(growtype_form_product_upload_page()) : home_url('my-account/uploaded-products/');
     }
 }

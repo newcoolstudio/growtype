@@ -14,5 +14,5 @@ if (!empty($products_ids)) {
 @if(!empty($uploaded_product_content))
     {!! $uploaded_product_content !!}
 @else
-    @include('partials.content.404.general', ['cta' => class_exists('Growtype_Form') ? '<a href="'.growtype_form_product_upload_page_url().'" class="btn btn-primary mt-3">'.__('Upload a new product','growtype').'</a>' : '', 'subtitle' => __('You have no products uploaded.','growtype')])
+    @include('partials.content.404.general', ['cta' => class_exists('Growtype_Form') ? '<a href="'.Growtype_Product::upload_page_url().'" class="btn btn-primary mt-3">'.__('Upload a new product','growtype').'</a>' : '', 'subtitle' => __('You have no products uploaded.','growtype')])
 @endif
