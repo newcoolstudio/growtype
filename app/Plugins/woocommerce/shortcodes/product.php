@@ -31,8 +31,14 @@ function products_growtype_shortcode($atts, $content = null)
         'cta_btn' => '',
         'before_shop_loop' => '',
         'after_shop_loop' => '',
+        'not_found_message' => true,
+        'not_found_subtitle' => __('You have no products.', 'growtype'),
+        'not_found_cta' => '',
     ), $atts));
 
+    /**
+     * Default args
+     */
     $args = array (
         'post_type' => 'product',
         'post_status' => $post_status,
@@ -40,10 +46,18 @@ function products_growtype_shortcode($atts, $content = null)
         'order' => $order
     );
 
+    /**
+     * Check if ids specified
+     */
+    $not_found_message_content = $not_found_message ? App\template('partials.content.404.general', ['cta' => urldecode($not_found_cta), 'subtitle' => $not_found_subtitle]) : '';
+
     if (!empty($ids)) {
         $args['post__in'] = explode(',', $ids);
     }
 
+    /**
+     * Posts per page
+     */
     if (!empty($per_page)) {
         $args['posts_per_page'] = $per_page;
     } else {
@@ -53,14 +67,14 @@ function products_growtype_shortcode($atts, $content = null)
     /**
      * Display type
      */
-    if ($products_group === 'active-auctions') {
+    if ($products_group === 'active_auctions') {
         $args['meta_query'] = [
             array (
                 'key' => '_auction_has_started',
                 'compare' => '1'
             )
         ];
-    } elseif ($products_group === 'active-upcoming-auctions') {
+    } elseif ($products_group === 'active_upcoming_auctions') {
         $args['meta_query'] = [
             array (
                 'key' => '_auction_closed',
@@ -82,7 +96,7 @@ function products_growtype_shortcode($atts, $content = null)
         } else {
             return \App\template('partials.content.404.general');
         }
-    } elseif ($products_group === 'user-active-bids') {
+    } elseif ($products_group === 'user_active_bids') {
         $user_ID = get_current_user_id();
 
         $postids = array ();
@@ -128,6 +142,13 @@ function products_growtype_shortcode($atts, $content = null)
     if (isset($product_type) && $product_type === 'subscription') {
         $subscription_ids = Growtype_Product::get_subscriptions_ids();
         $args['post__in'] = isset($args['post__in']) ? array_merge($args['post__in'], $subscription_ids) : $subscription_ids;
+    }
+
+    /**
+     * Check if still empty post ids
+     */
+    if (!isset($args['post__in']) || empty($args['post__in'])) {
+        return $not_found_message_content;
     }
 
     /**
@@ -191,5 +212,5 @@ function products_growtype_shortcode($atts, $content = null)
         $render = '<div class="woocommerce">' . ob_get_clean() . '</div>';
     }
 
-    return $render ?? '';
+    return isset($render) && !empty($render) ? $render : $not_found_message_content;
 }
