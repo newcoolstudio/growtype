@@ -9,8 +9,11 @@
                     {!! get_theme_mod('footer_textarea') !!}
                 </div>
             @endif
-            <a id="footer_logo" href="<?php echo get_home_url_custom() ?>" class="mainlogo">@if(!empty(get_footer_logo()['url']))
-                    <img class="img-fluid" src="{{get_footer_logo()['url']}}" alt="footer_logo">@endif</a>
+            @if(!empty(get_footer_logo()['url']))
+                <a id="footer_logo" href="<?php echo get_home_url_custom() ?>" class="mainlogo">
+                    <img class="img-fluid" src="{{get_footer_logo()['url']}}" alt="footer_logo">
+                </a>
+            @endif
         </div>
     </div>
 </div>

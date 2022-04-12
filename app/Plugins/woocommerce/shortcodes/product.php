@@ -26,14 +26,15 @@ function products_growtype_shortcode($atts, $content = null)
         'products_group' => 'default',
         'product_type' => '',
         'preview_style' => Growtype_Product::catalog_default_preview_style(),
-        'edit_product' => false,
+        'edit_product' => 'false',
         'post_status' => 'publish',
         'cta_btn' => '',
         'before_shop_loop' => '',
         'after_shop_loop' => '',
-        'not_found_message' => true,
+        'not_found_message' => 'true',
         'not_found_subtitle' => __('You have no products.', 'growtype'),
         'not_found_cta' => '',
+        'ids_required' => 'true',
     ), $atts));
 
     /**
@@ -49,7 +50,7 @@ function products_growtype_shortcode($atts, $content = null)
     /**
      * Check if ids specified
      */
-    $not_found_message_content = $not_found_message ? App\template('partials.content.404.general', ['cta' => urldecode($not_found_cta), 'subtitle' => $not_found_subtitle]) : '';
+    $not_found_message_content = $not_found_message === 'true' ? App\template('partials.content.404.general', ['cta' => urldecode($not_found_cta), 'subtitle' => $not_found_subtitle]) : '';
 
     if (!empty($ids)) {
         $args['post__in'] = explode(',', $ids);
@@ -147,7 +148,7 @@ function products_growtype_shortcode($atts, $content = null)
     /**
      * Check if still empty post ids
      */
-    if (!isset($args['post__in']) || empty($args['post__in'])) {
+    if ($ids_required === 'true' && (!isset($args['post__in']) || empty($args['post__in']))) {
         return $not_found_message_content;
     }
 
@@ -185,7 +186,7 @@ function products_growtype_shortcode($atts, $content = null)
 
         set_query_var('visibility', $visibility);
 
-        if (isset($edit_product) && $edit_product) {
+        if ($edit_product === 'true') {
             set_query_var('preview_permalink', true);
         }
 
