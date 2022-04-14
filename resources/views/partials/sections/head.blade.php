@@ -16,10 +16,10 @@
     @stack('pageStyles')
 
     @if(!empty(get_fonts_details()['primaryFontDetails']))
-        <link href="https://fonts.googleapis.com/css?family=<?php echo urlencode(get_fonts_details()['primaryFontDetails']->font)?>:<?php echo urlencode(get_fonts_details()['primaryFontDetails']->regularweight)?>,<?php echo urlencode(get_fonts_details()['primaryFontDetails']->boldweight)?>,<?php echo urlencode(get_fonts_details()['primaryFontDetails']->italicweight)?>" rel="stylesheet">
+        <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=<?php echo urlencode(get_fonts_details()['primaryFontDetails']->font)?>:<?php echo urlencode(get_fonts_details()['primaryFontDetails']->regularweight)?>,<?php echo urlencode(get_fonts_details()['primaryFontDetails']->boldweight)?>,<?php echo urlencode(get_fonts_details()['primaryFontDetails']->italicweight)?>">
     @endif
 
     @if(!empty(get_fonts_details()['secondaryFontDetails']) && get_fonts_details()['primaryFontDetails']->font !== get_fonts_details()['secondaryFontDetails']->font && get_fonts_details()['secondaryFontSwitch'])
-        <link href="https://fonts.googleapis.com/css?family=<?php echo urlencode(get_fonts_details()['secondaryFontDetails']->font)?>:<?php echo urlencode(get_fonts_details()['secondaryFontDetails']->regularweight)?>,<?php echo urlencode(get_fonts_details()['secondaryFontDetails']->boldweight)?>,<?php echo urlencode(get_fonts_details()['secondaryFontDetails']->italicweight)?>" rel="stylesheet">
+        <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=<?php echo urlencode(get_fonts_details()['secondaryFontDetails']->font)?>:<?php echo urlencode(get_fonts_details()['secondaryFontDetails']->regularweight)?>,<?php echo urlencode(get_fonts_details()['secondaryFontDetails']->boldweight)?>,<?php echo urlencode(get_fonts_details()['secondaryFontDetails']->italicweight)?>">
     @endif
 </head>

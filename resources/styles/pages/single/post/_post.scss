@@ -14,12 +14,10 @@
 
 .s-posts-related {
   background: #f8f8f8;
-  margin-bottom: 60px;
   padding-top: 50px;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
   @include bp-phone-xl() {
     padding-top: 30px;
-    margin-bottom: 20px;
   }
 
   .b-post-single {

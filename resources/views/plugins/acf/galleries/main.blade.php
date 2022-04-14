@@ -18,8 +18,8 @@
                                 @if (!empty($image['caption']))
                                     <h2>{{$image['caption']}}</h2>
                                 @else
-                                    <div class="icon" style="max-width: 50px">
-                                        <img src="<?php echodirname(get_template_directory_uri())?>/public/icons/icon-plus.svg" class="img-fluid" alt="">
+                                    <div class="icon">
+                                        <span class="dashicons dashicons-search"></span>
                                     </div>
                                 @endif
                             </div>

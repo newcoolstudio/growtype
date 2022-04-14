@@ -120,10 +120,6 @@ function growtype_customizer_general_css()
             color: <?php echo get_theme_mod('header_text_color_home') ?>
         }
 
-        .home .hamburger-inner {
-            background: <?php echo get_theme_mod('header_text_color_home') ?>;
-        }
-
         <?php } ?>
 
         <?php if(!empty(get_theme_mod('mobile_menu_text_color'))){ ?>

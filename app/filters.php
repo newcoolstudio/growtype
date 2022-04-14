@@ -107,16 +107,53 @@ add_filter('comments_template', function ($comments_template) {
 }, 100);
 
 /**
- * @param $tag
- * @param $handle
- * @param $src
- * @return mixed|string
+ * WP - Load JS Asynchronously
+ * Eliminate blocking-resources
  */
 add_filter('script_loader_tag', function ($tag, $handle, $src) {
-    if ('gutenberg-block-editor-scripts' !== $handle) {
-        return $tag;
+    $async_loading = array (
+        'gutenberg-block-editor-scripts',
+//        'jquery-core',
+//        'jquery-migrate',
+        'swiperJS',
+        'easyTicker',
+        'ap-block-posts-script',
+    );
+
+    if (in_array($handle, $async_loading)) {
+        $tag = '<script async type="text/javascript" src="' . esc_url($src) . '"></script>';
     }
 
-    $tag = '<script type="module" src="' . esc_url($src) . '"></script>';
     return $tag;
 }, 10, 3);
+
+/**
+ * WP - Load CSS Asynchronously
+ * Eliminate blocking-resources
+ */
+add_filter('style_loader_tag', function ($html, $handle) {
+    $async_loading = array (
+        'wp-block-library',
+        'wp-block-editor',
+        'wp-nux',
+        'wp-editor',
+        'wp-components',
+        'dashicons',
+        'ap-block-posts-style',
+        'wp-reusable-blocks',
+        'jquery.fancybox.css',
+        'jquery.fancybox.css',
+        'carousel-block',
+        'chosen.css',
+        'slick.min.css',
+        'growtype.main.css',
+    );
+
+    if (in_array($handle, $async_loading)) {
+        $async_html = str_replace("rel='stylesheet'", "rel='preload' as='style'", $html);
+        $async_html .= str_replace('media=\'all\'', 'media="print" onload="this.media=\'all\'"', $html);
+        return $async_html;
+    }
+
+    return $html;
+}, 10, 2);

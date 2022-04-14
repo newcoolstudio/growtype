@@ -8,7 +8,7 @@
   padding-top: 80px;
   padding-bottom: 80px;
 
-  .b-intro-content{
+  .b-intro-content {
     padding-bottom: 30px;
   }
 
@@ -95,13 +95,13 @@
 
       .icon {
         opacity: 1;
-        transition: all 0.3s;
+        transition: all 0.5s;
       }
     }
 
     .icon {
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 40px;
       position: absolute;
       left: 0;
       right: 0;
@@ -110,6 +110,16 @@
       margin: auto;
       opacity: 0;
       transition: all 0.5s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        width: initial;
+        height: initial;
+        font-size: 34px;
+        color: white;
+      }
 
       svg {
         fill: white;
@@ -137,29 +147,31 @@
   }
 }
 
-.s-gallery-logos{
+.s-gallery-logos {
   margin-bottom: 50px;
   margin-top: 50px;
-  @include bp-phone-xl(){
+  @include bp-phone-xl() {
     margin-bottom: 20px;
     margin-top: 35px;
   }
-  .s-gallery-inner{
+
+  .s-gallery-inner {
     display: flex;
     margin-top: 0;
-    @include bp-phone-xl(){
+    @include bp-phone-xl() {
       flex-wrap: wrap;
       justify-content: space-around;
     }
-    .e-image{
-      @include bp-phone-xl-reverse(){
+
+    .e-image {
+      @include bp-phone-xl-reverse() {
         width: 100%;
       }
       padding-top: 10%;
       margin-right: 5px;
       margin-left: 5px;
       margin-bottom: 0;
-      @include bp-phone-xl(){
+      @include bp-phone-xl() {
         padding-top: 20%;
         width: 46%;
       }

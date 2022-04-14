@@ -73,8 +73,16 @@ function get_login_logo()
 {
     $logo_url = wp_get_attachment_url(get_theme_mod('login_logo')) ?? '';
 
-    if (is_child_theme() && empty($logo_url)) {
-        $logo_url = dirname(get_template_directory_uri()) . '/public/images/logo/growtype.svg';
+    if (empty($logo_url)) {
+        $logo_url = wp_get_attachment_url(get_theme_mod('header_logo')) ?? '';
+    }
+
+    if (empty($logo_url)) {
+        if (is_child_theme()) {
+            $logo_url = get_child_template_public_path() . '/images/logo/growtype.svg';
+        } else {
+            $logo_url = get_parent_template_public_path() . '/images/logo/growtype.svg';
+        }
     }
 
     return [
