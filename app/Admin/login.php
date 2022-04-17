@@ -36,8 +36,8 @@ function custom_login_enqueue_scripts()
     <style>
         .login h1 a {
             background-image: url(<?php echo get_login_logo()['url']?>) !important;
+            background-position: center center !important;
             width: 240px !important;
-            /*height: 60px !important;*/
             background-size: contain !important;
         }
     </style>

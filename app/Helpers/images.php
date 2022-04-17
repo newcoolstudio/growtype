@@ -78,11 +78,7 @@ function get_login_logo()
     }
 
     if (empty($logo_url)) {
-        if (is_child_theme()) {
-            $logo_url = get_child_template_public_path() . '/images/logo/growtype.svg';
-        } else {
-            $logo_url = get_parent_template_public_path() . '/images/logo/growtype.svg';
-        }
+        $logo_url = get_parent_template_public_path() . '/images/logo/growtype.svg';
     }
 
     return [
