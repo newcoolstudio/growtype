@@ -469,7 +469,6 @@ function growtype_customizer_buttons_css()
         .btn-secondary a,
         .btn-secondary:hover {
             color: <?php echo get_theme_mod('secondary_button_text_color')?>;
-            border-color: <?php echo get_theme_mod('secondary_button_text_color')?>;
         }
 
         <?php } ?>
