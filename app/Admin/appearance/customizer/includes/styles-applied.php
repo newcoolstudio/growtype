@@ -479,7 +479,6 @@ function growtype_customizer_buttons_css()
         input[type=submit],
         input[type=submit]:hover,
         .wp-block-button:not(.is-style-outline) .wp-block-button__link,
-        .wp-block-button__link:hover,
         .woocommerce-cart .woocommerce button.button {
             background: <?php echo get_theme_mod('primary_button_background_color')?> !important;
             border: 1px solid <?php echo get_theme_mod('primary_button_background_color')?> !important;
@@ -493,7 +492,6 @@ function growtype_customizer_buttons_css()
         input[type=submit],
         input[type=submit]:hover,
         .wp-block-button__link,
-        .wp-block-button__link:hover,
         .woocommerce-cart .woocommerce button.button {
             color: <?php echo get_theme_mod('primary_button_text_color')?>;
         }
