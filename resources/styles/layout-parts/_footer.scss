@@ -408,9 +408,6 @@
 
   #footer_copyright {
     width: 100%;
-    @include bp-phone-xl() {
-      max-width: 70%;
-    }
   }
 
   .c-footernav {

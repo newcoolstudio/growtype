@@ -107,9 +107,9 @@ p.has-drop-cap:not(:focus)::first-letter {
 .wp-block-columns {
   max-width: $max-width-container;
   margin: auto;
-  @include bp-phone-xl-reverse() {
-    margin-left: -10px;
-    width: calc(100% + 20px);
+  @include bp-desktop() {
+    margin-left: -15px;
+    width: calc(100% + 30px);
   }
 
   &.alignfull {
@@ -122,11 +122,11 @@ p.has-drop-cap:not(:focus)::first-letter {
   }
 
   .wp-block-column {
-    margin-left: 10px;
-    margin-right: 10px;
-    @include bp-tablet-big() {
-      margin-left: 0;
+    margin-left: 15px;
+    margin-right: 15px;
+    @include bp-phone-xl() {
       margin-right: 0;
+      margin-left: 0;
     }
 
     .wp-block-image {
@@ -146,6 +146,13 @@ p.has-drop-cap:not(:focus)::first-letter {
 
   .has-text-align-center {
     margin: auto;
+  }
+}
+
+.container .wp-block-group__inner-container {
+  @include bp-desktop() {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 

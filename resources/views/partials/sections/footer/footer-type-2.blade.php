@@ -29,7 +29,9 @@
         </div>
     @endif
 
-    @include('partials.components.social-icons')
+    @if(Growtype_Social::icons_enabled())
+        @include('partials.components.social-icons')
+    @endif
 
     @include('partials.components.credits')
 </div>
