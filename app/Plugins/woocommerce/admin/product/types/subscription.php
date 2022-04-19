@@ -26,6 +26,7 @@ function growtype_wc_register_subscription_type()
                     (function_exists('is_feed') && is_feed()) || (function_exists('is_404') && is_404()) ? $this->get_permalink() : ''
                 )
             ) : $this->get_permalink();
+
             return apply_filters('woocommerce_product_add_to_cart_url', $url, $this);
         }
     }

@@ -323,6 +323,13 @@ function adjust_add_to_cart_button_link($add_to_cart_url, $product)
     }
 
     /**
+     * Clean url
+     */
+    if (str_contains($add_to_cart_url, 'mailto')) {
+        $add_to_cart_url = str_replace('https://', '', $add_to_cart_url);
+    }
+
+    /**
      * Permalink update
      */
     if ($add_to_cart_url === get_permalink($product->get_id())) {
