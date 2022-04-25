@@ -777,7 +777,17 @@ if (class_exists('WP_Customize_Control')) {
                             ?>
                         </select>
                     </div>
-                    <div class="customize-control-description"><?php esc_html_e('Select weight & style for regular text', 'growtype') ?></div>
+                    <div class="customize-control-description"><?php esc_html_e('Select weight for light text', 'growtype') ?></div>
+                    <div class="weight-style">
+                        <select class="google-fonts-lightweight-style">
+                            <?php
+                            foreach ($this->fontList[$this->fontListIndex]->variants as $key => $value) {
+                                echo '<option value="' . $value . '" ' . selected($this->fontValues->lightweight, $value, false) . '>' . $value . '</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="customize-control-description"><?php esc_html_e('Select weight for regular text', 'growtype') ?></div>
                     <div class="weight-style">
                         <select class="google-fonts-regularweight-style">
                             <?php

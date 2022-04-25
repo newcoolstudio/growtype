@@ -256,6 +256,7 @@ jQuery(document).ready(function ($) {
     });
 
     $('.google-fonts-list').on('change', function () {
+        var elementLightWeight = $(this).parent().parent().find('.google-fonts-lightweight-style');
         var elementRegularWeight = $(this).parent().parent().find('.google-fonts-regularweight-style');
         var elementItalicWeight = $(this).parent().parent().find('.google-fonts-italicweight-style');
         var elementBoldWeight = $(this).parent().parent().find('.google-fonts-boldweight-style');
@@ -265,6 +266,7 @@ jQuery(document).ready(function ($) {
         var elementBoldWeightCount = 0;
 
         // Clear Weight/Style dropdowns
+        elementLightWeight.empty();
         elementRegularWeight.empty();
         elementItalicWeight.empty();
         elementBoldWeight.empty();
@@ -327,6 +329,7 @@ jQuery(document).ready(function ($) {
     function skyrocketGetAllSelects($element) {
         var selectedFont = {
             font: $element.find('.google-fonts-list').val(),
+            lightweight: $element.find('.google-fonts-lightweight-style').val(),
             regularweight: $element.find('.google-fonts-regularweight-style').val(),
             italicweight: $element.find('.google-fonts-italicweight-style').val(),
             boldweight: $element.find('.google-fonts-boldweight-style').val(),

@@ -24,4 +24,9 @@
             <span class="dashicons dashicons-linkedin"></span>
         </a>
     @endif
+    @if(get_theme_mod('header_navbar_social_youtube'))
+        <a href="{{get_theme_mod('header_navbar_social_youtube_url')}}" target="_blank">
+            <span class="dashicons dashicons-youtube"></span>
+        </a>
+    @endif
 </div>

@@ -13,11 +13,17 @@ function growtype_wc_filter_products()
         'products_group' => $_POST['products_group'] ?? [],
         'min_price' => $_POST['min_price'] ?? [],
         'max_price' => $_POST['max_price'] ?? [],
+        'base' => $_POST['base'] ?? '',
+        'page_nr' => $_POST['page_nr'] ?? '',
     ];
 
     $products = growtype_wc_get_filtered_products($filter_params);
 
     if ($products->have_posts()) {
+        /**
+         * Products
+         */
+        ob_start();
         if (Growtype_Product::catalog_default_preview_style() === 'table') {
             echo \App\template('woocommerce.components.table.product-table', ['products' => $products]);
         } else {
@@ -25,12 +31,42 @@ function growtype_wc_filter_products()
                 wc_get_template_part('content', 'product');
             endwhile;
         }
+
         wp_reset_postdata();
+
+        $rendered_products = ob_get_clean();
+
+        /**
+         * Pagination
+         */
+
+        ob_start();
+
+        $args = array (
+            'total' => $products->max_num_pages,
+            'current' => $filter_params['page_nr'],
+            'base' => 'https://memberbid.test/auctions/' . '%_%',
+            'format' => 'page/%#%',
+        );
+
+        echo wc_get_template('loop/pagination.php', $args);
+
+        $pagination = ob_get_clean();
+
     } else {
+        ob_start();
+
         do_action('woocommerce_no_products_found');
+
+        $rendered_products = ob_get_clean();
     }
 
-    exit();
+    $data = [
+        'products' => $rendered_products,
+        'pagination' => isset($pagination) ? $pagination : '',
+    ];
+
+    return wp_send_json($data);
 }
 
 /**

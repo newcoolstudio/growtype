@@ -224,5 +224,16 @@ function page_is_among_enabled_pages($enabled_pages)
         return true;
     }
 
+    /**
+     * Cpt
+     */
+    if (in_array('cpt_1', $enabled_pages)) {
+        $cpt_1_value = get_option('cpt_1_value');
+
+        if (!empty($cpt_1_value) && str_contains($_SERVER['REQUEST_URI'], $cpt_1_value)) {
+            return true;
+        }
+    }
+
     return $page_enabled;
 }

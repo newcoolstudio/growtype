@@ -62,7 +62,6 @@ add_action('init', function () {
     ));
 });
 
-
 add_action('init', function () {
     $cpt_name = !empty(get_option('cpt_1_value')) ? get_option('cpt_1_value') : 'project';
     $cpt_name = str_replace(' ', '_', $cpt_name);;

@@ -5,13 +5,6 @@
 }
 
 .has-panel {
-  .header-logo-wrapper {
-    display: none;
-    @include bp-phone-xl() {
-      display: block;
-    }
-  }
-
   .site-header {
     width: initial;
     padding-left: $padding-left-container;
@@ -125,7 +118,7 @@
     left: 0;
     right: 0;
     min-height: 100vh;
-    border-right: 1px solid $color-extra-light-grey;
+    border-right: 1px solid $color-border;
   }
 
   @include bp-tablet() {

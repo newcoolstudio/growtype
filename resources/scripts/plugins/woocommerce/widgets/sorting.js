@@ -24,10 +24,12 @@ function sorting() {
 
         $('.woocommerce-ordering select').change(function (e) {
             const searchParams = new URLSearchParams(window.location.search)
+            const orderingName = $(this).attr('name')
+            const orderingValue = $(this).val()
+            const current_products_group = $('.products').attr('data-group');
+            const current_products_base = $('.products').attr('data-base');
 
             let categoryId = '';
-            let orderingName = $(this).attr('name')
-            let orderingValue = $(this).val()
 
             woocommerce_params_widgets.min_price = searchParams.get('min_price');
             woocommerce_params_widgets.max_price = searchParams.get('max_price');
@@ -62,8 +64,6 @@ function sorting() {
                 }
             });
 
-            let current_products_group = $('.products').attr('data-group');
-
             /**
              * Get products
              */
@@ -78,14 +78,25 @@ function sorting() {
                     products_group: current_products_group,
                     min_price: woocommerce_params_widgets.min_price,
                     max_price: woocommerce_params_widgets.max_price,
+                    base: current_products_base,
                 },
                 beforeSend: function () {
                     $('.products').addClass('is-loading');
                 },
                 success: function (data) {
-                    $('.products').removeClass('is-loading').html("").append(data).promise().done(function () {
+                    $('.products').removeClass('is-loading').html("").append(data.products).promise().done(function () {
                         document.dispatchEvent(filterProductsByOrderEvent);
                     });
+
+                    if ($('.woocommerce-pagination').length > 0) {
+                        $('.woocommerce-pagination').replaceWith(data.pagination);
+                    } else {
+                        $('.products').after(data.pagination);
+                    }
+
+                    if (growtype_params.page_nr > 1 && data.pagination.length === 0) {
+                        window.location = current_products_base + '?orderby=' + woocommerce_params_widgets.orderby;
+                    }
                 }
             });
         });

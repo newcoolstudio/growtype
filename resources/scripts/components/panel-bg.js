@@ -2,13 +2,22 @@ function panelBg() {
     let panelBackground = $('.panel .panel-bg');
 
     if (panelBackground.length > 0) {
+
+        document.addEventListener('filterProductsByOrder', function () {
+            setPanelHeight();
+        });
+
         $(window).on("load resize", function () {
-            let panelHeight = $('body').height();
-            if ($('#site-footer').length > 0) {
-                panelHeight = panelHeight - $('#site-footer').height()
-            }
-            panelBackground.height(panelHeight)
+            setPanelHeight();
         })
+    }
+
+    function setPanelHeight() {
+        let panelHeight = $('body').height();
+        if ($('#site-footer').length > 0) {
+            panelHeight = panelHeight - $('#site-footer').height()
+        }
+        panelBackground.height(panelHeight)
     }
 }
 

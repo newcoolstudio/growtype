@@ -29,6 +29,16 @@ class Customizer_Available_Data
         $customizer_available_pages['lost_password_page'] = 'Lost password page (important: no id)';
         $customizer_available_pages['search_results'] = 'Search results (important: no id)';
 
+        /**
+         * For cpts
+         */
+        $customizer_available_pages['cpt_1'] = 'Cpt 1';
+        $customizer_available_pages['cpt_2'] = 'Cpt 2';
+        $customizer_available_pages['cpt_3'] = 'Cpt 3';
+        $customizer_available_pages['cpt_4'] = 'Cpt 4';
+
+        $customizer_available_pages = apply_filters('growtype_customizer_extend_available_pages', $customizer_available_pages);
+
         return $customizer_available_pages;
     }
 

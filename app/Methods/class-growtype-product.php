@@ -664,15 +664,36 @@ class Growtype_Product
 
     /**
      * @param $product_id
-     * @return array
+     * @param $user_id
+     * @return bool
+     * @throws WC_Data_Exception
      */
     public static function reserve_for_user($product_id, $user_id)
     {
+        $customer = new WC_Customer($user_id);
+
+        $address = $customer->get_billing();
+
         $product = wc_get_product($product_id);
 
         if (empty($product)) {
             return false;
         }
+
+        /**
+         * Now we create the order
+         */
+        $order = wc_create_order();
+
+        $order->add_product($product, 1);
+
+        $order->set_address($address, 'billing');
+
+        $order->set_customer_id($user_id);
+
+        $order->calculate_totals();
+
+        $order->update_status("pending", 'Imported order', true);
 
         update_post_meta($product->get_id(), '_is_reserved', true);
         update_post_meta($product->get_id(), '_reservation_user_id', $user_id);
@@ -683,33 +704,7 @@ class Growtype_Product
 
         update_post_meta($product->get_id(), '_auction_closed', '2');
 
-//        // Set order address
-//        $address = array (
-//            'first_name' => 'Joe ' . rand(1, 200),
-//            'last_name' => 'Njenga',
-//            'company' => 'njengah.com',
-//            'email' => 'joe@example.com',
-//            'phone' => '894-672-780',
-//            'address_1' => '123 Main st.',
-//            'address_2' => '100',
-//            'city' => 'Nairobi',
-//            'state' => 'Nairobi',
-//            'postcode' => '00100',
-//            'country' => 'KE'
-//        );
-//
-//        // Now we create the order
-//        $order = wc_create_order();
-//
-//        // Add products randomly selected above to the order
-//        foreach ($products as $product) {
-//            $order->add_product(wc_get_product($product->ID), 1); // This is an existing SIMPLE product
-//        }
-//
-//        $order->set_address($address, 'billing');
-//
-//        $order->calculate_totals();
-//        $order->update_status("Completed", 'Imported order', true);
+        $product->save();
 
         return true;
     }

@@ -86,7 +86,14 @@ function custom_gallery_shortcode($attr)
     }
 
     if (!empty($galleryData['include'])) {
-        $_attachments = get_posts(['include' => explode(',', $galleryData['include']), 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $galleryData['order'], 'orderby' => $galleryData['orderby']]);
+        $_attachments = get_posts([
+            'include' => explode(',', $galleryData['include']),
+            'post_status' => 'inherit',
+            'post_type' => 'attachment',
+            'post_mime_type' => 'image',
+            'order' => $galleryData['order'],
+            'orderby' => $galleryData['orderby']
+        ]);
         $attachments = array ();
         foreach ($_attachments as $key => $val) {
             $attachments[$val->ID] = $_attachments[$key];

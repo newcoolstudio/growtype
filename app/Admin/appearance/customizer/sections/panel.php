@@ -80,6 +80,24 @@ class Panel_Customizer_Register
         ));
 
         /**
+         * Panel has header
+         */
+        $wp_customize->add_setting('panel_has_header',
+            array (
+                'default' => 0,
+                'transport' => 'refresh',
+            )
+        );
+
+        $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'panel_has_header',
+            array (
+                'label' => esc_html__('Panel Header'),
+                'section' => 'panel',
+                'description' => __('Panel has header', 'growtype'),
+            )
+        ));
+
+        /**
          * Panel style
          */
         $wp_customize->add_setting('panel_style',

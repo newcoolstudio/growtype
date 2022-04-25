@@ -58,7 +58,6 @@ function social_customize_register($wp_customize)
     /**
      * Navbar social icon twitter
      */
-
     $wp_customize->add_setting('header_navbar_social_twitter', array (
         'capability' => 'edit_theme_options',
     ));
@@ -82,7 +81,6 @@ function social_customize_register($wp_customize)
     /**
      * Navbar social icon instagram
      */
-
     $wp_customize->add_setting('header_navbar_social_instagram', array (
         'capability' => 'edit_theme_options',
     ));
@@ -145,6 +143,29 @@ function social_customize_register($wp_customize)
 
     $wp_customize->add_control('header_navbar_social_linkedin_url', array ( // setting id
         'label' => __('Linkedin Url', 'growtype'),
+        'section' => 'social',
+        'type' => 'text',
+    ));
+
+    /**
+     * Navbar social icon youtube
+     */
+    $wp_customize->add_setting('header_navbar_social_youtube', array (
+        'capability' => 'edit_theme_options',
+    ));
+
+    $wp_customize->add_control('header_navbar_social_youtube', array (
+        'type' => 'checkbox',
+        'section' => 'social',
+        'label' => __('Youtube', 'growtype')
+    ));
+
+    $wp_customize->add_setting("header_navbar_social_youtube_url", array (
+        "default" => "",
+    ));
+
+    $wp_customize->add_control('header_navbar_social_youtube_url', array ( // setting id
+        'label' => __('Youtube Url', 'growtype'),
         'section' => 'social',
         'type' => 'text',
     ));

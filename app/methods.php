@@ -11,14 +11,6 @@ include('Methods/class-growtype-user-account.php');
 include('Methods/class-growtype-social.php');
 
 /**
- * Auction
- */
-if (!class_exists('Growtype_Auction')) {
-    include('Methods/class-growtype-auction.php');
-    new Growtype_Auction();
-}
-
-/**
  * Shop
  */
 if (!class_exists('Growtype_Shop')) {

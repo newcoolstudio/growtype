@@ -32,4 +32,4 @@ if (!defined('ABSPATH')) {
     @endphp
 @endif
 
-<ul class="products columns-<?php echo esc_attr(wc_get_loop_prop('columns')); ?> {!! $preview_style_class !!}" data-group="{!! $products_group ?? 'default' !!}">
+<ul class="products columns-<?php echo esc_attr(wc_get_loop_prop('columns')); ?> {!! $preview_style_class !!}" data-group="{!! $products_group ?? 'default' !!}" data-base="{!! $products_base ?? get_permalink( wc_get_page_id( 'shop' ) ) !!}">

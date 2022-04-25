@@ -195,7 +195,6 @@ add_filter('woocommerce_add_cart_item_data', 'growtype_woocommerce_add_cart_item
 function growtype_woocommerce_add_cart_item_data($cart_item_data)
 {
     global $woocommerce;
-
     /**
      * Check product type
      */
@@ -231,6 +230,7 @@ function growtype_woocommerce_ajax_added_to_cart($product_id)
     $user_can_buy = get_theme_mod('only_registered_users_can_buy') ? is_user_logged_in() : true;
 
     $is_required_product = Growtype_Product::product_is_among_required_products($product_id);
+
     /**
      * Check if user can buy product and redirect accordingly
      */
@@ -246,9 +246,12 @@ function growtype_woocommerce_ajax_added_to_cart($product_id)
             $custom_redirect_url = wc_get_checkout_url();
         }
 
+        /**
+         * Woocommerce native method to redirect after add to cart.
+         */
         $data = array (
-            'error' => true,
-            'redirect_url' => $custom_redirect_url
+            'error' => true, //this line required
+            'product_url' => $custom_redirect_url
         );
 
         wp_send_json($data);

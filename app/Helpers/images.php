@@ -145,13 +145,7 @@ function get_mobile_burger_logo()
  */
 function get_panel_logo()
 {
-    $logo_url = wp_get_attachment_url(get_theme_mod('panel_logo')) ?? '';
-
-    if (empty($logo_url)) {
-        $logo_url = get_theme_mod('header_logo') ?
-            wp_get_attachment_url(get_theme_mod('header_logo')) :
-            dirname(get_template_directory_uri()) . '/public/images/logo/growtype.svg';
-    }
+    $logo_url = get_theme_mod('panel_logo') ? wp_get_attachment_url(get_theme_mod('panel_logo')) : null;
 
     return [
         'id' => get_theme_mod('panel_logo'),

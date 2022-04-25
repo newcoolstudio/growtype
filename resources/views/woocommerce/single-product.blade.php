@@ -55,7 +55,7 @@
 
     @if(Growtype_Product::user_has_uploaded_product(get_the_ID()) && is_user_logged_in() && isset($_REQUEST['customize']) && $_REQUEST['customize'] === 'preview')
 
-        {!! wc_add_notice('Your listing is saved as a draft. You can edit it <a href="'.Growtype_Product::edit_permalink().'" class="btn-link">here</a>.', 'notice') !!}
+        {!! wc_add_notice('Your listing was saved as a draft. You can edit it <a href="'.Growtype_Product::edit_permalink().'" class="btn-link">here</a>.', 'notice') !!}
 
         <?php wc_get_template_part('content', 'single-product'); ?>
     @elseif(Growtype_Product::user_has_uploaded_product(get_the_ID()) && is_user_logged_in() && isset($_REQUEST['customize']) && $_REQUEST['customize'] === 'edit')

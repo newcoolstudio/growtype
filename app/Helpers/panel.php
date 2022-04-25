@@ -14,13 +14,6 @@ function display_panel($display = false)
     }
 
     /**
-     * Check if user is logged in
-     */
-    if (!is_user_logged_in()) {
-        $panel_enabled = false;
-    }
-
-    /**
      * Check conditions
      */
     $condition = [
