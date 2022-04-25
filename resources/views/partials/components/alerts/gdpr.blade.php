@@ -5,7 +5,7 @@
 
 @push('footerScripts')
     <script>
-        if (cookieCustom.getCookie('gdpr_showed') !== 'true') {
+        if (typeof cookieCustom !== 'undefined' && cookieCustom.getCookie('gdpr_showed') !== 'true') {
             $('#alert-gdpr').fadeIn();
         }
         $('#alert-gdpr').on('closed.bs.alert', function () {

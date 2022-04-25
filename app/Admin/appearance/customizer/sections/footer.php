@@ -34,7 +34,7 @@ function footer_customize_register($wp_customize)
     ));
 
     /**
-     * Footer enabled
+     * Footer disabled
      */
     $wp_customize->add_setting('footer_is_disabled',
         array (
@@ -47,7 +47,25 @@ function footer_customize_register($wp_customize)
         array (
             'label' => esc_html__('Footer Disabled'),
             'section' => 'footer',
-            'description' => __('Footer is disabled', 'growtype'),
+            'description' => __('Disable footer.', 'growtype'),
+        )
+    ));
+
+    /**
+     * Footer copyright disabled
+     */
+    $wp_customize->add_setting('footer_copyright_disabled',
+        array (
+            'default' => 0,
+            'transport' => 'refresh',
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'footer_copyright_disabled',
+        array (
+            'label' => esc_html__('Copyright Disabled'),
+            'section' => 'footer',
+            'description' => __('Disable copyright section.', 'growtype'),
         )
     ));
 
@@ -153,8 +171,8 @@ function footer_customize_register($wp_customize)
 
     $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control($wp_customize, 'footer_copyright',
         array (
-            'label' => __('Copyright Text'),
-            'description' => __('This is for copyright details'),
+            'label' => __('Copyright Section'),
+            'description' => __('Copyright details etc.'),
             'section' => 'footer',
             'input_attrs' => array (
                 'class' => 'qtranxs-translatable',

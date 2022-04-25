@@ -32,11 +32,27 @@ class Customizer_Available_Data
         /**
          * For cpts
          */
-        $customizer_available_pages['cpt_1'] = 'Cpt 1';
-        $customizer_available_pages['cpt_2'] = 'Cpt 2';
-        $customizer_available_pages['cpt_3'] = 'Cpt 3';
-        $customizer_available_pages['cpt_4'] = 'Cpt 4';
+        if (get_option('cpt_1_enabled')) {
+            $customizer_available_pages['cpt_1'] = 'CPT - 1';
+        }
+        if (get_option('cpt_2_enabled')) {
+            $customizer_available_pages['cpt_2'] = 'CPT - 2';
+        }
+        if (get_option('cpt_3_enabled')) {
+            $customizer_available_pages['cpt_3'] = 'CPT - 3';
+        }
+        if (get_option('cpt_4_enabled')) {
+            $customizer_available_pages['cpt_4'] = 'CPT - 4';
+        }
 
+        /**
+         * Posts
+         */
+        $customizer_available_pages['posts'] = 'CPT - Posts';
+
+        /**
+         * External pages
+         */
         $customizer_available_pages = apply_filters('growtype_customizer_extend_available_pages', $customizer_available_pages);
 
         return $customizer_available_pages;

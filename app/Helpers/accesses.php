@@ -230,7 +230,16 @@ function page_is_among_enabled_pages($enabled_pages)
     if (in_array('cpt_1', $enabled_pages)) {
         $cpt_1_value = get_option('cpt_1_value');
 
-        if (!empty($cpt_1_value) && str_contains($_SERVER['REQUEST_URI'], $cpt_1_value)) {
+        if (!empty($cpt_1_value) && is_single() && get_post_type() === $cpt_1_value) {
+            return true;
+        }
+    }
+
+    /**
+     * Posts
+     */
+    if (in_array('posts', $enabled_pages)) {
+        if (is_single() && get_post_type() === 'post') {
             return true;
         }
     }
