@@ -427,6 +427,7 @@ function growtype_customizer_buttons_css()
         <?php } ?>
 
         <?php if(get_theme_mod('secondary_button_border_color')){ ?>
+        .wp-block-button.is-style-outline .wp-block-button__link,
         .btn-secondary {
             border-color: <?php echo get_theme_mod('secondary_button_border_color'); ?>;
         }
