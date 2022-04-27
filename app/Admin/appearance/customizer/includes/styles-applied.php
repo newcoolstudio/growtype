@@ -468,6 +468,7 @@ function growtype_customizer_buttons_css()
         .wp-block-button.is-style-outline .wp-block-button__link,
         .btn-secondary,
         .btn-secondary a,
+        .btn-secondary span,
         .btn-secondary:hover {
             color: <?php echo get_theme_mod('secondary_button_text_color')?>;
         }
