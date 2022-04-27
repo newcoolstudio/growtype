@@ -426,14 +426,6 @@ function growtype_customizer_buttons_css()
 
         <?php } ?>
 
-        <?php if(get_theme_mod('secondary_button_border_color')){ ?>
-        .wp-block-button.is-style-outline .wp-block-button__link,
-        .btn-secondary {
-            border-color: <?php echo get_theme_mod('secondary_button_border_color'); ?>;
-        }
-
-        <?php } ?>
-
         <?php if(get_theme_mod('button_text_transform')){ ?>
         .btn-primary,
         .btn-secondary,
@@ -459,7 +451,6 @@ function growtype_customizer_buttons_css()
         .btn-secondary,
         .btn-secondary:hover {
             background: <?php echo get_theme_mod('secondary_button_background_color')?>;
-            border: 1px solid<?php echo get_theme_mod('secondary_button_background_color')?>;
         }
 
         <?php } ?>
@@ -471,6 +462,15 @@ function growtype_customizer_buttons_css()
         .btn-secondary span,
         .btn-secondary:hover {
             color: <?php echo get_theme_mod('secondary_button_text_color')?>;
+        }
+
+        <?php } ?>
+
+        <?php if(get_theme_mod('secondary_button_border_color')){ ?>
+        .wp-block-button.is-style-outline .wp-block-button__link,
+        .btn-secondary,
+        .btn-secondary:hover{
+            border-color: <?php echo get_theme_mod('secondary_button_border_color'); ?>;
         }
 
         <?php } ?>
