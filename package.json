@@ -52,6 +52,7 @@
     "eslint": "^7.20.0",
     "eslint-plugin-import": "^2.22.1",
     "laravel-mix": "^6.0.11",
+    "laravel-mix-polyfill": "^3.0.1",
     "postcss": "^8.2.6",
     "resolve-url-loader": "^4.0.0",
     "sass": "^1.32.7",

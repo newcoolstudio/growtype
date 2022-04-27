@@ -1,5 +1,6 @@
 let mix = require('laravel-mix');
 
+require('laravel-mix-polyfill');
 require('@tinypixelco/laravel-mix-wp-blocks');
 
 /*
@@ -66,6 +67,12 @@ mix
 
 mix
     .scripts(['resources/scripts/plugins/cookie/cookie.js'], 'public/scripts/cookie.js')
+
+mix.polyfill({
+    enabled: true,
+    useBuiltIns: "usage",
+    targets: "last 10 version, > 99%, firefox 50, IE 11, safari 10, safari 11"
+});
 
 mix
     .copyDirectory('resources/images', 'public/images')
