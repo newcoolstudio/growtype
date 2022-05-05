@@ -33,7 +33,7 @@ if (post_password_required()) {
 
 $classes = wc_get_product_class('', $product);
 
-if (Growtype_Auction::has_started()) {
+if (class_exists('Growtype_Auction') && Growtype_Auction::has_started()) {
     array_push($classes, 'auction-has-started');
 }
 

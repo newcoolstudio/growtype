@@ -63,7 +63,7 @@ function add_to_cart_ajax_callback()
                 }
             }
         }
-    } elseif ($product->is_type('auction')) {
+    } elseif (class_exists('Growtype_Auction') && $product->is_type('auction')) {
 
         $is_reserved = Growtype_Auction::is_reserved($product->get_id());
 

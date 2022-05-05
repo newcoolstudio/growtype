@@ -27,9 +27,9 @@
                             @endif
                         </div>
                     </div>
-                    <div class="read-more">
-                        <button class="btn read-more-link color-primary btn-basic">
-                            <?php echo __('Continue reading', 'growtype') . '...'; ?>
+                    <div class="b-actions">
+                        <button class="btn btn-primary">
+                            <?php echo isset($cta_label) ? $cta_label : __('Continue reading', 'growtype') . '...'; ?>
                         </button>
                     </div>
                 </div>

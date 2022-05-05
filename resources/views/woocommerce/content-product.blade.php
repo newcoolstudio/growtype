@@ -48,7 +48,7 @@ if (Growtype_Product::product_preview_cta_disabled() && !get_query_var('cta_btn'
 /**
  * Add auction classes
  */
-if (Growtype_Auction::has_started()) {
+if (class_exists('Growtype_Auction') && Growtype_Auction::has_started()) {
     array_push($classes, 'auction-has-started');
 }
 

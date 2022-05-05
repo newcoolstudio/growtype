@@ -47,13 +47,6 @@ if (Growtype_Product::product_preview_cta_disabled() && !get_query_var('cta_btn'
     array_push($classes, 'cta-disabled');
 }
 
-/**
- * Add auction classes
- */
-if (Growtype_Auction::has_started()) {
-    array_push($classes, 'auction-has-started');
-}
-
 $classes = implode(' ', $classes);
 
 if ($filterClasses ?? '') {

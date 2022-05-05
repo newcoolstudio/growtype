@@ -38,7 +38,6 @@ include('components/product-single-gallery.php');
 include('components/product-single-related-products.php');
 include('components/product-single-button.php');
 include('components/product-single-reviews.php');
-include('components/auction/status.php');
 
 /**
  * Product loop
@@ -82,8 +81,3 @@ include('blocks/product-grid-item.php');
  */
 include('shortcodes/product.php');
 include('shortcodes/coupon.php');
-
-/**
- * Notices
- */
-include('notices/general.php');

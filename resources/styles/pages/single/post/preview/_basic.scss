@@ -33,14 +33,17 @@
     word-break: initial;
   }
 
-  .read-more {
+  .b-actions {
     padding-top: 15px;
     border-top: 1px solid $color-light-grey;
-    margin-top: 30px;
     padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
 
     .btn {
       font-size: 14px;
+      width: 100%;
+      max-width: 80%;
     }
   }
 
