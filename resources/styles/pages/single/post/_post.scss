@@ -1,5 +1,5 @@
 @import "preview/basic";
-@import "preview/arrow";
+@import "preview/review";
 @import "preview/blog";
 
 .posts-navigation {
@@ -35,6 +35,11 @@
 .b-posts {
   display: flex;
   flex-wrap: wrap;
+}
+
+.b-posts.b-posts-growtype {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .single-post {

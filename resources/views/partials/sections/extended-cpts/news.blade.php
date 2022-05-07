@@ -20,7 +20,7 @@
   <div class="section container">
     <div class="b-posts--wrapper">
       @foreach ($posts_array as $singlePost)
-        @include('partials.content.post.preview.arrow')
+        @include('partials.content.post.preview.blog')
       @endforeach
     </div>
   </div>

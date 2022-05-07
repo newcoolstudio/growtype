@@ -38,11 +38,7 @@ if(!$postsToDisplay){
                 <div class="b-posts-inner {{$is_slider == true ? 'is-slider-posts' : ''}}">
                     @foreach ($postsToDisplay as $index => $post)
                         <div class="b-post-wrapper">
-                            @if($block_style === 'with_arrow')
-                                @include('partials.content.post.preview.arrow')
-                            @else
-                                @include('partials.content.post.preview.basic')
-                            @endif
+                            @include('partials.content.post.preview.basic')
                         </div>
                     @endforeach
                 </div>

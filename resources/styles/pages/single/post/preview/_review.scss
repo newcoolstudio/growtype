@@ -1,8 +1,7 @@
-.b-post-arrow {
+.b-post-review {
   border-radius: 10px;
   width: 100%;
   overflow: hidden;
-  box-shadow: 0px 0px 12px 0px #f3f3f3;
   display: inline-block;
   margin-bottom: 20px;
   @include bp-phone-large() {
@@ -13,28 +12,49 @@
     text-decoration: none;
   }
 
+  .e-arrow {
+    border: none;
+  }
+
+  .b-post-single-header {
+    display: flex;
+    align-items: center;
+
+    .e-title {
+      font-size: 18px;
+      max-width: 120px;
+      color: $color-primary;
+    }
+  }
+
   .b-post-single-img {
-    padding-top: 65%;
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    border-radius: 100px;
+    margin-right: 20px;
   }
 
   .b-post-single-content {
-    padding: 25px;
+    padding: 0;
     background: white;
     color: black;
-    box-shadow: 1px 1px 1px grey;
-    padding-top: 30px;
     position: relative;
-    padding-bottom: 25px;
+    padding-top: 15px;
+  }
 
-    .e-title {
-      font-weight: bold;
-      font-size: 18px;
-    }
+  .e-details {
+    font-size: 13px;
+    margin-bottom: 15px;
   }
 
   .b-post-single-footer {
     display: flex;
     justify-content: space-between;
+
+    .btn {
+      font-size: 13px;
+    }
   }
 
   .btn-basic {
@@ -44,17 +64,16 @@
   }
 
   .e-arrow {
-    width: 40px;
-    height: 40px;
     background: none;
     border-radius: 20px;
-    border: 1px solid $color-primary;
     position: relative;
+    margin-right: auto;
+    margin-left: 10px;
 
     &:before {
       content: "\f344";
       width: 21px;
-      height: 31px;
+      height: 19px;
       font-family: dashicons;
       margin: auto;
       position: absolute;
@@ -62,8 +81,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      margin: auto;
-      font-size: 22px;
+      font-size: 14px;
     }
   }
 }

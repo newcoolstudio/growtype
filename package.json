@@ -68,6 +68,6 @@
     "copy-webpack-plugin": "^9.0.1",
     "jquery": "^3.6.0",
     "select2": "4.0.13",
-    "slick-carousel": "*"
+    "slick-carousel": "1.8.1"
   }
 }

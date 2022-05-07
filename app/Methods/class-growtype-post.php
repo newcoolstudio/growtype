@@ -5,6 +5,109 @@
  */
 class Growtype_Post
 {
+    function __construct()
+    {
+        add_shortcode('posts_growtype', array (&$this, 'posts_growtype_shortcode'));
+    }
+
+    /**
+     * @param $atts
+     * @return string
+     * Posts shortcode
+     */
+    function posts_growtype_shortcode($atts)
+    {
+        extract(shortcode_atts(array (
+            'post_type' => 'post',
+            'posts_per_page' => -1,
+            'slider' => 'false',
+            'preview_style' => 'basic', //arrow, basic, blog
+            'id' => 'b-posts',
+            'slider_slides_to_show' => '4',
+            'post_link' => 'true',
+            'cat' => ''
+        ), $atts));
+
+        $args = array (
+            'post_type' => $post_type,
+            'posts_per_page' => $posts_per_page
+        );
+
+        if (!empty($cat)) {
+            $args['category_name'] = $cat;
+        }
+
+        $the_query = new WP_Query($args);
+
+        $posts_amount = $the_query->post_count;
+
+        ob_start();
+
+        if ($the_query->have_posts()) : ?>
+            <div <?php echo !empty($id) ? 'id="' . $id . '"' : "" ?> class="b-posts b-posts-growtype <?= $slider === 'true' ? 'b-posts-slider' : '' ?>">
+                <?php
+                while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                    <?php echo App\template('partials.content.post.preview.' . $preview_style, ['post' => get_post(), 'post_link' => $post_link]); ?>
+                <?php endwhile;
+                wp_reset_postdata();
+                ?>
+            </div>
+        <?php endif;
+
+        $render = ob_get_clean();
+
+        /**
+         * Add js scripts
+         */
+        if ($slider === 'true') {
+            add_action('wp_head', array (&$this, 'posts_growtype_shortcode_scripts_header'), 100);
+
+            if ($posts_amount > $slider_slides_to_show) {
+                add_action('wp_footer', function ($arguments) use ($id, $slider_slides_to_show) { ?>
+                    <script type="text/javascript">
+                        jQuery(document).ready(function () {
+                            let slidesToShow = <?php echo $slider_slides_to_show ?>;
+                            // if (window.innerWidth < 768) {
+                            //     slidesToShow = 1;
+                            // }
+                            jQuery('#<?php echo $id ?>').slick({
+                                infinite: false,
+                                slidesToShow: slidesToShow,
+                                slidesToScroll: 1,
+                                autoplay: false,
+                                autoplaySpeed: 2000,
+                                arrows: true,
+                                dots: false,
+                                responsive: [
+                                    {
+                                        breakpoint: 600,
+                                        settings: {
+                                            slidesToShow: 1,
+                                            slidesToScroll: 1
+                                        }
+                                    }
+                                ]
+                            });
+                        });
+                    </script>
+                    <?php
+                }, 100);
+            }
+        }
+
+        return $render;
+    }
+
+    /**
+     * @return void
+     */
+    function posts_growtype_shortcode_scripts_header()
+    {
+        ?>
+        <style></style>
+        <?php
+    }
+
     /**
      * @return string
      */

@@ -73,7 +73,7 @@
                 <?php
                 while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
-                @include('partials.content.post.preview.arrow')
+                @include('partials.content.post.preview.blog')
 
                 <?php endwhile; ?>
             </div>

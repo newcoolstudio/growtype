@@ -32,7 +32,8 @@ add_action('wp_enqueue_scripts', function () {
          * Slick-carousel
          */
         wp_enqueue_script('slick.min.js', get_parent_template_public_path() . '/vendor/slick-carousel/slick/slick.min.js', ['jquery'], null, true);
-        wp_enqueue_style('slick.min.css', get_parent_template_public_path() . '/vendor/slick-carousel/slick/slick-theme.css', false, null);
+        wp_enqueue_style('slick.css', get_parent_template_public_path() . '/vendor/slick-carousel/slick/slick.css', false, null);
+        wp_enqueue_style('slick.theme.css', get_parent_template_public_path() . '/vendor/slick-carousel/slick/slick-theme.css', false, null);
 
         /**
          * Gutenberg scripts
