@@ -45,9 +45,26 @@ $wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_custom
 ));
 
 /**
+ * My orders
+ */
+$wp_customize->add_setting('woocommerce_account_orders_tab_disabled',
+    array (
+        'default' => 0,
+        'transport' => 'refresh',
+    )
+);
+
+$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_account_orders_tab_disabled',
+    array (
+        'label' => esc_html__('Orders Disabled'),
+        'description' => __('Enable/disable orders tab in user account.', 'growtype'),
+        'section' => 'woocommerce_account_page',
+    )
+));
+
+/**
  * Downloads tab
  */
-
 $wp_customize->add_setting('woocommerce_account_downloads_tab_disabled',
     array (
         'default' => 0,

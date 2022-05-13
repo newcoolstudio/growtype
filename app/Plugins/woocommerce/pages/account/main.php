@@ -73,6 +73,10 @@ function woocommerce_account_extend_menu_items($items)
             $item = get_the_title($get_id);
         }
 
+        if (get_theme_mod('woocommerce_account_orders_tab_disabled') && $key === 'orders') {
+            continue;
+        }
+
         if (get_theme_mod('woocommerce_account_downloads_tab_disabled') && $key === 'downloads') {
             continue;
         }
