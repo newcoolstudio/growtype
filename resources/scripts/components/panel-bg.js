@@ -4,7 +4,9 @@ function panelBg() {
     if (panelBackground.length > 0) {
 
         document.addEventListener('filterProductsByOrder', function () {
-            setPanelHeight();
+            setTimeout(function () {
+                setPanelHeight();
+            }, 500);
         });
 
         $(window).on("load resize", function () {

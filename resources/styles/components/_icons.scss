@@ -5,8 +5,8 @@ https://fontello.com/
 
 @font-face {
   font-family: 'growtype-icons';
-  src: url('./../../fonts/icons/fontello.ttf') format('truetype'),
-  url('./../../fonts/icons/fontello.woff') format('woff');
+  src: url('./../../fonts/icons/font/fontello.ttf') format('truetype'),
+  url('./../../fonts/icons/font/fontello.woff') format('woff');
 }
 
 [class*=" icon-"], [class^=icon-] {
@@ -56,68 +56,3 @@ i {
   position: relative;
   top: 1px;
 }
-
-/**
-Icons
- */
-
-.icon-check:before {
-  content: "\e9a3"
-}
-
-.icon-like:before {
-  content: "\e9ba"
-}
-
-.icon-hammer:before {
-  content: "\E801"
-}
-
-.icon-watchlist:before {
-  content: "\E806"
-}
-
-.icon-wishlist:before {
-  content: "\e804"
-}
-
-.icon-listings:before {
-  content: "\E966"
-}
-
-.icon-listing:before {
-  content: "\E967"
-}
-
-.icon-help:before {
-  content: "\E982"
-}
-
-.icon-search:before {
-  content: "\E9B4"
-}
-
-.icon-clock-ticking:before {
-  content: "\E806"
-}
-
-.icon-cart:before {
-  content: "\E98E"
-}
-
-.icon-profile:before {
-  content: "\E929"
-}
-
-.icon-truck:before {
-  content: "\E800"
-}
-
-.icon-credit-card:before {
-  content: "\E802"
-}
-
-.icon-envelope:before {
-  content: "\E993"
-}
-
