@@ -1,4 +1,4 @@
-<section class="s-intro s-intro-full" style="{!! class_exists('ACF') && get_field('featured_img_enabled') ? get_featured_image_tag(get_post()) : '' !!}">
+<section class="s-mainintro s-mainintro-full" style="{!! class_exists('ACF') && get_field('featured_img_enabled') ? get_featured_image_tag(get_post()) : '' !!}">
 
     <div class="container">
         <div class="row">

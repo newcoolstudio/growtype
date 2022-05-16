@@ -2,7 +2,7 @@
     $post = isset($post) ? $post : get_post();
 @endphp
 
-<section class="s-intro s-intro-post">
+<section class="s-mainintro s-mainintro-post">
     <div class="container">
         <div class="row">
             <div class="col col-content">

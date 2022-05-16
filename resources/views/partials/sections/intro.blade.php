@@ -1,4 +1,4 @@
-<section class="section s-intro {!! $section_class ?? null !!}">
+<section class="section s-mainintro {!! $section_class ?? null !!}">
     <div class="container">
         <div class="row">
             @if(!empty(get_the_content()))

@@ -37,3 +37,10 @@ if (!class_exists('Growtype_Product')) {
 if (!class_exists('Growtype_Header')) {
     include('Methods/class-growtype-header.php');
 }
+
+/**
+ * Site methods
+ */
+if (!class_exists('Growtype_Site')) {
+    include('Methods/class-growtype-site.php');
+}

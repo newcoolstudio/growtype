@@ -12,7 +12,7 @@ $registration_url = $registration_url ?? get_field('registration_url');
 ?>
 
 @section('content')
-    <section class="s-intro" style="background: #F4F4F4;">
+    <section class="s-mainintro" style="background: #F4F4F4;">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-lg-8 px-0 b-intro" style="{{get_featured_image_tag(get_post())}}">

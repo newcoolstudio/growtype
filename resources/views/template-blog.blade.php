@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-    <section class="s-intro">
+    <section class="s-mainintro">
         <?php
         $wpb_all_query = new WP_Query(array (
             'post_type' => 'post',

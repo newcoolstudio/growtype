@@ -25,7 +25,8 @@ class Growtype_Post
             'id' => 'b-posts',
             'slider_slides_to_show' => '4',
             'post_link' => 'true',
-            'cat' => ''
+            'cat' => '',
+            'class' => '',
         ), $atts));
 
         $args = array (
@@ -37,19 +38,30 @@ class Growtype_Post
             $args['category_name'] = $cat;
         }
 
-        $the_query = new WP_Query($args);
+        if ($post_type === 'multisite_sites') {
+            $sites = get_sites();
 
-        $posts_amount = $the_query->post_count;
+            $posts = [];
+            foreach ($sites as $site) {
+                if (!$site->deleted && $site->blog_id !== '1') {
+                    $posts[] = $site;
+                }
+            }
+        } else {
+            $the_query = new WP_Query($args);
+
+            $posts_amount = $the_query->post_count;
+            $posts = $the_query->get_posts();
+        }
 
         ob_start();
 
-        if ($the_query->have_posts()) : ?>
-            <div <?php echo !empty($id) ? 'id="' . $id . '"' : "" ?> class="b-posts b-posts-growtype <?= $slider === 'true' ? 'b-posts-slider' : '' ?>">
+        if (!empty($posts)) : ?>
+            <div <?php echo !empty($id) ? 'id="' . $id . '"' : "" ?> class="b-posts b-posts-growtype <?php echo $class ?> <?php echo $slider === 'true' ? 'b-posts-slider' : '' ?>">
                 <?php
-                while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                    <?php echo App\template('partials.content.post.preview.' . $preview_style, ['post' => get_post(), 'post_link' => $post_link]); ?>
-                <?php endwhile;
-                wp_reset_postdata();
+                foreach ($posts as $post) {
+                    echo App\template('partials.content.post.preview.' . $preview_style, ['post' => $post, 'post_link' => $post_link]);
+                }
                 ?>
             </div>
         <?php endif;

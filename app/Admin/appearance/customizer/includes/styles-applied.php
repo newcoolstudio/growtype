@@ -10,7 +10,7 @@ function growtype_customizer_general_css()
     <style>
         <?php if(!empty(get_theme_mod('main_color'))){ ?>
         aside.widget-area > .widget .widget-title:after,
-        .woocommerce-order-details .woocommerce-order-details-intro,
+        .woocommerce-order-details .woocommerce-order-detail,
         .woocommerce-account .b-info-header,
         .woocommerce nav.woocommerce-pagination ul li span.current {
             background-color: <?php echo get_theme_mod('main_color'); ?>;
