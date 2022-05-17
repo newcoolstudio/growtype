@@ -17,8 +17,8 @@ if (!gutenberg_block_editor_is_active()) {
 /**
  * Gutenberg styles support
  */
-add_action('enqueue_block_editor_assets', 'gutenberg_block_editor_assets', 10);
-function gutenberg_block_editor_assets()
+add_action('enqueue_block_editor_assets', 'growtype_enqueue_block_editor_assets', 10);
+function growtype_enqueue_block_editor_assets()
 {
     if (get_post_type()) {
         wp_enqueue_style(
@@ -62,13 +62,18 @@ function gutenberg_block_editor_assets()
             );
         }
     }
+
+    /**
+     * Disable fullscreen mode by default
+     */
+    $script = "window.onload = function() { const isFullscreenMode = wp.data.select( 'core/edit-post' ).isFeatureActive( 'fullscreenMode' ); if ( isFullscreenMode ) { wp.data.dispatch( 'core/edit-post' ).toggleFeature( 'fullscreenMode' ); } }";
+    wp_add_inline_script('wp-blocks', $script);
 }
 
 /**
  * Apply styles
  */
 add_action('admin_enqueue_scripts', 'admin_enqueue_custom_scripts');
-
 function admin_enqueue_custom_scripts()
 {
     $inlineCss = '';
