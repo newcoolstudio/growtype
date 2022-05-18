@@ -6,7 +6,7 @@
 add_filter('body_class', 'add_extra_classes_to_body');
 function add_extra_classes_to_body($classes)
 {
-    $classes[] = get_theme_mod('header_navbar_switch') == true ? 'has-navbar-enabled' : null;
+    $classes[] = get_theme_mod('header_navbar_switch') == true ? 'has-navbar' : null;
     $classes[] = Growtype_Header::is_fixed() === true ? 'has-fixed-header' : 'has-static-header';
     $classes[] = 'header-' . get_theme_mod('header_type_select');
     $classes[] = header_has_extra_space() === true ? 'has-extraspace-header' : null;
