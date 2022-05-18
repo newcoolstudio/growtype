@@ -1,8 +1,11 @@
 <?php
 $cats = [];
 $post_terms = wp_get_post_terms($post->ID, 'projects_tax');
-foreach ($post_terms as $term) {
-    array_push($cats, $term->slug);
+
+if (!is_wp_error($post_terms)) {
+    foreach ($post_terms as $term) {
+        array_push($cats, $term->slug);
+    }
 }
 ?>
 
@@ -32,8 +35,10 @@ foreach ($post_terms as $term) {
                     $term_list = wp_get_post_terms($post->ID, 'projects_tax',
                         array ("fields" => "all"));
 
-                    foreach ($term_list as $term_single) {
-                        echo '<span>' . $term_single->name . '</span>';
+                    if (!is_wp_error($term_list)) {
+                        foreach ($term_list as $term_single) {
+                            echo '<span>' . $term_single->name . '</span>';
+                        }
                     }
 
                     ?>
@@ -57,8 +62,10 @@ foreach ($post_terms as $term) {
                     $term_list = wp_get_post_terms($post->ID, 'projects_tax',
                         array ("fields" => "all"));
 
-                    foreach ($term_list as $term_single) {
-                        echo '<span>' . $term_single->name . '</span>';
+                    if (!is_wp_error($term_list)) {
+                        foreach ($term_list as $term_single) {
+                            echo '<span>' . $term_single->name . '</span>';
+                        }
                     }
 
                     ?>
@@ -81,8 +88,10 @@ foreach ($post_terms as $term) {
                     $term_list = wp_get_post_terms($post->ID, 'projects_tax',
                         array ("fields" => "all"));
 
-                    foreach ($term_list as $term_single) {
-                        echo '<span>' . $term_single->name . '</span>';
+                    if (!is_wp_error($term_list)) {
+                        foreach ($term_list as $term_single) {
+                            echo '<span>' . $term_single->name . '</span>';
+                        }
                     }
                     ?>
                 </p>

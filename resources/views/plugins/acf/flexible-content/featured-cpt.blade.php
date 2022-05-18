@@ -43,7 +43,7 @@
             <div class="b-cpts">
                 <div class="b-cpts-inner {{$is_slider == true ? 'is-slider-cpt' : ''}}">
                     @foreach($posts_to_display as $post)
-                        @include('partials.content.cpt.preview.basic')
+                        @include('partials.content.post.preview.basic')
                     @endforeach
                 </div>
             </div>

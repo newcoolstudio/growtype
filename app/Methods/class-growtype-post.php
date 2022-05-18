@@ -31,7 +31,9 @@ class Growtype_Post
 
         $args = array (
             'post_type' => $post_type,
-            'posts_per_page' => $posts_per_page
+            'posts_per_page' => $posts_per_page,
+            'post_order' => 'menu_order',
+            'order' => 'asc'
         );
 
         if (!empty($cat)) {
