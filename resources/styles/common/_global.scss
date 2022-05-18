@@ -118,13 +118,18 @@ Main content wrapper
 /**
 Adjusting for navbar and header fixed main content
  */
-
 .has-extraspace-header {
   .main-content-wrapper {
     margin-top: 90px;
     padding-top: 0;
     @include bp-tablet-portrait() {
       margin-top: 70px;
+    }
+  }
+
+  &.has-navbar {
+    .main-content-wrapper {
+      margin-top: 123px;
     }
   }
 }
@@ -160,7 +165,7 @@ body.has-fixed-header {
   }
 }
 
-body.has-fixed-header.has-navbar-enabled {
+body.has-fixed-header.has-navbar {
   &.has-extraspace-header, &:not(.home) {
     .main-content-wrapper {
       margin-top: 164px;

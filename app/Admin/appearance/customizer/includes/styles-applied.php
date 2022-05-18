@@ -466,10 +466,10 @@ function growtype_customizer_buttons_css()
 
         <?php } ?>
 
-        <?php if(get_theme_mod('secondary_button_border_color')){ ?>
+        <?php if(!empty(get_theme_mod('secondary_button_border_color'))) { ?>
         .wp-block-button.is-style-outline .wp-block-button__link,
         .btn-secondary,
-        .btn-secondary:hover{
+        .btn-secondary:hover {
             border-color: <?php echo get_theme_mod('secondary_button_border_color'); ?>;
         }
 
@@ -483,7 +483,7 @@ function growtype_customizer_buttons_css()
         .wp-block-button:not(.is-style-outline) .wp-block-button__link,
         .woocommerce-cart .woocommerce button.button {
             background: <?php echo get_theme_mod('primary_button_background_color')?>;
-            border: 1px solid <?php echo get_theme_mod('primary_button_background_color')?>;
+            border: 1px solid<?php echo get_theme_mod('primary_button_background_color')?>;
         }
 
         <?php } ?>
