@@ -1,11 +1,12 @@
 @php
     $post = isset($post) ? $post : get_post();
+    $terms = wp_get_post_terms($post->ID,'service_tax');
 @endphp
 
 @if(isset($link_to_inner_post) && $link_to_inner_post === false)
     <div class="b-post-single {!! $parent_class ?? null !!}">
         @else
-            <a href="{{get_permalink($post->ID)}}" class="b-post-single {!! $parent_class ?? null !!}">
+            <a href="{{get_permalink($post->ID)}}" class="b-post-single {!! $parent_class ?? null !!}" data-cat="{!! !empty($terms) ? implode(',',array_pluck($terms,'slug')) : '' !!}">
                 @endif
                 <div class="b-post-single-inner">
                     @if(!empty(get_featured_image_tag($post, 'medium')))
@@ -38,5 +39,3 @@
     @else
     </a>
 @endif
-
-
