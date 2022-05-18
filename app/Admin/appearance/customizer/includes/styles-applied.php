@@ -482,8 +482,8 @@ function growtype_customizer_buttons_css()
         input[type=submit]:hover,
         .wp-block-button:not(.is-style-outline) .wp-block-button__link,
         .woocommerce-cart .woocommerce button.button {
-            background: <?php echo get_theme_mod('primary_button_background_color')?> !important;
-            border: 1px solid <?php echo get_theme_mod('primary_button_background_color')?> !important;
+            background: <?php echo get_theme_mod('primary_button_background_color')?>;
+            border: 1px solid <?php echo get_theme_mod('primary_button_background_color')?>;
         }
 
         <?php } ?>
