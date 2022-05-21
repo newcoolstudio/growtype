@@ -18,4 +18,7 @@ return [
     'clear_selected_options' => __('Clear selected options', 'growtype'),
     'preview' => __('Preview', 'growtype'),
     'contacts' => __('Contacts', 'growtype'),
+    'something_wrong' => __('Something went wrong', 'growtype'),
+    'something_wrong_please_contact' => __('Something went wrong. Please contact us for help.', 'growtype'),
+    'your_subscription_is_successful' => __('Your subscription is successful. Thank you.', 'growtype'),
 ];

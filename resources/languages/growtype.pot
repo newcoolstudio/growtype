@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Growtype\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-09 18:23+0000\n"
+"POT-Creation-Date: 2022-05-21 15:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -41,10 +41,6 @@ msgstr ""
 msgid "Account details"
 msgstr ""
 
-#: ../../../../../../../packages/themes/growtype/resources/views/archive-activity.blade.php:8
-msgid "Activities"
-msgstr ""
-
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:63
 msgid "Add"
 msgstr ""
@@ -68,10 +64,6 @@ msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/views/partials/components/panel/profile.blade.php:20
 msgid "Administrator"
-msgstr ""
-
-#: ../../../../../../../packages/themes/growtype/resources/views/archive-project.blade.php:16
-msgid "All"
 msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:144
@@ -121,8 +113,8 @@ msgstr ""
 msgid "Be the first to review &ldquo;%s&rdquo;"
 msgstr ""
 
-#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product/auction-bid-form.blade.php:58
-msgid "Bid"
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:35
+msgid "Below are the details of your order."
 msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/form-billing.blade.php:21
@@ -167,7 +159,7 @@ msgstr ""
 msgid "Contacts"
 msgstr ""
 
-#: ../../../../../../../packages/themes/growtype/resources/views/partials/content/post/preview/basic.blade.php:17
+#: ../../../../../../../packages/themes/growtype/resources/views/partials/content/post/preview/basic.blade.php:70
 msgid "Continue reading"
 msgstr ""
 
@@ -182,10 +174,6 @@ msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:80
 msgid "Create here"
-msgstr ""
-
-#: ../../../../../../../packages/themes/growtype/resources/views/partials/components/header/menu-mobile.blade.php:55
-msgid "Currency"
 msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:64
@@ -358,10 +346,6 @@ msgstr ""
 msgid "Member"
 msgstr ""
 
-#: ../../../../../../../packages/themes/growtype/resources/views/archive-member.blade.php:10
-msgid "Members"
-msgstr ""
-
 #: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:15
 msgid "More"
 msgstr ""
@@ -411,7 +395,7 @@ msgstr ""
 msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
-#: ../../../../../../../packages/themes/growtype/resources/views/partials/content/project/preview/basic.blade.php:19
+#: ../../../../../../../packages/themes/growtype/resources/views/partials/content/post/preview/project.blade.php:22
 msgid "Order"
 msgstr ""
 
@@ -481,7 +465,7 @@ msgstr ""
 msgid "Product"
 msgstr ""
 
-#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/components/product-single-description.blade.php:5
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/components/product-single-description.blade.php:6
 msgid "Product details"
 msgstr ""
 
@@ -507,7 +491,7 @@ msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/views/template-blog.blade.php:41
 #: ../../../../../../../packages/themes/growtype/resources/views/partials/sections/related-posts.blade.php:26
-#: ../../../../../../../packages/themes/growtype/resources/views/partials/content/post/preview/arrow.blade.php:7
+#: ../../../../../../../packages/themes/growtype/resources/views/partials/content/post/preview/review.blade.php:20
 msgid "Read more"
 msgstr ""
 
@@ -560,10 +544,6 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
-#: ../../../../../../../packages/themes/growtype/resources/views/archive-service.blade.php:10
-msgid "Services"
-msgstr ""
-
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/form-shipping.blade.php:31
 msgid "Ship to a different address?"
 msgstr ""
@@ -578,7 +558,7 @@ msgid "Shipping address"
 msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/views/plugins/acf/flexible-content/featured-activities.blade.php:42
-#: ../../../../../../../packages/themes/growtype/resources/views/plugins/acf/flexible-content/featured-posts.blade.php:52
+#: ../../../../../../../packages/themes/growtype/resources/views/plugins/acf/flexible-content/featured-posts.blade.php:48
 msgid "Show more"
 msgstr ""
 
@@ -601,6 +581,14 @@ msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product/meta.blade.php:30
 msgid "SKU:"
+msgstr ""
+
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:21
+msgid "Something went wrong"
+msgstr ""
+
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:22
+msgid "Something went wrong. Please contact us for help."
 msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/payment.blade.php:33
@@ -677,6 +665,10 @@ msgstr ""
 msgid "Update totals"
 msgstr ""
 
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/uploaded-products.blade.php:6
+msgid "Upload a new product"
+msgstr ""
+
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:102
 msgid "Username"
 msgstr ""
@@ -693,7 +685,7 @@ msgstr ""
 msgid "Very poor"
 msgstr ""
 
-#: ../../../../../../../packages/themes/growtype/resources/views/partials/content/project/preview/basic.blade.php:17
+#: ../../../../../../../packages/themes/growtype/resources/views/partials/content/post/preview/project.blade.php:20
 msgid "View"
 msgstr ""
 
@@ -735,14 +727,6 @@ msgstr ""
 msgid "You must run <code>composer install</code> from the Sage directory."
 msgstr ""
 
-#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product/auction-bid-form.blade.php:19
-msgid "Your max bid is"
-msgstr ""
-
-#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product/auction-bid-form.blade.php:19
-msgid "Your min bid is"
-msgstr ""
-
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/form-checkout.blade.php:64
 msgid "Your order"
 msgstr ""
@@ -753,4 +737,8 @@ msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:130
 msgid "Your review"
+msgstr ""
+
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:23
+msgid "Your subscription is successful. Thank you."
 msgstr ""
