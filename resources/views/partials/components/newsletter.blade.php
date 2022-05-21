@@ -1,9 +1,11 @@
 <form class="form-newsletter" action="{!! isset($action) ? $action : '' !!}" method="post">
-    <div class="mb-3">
-        <label for="newsletter_email" class="form-label">{!! __('Email','growtype') !!}</label>
-        <input id="newsletter_email" name="newsletter_email" type="email" class="form-control" placeholder="{!! isset($email_placeholder) ? $email_placeholder : __('Your email','growtype') !!}" required>
+    <div class="form-newsletter-content">
+        <div class="input-wrapper">
+            <label for="newsletter_email" class="form-label">{!! __('Email','growtype') !!}</label>
+            <input id="newsletter_email" name="newsletter_email" type="email" class="form-control" placeholder="{!! isset($email_placeholder) ? $email_placeholder : __('Your email','growtype') !!}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">{!! isset($submit_label) ? $submit_label : __('Submit','growtype') !!}</button>
     </div>
-    <button type="submit" class="btn btn-primary">{!! isset($submit_label) ? $submit_label : __('Submit','growtype') !!}</button>
     <div class="status-message mt-3 alert" role="alert" style="display:none;"></div>
 </form>
 
