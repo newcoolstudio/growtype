@@ -35,6 +35,8 @@
 .b-posts {
   display: flex;
   flex-wrap: wrap;
+  margin-left: -10px;
+  width: calc(100% + 20px);
 }
 
 .b-posts.b-posts-growtype {
