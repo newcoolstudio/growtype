@@ -23,6 +23,12 @@ function menuBurger() {
         event.stopPropagation();
     });
 
+    $('.main-navigation-mobile a').on('click', function () {
+        if ($(this).text().indexOf("#") === -1) {
+            window.burgerClose();
+        }
+    });
+
     window.burgerClose = function () {
         $('.hamburger').addClass('is-pasive').removeClass('is-active');
         $('body', 'html').removeClass('burger-open');
