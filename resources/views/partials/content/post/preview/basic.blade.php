@@ -23,7 +23,7 @@ $post_classes = implode(' ', $post_classes_list);
 $location = get_post_meta($post->ID, 'location', true);
 ?>
 
-@if(isset($link_to_inner_post) && $link_to_inner_post === false)
+@if(isset($post_link) && $post_link === false)
     <div class="{!! $post_classes !!}">
         @else
             <a href="{{get_permalink($post->ID)}}" class="{!! $post_classes !!}" data-cat="{!! !empty($terms) ? implode(',',array_pluck($terms,'slug')) : '' !!}">
@@ -71,7 +71,7 @@ $location = get_post_meta($post->ID, 'location', true);
                         </button>
                     </div>
                 </div>
-            @if(isset($link_to_inner_post) && $link_to_inner_post === false)
+            @if(isset($post_link) && $post_link === false)
     </div>
     @else
     </a>
