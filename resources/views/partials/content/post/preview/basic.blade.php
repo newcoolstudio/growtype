@@ -67,7 +67,7 @@ $location = get_post_meta($post->ID, 'location', true);
                     </div>
                     <div class="b-actions">
                         <button class="btn btn-primary">
-                            <?php echo isset($cta_label) ? $cta_label : __('Continue reading', 'growtype') . '...'; ?>
+                            <?php echo isset($cta_label) ? $cta_label : __('Continue reading', 'growtype'); ?>
                         </button>
                     </div>
                 </div>
