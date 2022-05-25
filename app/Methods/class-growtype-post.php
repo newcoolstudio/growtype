@@ -74,7 +74,7 @@ class Growtype_Post
             <div <?php echo !empty($id) ? 'id="' . $id . '"' : "" ?> class="b-posts b-posts-growtype <?php echo $parent_class ?> <?php echo $slider === 'true' ? 'b-posts-slider' : '' ?>">
                 <?php
                 foreach ($posts as $post) {
-                    echo App\template('partials.content.post.preview.' . $preview_style, ['post' => $post, 'post_link' => $post_link ? true : false, 'extra_class' => $extra_class]);
+                    echo App\template('partials.content.post.preview.' . $preview_style, ['post' => $post, 'post_link' => $post_link === 'true' ? true : false, 'extra_class' => $extra_class]);
                 }
                 ?>
             </div>
