@@ -25,8 +25,9 @@ class Growtype_Post
             'id' => 'b-posts',
             'slider_slides_to_show' => '4',
             'post_link' => 'true',
-            'cat' => '',
-            'class' => '',
+            'category_name' => '',
+            'parent_class' => '',
+            'pagination' => false,
         ), $atts));
 
         $args = array (
@@ -36,19 +37,26 @@ class Growtype_Post
             'order' => 'asc'
         );
 
-        if (!empty($cat)) {
-            $args['category_name'] = $cat;
+        if (!empty($category_name)) {
+            $args['category_name'] = $category_name;
         }
 
         if ($post_type === 'multisite_sites') {
-            $sites = get_sites();
+            $current_page = max(1, get_query_var('paged'));
+            $offset = $current_page === 1 ? 0 : ($current_page - 1) * $posts_per_page;
 
-            $posts = [];
-            foreach ($sites as $site) {
-                if (!$site->deleted && $site->blog_id !== '1') {
-                    $posts[] = $site;
-                }
-            }
+            $total_pages = get_sites([
+                'number' => 1000,
+                'site__not_in' => '1',
+            ]);
+
+            $total_pages = round(count($total_pages) / $posts_per_page);
+
+            $posts = get_sites([
+                'number' => $posts_per_page === -1 ? 100 : $posts_per_page,
+                'site__not_in' => '1',
+                'offset' => $offset
+            ]);
         } else {
             $the_query = new WP_Query($args);
 
@@ -56,17 +64,32 @@ class Growtype_Post
             $posts = $the_query->get_posts();
         }
 
+        $extra_class = 'b-post-' . $preview_style;
+
         ob_start();
 
         if (!empty($posts)) : ?>
-            <div <?php echo !empty($id) ? 'id="' . $id . '"' : "" ?> class="b-posts b-posts-growtype <?php echo $class ?> <?php echo $slider === 'true' ? 'b-posts-slider' : '' ?>">
+            <div <?php echo !empty($id) ? 'id="' . $id . '"' : "" ?> class="b-posts b-posts-growtype <?php echo $parent_class ?> <?php echo $slider === 'true' ? 'b-posts-slider' : '' ?>">
                 <?php
                 foreach ($posts as $post) {
-                    echo App\template('partials.content.post.preview.' . $preview_style, ['post' => $post, 'post_link' => $post_link]);
+                    echo App\template('partials.content.post.preview.' . $preview_style, ['post' => $post, 'post_link' => $post_link, 'extra_class' => $extra_class]);
                 }
                 ?>
             </div>
         <?php endif;
+
+        /**
+         * Pagination
+         */
+        if ($pagination) {
+            ?>
+            <div class="pagination">
+                <?php
+                echo self::pagination($posts, $total_pages ?? null);
+                ?>
+            </div>
+            <?php
+        }
 
         $render = ob_get_clean();
 
@@ -377,14 +400,14 @@ class Growtype_Post
     /**
      * @param null $custom_query
      */
-    public static function pagination($custom_query = null)
+    public static function pagination($custom_query = null, $total_pages = null)
     {
         if (empty($custom_query)) {
             global $wp_query;
             $custom_query = $wp_query;
         }
 
-        $total_pages = $custom_query->max_num_pages;
+        $total_pages = !empty($total_pages) ? $total_pages : (is_object($custom_query) ? $custom_query->max_num_pages : count($custom_query));
         $big = 999999999;
 
         if ($total_pages > 1) {

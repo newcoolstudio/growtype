@@ -10,8 +10,8 @@ $post_is_expired = !empty($expiration_date) && strtotime($expiration_date) < str
 
 $post_classes_list = ['b-post-single'];
 
-if (isset($parent_class) && !empty($parent_class)) {
-    array_push($post_classes_list, $parent_class);
+if (isset($extra_class) && !empty($extra_class)) {
+    array_push($post_classes_list, $extra_class);
 }
 
 if (isset($post_is_expired) && !empty($post_is_expired)) {
