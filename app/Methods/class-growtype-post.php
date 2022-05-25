@@ -7,7 +7,9 @@ class Growtype_Post
 {
     function __construct()
     {
-        add_shortcode('posts_growtype', array (&$this, 'posts_growtype_shortcode'));
+        if (!is_admin()) {
+            add_shortcode('posts_growtype', array (&$this, 'posts_growtype_shortcode'));
+        }
     }
 
     /**
