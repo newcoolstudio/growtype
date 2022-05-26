@@ -16,7 +16,7 @@
 
         <div class="form-check">
             <input id="newsletterTermsAndConditions" type="checkbox" name="terms_and_conditions" class="form-check-input" required>
-            <label class="form-check-label" for="newsletterTermsAndConditions">{!! __('I agree with terms and conditions','growtype') !!}</label>
+            <label class="form-check-label" for="newsletterTermsAndConditions">{!! isset($terms_label) ? $terms_label : __('I agree with terms and conditions','growtype') !!}</label>
         </div>
 
         <button type="submit" class="btn btn-primary">{!! isset($submit_label) ? $submit_label : __('Submit','growtype') !!}</button>
