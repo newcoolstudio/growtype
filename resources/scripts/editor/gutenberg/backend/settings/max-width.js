@@ -6,7 +6,7 @@ const {Fragment, useState, cloneElement} = wp.element;
 const {InspectorControls} = wp.editor;
 const {PanelBody, RangeControl, SelectControl} = wp.components;
 
-const enableMaxWidthControlOnBlocks = ['core/paragraph', 'core/heading', 'core/image'];
+const enableMaxWidthControlOnBlocks = ['core/paragraph', 'core/heading', 'core/image', 'core/group'];
 
 /**
  * Create attributes
