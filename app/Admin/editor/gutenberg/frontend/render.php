@@ -25,42 +25,28 @@ function wrap_block_extra_div($block_content, $block)
 add_filter('render_block', 'growtype_render_block_frontend', 10, 2);
 function growtype_render_block_frontend($block_content, $block)
 {
-    if ($block['blockName'] === 'core/paragraph' ||
-        $block['blockName'] === 'core/heading' ||
-        $block['blockName'] === 'core/group') {
+    $blocks_included = ['core/paragraph', 'core/heading', 'core/image', 'core/group'];
+
+    if (in_array($block['blockName'], $blocks_included)
+        && (isset($block['attrs']['maxWidth']) || isset($block['attrs']['position']))) {
         $inlineCss = '';
 
-        if (isset($block['attrs'])) {
-            if (isset($block['attrs']['position'])) {
-                if ($block['attrs']['position'] === 'left') {
-                    $inlineCss .= 'margin-right:auto;';
-                } elseif ($block['attrs']['position'] === 'right') {
-                    $inlineCss .= 'margin-left:auto;';
-                } elseif ($block['attrs']['position'] === 'auto') {
-                    $inlineCss .= 'margin-left:auto;';
-                    $inlineCss .= 'margin-right:auto;';
-                }
-            }
-
-            if (isset($block['attrs']['maxWidth'])) {
-                $inlineCss .= 'max-width:' . $block['attrs']['maxWidth'] . 'px;';
+        if (isset($block['attrs']['position'])) {
+            if ($block['attrs']['position'] === 'left') {
+                $inlineCss .= 'margin-right:auto;';
+            } elseif ($block['attrs']['position'] === 'right') {
+                $inlineCss .= 'margin-left:auto;';
+            } elseif ($block['attrs']['position'] === 'auto') {
+                $inlineCss .= 'margin-left:auto;';
+                $inlineCss .= 'margin-right:auto;';
             }
         }
-    }
 
-    if ($block['blockName'] === 'core/paragraph') {
-        $content = '<div class="wp-block-paragraph-wrapper" style="' . $inlineCss . '">';
-        $content .= $block_content;
-        $content .= '</div>';
-        return $content;
-    } elseif ($block['blockName'] === 'core/heading') {
-        $content = '<div class="wp-block-heading-wrapper" style="' . $inlineCss . '">';
-        $content .= $block_content;
-        $content .= '</div>';
+        if (isset($block['attrs']['maxWidth'])) {
+            $inlineCss .= 'max-width:' . $block['attrs']['maxWidth'] . 'px;';
+        }
 
-        return $content;
-    } elseif ($block['blockName'] === 'core/group') {
-        $content = '<div class="wp-block-group-wrapper" style="' . $inlineCss . '">';
+        $content = '<div class="wp-' . str_replace('core/', 'block-', $block['blockName']) . '-wrapper" style="' . $inlineCss . '">';
         $content .= $block_content;
         $content .= '</div>';
 
