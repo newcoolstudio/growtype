@@ -55,7 +55,7 @@ class Growtype_Site
      */
     public static function is_multisite_main_site(): bool
     {
-        $is_main_site = true;
+        $is_main_site = is_main_site();
 
         if (!is_multisite() || (!empty(getenv('REMOTE_DOMAIN_TO_REPLICATE_TYPE')) && getenv('REMOTE_DOMAIN_TO_REPLICATE_TYPE') !== 'parent')) {
             $is_main_site = false;
