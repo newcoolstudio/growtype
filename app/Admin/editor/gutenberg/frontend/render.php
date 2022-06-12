@@ -22,10 +22,12 @@ function wrap_block_extra_div($block_content, $block)
  * @param $block
  * @return mixed|string
  */
-add_filter('render_block', 'growtype_render_block_frontent', 10, 2);
-function growtype_render_block_frontent($block_content, $block)
+add_filter('render_block', 'growtype_render_block_frontend', 10, 2);
+function growtype_render_block_frontend($block_content, $block)
 {
-    if ($block['blockName'] === 'core/paragraph' || $block['blockName'] === 'core/heading') {
+    if ($block['blockName'] === 'core/paragraph' ||
+        $block['blockName'] === 'core/heading' ||
+        $block['blockName'] === 'core/group') {
         $inlineCss = '';
 
         if (isset($block['attrs'])) {
@@ -53,6 +55,12 @@ function growtype_render_block_frontent($block_content, $block)
         return $content;
     } elseif ($block['blockName'] === 'core/heading') {
         $content = '<div class="wp-block-heading-wrapper" style="' . $inlineCss . '">';
+        $content .= $block_content;
+        $content .= '</div>';
+
+        return $content;
+    } elseif ($block['blockName'] === 'core/group') {
+        $content = '<div class="wp-block-group-wrapper" style="' . $inlineCss . '">';
         $content .= $block_content;
         $content .= '</div>';
 
