@@ -15,11 +15,11 @@
     @yield('pageStyles')
     @stack('pageStyles')
 
-    @if(!empty(get_fonts_details()['primaryFontDetails']))
-        <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=<?php echo urlencode(get_fonts_details()['primaryFontDetails']->font)?>:<?php echo urlencode(get_fonts_details()['primaryFontDetails']->regularweight)?>,<?php echo urlencode(get_fonts_details()['primaryFontDetails']->boldweight)?>,<?php echo urlencode(get_fonts_details()['primaryFontDetails']->italicweight)?>">
+    @if(!empty(growtype_get_font_details('primary_font')))
+        <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="<?php echo growtype_get_font_url(growtype_get_font_details('primary_font')) ?>">
     @endif
 
-    @if(!empty(get_fonts_details()['secondaryFontDetails']) && get_fonts_details()['primaryFontDetails']->font !== get_fonts_details()['secondaryFontDetails']->font && get_fonts_details()['secondaryFontSwitch'])
-        <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=<?php echo urlencode(get_fonts_details()['secondaryFontDetails']->font)?>:<?php echo urlencode(get_fonts_details()['secondaryFontDetails']->regularweight)?>,<?php echo urlencode(get_fonts_details()['secondaryFontDetails']->boldweight)?>,<?php echo urlencode(get_fonts_details()['secondaryFontDetails']->italicweight)?>">
+    @if(!empty(growtype_get_font_details('secondary_font')) && growtype_get_font_details('primary_font')->font !== growtype_get_font_details('secondary_font')->font && growtype_secondary_font_is_active())
+        <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="<?php echo growtype_get_font_url(growtype_get_font_details('secondary_font')) ?>">
     @endif
 </head>

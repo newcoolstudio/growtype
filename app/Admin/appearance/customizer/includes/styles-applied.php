@@ -183,10 +183,10 @@ function growtype_customizer_general_css()
 
         <?php }?>
 
-        <?php if(!empty(get_fonts_details()['primaryFontDetails'])){ ?>
+        <?php if(!empty(growtype_get_font_details('primary_font'))){ ?>
         body {
-            font-family: "<?php echo get_fonts_details()['primaryFontDetails']->font?>", sans-serif;
-            font-weight: <?php echo urlencode(get_fonts_details()['primaryFontDetails']->regularweight)?>;
+            font-family: "<?php echo growtype_get_font_details('primary_font')->font?>", sans-serif;
+            font-weight: <?php echo urlencode(growtype_get_font_details('primary_font')->regularweight)?>;
         }
 
         <?php }?>

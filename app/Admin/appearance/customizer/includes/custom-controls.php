@@ -781,6 +781,8 @@ if (class_exists('WP_Customize_Control')) {
                     <div class="weight-style">
                         <select class="google-fonts-lightweight-style">
                             <?php
+                            echo '<option value="none" ' . selected($this->fontValues->lightweight, 'none', false) . '>none</option>';
+
                             foreach ($this->fontList[$this->fontListIndex]->variants as $key => $value) {
                                 echo '<option value="' . $value . '" ' . selected($this->fontValues->lightweight, $value, false) . '>' . $value . '</option>';
                             }
@@ -791,6 +793,8 @@ if (class_exists('WP_Customize_Control')) {
                     <div class="weight-style">
                         <select class="google-fonts-regularweight-style">
                             <?php
+                            echo '<option value="none" ' . selected($this->fontValues->regularweight, 'none', false) . '>none</option>';
+
                             foreach ($this->fontList[$this->fontListIndex]->variants as $key => $value) {
                                 echo '<option value="' . $value . '" ' . selected($this->fontValues->regularweight, $value, false) . '>' . $value . '</option>';
                             }
@@ -803,6 +807,8 @@ if (class_exists('WP_Customize_Control')) {
                     <div class="weight-style">
                         <select class="google-fonts-italicweight-style" <?php disabled(in_array('italic', $this->fontList[$this->fontListIndex]->variants), false); ?>>
                             <?php
+                            echo '<option value="none" ' . selected($this->fontValues->italicweight, 'none', false) . '>none</option>';
+
                             $optionCount = 0;
                             foreach ($this->fontList[$this->fontListIndex]->variants as $key => $value) {
                                 // Only add options that are italic
@@ -817,10 +823,39 @@ if (class_exists('WP_Customize_Control')) {
                             ?>
                         </select>
                     </div>
-                    <div class="customize-control-description"><?php esc_html_e('Select weight for', 'growtype') ?> <strong><?php esc_html_e('bold text', 'skyrocket') ?></strong></div>
+                    <div class="customize-control-description">
+                        <?php esc_html_e('Select weight for', 'growtype') ?>
+                        <?php esc_html_e('semi bold text', 'skyrocket') ?>
+                    </div>
+                    <div class="weight-style">
+                        <select class="google-fonts-semiboldweight-style">
+                            <?php
+                            echo '<option value="none" ' . selected($this->fontValues->semiboldweight, 'none', false) . '>none</option>';
+
+                            $optionCount = 0;
+                            foreach ($this->fontList[$this->fontListIndex]->variants as $key => $value) {
+                                // Only add options that aren't italic
+                                if (strpos($value, 'italic') === false) {
+                                    echo '<option value="' . $value . '" ' . selected($this->fontValues->semiboldweight, $value, false) . '>' . $value . '</option>';
+                                    $optionCount++;
+                                }
+                            }
+                            // This should never evaluate as there'll always be at least a 'regular' weight
+                            if ($optionCount == 0) {
+                                echo '<option value="">Not Available for this font</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="customize-control-description">
+                        <?php esc_html_e('Select weight for', 'growtype') ?>
+                        <strong><?php esc_html_e('bold text', 'skyrocket') ?></strong>
+                    </div>
                     <div class="weight-style">
                         <select class="google-fonts-boldweight-style">
                             <?php
+                            echo '<option value="none" ' . selected($this->fontValues->boldweight, 'none', false) . '>none</option>';
+
                             $optionCount = 0;
                             foreach ($this->fontList[$this->fontListIndex]->variants as $key => $value) {
                                 // Only add options that aren't italic

@@ -259,19 +259,23 @@ jQuery(document).ready(function ($) {
         var elementLightWeight = $(this).parent().parent().find('.google-fonts-lightweight-style');
         var elementRegularWeight = $(this).parent().parent().find('.google-fonts-regularweight-style');
         var elementItalicWeight = $(this).parent().parent().find('.google-fonts-italicweight-style');
+        var elementSemiBoldWeight = $(this).parent().parent().find('.google-fonts-semiboldweight-style');
         var elementBoldWeight = $(this).parent().parent().find('.google-fonts-boldweight-style');
         var selectedFont = $(this).val();
         var customizerControlName = $(this).attr('control-name');
         var elementItalicWeightCount = 0;
+        var elementSemiBoldWeightCount = 0;
         var elementBoldWeightCount = 0;
 
         // Clear Weight/Style dropdowns
         elementLightWeight.empty();
         elementRegularWeight.empty();
         elementItalicWeight.empty();
+        elementSemiBoldWeight.empty();
         elementBoldWeight.empty();
         // Make sure Italic & Bold dropdowns are enabled
         elementItalicWeight.prop('disabled', false);
+        elementSemiBoldWeight.prop('disabled', false);
         elementBoldWeight.prop('disabled', false);
 
         // Get the Google Fonts control object
@@ -296,9 +300,13 @@ jQuery(document).ready(function ($) {
                 );
                 elementItalicWeightCount++;
             } else {
+                elementSemiBoldWeight.append(
+                    $('<option></option>').val(text).html(text)
+                );
                 elementBoldWeight.append(
                     $('<option></option>').val(text).html(text)
                 );
+                elementSemiBoldWeightCount++;
                 elementBoldWeightCount++;
             }
         });
@@ -308,6 +316,12 @@ jQuery(document).ready(function ($) {
                 $('<option></option>').val('').html('Not Available for this font')
             );
             elementItalicWeight.prop('disabled', 'disabled');
+        }
+        if (elementSemiBoldWeightCount == 0) {
+            elementSemiBoldWeight.append(
+                $('<option></option>').val('').html('Not Available for this font')
+            );
+            elementSemiBoldWeight.prop('disabled', 'disabled');
         }
         if (elementBoldWeightCount == 0) {
             elementBoldWeight.append(
@@ -332,6 +346,7 @@ jQuery(document).ready(function ($) {
             lightweight: $element.find('.google-fonts-lightweight-style').val(),
             regularweight: $element.find('.google-fonts-regularweight-style').val(),
             italicweight: $element.find('.google-fonts-italicweight-style').val(),
+            semiboldweight: $element.find('.google-fonts-semiboldweight-style').val(),
             boldweight: $element.find('.google-fonts-boldweight-style').val(),
             category: $element.find('.google-fonts-category').val()
         };
