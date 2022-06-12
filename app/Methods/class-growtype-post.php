@@ -30,6 +30,7 @@ class Growtype_Post
             'category_name' => '',
             'parent_class' => '',
             'pagination' => false,
+            'post_status' => 'publish', //also active, expired
         ), $atts));
 
         $args = array (
@@ -47,16 +48,34 @@ class Growtype_Post
             $current_page = max(1, get_query_var('paged'));
             $offset = $current_page === 1 ? 0 : ($current_page - 1) * $posts_per_page;
 
+            $site__not_in = ['1'];
+
+            if ($post_status === 'active' || $post_status === 'expired') {
+                $all_pages = get_sites([
+                    'number' => 1000,
+                    'site__not_in' => $site__not_in,
+                ]);
+
+                foreach ($all_pages as $post) {
+                    $field_details = Growtype_Site::get_settings_field_details($post->blog_id, 'event_start_date');
+                    if ($post_status === 'active' && $field_details->option_value < date('Y-m-d')
+                        || $post_status === 'expired' && $field_details->option_value > date('Y-m-d')
+                    ) {
+                        array_push($site__not_in, $post->blog_id);
+                    }
+                }
+            }
+
             $total_pages = get_sites([
                 'number' => 1000,
-                'site__not_in' => '1',
+                'site__not_in' => $site__not_in,
             ]);
 
             $total_pages = round(count($total_pages) / $posts_per_page);
 
             $posts = get_sites([
                 'number' => $posts_per_page === -1 ? 100 : $posts_per_page,
-                'site__not_in' => '1',
+                'site__not_in' => $site__not_in,
                 'offset' => $offset
             ]);
         } else {
