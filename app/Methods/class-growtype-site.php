@@ -47,4 +47,20 @@ class Growtype_Site
 
         return $blogname_details;
     }
+
+    /**
+     * @param $id
+     * @param $field_name
+     * @return object
+     */
+    public static function is_multisite_main_site(): bool
+    {
+        $is_main_site = true;
+
+        if (!is_multisite() || (!empty(getenv('REMOTE_DOMAIN_TO_REPLICATE_TYPE')) && getenv('REMOTE_DOMAIN_TO_REPLICATE_TYPE') !== 'parent')) {
+            $is_main_site = false;
+        }
+
+        return $is_main_site;
+    }
 }
