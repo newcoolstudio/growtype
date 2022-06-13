@@ -19,7 +19,10 @@ function add_extra_classes_to_body($classes)
     $classes[] = Growtype_Header::is_fixed() ? 'has-fixed-header' : null;
     $classes[] = get_theme_mod('burger_always_visible') ? 'has-always-visible-burger' : null;
     $classes[] = Growtype_Header::has_promo() ? 'has-promo-header' : null;
-    $classes[] = Growtype_Site::is_multisite_main_site() ? 'is-main-site' : null;
+
+    if (is_multisite()) {
+        $classes[] = Growtype_Site::is_multisite_main_site() ? 'is-main-site' : 'is-child-site';
+    }
 
     if (class_exists('woocommerce')) {
         if (is_account_page()) {
