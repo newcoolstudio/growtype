@@ -1,5 +1,7 @@
 <?php
 
+use function App\sage;
+
 /**
  * Growtype post methods
  */
@@ -93,7 +95,9 @@ class Growtype_Post
             <div <?php echo !empty($id) ? 'id="' . $id . '"' : "" ?> class="b-posts b-posts-growtype <?php echo $parent_class ?> <?php echo $slider === 'true' ? 'b-posts-slider' : '' ?>">
                 <?php
                 foreach ($posts as $post) {
-                    echo App\template('partials.content.post.preview.' . $preview_style, ['post' => $post, 'post_link' => $post_link === 'true' ? true : false, 'extra_class' => $extra_class]);
+                    $template_exists = file_exists(get_parent_template_views_path() . '/partials/content/post/preview/' . $preview_style . '.blade.php') ? true : file_exists(get_child_template_resource_path() . '/views/partials/content/post/preview/' . $preview_style . '.blade.php');
+                    $view_path = $template_exists ? 'partials.content.post.preview.' . $preview_style : 'partials.content.post.preview.basic';
+                    echo App\template($view_path, ['post' => $post, 'post_link' => $post_link === 'true' ? true : false, 'extra_class' => $extra_class]);
                 }
                 ?>
             </div>
