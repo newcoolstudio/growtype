@@ -37,6 +37,36 @@
   flex-wrap: wrap;
   margin-left: -10px;
   width: calc(100% + 20px);
+
+  &[data-columns="1"] {
+    .b-post-single {
+      width: calc(100% / 1);
+    }
+  }
+
+  &[data-columns="2"] {
+    .b-post-single {
+      width: calc(100% / 2);
+    }
+  }
+
+  &[data-columns="3"] {
+    .b-post-single {
+      width: calc(100% / 3);
+    }
+  }
+
+  &[data-columns="4"] {
+    .b-post-single {
+      width: calc(100% / 4);
+    }
+  }
+
+  &[data-columns="5"] {
+    .b-post-single {
+      width: calc(100% / 5);
+    }
+  }
 }
 
 .b-posts.b-posts-growtype {

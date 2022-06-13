@@ -33,6 +33,7 @@ class Growtype_Post
             'parent_class' => '',
             'pagination' => false,
             'post_status' => 'publish', //also active, expired
+            'columns' => '3'
         ), $atts));
 
         $args = array (
@@ -92,7 +93,7 @@ class Growtype_Post
         ob_start();
 
         if (!empty($posts)) : ?>
-            <div <?php echo !empty($id) ? 'id="' . $id . '"' : "" ?> class="b-posts b-posts-growtype <?php echo $parent_class ?> <?php echo $slider === 'true' ? 'b-posts-slider' : '' ?>">
+            <div <?php echo !empty($id) ? 'id="' . $id . '"' : "" ?> class="b-posts b-posts-growtype <?php echo $parent_class ?> <?php echo $slider === 'true' ? 'b-posts-slider' : '' ?>" data-columns="<?php echo $columns ?>">
                 <?php
                 foreach ($posts as $post) {
                     $template_exists = file_exists(get_parent_template_views_path() . '/partials/content/post/preview/' . $preview_style . '.blade.php') ? true : file_exists(get_child_template_resource_path() . '/views/partials/content/post/preview/' . $preview_style . '.blade.php');
