@@ -4,7 +4,7 @@
  * Mobile menu
  */
 
-$mobile_menu = wp_get_nav_menu_object('mobile-menu');
+$mobile_menu = !empty(wp_get_nav_menu_object('mobile-menu')) ? wp_get_nav_menu_object('mobile-menu') : wp_get_nav_menu_object('mobile');
 
 if (!empty($mobile_menu)) {
     $mobile_menu_section = 'nav_menu[' . $mobile_menu->term_id . ']';
