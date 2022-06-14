@@ -7,15 +7,10 @@ select, .select2-selection {
 select {
   min-width: 0;
   width: 100%;
-  background: none;
   height: 40px;
   line-height: 33px;
   font-size: 14px;
   box-sizing: border-box;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background: transparent;
-  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
   background-repeat: no-repeat;
   background-position-x: 100%;
   background-position-y: 7px;
@@ -23,81 +18,4 @@ select {
   border-radius: 2px;
   padding-left: 8px;
   background: white;
-}
-
-/**
-Select2
- */
-.select2-selection--single {
-  background-color: #fff;
-  border: 1px solid #aaa;
-}
-
-.select2-selection--single, .select2-selection__rendereds, .select2-selection--single .select2-selection__arrow {
-  height: 40px !important;
-}
-
-.select2-selection--single .select2-selection__rendered {
-  line-height: 40px !important;
-}
-
-.select2-selection--single {
-  border-radius: 0 !important;
-}
-
-.select2-selection--single .select2-selection__rendered {
-  padding-left: 10px !important;
-  font-size: 15px !important;
-}
-
-.select2-selection--single .select2-selection__arrow {
-  width: 30px !important;
-}
-
-.select2-results__option {
-  padding: 8px 10px !important;
-  margin: 0 !important;
-}
-
-/**
-Chosen
- */
-.chosen-container-single .chosen-single {
-  border-radius: $border-radius-input !important;
-  background: white !important;
-  height: 42px !important;
-  border: 1px solid $border-color-input;
-  box-shadow: none;
-
-  div b {
-    position: relative;
-    top: 7px;
-  }
-
-  span {
-    font-size: 14px;
-    min-height: 40px;
-    display: flex;
-    align-items: center;
-  }
-}
-
-.chosen-container-multi .chosen-choices {
-  border-radius: 0 !important;
-  background: white !important;
-  height: 42px !important;
-  border: 1px solid $border-color-input;
-  box-shadow: none;
-
-  .search-field {
-    font-size: 14px;
-    min-height: 40px;
-    display: flex;
-    align-items: center;
-  }
-
-  li.search-choice {
-    min-height: 31px;
-    padding-top: 7px!important;
-  }
 }

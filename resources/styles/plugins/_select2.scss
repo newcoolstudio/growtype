@@ -1,0 +1,30 @@
+.select2-selection--single {
+  background-color: #fff;
+  border: 1px solid #aaa;
+}
+
+.select2-selection--single, .select2-selection__rendereds, .select2-selection--single .select2-selection__arrow {
+  height: 40px !important;
+}
+
+.select2-selection--single .select2-selection__rendered {
+  line-height: 40px !important;
+}
+
+.select2-selection--single {
+  border-radius: 0 !important;
+}
+
+.select2-selection--single .select2-selection__rendered {
+  padding-left: 10px !important;
+  font-size: 15px !important;
+}
+
+.select2-selection--single .select2-selection__arrow {
+  width: 30px !important;
+}
+
+.select2-results__option {
+  padding: 8px 10px !important;
+  margin: 0 !important;
+}

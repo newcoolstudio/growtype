@@ -1,6 +1,6 @@
 <?php
 $post = isset($post) ? $post : get_post();
-$terms = wp_get_post_terms($post->ID, 'service_tax');
+$terms = wp_get_post_terms($post->ID, get_post_type($post) . '_tax');
 
 $start_date = get_field('start_date', $post);
 $end_date = get_field('end_date', $post);
