@@ -99,7 +99,7 @@ function admin_enqueue_custom_scripts()
     }
 
     if (!empty(get_theme_mod('body_background_color'))) {
-        $inlineCss .= 'body.wp-admin .block-editor-block-list__layout {
+        $inlineCss .= 'body.wp-admin .editor-styles-wrapper {
             background: ' . get_theme_mod('body_background_color') . ';
         }';
     }
