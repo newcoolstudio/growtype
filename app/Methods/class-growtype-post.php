@@ -82,6 +82,18 @@ class Growtype_Post
                 'offset' => $offset
             ]);
         } else {
+
+            if ($post_status === 'active' || $post_status === 'expired') {
+                $args['meta_query'] = array (
+                    'relation' => 'OR',
+                    array (
+                        'key' => 'event_start_date',
+                        'value' => current_time('Ymd'),
+                        'compare' => ($post_status === 'expired' ? '<' : '>')
+                    ),
+                );
+            }
+
             $the_query = new WP_Query($args);
 
             $posts_amount = $the_query->post_count;
