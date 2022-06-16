@@ -47,11 +47,15 @@ class Growtype_Post
             $args['category_name'] = $category_name;
         }
 
-        if ($post_type === 'multisite_sites') {
+        if (!empty(get_query_var('paged'))) {
             $current_page = max(1, get_query_var('paged'));
             $offset = $current_page === 1 ? 0 : ($current_page - 1) * $posts_per_page;
 
-            $site__not_in = ['1'];
+            $args['offset'] = $offset;
+        }
+
+        if ($post_type === 'multisite_sites') {
+            $site__not_in = [get_main_site_id()];
 
             if ($post_status === 'active' || $post_status === 'expired') {
                 $all_pages = get_sites([
@@ -69,12 +73,17 @@ class Growtype_Post
                 }
             }
 
-            $total_pages = get_sites([
-                'number' => 1000,
-                'site__not_in' => $site__not_in,
-            ]);
+            /**
+             * Total existing records for pagination
+             */
+            if ($pagination) {
+                $total_existing_records = get_sites([
+                    'number' => 1000,
+                    'site__not_in' => $site__not_in,
+                ]);
 
-            $total_pages = round(count($total_pages) / $posts_per_page);
+                $total_pages = round(count($total_existing_records) / $posts_per_page);
+            }
 
             $posts = get_sites([
                 'number' => $posts_per_page === -1 ? 100 : $posts_per_page,
@@ -97,7 +106,21 @@ class Growtype_Post
             $the_query = new WP_Query($args);
 
             $posts_amount = $the_query->post_count;
+
             $posts = $the_query->get_posts();
+
+            /**
+             * Total existing records for pagination
+             */
+            if ($pagination) {
+                $total_existing_records = new WP_Query([
+                    'posts_per_page' => -1,
+                    'post_type' => $args['post_type'],
+                    'meta_query' => $args['meta_query'] ?? [],
+                ]);
+
+                $total_pages = round($total_existing_records->post_count / $posts_per_page);
+            }
         }
 
         $extra_class = 'b-post-' . $preview_style;
