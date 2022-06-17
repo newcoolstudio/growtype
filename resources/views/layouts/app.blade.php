@@ -12,7 +12,7 @@
 @yield('header')
 
 <div class="main-content-wrapper">
-    @yield('modal')
+    @stack('modal')
 
     @if(display_gdpr())
         @include('partials.components.alerts.gdpr')
