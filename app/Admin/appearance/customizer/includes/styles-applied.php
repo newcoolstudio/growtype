@@ -440,6 +440,7 @@ function growtype_customizer_buttons_css()
         .btn-secondary,
         input[type=submit],
         .wp-block-button__link,
+        .wp-block-button__link:focus,
         .woocommerce div.product form.cart .button {
             border-radius: <?php echo get_theme_mod('button_border_radius'); ?>;
         }
