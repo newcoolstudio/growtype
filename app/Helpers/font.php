@@ -34,23 +34,23 @@ function growtype_get_font_url($font_details)
     $google_font_url = 'https://fonts.googleapis.com/css?family=' . urlencode($font_details->font) . ':';
     $google_font_url_weights = [];
 
-    if (growtype_get_font_details('primary_font')->lightweight !== 'none') {
+    if (isset(growtype_get_font_details('primary_font')->lightweight) && growtype_get_font_details('primary_font')->lightweight !== 'none') {
         $google_font_url_weights[] = urlencode($font_details->lightweight);
     }
 
-    if (growtype_get_font_details('primary_font')->regularweight !== 'none') {
+    if (isset(growtype_get_font_details('primary_font')->regularweight) && growtype_get_font_details('primary_font')->regularweight !== 'none') {
         $google_font_url_weights[] = urlencode($font_details->regularweight);
     }
 
-    if (growtype_get_font_details('primary_font')->semiboldweight !== 'none') {
+    if (isset(growtype_get_font_details('primary_font')->semiboldweight) && growtype_get_font_details('primary_font')->semiboldweight !== 'none') {
         $google_font_url_weights[] = urlencode($font_details->semiboldweight);
     }
 
-    if (growtype_get_font_details('primary_font')->boldweight !== 'none') {
+    if (isset(growtype_get_font_details('primary_font')->boldweight) && growtype_get_font_details('primary_font')->boldweight !== 'none') {
         $google_font_url_weights[] = urlencode($font_details->boldweight);
     }
 
-    if (growtype_get_font_details('primary_font')->italicweight !== 'none') {
+    if (isset(growtype_get_font_details('primary_font')->italicweight) && growtype_get_font_details('primary_font')->italicweight !== 'none') {
         $google_font_url_weights[] = urlencode($font_details->italicweight);
     }
 
