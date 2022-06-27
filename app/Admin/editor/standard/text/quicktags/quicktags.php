@@ -23,5 +23,5 @@ function add_pre_and_div_quicktags()
     }
 }
 
-add_action('admin_print_footer_scripts', 'add_pre_and_div_quicktags');
+add_action('admin_print_footer_scripts', 'add_pre_and_div_quicktags', 1000);
 
