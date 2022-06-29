@@ -141,12 +141,11 @@ add_filter('style_loader_tag', function ($html, $handle) {
         'dashicons',
         'ap-block-posts-style',
         'wp-reusable-blocks',
-        'jquery.fancybox.css',
-        'jquery.fancybox.css',
         'carousel-block',
-        'chosen.css',
-        'slick.min.css',
-        'growtype.main.css',
+        'jquery-fancybox-style',
+        'chosen-style',
+        'slick-min-style',
+        'growtype-app-style',
     );
 
     if (in_array($handle, $async_loading)) {
