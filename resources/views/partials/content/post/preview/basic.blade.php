@@ -46,7 +46,7 @@ $location = get_post_meta($post->ID, 'location', true);
                     <div class="b-content">
                         <p class="e-title-upper">
                             <span>{!! !empty($expiration_date) ? $expiration_date : get_the_date() !!}</span>
-                            @if(!empty($location))
+                            @if(!empty($location) && !is_array($location))
                                 <span class="e-separator">@</span>
                                 <span>{!! $location !!}</span>
                             @endif
