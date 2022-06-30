@@ -6,7 +6,7 @@
 function checkout_scripts_styles()
 {
     if (class_exists('woocommerce') && is_checkout()) {
-        wp_enqueue_script('wc-custom-checkout', get_parent_template_public_path() . '/scripts/plugins/woocommerce/wc-checkout.js', [], '1.0.0', true);
+        wp_enqueue_script('wc-custom-checkout', growtype_get_parent_theme_public_path() . '/scripts/plugins/woocommerce/wc-checkout.js', [], '1.0.0', true);
     }
 }
 

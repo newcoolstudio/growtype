@@ -7,11 +7,10 @@ add_action('wp_enqueue_scripts', 'custom_buddypress_scripts', 100);
 function custom_buddypress_scripts()
 {
     if (class_exists('buddypress')) {
-//        dd(get_parent_template_public_path());
-        wp_enqueue_style('growtype/buddypress/buddypress-styles', get_parent_template_public_path() . '/styles/plugins/buddypress/buddypress.css', false, null);
+        wp_enqueue_style('growtype/buddypress/buddypress-styles', growtype_get_parent_theme_public_path() . '/styles/plugins/buddypress/buddypress.css', false, null);
 
-        wp_enqueue_script('bp-like', get_parent_template_public_path() . '/scripts/plugins/buddypress/like.js', '', '', true);
-        wp_enqueue_script('bp-general', get_parent_template_public_path() . '/scripts/plugins/buddypress/general.js', ['jquery','growtype/flexmenu'], '', true);
+        wp_enqueue_script('bp-like', growtype_get_parent_theme_public_path() . '/scripts/plugins/buddypress/like.js', '', '', true);
+        wp_enqueue_script('bp-general', growtype_get_parent_theme_public_path() . '/scripts/plugins/buddypress/general.js', ['jquery','growtype/flexmenu'], '', true);
 
         wp_localize_script('bp-like', 'buddypress_data', get_buddypress_data());
     }

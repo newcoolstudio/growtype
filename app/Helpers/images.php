@@ -78,7 +78,7 @@ function get_login_logo()
     }
 
     if (empty($logo_url)) {
-        $logo_url = get_parent_template_public_path() . '/images/logo/growtype.svg';
+        $logo_url = growtype_get_parent_theme_public_path() . '/images/logo/growtype.svg';
     }
 
     return [

@@ -5,7 +5,7 @@
  */
 function get_bbp_template_path()
 {
-    return get_parent_template_app_path() . '/Plugins/bbpress/templates';
+    return growtype_get_parent_theme_app_path() . '/Plugins/bbpress/templates';
 }
 
 /**

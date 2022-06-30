@@ -23,18 +23,18 @@ function growtype_enqueue_block_editor_assets()
     if (get_post_type()) {
         wp_enqueue_style(
             'gutenberg-block-editor-styles',
-            get_parent_template_public_path() . '/styles/backend-block-editor.css',
+            growtype_get_parent_theme_public_path() . '/styles/backend-block-editor.css',
             false,
         );
 
         wp_enqueue_style(
             'gutenberg-block-editor-styles-child',
-            get_child_template_public_path() . '/styles/backend-block-editor-child.css',
+            growtype_get_child_theme_public_path() . '/styles/backend-block-editor-child.css',
             false
         );
 
         wp_enqueue_script('gutenberg-block-editor-scripts',
-            get_parent_template_public_path() . '/scripts/backend-block-editor.js',
+            growtype_get_parent_theme_public_path() . '/scripts/backend-block-editor.js',
             [], '1.0.0', true);
     }
 

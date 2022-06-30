@@ -19,60 +19,60 @@ add_action('wp_enqueue_scripts', function () {
         /**
          * Local Plugins
          */
-        wp_enqueue_script('jquery-fancybox-script', get_parent_template_public_path() . '/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.js', ['jquery'], null, true);
-        wp_enqueue_style('jquery-fancybox-style', get_parent_template_public_path() . '/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.css', false, null);
+        wp_enqueue_script('jquery-fancybox-script', growtype_get_parent_theme_public_path() . '/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.js', ['jquery'], null, true);
+        wp_enqueue_style('jquery-fancybox-style', growtype_get_parent_theme_public_path() . '/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.css', false, null);
 
         /**
          * Chosen css
          */
-        wp_enqueue_script('chosen-script', get_parent_template_public_path() . '/vendor/chosen-js/chosen.jquery.min.js', ['jquery'], null, true);
-        wp_enqueue_style('chosen-style', get_parent_template_public_path() . '/vendor/chosen-js/chosen.min.css', false, null);
+        wp_enqueue_script('chosen-script', growtype_get_parent_theme_public_path() . '/vendor/chosen-js/chosen.jquery.min.js', ['jquery'], null, true);
+        wp_enqueue_style('chosen-style', growtype_get_parent_theme_public_path() . '/vendor/chosen-js/chosen.min.css', false, null);
 
         /**
          * Slick-carousel
          */
-        wp_enqueue_script('slick-min-script', get_parent_template_public_path() . '/vendor/slick-carousel/slick/slick.min.js', ['jquery'], null, true);
-        wp_enqueue_style('slick-style', get_parent_template_public_path() . '/vendor/slick-carousel/slick/slick.css', false, null);
-        wp_enqueue_style('slick-theme-style', get_parent_template_public_path() . '/vendor/slick-carousel/slick/slick-theme.css', false, null);
+        wp_enqueue_script('slick-min-script', growtype_get_parent_theme_public_path() . '/vendor/slick-carousel/slick/slick.min.js', ['jquery'], null, true);
+        wp_enqueue_style('slick-style', growtype_get_parent_theme_public_path() . '/vendor/slick-carousel/slick/slick.css', false, null);
+        wp_enqueue_style('slick-theme-style', growtype_get_parent_theme_public_path() . '/vendor/slick-carousel/slick/slick-theme.css', false, null);
 
         /**
          * Gutenberg scripts
          */
         if (gutenberg_block_editor_is_active()) {
-            wp_enqueue_style('growtype-frontend-block-editor-style', get_parent_template_public_path() . '/styles/frontend-block-editor.css', config('theme.version'), null);
-            wp_enqueue_script('growtype-frontend-block-editor-script', get_parent_template_public_path() . '/scripts/frontend-block-editor.js', ['jquery'], config('theme.version'), true);
+            wp_enqueue_style('growtype-frontend-block-editor-style', growtype_get_parent_theme_public_path() . '/styles/frontend-block-editor.css', config('theme.version'), null);
+            wp_enqueue_script('growtype-frontend-block-editor-script', growtype_get_parent_theme_public_path() . '/scripts/frontend-block-editor.js', ['jquery'], config('theme.version'), true);
         }
 
         /**
          * Main Theme Scripts
          */
-        wp_enqueue_style('growtype-app-style', get_parent_template_public_path() . '/styles/app.css', false, config('theme.version'));
-        wp_enqueue_script('growtype-app-script', get_parent_template_public_path() . '/scripts/app.js', ['jquery'], config('theme.version'), true);
+        wp_enqueue_style('growtype-app-style', growtype_get_parent_theme_public_path() . '/styles/app.css', false, config('theme.version'));
+        wp_enqueue_script('growtype-app-script', growtype_get_parent_theme_public_path() . '/scripts/app.js', ['jquery'], config('theme.version'), true);
 
         /**
          * Cookie
          */
-        wp_enqueue_script('cookie-script', get_parent_template_public_path() . '/scripts/cookie.js', ['jquery'], config('theme.version'), true);
+        wp_enqueue_script('cookie-script', growtype_get_parent_theme_public_path() . '/scripts/cookie.js', ['jquery'], config('theme.version'), true);
 
         /**
          * ACF
          */
         if (class_exists('ACF')) {
-            wp_enqueue_style('acf-style', get_parent_template_public_path() . '/styles/plugins/acf/acf.css', false, config('theme.version'));
-            wp_enqueue_script('acf-script', get_parent_template_public_path() . '/scripts/plugins/acf/acf.js', ['jquery'], config('theme.version'), true);
+            wp_enqueue_style('acf-style', growtype_get_parent_theme_public_path() . '/styles/plugins/acf/acf.css', false, config('theme.version'));
+            wp_enqueue_script('acf-script', growtype_get_parent_theme_public_path() . '/scripts/plugins/acf/acf.js', ['jquery'], config('theme.version'), true);
         }
 
         /**
          * Flexmenu
          */
-        wp_enqueue_script('flexmenu-script', get_parent_template_public_path() . '/scripts/plugins/flexmenu/flexmenu.js', ['jquery'], config('theme.version'), true);
+        wp_enqueue_script('flexmenu-script', growtype_get_parent_theme_public_path() . '/scripts/plugins/flexmenu/flexmenu.js', ['jquery'], config('theme.version'), true);
 
         /**
          * Child Theme Scripts
          */
         if (is_child_theme()) {
-            wp_enqueue_style('growtype-app-child-style', get_child_template_public_path() . '/styles/app-child.css', false, config('theme.version'), 'all');
-            wp_enqueue_script('growtype-app-child-script', get_child_template_public_path() . '/scripts/app-child.js', false, config('theme.version'), true);
+            wp_enqueue_style('growtype-app-child-style', growtype_get_child_theme_public_path() . '/styles/app-child.css', false, config('theme.version'), 'all');
+            wp_enqueue_script('growtype-app-child-script', growtype_get_child_theme_public_path() . '/scripts/app-child.js', false, config('theme.version'), true);
             wp_localize_script('growtype-app-child-script', 'ajax_object', array (
                     'ajaxurl' => admin_url('admin-ajax.php')
                 )
@@ -171,12 +171,12 @@ add_action('after_setup_theme', function () {
     /**
      * Load parent theme languages
      */
-    load_theme_textdomain('growtype', get_parent_template_resource_path() . '/languages');
+    load_theme_textdomain('growtype', growtype_get_parent_theme_resource_path() . '/languages');
 
     /**
      * Load child theme languages
      */
-    load_child_theme_textdomain('growtype-child', get_child_template_resource_path() . '/languages');
+    load_child_theme_textdomain('growtype-child', growtype_get_child_theme_resource_path() . '/languages');
 
     /**
      * Gutenberg
