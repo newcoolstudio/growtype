@@ -29,7 +29,7 @@ class Growtype_Post
             'id' => 'b-posts',
             'slider_slides_to_show' => '4',
             'post_link' => 'true',
-            'category_name' => '',
+            'category_name' => '', //use category slug
             'parent_class' => '',
             'pagination' => false,
             'post_status' => 'publish', //also active, expired
@@ -43,7 +43,7 @@ class Growtype_Post
             'order' => 'asc'
         );
 
-        if (!empty($category_name)) {
+        if (!empty($category_name) && !in_array($post_type, ['product'])) {
             $args['category_name'] = $category_name;
         }
 
