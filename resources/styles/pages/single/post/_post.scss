@@ -38,6 +38,10 @@
   margin-left: -10px;
   width: calc(100% + 20px);
 
+  &.slick-initialized {
+    display: inline-block;
+  }
+
   &[data-columns="1"] {
     .b-post-single {
       width: calc(100% / 1);
