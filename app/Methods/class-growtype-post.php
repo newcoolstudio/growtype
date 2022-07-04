@@ -33,7 +33,8 @@ class Growtype_Post
             'parent_class' => '',
             'pagination' => false,
             'post_status' => 'publish', //also active, expired
-            'columns' => '3'
+            'columns' => '3',
+            'post__in' => []
         ), $atts));
 
         $args = array (
@@ -42,6 +43,10 @@ class Growtype_Post
             'post_order' => 'menu_order',
             'order' => 'asc'
         );
+
+        if (!empty($post__in)) {
+            $args['post__in'] = explode(',', $post__in);
+        }
 
         if (!empty($category_name) && !in_array($post_type, ['product'])) {
             $args['category_name'] = $category_name;
@@ -54,6 +59,9 @@ class Growtype_Post
             $args['offset'] = $offset;
         }
 
+        /**
+         * For multisite sites
+         */
         if ($post_type === 'multisite_sites') {
             $site__not_in = [get_main_site_id()];
 
