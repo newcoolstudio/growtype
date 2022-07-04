@@ -39,7 +39,9 @@
   width: calc(100% + 20px);
 
   &.slick-initialized {
-    display: inline-block;
+    display: block;
+    max-width: 90%;
+    margin: auto;
   }
 
   &[data-columns="1"] {
