@@ -2,8 +2,8 @@
 $post = isset($post) ? $post : get_post();
 $terms = wp_get_post_terms($post->ID, get_post_type($post) . '_tax');
 
-$start_date = get_field('start_date', $post);
-$end_date = get_field('end_date', $post);
+$start_date = class_exists('ACF') ? get_field('start_date', $post) : '';
+$end_date = class_exists('ACF') ? get_field('end_date', $post) : '';
 $expiration_date = !empty($end_date) ? $end_date : $start_date;
 
 $post_is_expired = !empty($expiration_date) && strtotime($expiration_date) < strtotime(date('Y-m-d H:i:s')) ? 'is-expired' : '';

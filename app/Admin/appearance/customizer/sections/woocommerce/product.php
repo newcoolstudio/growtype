@@ -291,7 +291,7 @@ $wp_customize->add_setting('woocommerce_product_page_meta_data_disabled',
 
 $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_product_page_meta_data_disabled',
     array (
-        'label' => esc_html__('Meta data disabled'),
+        'label' => esc_html__('Meta Data Disabled'),
         'section' => 'woocommerce_product_page',
         'description' => __('Enable/disable meta data.', 'growtype'),
     )
@@ -310,7 +310,7 @@ $wp_customize->add_setting('woocommerce_product_page_related_products_notice',
 
 $wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_customize, 'woocommerce_product_page_related_products_notice',
     array (
-        'label' => __('Related products'),
+        'label' => __('Related Products'),
         'description' => __('Below you can change related products settings'),
         'section' => 'woocommerce_product_page'
     )
@@ -328,7 +328,7 @@ $wp_customize->add_setting('woocommerce_product_page_related_products_disabled',
 
 $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_product_page_related_products_disabled',
     array (
-        'label' => esc_html__('Status Disabled'),
+        'label' => esc_html__('Products Disabled'),
         'section' => 'woocommerce_product_page',
         'description' => __('Related products are disabled.', 'growtype'),
     )
