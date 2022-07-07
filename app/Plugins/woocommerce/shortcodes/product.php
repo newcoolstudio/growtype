@@ -3,8 +3,8 @@
 /**
  * Woocommerce custom products shortcode
  */
-add_shortcode('products_growtype', 'products_growtype_shortcode');
-function products_growtype_shortcode($atts, $content = null)
+add_shortcode('growtype_products', 'growtype_products_shortcode');
+function growtype_products_shortcode($atts, $content = null)
 {
     global $woocommerce_loop, $wpdb;
 

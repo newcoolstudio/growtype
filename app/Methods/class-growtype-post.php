@@ -10,7 +10,7 @@ class Growtype_Post
     function __construct()
     {
         if (!is_admin()) {
-            add_shortcode('posts_growtype', array (&$this, 'posts_growtype_shortcode'));
+            add_shortcode('growtype_posts', array (&$this, 'growtype_posts_shortcode'));
         }
     }
 
@@ -19,7 +19,7 @@ class Growtype_Post
      * @return string
      * Posts shortcode
      */
-    function posts_growtype_shortcode($atts)
+    function growtype_posts_shortcode($atts)
     {
         extract(shortcode_atts(array (
             'post_type' => 'post',
@@ -50,6 +50,15 @@ class Growtype_Post
 
         if (!empty($category_name) && !in_array($post_type, ['product'])) {
             $args['category_name'] = $category_name;
+        } else {
+            $args['tax_query'] = array (
+                array (
+                    'taxonomy' => 'product_cat',
+                    'field' => 'slug',
+                    'terms' => [$category_name],
+                    'operator' => 'IN',
+                )
+            );
         }
 
         if (!empty(get_query_var('paged'))) {
@@ -111,6 +120,8 @@ class Growtype_Post
                 );
             }
 
+            $args = apply_filters('growtype_posts_shortcode_extend_args', $args);
+
             $the_query = new WP_Query($args);
 
             $posts_amount = $the_query->post_count;
@@ -166,7 +177,7 @@ class Growtype_Post
          * Add js scripts
          */
         if ($slider === 'true') {
-            add_action('wp_head', array (&$this, 'posts_growtype_shortcode_scripts_header'), 100);
+            add_action('wp_head', array (&$this, 'growtype_posts_shortcode_scripts_header'), 100);
 
             if ($posts_amount > $slider_slides_to_show) {
                 add_action('wp_footer', function ($arguments) use ($id, $slider_slides_to_show) { ?>
@@ -207,7 +218,7 @@ class Growtype_Post
     /**
      * @return void
      */
-    function posts_growtype_shortcode_scripts_header()
+    function growtype_posts_shortcode_scripts_header()
     {
         ?>
         <style></style>

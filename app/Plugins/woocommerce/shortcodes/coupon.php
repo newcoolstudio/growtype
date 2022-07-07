@@ -3,7 +3,7 @@
 /**
  * Woocommerce coupon discount
  */
-add_shortcode('featured_coupon_discount', 'growtype_featured_coupon_discount');
+add_shortcode('growtype_featured_coupon_discount', 'growtype_featured_coupon_discount');
 function growtype_featured_coupon_discount($atts)
 {
     global $woocommerce;
@@ -21,7 +21,7 @@ function growtype_featured_coupon_discount($atts)
 /**
  * Woocommerce coupon discount
  */
-add_shortcode('featured_coupon_code', 'growtype_featured_coupon_code');
+add_shortcode('growtype_featured_coupon_code', 'growtype_featured_coupon_code');
 function growtype_featured_coupon_code($atts)
 {
     global $woocommerce;
