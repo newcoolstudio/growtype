@@ -48,17 +48,19 @@ class Growtype_Post
             $args['post__in'] = explode(',', $post__in);
         }
 
-        if (!empty($category_name) && !in_array($post_type, ['product'])) {
-            $args['category_name'] = $category_name;
-        } else {
-            $args['tax_query'] = array (
-                array (
-                    'taxonomy' => 'product_cat',
-                    'field' => 'slug',
-                    'terms' => [$category_name],
-                    'operator' => 'IN',
-                )
-            );
+        if (!empty($category_name)) {
+            if (in_array($post_type, ['product'])) {
+                $args['tax_query'] = array (
+                    array (
+                        'taxonomy' => 'product_cat',
+                        'field' => 'slug',
+                        'terms' => [$category_name],
+                        'operator' => 'IN',
+                    )
+                );
+            } else {
+                $args['category_name'] = $category_name;
+            }
         }
 
         if (!empty(get_query_var('paged'))) {
