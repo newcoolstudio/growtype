@@ -120,7 +120,7 @@ class Growtype_Post
                 );
             }
 
-            $args = apply_filters('growtype_posts_shortcode_extend_args', $args);
+            $args = apply_filters('growtype_posts_shortcode_extend_args', $atts, $args);
 
             $the_query = new WP_Query($args);
 
