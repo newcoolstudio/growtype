@@ -75,7 +75,7 @@
 
   .woocommerce-cart-form {
     width: 66%;
-    float: left;
+    display: inline-block;
     background: white;
     margin-bottom: 30px;
     @include bp-tablet() {

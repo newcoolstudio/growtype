@@ -10,8 +10,12 @@
     }
   }
 
-  .alert & {
-
+  &:before {
+    content: "\E828";
+    font-family: growtype-icons;
+    font-size: 18px;
+    top: 12px;
+    left: 20px;
   }
 }
 

@@ -14,13 +14,13 @@
   &:before {
     font-family: growtype-icons;
     font-weight: 500;
-    content: "\E804";
+    content: "\E808";
     color: #9d9d9d;
   }
 
   &.is-active {
     &:before {
-      content: "\E805";
+      content: "\E801";
       color: $color-text;
     }
   }

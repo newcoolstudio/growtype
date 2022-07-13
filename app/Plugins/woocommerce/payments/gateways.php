@@ -73,7 +73,7 @@ class WC_Gateway_Free extends WC_Payment_Gateway
                 'title' => __('Description', 'growtype'),
                 'type' => 'textarea',
                 'description' => __('Payment method description that the customer will see on your checkout.', 'growtype'),
-                'default' => __('Try our product without paying any money.', 'growtype'),
+                'default' => __('Test product without paying any money.', 'growtype'),
                 'desc_tip' => true,
             )
         );

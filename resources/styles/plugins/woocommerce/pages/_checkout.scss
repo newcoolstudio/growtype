@@ -54,7 +54,15 @@
   }
 
   .woocommerce-privacy-policy-text {
-    font-size: 13px;
+    font-size: 14px;
+
+    p {
+      font-size: 14px;
+
+      a {
+        font-size: inherit;
+      }
+    }
   }
 
   .checkout_coupon {
@@ -104,6 +112,10 @@
 
 .woocommerce table.shop_table td {
   font-size: 14px;
+
+  a {
+    color: $color-text;
+  }
 }
 
 #customer_details {
@@ -240,6 +252,7 @@ Checkout review table
       background: none;
       padding-left: 0;
       padding-right: 0;
+      box-shadow: none;
 
       ul.wc_payment_methods, .form-row {
         padding-left: 5px;

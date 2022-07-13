@@ -406,7 +406,7 @@ header a:hover {
   padding-left: 10px;
   @include bp-phone-xl() {
     padding-left: 5px;
-    top: -2px;
+    top: 1px;
   }
 
   .language-selector {
@@ -417,9 +417,6 @@ header a:hover {
 
   .customizer {
     position: relative;
-    @include bp-phone-xl() {
-      top: 2px;
-    }
   }
 
   .menu {

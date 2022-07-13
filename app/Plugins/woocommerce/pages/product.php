@@ -19,8 +19,8 @@ function growtype_woocommerce_output_related_products_args($args)
 /**
  * Wishlist button
  */
-add_filter('woocommerce_after_add_to_cart_button', 'wc_add_wishlist_to_product_page', 5);
-function wc_add_wishlist_to_product_page()
+add_filter('woocommerce_after_add_to_cart_button', 'growtype_woocommerce_after_add_to_cart_button', 5);
+function growtype_woocommerce_after_add_to_cart_button()
 {
     $current_user = wp_get_current_user();
     $current_user_wishlist_ids = get_user_meta($current_user->ID, 'wishlist_ids', true);
@@ -39,8 +39,8 @@ function wc_add_wishlist_to_product_page()
 /**
  * Remove the breadcrumbs
  */
-add_action('init', 'wc_remove_breadcrumbs');
-function wc_remove_breadcrumbs()
+add_action('init', 'growtype_woocommerce_remove_breadcrumbs');
+function growtype_woocommerce_remove_breadcrumbs()
 {
     if (!get_theme_mod('woocommerce_product_page_breadcrumb_status')) {
         remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
@@ -50,8 +50,8 @@ function wc_remove_breadcrumbs()
 /**
  * Breadcrumb home url
  */
-add_filter('woocommerce_breadcrumb_home_url', 'wc_breadrumb_home_url');
-function wc_breadrumb_home_url()
+add_filter('woocommerce_breadcrumb_home_url', 'growtype_woocommerce_breadcrumb_home_url');
+function growtype_woocommerce_breadcrumb_home_url()
 {
     return get_permalink(wc_get_page_id('shop'));
 }
@@ -59,8 +59,8 @@ function wc_breadrumb_home_url()
 /**
  * Setup breadcrumb
  */
-add_filter('woocommerce_breadcrumb_defaults', 'wc_breadcrumbs_setup');
-function wc_breadcrumbs_setup($defaults)
+add_filter('woocommerce_breadcrumb_defaults', 'growtype_woocommerce_breadcrumb_defaults');
+function growtype_woocommerce_breadcrumb_defaults($defaults)
 {
     $shop_page = get_post(wc_get_page_id('shop'));
 
@@ -77,8 +77,8 @@ function wc_breadcrumbs_setup($defaults)
 /**
  * Alter breadcrumb
  */
-add_filter('woocommerce_get_breadcrumb', 'wc_breadcrumbs_alter', 10, 2);
-function wc_breadcrumbs_alter($crumbs, $breadcrumb)
+add_filter('woocommerce_get_breadcrumb', 'growtype_woocommerce_get_breadcrumb', 10, 2);
+function growtype_woocommerce_get_breadcrumb($crumbs, $breadcrumb)
 {
     if (is_product()) {
         array_shift($crumbs);
@@ -91,8 +91,8 @@ function wc_breadcrumbs_alter($crumbs, $breadcrumb)
 /**
  * Add info below add to form button
  */
-add_action('woocommerce_after_add_to_cart_form', 'wc_payment_details');
-function wc_payment_details()
+add_action('woocommerce_after_add_to_cart_form', 'growtype_woocommerce_after_add_to_cart_form');
+function growtype_woocommerce_after_add_to_cart_form()
 {
     echo \App\template('woocommerce.components.product-single-payment-details');
 }
@@ -100,8 +100,8 @@ function wc_payment_details()
 /**
  * Add sign after quantity input
  */
-add_action('woocommerce_before_quantity_input_field', 'wc_change_quantity_down');
-function wc_change_quantity_down()
+add_action('woocommerce_before_quantity_input_field', 'growtype_woocommerce_before_quantity_input_field');
+function growtype_woocommerce_before_quantity_input_field()
 {
     echo '<div class="btn btn-down">-</div>';
 }
@@ -109,8 +109,8 @@ function wc_change_quantity_down()
 /**
  * Add sign after quantity input
  */
-add_action('woocommerce_after_quantity_input_field', 'wc_change_quantity_up');
-function wc_change_quantity_up()
+add_action('woocommerce_after_quantity_input_field', 'growtype_woocommerce_after_quantity_input_field');
+function growtype_woocommerce_after_quantity_input_field()
 {
     echo '<div class="btn btn-up">+</div>';
 }
@@ -118,23 +118,21 @@ function wc_change_quantity_up()
 /**
  * Customize variation option name. Display out of stock.
  */
-add_filter('woocommerce_variation_option_name', 'wc_customize_variation_option_name', 10, 1);
-function wc_customize_variation_option_name($term_name)
+add_filter('woocommerce_variation_option_name', 'growtype_woocommerce_variation_option_name', 10, 1);
+function growtype_woocommerce_variation_option_name($term_name)
 {
     global $product;
 
-    if (empty($product)) {
-        return null;
-    }
+    if (is_single()) {
+        $product_variations = $product->get_available_variations();
 
-    $product_variations = $product->get_available_variations();
+        foreach ($product_variations as $product_variation) {
+            if (isset($product_variation['attributes'])) {
+                $key = array_search($term_name, $product_variation['attributes']);
 
-    foreach ($product_variations as $product_variation) {
-        if (isset($product_variation['attributes'])) {
-            $key = array_search($term_name, $product_variation['attributes']);
-
-            if ($key !== false && !$product_variation['is_in_stock']) {
-                return $term_name . ' - Out of Stock';
+                if ($key !== false && !$product_variation['is_in_stock']) {
+                    return $term_name . ' - Out of Stock';
+                }
             }
         }
     }

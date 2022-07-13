@@ -282,16 +282,16 @@ $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_custom
 /**
  * Meta data
  */
-$wp_customize->add_setting('woocommerce_product_page_meta_data_disabled',
+$wp_customize->add_setting('woocommerce_product_page_meta_data_enabled',
     array (
         'default' => 0,
         'transport' => 'refresh',
     )
 );
 
-$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_product_page_meta_data_disabled',
+$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_product_page_meta_data_enabled',
     array (
-        'label' => esc_html__('Meta Data Disabled'),
+        'label' => esc_html__('Meta Data Enabled'),
         'section' => 'woocommerce_product_page',
         'description' => __('Enable/disable meta data.', 'growtype'),
     )
