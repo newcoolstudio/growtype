@@ -107,6 +107,9 @@
   z-index: 98;
   margin-top: -90px;
   position: relative;
+  @include bp-phone-xl() {
+    width: 100%;
+  }
 
   .panel-bg {
     position: absolute;
