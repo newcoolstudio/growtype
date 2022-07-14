@@ -34,23 +34,23 @@ function growtype_get_font_url($font_details)
     $google_font_url = 'https://fonts.googleapis.com/css?family=' . urlencode($font_details->font) . ':';
     $google_font_url_weights = [];
 
-    if (isset(growtype_get_font_details('primary_font')->lightweight) && growtype_get_font_details('primary_font')->lightweight !== 'none') {
+    if (isset(growtype_get_font_details('primary_font')->lightweight) && growtype_get_font_details('primary_font')->lightweight !== 'none' && isset($font_details->lightweight)) {
         $google_font_url_weights[] = urlencode($font_details->lightweight);
     }
 
-    if (isset(growtype_get_font_details('primary_font')->regularweight) && growtype_get_font_details('primary_font')->regularweight !== 'none') {
+    if (isset(growtype_get_font_details('primary_font')->regularweight) && growtype_get_font_details('primary_font')->regularweight !== 'none' && isset($font_details->regularweight)) {
         $google_font_url_weights[] = urlencode($font_details->regularweight);
     }
 
-    if (isset(growtype_get_font_details('primary_font')->semiboldweight) && growtype_get_font_details('primary_font')->semiboldweight !== 'none') {
+    if (isset(growtype_get_font_details('primary_font')->semiboldweight) && growtype_get_font_details('primary_font')->semiboldweight !== 'none' && isset($font_details->semiboldweight)) {
         $google_font_url_weights[] = urlencode($font_details->semiboldweight);
     }
 
-    if (isset(growtype_get_font_details('primary_font')->boldweight) && growtype_get_font_details('primary_font')->boldweight !== 'none') {
+    if (isset(growtype_get_font_details('primary_font')->boldweight) && growtype_get_font_details('primary_font')->boldweight !== 'none' && isset($font_details->boldweight)) {
         $google_font_url_weights[] = urlencode($font_details->boldweight);
     }
 
-    if (isset(growtype_get_font_details('primary_font')->italicweight) && growtype_get_font_details('primary_font')->italicweight !== 'none') {
+    if (isset(growtype_get_font_details('primary_font')->italicweight) && growtype_get_font_details('primary_font')->italicweight !== 'none' && isset($font_details->italicweight)) {
         $google_font_url_weights[] = urlencode($font_details->italicweight);
     }
 
