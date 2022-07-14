@@ -34,10 +34,10 @@ $location = get_post_meta($post->ID, 'location', true);
                             @if(!empty($expiration_date))
                                 <div class="b-date">
                                     <div class="b-date-month">
-                                        {{date_i18n('F', strtotime($start_date))}}
+                                        {!! date_i18n('F', strtotime($start_date)) !!}
                                     </div>
                                     <div class="b-date-day">
-                                        {{date_i18n('d', strtotime($start_date))}}
+                                        {!! date_i18n('d', strtotime($start_date)) !!}
                                     </div>
                                 </div>
                             @endif
@@ -55,13 +55,13 @@ $location = get_post_meta($post->ID, 'location', true);
                             <h4>{!! $post->post_title !!}</h4>
                         @endif
                         @if(!empty($post->post_excerpt))
-                            <p>{{$post->post_excerpt}}</p>
+                            <p>{!! $post->post_excerpt !!}</p>
                         @endif
                         <div class="e-intro">
                             @if(isset($content_length) && $content_length === -1)
                                 {!! $post->post_content !!}
                             @else
-                                {{Growtype_Post::content_limited($post->post_content, isset($content_length) ? $content_length : 200)}}
+                                {!! Growtype_Post::content_limited($post->post_content, isset($content_length) ? $content_length : 200) !!}
                             @endif
                         </div>
                     </div>
