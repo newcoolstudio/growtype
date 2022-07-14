@@ -1,1 +1,1 @@
-{{ Growtype_Product::sidebar_content() }}
+{!! Growtype_Product::sidebar_content() !!}
