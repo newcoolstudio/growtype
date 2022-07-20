@@ -27,7 +27,7 @@ figure[class^="wp-block-"] {
 [class^="wp-block-"]:not(.wp-block-gallery) figcaption:before {
   color: #666;
   content: '\2014';
-  font-size: 14px;
+  font-size: $font-size-body;
   font-style: normal;
   font-weight: bold;
   margin-right: 5px;

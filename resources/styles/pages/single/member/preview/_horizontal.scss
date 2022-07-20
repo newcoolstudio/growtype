@@ -34,7 +34,7 @@
     transition: all 0.5s;
     max-width: 340px;
     width: 100%;
-    font-size: 14px;
+    font-size: $font-size-body;
     @include bp-phone-xl() {
       padding: 15px 10px 10px 10px;
       width: 100%;

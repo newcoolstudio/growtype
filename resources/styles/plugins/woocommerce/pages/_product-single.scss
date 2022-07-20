@@ -91,7 +91,7 @@
     display: inline-block;
     width: 100%;
     padding-bottom: 20px;
-    font-size: 14px;
+    font-size: $font-size-body;
 
     p {
       margin: 2px;
@@ -173,7 +173,7 @@
       background: #f7f8fa;
       color: black;
       border: none;
-      font-size: 14px;
+      font-size: $font-size-body;
 
       &::placeholder {
         color: black;
@@ -185,7 +185,7 @@
     margin-top: 0;
     border-top: 1px solid #ededed;
     padding-top: 20px;
-    font-size: 14px;
+    font-size: $font-size-body;
     flex-direction: column;
 
     span {

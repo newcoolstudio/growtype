@@ -28,14 +28,14 @@
   }
 
   .b-content-main {
-    font-size: 14px;
+    font-size: $font-size-body;
     width: 76%;
     @include bp-phone-xl() {
       width: 100%;
     }
 
     p {
-      font-size: 14px;
+      font-size: $font-size-body;
     }
 
     table {

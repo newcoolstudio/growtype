@@ -107,7 +107,7 @@
 
 .wc-block-grid__product .wc-block-grid__product-title, .woocommerce ul.products li.product .woocommerce-loop-product__title {
   line-height: 18px;
-  font-size: 14px;
+  font-size: $font-size-body;
   color: $color-text;
   padding-top: 5px;
 }

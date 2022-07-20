@@ -5,13 +5,13 @@
   }
 
   span {
-    font-size: 14px;
+    font-size: $font-size-body;
   }
 
   .chosen-container-single .chosen-single, select, .chosen-drop {
     border: none;
     box-shadow: none;
-    font-size: 14px;
+    font-size: $font-size-body;
     text-transform: uppercase;
     color: black;
   }
@@ -24,14 +24,14 @@
 }
 
 .woo-multi-currency.wmc-shortcode.plain-vertical .wmc-currency-wrapper span.wmc-current-currency {
-  font-size: 14px;
+  font-size: $font-size-body;
   color: #1f1f1f !important;
   border: none;
   font-weight: 300;
   background: initial;
 
   a {
-    font-size: 14px;
+    font-size: $font-size-body;
   }
 }
 
@@ -49,7 +49,7 @@
 }
 
 .woo-multi-currency.wmc-shortcode.plain-vertical .wmc-currency-wrapper .wmc-sub-currency .wmc-currency {
-  font-size: 14px;
+  font-size: $font-size-body;
 }
 
 .side-nav-wrapper {

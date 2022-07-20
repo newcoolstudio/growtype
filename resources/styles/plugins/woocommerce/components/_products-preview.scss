@@ -383,7 +383,7 @@
 
 .woocommerce ul.products li.product .woocommerce-loop-product__title {
   line-height: 20px;
-  font-size: 14px;
+  font-size: $font-size-body;
   color: #4f4f4f;
   font-weight: 300;
   margin-top: 3px;
@@ -435,7 +435,7 @@ Product type auction
     padding: 15px 15px;
     position: relative;
     padding-left: 45px;
-    font-size: 14px;
+    font-size: $font-size-body;
     color: $color-dark-grey;
 
     &:before {
@@ -451,7 +451,7 @@ Product type auction
     }
 
     .b-time {
-      font-size: 14px;
+      font-size: $font-size-body;
       display: flex;
       font-weight: bold;
     }
@@ -465,7 +465,7 @@ Product type auction
     }
 
     .countdown_amount {
-      font-size: 14px;
+      font-size: $font-size-body;
     }
   }
 

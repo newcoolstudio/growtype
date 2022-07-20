@@ -23,7 +23,7 @@
         margin-bottom: 5px;
         font-weight: 500;
         @include bp-phone-xl() {
-          font-size: 14px;
+          font-size: $font-size-body;
         }
       }
 

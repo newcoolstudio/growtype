@@ -180,7 +180,7 @@
       padding: 0;
       margin: 0;
       color: white;
-      font-size: 14px;
+      font-size: $font-size-body;
     }
 
     li {
@@ -228,7 +228,7 @@
 
 .footer-inner-top {
   min-height: 80px;
-  font-size: 14px;
+  font-size: $font-size-body;
   padding-bottom: 25px;
   @include bp-phone-xl() {
     padding-top: 20px;
@@ -236,7 +236,7 @@
   }
 
   p {
-    font-size: 14px;
+    font-size: $font-size-body;
   }
 
   .footer_logo {
@@ -311,7 +311,7 @@
     padding: 0;
     border-bottom: 1px solid #fff;
     width: 100%;
-    font-size: 14px;
+    font-size: $font-size-body;
     line-height: 22px;
   }
 

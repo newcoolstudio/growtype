@@ -90,7 +90,7 @@
 
         a {
           color: $color-text;
-          font-size: 14px;
+          font-size: $font-size-body;
           padding: 15px;
           display: inline-block;
           width: 100%;
@@ -218,7 +218,7 @@
       line-height: 22px;
 
       .e-subtitle {
-        font-size: 14px;
+        font-size: $font-size-body;
         font-weight: 300;
         margin-top: 2px;
       }

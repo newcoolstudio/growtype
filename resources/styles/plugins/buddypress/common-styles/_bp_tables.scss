@@ -225,7 +225,7 @@
 // close .buddypress-wrap
 
 .buddypress-wrap .profile.edit .editfield > fieldset > legend {
-  font-size: 14px;
+  font-size: $font-size-body;
 }
 
 .buddypress-wrap .standard-form input[type="radio"] {
@@ -233,5 +233,5 @@
 }
 
 .buddypress-wrap .standard-form a.clear-value {
-  font-size: 14px;
+  font-size: $font-size-body;
 }

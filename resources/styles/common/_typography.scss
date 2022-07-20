@@ -4,7 +4,7 @@ body {
 
 a {
   text-decoration: none;
-  font-size: 14px;
+  font-size: $font-size-body;
 
   &:hover {
     color: $color-active;
@@ -76,14 +76,18 @@ h6 {
   }
 }
 
+li {
+  font-size: $font-size-body;
+}
+
 ul {
   padding-left: 18px;
   margin-top: 20px;
   margin-bottom: 20px;
+  font-size: $font-size-body;
 
   li {
     margin-bottom: 5px;
-    font-size: $font-size-body;
   }
 
   &.m-hyphens {
@@ -111,7 +115,7 @@ ul + p {
 }
 
 legend {
-  font-size: 14px;
+  font-size: $font-size-body;
 }
 
 .wp-block-quote.is-style-large {
@@ -122,6 +126,10 @@ legend {
 }
 
 em {
-  font-size: 12px;
+  font-size: $font-size-body;
   font-style: italic;
+}
+
+table {
+  font-size: $font-size-body;
 }

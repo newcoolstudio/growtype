@@ -46,7 +46,7 @@
 
 .wc-block-grid__product-add-to-cart.wp-block-button .wp-block-button__link {
   padding: 15px 30px;
-  font-size: 14px;
+  font-size: $font-size-body;
   min-width: initial;
   @include bp-phone-xl() {
     padding-left: 15px;

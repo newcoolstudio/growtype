@@ -54,10 +54,10 @@
   }
 
   .woocommerce-privacy-policy-text {
-    font-size: 14px;
+    font-size: $font-size-body;
 
     p {
-      font-size: 14px;
+      font-size: $font-size-body;
 
       a {
         font-size: inherit;
@@ -91,12 +91,12 @@
 
 .woocommerce table.shop_table th {
   font-weight: 500;
-  font-size: 14px;
+  font-size: $font-size-body;
 }
 
 .woocommerce-checkout #payment ul.payment_methods li {
   line-height: 21px;
-  font-size: 14px;
+  font-size: $font-size-body;
   margin-bottom: 10px;
 
   label {
@@ -111,7 +111,7 @@
 }
 
 .woocommerce table.shop_table td {
-  font-size: 14px;
+  font-size: $font-size-body;
 
   a {
     color: $color-text;
@@ -212,7 +212,7 @@ Checkout review table
 }
 
 .woocommerce-terms-and-conditions-checkbox-text {
-  font-size: 14px;
+  font-size: $font-size-body;
 }
 
 .woocommerce-checkout {

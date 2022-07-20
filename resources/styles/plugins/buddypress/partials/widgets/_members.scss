@@ -46,9 +46,9 @@
 .activity-update-form #whats-new-textarea textarea {
   border-radius: 40px;
   padding: 12px 20px;
-  font-size: 14px;
+  font-size: $font-size-body;
 }
 
 .activity-list .activity-item .activity-inner p {
-  font-size: 14px;
+  font-size: $font-size-body;
 }

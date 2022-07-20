@@ -105,7 +105,7 @@
   }
 
   li {
-    font-size: 14px;
+    font-size: $font-size-body;
 
     i {
       padding-right: 4px;
@@ -201,7 +201,7 @@
     right: 20px;
     top: 20px;
     padding: 11px 20px;
-    font-size: 14px;
+    font-size: $font-size-body;
     border-radius: 30px;
     margin: 0;
     left: initial;

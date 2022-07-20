@@ -9,7 +9,7 @@
     box-shadow: none;
     background: none;
     padding: 10px;
-    font-size: 14px;
+    font-size: $font-size-body;
     display: flex;
     align-items: center;
 
@@ -35,7 +35,7 @@
 
       li {
         margin: 0;
-        font-size: 14px;
+        font-size: $font-size-body;
         border-bottom: 1px solid $color-light-grey;
         list-style-type: none;
 

@@ -10,7 +10,7 @@
 .variations {
   .variations-single {
     .label {
-      font-size: 14px;
+      font-size: $font-size-body;
       margin-bottom: 3px;
 
       .e-type {
@@ -58,7 +58,7 @@
       border-radius: 5px;
       margin-left: 5px;
       margin-right: 2px;
-      font-size: 14px;
+      font-size: $font-size-body;
       display: inline-block;
       cursor: pointer;
       overflow: hidden;
