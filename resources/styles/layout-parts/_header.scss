@@ -6,6 +6,10 @@
   @include bp-tablet-portrait() {
     max-width: 130px;
   }
+  @include bp-phone-xl() {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .mainlogo {
