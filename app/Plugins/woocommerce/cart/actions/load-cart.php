@@ -10,7 +10,7 @@ function load_cart_ajax_callback()
     $data = array (
         'fragments' => apply_filters(
             'woocommerce_add_to_cart_fragments', array (
-                'shopping_cart_content' => '<div class="b-shoppingcart-main">' . render_current_cart_content() . '</div>',
+                'shopping_cart_content' => '<div class="b-shoppingcart-main">' . growtype_render_cart_content() . '</div>',
             )
         ),
         'cart_contents_count' => WC()->cart->cart_contents_count,

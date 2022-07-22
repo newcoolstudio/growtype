@@ -4,7 +4,7 @@
  * @param $cart_item
  * @return false|string
  */
-function render_current_cart_single_item($cart_item)
+function growtype_render_cart_single_item($cart_item)
 {
     if (empty($cart_item)) {
         return '';
@@ -75,7 +75,7 @@ function render_current_cart_single_item($cart_item)
  * @return false|string
  * Get cart content
  */
-function render_current_cart_content()
+function growtype_render_cart_content()
 {
     ob_start();
 
@@ -88,7 +88,7 @@ function render_current_cart_content()
         <ul class="shoppingcart-products">
             <?php
             foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
-                echo render_current_cart_single_item($cart_item);
+                echo growtype_render_cart_single_item($cart_item);
             }
             ?>
         </ul>

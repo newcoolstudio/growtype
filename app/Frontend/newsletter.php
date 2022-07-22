@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Catelog product select filter
+ * Catalog product select filter
  */
 add_action('wp_ajax_newsletter_submission', 'growtype_newsletter_submission');
 add_action('wp_ajax_nopriv_newsletter_submission', 'growtype_newsletter_submission');

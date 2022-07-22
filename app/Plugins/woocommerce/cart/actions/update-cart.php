@@ -74,7 +74,7 @@ function update_cart_ajax_callback()
         'cart_item_key' => $cart_item_key,
         'fragments' => apply_filters(
             'woocommerce_add_to_cart_fragments', array (
-                'shopping_cart_single_item' => render_current_cart_single_item(WC()->cart->get_cart_item($cart_item_key)),
+                'shopping_cart_single_item' => growtype_render_cart_single_item(WC()->cart->get_cart_item($cart_item_key)),
             )
         ),
         'cart_hash' => apply_filters('woocommerce_add_to_cart_hash', WC()->cart->get_cart_for_session() ? md5(json_encode(WC()->cart->get_cart_for_session())) : '', WC()->cart->get_cart_for_session())

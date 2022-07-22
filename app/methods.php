@@ -9,6 +9,11 @@ if (!class_exists('Growtype_Post')) {
 }
 
 /**
+ * Cache
+ */
+include('Methods/class-growtype-cache.php');
+
+/**
  * Page
  */
 include('Methods/class-growtype-language.php');
