@@ -1,5 +1,7 @@
 function productSlider() {
     (function ($) {
+        $('.woocommerce-product-gallery .flex-direction-nav').appendTo('.woocommerce-product-gallery .flex-viewport')
+
         if (screen.width < 1024) {
             return false;
         }

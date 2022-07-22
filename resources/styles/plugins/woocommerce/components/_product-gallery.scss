@@ -264,7 +264,7 @@ Style 2, thumbnails on left side
 .flex-direction-nav {
   position: absolute;
   right: 0;
-  top: 40%;
+  top: 47%;
   margin: auto;
   height: 50px;
   width: 100%;
@@ -272,7 +272,6 @@ Style 2, thumbnails on left side
   @include bp-phone-xl() {
     width: 100%;
     bottom: initial;
-    top: 45%;
     padding-left: 3px;
     padding-right: 3px;
   }
@@ -283,7 +282,6 @@ Style 2, thumbnails on left side
     float: left;
     overflow: hidden;
     position: relative;
-    font-family: growtype-icons;
     font-size: 18px;
     color: grey;
     text-align: right;
@@ -293,7 +291,8 @@ Style 2, thumbnails on left side
     }
 
     &:before {
-      content: "\E9C7";
+      content: "\f340";
+      font-family: Dashicons;
     }
 
     .flex-prev {
@@ -313,7 +312,6 @@ Style 2, thumbnails on left side
     float: right;
     overflow: hidden;
     position: relative;
-    font-family: growtype-icons;
     font-size: 18px;
     color: grey;
     @include bp-phone-xl() {
@@ -322,7 +320,8 @@ Style 2, thumbnails on left side
     }
 
     &:before {
-      content: "\E9C8";
+      content: "\f344";
+      font-family: Dashicons;
     }
 
     .flex-next {
