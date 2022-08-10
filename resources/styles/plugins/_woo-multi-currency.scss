@@ -39,6 +39,10 @@
 .woo-multi-currency.wmc-shortcode.plain-vertical .wmc-currency-wrapper .wmc-sub-currency .wmc-currency, .woo-multi-currency.wmc-shortcode.plain-vertical .wmc-currency-wrapper span.wmc-current-currency {
   padding-left: 10px;
   padding-right: 10px;
+
+  a {
+    color: $color-text;
+  }
 }
 
 .woo-multi-currency.wmc-shortcode.plain-vertical .wmc-currency-wrapper span.wmc-current-currency::after {

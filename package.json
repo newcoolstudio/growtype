@@ -24,7 +24,7 @@
   ],
   "scripts": {
     "build": "mix",
-    "build:production": "mix --production",
+    "build:prod": "mix --production",
     "watch": "mix watch",
     "hot": "mix watch --hot",
     "clear": "wp acorn optimize:clear",
