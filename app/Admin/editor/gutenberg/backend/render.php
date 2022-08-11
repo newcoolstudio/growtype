@@ -85,72 +85,74 @@ function admin_enqueue_custom_scripts()
         }';
     }
 
-    if (!empty(get_theme_mod('primary_button_background_color'))) {
-        $inlineCss .= '.editor-styles-wrapper .wp-block-button__link {
+    if (get_option('theme_styles_enabled')) {
+        if (!empty(get_theme_mod('primary_button_background_color'))) {
+            $inlineCss .= '.editor-styles-wrapper .wp-block-button__link {
             background: ' . get_theme_mod('primary_button_background_color') . ';
             border: 1px solid ' . get_theme_mod('primary_button_background_color') . ';
         }';
-    }
+        }
 
-    if (!empty(get_theme_mod('primary_button_text_color'))) {
-        $inlineCss .= '.editor-styles-wrapper .wp-block-button__link {
+        if (!empty(get_theme_mod('primary_button_text_color'))) {
+            $inlineCss .= '.editor-styles-wrapper .wp-block-button__link {
             color: ' . get_theme_mod('primary_button_text_color') . ';
         }';
-    }
+        }
 
-    if (!empty(get_theme_mod('body_background_color'))) {
-        $inlineCss .= 'body.wp-admin .editor-styles-wrapper {
+        if (!empty(get_theme_mod('body_background_color'))) {
+            $inlineCss .= 'body.wp-admin .editor-styles-wrapper {
             background: ' . get_theme_mod('body_background_color') . ';
         }';
-    }
+        }
 
-    if (get_theme_mod('fonts_font_size_h1')) {
-        $inlineCss .= 'body.wp-admin .block-editor-block-list__layout h1 {
+        if (get_theme_mod('fonts_font_size_h1')) {
+            $inlineCss .= 'body.wp-admin .block-editor-block-list__layout h1 {
     font-size:' . get_theme_mod('fonts_font_size_h1') . 'px;
         }';
-    }
+        }
 
-    if (get_theme_mod('fonts_font_size_h2')) {
-        $inlineCss .= 'body.wp-admin .block-editor-block-list__layout h2 {
+        if (get_theme_mod('fonts_font_size_h2')) {
+            $inlineCss .= 'body.wp-admin .block-editor-block-list__layout h2 {
     font-size:' . get_theme_mod('fonts_font_size_h2') . 'px;
         }';
-    }
+        }
 
-    if (get_theme_mod('fonts_font_size_h3')) {
-        $inlineCss .= 'body.wp-admin .block-editor-block-list__layout h3 {
+        if (get_theme_mod('fonts_font_size_h3')) {
+            $inlineCss .= 'body.wp-admin .block-editor-block-list__layout h3 {
     font-size:' . get_theme_mod('fonts_font_size_h3') . 'px;
         }';
-    }
+        }
 
-    if (get_theme_mod('fonts_font_size_h4')) {
-        $inlineCss .= 'body.wp-admin .block-editor-block-list__layout h4 {
+        if (get_theme_mod('fonts_font_size_h4')) {
+            $inlineCss .= 'body.wp-admin .block-editor-block-list__layout h4 {
     font-size:' . get_theme_mod('fonts_font_size_h4') . 'px;
         }';
-    }
+        }
 
-    if (get_theme_mod('fonts_font_size_h5')) {
-        $inlineCss .= 'body.wp-admin .block-editor-block-list__layout h5 {
+        if (get_theme_mod('fonts_font_size_h5')) {
+            $inlineCss .= 'body.wp-admin .block-editor-block-list__layout h5 {
     font-size:' . get_theme_mod('fonts_font_size_h5') . 'px;
         }';
-    }
+        }
 
-    if (get_theme_mod('fonts_font_size_p')) {
-        $inlineCss .= 'body.wp-admin .block-editor-block-list__layout p {
+        if (get_theme_mod('fonts_font_size_p')) {
+            $inlineCss .= 'body.wp-admin .block-editor-block-list__layout p {
     font-size:' . get_theme_mod('fonts_font_size_p') . 'px;
         }';
-    }
+        }
 
-    if (get_theme_mod('primary_button_background_color')) {
-        $inlineCss .= '.wp-block-button__link {
+        if (get_theme_mod('primary_button_background_color')) {
+            $inlineCss .= '.wp-block-button__link {
     background:' . get_theme_mod('primary_button_background_color') . ';
         border: 1px solid ' . get_theme_mod('primary_button_background_color') . ';
         }';
-    }
+        }
 
-    if (get_theme_mod('primary_button_text_color')) {
-        $inlineCss .= '.wp-block-button__link {
+        if (get_theme_mod('primary_button_text_color')) {
+            $inlineCss .= '.wp-block-button__link {
     color:' . get_theme_mod('primary_button_text_color') . ';
         }';
+        }
     }
 
     wp_add_inline_style('gutenberg-block-editor-styles', $inlineCss);

@@ -94,6 +94,23 @@ function editor_options_setting()
     );
 
     /**
+     * Theme styles
+     */
+    register_setting(
+        'editor_options_settings', // settings group name
+        'theme_styles_enabled', // option name
+        'sanitize_text_field' // sanitization function
+    );
+
+    add_settings_field(
+        'theme_styles_enabled',
+        'Apply Theme Styles',
+        'theme_styles_enabled_callback',
+        'editor-options',
+        'editor_options_settings'
+    );
+
+    /**
      * Editor apply theme font
      */
     register_setting(
@@ -111,7 +128,7 @@ function editor_options_setting()
     );
 
     /**
-     * Editor apply theme font
+     * Reusable blocks bar in admin nav
      */
     register_setting(
         'editor_options_settings', // settings group name
@@ -152,6 +169,15 @@ function widget_block_editor_enabled_callback()
 function autosaving_enabled_callback()
 {
     $html = '<input type="checkbox" name="autosaving_enabled" value="1" ' . checked(1, get_option('autosaving_enabled'), false) . ' />';
+    echo $html;
+}
+
+/**
+ * Theme styles
+ */
+function theme_styles_enabled_callback()
+{
+    $html = '<input type="checkbox" name="theme_styles_enabled" value="1" ' . checked(1, get_option('theme_styles_enabled'), false) . ' />';
     echo $html;
 }
 
