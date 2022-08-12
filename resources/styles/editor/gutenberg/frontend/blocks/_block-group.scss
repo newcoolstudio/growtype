@@ -1,10 +1,10 @@
 .container {
-  .wp-block-group:where(.has-background) {
+  .alignfull.wp-block-group:where(.has-background) {
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
 
-  .alignfull.wp-block-group:where(.has-background) {
+  .wp-block-group:where(.has-background) {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
