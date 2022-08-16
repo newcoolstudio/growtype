@@ -4,6 +4,12 @@
   cursor: pointer;
 }
 
+.btn {
+  &:focus {
+    box-shadow: none;
+  }
+}
+
 div[class^='btn-'], button[class^='btn-'], a[class^='btn-'] {
   cursor: pointer;
   z-index: 1;

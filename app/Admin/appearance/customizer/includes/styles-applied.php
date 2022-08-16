@@ -301,16 +301,16 @@ function growtype_customizer_general_css()
         <?php if(!empty(get_theme_mod('add_to_cart_button_background_color'))) { ?>
         .woocommerce ul.products li.product .button,
         .woocommerce ul.products li.product .button:hover,
-        /*.woocommerce-cart .wc-proceed-to-checkout .checkout-button.button.alt,*/
-        /*.woocommerce-cart .wc-proceed-to-checkout .checkout-button.button.alt:hover,*/
+            /*.woocommerce-cart .wc-proceed-to-checkout .checkout-button.button.alt,*/
+            /*.woocommerce-cart .wc-proceed-to-checkout .checkout-button.button.alt:hover,*/
         .woocommerce div.product form.cart .button,
         .woocommerce div.product form.cart .button:hover,
         .wc-block-grid__product-add-to-cart.wp-block-button .wp-block-button__link,
         .wc-block-grid__product-add-to-cart.wp-block-button .wp-block-button__link:hover,
         .woocommerce div.product form.cart .button:not(.btn),
         .woocommerce div.product form.cart .button:not(.btn):hover {
-            background: <?php echo get_theme_mod('add_to_cart_button_background_color')?>!important;
-            border: 1px solid<?php echo get_theme_mod('add_to_cart_button_background_color')?>!important;
+            background: <?php echo get_theme_mod('add_to_cart_button_background_color')?> !important;
+            border: 1px solid <?php echo get_theme_mod('add_to_cart_button_background_color')?> !important;
         }
 
         <?php } ?>
@@ -326,7 +326,7 @@ function growtype_customizer_general_css()
         .wc-block-grid__product-add-to-cart.wp-block-button .wp-block-button__link:hover,
         .woocommerce div.product form.cart .button:not(.btn),
         .woocommerce div.product form.cart .button:not(.btn):hover {
-            color: <?php echo get_theme_mod('add_to_cart_button_text_color')?>!important;
+            color: <?php echo get_theme_mod('add_to_cart_button_text_color')?> !important;
         }
 
         <?php } ?>
@@ -338,8 +338,8 @@ function growtype_customizer_general_css()
         .woocommerce-checkout .woocommerce button.button.alt:hover,
         .woocommerce-cart .wc-proceed-to-checkout .checkout-button.button.alt,
         .woocommerce-cart .wc-proceed-to-checkout .checkout-button.button.alt:hover {
-            background: <?php echo get_theme_mod('checkout_button_background_color')?>!important;
-            border: 1px solid<?php echo get_theme_mod('checkout_button_background_color')?>!important;
+            background: <?php echo get_theme_mod('checkout_button_background_color')?> !important;
+            border: 1px solid <?php echo get_theme_mod('checkout_button_background_color')?> !important;
         }
 
         <?php } ?>
@@ -351,7 +351,7 @@ function growtype_customizer_general_css()
         .woocommerce-checkout .woocommerce button.button.alt:hover,
         .woocommerce-cart .wc-proceed-to-checkout .checkout-button.button.alt,
         .woocommerce-cart .wc-proceed-to-checkout .checkout-button.button.alt:hover {
-            color: <?php echo get_theme_mod('checkout_button_text_color')?>!important;
+            color: <?php echo get_theme_mod('checkout_button_text_color')?> !important;
         }
 
         <?php } ?>
@@ -481,6 +481,8 @@ function growtype_customizer_buttons_css()
         <?php if(!empty(get_theme_mod('primary_button_background_color'))) { ?>
         .btn-primary,
         .btn-primary:hover,
+        .btn-primary:active,
+        .btn-primary:focus,
         input[type=submit],
         input[type=submit]:hover,
         .wp-block-button:not(.is-style-outline) .wp-block-button__link,
@@ -496,6 +498,8 @@ function growtype_customizer_buttons_css()
         <?php if(!empty(get_theme_mod('primary_button_text_color'))) { ?>
         .btn-primary,
         .btn-primary:hover,
+        .btn-primary:active,
+        .btn-primary:focus,
         input[type=submit],
         input[type=submit]:hover,
         .wp-block-button__link,
