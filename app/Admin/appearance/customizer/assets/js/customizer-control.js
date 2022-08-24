@@ -259,11 +259,13 @@ jQuery(document).ready(function ($) {
         var elementLightWeight = $(this).parent().parent().find('.google-fonts-lightweight-style');
         var elementRegularWeight = $(this).parent().parent().find('.google-fonts-regularweight-style');
         var elementItalicWeight = $(this).parent().parent().find('.google-fonts-italicweight-style');
+        var elementMediumWeight = $(this).parent().parent().find('.google-fonts-mediumweight-style');
         var elementSemiBoldWeight = $(this).parent().parent().find('.google-fonts-semiboldweight-style');
         var elementBoldWeight = $(this).parent().parent().find('.google-fonts-boldweight-style');
         var selectedFont = $(this).val();
         var customizerControlName = $(this).attr('control-name');
         var elementItalicWeightCount = 0;
+        var elementMediumWeightCount = 0;
         var elementSemiBoldWeightCount = 0;
         var elementBoldWeightCount = 0;
 
@@ -271,10 +273,12 @@ jQuery(document).ready(function ($) {
         elementLightWeight.empty();
         elementRegularWeight.empty();
         elementItalicWeight.empty();
+        elementMediumWeight.empty();
         elementSemiBoldWeight.empty();
         elementBoldWeight.empty();
         // Make sure Italic & Bold dropdowns are enabled
         elementItalicWeight.prop('disabled', false);
+        elementMediumWeight.prop('disabled', false);
         elementSemiBoldWeight.prop('disabled', false);
         elementBoldWeight.prop('disabled', false);
 
@@ -300,12 +304,16 @@ jQuery(document).ready(function ($) {
                 );
                 elementItalicWeightCount++;
             } else {
+                elementMediumWeight.append(
+                    $('<option></option>').val(text).html(text)
+                );
                 elementSemiBoldWeight.append(
                     $('<option></option>').val(text).html(text)
                 );
                 elementBoldWeight.append(
                     $('<option></option>').val(text).html(text)
                 );
+                elementMediumWeightCount++;
                 elementSemiBoldWeightCount++;
                 elementBoldWeightCount++;
             }
@@ -316,6 +324,12 @@ jQuery(document).ready(function ($) {
                 $('<option></option>').val('').html('Not Available for this font')
             );
             elementItalicWeight.prop('disabled', 'disabled');
+        }
+        if (elementMediumWeightCount == 0) {
+            elementMediumWeight.append(
+                $('<option></option>').val('').html('Not Available for this font')
+            );
+            elementMediumWeight.prop('disabled', 'disabled');
         }
         if (elementSemiBoldWeightCount == 0) {
             elementSemiBoldWeight.append(
@@ -346,6 +360,7 @@ jQuery(document).ready(function ($) {
             lightweight: $element.find('.google-fonts-lightweight-style').val(),
             regularweight: $element.find('.google-fonts-regularweight-style').val(),
             italicweight: $element.find('.google-fonts-italicweight-style').val(),
+            mediumweight: $element.find('.google-fonts-mediumweight-style').val(),
             semiboldweight: $element.find('.google-fonts-semiboldweight-style').val(),
             boldweight: $element.find('.google-fonts-boldweight-style').val(),
             category: $element.find('.google-fonts-category').val()

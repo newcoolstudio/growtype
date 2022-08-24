@@ -42,6 +42,10 @@ function growtype_get_font_url($font_details)
         $google_font_url_weights[] = urlencode($font_details->regularweight);
     }
 
+    if (isset(growtype_get_font_details('primary_font')->mediumweight) && growtype_get_font_details('primary_font')->mediumweight !== 'none' && isset($font_details->mediumweight)) {
+        $google_font_url_weights[] = urlencode($font_details->mediumweight);
+    }
+
     if (isset(growtype_get_font_details('primary_font')->semiboldweight) && growtype_get_font_details('primary_font')->semiboldweight !== 'none' && isset($font_details->semiboldweight)) {
         $google_font_url_weights[] = urlencode($font_details->semiboldweight);
     }

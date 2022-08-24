@@ -789,7 +789,9 @@ if (class_exists('WP_Customize_Control')) {
                             ?>
                         </select>
                     </div>
-                    <div class="customize-control-description"><?php esc_html_e('Select weight for regular text', 'growtype') ?></div>
+                    <div class="customize-control-description">
+                        <?php esc_html_e('Select weight for regular text', 'growtype') ?>
+                    </div>
                     <div class="weight-style">
                         <select class="google-fonts-regularweight-style">
                             <?php
@@ -801,7 +803,8 @@ if (class_exists('WP_Customize_Control')) {
                             ?>
                         </select>
                     </div>
-                    <div class="customize-control-description"><?php esc_html_e('Select weight for', 'growtype') ?>
+                    <div class="customize-control-description">
+                        <?php esc_html_e('Select weight for', 'growtype') ?>
                         <italic><?php esc_html_e('italic text', 'growtype') ?></italic>
                     </div>
                     <div class="weight-style">
@@ -817,6 +820,30 @@ if (class_exists('WP_Customize_Control')) {
                                     $optionCount++;
                                 }
                             }
+                            if ($optionCount == 0) {
+                                echo '<option value="">Not Available for this font</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <div class="customize-control-description">
+                        <?php esc_html_e('Select weight for', 'growtype') ?>
+                        <italic><?php esc_html_e('medium text', 'growtype') ?></italic>
+                    </div>
+                    <div class="weight-style">
+                        <select class="google-fonts-mediumweight-style">
+                            <?php
+                            echo '<option value="none" ' . selected($this->fontValues->mediumweight, 'none', false) . '>none</option>';
+
+                            $optionCount = 0;
+                            foreach ($this->fontList[$this->fontListIndex]->variants as $key => $value) {
+                                // Only add options that aren't italic
+                                if (strpos($value, 'italic') === false) {
+                                    echo '<option value="' . $value . '" ' . selected($this->fontValues->mediumweight, $value, false) . '>' . $value . '</option>';
+                                    $optionCount++;
+                                }
+                            }
+                            // This should never evaluate as there'll always be at least a 'regular' weight
                             if ($optionCount == 0) {
                                 echo '<option value="">Not Available for this font</option>';
                             }
