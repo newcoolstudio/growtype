@@ -28,8 +28,15 @@ function growtype_customizer_general_css()
         <?php } ?>
 
         <?php if(!empty(get_theme_mod('header_background_color'))){ ?>
-        .site-header {
+        body:not(.home) .site-header {
             background-color: <?php echo get_theme_mod('header_background_color'); ?>;
+        }
+
+        <?php } ?>
+
+        <?php if(!empty(get_theme_mod('header_home_background_color'))){ ?>
+        body.home .site-header {
+            background: <?php echo get_theme_mod('header_home_background_color') ?>
         }
 
         <?php } ?>
@@ -104,13 +111,6 @@ function growtype_customizer_general_css()
 
         .hamburger-inner {
             background: <?php echo get_theme_mod('header_text_color') ?>
-        }
-
-        <?php } ?>
-
-        <?php if(!empty(get_theme_mod('header_home_background_color'))){ ?>
-        .home .site-header {
-            background: <?php echo get_theme_mod('header_home_background_color') ?>
         }
 
         <?php } ?>
