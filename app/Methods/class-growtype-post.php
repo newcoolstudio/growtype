@@ -34,7 +34,9 @@ class Growtype_Post
             'pagination' => false,
             'post_status' => 'publish', //also active, expired
             'columns' => '3',
-            'post__in' => []
+            'post__in' => [],
+            'category__not_in' => [],
+            'category__in' => []
         ), $atts));
 
         $args = array (
@@ -43,6 +45,14 @@ class Growtype_Post
             'post_order' => 'menu_order',
             'order' => 'asc'
         );
+
+        if (!empty($category__not_in)) {
+            $args['category__not_in'] = explode(',', $category__not_in);
+        }
+
+        if (!empty($category__in)) {
+            $args['category__in'] = explode(',', $category__in);
+        }
 
         if (!empty($post__in)) {
             $args['post__in'] = explode(',', $post__in);
