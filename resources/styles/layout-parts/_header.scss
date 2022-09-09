@@ -124,6 +124,69 @@ header a:hover {
   z-index: 98;
   transition: all 0.5s;
 
+  .language-selector {
+    margin-left: 0;
+    margin-right: 0;
+    top: 2px;
+    display: inline-block;
+
+    &.individual-mode {
+      width: initial;
+      height: initial;
+
+      #qtranslate-chooser {
+        position: relative;
+        width: initial;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        li {
+          display: inline-block;
+        }
+      }
+    }
+
+    &.text-mode {
+      top: 0;
+
+      #qtranslate-chooser {
+        li {
+          border-radius: 20px;
+          border: 1px solid white;
+        }
+
+        a {
+          background: none;
+          width: initial;
+          height: initial;
+          padding: 0;
+          min-width: 30px;
+          min-height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          span {
+            font-size: 12px;
+          }
+        }
+
+        span {
+          display: block;
+        }
+
+        li.active {
+          background: white;
+
+          a {
+            color: $color-text;
+          }
+        }
+      }
+    }
+  }
+
   .b-promo {
     padding: 10px;
 

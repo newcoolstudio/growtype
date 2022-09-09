@@ -89,7 +89,7 @@ add_action('init', function () {
         array(
             'singular' => 'Category',
             'plural' => 'Categories',
-            'slug' => 'project-categories'
+            'slug' => 'categories'
         ));
 
     /**

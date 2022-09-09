@@ -52,13 +52,6 @@ cart_page_icon_is_active())
                 <i class="icon-cart"></i>
             </li>
             <?php } ?>
-
-            <?php
-            if (Growtype_Language::selector()) { ?>
-            <li class="language-selector">
-                <?php echo qtranxf_generateLanguageSelectCode('text')?>
-            </li>
-            <?php } ?>
         </div>
     </div>
 @endif

@@ -1,16 +1,9 @@
 {
-  "name": "sage",
-  "version": "9.0.9",
-  "author": "Roots <team@roots.io>",
-  "homepage": "https://roots.io/sage/",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/roots/sage.git"
-  },
-  "bugs": {
-    "url": "https://github.com/roots/sage/issues"
-  },
+  "name": "growtype",
+  "version": "1.0.0",
+  "author": "newcoolstudio.com",
+  "homepage": "https://www.newcoolstudio.com/",
+  "private": false,
   "licenses": [
     {
       "type": "MIT",
