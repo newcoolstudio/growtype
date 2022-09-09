@@ -8,7 +8,7 @@ Growtype is a starter theme for Wordpress projects, with a modern structure and 
 * [Browsersync](http://www.browsersync.io/) for synchronized browser testing
 * [Blade](https://laravel.com/docs/5.6/blade) as a templating engine
 * [Controller](https://github.com/soberwp/controller) for passing data to Blade templates
-* CSS framework (optional): [Bootstrap 4](https://getbootstrap.com/), [Bulma](https://bulma.io/), [Foundation](https://foundation.zurb.com/), [Tachyons](http://tachyons.io/), [Tailwind](https://tailwindcss.com/)
+* CSS framework: Bootstrap 5
 
 ## Requirements
 
