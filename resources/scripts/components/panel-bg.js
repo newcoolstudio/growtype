@@ -19,7 +19,9 @@ function panelBg() {
         if ($('#site-footer').length > 0) {
             panelHeight = panelHeight - $('#site-footer').height()
         }
-        panelBackground.height(panelHeight)
+        if($(window).width() > 992){
+          panelBackground.height(panelHeight)
+        }
     }
 }
 
