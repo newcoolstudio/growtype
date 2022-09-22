@@ -25,7 +25,7 @@ class Growtype_Post
             'post_type' => 'post',
             'posts_per_page' => -1,
             'slider' => 'false',
-            'preview_style' => 'basic', //arrow, basic, blog
+            'preview_style' => 'basic', //blog
             'id' => 'b-posts',
             'slider_slides_to_show' => '4',
             'post_link' => 'true',
@@ -36,14 +36,16 @@ class Growtype_Post
             'columns' => '3',
             'post__in' => [],
             'category__not_in' => [],
-            'category__in' => []
+            'category__in' => [],
+            'order' => 'asc',
+            'post_order' => 'menu_order'
         ), $atts));
 
         $args = array (
             'post_type' => $post_type,
             'posts_per_page' => $posts_per_page,
-            'post_order' => 'menu_order',
-            'order' => 'asc'
+            'post_order' => $post_order,
+            'order' => $order
         );
 
         if (!empty($category__not_in)) {
