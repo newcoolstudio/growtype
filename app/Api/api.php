@@ -45,6 +45,6 @@ function add_custom_fields()
      */
     function growtype_rest_api_get_post_reading_time($post)
     {
-        return Growtype_Post::reading_time($post['id']);
+        return Growtype_Page::reading_time($post['id']);
     }
 }

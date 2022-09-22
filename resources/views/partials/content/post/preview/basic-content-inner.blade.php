@@ -34,7 +34,7 @@
             <?php if (isset($content_length) && $content_length === -1) { ?>
             <?php echo $post->post_content ?>
             <?php } elseif (class_exists('Growtype_Post')) { ?>
-            <?php echo Growtype_Post::content_limited($post->post_content,
+            <?php echo Growtype_Page::content_limited($post->post_content,
                 isset($content_length) ? $content_length : 200) ?>
             <?php } ?>
         </div>

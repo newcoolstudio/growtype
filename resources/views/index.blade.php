@@ -21,7 +21,7 @@
             </div>
 
             <nav class="pagination pagination-posts">
-                {!! Growtype_Post::pagination() !!}
+                {!! Growtype_Page::pagination() !!}
             </nav>
         </div>
     </section>

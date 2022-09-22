@@ -73,7 +73,7 @@ $registration_url = $registration_url ?? get_field('registration_url');
                     <h3 class="e-title-section"><?php echo __('Related events', 'growtype')?></h3>
                     <div class="row blog-posts">
                         @php
-                            $relatedPostsToDisplay = Growtype_Post::ordered_by_start_time(3, get_the_id());
+                            $relatedPostsToDisplay = Growtype_Page::ordered_by_start_time(3, get_the_id());
                         @endphp
 
                         @foreach($relatedPostsToDisplay as $post)

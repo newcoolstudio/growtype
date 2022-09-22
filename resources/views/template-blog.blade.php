@@ -34,8 +34,8 @@
                         </a>
                     </div>
                     <div class="b-datetime">
-                        <?php if(class_exists('Growtype_Post')){ ?>
-                        <p class="e-time"><?php Growtype_Post::reading_time(get_the_ID()) ?></p>
+                        <?php if(class_exists('Growtype_Page')){ ?>
+                        <p class="e-time"><?php Growtype_Page::reading_time(get_the_ID()) ?></p>
                         <?php } ?>
                         <span class="e-dot">•</span>
                         <p class="e-date"><?php get_the_date() ?></p>
@@ -83,9 +83,9 @@
                 <?php endwhile; ?>
             </div>
 
-            <?php if(class_exists('Growtype_Post')){ ?>
+            <?php if(class_exists('Growtype_Page')){ ?>
             <nav class="pagination pagination-posts">
-                <?php echo Growtype_Post::pagination($loop) ?>
+                <?php echo Growtype_Page::pagination($loop) ?>
             </nav>
             <?php } ?>
 

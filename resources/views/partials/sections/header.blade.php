@@ -33,7 +33,7 @@
 
         @include('partials.components.header.logo')
 
-        {!! Growtype_Post::title_render() !!}
+        {!! Growtype_Page::title_render() !!}
 
         @include('partials.components.header.extra')
 
