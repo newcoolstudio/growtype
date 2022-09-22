@@ -4,6 +4,7 @@
   "license": "MIT",
   "description": "WordPress starter theme with a modern development workflow",
   "homepage": "https://newcoolstudio.com/",
+  "version": "v1.0",
   "authors": [
     {
       "name": "Vytautas Dir",
