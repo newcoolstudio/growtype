@@ -209,3 +209,24 @@ Action bar
   justify-content: center;
   padding-top: 30px;
 }
+
+/**
+Spacers
+ */
+.spacer-phone-xl-8 {
+  @include bp-phone-xl() {
+    height: 80px !important;
+  }
+}
+
+.spacer-phone-xl-9 {
+  @include bp-phone-xl() {
+    height: 90px !important;
+  }
+}
+
+.spacer-phone-xl-10 {
+  @include bp-phone-xl() {
+    height: 100px !important;
+  }
+}

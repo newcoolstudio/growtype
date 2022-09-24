@@ -56,14 +56,10 @@ add_action('init', function () {
         'slug' => $cpt_name
 
     ));
-});
 
-
-add_action('init', function () {
-    $cpt_name = !empty(get_option('cpt_2_value')) ? get_option('cpt_2_value') : 'testimonial';
-    $cpt_name = str_replace(' ', '_', $cpt_name);;
-    $cpt_name = strtolower($cpt_name);
-
+    /**
+     * Tax
+     */
     register_extended_taxonomy($cpt_name . '_tax', $cpt_name, array (
         'checked_ontop' => true,
         'dashboard_glance' => true,
@@ -85,4 +81,9 @@ add_action('init', function () {
             'plural' => 'Categories',
             'slug' => 'categories'
         ));
+
+    /**
+     * Extend post type 1
+     */
+    apply_filters('growtype_cpt_2_extend', $cpt_name);
 });

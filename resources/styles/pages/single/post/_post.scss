@@ -1,7 +1,3 @@
-@import "preview/basic";
-@import "preview/review";
-@import "preview/blog";
-
 .posts-navigation {
   width: 100%;
   margin-top: 30px;
@@ -93,13 +89,6 @@
       }
     }
   }
-}
-
-.b-posts.b-posts-growtype {
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-left: -10px;
-  width: calc(100% + 20px);
 }
 
 .single-post {

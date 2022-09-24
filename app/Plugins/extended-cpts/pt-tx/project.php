@@ -12,7 +12,7 @@ add_action('init', function () {
 
     $cpt_slug = !empty(get_option('cpt_1_slug')) ? get_option('cpt_1_slug') : 'project';
 
-    register_extended_post_type($cpt_name, array(
+    register_extended_post_type($cpt_name, array (
 
         # Add the post type to the site's main RSS feed:
         'show_in_feed' => false,
@@ -25,14 +25,14 @@ add_action('init', function () {
 
 //        'menu_position' => 4,
 
-        'supports' => array('title', 'thumbnail', 'editor', 'page-attributes', 'excerpt', 'author', 'custom-fields'),
+        'supports' => array ('title', 'thumbnail', 'editor', 'page-attributes', 'excerpt', 'author', 'custom-fields'),
 
-        'taxonomies' => get_option('cpt_1_tags_enabled') ? array('post_tag') : [],
+        'taxonomies' => get_option('cpt_1_tags_enabled') ? array ('post_tag') : [],
 
         'hierarchical' => true,
 
         # Show all posts on the post type archive:
-        'archive' => array(
+        'archive' => array (
             'nopaging' => true,
             'order_by' => 'menu_order',
         ),
@@ -57,7 +57,7 @@ add_action('init', function () {
                 'meta_key' => 'star_rating',
             ],
         ],
-    ), array(
+    ), array (
         # Override the base names used for labels:
         'singular' => $cpt_label,
         'plural' => $cpt_label,
@@ -67,17 +67,13 @@ add_action('init', function () {
     /**
      * Tax
      */
-    $cpt_name = !empty(get_option('cpt_1_value')) ? get_option('cpt_1_value') : 'project';
-    $cpt_name = str_replace(' ', '_', $cpt_name);;
-    $cpt_name = strtolower($cpt_name);
-
-    register_extended_taxonomy($cpt_name . '_tax', $cpt_name, array(
+    register_extended_taxonomy($cpt_name . '_tax', $cpt_name, array (
         'checked_ontop' => true,
         'dashboard_glance' => true,
         'show_in_rest' => true,
-        'admin_cols' => array(
+        'admin_cols' => array (
             'title',
-            'published' => array(
+            'published' => array (
                 'title' => 'Published',
                 'meta_key' => 'published_date',
                 'date_format' => 'd/m/Y'
@@ -86,7 +82,7 @@ add_action('init', function () {
         ),
         'allow_hierarchy' => false
     ),
-        array(
+        array (
             'singular' => 'Category',
             'plural' => 'Categories',
             'slug' => 'categories'
