@@ -15,7 +15,7 @@ class Growtype_Cache
     public static function get($name)
     {
         if (config('cache.clear_transient_cache_on_load')) {
-            delete_transient($name);
+            self::delete($name);
         }
 
         return get_transient($name);
@@ -32,5 +32,14 @@ class Growtype_Cache
         }
 
         set_transient($name, $data, $time);
+    }
+
+    /**
+     * @param $name
+     * @return mixed
+     */
+    public static function delete($name)
+    {
+        return delete_transient($name);
     }
 }

@@ -1,0 +1,36 @@
+.s-posts {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.s-posts-related {
+  background: #f8f8f8;
+  padding-top: 50px;
+  padding-bottom: 30px;
+  @include bp-phone-xl() {
+    padding-top: 30px;
+  }
+
+  .b-post-single {
+    @include bp-phone-xl() {
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .container {
+    position: relative;
+  }
+}
+
+.single-post {
+  .s-content {
+    margin-top: 0;
+    margin-bottom: 10px;
+
+    .container {
+      margin: auto;
+      max-width: 768px;
+    }
+  }
+}

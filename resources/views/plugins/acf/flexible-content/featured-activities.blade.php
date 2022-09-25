@@ -31,15 +31,18 @@
             @if(!empty($postsToDisplay))
                 <div class="b-activities">
                     <div class="row b-activities-inner {{$is_slider == true ? 'is-slider-activities' : ''}}">
-                        @foreach ($postsToDisplay as $index => $post)
-                            @include('partials.content.activity.preview.basic')
-                        @endforeach
+                            <?php
+                            if (function_exists('growtype_post_render_all')) {
+                                echo growtype_post_render_all($postsToDisplay, 'basic', 3, true);
+                            }
+                            ?>
                     </div>
                 </div>
             @endif
 
             <div class="text-center mt-4">
-                <a href="{!! get_permalink(1061) !!}" class="btn btn-secondary"><?php echo __('Show more', 'growtype') ?></a>
+                <a href="{!! get_permalink(1061) !!}" class="btn btn-secondary"><?php echo __('Show more',
+                        'growtype') ?></a>
             </div>
         </div>
     </section>

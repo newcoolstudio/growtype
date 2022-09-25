@@ -26,7 +26,11 @@
                             continue;
                         @endphp
                     @endif
-                        @include('partials.content.project.preview.basic')
+                            <?php
+                            if (function_exists('growtype_post_render_all')) {
+                                echo growtype_post_render_all($postsToDisplay, 'basic', 3, true);
+                            }
+                            ?>
                 @endforeach
             </div>
         </div>

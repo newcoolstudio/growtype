@@ -4,18 +4,21 @@
   border-width: 0px 1px 0px 0px;
   border-color: $color-light-grey;
   border-style: solid;
-  width: 27%;
+  width: 34%;
   float: right;
   position: sticky;
   top: 0;
-  @include bp-phone-xl() {
-    display: none;
+  @include bp-tablet-portrait() {
+    width: 100%;
   }
 
   & + .main {
-    width: 73%;
+    width: 66%;
     float: left;
     margin: 0;
+    @include bp-tablet-portrait() {
+      width: 100%;
+    }
     @include bp-phone-xl() {
       padding-left: 0;
       padding-right: 0;
@@ -59,5 +62,18 @@ aside.widget-area .widget {
 .has-sidebar-primary {
   .site-header.is-scroll {
     box-shadow: none;
+  }
+
+  .s-mainintro {
+    margin: 0;
+  }
+
+  &.single {
+    .main-content-wrapper {
+      @include bp-phone-xl() {
+        flex-direction: column-reverse;
+        display: flex;
+      }
+    }
   }
 }

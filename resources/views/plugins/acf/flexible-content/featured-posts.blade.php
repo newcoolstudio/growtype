@@ -37,9 +37,11 @@ if(!$postsToDisplay){
             <div class="b-posts">
                 <div class="b-posts-inner {{$is_slider == true ? 'is-slider-posts' : ''}}">
                     @foreach ($postsToDisplay as $index => $post)
-                        <div class="b-post-wrapper">
-                            @include('partials.content.post.preview.basic')
-                        </div>
+                            <?php
+                            if (function_exists('growtype_post_render_all')) {
+                                echo growtype_post_render_all($postsToDisplay, 'basic', 3, true);
+                            }
+                            ?>
                     @endforeach
                 </div>
             </div>
