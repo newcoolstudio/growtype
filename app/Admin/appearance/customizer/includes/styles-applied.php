@@ -152,7 +152,7 @@ function growtype_customizer_general_css()
         <?php } ?>
 
         <?php if(!empty(get_theme_mod('header_logo_size_mobile'))){ ?>
-        @media only screen and (max-width: 830px) {
+        @media only screen and (max-width: 640px) {
             .header-logo-wrapper {
                 max-width: <?php echo get_theme_mod('header_logo_size_mobile') ?>px;
             }
@@ -161,7 +161,7 @@ function growtype_customizer_general_css()
         <?php } ?>
 
         <?php if(!empty(get_theme_mod('header_logo_position_vertical_mobile'))){ ?>
-        @media only screen and (max-width: 830px) {
+        @media only screen and (max-width: 640px) {
             .header-logo-wrapper {
                 top: <?php echo get_theme_mod('header_logo_position_vertical_mobile') ?>px;
             }

@@ -1,7 +1,5 @@
 <?php
 
-use function App\sage;
-
 /**
  * Growtype post methods
  */

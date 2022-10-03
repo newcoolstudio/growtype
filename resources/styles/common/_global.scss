@@ -15,8 +15,8 @@ body {
 
 main.main, main#main {
   min-height: 500px;
-  @include bp-phone-xl() {
-    min-height: 400px;
+  @include bp-tablet-portrait() {
+    min-height: initial;
   }
 
   .section {
@@ -130,7 +130,7 @@ Adjusting for navbar and header fixed main content
   .main-content-wrapper {
     margin-top: 90px;
     padding-top: 0;
-    @include bp-tablet-portrait() {
+    @include bp-phone-xl() {
       margin-top: 70px;
     }
   }

@@ -94,6 +94,27 @@
       background-size: cover;
     }
   }
+
+  li.lang-de {
+    a {
+      background-image: url('./../../icons/lang/de.svg');
+      background-size: cover;
+    }
+  }
+
+  li.lang-lv {
+    a {
+      background-image: url('./../../icons/lang/lv.svg');
+      background-size: cover;
+    }
+  }
+
+  li.lang-ru {
+    a {
+      background-image: url('./../../icons/lang/ru.svg');
+      background-size: cover;
+    }
+  }
 }
 
 #header-side-menu {

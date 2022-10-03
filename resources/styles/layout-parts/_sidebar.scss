@@ -70,7 +70,7 @@ aside.widget-area .widget {
 
   &.single {
     .main-content-wrapper {
-      @include bp-phone-xl() {
+      @include bp-tablet-portrait() {
         flex-direction: column-reverse;
         display: flex;
       }

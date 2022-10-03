@@ -85,7 +85,10 @@ $mobilemenu-color-background: black;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 70px;
+    min-height: 90px;
+    @include bp-phone-xl() {
+      min-height: 70px;
+    }
 
     .hamburger {
       margin-left: auto;
