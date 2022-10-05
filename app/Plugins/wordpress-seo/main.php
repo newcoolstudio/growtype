@@ -1,7 +1,7 @@
 <?php
 
-add_filter('wpseo_canonical', 'change_canonical');
-function change_canonical($url)
+add_filter('wpseo_canonical', 'growtype_wpseo_change_canonical');
+function growtype_wpseo_change_canonical($url)
 {
     global $post;
 
@@ -15,12 +15,21 @@ function change_canonical($url)
 /**
  * Qtranslate translate
  */
-add_filter('wpseo_title', 'qtranslate_filter', 10, 1);
-add_filter('wpseo_metadesc', 'qtranslate_filter', 10, 1);
-add_filter('wpseo_metakey', 'qtranslate_filter', 10, 1);
-add_filter('wpseo_opengraph_title', 'qtranslate_filter', 10, 1);
-add_filter('wpseo_opengraph_desc', 'qtranslate_filter', 10, 1);
-function qtranslate_filter($text)
+add_filter('wpseo_title', 'growtype_wpseo_qtranslate_filter', 10, 1);
+add_filter('wpseo_metadesc', 'growtype_wpseo_qtranslate_filter', 10, 1);
+add_filter('wpseo_metakey', 'growtype_wpseo_qtranslate_filter', 10, 1);
+add_filter('wpseo_opengraph_title', 'growtype_wpseo_qtranslate_filter', 10, 1);
+add_filter('wpseo_opengraph_desc', 'growtype_wpseo_qtranslate_filter', 10, 1);
+function growtype_wpseo_qtranslate_filter($text)
 {
     return __($text);
+}
+
+/**
+ * Hide promo
+ */
+add_action('admin_head', 'growtype_wpseo_admin_head');
+function growtype_wpseo_admin_head()
+{
+    echo '<style>.wp-admin .wrap .yoast-notification.notice.is-dismissible {display: none!important;}</style>';
 }

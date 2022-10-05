@@ -372,13 +372,6 @@ function growtype_customizer_general_css()
 
         <?php } ?>
 
-        <?php if(get_theme_mod('footer_background_color')){ ?>
-        .site-footer {
-            background: <?php echo get_theme_mod('footer_background_color'); ?>;
-        }
-
-        <?php } ?>
-
         <?php if(get_theme_mod('footer_text_color')){ ?>
         .site-footer, .site-footer a, .site-footer a .dashicons {
             color: <?php echo get_theme_mod('footer_text_color'); ?>;

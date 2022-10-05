@@ -26,10 +26,7 @@ if (class_exists('QTX_Modules_Handler')) {
 /**
  * Extended-cpts
  */
-include('Plugins/extended-cpts/pt-manager.php');
-include('Plugins/extended-cpts/redirect.php');
-include('Plugins/extended-cpts/slug.php');
-include('Plugins/extended-cpts/settings.php');
+include('Plugins/extended-cpts/index.php');
 
 /**
  * Woo-checkout-field-editor

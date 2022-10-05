@@ -2,7 +2,7 @@ const {__} = wp.i18n;
 const {addFilter} = wp.hooks;
 const {createHigherOrderComponent} = wp.compose;
 const {Fragment, cloneElement} = wp.element;
-const {InspectorControls} = wp.editor;
+const {InspectorControls} = wp.blockEditor;
 const {PanelBody, ToggleControl} = wp.components;
 
 // Attributes.

@@ -8,6 +8,6 @@
             @elseif(get_theme_mod('footer_type_select') === 'type-3')
                 @include('partials.sections.footer.type-3')
             @endif
-        </div><!-- .site-info -->
-    </footer><!-- #colophon -->
+        </div>
+    </footer>
 @endif

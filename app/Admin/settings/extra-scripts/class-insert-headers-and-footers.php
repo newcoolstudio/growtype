@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Insert Headers and Footers Class
+ * Insert Headers and Footers Classes
  */
-class InsertHeadersAndFooters
+class Growtype_Insert_Headers_And_Footers
 {
     /**
      * Constructor
@@ -263,4 +263,4 @@ class InsertHeadersAndFooters
     }
 }
 
-new InsertHeadersAndFooters();
+new Growtype_Insert_Headers_And_Footers();

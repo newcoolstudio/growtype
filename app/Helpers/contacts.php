@@ -15,9 +15,6 @@ if (!function_exists('growtype_get_contact')) {
             }
         } elseif ($type === 'address') {
             $icon = '<span class="dashicons dashicons-admin-home"></span>';
-            $label = '<span class="e-label-intro">' . esc_html__('Address:', 'growtype') . '</span>' . ' ' . $label;
-        } elseif ($type === 'person') {
-            $label = '<span class="e-label-intro">' . esc_html__('Contact person:', 'growtype') . '</span>' . ' ' . $label;
         } elseif ($type === 'facebook') {
             $icon = '<span class="dashicons dashicons-facebook"></span>';
         } elseif ($type === 'instagram') {
