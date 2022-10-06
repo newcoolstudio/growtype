@@ -21,7 +21,7 @@
                 @endif
                 @if(!get_theme_mod('post_single_page_reading_time_disabled'))
                     <div class="b-datetime">
-                        <p class="e-time">{{ Growtype_Page::reading_time(get_the_ID()) }}</p>
+                        <p class="e-time">{{ growtype_get_post_content_reading_time(get_the_ID()) }}</p>
                     </div>
                 @endif
             </div>

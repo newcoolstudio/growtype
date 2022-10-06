@@ -35,7 +35,7 @@
                     </div>
                     <div class="b-datetime">
                         <?php if(class_exists('Growtype_Page')){ ?>
-                        <p class="e-time"><?php Growtype_Page::reading_time(get_the_ID()) ?></p>
+                        <p class="e-time"><?php growtype_get_post_content_reading_time(get_the_ID()) ?></p>
                         <?php } ?>
                         <span class="e-dot">•</span>
                         <p class="e-date"><?php get_the_date() ?></p>

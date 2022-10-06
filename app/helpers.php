@@ -150,3 +150,5 @@ require_once 'Helpers/contacts.php';
 
 require_once 'Helpers/shop/cart.php';
 require_once 'Helpers/shop/wishlist.php';
+
+require_once 'Helpers/post/content.php';
