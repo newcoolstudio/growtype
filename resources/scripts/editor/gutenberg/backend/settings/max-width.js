@@ -8,44 +8,41 @@ const {PanelBody, RangeControl, SelectControl} = wp.components;
 
 const enableMaxWidthControlOnBlocks = ['core/paragraph', 'core/heading', 'core/image', 'core/group'];
 
-console.log('sitas suveike labai gerai')
-
 /**
  * Create attributes
  */
-function addListBlockClassName(settings, name) {
-    console.log('addListBlockClassName')
-
+function extendSettingsAttributes(settings, name) {
     if (!enableMaxWidthControlOnBlocks.includes(name)) {
         return settings;
     }
 
-    const attributes = {
-        ...settings.attributes,
-        maxWidth: {
-            type: 'integer', default: ''
-        },
-        position: {
-            type: 'string', default: ''
-        },
-    };
+    if (settings && settings.attributes) {
+        let attributes = {
+            ...settings.attributes,
+            maxWidth: {
+                type: 'integer', default: ''
+            },
+            position: {
+                type: 'string', default: ''
+            },
+        };
 
-    return {...settings, attributes};
+        return {...settings, attributes};
+    }
+
+    return {...settings};
 }
 
 addFilter(
     'blocks.registerBlockType',
-    'growtype-maxwidth/class-names/list-block',
-    addListBlockClassName
+    'growtype-maxwidth-block-extension/attributes',
+    extendSettingsAttributes
 );
 
 /**
  * Gutenberg create MaxWidth in control panel
  */
-const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
-
-        console.log('withInspectorControls')
-
+const createInspectorControls = createHigherOrderComponent((BlockEdit) => {
         return (props) => {
 
             if (!enableMaxWidthControlOnBlocks.includes(props.name)) {
@@ -104,23 +101,20 @@ const withInspectorControls = createHigherOrderComponent((BlockEdit) => {
             );
         };
     },
-    'withInspectorControls'
+    'createInspectorControls'
 );
 
 addFilter(
     'editor.BlockEdit',
-    'growtype-maxwidth-block-extension/with-inspector-controls',
-    withInspectorControls
+    'growtype-maxwidth-block-extension/create-inspector-controls',
+    createInspectorControls
 );
 
 /**
  * Gutenberg render block
  */
-const withClientIdClassName = createHigherOrderComponent(
+const addCustomWrapper = createHigherOrderComponent(
     (BlockListBlock) => {
-
-        console.log('withClientIdClassName')
-
         return (props) => {
 
             if (!enableMaxWidthControlOnBlocks.includes(props.name)) {
@@ -135,9 +129,6 @@ const withClientIdClassName = createHigherOrderComponent(
             let divStyle = {};
 
             if (maxWidth) {
-
-                console.log(maxWidth, 'maxWidth')
-
                 divStyle['maxWidth'] = maxWidth;
             }
 
@@ -164,11 +155,11 @@ const withClientIdClassName = createHigherOrderComponent(
             }
         };
     },
-    'withClientIdClassName'
+    'addCustomWrapper'
 );
 
 addFilter(
     'editor.BlockListBlock',
-    'growtype-maxwidth-block-extension/with-client-id-class-name',
-    withClientIdClassName
+    'growtype-maxwidth-block-extension/add-custom-wrapper',
+    addCustomWrapper
 );
