@@ -30,7 +30,7 @@ class Customizer_Available_Data
         $customizer_available_pages['search_results'] = 'Search results (important: no id)';
 
         /**
-         * For cpts
+         * For cpts #TODO fix this
          */
         if (get_option('cpt_1_enabled')) {
             $customizer_available_pages['cpt_1'] = 'CPT - 1';

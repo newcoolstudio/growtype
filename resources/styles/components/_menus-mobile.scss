@@ -77,8 +77,6 @@ $mobilemenu-color-background: black;
   .main-navigation-mobile-inner {
     position: relative;
     height: 100%;
-    padding-right: $padding-right-container;
-    padding-left: $padding-left-container;
   }
 
   .main-navigation-mobile-top {
@@ -86,6 +84,10 @@ $mobilemenu-color-background: black;
     align-items: center;
     justify-content: space-between;
     min-height: 90px;
+    max-width: $max-width-container;
+    margin: auto;
+    padding-right: $padding-right-container;
+    padding-left: $padding-left-container;
     @include bp-phone-xl() {
       min-height: 70px;
     }
@@ -157,6 +159,9 @@ $mobilemenu-color-background: black;
 }
 
 .main-navigation-mobile-content {
+  padding-right: $padding-right-container;
+  padding-left: $padding-left-container;
+
   .menu-login-menu-container {
     display: block;
     position: relative;

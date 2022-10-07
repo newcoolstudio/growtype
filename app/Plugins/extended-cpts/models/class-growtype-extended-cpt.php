@@ -33,6 +33,11 @@ class Growtype_Extended_Cpt
                 'name' => 'Cpt 4',
                 'value' => 'cpt_4',
                 'options' => $default_options
+            ],
+            [
+                'name' => 'Cpt 5',
+                'value' => 'cpt_5',
+                'options' => $default_options
             ]
         ];
     }
