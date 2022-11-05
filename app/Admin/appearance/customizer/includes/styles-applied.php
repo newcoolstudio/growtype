@@ -248,45 +248,45 @@ function growtype_customizer_general_css()
 
         <?php } ?>
 
-        <?php if(get_theme_mod('fonts_font_size_h1')) { ?>
+        <?php if(get_theme_mod('typography_font_size_h1')) { ?>
         h1 {
-            font-size: <?php echo get_theme_mod('fonts_font_size_h1')?>px;
+            font-size: <?php echo get_theme_mod('typography_font_size_h1')?>px;
         }
 
         <?php } ?>
 
-        <?php if(get_theme_mod('fonts_font_size_h2')) { ?>
+        <?php if(get_theme_mod('typography_font_size_h2')) { ?>
         h2 {
-            font-size: <?php echo get_theme_mod('fonts_font_size_h2')?>px;
+            font-size: <?php echo get_theme_mod('typography_font_size_h2')?>px;
         }
 
         <?php } ?>
 
-        <?php if(get_theme_mod('fonts_font_size_h3')) { ?>
+        <?php if(get_theme_mod('typography_font_size_h3')) { ?>
         h3 {
-            font-size: <?php echo get_theme_mod('fonts_font_size_h3')?>px;
+            font-size: <?php echo get_theme_mod('typography_font_size_h3')?>px;
             line-height: 130%;
         }
 
         <?php } ?>
 
-        <?php if(get_theme_mod('fonts_font_size_h4')) { ?>
+        <?php if(get_theme_mod('typography_font_size_h4')) { ?>
         h4 {
-            font-size: <?php echo get_theme_mod('fonts_font_size_h4')?>px;
+            font-size: <?php echo get_theme_mod('typography_font_size_h4')?>px;
         }
 
         <?php } ?>
 
-        <?php if(get_theme_mod('fonts_font_size_h5')) { ?>
+        <?php if(get_theme_mod('typography_font_size_h5')) { ?>
         h5 {
-            font-size: <?php echo get_theme_mod('fonts_font_size_h5')?>px;
+            font-size: <?php echo get_theme_mod('typography_font_size_h5')?>px;
         }
 
         <?php } ?>
 
-        <?php if(!empty(get_theme_mod('fonts_font_size_p')) && get_theme_mod('fonts_font_size_p')) { ?>
+        <?php if(!empty(get_theme_mod('typography_font_size_p')) && get_theme_mod('typography_font_size_p')) { ?>
         p, li {
-            font-size: <?php echo get_theme_mod('fonts_font_size_p')?>px;
+            font-size: <?php echo get_theme_mod('typography_font_size_p')?>px;
         }
 
         <?php } ?>
@@ -422,7 +422,8 @@ function growtype_customizer_buttons_css()
         <?php if(get_theme_mod('button_text_transform')){ ?>
         .btn-primary,
         .btn-secondary,
-        input[type=submit] {
+        input[type=submit],
+        .wp-block-button__link {
             text-transform: <?php echo get_theme_mod('button_text_transform'); ?>;
         }
 

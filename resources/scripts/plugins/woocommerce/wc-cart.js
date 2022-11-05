@@ -362,9 +362,9 @@
     /**
      * Add to cart
      */
-    $('.ajaxcart-enabled .product .cart button[type="submit"]').click(function (e) {
+    $('.ajaxcart-enabled .product .cart[method="post"] button[type="submit"]').click(function (e) {
         e.preventDefault();
-        addToCart($(this).closest('.cart'))
+        addToCart($(this).closest('.cart[method="post"]'))
     });
 
     /**

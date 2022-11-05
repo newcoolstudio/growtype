@@ -21,7 +21,11 @@
         <div class="b-posts--wrapper">
                 <?php
                 if (function_exists('growtype_post_render_all')) {
-                    echo growtype_post_render_all($posts_array, 'blog', 3, true);
+                    echo growtype_post_render_all($posts_array, [
+                        'preview_style' => 'blog',
+                        'columns' => 3,
+                        'post_link' => true
+                    ]);
                 }
                 ?>
         </div>

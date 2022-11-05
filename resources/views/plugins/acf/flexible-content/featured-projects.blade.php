@@ -28,7 +28,11 @@
                     @endif
                             <?php
                             if (function_exists('growtype_post_render_all')) {
-                                echo growtype_post_render_all($postsToDisplay, 'basic', 3, true);
+                                echo growtype_post_render_all($postsToDisplay, [
+                                    'preview_style' => 'basic',
+                                    'columns' => 3,
+                                    'post_link' => true
+                                ]);
                             }
                             ?>
                 @endforeach

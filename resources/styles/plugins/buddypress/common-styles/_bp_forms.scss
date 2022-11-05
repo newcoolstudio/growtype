@@ -115,10 +115,6 @@
 
     p.description {
       margin: $marg-xsml 0;
-
-      &:focus {
-        outline: none;
-      }
     }
 
     div.checkbox label:nth-child(n+2),

@@ -35,10 +35,6 @@ $hamburger-color-active: white;
     display: block;
   }
 
-  &:focus, &:active {
-    outline: none;
-  }
-
   &.position-left {
     margin-left: 0;
     margin-right: 15px;

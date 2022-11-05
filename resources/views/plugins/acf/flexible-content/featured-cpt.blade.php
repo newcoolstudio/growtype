@@ -44,7 +44,11 @@
                 <div class="b-cpts-inner {{$is_slider == true ? 'is-slider-cpt' : ''}}">
                         <?php
                         if (function_exists('growtype_post_render_all')) {
-                            echo growtype_post_render_all($posts_to_display, 'basic', 3, true);
+                            echo growtype_post_render_all($posts_to_display, [
+                                'preview_style' => 'basic',
+                                'columns' => 3,
+                                'post_link' => true
+                            ]);
                         }
                         ?>
                 </div>

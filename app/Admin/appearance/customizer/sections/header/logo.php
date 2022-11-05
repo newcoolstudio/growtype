@@ -36,7 +36,6 @@ $wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_custom
 $wp_customize->add_setting("header_logo", array (
     "type" => "theme_mod", // or 'option'
     "capability" => "edit_theme_options",
-    "default" => get_template_directory_uri() . '/assets/images/logo/simple.svg',
     "transport" => "postMessage",
     'sanitize_callback' => '',
     'sanitize_js_callback' => '' // Basically to_json.

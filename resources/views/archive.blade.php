@@ -9,7 +9,11 @@
         <div class="row">
             <?php
             if (function_exists('growtype_post_render_all')) {
-                echo growtype_post_render_all(get_posts(), 'basic', 3, true);
+                echo growtype_post_render_all(get_posts(), [
+                    'preview_style' => 'basic',
+                    'columns' => 3,
+                    'post_link' => true
+                ]);
             }
             ?>
 

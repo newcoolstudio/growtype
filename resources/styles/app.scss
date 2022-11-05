@@ -25,7 +25,7 @@
 @import "components/lists";
 @import "components/allerts";
 @import "components/widgets";
-@import "components/paginations/basic";
+@import "components/pagination";
 @import "components/icons";
 @import "components/tables";
 @import "components/badges";
@@ -49,6 +49,8 @@
 @import "plugins/select2";
 @import "plugins/cwginstocknotifier";
 @import "plugins/woo-multi-currency";
+@import "plugins/instagram";
+@import "plugins/photoslider";
 
 /** GENERAL PAGES */
 @import "pages/page";
@@ -65,11 +67,8 @@
 @import "sections/content";
 @import "sections/about";
 @import "sections/posts";
-@import "sections/map";
 @import "sections/gallery";
-@import "sections/photoslider";
 @import "sections/icons";
-@import "sections/instagram";
 @import "sections/benefits";
 
 /** CONTENT */

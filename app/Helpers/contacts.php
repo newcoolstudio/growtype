@@ -1,7 +1,7 @@
 <?php
 
-if (!function_exists('growtype_get_contact')) {
-    function growtype_get_contact($label, $type, $value = null, $is_link = false, $icon = null)
+if (!function_exists('growtype_get_icon')) {
+    function growtype_get_icon($type, $label = null, $value = null, $is_link = false, $icon = null)
     {
         if ($type === 'email') {
             $value = 'mailto:' . $value;
@@ -21,10 +21,10 @@ if (!function_exists('growtype_get_contact')) {
             $icon = '<span class="dashicons dashicons-instagram"></span>';
         } elseif ($type === 'website') {
             $icon = '<span class="dashicons dashicons-admin-site"></span>';
-        } elseif ($type === 'website') {
-            $icon = '<span class="dashicons dashicons-admin-site"></span>';
         } elseif ($type === 'work_hours') {
             $icon = '<span class="dashicons dashicons-clock"></span>';
+        } elseif ($type === 'marker') {
+            $icon = '<span class="dashicons dashicons-location"></span>';
         }
 
         ?>

@@ -39,7 +39,11 @@ if(!$postsToDisplay){
                     @foreach ($postsToDisplay as $index => $post)
                             <?php
                             if (function_exists('growtype_post_render_all')) {
-                                echo growtype_post_render_all($postsToDisplay, 'basic', 3, true);
+                                echo growtype_post_render_all($postsToDisplay, [
+                                    'preview_style' => 'basic',
+                                    'columns' => 3,
+                                    'post_link' => true
+                                ]);
                             }
                             ?>
                     @endforeach
@@ -47,7 +51,8 @@ if(!$postsToDisplay){
             </div>
             @if(!empty($show_more_url))
                 <div class="text-center mt-4">
-                    <a href="{!! $show_more_url !!}" class="btn btn-secondary"><?php echo __('Show more', 'growtype') ?></a>
+                    <a href="{!! $show_more_url !!}" class="btn btn-secondary"><?php echo __('Show more',
+                            'growtype') ?></a>
                 </div>
             @endif
         @endif

@@ -13,7 +13,7 @@
                     $icon = get_sub_field('icon', $post);
                 @endphp
 
-                {!! growtype_get_contact($label, $type, $value, $is_link, $icon) !!}
+                {!! growtype_get_icon($type, $label, $value, $is_link, $icon) !!}
             @endwhile
         </div>
     @endif

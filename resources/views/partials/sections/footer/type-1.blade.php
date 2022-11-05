@@ -6,7 +6,7 @@
             </a>
         </div>
     @endif
-    <div class="row">
+    <div class="footer-inner-content row">
         @if(has_nav_menu('footer'))
             <div class="col-12 col-md-8">
                 <div class="c-footernav">

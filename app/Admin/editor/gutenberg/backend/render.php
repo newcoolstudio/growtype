@@ -15,6 +15,17 @@ if (!gutenberg_block_editor_is_active()) {
 }
 
 /**
+ * Remote patters
+ */
+if (!get_option('growtype_gutenberg_block_editor_load_remote_block_patterns')) {
+    add_filter('should_load_remote_block_patterns', 'growtype_disable_remote_patterns_filter');
+    function growtype_disable_remote_patterns_filter()
+    {
+        return false;
+    }
+}
+
+/**
  * Gutenberg styles support
  */
 add_action('enqueue_block_editor_assets', 'growtype_enqueue_block_editor_assets', 10);
@@ -107,39 +118,39 @@ function admin_enqueue_custom_scripts()
         }';
         }
 
-        if (get_theme_mod('fonts_font_size_h1')) {
+        if (get_theme_mod('typography_font_size_h1')) {
             $inlineCss .= 'body.wp-admin .block-editor-block-list__layout h1 {
-    font-size:' . get_theme_mod('fonts_font_size_h1') . 'px;
+    font-size:' . get_theme_mod('typography_font_size_h1') . 'px;
         }';
         }
 
-        if (get_theme_mod('fonts_font_size_h2')) {
+        if (get_theme_mod('typography_font_size_h2')) {
             $inlineCss .= 'body.wp-admin .block-editor-block-list__layout h2 {
-    font-size:' . get_theme_mod('fonts_font_size_h2') . 'px;
+    font-size:' . get_theme_mod('typography_font_size_h2') . 'px;
         }';
         }
 
-        if (get_theme_mod('fonts_font_size_h3')) {
+        if (get_theme_mod('typography_font_size_h3')) {
             $inlineCss .= 'body.wp-admin .block-editor-block-list__layout h3 {
-    font-size:' . get_theme_mod('fonts_font_size_h3') . 'px;
+    font-size:' . get_theme_mod('typography_font_size_h3') . 'px;
         }';
         }
 
-        if (get_theme_mod('fonts_font_size_h4')) {
+        if (get_theme_mod('typography_font_size_h4')) {
             $inlineCss .= 'body.wp-admin .block-editor-block-list__layout h4 {
-    font-size:' . get_theme_mod('fonts_font_size_h4') . 'px;
+    font-size:' . get_theme_mod('typography_font_size_h4') . 'px;
         }';
         }
 
-        if (get_theme_mod('fonts_font_size_h5')) {
+        if (get_theme_mod('typography_font_size_h5')) {
             $inlineCss .= 'body.wp-admin .block-editor-block-list__layout h5 {
-    font-size:' . get_theme_mod('fonts_font_size_h5') . 'px;
+    font-size:' . get_theme_mod('typography_font_size_h5') . 'px;
         }';
         }
 
-        if (get_theme_mod('fonts_font_size_p')) {
+        if (get_theme_mod('typography_font_size_p')) {
             $inlineCss .= 'body.wp-admin .block-editor-block-list__layout p {
-    font-size:' . get_theme_mod('fonts_font_size_p') . 'px;
+    font-size:' . get_theme_mod('typography_font_size_p') . 'px;
         }';
         }
 

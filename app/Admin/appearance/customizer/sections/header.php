@@ -11,7 +11,7 @@ class Header_Customizer_Register
         $this->customizer_available_pages = $customizer_available_data->get_available_pages();
 
         add_action('customize_register', array ($this, 'customizer_init'));
-        add_action('customize_controls_print_styles', array ($this, 'my_customizer_styles'), 999);
+        add_action('customize_controls_print_styles', array ($this, 'growtype_customizer_header_styles'), 999);
     }
 
     function customizer_init($wp_customize)
@@ -42,7 +42,7 @@ class Header_Customizer_Register
     /**
      * This function adds some styles to the WordPress Customizer
      */
-    function my_customizer_styles()
+    function growtype_customizer_header_styles()
     { ?>
         <style>
             .thumbnail-image {

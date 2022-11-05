@@ -233,3 +233,15 @@ Add remove
     padding-left: 10px;
   }
 }
+
+/**
+Block
+ */
+
+.wp-block-button {
+  &.border-none {
+    a {
+      border: none !important;
+    }
+  }
+}
