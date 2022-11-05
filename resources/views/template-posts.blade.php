@@ -39,23 +39,19 @@
                     $query = new WP_Query($args);
 
                     // The Loop
-                    if ($query->have_posts()) {
-
-                    while ($query->have_posts()) {
-                    $query->the_post();
-                    ?>
-                    @php($post = get_post())
-                    <div class="b-post-wrapper">
-                        @include('partials.content.post.preview.basic')
-                    </div>
-                    <?php
+                    if ($query->have_posts() && function_exists('growtype_post_render_all')) {
+                        echo growtype_post_render_all($posts->get_posts(), [
+                            'preview_style' => 'basic',
+                            'columns' => 3,
+                            'post_link' => true
+                        ]);
                     }
                     ?>
                 </div>
             </div>
 
             <nav class="pagination pagination-posts mt-3 pt-4 pb-5">
-                {!! Growtype_Post::pagination($query); !!}
+                {!! Growtype_Page::pagination($query); !!}
             </nav>
             <?php
 

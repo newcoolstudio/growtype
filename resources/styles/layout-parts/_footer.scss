@@ -325,7 +325,28 @@
   }
 }
 
+.site-footer-type-1 {
+  .footer-inner-top {
+    padding-top: 30px;
+  }
+}
+
 .site-footer-type-2 {
+  .footer-logo-wrapper {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 10%;
+    flex-direction: column;
+    justify-content: center;
+
+    .s-icons {
+      margin-top: 10px;
+      margin-left: auto;
+    }
+  }
+
   #footer_textarea {
     padding-top: 5px;
     padding-left: 20px;
@@ -454,6 +475,10 @@
         margin: auto;
       }
     }
+  }
+
+  .mainlogo {
+    padding-top: 35px;
   }
 
   .s-icons {

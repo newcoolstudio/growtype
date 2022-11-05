@@ -309,7 +309,7 @@
       .wishlist-toggle {
         position: relative;
         margin-top: 7px;
-        margin-left: 10px;
+        margin-left: 15px;
         @include bp-phone-xl() {
           margin: 15px 0 0;
           width: 100%;
@@ -318,6 +318,7 @@
           padding-top: 3px;
           padding-bottom: 3px;
           height: initial;
+          margin-left: 10px;
         }
 
         .e-text {

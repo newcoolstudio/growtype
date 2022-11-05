@@ -373,37 +373,37 @@ $(document).ready(function ($) {
     /**
      * Font sizes
      */
-    wp.customize("fonts_font_size_h1", function (value) {
+    wp.customize("typography_font_size_h1", function (value) {
         value.bind(function (newval) {
             $("h1").css('font-size', newval + 'px');
         });
     });
 
-    wp.customize("fonts_font_size_h2", function (value) {
+    wp.customize("typography_font_size_h2", function (value) {
         value.bind(function (newval) {
             $("h2").css('font-size', newval + 'px');
         });
     });
 
-    wp.customize("fonts_font_size_h3", function (value) {
+    wp.customize("typography_font_size_h3", function (value) {
         value.bind(function (newval) {
             $("h3").css('font-size', newval + 'px');
         });
     });
 
-    wp.customize("fonts_font_size_h4", function (value) {
+    wp.customize("typography_font_size_h4", function (value) {
         value.bind(function (newval) {
             $("h4").css('font-size', newval + 'px');
         });
     });
 
-    wp.customize("fonts_font_size_h5", function (value) {
+    wp.customize("typography_font_size_h5", function (value) {
         value.bind(function (newval) {
             $("h5").css('font-size', newval + 'px');
         });
     });
 
-    wp.customize("fonts_font_size_p", function (value) {
+    wp.customize("typography_font_size_p", function (value) {
         value.bind(function (newval) {
             $("p").css('font-size', newval + 'px');
         });

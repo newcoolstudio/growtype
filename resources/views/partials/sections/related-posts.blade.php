@@ -15,8 +15,7 @@ if (!empty($first_tag)) {
 
 $posts = new WP_Query($args);
 
-if( $posts->have_posts() ) {
-?>
+if ($posts->have_posts()) { ?>
 
 <section class="s-posts s-posts-related">
     <div class="container">
@@ -25,15 +24,15 @@ if( $posts->have_posts() ) {
                 <div class="block-title">
                     <h3 class="e-title-section"><?php echo __('Read more', 'growtype') ?></h3>
                 </div>
-                <div class="b-posts">
                     <?php
-                    while ($posts->have_posts()) : $posts->the_post(); ?>
-                    <div class="b-post-wrapper">
-                        @php($post = get_post())
-                        @include('partials.content.post.preview.basic')
-                    </div>
-                    <?php endwhile; ?>
-                </div>
+                    if (function_exists('growtype_post_render_all')) {
+                        echo growtype_post_render_all($posts->get_posts(), [
+                            'preview_style' => 'basic',
+                            'columns' => 3,
+                            'post_link' => true
+                        ]);
+                    }
+                    ?>
             </div>
         </div>
     </div>

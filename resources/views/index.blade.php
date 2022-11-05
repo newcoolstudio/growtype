@@ -9,19 +9,21 @@
         <div class="container">
             @if (!have_posts())
                 <div class="alert alert-warning">
-                    <?php echo __('Sorry, no results were found.', 'growtype') ?>
+                        <?php echo __('Sorry, no results were found.', 'growtype') ?>
                 </div>
                 {!! get_search_form(false) !!}
             @endif
 
             <div class="b-posts">
-                @while (have_posts()) @php the_post() @endphp
-                @include('partials.content.content-'.get_post_type())
-                @endwhile
+                @if(@include('partials.content.content-'.get_post_type()))
+                    @include('partials.content.content-'.get_post_type())
+                @else
+                    @include('partials.content.content-post')
+                @endif
             </div>
 
             <nav class="pagination pagination-posts">
-                {!! Growtype_Post::pagination() !!}
+                {!! Growtype_Page::pagination() !!}
             </nav>
         </div>
     </section>

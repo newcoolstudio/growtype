@@ -88,9 +88,9 @@ function footer_customize_register($wp_customize)
                 'multiselect' => false,
             ),
             'choices' => array (
-                'type-1' => __('Style 1', 'growtype'),
-                'type-2' => __('Style 2', 'growtype'),
-                'type-3' => __('Style 3', 'growtype'),
+                'type-1' => __('Style - Vertical', 'growtype'),
+                'type-2' => __('Style - Horizontal', 'growtype'),
+                'type-3' => __('Style - Vertical reverse', 'growtype'),
             )
         )
     ));

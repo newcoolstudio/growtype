@@ -45,7 +45,7 @@ function growtype_wc_filter_products()
         $args = array (
             'total' => $products->max_num_pages,
             'current' => $filter_params['page_nr'],
-            'base' => 'https://memberbid.test/auctions/' . '%_%?orderby=' . $_POST['orderby'],
+            'base' => home_url() . '/auctions/' . '%_%?orderby=' . $_POST['orderby'],
             'format' => 'page/%#%',
         );
 

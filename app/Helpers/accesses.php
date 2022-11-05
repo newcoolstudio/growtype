@@ -220,7 +220,7 @@ function page_is_among_enabled_pages($enabled_pages)
      * Check search results
      */
     $post = get_post($page_id);
-    if (!empty($post) && $post->post_name === 'my-account' && in_array(Growtype_Post::get_url_slug(), $enabled_pages)) {
+    if (!empty($post) && $post->post_name === 'my-account' && in_array(Growtype_Page::get_url_slug(), $enabled_pages)) {
         return true;
     }
 

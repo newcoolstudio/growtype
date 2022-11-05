@@ -107,7 +107,7 @@ p.has-drop-cap:not(:focus)::first-letter {
 .wp-block-columns {
   max-width: $max-width-container;
   margin: auto;
-  @include bp-desktop() {
+  @include bp-desktop-reverse() {
     margin-left: -15px;
     width: calc(100% + 30px);
   }
@@ -190,13 +190,6 @@ p.has-drop-cap:not(:focus)::first-letter {
 
   &.alignfull {
     max-width: 100%;
-  }
-}
-
-.wp-block-media-text .wp-block-media-text__content {
-  @include bp-phone-xl() {
-    padding-left: 5px;
-    padding-right: 5px;
   }
 }
 

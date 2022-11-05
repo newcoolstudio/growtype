@@ -77,16 +77,20 @@ $mobilemenu-color-background: black;
   .main-navigation-mobile-inner {
     position: relative;
     height: 100%;
-    padding-right: 20px;
-    padding-left: 20px;
   }
 
   .main-navigation-mobile-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 25px;
-    min-height: 60px;
+    min-height: 90px;
+    max-width: $max-width-container;
+    margin: auto;
+    padding-right: $padding-right-container;
+    padding-left: $padding-left-container;
+    @include bp-phone-xl() {
+      min-height: 70px;
+    }
 
     .hamburger {
       margin-left: auto;
@@ -155,6 +159,9 @@ $mobilemenu-color-background: black;
 }
 
 .main-navigation-mobile-content {
+  padding-right: $padding-right-container;
+  padding-left: $padding-left-container;
+
   .menu-login-menu-container {
     display: block;
     position: relative;

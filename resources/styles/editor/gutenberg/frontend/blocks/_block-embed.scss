@@ -1,0 +1,13 @@
+.wp-block-embed {
+  margin: 0;
+
+  &.alignfull {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    max-width: initial;
+  }
+}
+
+figure.wp-block-gallery:empty {
+  display: none;
+}

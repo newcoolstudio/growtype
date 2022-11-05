@@ -1,0 +1,42 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 30px;
+
+  .page-numbers {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      border: 1px solid #f0f0f0;
+      font-weight: 300;
+      background: white;
+      margin-right: 10px;
+      border-radius: 50px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      > a, > span {
+        padding: 10px 18px;
+        min-width: 44px;
+      }
+    }
+  }
+
+  .current {
+    font-weight: bold;
+    color: #9B9B9B;
+  }
+
+  .next {
+    margin-left: 5px;
+  }
+
+  .prev {
+    margin-right: 5px;
+  }
+}

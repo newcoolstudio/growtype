@@ -13,7 +13,7 @@ include('Admin/settings/editor.php');
 include('Admin/settings/plugins.php');
 include('Admin/settings/payments.php');
 include('Admin/settings/mail.php');
-include('Admin/settings/extra-scripts/extra-scripts.php');
+include('Admin/settings/extra-scripts/class-insert-headers-and-footers.php');
 include('Admin/settings/discussion.php');
 include('Admin/settings/framework.php');
 

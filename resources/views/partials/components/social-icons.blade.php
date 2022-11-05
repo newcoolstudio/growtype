@@ -1,7 +1,7 @@
 <div class="s-icons">
     @if(get_theme_mod('header_navbar_social_facebook'))
         <a href="{{get_theme_mod('header_navbar_social_facebook_url')}}" target="_blank">
-            <span class="dashicons dashicons-facebook-alt"></span>
+            <span class="dashicons dashicons-facebook"></span>
         </a>
     @endif
     @if(get_theme_mod('header_navbar_social_instagram'))

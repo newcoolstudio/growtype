@@ -70,6 +70,11 @@ function sidebar_customize_register($wp_customize)
         }
     }
 
+    /**
+     * Single pages
+     */
+    $sidebar_primary_pages['single'] = 'Single pages';
+
     $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'sidebar_primary_pages',
         array (
             'label' => __('"Primary" Sidebar Pages', 'growtype'),

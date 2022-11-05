@@ -13,13 +13,19 @@
   bottom: 0;
 }
 
-@mixin bp-desktop($bp:">=1200") {
+@mixin bp-page-content-reverse($bp:">=1440") {
+  @media only screen and (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin bp-desktop-reverse($bp:">=1200") {
   @media only screen and (min-width: 1200px) {
     @content;
   }
 }
 
-@mixin bp-netbook($bp:">=1024") {
+@mixin bp-netbook-reverse($bp:">=1024") {
   @media only screen and (min-width: 1024px) {
     @content;
   }

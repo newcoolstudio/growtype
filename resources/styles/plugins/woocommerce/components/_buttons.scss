@@ -45,10 +45,6 @@
     padding: $padding-btn;
     position: relative;
 
-    &:focus {
-      outline: none;
-    }
-
     &:active, &:focus {
       border: 2px solid $color-primary;
     }

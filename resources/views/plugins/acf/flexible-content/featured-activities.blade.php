@@ -12,7 +12,7 @@
 
 @if(empty($postsToDisplay))
     @php
-        $postsToDisplay = Growtype_Post::ordered_by_start_time(3);
+        $postsToDisplay = Growtype_Page::ordered_by_start_time(3);
     @endphp
 @endif
 
@@ -31,15 +31,22 @@
             @if(!empty($postsToDisplay))
                 <div class="b-activities">
                     <div class="row b-activities-inner {{$is_slider == true ? 'is-slider-activities' : ''}}">
-                        @foreach ($postsToDisplay as $index => $post)
-                            @include('partials.content.activity.preview.basic')
-                        @endforeach
+                            <?php
+                            if (function_exists('growtype_post_render_all')) {
+                                echo growtype_post_render_all($postsToDisplay, [
+                                    'preview_style' => 'basic',
+                                    'columns' => 3,
+                                    'post_link' => true
+                                ]);
+                            }
+                            ?>
                     </div>
                 </div>
             @endif
 
             <div class="text-center mt-4">
-                <a href="{!! get_permalink(1061) !!}" class="btn btn-secondary"><?php echo __('Show more', 'growtype') ?></a>
+                <a href="{!! get_permalink(1061) !!}" class="btn btn-secondary"><?php echo __('Show more',
+                        'growtype') ?></a>
             </div>
         </div>
     </section>

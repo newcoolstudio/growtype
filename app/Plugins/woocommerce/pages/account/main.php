@@ -35,7 +35,7 @@ add_action('woocommerce_before_edit_account_form', 'growtype_woocommerce_account
 add_action('woocommerce_before_edit_account_address_form', 'growtype_woocommerce_account_page_intro_block');
 function growtype_woocommerce_account_page_intro_block()
 {
-    $url_slug = Growtype_Post::get_url_slug();
+    $url_slug = Growtype_Page::get_url_slug();
 
     echo \App\template('woocommerce.myaccount.sections.info-header', ['intro_details' => get_account_subpage_intro_details($url_slug)]);
 }

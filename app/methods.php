@@ -3,9 +3,8 @@
 /**
  * Posts methods
  */
-if (!class_exists('Growtype_Post')) {
-    include('Methods/class-growtype-post.php');
-    new Growtype_Post();
+if (!class_exists('Growtype_Page')) {
+    include('Methods/class-growtype-page.php');
 }
 
 /**

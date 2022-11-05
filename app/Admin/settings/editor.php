@@ -60,6 +60,23 @@ function editor_options_setting()
     );
 
     /**
+     * Gutenberg block editor
+     */
+    register_setting(
+        'editor_options_settings', // settings group name
+        'growtype_gutenberg_block_editor_load_remote_block_patterns', // option name
+        'sanitize_text_field' // sanitization function
+    );
+
+    add_settings_field(
+        'growtype_gutenberg_block_editor_load_remote_block_patterns',
+        'Load Remote Block Patterns',
+        'growtype_gutenberg_block_editor_load_remote_block_patterns_callback',
+        'editor-options',
+        'editor_options_settings'
+    );
+
+    /**
      * Widget block editor
      */
     register_setting(
@@ -151,6 +168,15 @@ function editor_options_setting()
 function gutenberg_block_editor_enabled_callback()
 {
     $html = '<input type="checkbox" name="gutenberg_block_editor_enabled" value="1" ' . checked(1, get_option('gutenberg_block_editor_enabled'), false) . ' />';
+    echo $html;
+}
+
+/**
+ * Gutenberg block editor remote patterns
+ */
+function growtype_gutenberg_block_editor_load_remote_block_patterns_callback()
+{
+    $html = '<input type="checkbox" name="growtype_gutenberg_block_editor_load_remote_block_patterns" value="1" ' . checked(1, get_option('growtype_gutenberg_block_editor_load_remote_block_patterns'), false) . ' />';
     echo $html;
 }
 

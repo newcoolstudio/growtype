@@ -1,0 +1,53 @@
+#sb_instagram {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+
+  #sbi_images {
+    margin-left: -10px;
+    width: calc(100% + 20px);
+
+    .sbi_item {
+      @include bp-phone-xl() {
+        max-width: 50% !important;
+        display: none;
+      }
+
+      &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4) {
+        @include bp-phone-xl() {
+          display: inline-block;
+        }
+      }
+
+      .sbi_photo_wrap {
+        position: relative;
+
+        .sbi_photo {
+          height: inherit !important;
+          padding-top: 100%;
+        }
+      }
+    }
+  }
+
+  .sbi_item {
+    pointer-events: none;
+  }
+
+  .sbi_photo_wrap {
+    .fa-clone {
+      display: none !important;
+    }
+  }
+
+  .sbi_follow_btn {
+    width: 100%;
+    margin: 0 !important;
+    margin-top: 15px !important;
+
+    a {
+      @extend .btn-primary;
+      width: 100%;
+    }
+  }
+}

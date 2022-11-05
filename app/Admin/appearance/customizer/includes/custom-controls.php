@@ -781,10 +781,10 @@ if (class_exists('WP_Customize_Control')) {
                     <div class="weight-style">
                         <select class="google-fonts-lightweight-style">
                             <?php
-                            echo '<option value="none" ' . selected($this->fontValues->lightweight, 'none', false) . '>none</option>';
+                            echo '<option value="none" ' . (isset($this->fontValues->lightweight) ? selected($this->fontValues->lightweight, 'none', false) : '') . '>none</option>';
 
                             foreach ($this->fontList[$this->fontListIndex]->variants as $key => $value) {
-                                echo '<option value="' . $value . '" ' . selected($this->fontValues->lightweight, $value, false) . '>' . $value . '</option>';
+                                echo '<option value="' . $value . '" ' . (isset($this->fontValues->lightweight) ? selected($this->fontValues->lightweight, $value, false) : '') . '>' . $value . '</option>';
                             }
                             ?>
                         </select>
@@ -833,13 +833,13 @@ if (class_exists('WP_Customize_Control')) {
                     <div class="weight-style">
                         <select class="google-fonts-mediumweight-style">
                             <?php
-                            echo '<option value="none" ' . selected($this->fontValues->mediumweight, 'none', false) . '>none</option>';
+                            echo '<option value="none" ' . (isset($this->fontValues->mediumweight) ? selected($this->fontValues->mediumweight, 'none', false) : '') . '>none</option>';
 
                             $optionCount = 0;
                             foreach ($this->fontList[$this->fontListIndex]->variants as $key => $value) {
                                 // Only add options that aren't italic
                                 if (strpos($value, 'italic') === false) {
-                                    echo '<option value="' . $value . '" ' . selected($this->fontValues->mediumweight, $value, false) . '>' . $value . '</option>';
+                                    echo '<option value="' . $value . '" ' . (isset($this->fontValues->mediumweight) ? selected($this->fontValues->mediumweight, $value, false) : '') . '>' . $value . '</option>';
                                     $optionCount++;
                                 }
                             }
@@ -857,13 +857,13 @@ if (class_exists('WP_Customize_Control')) {
                     <div class="weight-style">
                         <select class="google-fonts-semiboldweight-style">
                             <?php
-                            echo '<option value="none" ' . selected($this->fontValues->semiboldweight, 'none', false) . '>none</option>';
+                            echo '<option value="none" ' . (isset($this->fontValues->semiboldweight) ? selected($this->fontValues->semiboldweight, 'none', false) : '') . '>none</option>';
 
                             $optionCount = 0;
                             foreach ($this->fontList[$this->fontListIndex]->variants as $key => $value) {
                                 // Only add options that aren't italic
                                 if (strpos($value, 'italic') === false) {
-                                    echo '<option value="' . $value . '" ' . selected($this->fontValues->semiboldweight, $value, false) . '>' . $value . '</option>';
+                                    echo '<option value="' . $value . '" ' . (isset($this->fontValues->semiboldweight) ? selected($this->fontValues->semiboldweight, $value, false) : '') . '>' . $value . '</option>';
                                     $optionCount++;
                                 }
                             }

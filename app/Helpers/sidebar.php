@@ -16,6 +16,10 @@ function display_sidebar_primary($display = false)
         $sidebar_primary_pages = explode(",", str_replace(' ', '', $sidebar_primary_pages));
         $sidebar_enabled = in_array($post_id, $sidebar_primary_pages);
 
+        if (is_single()) {
+            $sidebar_enabled = in_array('single', $sidebar_primary_pages);
+        }
+
         /**
          * Bbpress check if forum page included
          */

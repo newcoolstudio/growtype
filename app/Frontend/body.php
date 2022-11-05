@@ -14,7 +14,7 @@ function add_extra_classes_to_body($classes)
     $classes[] = display_sidebar_primary() ? 'has-sidebar-primary' : null;
     $classes[] = display_shop_catalog_sidebar() ? 'has-sidebar-catalog' : null;
     $classes[] = Growtype_Product::sidebar() ? 'has-sidebar-product' : null;
-    $classes[] = Growtype_Post::is_front() ? 'is-front-post' : null;
+    $classes[] = function_exists('growtype_post_is_front_post') && growtype_post_is_front_post() ? 'is-front-post' : null;
     $classes[] = header_is_absolute() ? 'has-absolute-header' : null;
     $classes[] = Growtype_Header::is_fixed() ? 'has-fixed-header' : null;
     $classes[] = get_theme_mod('burger_always_visible') ? 'has-always-visible-burger' : null;
@@ -26,7 +26,7 @@ function add_extra_classes_to_body($classes)
 
     if (class_exists('woocommerce')) {
         if (is_account_page()) {
-            $url_slug = Growtype_Post::get_url_slug();
+            $url_slug = Growtype_Page::get_url_slug();
             $classes[] = 'page-' . $url_slug;
         }
 
