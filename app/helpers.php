@@ -147,6 +147,7 @@ require_once 'Helpers/gdpr.php';
 require_once 'Helpers/sidebar.php';
 require_once 'Helpers/panel.php';
 require_once 'Helpers/contacts.php';
+require_once 'Helpers/color.php';
 
 require_once 'Helpers/shop/cart.php';
 require_once 'Helpers/shop/wishlist.php';
