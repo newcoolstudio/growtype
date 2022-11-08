@@ -141,7 +141,7 @@ function growtype_get_mobile_menu_logo()
 }
 
 /**
- * @return array
+ * Get panel (sidebar alternative) main logo
  */
 function growtype_get_panel_logo()
 {
@@ -167,6 +167,9 @@ function growtype_wc_get_product_gallery_sizes()
     ];
 }
 
+/**
+ * Get icon component
+ */
 if (!function_exists('growtype_get_icon')) {
     function growtype_get_icon($type, $label = null, $value = null, $is_link = false, $icon = null)
     {
