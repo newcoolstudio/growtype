@@ -93,7 +93,7 @@ $wrapper_classes = apply_filters(
     </div>
 @else
     <div class="<?php echo esc_attr(implode(' ', array_map('sanitize_html_class',
-        $wrapper_classes))); ?>" data-columns="<?php echo esc_attr($columns); ?>" data-thumbnail-width="{{get_woocommerce_product_gallery_sizes()['thumbnail']['width']}}" data-thumbnail-height="{{get_woocommerce_product_gallery_sizes()['thumbnail']['height']}}" style="opacity: 0; transition: opacity .25s ease-in-out;">
+        $wrapper_classes))); ?>" data-columns="<?php echo esc_attr($columns); ?>" data-thumbnail-width="{{growtype_wc_get_product_gallery_sizes()['thumbnail']['width']}}" data-thumbnail-height="{{growtype_wc_get_product_gallery_sizes()['thumbnail']['height']}}" style="opacity: 0; transition: opacity .25s ease-in-out;">
         <figure class="woocommerce-product-gallery__wrapper">
             <?php
             if ($featured_image_id) {

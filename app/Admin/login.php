@@ -28,14 +28,14 @@ function login_headerurl_custom()
  */
 function custom_login_enqueue_scripts()
 {
-    if (!isset(get_login_logo()['url']) || empty(get_login_logo()['url'])) {
+    if (!isset(growtype_get_login_logo()['url']) || empty(growtype_get_login_logo()['url'])) {
         return false;
     }
 
     ?>
     <style>
         .login h1 a {
-            background-image: url(<?php echo get_login_logo()['url']?>) !important;
+            background-image: url(<?php echo growtype_get_login_logo()['url']?>) !important;
             background-position: center center !important;
             width: 240px !important;
             background-size: contain !important;

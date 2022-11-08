@@ -1,4 +1,4 @@
-@if(has_nav_menu( 'footer' ) || !empty(get_theme_mod('footer_textarea')) || !empty(get_footer_logo()['url']))
+@if(has_nav_menu( 'footer' ) || !empty(get_theme_mod('footer_textarea')) || !empty(growtype_get_footer_logo()['url']))
     <div class="footer-inner-top">
         <div class="row">
             <div class="footer-inner-content col-12 flex-wrap">
@@ -13,9 +13,9 @@
                     </div>
                 @endif
                 <div class="footer-logo-wrapper">
-                    @if(!empty(get_footer_logo()['url']))
+                    @if(!empty(growtype_get_footer_logo()['url']))
                         <a id="footer_logo" href="<?php echo get_home_url_custom() ?>" class="mainlogo">
-                            <img class="img-fluid" src="{{get_footer_logo()['url']}}" alt="footer_logo">
+                            <img class="img-fluid" src="{{growtype_get_footer_logo()['url']}}" alt="footer_logo">
                         </a>
                     @endif
                     @if(Growtype_Social::icons_enabled())

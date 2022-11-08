@@ -2,10 +2,10 @@
     <div class="main-navigation-mobile-inner">
 
         <div class="main-navigation-mobile-top">
-            @if(!empty(get_mobile_burger_logo()))
+            @if(!empty(growtype_get_mobile_menu_logo()))
                 <div class="header-logo-wrapper">
                     <div id="mobile_burger_logo" class="mainlogo">
-                        <img class="img-fluid" src="{{get_mobile_burger_logo()['url']}}" alt="header_mobile_logo">
+                        <img class="img-fluid" src="{{growtype_get_mobile_menu_logo()['url']}}" alt="header_mobile_logo">
                     </div>
                 </div>
             @endif

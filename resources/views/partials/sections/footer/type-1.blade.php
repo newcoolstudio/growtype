@@ -1,8 +1,8 @@
 <div class="footer-inner-top">
-    @if(!empty(get_footer_logo()['url']))
+    @if(!empty(growtype_get_footer_logo()['url']))
         <div class="logo-wrapper">
             <a id="footer_logo" href="<?php echo get_home_url_custom() ?>" class="mainlogo">
-                <img class="img-fluid" src="{{get_footer_logo()['url']}}" alt="footer_logo">
+                <img class="img-fluid" src="{{growtype_get_footer_logo()['url']}}" alt="footer_logo">
             </a>
         </div>
     @endif

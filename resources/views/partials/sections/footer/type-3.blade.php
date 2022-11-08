@@ -12,13 +12,13 @@
         </div>
     </div>
 
-    @if(Growtype_Social::icons_enabled() || !empty(get_footer_logo()['url']))
+    @if(Growtype_Social::icons_enabled() || !empty(growtype_get_footer_logo()['url']))
         <div class="row pt-4">
             <div class="col-12 text-center">
                 @include('partials.components.social-icons')
-                @if(!empty(get_footer_logo()['url']))
+                @if(!empty(growtype_get_footer_logo()['url']))
                     <a id="footer_logo" href="<?php echo get_home_url_custom() ?>" class="mainlogo mx-auto">
-                        <img class="img-fluid" src="{{get_footer_logo()['url']}}" style="padding-top: 0;" alt="footer_logo">
+                        <img class="img-fluid" src="{{growtype_get_footer_logo()['url']}}" style="padding-top: 0;" alt="footer_logo">
                     </a>
                 @endif
             </div>

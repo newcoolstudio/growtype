@@ -58,9 +58,9 @@ function filter_single_product_carousel_options($options)
  */
 add_filter('woocommerce_get_image_size_gallery_thumbnail', function ($size) {
     return array (
-        'width' => get_woocommerce_product_gallery_sizes()['thumbnail']['width'],
-        'height' => get_woocommerce_product_gallery_sizes()['thumbnail']['height'],
-        'crop' => get_woocommerce_product_gallery_sizes()['thumbnail']['crop'],
+        'width' => growtype_wc_get_product_gallery_sizes()['thumbnail']['width'],
+        'height' => growtype_wc_get_product_gallery_sizes()['thumbnail']['height'],
+        'crop' => growtype_wc_get_product_gallery_sizes()['thumbnail']['crop'],
     );
 });
 

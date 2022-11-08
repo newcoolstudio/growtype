@@ -33,7 +33,7 @@ function add_custom_fields()
         'post',
         'featured_image',
         array (
-            'get_callback' => 'get_featured_image',
+            'get_callback' => 'growtype_get_featured_image',
             'update_callback' => null,
             'schema' => null,
         )

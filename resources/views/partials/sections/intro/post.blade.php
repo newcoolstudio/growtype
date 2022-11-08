@@ -27,10 +27,10 @@
                     @endif
                 </div>
             </div>
-            @if(!empty(get_featured_image(get_post())))
+            @if(!empty(growtype_get_featured_image(get_post())))
                 <div class="col col-img">
                     <div class="e-img-bg-wrapper">
-                        <div class="e-img-bg" style="{!! get_featured_image_tag(get_post()) !!}"></div>
+                        <div class="e-img-bg" style="{!! growtype_get_featured_image_tag(get_post()) !!}"></div>
 
                         @if(class_exists('ACF') && !empty(get_field('intro_color_opacity')))
                             <div class="m-bgoverlay" style="opacity: <?php echo get_field('intro_color_opacity')?>%;background: <?php echo get_field('intro_overlay_color')?>;"></div>

@@ -47,7 +47,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-6 px-0 b-img" style="<?php get_featured_image_tag(get_post()) ?>"></div>
+            <div class="col-12 col-lg-6 px-0 b-img" style="<?php growtype_get_featured_image_tag(get_post()) ?>"></div>
         </div>
         <?php endwhile; ?>
         <?php wp_reset_postdata(); ?>
