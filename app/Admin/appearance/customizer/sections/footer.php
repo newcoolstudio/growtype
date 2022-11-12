@@ -152,7 +152,7 @@ function footer_customize_register($wp_customize)
     {
         if (class_exists('QTX_Translator')) {
             $translation = get_theme_mod('footer_textarea');
-            return formatTranslation($translation, $value, true);
+            return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value, true);
         }
 
         return $value;
@@ -191,7 +191,7 @@ function footer_customize_register($wp_customize)
     {
         if (class_exists('QTX_Translator')) {
             $translation = get_theme_mods()["footer_copyright"];
-            return formatTranslation($translation, $value);
+            return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value);
         }
 
         return $value;

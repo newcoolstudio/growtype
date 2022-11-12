@@ -214,7 +214,7 @@ function woocommerce_thankyou_page_intro_content_translation($value)
 {
     if (class_exists('QTX_Translator')) {
         $translation = get_theme_mod('woocommerce_thankyou_page_intro_content');
-        return formatTranslation($translation, $value, true);
+        return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value, true);
     }
 
     return $value;
@@ -228,7 +228,7 @@ function woocommerce_thankyou_page_intro_content_access_platform_translation($va
 {
     if (class_exists('QTX_Translator')) {
         $translation = get_theme_mod('woocommerce_thankyou_page_intro_content_access_platform');
-        return formatTranslation($translation, $value, true);
+        return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value, true);
     }
 
     return $value;
@@ -242,7 +242,7 @@ function woocommerce_product_page_sidebar_content_translation($value)
 {
     if (class_exists('QTX_Translator')) {
         $translation = get_theme_mod('woocommerce_product_page_sidebar_content');
-        return formatTranslation($translation, $value, true);
+        return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value, true);
     }
 
     return $value;
@@ -256,7 +256,7 @@ function woocommerce_product_page_payment_details_translation($value)
 {
     if (class_exists('QTX_Translator')) {
         $translation = get_theme_mod('woocommerce_product_page_payment_details');
-        return formatTranslation($translation, $value, true);
+        return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value, true);
     }
 
     return $value;
@@ -270,7 +270,7 @@ function woocommerce_checkout_billing_section_title_translation($value)
 {
     if (class_exists('QTX_Translator')) {
         $translation = get_theme_mods()["woocommerce_checkout_billing_section_title"];
-        return formatTranslation($translation, $value);
+        return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value);
     }
 
     return $value;
@@ -284,7 +284,7 @@ function woocommerce_checkout_additional_section_title_translation($value)
 {
     if (class_exists('QTX_Translator')) {
         $translation = get_theme_mods()["woocommerce_checkout_additional_section_title"] ?? '';
-        return formatTranslation($translation, $value);
+        return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value);
     }
 
     return $value;
@@ -298,7 +298,7 @@ function woocommerce_checkout_account_section_title_translation($value)
 {
     if (class_exists('QTX_Translator')) {
         $translation = get_theme_mods()["woocommerce_checkout_account_section_title"] ?? '';
-        return formatTranslation($translation, $value);
+        return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value);
     }
 
     return $value;
@@ -312,7 +312,7 @@ function woocommerce_checkout_place_order_button_title_translation($value)
 {
     if (class_exists('QTX_Translator')) {
         $translation = get_theme_mods()["woocommerce_checkout_place_order_button_title"];
-        return formatTranslation($translation, $value);
+        return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value);
     }
 
     return $value;
@@ -327,7 +327,7 @@ function woocommerce_thankyou_page_intro_title_translation($value)
 {
     if (class_exists('QTX_Translator')) {
         $translation = get_theme_mods()["woocommerce_thankyou_page_intro_title"];
-        return formatTranslation($translation, $value);
+        return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value);
     }
 
     return $value;
@@ -341,7 +341,7 @@ function woocommerce_checkout_intro_text_translation($value)
 {
     if (class_exists('QTX_Translator')) {
         $translation = get_theme_mods()["woocommerce_checkout_intro_text"];
-        return formatTranslation($translation, $value);
+        return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value);
     }
 
     return $value;
@@ -355,7 +355,7 @@ function woocommerce_product_preview_cta_label_translation($value)
 {
     if (class_exists('QTX_Translator')) {
         $translation = get_theme_mods()["woocommerce_product_preview_cta_label"];
-        return formatTranslation($translation, $value);
+        return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value);
     }
 
     return $value;

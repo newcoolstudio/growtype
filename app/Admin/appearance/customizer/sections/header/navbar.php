@@ -80,7 +80,7 @@ function header_navbar_text_translation($value)
 {
     if (class_exists('QTX_Translator')) {
         $translation = get_theme_mods()["header_navbar_text"];
-        return formatTranslation($translation, $value);
+        return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value);
     }
 
     return $value;

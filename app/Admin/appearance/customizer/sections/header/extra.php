@@ -63,7 +63,7 @@ function header_extra_content_translation($value)
 {
     if (class_exists('QTX_Translator')) {
         $translation = get_theme_mod('header_extra_content');
-        return formatTranslation($translation, $value, true);
+        return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value, true);
     }
 
     return $value;

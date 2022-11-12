@@ -1,19 +1,19 @@
 <?php
 
 /**
- * @param $translation
+ * @param $existing_value
  * @param $value
  * @return mixed|string
  */
-function formatTranslation($translation, $value, $applyHtmlFormating = false)
+function growtype_format_translation($current_lang, $existing_value, $new_value, $apply_html_formatting = false)
 {
     $enabled_languages = get_option('qtranslate_enabled_languages');
-    $translatedValuesBlocks = qtranxf_get_language_blocks($translation);
+    $translatedValuesBlocks = qtranxf_get_language_blocks($existing_value);
     $translatedValues = qtranxf_split_blocks($translatedValuesBlocks);
-    $translatedValues[$_COOKIE['qtrans_front_language']] = $value;
+    $translatedValues[$current_lang] = $new_value;
 
-    if ($applyHtmlFormating) {
-        $translatedValues[$_COOKIE['qtrans_front_language']] = wpautop($value);
+    if ($apply_html_formatting) {
+        $translatedValues[$current_lang] = wpautop($new_value);
     }
 
     foreach ($enabled_languages as $index => $language) {
