@@ -1,4 +1,4 @@
-@if(header_is_enabled())
+@if(growtype_header_is_enabled())
     <header id="masthead"
             class="site-header"
             role="banner"
@@ -37,17 +37,17 @@
 
                 @include('partials.components.header.extra')
 
-                @if(header_main_menu_is_enabled())
+                @if(growtype_header_main_menu_is_enabled())
                     @include('partials.components.header.menu-main')
                 @endif
 
-                @if(header_mobile_menu_is_enabled())
+                @if(growtype_header_mobile_menu_is_enabled())
                     @include('partials.components.header.menu-mobile')
                 @endif
 
                 @include('partials.components.header.menu-side')
 
-                @if(header_login_menu_is_enabled())
+                @if(growtype_header_login_menu_is_enabled())
                     @include('partials.components.header.menu-login')
                 @endif
 

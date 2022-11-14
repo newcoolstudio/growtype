@@ -25,7 +25,7 @@
             }
             ?>
 
-            @if(header_login_menu_is_enabled())
+            @if(growtype_header_login_menu_is_enabled())
                 @include('partials.components.header.menu-login')
             @endif
 
