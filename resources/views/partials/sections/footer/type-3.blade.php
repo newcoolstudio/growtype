@@ -2,7 +2,7 @@
     <div class="footer-inner-content row">
         <div class="col-12 col-md-5 col-xl-7">
             <div class="c-footernav">
-                @php wp_nav_menu(array('theme_location' => 'footer', 'menu_class' => 'menu menu-column-'.count(get_menu_parent_items('footer')).'', 'menu_id' => 'footer-menu', 'walker' => new Custom_Nav_Walker())); @endphp
+                @php wp_nav_menu(array('theme_location' => 'footer', 'menu_class' => 'menu menu-column-'.count(get_menu_parent_items('footer')).'', 'menu_id' => 'footer-menu', 'walker' => new Growtype_Nav_Walker())); @endphp
             </div>
         </div>
         <div class="col-12 col-md-7 col-xl-5">

@@ -4,7 +4,8 @@
         'theme_location' => 'header',
         'container_class' => 'menu-header-container',
         'menu_id' => 'header-menu',
-        'menu_class' => 'menu nav ' . (get_theme_mod('header_menu_uppercase') ? 'menu-uppercase' : '')
+        'menu_class' => 'menu nav ' . (get_theme_mod('header_menu_uppercase') ? 'menu-uppercase' : ''),
+        'walker' => new Growtype_Nav_Walker()
     ));
     ?>
 </nav><!-- #site-navigation -->

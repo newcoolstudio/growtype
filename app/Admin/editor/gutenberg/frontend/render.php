@@ -1,33 +1,21 @@
 <?php
 
 /**
- * Frontend render fix
- */
-add_filter('render_block', 'wrap_block_extra_div', 10, 2);
-function wrap_block_extra_div($block_content, $block)
-{
-    if ('core/columns' !== $block['blockName']) {
-        return $block_content;
-    }
-
-    $return = '<div class="wp-block">';
-    $return .= $block_content;
-    $return .= '</div>';
-
-    return $return;
-}
-
-/**
  * @param $block_content
  * @param $block
  * @return mixed|string
  */
-add_filter('render_block', 'growtype_render_block_frontend', 10, 2);
-function growtype_render_block_frontend($block_content, $block)
+add_filter('render_block', 'growtype_render_block', 10, 2);
+function growtype_render_block($block_content, $block)
 {
-    $blocks_included = ['core/paragraph', 'core/heading', 'core/image', 'core/group'];
+    $max_width_blocks = ['core/paragraph', 'core/heading', 'core/image', 'core/group'];
+    $custom_attributes_blocks = ['core/button'];
+    $div_wrapper_blocks = ['core/columns'];
 
-    if (in_array($block['blockName'], $blocks_included)
+    /**
+     * Add max-width attribute
+     */
+    if (in_array($block['blockName'], $max_width_blocks)
         && (isset($block['attrs']['maxWidth']) || isset($block['attrs']['position']))) {
         $inlineCss = '';
 
@@ -51,6 +39,23 @@ function growtype_render_block_frontend($block_content, $block)
         $content .= '</div>';
 
         return $content;
+    }
+
+    /**
+     * Add custom attributes
+     */
+    if (in_array($block['blockName'], $custom_attributes_blocks)) {
+        $custom_attributes = $block['attrs']['customAttributes'] ?? '';
+        if (!empty($custom_attributes)) {
+            $block_content = preg_replace('/(<a\b[^><]*)>/i', '$1 ' . $custom_attributes . '>', $block_content);
+        }
+    }
+
+    /**
+     * Add extra div
+     */
+    if (in_array($block['blockName'], $div_wrapper_blocks)) {
+        $block_content = '<div class="wp-block">' . $block_content . '</div>';
     }
 
     return $block_content;

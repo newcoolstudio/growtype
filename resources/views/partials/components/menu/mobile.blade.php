@@ -20,13 +20,14 @@
                     'theme_location' => 'mobile',
                     'container_class' => 'menu-mobile-container',
                     'menu_id' => 'mobile-menu',
-                    'menu_class' => 'menu nav'
+                    'menu_class' => 'menu nav',
+                    'walker' => new Growtype_Nav_Walker()
                 ]);
             }
             ?>
 
             @if(growtype_header_login_menu_is_enabled())
-                @include('partials.components.header.menu-login')
+                @include('partials.components.menu.login')
             @endif
 
             <div class="menu menu-extra">

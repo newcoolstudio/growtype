@@ -17,7 +17,8 @@ cart_page_icon_is_active())
                 'theme_location' => 'header-side',
                 'container_class' => 'side-nav',
                 'menu_id' => 'header-side-menu',
-                'menu_class' => 'menu nav'
+                'menu_class' => 'menu nav',
+                'walker' => new Growtype_Nav_Walker()
             ));
         }
         ?>

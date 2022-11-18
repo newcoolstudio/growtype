@@ -31,24 +31,28 @@
                     @endif
                 @endif
 
-                @include('partials.components.header.logo')
+                @include('partials.components.logo.header')
 
                 {!! Growtype_Page::title_render() !!}
 
-                @include('partials.components.header.extra')
+                @if(!empty(get_theme_mod('header_extra_content')))
+                    <div class="header-extra-content-wrapper">
+                        {!! apply_filters( 'the_content', get_theme_mod('header_extra_content') ) !!}
+                    </div>
+                @endif
 
                 @if(growtype_header_main_menu_is_enabled())
-                    @include('partials.components.header.menu-main')
+                    @include('partials.components.menu.main')
                 @endif
 
                 @if(growtype_header_mobile_menu_is_enabled())
-                    @include('partials.components.header.menu-mobile')
+                    @include('partials.components.menu.mobile')
                 @endif
 
-                @include('partials.components.header.menu-side')
+                @include('partials.components.menu.side')
 
                 @if(growtype_header_login_menu_is_enabled())
-                    @include('partials.components.header.menu-login')
+                    @include('partials.components.menu.login')
                 @endif
 
                 @if(Growtype_User::profile_menu_is_enabled())

@@ -8,9 +8,8 @@ if (!defined('ABSPATH')) {
 /**
  * Class Menu_Icon
  */
-class Menu_Icon
+class Growtype_Nav_Item
 {
-
     protected static $fields = array ();
 
     /**
@@ -24,6 +23,7 @@ class Menu_Icon
 
         self::$fields = array (
             'icon-class' => esc_html__('Icon Class', 'growtype'),
+            'custom-attributes' => esc_html__('Custom Attributes', 'growtype'),
         );
     }
 
@@ -47,15 +47,12 @@ class Menu_Icon
         foreach (self::$fields as $_key => $label) {
             $key = sprintf('menu-item-%s', $_key);
 
-            // Sanitize.
             if (!empty($_POST[$key][$menu_item_db_id])) {
-                // Do some checks here...
                 $value = $_POST[$key][$menu_item_db_id];
             } else {
                 $value = null;
             }
 
-            // Update.
             if (!is_null($value)) {
                 update_post_meta($menu_item_db_id, $key, $value);
             } else {
@@ -66,13 +63,10 @@ class Menu_Icon
 
 
     /**
-     * Print field
-     *
-     * @param int $id Nav menu ID.
-     * @param object $item Menu item data object.
-     * @param int $depth Depth of menu item. Used for padding.
-     * @param array $args Menu item args.
-     *
+     * @param $id
+     * @param $item
+     * @param $depth
+     * @param $args
      * @return void
      */
     public static function _fields($id, $item, $depth, $args)
@@ -113,5 +107,4 @@ class Menu_Icon
     }
 }
 
-// Instantiate Menu_Icon class.
-Menu_Icon::init();
+Growtype_Nav_Item::init();

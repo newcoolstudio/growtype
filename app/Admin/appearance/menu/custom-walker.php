@@ -1,9 +1,14 @@
 <?php
 
+/** Do not allow directly accessing this file. */
+if (!defined('ABSPATH')) {
+    exit('Direct script access denied.');
+}
+
 /**
  * Footer menu walker
  */
-class Custom_Nav_Walker extends Walker_Nav_Menu
+class Growtype_Nav_Walker extends Walker_Nav_Menu
 {
     function start_el(&$output, $menu_item, $depth = 0, $args = array (), $current_object_id = 0)
     {
@@ -12,6 +17,8 @@ class Custom_Nav_Walker extends Walker_Nav_Menu
         $indent = ($depth) ? str_repeat("\t", $depth) : '';
 
         $menu_icon = get_post_meta($menu_item->ID, 'menu-item-icon-class', true);
+
+        $custom_attributes = get_post_meta($menu_item->ID, 'menu-item-custom-attributes', true);
 
         $class_names = $value = '';
         $classes = empty($menu_item->classes) ? array () : (array)$menu_item->classes;
@@ -24,6 +31,7 @@ class Custom_Nav_Walker extends Walker_Nav_Menu
         $attributes .= !empty($menu_item->target) ? ' target="' . esc_attr($menu_item->target) . '"' : '';
         $attributes .= !empty($menu_item->xfn) ? ' rel="' . esc_attr($menu_item->xfn) . '"' : '';
         $attributes .= !empty($menu_item->url) ? ' href="' . esc_attr($menu_item->url) . '"' : '';
+        $attributes .= !empty($custom_attributes) ? ' ' . $custom_attributes : '';
 
         $menu_item_output = '';
 

@@ -12,23 +12,25 @@
 @yield('header')
 
 <div class="main-content-wrapper">
-    @stack('modal')
+    {{--Modal--}}
+    @include('partials.components.modal.index')
 
-    @if(display_gdpr())
-        @include('partials.components.alerts.gdpr')
-    @endif
+    {{--Alert--}}
+    @include('partials.components.alert.index')
 
+    {{--User panel--}}
     @if(display_panel())
         @yield('panel')
     @endif
 
+    {{--Sidebar--}}
     @yield('sidebar')
 
     <main id="main" @php post_class('main') @endphp role="main">
-        @if(Growtype_Search::enabled())
-            @include('partials.components.search')
-        @endif
+        {{--Search--}}
+        @include('partials.components.search.index')
 
+        {{--Main content--}}
         @yield('content')
     </main>
 </div>
