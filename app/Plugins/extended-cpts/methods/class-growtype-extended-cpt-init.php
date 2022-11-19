@@ -4,16 +4,73 @@ class Growtype_Extended_Cpt_Init
 {
     public function __construct()
     {
+        $this->cpt_keys = Growtype_Extended_Cpt::get_keys();
+
         add_action('init', array ($this, 'growtype_extended_cpt_init'));
 
         add_action('template_redirect', array ($this, 'growtype_extended_cpt_template_redirect'));
+
+        foreach ($this->cpt_keys as $cpt_key) {
+            $cpt_name = $this->get_cpt_name($cpt_key['value']);
+            add_filter('manage_' . $cpt_name . '_posts_columns', array ($this, 'growtype_extended_cpt_columns'));
+            add_action('manage_' . $cpt_name . '_posts_custom_column', array ($this, 'growtype_extended_cpt_custom_columns'), 10, 2);
+        }
+    }
+
+    function get_cpt_name($key_value)
+    {
+        $cpt_name = get_option($key_value . '_value');
+        $cpt_name = str_replace(' ', '_', $cpt_name);
+        $cpt_name = strtolower($cpt_name);
+
+        return $cpt_name;
+    }
+
+    function smashing_filter_posts_columns($columns)
+    {
+        $columns['image'] = __('Image');
+        $columns['price'] = __('Price', 'smashing');
+        $columns['area'] = __('Area', 'smashing');
+        return $columns;
+    }
+
+    /**
+     * @param $columns
+     * @return mixed
+     * Custom columns
+     */
+    function growtype_extended_cpt_columns($columns)
+    {
+        $columns['taxonomy'] = __('Taxonomy', 'growtype');
+
+        return $columns;
+    }
+
+    /**
+     * @param $column
+     * @param $post_id
+     * @return void
+     * Custom column values
+     */
+    function growtype_extended_cpt_custom_columns($column, $post_id)
+    {
+        if ('taxonomy' === $column) {
+            $post_type = get_post_type();
+            $taxonomies = get_taxonomies(['object_type' => [$post_type]]);
+
+            foreach ($taxonomies as $taxonomy) {
+                $terms = wp_get_post_terms($post_id, $taxonomy);
+
+                foreach ($terms as $term) {
+                    echo '<a href="' . admin_url('edit.php?post_type=' . $post_type . '&' . $taxonomy . '=' . $term->slug) . '">' . __($term->name) . '</a>';
+                }
+            }
+        }
     }
 
     function growtype_extended_cpt_init()
     {
-        $cpt_keys = Growtype_Extended_Cpt::get_keys();
-
-        foreach ($cpt_keys as $cpt_key) {
+        foreach ($this->cpt_keys as $cpt_key) {
 
             $key_name = $cpt_key['name'];
             $key_value = $cpt_key['value'];
@@ -24,9 +81,7 @@ class Growtype_Extended_Cpt_Init
                 continue;
             }
 
-            $cpt_name = get_option($key_value . '_value');
-            $cpt_name = str_replace(' ', '_', $cpt_name);
-            $cpt_name = strtolower($cpt_name);
+            $cpt_name = $this->get_cpt_name($key_value);
             $cpt_label = get_option($key_value . '_label');
 
             if (empty($cpt_name) || !$cpt_name || empty($cpt_label) || !$cpt_label) {
@@ -70,16 +125,10 @@ class Growtype_Extended_Cpt_Init
                         'title' => 'Published',
                         'meta_key' => 'published_date',
                         'date_format' => 'd/m/Y'
-                    ],
-                    'taxonomy' => [
-                        'taxonomy' => $cpt_name . '_tax'
-                    ],
+                    ]
                 ],
 
                 'admin_filters' => [
-                    'taxonomy' => [
-                        'taxonomy' => $cpt_name . '_tax'
-                    ],
                     'rating' => [
                         'meta_key' => 'star_rating',
                     ],
@@ -124,9 +173,7 @@ class Growtype_Extended_Cpt_Init
     function growtype_extended_cpt_template_redirect()
     {
         if (is_single()) {
-            $cpt_keys = Growtype_Extended_Cpt::get_keys();
-
-            foreach ($cpt_keys as $cpt_key) {
+            foreach ($this->cpt_keys as $cpt_key) {
                 $key_value = $cpt_key['value'];
 
                 if (!empty(get_option($key_value . '_value')) && is_singular(get_option($key_value . '_value')) && !get_option($key_value . '_single_page_enabled')) {
