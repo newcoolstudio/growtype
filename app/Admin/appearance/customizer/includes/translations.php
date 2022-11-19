@@ -26,17 +26,26 @@ function growtype_format_translation($current_lang, $existing_value, $new_value,
 }
 
 /**
- * Qtranslate fields parcing
+ * Qtranslate custom fields parsing
  */
-add_action('wp_ajax_qtranslate_fields_parse', 'qtranslate_fields_parse');
-add_action('wp_ajax_nopriv_qtranslate_fields_parse', 'qtranslate_fields_parse');
-function qtranslate_fields_parse()
+add_action('wp_ajax_qtranslate_fields_parse', 'growtype_wp_ajax_qtranslate_fields_parse');
+add_action('wp_ajax_nopriv_qtranslate_fields_parse', 'growtype_wp_ajax_qtranslate_fields_parse');
+function growtype_wp_ajax_qtranslate_fields_parse()
 {
     $result = '';
     if (class_exists('QTX_Translator')) {
         $themeMods = get_theme_mods();
 
+        /**
+         * Blog name
+         */
+        $themeMods['blogname'] = get_bloginfo();
+
+        /**
+         * Keys to translate
+         */
         $themeModsValuesArray = [
+            'blogname',
             'footer_copyright',
             'footer_textarea',
             'header_navbar_text',
@@ -75,3 +84,15 @@ function qtranslate_fields_parse()
     echo json_encode($result);
     exit();
 }
+
+/**
+ * Sanitize blogname
+ */
+add_action('customize_sanitize_blogname', 'growtype_customize_sanitize_blogname', 100);
+function growtype_customize_sanitize_blogname($new_value)
+{
+    $existing_value = get_option('blogname');
+
+    return growtype_format_translation($_COOKIE['qtrans_front_language'], $existing_value, $new_value);
+}
+

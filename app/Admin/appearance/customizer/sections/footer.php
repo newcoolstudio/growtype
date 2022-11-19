@@ -6,7 +6,7 @@ function footer_customize_register($wp_customize)
     $color_scheme = get_theme_color_scheme();
 
     /**
-     * Footr explanation
+     * Footer explanation
      */
 
     $wp_customize->add_setting('footer_simple_notice',
@@ -45,27 +45,9 @@ function footer_customize_register($wp_customize)
 
     $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'footer_is_disabled',
         array (
-            'label' => esc_html__('Footer Disabled'),
+            'label' => esc_html__('Status'),
             'section' => 'footer',
-            'description' => __('Disable footer.', 'growtype'),
-        )
-    ));
-
-    /**
-     * Footer copyright disabled
-     */
-    $wp_customize->add_setting('footer_copyright_disabled',
-        array (
-            'default' => 0,
-            'transport' => 'refresh',
-        )
-    );
-
-    $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'footer_copyright_disabled',
-        array (
-            'label' => esc_html__('Copyright Disabled'),
-            'section' => 'footer',
-            'description' => __('Disable copyright section.', 'growtype'),
+            'description' => __('Enabled/disabled footer.', 'growtype'),
         )
     ));
 
@@ -159,46 +141,7 @@ function footer_customize_register($wp_customize)
     }
 
     /**
-     * Footer copyright
-     */
-    $wp_customize->add_setting('footer_copyright',
-        array (
-            'default' => '© 2020 Company Name. Trademarks and brands are the property of their respective owners.',
-            'transport' => 'postMessage',
-            'sanitize_callback' => 'footer_copyright_translation'
-        )
-    );
-
-    $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control($wp_customize, 'footer_copyright',
-        array (
-            'label' => __('Copyright Section'),
-            'description' => __('Copyright details etc.'),
-            'section' => 'footer',
-            'input_attrs' => array (
-                'class' => 'qtranxs-translatable',
-                'toolbar1' => 'bold italic bullist numlist alignleft aligncenter alignright link',
-                'toolbar2' => 'formatselect',
-                'mediaButtons' => false,
-            )
-        )
-    ));
-
-    /**
-     * @param $checked
-     * Translate text input copyright
-     */
-    function footer_copyright_translation($value)
-    {
-        if (class_exists('QTX_Translator')) {
-            $translation = get_theme_mods()["footer_copyright"];
-            return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value);
-        }
-
-        return $value;
-    }
-
-    /**
-     * Footer general Explanation
+     * Footer COLORS
      */
 
     $wp_customize->add_setting('theme_general_footer_simple_notice',
@@ -245,6 +188,155 @@ function footer_customize_register($wp_customize)
         'label' => __('Footer Text', 'growtype'),
         'section' => 'footer',
     )));
+
+    /**
+     * COPYRIGHT
+     */
+    $wp_customize->add_setting('footer_copyright_notice',
+        array (
+            'default' => '',
+            'transport' => 'postMessage'
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_customize, 'footer_copyright_notice',
+        array (
+            'label' => __('Copyright'),
+            'description' => __('Below you can change copyright details'),
+            'section' => 'footer'
+        )
+    ));
+
+    /**
+     * Footer copyright disabled
+     */
+    $wp_customize->add_setting('footer_copyright_disabled',
+        array (
+            'default' => 0,
+            'transport' => 'refresh',
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'footer_copyright_disabled',
+        array (
+            'label' => esc_html__('Copyright Disabled'),
+            'section' => 'footer',
+            'description' => __('Disable copyright section.', 'growtype'),
+        )
+    ));
+
+    /**
+     * Footer copyright
+     */
+    $wp_customize->add_setting('footer_copyright',
+        array (
+            'default' => '© 2020 Company Name. Trademarks and brands are the property of their respective owners.',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'footer_copyright_translation'
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control($wp_customize, 'footer_copyright',
+        array (
+            'label' => __('Copyright Section'),
+            'description' => __('Copyright details etc.'),
+            'section' => 'footer',
+            'input_attrs' => array (
+                'class' => 'qtranxs-translatable',
+                'toolbar1' => 'bold italic bullist numlist alignleft aligncenter alignright link',
+                'toolbar2' => 'formatselect',
+                'mediaButtons' => false,
+            )
+        )
+    ));
+
+    /**
+     * @param $checked
+     * Translate text input copyright
+     */
+    function footer_copyright_translation($value)
+    {
+        if (class_exists('QTX_Translator')) {
+            $translation = get_theme_mods()["footer_copyright"];
+            return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value);
+        }
+
+        return $value;
+    }
+
+    /**
+     * CREATED BY
+     */
+    $wp_customize->add_setting('theme_general_created_by_notice',
+        array (
+            'default' => '',
+            'transport' => 'postMessage'
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_customize, 'theme_general_created_by_notice',
+        array (
+            'label' => __('Created by'),
+            'description' => __('Below you can change created by details'),
+            'section' => 'footer'
+        )
+    ));
+
+    /**
+     * Created by switch
+     */
+    $wp_customize->add_setting('theme_general_created_by_enabled',
+        array (
+            'default' => 0,
+            'transport' => 'refresh',
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'theme_general_created_by_enabled',
+        array (
+            'label' => esc_html__('Status'),
+            'section' => 'footer',
+            'description' => __('Created by enabled/disabled', 'growtype'),
+        )
+    ));
+
+    /**
+     * Created by content
+     */
+    $wp_customize->add_setting('theme_general_created_by_content',
+        array (
+            'default' => '',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'theme_general_created_by_content_translation'
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control($wp_customize, 'theme_general_created_by_content',
+        array (
+            'label' => __('Content'),
+            'description' => __('Created by content.'),
+            'section' => 'footer',
+            'input_attrs' => array (
+                'class' => 'qtranxs-translatable',
+                'toolbar1' => 'formatselect bold italic bullist numlist alignleft aligncenter alignright link',
+                'mediaButtons' => true,
+            )
+        )
+    ));
+
+    /**
+     * @param $checked
+     * Translate text
+     */
+    function theme_general_created_by_content_translation($value)
+    {
+        if (class_exists('QTX_Translator')) {
+            $translation = get_theme_mods()["theme_general_created_by_content"];
+            return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value);
+        }
+
+        return $value;
+    }
 }
 
 /**

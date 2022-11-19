@@ -17,6 +17,10 @@ wp.customize.bind('ready', function () {
                     if (tinymce.get(value[0]) !== null) {
                         tinymce.get(value[0]).setContent(value[1]);
                     }
+
+                    if (value[0] === 'blogname') {
+                        $('.panel-title.site-title').text(value[1])
+                    }
                 });
             }, 1000)
         }

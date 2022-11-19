@@ -105,7 +105,6 @@ class Growtype_Extended_Cpt_Init
                         'meta_key' => 'published_date',
                         'date_format' => 'd/m/Y'
                     ),
-
                 ),
                 'allow_hierarchy' => false
             ),

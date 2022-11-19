@@ -106,6 +106,9 @@ function growtype_wp_insert_post_data($data)
     return $data; // Returns the modified data.
 }
 
+/**
+ * Add excerpt
+ */
 add_action('admin_print_footer_scripts-edit.php', function ($page) { ?>
     <script>
         jQuery(function ($) {
