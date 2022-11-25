@@ -46,12 +46,12 @@ add_action('admin_head', 'growtype_admin_manage_posts_columns');
 function growtype_admin_manage_posts_columns()
 {
     echo '<style>';
-    echo '.wp-admin table #categories { width:8%; }';
-    echo '.wp-admin table #slug { width:8%; }';
-    echo '.wp-admin table #growtype_excerpt { width:15%!important; }';
-    echo '.wp-admin table #language { width:8%!important; }';
-    echo '.wp-admin table #featured_image { width:8%!important; }';
-    echo '.wp-admin table .featured_image img { max-width:100%;height:initial; }';
+    echo '.wp-admin .wp-list-table #categories { width:8%; }';
+    echo '.wp-admin .wp-list-table #slug { width:8%; }';
+    echo '.wp-admin .wp-list-table #growtype_excerpt { width:15%!important; }';
+    echo '.wp-admin .wp-list-table #language { width:8%!important; }';
+    echo '.wp-admin .wp-list-table #featured_image { width:8%!important; }';
+    echo '.wp-admin .wp-list-table .featured_image img { max-width:100%;height:initial; }';
     echo '</style>';
 }
 
