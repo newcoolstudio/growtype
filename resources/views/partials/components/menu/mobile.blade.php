@@ -31,16 +31,15 @@
             @endif
 
             <div class="menu menu-extra">
-                @if(Growtype_User::account_icon_enabled())
-                    <li class="e-profile">
-                        <a href="{!! Growtype_User::account_permalink() !!}">
-                            <i class="icon-profile"></i>
-                        </a>
-                    </li>
-                @endif
+                <?php if (Growtype_User::account_icon_enabled()) { ?>
+                <li class="e-profile">
+                    <a href="<?php echo Growtype_User::account_permalink() ?>">
+                        <i class="icon-profile"></i>
+                    </a>
+                </li>
+                <?php } ?>
 
-                <?php
-                if (wishlist_page_icon()) { ?>
+                <?php if (wishlist_page_icon()) { ?>
                 <li class="e-wishlist">
                     <a href="{!! get_permalink( get_page_by_path( 'wishlist' ) ) !!}">
                         <i class="icon-wishlist"></i>
@@ -48,22 +47,19 @@
                 </li>
                 <?php } ?>
 
-                <?php
-                if (Growtype_Language::selector()) { ?>
-                <li class="language-selector">
-                    <?php echo qtranxf_generateLanguageSelectCode('text')?>
+                <?php if (Growtype_Language::selector()) { ?>
+                <li class="language-selector <?php echo Growtype_Language::selector_classes() ?>">
+                        <?php echo qtranxf_generateLanguageSelectCode('text') ?>
                 </li>
                 <?php } ?>
 
-                <?php
-                if (class_exists('WOOMULTI_CURRENCY_F')) { ?>
+                <?php if (class_exists('WOOMULTI_CURRENCY_F')) { ?>
                 <li class="currency-selector">
                     {!! do_shortcode('[woo_multi_currency_plain_vertical]') !!}
                 </li>
                 <?php } ?>
 
             </div>
-
         </div>
 
     </div>

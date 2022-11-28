@@ -180,7 +180,7 @@ if (!empty($mobile_menu)) {
     ));
 
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'mobile_menu_bg_color', array (
-        'label' => __('Mobile Menu Background Color', 'growtype'),
+        'label' => __('Background Color', 'growtype'),
         'section' => $mobile_menu_section,
         'alpha' => true,
         'priority' => 1000000,
@@ -196,7 +196,23 @@ if (!empty($mobile_menu)) {
     ));
 
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'mobile_menu_burger_color', array (
-        'label' => __('Mobile Menu Burger Color', 'growtype'),
+        'label' => __('Burger Color', 'growtype'),
+        'section' => $mobile_menu_section,
+        'alpha' => true,
+        'priority' => 1000000,
+    )));
+
+    /**
+     * Burger active color
+     */
+    $wp_customize->add_setting('mobile_menu_burger_active_color', array (
+        'default' => $color_scheme['mobile_menu_burger_active_color'],
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'postMessage',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'mobile_menu_burger_active_color', array (
+        'label' => __('Burger Active Color', 'growtype'),
         'section' => $mobile_menu_section,
         'alpha' => true,
         'priority' => 1000000,
@@ -212,7 +228,7 @@ if (!empty($mobile_menu)) {
     ));
 
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'mobile_menu_text_color', array (
-        'label' => __('Mobile Menu Text Color', 'growtype'),
+        'label' => __('Text Color', 'growtype'),
         'section' => $mobile_menu_section,
         'alpha' => true,
         'priority' => 1000000,

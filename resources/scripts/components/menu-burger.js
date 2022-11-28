@@ -24,7 +24,7 @@ function menuBurger() {
     });
 
     $('.main-navigation-mobile a').on('click', function () {
-        if ($(this).text().indexOf("#") === -1) {
+        if ($(this).text().indexOf("#") === -1 && !$(this).closest('li').hasClass('active')) {
             window.burgerClose();
         }
     });

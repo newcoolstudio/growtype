@@ -31,9 +31,9 @@ add_action('wp_enqueue_scripts', function () {
         /**
          * Slick-carousel
          */
-        wp_enqueue_script('slick-min-script', growtype_get_parent_theme_public_path() . '/vendor/slick-carousel/slick/slick.min.js', ['jquery'], null, true);
-        wp_enqueue_style('slick-style', growtype_get_parent_theme_public_path() . '/vendor/slick-carousel/slick/slick.css', false, null);
-        wp_enqueue_style('slick-theme-style', growtype_get_parent_theme_public_path() . '/vendor/slick-carousel/slick/slick-theme.css', false, null);
+        wp_enqueue_script('slick.min.js', growtype_get_parent_theme_public_path() . '/vendor/slick-carousel/slick/slick.min.js', ['jquery'], null, true);
+        wp_enqueue_style('slick.css', growtype_get_parent_theme_public_path() . '/vendor/slick-carousel/slick/slick.css', false, null);
+        wp_enqueue_style('slick-theme.css', growtype_get_parent_theme_public_path() . '/vendor/slick-carousel/slick/slick-theme.css', false, null);
 
         /**
          * Gutenberg scripts

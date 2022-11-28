@@ -1,7 +1,8 @@
 function qtranslate() {
     (function ($) {
-        $('.language-chooser li.active').click(function (event) {
+        $('.language-chooser li.active').click(function (e) {
             event.preventDefault();
+            event.stopPropagation();
         });
     })(jQuery);
 }

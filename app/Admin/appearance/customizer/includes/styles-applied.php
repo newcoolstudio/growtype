@@ -123,16 +123,19 @@ function growtype_customizer_general_css()
         <?php } ?>
 
         <?php if(!empty(get_theme_mod('mobile_menu_text_color'))){ ?>
-        .hamburger.is-active .hamburger-inner {
-            background: <?php echo get_theme_mod('mobile_menu_text_color') ?>;
-        }
-
         .site-header .main-navigation-mobile .menu li a,
         .main-navigation-mobile-type-2 .menu-item-has-children:before,
         .site-header.is-scroll .menu-mobile-container .menu li a,
         .main-navigation-mobile .menu-extra li a,
         .menu-mobile-container .menu li a {
             color: <?php echo get_theme_mod('mobile_menu_text_color') ?>;
+        }
+
+        <?php } ?>
+
+        <?php if(!empty(get_theme_mod('mobile_menu_burger_active_color'))){ ?>
+        .hamburger.is-active .hamburger-inner {
+            background: <?php echo get_theme_mod('mobile_menu_burger_active_color') ?>;
         }
 
         <?php } ?>
