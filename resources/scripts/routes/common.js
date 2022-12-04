@@ -5,7 +5,6 @@ import {panelBg} from "../components/panel-bg";
 import {notice} from "../components/notice";
 import {menu} from "../components/menu";
 import {menuBurger} from "../components/menu-burger";
-import {contentSearch} from "../components/content-search";
 import {preventClicksOnEmptyLinks} from "../components/empty-links";
 import {anchorLinkScroll} from "../components/anchor-link-scroll";
 import {anchorLinkMainNavigation} from "../components/anchor-link-main-navigation";
@@ -31,7 +30,6 @@ export default {
         preventClicksOnEmptyLinks();
         anchorLinkScroll();
         anchorLinkMainNavigation();
-        contentSearch();
         editorFrontend();
     },
     finalize() {

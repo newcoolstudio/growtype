@@ -1,6 +1,5 @@
 @if(class_exists('WOOMULTI_CURRENCY_F') ||
 has_nav_menu('header-side') ||
-get_theme_mod('search_icon_enabled') ||
 Growtype_User::account_icon_enabled() ||
 wishlist_page_icon() ||
 cart_page_icon_is_active())
@@ -24,12 +23,6 @@ cart_page_icon_is_active())
         ?>
 
         <div class="menu customizer">
-            @if(get_theme_mod('search_icon_enabled'))
-                <li class="e-search">
-                    <i class="icon-search"></i>
-                </li>
-            @endif
-
             @if(Growtype_User::account_icon_enabled())
                 <li class="e-profile">
                     <a href="{!! Growtype_User::account_permalink() !!}">

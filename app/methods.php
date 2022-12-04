@@ -16,7 +16,6 @@ include('Methods/class-growtype-cache.php');
  * Page
  */
 include('Methods/class-growtype-language.php');
-include('Methods/class-growtype-search.php');
 include('Methods/class-growtype-user.php');
 include('Methods/class-growtype-user-account.php');
 include('Methods/class-growtype-social.php');

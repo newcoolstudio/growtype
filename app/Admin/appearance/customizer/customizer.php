@@ -26,7 +26,6 @@ include('sections/fonts.php');
 include('sections/buttons.php');
 include('sections/menu.php');
 
-include('sections/search.php');
 include('sections/sidebar.php');
 include('sections/panel.php');
 include('sections/accesses.php');
