@@ -82,6 +82,32 @@ class Growtype_Extended_Cpt
     }
 
     /**
+     * @return array
+     */
+    public function get_active_post_types()
+    {
+        $keys = self::get_keys();
+
+        $active_pt = [];
+        foreach ($keys as $key) {
+            if (isset($key['value'])) {
+                $enabled = get_option($key['value'] . '_enabled');
+                $value = get_option($key['value'] . '_value');
+                $label = get_option($key['value'] . '_label');
+
+                if ($enabled && !empty($value)) {
+                    $active_pt[] = [
+                        'label' => $label,
+                        'value' => $value
+                    ];
+                }
+            }
+        }
+
+        return $active_pt;
+    }
+
+    /**
      *
      */
     private function load_admin()

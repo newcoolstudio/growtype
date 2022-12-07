@@ -161,7 +161,7 @@ class Growtype_Admin_Theme_Settings_Editor
 
         add_settings_field(
             'reusable_blocks_in_admin_enabled',
-            'Reusable blocks bar in admin nav',
+            'Show Reusable blocks nav tab in admin',
             array ($this, 'reusable_blocks_in_admin_enabled_callback'),
             'growtype-editor-settings',
             'editor_options_settings'

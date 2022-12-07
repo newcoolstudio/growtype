@@ -26,7 +26,7 @@
     @endif
 </div>
 <div class="footer-inner-bottom">
-    @if(!empty(get_theme_mod('footer_copyright')))
+    @if(!empty(get_theme_mod('footer_copyright')) && !get_theme_mod('footer_copyright_disabled'))
         <div id="footer_copyright" class="copyright">
                 <?php echo get_theme_mod('footer_copyright'); ?>
         </div>
