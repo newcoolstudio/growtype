@@ -90,24 +90,6 @@ $wp_customize->add_control(new WP_Customize_Media_Control(
 ));
 
 /**
- * Mobile burger logo
- */
-$wp_customize->add_setting("mobile_burger_logo", array (
-    "type" => "theme_mod",
-    "capability" => "edit_theme_options",
-    "default" => '',
-    "transport" => "postMessage",
-));
-
-$wp_customize->add_control(new WP_Customize_Media_Control(
-    $wp_customize, 'mobile_burger_logo',
-    array (
-        'label' => __('Logo - Mobile Menu', 'growtype'),
-        'section' => 'header_logo',
-    )
-));
-
-/**
  * Header logo dimensions
  */
 $wp_customize->add_setting("header_logo_size_desktop", array (

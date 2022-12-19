@@ -25,6 +25,10 @@ function growtype_customizer_general_css()
             border-right-color: transparent !important;
         }
 
+        aside.widget-area > .widget .widget-title:after{
+            background: <?php echo get_theme_mod('main_color'); ?>;
+        }
+
         <?php } ?>
 
         <?php if(!empty(get_theme_mod('header_background_color'))){ ?>

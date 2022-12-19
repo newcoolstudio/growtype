@@ -12,25 +12,6 @@ if (!empty($mobile_menu)) {
     $color_scheme = get_theme_color_scheme();
 
     /**
-     * Menu enabled
-     */
-    $wp_customize->add_setting('mobile_menu_disabled',
-        array (
-            'default' => 0,
-            'transport' => 'refresh',
-        )
-    );
-
-    $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'mobile_menu_disabled',
-        array (
-            'label' => esc_html__('Menu is disabled'),
-            'section' => $mobile_menu_section,
-            'description' => __('Enable or disable', 'growtype'),
-            'priority' => 1000000,
-        )
-    ));
-
-    /**
      * Mobile menu text color
      */
     $wp_customize->add_setting('theme_general_mobile_menu_settings_notice',
@@ -45,6 +26,25 @@ if (!empty($mobile_menu)) {
             'label' => __('Settings'),
             'description' => __('Below you can change mobile menu settings'),
             'section' => $mobile_menu_section,
+            'priority' => 1000000,
+        )
+    ));
+
+    /**
+     * Menu enabled
+     */
+    $wp_customize->add_setting('mobile_menu_disabled',
+        array (
+            'default' => 0,
+            'transport' => 'refresh',
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'mobile_menu_disabled',
+        array (
+            'label' => esc_html__('Menu is disabled'),
+            'section' => $mobile_menu_section,
+            'description' => __('Enable or disable', 'growtype'),
             'priority' => 1000000,
         )
     ));
@@ -147,6 +147,25 @@ if (!empty($mobile_menu)) {
                 'slide-in-left' => __('Slide in left', 'growtype'),
                 'slide-in-right' => __('Slide in right', 'growtype'),
             ),
+            'priority' => 1000000,
+        )
+    ));
+
+    /**
+     * Mobile burger logo
+     */
+    $wp_customize->add_setting("mobile_burger_logo", array (
+        "type" => "theme_mod",
+        "capability" => "edit_theme_options",
+        "default" => '',
+        "transport" => "postMessage",
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Media_Control(
+        $wp_customize, 'mobile_burger_logo',
+        array (
+            'label' => __('Logo', 'growtype'),
+            'section' => $mobile_menu_section,
             'priority' => 1000000,
         )
     ));

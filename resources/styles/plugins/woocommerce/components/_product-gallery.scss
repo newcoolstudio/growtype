@@ -93,7 +93,7 @@ Style 2, thumbnails on left side
   div.product {
     div.woocommerce-product-gallery-type-2 {
       .flex-direction-nav {
-        width: 82%;
+        width: 100%;
         top: 46%;
         @include bp-phone-xl() {
           width: 100%;

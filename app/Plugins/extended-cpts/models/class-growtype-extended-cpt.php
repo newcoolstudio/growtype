@@ -8,9 +8,11 @@ class Growtype_Extended_Cpt
         $this->load_methods();
     }
 
+    /**
+     * @return array[]
+     */
     public static function get_keys()
     {
-
         $default_options = self::get_default_options();
 
         return [
@@ -42,6 +44,9 @@ class Growtype_Extended_Cpt
         ];
     }
 
+    /**
+     * @return string[][]
+     */
     public static function get_default_options()
     {
         return [
@@ -84,7 +89,7 @@ class Growtype_Extended_Cpt
     /**
      * @return array
      */
-    public function get_active_post_types()
+    public static function get_active_post_types()
     {
         $keys = self::get_keys();
 
@@ -117,11 +122,11 @@ class Growtype_Extended_Cpt
         new Growtype_Extended_Cpt_Admin();
     }
 
+    /**
+     * Cpt register
+     */
     private function load_methods()
     {
-        /**
-         *
-         */
         require_once dirname(__DIR__) . '/methods/class-growtype-extended-cpt-init.php';
 
         new Growtype_Extended_Cpt_Init();

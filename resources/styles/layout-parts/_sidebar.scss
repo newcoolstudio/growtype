@@ -4,7 +4,7 @@
   border-width: 0px 1px 0px 0px;
   border-color: $color-light-grey;
   border-style: solid;
-  width: 34%;
+  width: 30%;
   float: right;
   position: sticky;
   top: 0;
@@ -13,7 +13,7 @@
   }
 
   & + .main {
-    width: 66%;
+    width: 70%;
     float: left;
     margin: 0;
     @include bp-tablet-portrait() {

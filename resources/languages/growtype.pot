@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Growtype\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-21 15:48+0000\n"
+"POT-Creation-Date: 2022-12-19 10:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -56,10 +56,6 @@ msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:13
 msgid "Add to bag"
-msgstr ""
-
-#: ../../../../../../../packages/themes/growtype/resources/views/plugins/acf/contacts/basic.blade.php:25
-msgid "Address:"
 msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/views/partials/components/panel/profile.blade.php:20
@@ -139,7 +135,7 @@ msgid "Click here to enter your code"
 msgstr ""
 
 #. 1: comment count number, 2: title.
-#: ../../../../../../../packages/themes/growtype/resources/views/partials/sections/comments.blade.php:18
+#: ../../../../../../../packages/themes/growtype/resources/views/partials/sections/comments.blade.php:20
 #, php-format
 msgctxt "comments title"
 msgid "%1$s Comment"
@@ -151,16 +147,8 @@ msgstr[1] ""
 msgid "Confirm new password"
 msgstr ""
 
-#: ../../../../../../../packages/themes/growtype/resources/views/plugins/acf/contacts/basic.blade.php:29
-msgid "Contact person:"
-msgstr ""
-
 #: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:20
 msgid "Contacts"
-msgstr ""
-
-#: ../../../../../../../packages/themes/growtype/resources/views/partials/content/post/preview/basic.blade.php:70
-msgid "Continue reading"
 msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/form-coupon.blade.php:34
@@ -178,10 +166,6 @@ msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:64
 msgid "Current password (leave blank to leave unchanged)"
-msgstr ""
-
-#: ../../../../../../../packages/themes/growtype/resources/views/single-activity.blade.php:29
-msgid "Date"
 msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:69
@@ -232,10 +216,6 @@ msgstr ""
 #: ../../../../../../../packages/themes/growtype/resources/functions.php:60
 #, php-format
 msgid "Error locating <code>%s</code> for inclusion."
-msgstr ""
-
-#: ../../../../../../../packages/themes/growtype/resources/views/single-activity.blade.php:27
-msgid "Event details"
 msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:40
@@ -301,7 +281,7 @@ msgstr ""
 msgid "Last name"
 msgstr ""
 
-#: ../../../../../../../packages/themes/growtype/resources/views/template-blog.blade.php:67
+#: ../../../../../../../packages/themes/growtype/resources/views/template-blog.blade.php:73
 msgid "Latest articles"
 msgstr ""
 
@@ -317,10 +297,6 @@ msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:4
 msgid "Liked"
-msgstr ""
-
-#: ../../../../../../../packages/themes/growtype/resources/views/single-activity.blade.php:40
-msgid "Location"
 msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:67
@@ -370,6 +346,10 @@ msgstr ""
 msgid "New password (leave blank to leave unchanged)"
 msgstr ""
 
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/loop/pagination.blade.php:44
+msgid "Next"
+msgstr ""
+
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/payment-methods.blade.php:70
 msgid "No saved methods found."
 msgstr ""
@@ -382,7 +362,7 @@ msgstr ""
 msgid "Note:"
 msgstr ""
 
-#: ../../../../../../../packages/themes/growtype/resources/views/partials/sections/comments.blade.php:14
+#: ../../../../../../../packages/themes/growtype/resources/views/partials/sections/comments.blade.php:16
 msgid "One Comment"
 msgstr ""
 
@@ -393,10 +373,6 @@ msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/views/partials/content/404/page.blade.php:2
 msgid "Oops! That page can&rsquo;t be found."
-msgstr ""
-
-#: ../../../../../../../packages/themes/growtype/resources/views/partials/content/post/preview/project.blade.php:22
-msgid "Order"
 msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/order/order-again.blade.php:23
@@ -411,7 +387,7 @@ msgstr ""
 msgid "Order number:"
 msgstr ""
 
-#: ../../../../../../../packages/themes/growtype/resources/views/archive.blade.php:18
+#: ../../../../../../../packages/themes/growtype/resources/views/archive.blade.php:23
 msgid "Pages:"
 msgstr ""
 
@@ -452,6 +428,10 @@ msgstr ""
 msgid "Preview"
 msgstr ""
 
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/loop/pagination.blade.php:43
+msgid "Previous"
+msgstr ""
+
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:73
 msgid "Price"
 msgstr ""
@@ -489,21 +469,15 @@ msgstr ""
 msgid "Read close"
 msgstr ""
 
-#: ../../../../../../../packages/themes/growtype/resources/views/template-blog.blade.php:41
-#: ../../../../../../../packages/themes/growtype/resources/views/partials/sections/related-posts.blade.php:26
-#: ../../../../../../../packages/themes/growtype/resources/views/partials/content/post/preview/review.blade.php:20
+#: ../../../../../../../packages/themes/growtype/resources/views/template-blog.blade.php:45
+#: ../../../../../../../packages/themes/growtype/resources/views/partials/sections/related-posts.blade.php:25
 msgid "Read more"
 msgstr ""
 
-#: ../../../../../../../packages/themes/growtype/resources/views/single-activity.blade.php:49
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:92
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:134
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:135
 msgid "Register"
-msgstr ""
-
-#: ../../../../../../../packages/themes/growtype/resources/views/single-activity.blade.php:73
-msgid "Related events"
 msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:54
@@ -536,7 +510,7 @@ msgstr ""
 msgid "Save changes"
 msgstr ""
 
-#: ../../../../../../../packages/themes/growtype/resources/views/plugins/acf/flexible-content/featured-projects.blade.php:36
+#: ../../../../../../../packages/themes/growtype/resources/views/plugins/acf/flexible-content/featured-projects.blade.php:44
 msgid "See all"
 msgstr ""
 
@@ -557,8 +531,8 @@ msgstr ""
 msgid "Shipping address"
 msgstr ""
 
-#: ../../../../../../../packages/themes/growtype/resources/views/plugins/acf/flexible-content/featured-activities.blade.php:42
-#: ../../../../../../../packages/themes/growtype/resources/views/plugins/acf/flexible-content/featured-posts.blade.php:48
+#: ../../../../../../../packages/themes/growtype/resources/views/plugins/acf/flexible-content/featured-activities.blade.php:48
+#: ../../../../../../../packages/themes/growtype/resources/views/plugins/acf/flexible-content/featured-posts.blade.php:54
 msgid "Show more"
 msgstr ""
 
@@ -685,20 +659,8 @@ msgstr ""
 msgid "Very poor"
 msgstr ""
 
-#: ../../../../../../../packages/themes/growtype/resources/views/partials/content/post/preview/project.blade.php:20
-msgid "View"
-msgstr ""
-
-#: ../../../../../../../packages/themes/growtype/resources/views/partials/components/search.blade.php:19
-msgid "View all products"
-msgstr ""
-
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/emails/customer-completed-order.php:42
 msgid "We have finished processing your order."
-msgstr ""
-
-#: ../../../../../../../packages/themes/growtype/resources/views/partials/components/search.blade.php:3
-msgid "What are you looking for?"
 msgstr ""
 
 #: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:67

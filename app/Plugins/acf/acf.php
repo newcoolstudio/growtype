@@ -3,18 +3,17 @@
 /**
  * Google maps api
  */
-function my_acf_init() {
-
+add_action('acf/init', 'growtype_acf_api_key');
+function growtype_acf_api_key()
+{
     acf_update_setting('google_api_key', get_option('acf_maps_api_key_value'));
 }
-
-add_action('acf/init', 'my_acf_init');
 
 /**
  * Options page
  */
-if( function_exists('acf_add_options_page') ) {
-//    acf_add_options_page();
+if (function_exists('acf_add_options_page') && get_option('acf_options_page')) {
+    acf_add_options_page();
 }
 
 /**
@@ -34,7 +33,7 @@ background: rgb(247, 247, 247);
 /**
  * Dynamically populate fields
  */
-add_filter('acf/load_field/name=unique_id_is_not_f_editable', function($field) {
+add_filter('acf/load_field/name=unique_id_is_not_f_editable', function ($field) {
     $field['default_value'] = __('s-' . base64_encode(random_bytes(9)), 'growtype');
     return $field;
 });

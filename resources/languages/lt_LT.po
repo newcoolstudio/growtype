@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: Growtype\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-09 08:02+0000\n"
-"PO-Revision-Date: 2021-12-04 10:44+0000\n"
+"PO-Revision-Date: 2022-12-19 10:33+0000\n"
 "Last-Translator: \n"
-"Language-Team: Lithuanian\n"
+"Language-Team: Lietuvių kalba\n"
 "Language: lt_LT\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 "
 "&&(n%100<10||n%100 >= 20)? 1 : 2);\n"
@@ -17,64 +17,57 @@ msgstr ""
 "X-Domain: growtype"
 
 #. 1: credit card type 2: last 4 digits
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/payment-methods.blade.php:49
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/payment-methods.blade.php:49
 #, php-format
 msgid "%1$s ending in %2$s"
 msgstr "%1$s, kuris baigiasi %2$s"
 
 #. %s location.
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:72
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:72
 #, php-format
 msgid "(estimated for %s)"
 msgstr "(numatoma %s)"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:117
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:125
 msgid "A password will be sent to your email address."
 msgstr "Jūsų el. pašto adresu bus išsiųstas slaptažodis."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product/short-description.blade.php:33
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product/short-description.blade.php:33
 msgid "About product"
 msgstr "Apie produktą"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/archive-activity.blade.php:8
-msgid "Activities"
-msgstr "Veikla"
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:29
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/form-billing.blade.php:25
+msgid "Account details"
+msgstr "Sąskaitos informacija"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:63
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:63
 msgid "Add"
 msgstr "Papildyti"
 
 #. %s is product title
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:70
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:70
 msgid "Add a review"
 msgstr "Pridėti apžvalgą"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/payment-methods.blade.php:77
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/payment-methods.blade.php:77
 msgid "Add payment method"
 msgstr "Pridėti mokėjimo metodą"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:13
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:13
 msgid "Add to bag"
 msgstr "Pridėti į krepšelį"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/plugins/acf/contacts/basic.blade.php:25
-msgid "Address:"
-msgstr "Adresas:"
-
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/content/content-panel.blade.php:25
+#: ../../../../../../../packages/themes/growtype/resources/views/partials/components/panel/profile.blade.php:20
 msgid "Administrator"
 msgstr "Administratorius"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/archive-project.blade.php:16
-msgid "All"
-msgstr "Visi"
-
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:135
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:144
 msgid "Already have an account?"
 msgstr "Jau turite paskyrą?"
 
 #. %1$s Site title, %2$s Order pay link
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/emails/customer-invoice.php:59
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/emails/customer-invoice.php:59
 #, php-format
 msgid ""
 "An order has been created for you on %1$s. Your invoice is below, with a "
@@ -83,64 +76,68 @@ msgstr ""
 "%1$s jums buvo sukurtas užsakymas. Toliau pateikiama jūsų sąskaita faktūra "
 "su nuoroda, skirta sumokėti, kai būsite pasiruošę: %2$s"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/form-coupon.blade.php:38
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:152
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:152
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/form-coupon.blade.php:38
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:152
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:152
 msgid "Apply coupon"
 msgstr "Taikyti kuponą"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:17
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:17
 msgid "Attach media"
 msgstr "Pridėkite laikmeną"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product/meta.blade.php:52
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product/meta.blade.php:52
 msgid "Author"
 msgstr "Autorius"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/functions.php:44
+#: ../../../../../../../packages/themes/growtype/resources/functions.php:44
 msgid "Autoloader not found."
 msgstr "Autoloader nerastas."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:94
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:94
 msgid "Available on backorder"
 msgstr "Galimas pagal užsakymus"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:124
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:124
 msgid "Average"
 msgstr "Vidutinis"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product/product-image.blade.php:55
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product/product-image.blade.php:105
 msgid "Awaiting product image"
 msgstr "Laukiama produkto vaizdo"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:70
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:70
 #, php-format
 msgid "Be the first to review &ldquo;%s&rdquo;"
 msgstr "Būkite pirmas, įvertinęs „%s“"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/form-billing.blade.php:21
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:35
+msgid "Below are the details of your order."
+msgstr "Žemiau pateikiama išsami jūsų užsakymo informacija."
+
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/form-billing.blade.php:21
 msgid "Billing &amp; Shipping"
 msgstr "Atsiskaitymas ir siuntimas"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:26
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:35
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:26
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:35
 msgid "Billing address"
 msgstr "Atsiskaitymo adresas"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/form-billing.blade.php:23
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/form-billing.blade.php:23
 msgid "Billing details"
 msgstr "Atsiskaitymo informacija"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:18
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:18
 msgid "Clear selected options"
 msgstr "Išvalykite pasirinkimus"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/form-coupon.blade.php:26
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/form-coupon.blade.php:26
 msgid "Click here to enter your code"
 msgstr "Spustelėkite čia, kad įvestumėte savo kodą"
 
 #. 1: comment count number, 2: title.
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/sections/comments.blade.php:18
+#: ../../../../../../../packages/themes/growtype/resources/views/partials/sections/comments.blade.php:20
 #, php-format
 msgctxt "comments title"
 msgid "%1$s Comment"
@@ -149,120 +146,100 @@ msgstr[0] "%1$s komentaras"
 msgstr[1] "%1$s komentarai"
 msgstr[2] "%1$s komentarai"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:59
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:76
 msgid "Confirm new password"
 msgstr "Patvirtinti naują slaptažodį"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/plugins/acf/contacts/basic.blade.php:29
-msgid "Contact person:"
-msgstr "Kontaktinis asmuo"
-
-#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:20
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:20
 msgid "Contacts"
 msgstr "Kontaktai"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/content/post/preview/basic.blade.php:17
-msgid "Continue reading"
-msgstr "Toliau skaityti"
-
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/form-coupon.blade.php:34
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:151
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/form-coupon.blade.php:34
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:151
 msgid "Coupon code"
 msgstr "Kupono kodas"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:88
-msgid "Create a new account"
-msgstr "Sukurti naują paskyrą"
-
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/form-billing.blade.php:60
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/form-billing.blade.php:65
 msgid "Create an account?"
 msgstr "Sukurti paskyrą?"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:79
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:80
 msgid "Create here"
 msgstr "Sukurti čia"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/components/header/menu-mobile.blade.php:61
-msgid "Currency"
-msgstr "Valiuta"
-
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:51
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:64
 msgid "Current password (leave blank to leave unchanged)"
 msgstr "Dabartinis slaptažodis (palikite tuščią, kad nepakeistumėte)"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:62
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:69
 #, fuzzy
 #| msgid "Date"
 msgid "Date:"
 msgstr "Data"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/components/product-single-description.blade.php:5
-msgid "Description"
-msgstr "Apibūdinimas"
-
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:37
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:52
 msgid "Display name"
 msgstr "Rodomas pavadinimas"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:148
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:148
 msgid "Do you have a coupon code?"
 msgstr "Ar turite kupono kodą?"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:78
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:79
 msgid "Don't have an account?"
 msgstr "Neturite paskyros?"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:14
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:14
 msgid "Download"
 msgstr "Parsisiųsti"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:63
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:63
 msgid "Edit"
 msgstr "Redaguoti"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:6
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:6
 msgid "Edit profile"
 msgstr "Redaguoti profili"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:91
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:91
 msgid "Email"
 msgstr "El. paštas"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:43
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:104
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:34
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:110
 msgid "Email address"
 msgstr "Elektroninio pašto adresas"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:68
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:75
 msgid "Email:"
 msgstr "El. paštas:"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:150
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:150
 msgid "Enter your coupon code here:"
 msgstr "Įveskite savo kupono kodą čia:"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/functions.php:59
+#: ../../../../../../../packages/themes/growtype/resources/functions.php:60
 #, php-format
 msgid "Error locating <code>%s</code> for inclusion."
 msgstr "Klaida ieškant <code>%s</code>, kad būtų galima įtraukti."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:27
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:40
 msgid "First name"
 msgstr "Pirmas vardas"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:10
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:10
 msgid "Friends"
 msgstr "Draugai"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:123
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:123
 msgid "Good"
 msgstr "Gerai"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:11
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:11
 msgid "Groups"
 msgstr "Grupės"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/functions.php:17
+#: ../../../../../../../packages/themes/growtype/resources/functions.php:17
 msgid "Growtype &rsaquo; Error"
 msgstr "Augimo tipas › Klaida"
 
@@ -270,40 +247,36 @@ msgstr "Augimo tipas › Klaida"
 msgid "growtype/growtype/resources"
 msgstr "augimo tipas/augimo tipas/ištekliai"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/form-coupon.blade.php:26
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/form-coupon.blade.php:26
 msgid "Have a coupon?"
 msgstr "Turi kuponą?"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:33
-msgid "Hello"
-msgstr "Sveiki"
-
 #. %s Order date
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/emails/customer-invoice.php:86
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/emails/customer-invoice.php:86
 #, php-format
 msgid "Here are the details of your order placed on %s:"
 msgstr "Štai jūsų užsakymo, pateikto %s, informacija:"
 
 #. %s: Customer first name
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/emails/customer-completed-order.php:41
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/emails/customer-invoice.php:52
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/emails/customer-completed-order.php:41
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/emails/customer-invoice.php:52
 #, php-format
 msgid "Hi %s,"
 msgstr "Sveiki, %s,"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/form-coupon.blade.php:31
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/form-coupon.blade.php:31
 msgid "If you have a coupon code, please apply it below."
 msgstr "Jei turite kupono kodą, pritaikykite jį žemiau."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/functions.php:27
+#: ../../../../../../../packages/themes/growtype/resources/functions.php:27
 msgid "Invalid PHP version"
 msgstr "Netinkama PHP versija"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/functions.php:34
+#: ../../../../../../../packages/themes/growtype/resources/functions.php:34
 msgid "Invalid WordPress version"
 msgstr "Netinkama „WordPress“ versija"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/content/content-404.blade.php:3
+#: ../../../../../../../packages/themes/growtype/resources/views/partials/content/404/page.blade.php:3
 msgid ""
 "It looks like nothing was found at this location. Maybe try one of the links "
 "below or a search?"
@@ -311,235 +284,275 @@ msgstr ""
 "Atrodo, kad šioje vietoje nieko nerasta. Galbūt pabandykite vieną iš toliau "
 "pateiktų nuorodų arba paieškokite?"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:31
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:46
 msgid "Last name"
 msgstr "Pavardė"
 
+#: ../../../../../../../packages/themes/growtype/resources/views/template-blog.blade.php:73
+msgid "Latest articles"
+msgstr "Naujausi straipsniai"
+
 #. %s is product title
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:72
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:72
 #, php-format
 msgid "Leave a Reply to %s"
 msgstr "Palikite atsakymą %s"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:5
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:5
 msgid "Like"
 msgstr "Patinka"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:4
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:4
 msgid "Liked"
 msgstr "Patinka"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:67
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:67
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:68
 msgid "Log in"
 msgstr "Prisijungti"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:136
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:145
 msgid "Login here"
 msgstr "Prisijunkite čia"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:59
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:59
 msgid "Lost your password?"
 msgstr "Pamiršote slaptažodį?"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/content/content-panel.blade.php:27
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-lost-password.blade.php:30
+msgid ""
+"Lost your password? Please enter your username or email address. You will "
+"receive a link to create a new password via email."
+msgstr ""
+"Pamiršote slaptažodį? Įveskite savo vartotojo vardą arba el. pašto adresą. "
+"El. paštu gausite nuorodą, leidžiančią sukurti naują slaptažodį."
+
+#: ../../../../../../../packages/themes/growtype/resources/views/partials/components/panel/profile.blade.php:22
 msgid "Member"
 msgstr "Narys"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/archive-member.blade.php:10
-msgid "Members"
-msgstr "Nariai"
-
-#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:15
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:15
 msgid "More"
 msgstr "Daugiau"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:42
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:49
 msgid "My account"
 msgstr "Mano sąskaita"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:27
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:27
 msgid "My Bag"
 msgstr "Mano krepšys"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product/meta.blade.php:31
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product/meta.blade.php:31
 msgid "N/A"
 msgstr "N/A"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:85
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:85
 msgid "Name"
 msgstr "Vardas"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:55
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:70
 msgid "New password (leave blank to leave unchanged)"
 msgstr "Naujas slaptažodis (palikite tuščią, kad nepakeistumėte)"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/payment-methods.blade.php:70
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/loop/pagination.blade.php:44
+msgid "Next"
+msgstr "Kitas"
+
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/payment-methods.blade.php:70
 msgid "No saved methods found."
 msgstr "Nerasta jokių išsaugotų metodų."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:125
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:125
 msgid "Not that bad"
 msgstr "Ne taip jau blogai"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/sections/comments.blade.php:14
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/order/order-details.blade.php:96
+msgid "Note:"
+msgstr "Pastaba:"
+
+#: ../../../../../../../packages/themes/growtype/resources/views/partials/sections/comments.blade.php:16
 msgid "One Comment"
 msgstr "Vienas Komentaras"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:137
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:137
 msgid ""
 "Only logged in customers who have purchased this product may leave a review."
 msgstr ""
 "Atsiliepimus gali palikti tik prisijungę klientai, kurie įsigijo šią prekę."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/content/content-404.blade.php:2
+#: ../../../../../../../packages/themes/growtype/resources/views/partials/content/404/page.blade.php:2
 msgid "Oops! That page can&rsquo;t be found."
 msgstr "Oi! To puslapio nepavyko rasti."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:57
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/order/order-again.blade.php:23
+msgid "Order again"
+msgstr "Užsisakykite dar kartą"
+
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/order/order-details.blade.php:46
+msgid "Order details"
+msgstr "Užsakymo detalės"
+
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:64
 msgid "Order number:"
 msgstr "Užsakymo numeris:"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/archive.blade.php:20
+#: ../../../../../../../packages/themes/growtype/resources/views/archive.blade.php:23
 msgid "Pages:"
 msgstr "Puslapiai:"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:47
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:111
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:44
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:118
 msgid "Password"
 msgstr "Slaptažodis"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:48
-msgid "Password change"
-msgstr "Slaptažodžio keitimas"
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:59
+msgid "Password details"
+msgstr "Slaptažodžio informacija"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:39
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:46
 msgid "Pay"
 msgstr "Mokėti"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/emails/customer-invoice.php:67
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/emails/customer-invoice.php:67
 msgid "Pay for this order"
 msgstr "Mokėkite už šį užsakymą"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:80
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:87
 msgid "Payment method:"
 msgstr "Mokėjimo būdas:"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:122
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:122
 msgid "Perfect"
 msgstr "Puikus"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/payment.blade.php:33
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/payment.blade.php:33
 msgid "Please fill in your details above to see available payment methods."
 msgstr ""
 "Įveskite savo duomenis aukščiau, kad pamatytumėte galimus mokėjimo būdus."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:148
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:148
 msgid "Press here."
 msgstr "Spauskite čia."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:19
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:19
 msgid "Preview"
 msgstr "Peržiūra"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:73
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/loop/pagination.blade.php:43
+msgid "Previous"
+msgstr "Ankstesnis"
+
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:73
 msgid "Price"
 msgstr "Kaina"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/proceed-to-checkout-button.blade.php:26
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/proceed-to-checkout-button.blade.php:26
 msgid "Proceed to checkout"
 msgstr "Pereikite prie apmokėjimo"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:79
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/order/order-details.blade.php:54
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:79
 msgid "Product"
 msgstr "Produktas"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:8
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/components/product-single-description.blade.php:6
+msgid "Product details"
+msgstr "Produkto Aprašymas"
+
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:8
 msgid "Profile settings"
 msgstr "Profilio nustatymai"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:99
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:99
 msgid "Quantity"
 msgstr "Kiekis"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:121
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:121
 msgid "Rate&hellip;"
 msgstr "Įvertink…"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:9
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:9
 msgid "read"
 msgstr "skaitymas"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:16
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:16
 msgid "Read close"
 msgstr "Skaitykite arti"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/sections/related-posts.blade.php:26
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/content/post/preview/arrow.blade.php:7
+#: ../../../../../../../packages/themes/growtype/resources/views/template-blog.blade.php:45
+#: ../../../../../../../packages/themes/growtype/resources/views/partials/sections/related-posts.blade.php:25
 msgid "Read more"
 msgstr "Skaityti daugiau"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:86
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:126
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:126
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:92
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:134
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:135
 msgid "Register"
 msgstr "Registruotis į renginį"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:56
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:54
 msgid "Remember me"
 msgstr "Prisimink mane"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:50
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:50
 msgid "Remove this item"
 msgstr "Pašalinti šį elementą"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/cart-errors.blade.php:25
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-lost-password.blade.php:44
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-lost-password.blade.php:45
+msgid "Reset password"
+msgstr "Atstatyti slaptažodį"
+
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/cart-errors.blade.php:25
 msgid "Return to cart"
 msgstr "Grįžti į krepšelį"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart-empty.blade.php:28
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart-empty.blade.php:28
 msgid "Return to shop"
 msgstr "Grįžti į parduotuvę"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:32
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:32
 msgid "Reviews"
 msgstr "Atsiliepimai"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:69
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:86
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:87
 msgid "Save changes"
 msgstr "Išsaugoti pakeitimus"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:12
+#: ../../../../../../../packages/themes/growtype/resources/views/plugins/acf/flexible-content/featured-projects.blade.php:44
+msgid "See all"
+msgstr "Matyti viską"
+
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:12
 msgid "Select"
 msgstr "Pasirinkite"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/archive-service.blade.php:10
-msgid "Services"
-msgstr "Paslaugos"
-
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/form-shipping.blade.php:31
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/form-shipping.blade.php:31
 msgid "Ship to a different address?"
 msgstr "Siųsti kitu adresu?"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:52
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:53
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:52
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:53
 msgid "Shipping"
 msgstr "Siuntimas"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:27
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:27
 msgid "Shipping address"
 msgstr "Pristatymo adresas"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/plugins/acf/flexible-content/featured-activities.blade.php:42
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/plugins/acf/flexible-content/featured-posts.blade.php:52
+#: ../../../../../../../packages/themes/growtype/resources/views/plugins/acf/flexible-content/featured-activities.blade.php:48
+#: ../../../../../../../packages/themes/growtype/resources/views/plugins/acf/flexible-content/featured-posts.blade.php:54
 msgid "Show more"
 msgstr "Rodyti daugiau"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:36
-msgid "Sign in to your account"
-msgstr "Prisijunkite prie savo paskyros"
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:29
+msgid "Sign in"
+msgstr "Prisijungti"
 
 #. $1 and $2 opening and closing emphasis tags respectively
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/payment.blade.php:42
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/payment.blade.php:42
 #, php-format
 msgid ""
 "Since your browser does not support JavaScript, or it is disabled, please "
@@ -550,15 +563,23 @@ msgstr ""
 "pateikdami užsakymą spustelėkite mygtuką %1$sUpdate Totals%2$s. Jei to "
 "nepadarysite, galite būti apmokestinti didesne suma, nei nurodyta anksčiau."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product/add-to-cart/variable.blade.php:62
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product/add-to-cart/variable.blade.php:62
 msgid "Size"
 msgstr "Dydis"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product/meta.blade.php:30
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product/meta.blade.php:30
 msgid "SKU:"
 msgstr "SKU:"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/payment.blade.php:33
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:21
+msgid "Something went wrong"
+msgstr "Kažkas nutiko"
+
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:22
+msgid "Something went wrong. Please contact us for help."
+msgstr "Kažkas nutiko. Prašome susisiekti su mumis dėl pagalbos."
+
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/payment.blade.php:33
 msgid ""
 "Sorry, it seems that there are no available payment methods for your state. "
 "Please contact us if you require assistance or wish to make alternate "
@@ -567,35 +588,35 @@ msgstr ""
 "Atsiprašome, atrodo, kad jūsų valstijoje nėra galimų mokėjimo metodų. "
 "Susisiekite su mumis, jei jums reikia pagalbos arba norite susitarti kitaip."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/index.blade.php:12
+#: ../../../../../../../packages/themes/growtype/resources/views/index.blade.php:12
 msgid "Sorry, no results were found."
 msgstr "Atsiprašome, rezultatų nerasta."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:76
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:76
 msgid "Submit"
 msgstr "Pateikti"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:30
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:31
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:30
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:31
 msgid "Subtotal"
 msgstr "Tarpinė suma"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:27
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:97
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:34
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:103
 msgid "Thank you. Your order has been received."
 msgstr "Ačiū. Jūsų užsakymas buvo priimtas."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:46
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:46
 msgid "The following addresses will be used on the checkout page by default."
 msgstr ""
 "Pagal numatytuosius nustatymus atsiskaitymo puslapyje bus naudojami šie "
 "adresai."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:58
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:58
 msgid "There are no reviews yet."
 msgstr "Kol kas atsiliepimų nėra."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/cart-errors.blade.php:21
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/cart-errors.blade.php:21
 msgid ""
 "There are some issues with the items in your cart. Probably we do not have "
 "enough items in our stock. Please go back to the cart page and resolve these "
@@ -605,27 +626,22 @@ msgstr ""
 "Tikriausiai neturime pakankamai prekių savo sandėlyje. Grįžkite į krepšelio "
 "puslapį ir prieš atsiskaitydami išspręskite šias problemas."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product/add-to-cart/variable.blade.php:35
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product/add-to-cart/variable.blade.php:35
 msgid "This product is currently out of stock and unavailable."
 msgstr "Šio produkto šiuo metu nėra sandėlyje ir jis neprieinamas."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-edit-account.blade.php:38
-msgid ""
-"This will be how your name will be displayed in the account section and in "
-"reviews"
-msgstr "Taip jūsų vardas bus rodomas paskyros skiltyje ir apžvalgose"
-
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:25
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:98
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:99
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/order/order-details.blade.php:55
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:25
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:98
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart-totals.blade.php:99
 msgid "Total"
 msgstr "Iš viso"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:74
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:81
 msgid "Total:"
 msgstr "Iš viso:"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:35
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/thankyou.blade.php:42
 msgid ""
 "Unfortunately your order cannot be processed as the originating "
 "bank/merchant has declined your transaction. Please attempt your purchase "
@@ -634,77 +650,81 @@ msgstr ""
 "Deja, jūsų užsakymas negali būti apdorotas, nes bankas / prekybininkas "
 "atmetė jūsų operaciją. Bandykite pirkti dar kartą."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:134
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/cart/cart.blade.php:134
 msgid "Update cart"
 msgstr "Krepšelio atnaujinimas"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/languages/extra.php:7
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:7
 msgid "Update cover"
 msgstr "Atnaujinti viršelį"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/payment.blade.php:44
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/payment.blade.php:44
 msgid "Update totals"
 msgstr "Atnaujinti sumas"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:97
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/uploaded-products.blade.php:6
+msgid "Upload a new product"
+msgstr "Įkelkite naują produktą"
+
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:102
 msgid "Username"
 msgstr "Vartotojo vardas"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:43
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-lost-password.blade.php:34
+msgid "Username or email"
+msgstr "Vartotojo vardas arba elektroninio pašto adresas"
+
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/form-login.blade.php:38
 msgid "Username or email address"
 msgstr "Vartotojo vardas arba elektroninio pašto adresas"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:126
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:126
 msgid "Very poor"
 msgstr "Labai prastas"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/content/project/preview/basic.blade.php:17
-msgid "View"
-msgstr "Žiūrėti"
-
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/partials/components/search.blade.php:18
-msgid "View all products"
-msgstr "Žiūrėti visus produktus"
-
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/emails/customer-completed-order.php:42
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/emails/customer-completed-order.php:42
 msgid "We have finished processing your order."
 msgstr "Baigėme apdoroti jūsų užsakymą."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:67
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/myaccount/my-address.blade.php:67
 msgid "You have not set up this type of address yet."
 msgstr "Dar nenustatėte tokio tipo adreso."
 
 #. %s opening and closing link tags respectively
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:116
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:116
 #, php-format
 msgid "You must be %1$slogged in%2$s to post a review."
 msgstr ""
 "Turite būti %1$ssiregistravę %2$s, kad galėtumėte paskelbti atsiliepimą."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/form-checkout.blade.php:27
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/form-checkout.blade.php:27
 msgid "You must be logged in to checkout."
 msgstr "Norėdami atsiskaityti, turite būti prisijungę."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/functions.php:27
+#: ../../../../../../../packages/themes/growtype/resources/functions.php:27
 msgid "You must be using PHP 7.1 or greater."
 msgstr "Turite naudoti PHP 7.1 ar naujesnę versiją."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/functions.php:34
+#: ../../../../../../../packages/themes/growtype/resources/functions.php:34
 msgid "You must be using WordPress 4.7.0 or greater."
 msgstr "Turite naudoti WordPress 4.7.0 ar naujesnę versiją."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/functions.php:43
+#: ../../../../../../../packages/themes/growtype/resources/functions.php:43
 msgid "You must run <code>composer install</code> from the Sage directory."
 msgstr "Turite paleisti <code>composer install</code> iš Sage katalogo."
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/checkout/form-checkout.blade.php:64
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/checkout/form-checkout.blade.php:64
 msgid "Your order"
 msgstr "Jūsų užsakymas"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:120
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:120
 msgid "Your rating"
 msgstr "Jūsų įvertinimas"
 
-#: ../../../../../../growtype/web/app/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:130
+#: ../../../../../../../packages/themes/growtype/resources/views/woocommerce/single-product-reviews.blade.php:130
 msgid "Your review"
 msgstr "Tavo atsiliepimas"
+
+#: ../../../../../../../packages/themes/growtype/resources/languages/extra.php:23
+msgid "Your subscription is successful. Thank you."
+msgstr "Jūsų prenumerata sėkminga. Ačiū."

@@ -107,10 +107,6 @@ p.has-drop-cap:not(:focus)::first-letter {
 .wp-block-columns {
   max-width: $max-width-container;
   margin: auto;
-  @include bp-desktop-reverse() {
-    margin-left: -15px;
-    width: calc(100% + 30px);
-  }
 
   &.alignfull {
     max-width: initial;
@@ -201,5 +197,12 @@ p.has-drop-cap:not(:focus)::first-letter {
   &.is-vertically-aligned-center {
     display: flex;
     flex-direction: column;
+  }
+}
+
+.container {
+  .wp-block-columns .wp-block-column {
+    margin-right: 0;
+    margin-left: 0;
   }
 }

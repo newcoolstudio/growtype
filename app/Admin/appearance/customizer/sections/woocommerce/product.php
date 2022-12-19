@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Woocommerce Product Single Page
+ */
 $wp_customize->add_section(
     'woocommerce_product_page',
     array (
@@ -30,18 +33,18 @@ $wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_custom
 /**
  * Breadcrumb status
  */
-$wp_customize->add_setting('woocommerce_product_page_breadcrumb_status',
+$wp_customize->add_setting('woocommerce_product_page_breadcrumb_disabled',
     array (
         'default' => 0,
         'transport' => 'refresh',
     )
 );
 
-$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_product_page_breadcrumb_status',
+$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_product_page_breadcrumb_disabled',
     array (
-        'label' => esc_html__('Status'),
+        'label' => esc_html__('Disabled', 'growtype'),
         'section' => 'woocommerce_product_page',
-        'description' => __('Enabled/disabled', 'growtype'),
+        'description' => __('Woocommerce breadcrumb is disabled', 'growtype'),
     )
 ));
 

@@ -6,7 +6,7 @@ class Growtype_Extended_Cpt_Init
     {
         $this->cpt_keys = Growtype_Extended_Cpt::get_keys();
 
-        add_action('init', array ($this, 'growtype_extended_cpt_init'));
+        add_action('init', array ($this, 'growtype_extended_cpt_register'));
 
         add_action('template_redirect', array ($this, 'growtype_extended_cpt_template_redirect'));
 
@@ -68,7 +68,7 @@ class Growtype_Extended_Cpt_Init
         }
     }
 
-    function growtype_extended_cpt_init()
+    function growtype_extended_cpt_register()
     {
         foreach ($this->cpt_keys as $cpt_key) {
 

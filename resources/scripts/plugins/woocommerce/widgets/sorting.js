@@ -81,9 +81,17 @@ function sorting() {
                     base: current_products_base,
                 },
                 beforeSend: function () {
-                    $('.products').addClass('is-loading');
+                    /**
+                     * Spinner add
+                     */
+                    $('.products').append("<span class='spinner-border'><div></div><div></div></span>").addClass('is-loading');
                 },
                 success: function (data) {
+                    /**
+                     * Spinner remove
+                     */
+                    $('.products .spinner-border').remove();
+
                     $('.products').removeClass('is-loading').html("").append(data.products).promise().done(function () {
                         document.dispatchEvent(filterProductsByOrderEvent);
                     });

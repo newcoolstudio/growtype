@@ -1,8 +1,5 @@
 #sidebar-shop {
   float: left;
-  @include bp-phone-xl() {
-    display: none;
-  }
 
   .widget {
     margin-bottom: 15px;
@@ -74,6 +71,9 @@
 
   .widget_product_categories {
     border-bottom: none;
+    @include bp-tablet-portrait() {
+      padding: 0;
+    }
   }
 
   .btn-clear-cat-filter {

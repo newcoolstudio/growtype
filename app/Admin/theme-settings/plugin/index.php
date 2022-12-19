@@ -69,6 +69,23 @@ class Growtype_Admin_Theme_Settings_Plugin
         );
 
         /**
+         * ACF Api key
+         */
+        register_setting(
+            'plugin_options_settings', // settings group name
+            'acf_options_page', // option name
+            'sanitize_text_field' // sanitization function
+        );
+
+        add_settings_field(
+            'acf_options_page',
+            'Options Page',
+            array ($this, 'acf_options_page_callback'),
+            'growtype-plugin-settings',
+            'acf_options_settings'
+        );
+
+        /**
          * Woocommerce settings
          */
         add_settings_section(
@@ -119,6 +136,15 @@ class Growtype_Admin_Theme_Settings_Plugin
     function acf_maps_api_key_value_callback()
     {
         $html = '<input type="text" name="acf_maps_api_key_value" style="min-width:400px;" value="' . get_option('acf_maps_api_key_value') . '" />';
+        echo $html;
+    }
+
+    /**
+     * Maps api key input
+     */
+    function acf_options_page_callback()
+    {
+        $html = '<input type="checkbox" name="acf_options_page" value="1" ' . checked(1, get_option('acf_options_page'), false) . ' />';
         echo $html;
     }
 
