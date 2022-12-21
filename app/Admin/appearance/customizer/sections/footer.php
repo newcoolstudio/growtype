@@ -45,7 +45,7 @@ function footer_customize_register($wp_customize)
 
     $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'footer_is_disabled',
         array (
-            'label' => esc_html__('Status'),
+            'label' => esc_html__('Disabled'),
             'section' => 'footer',
             'description' => __('Enabled/disabled footer.', 'growtype'),
         )
@@ -294,7 +294,7 @@ function footer_customize_register($wp_customize)
 
     $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'theme_general_created_by_enabled',
         array (
-            'label' => esc_html__('Status'),
+            'label' => esc_html__('Enabled'),
             'section' => 'footer',
             'description' => __('Created by enabled/disabled', 'growtype'),
         )

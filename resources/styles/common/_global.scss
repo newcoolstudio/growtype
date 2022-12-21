@@ -213,6 +213,18 @@ Action bar
 /**
 Spacers
  */
+.spacer-phone-xl-4 {
+  @include bp-phone-xl() {
+    height: 40px !important;
+  }
+}
+
+.spacer-phone-xl-5 {
+  @include bp-phone-xl() {
+    height: 50px !important;
+  }
+}
+
 .spacer-phone-xl-6 {
   @include bp-phone-xl() {
     height: 60px !important;
