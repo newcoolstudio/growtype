@@ -15,9 +15,6 @@ p {
   line-height: 145%;
   font-size: $font-size-body;
   margin-bottom: 6px;
-  @include bp-phone-xl() {
-    font-size: 0.9em;
-  }
 
   &:empty {
     display: none;

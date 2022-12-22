@@ -1,11 +1,32 @@
-#alert-gdpr {
-  .btn-close {
-    bottom: initial;
-    height: 20px;
-    margin: auto 15px auto auto;
-    padding: 0;
-    top: 15px;
+.alert-style-horizontal {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  @include bp-phone-xl() {
+    flex-wrap: wrap;
   }
+
+  .alert-details + .alert-actions {
+    padding-top: 20px;
+  }
+
+  .alert-actions {
+    padding: 20px;
+    @include bp-phone-xl() {
+      padding: 0;
+      width: 100%;
+    }
+
+    .btn {
+      @include bp-phone-xl() {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.alert-details + .alert-actions {
+  padding-top: 10px;
 }
 
 .alert-position-bottom {
@@ -34,12 +55,17 @@
 
 .alert {
   border-radius: $border-radius-card;
+  font-size: $font-size-body;
 
   .btn-close {
     top: 15px;
     height: 20px;
     padding: 0;
     margin-right: 20px;
+  }
+
+  a {
+    font-size: $font-size-body;
   }
 }
 

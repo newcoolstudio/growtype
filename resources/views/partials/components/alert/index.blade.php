@@ -1,5 +1,5 @@
 @stack('alert')
 
-@if(display_gdpr())
+@if(growtype_gdpr_alert_enabled())
     @include('partials.components.alert.gdpr')
 @endif

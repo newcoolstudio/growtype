@@ -21,6 +21,7 @@ if (class_exists('qTranslateXWidget')) {
 include('sections/footer.php');
 include('sections/social.php');
 include('sections/general.php');
+include('sections/gdpr.php');
 
 include('sections/fonts.php');
 include('sections/buttons.php');

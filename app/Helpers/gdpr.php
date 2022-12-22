@@ -4,11 +4,7 @@
  * Determine whether to show gdpr
  * @return bool
  */
-function display_gdpr()
+function growtype_gdpr_alert_enabled()
 {
-    static $display;
-
-    $display = get_theme_mod('theme_general_gdpr_switch');
-
-    return $display;
+    return get_theme_mod('growtype_gdpr_alert_enabled');
 }
