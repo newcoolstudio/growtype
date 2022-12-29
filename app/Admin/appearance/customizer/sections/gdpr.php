@@ -148,7 +148,7 @@ function growtype_gdpr_alert_content_translation($value)
 {
     if (class_exists('QTX_Translator')) {
         $translation = get_theme_mods()["growtype_gdpr_alert_content"] ?? '';
-        return !empty($translation) ? growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value) : '';
+        return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value);
     }
 
     return $value;
@@ -162,7 +162,7 @@ function growtype_gdpr_alert_agree_btn_text_translation($value)
 {
     if (class_exists('QTX_Translator')) {
         $translation = get_theme_mods()["growtype_gdpr_alert_agree_btn_text"] ?? '';
-        return !empty($translation) ? growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value) : '';
+        return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value);
     }
 
     return $value;

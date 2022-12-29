@@ -12,11 +12,15 @@ class Growtype_Extended_Cpt_Init
 
         foreach ($this->cpt_keys as $cpt_key) {
             $cpt_name = $this->get_cpt_name($cpt_key['value']);
-            add_filter('manage_' . $cpt_name . '_posts_columns', array ($this, 'growtype_extended_cpt_columns'));
-            add_action('manage_' . $cpt_name . '_posts_custom_column', array ($this, 'growtype_extended_cpt_custom_columns'), 10, 2);
+            add_filter('manage_' . $cpt_name . '_posts_columns', array ($this, 'growtype_extended_cpt_extra_columns'));
+            add_action('manage_' . $cpt_name . '_posts_custom_column', array ($this, 'growtype_extended_cpt_custom_extra_columns'), 10, 2);
         }
     }
 
+    /**
+     * @param $key_value
+     * @return string
+     */
     function get_cpt_name($key_value)
     {
         $cpt_name = get_option($key_value . '_value');
@@ -26,22 +30,14 @@ class Growtype_Extended_Cpt_Init
         return $cpt_name;
     }
 
-    function smashing_filter_posts_columns($columns)
-    {
-        $columns['image'] = __('Image');
-        $columns['price'] = __('Price', 'smashing');
-        $columns['area'] = __('Area', 'smashing');
-        return $columns;
-    }
-
     /**
      * @param $columns
      * @return mixed
      * Custom columns
      */
-    function growtype_extended_cpt_columns($columns)
+    function growtype_extended_cpt_extra_columns($columns)
     {
-        $columns['taxonomy'] = __('Taxonomy', 'growtype');
+        $columns = apply_filters('growtype_extended_cpt_extra_columns', $columns);
 
         return $columns;
     }
@@ -52,22 +48,14 @@ class Growtype_Extended_Cpt_Init
      * @return void
      * Custom column values
      */
-    function growtype_extended_cpt_custom_columns($column, $post_id)
+    function growtype_extended_cpt_custom_extra_columns($column, $post_id)
     {
-        if ('taxonomy' === $column) {
-            $post_type = get_post_type();
-            $taxonomies = get_taxonomies(['object_type' => [$post_type]]);
-
-            foreach ($taxonomies as $taxonomy) {
-                $terms = wp_get_post_terms($post_id, $taxonomy);
-
-                foreach ($terms as $term) {
-                    echo '<a href="' . admin_url('edit.php?post_type=' . $post_type . '&' . $taxonomy . '=' . $term->slug) . '">' . __($term->name) . '</a>';
-                }
-            }
-        }
+        apply_filters('growtype_extended_cpt_custom_extra_columns', $column, $post_id);
     }
 
+    /**
+     * @return void
+     */
     function growtype_extended_cpt_register()
     {
         foreach ($this->cpt_keys as $cpt_key) {
@@ -94,7 +82,7 @@ class Growtype_Extended_Cpt_Init
 
             $tags_enabled = get_option($key_value . '_tags_enabled') ? true : false;
 
-            register_extended_post_type($cpt_name, array (
+            $pt_args = array (
 
                 # Add the post type to the site's main RSS feed:
                 'show_in_feed' => false,
@@ -121,29 +109,42 @@ class Growtype_Extended_Cpt_Init
 
                 # Add some custom columns to the admin screen:
                 'admin_cols' => [
-                    'published' => [
-                        'title' => 'Published',
-                        'meta_key' => 'published_date',
-                        'date_format' => 'd/m/Y'
+                    'post_modified' => [
+                        'title' => 'Last Modified',
+                        'post_field' => 'post_modified',
+//                        'date_format' => 'Y-m-d'
+                    ],
+                    $cpt_name . '_tax' => [
+                        'taxonomy' => $cpt_name . '_tax'
                     ]
                 ],
 
                 'admin_filters' => [
-                    'rating' => [
-                        'meta_key' => 'star_rating',
-                    ],
+                    $cpt_name . '_tax' => [
+                        'taxonomy' => $cpt_name . '_tax'
+                    ]
                 ],
-            ), array (
-                # Override the base names used for labels:
+            );
+
+            $pt_args = apply_filters('growtype_extended_cpt_' . $key_value . '_pt_args', $pt_args, $cpt_name);
+
+            $pt_names = array (
                 'singular' => $cpt_label,
                 'plural' => $cpt_label,
                 'slug' => $cpt_slug
-            ));
+            );
+
+            $pt_names = apply_filters('growtype_extended_cpt_' . $key_value . '_pt_names', $pt_names, $cpt_name);
+
+            /**
+             * Register the post type
+             */
+            register_extended_post_type($cpt_name, $pt_args, $pt_names);
 
             /**
              * Tax
              */
-            register_extended_taxonomy($cpt_name . '_tax', $cpt_name, array (
+            $tax_args = array (
                 'checked_ontop' => true,
                 'dashboard_glance' => true,
                 'show_in_rest' => true,
@@ -156,20 +157,33 @@ class Growtype_Extended_Cpt_Init
                     ),
                 ),
                 'allow_hierarchy' => false
-            ),
-                array (
-                    'singular' => 'Category',
-                    'plural' => 'Categories',
-                    'slug' => 'categories'
-                ));
+            );
+
+            $tax_args = apply_filters('growtype_extended_cpt_' . $key_value . '_tax_args', $tax_args, $cpt_name);
+
+            $tax_names = array (
+                'singular' => 'Category',
+                'plural' => 'Categories',
+                'slug' => 'categories'
+            );
+
+            $tax_names = apply_filters('growtype_extended_cpt_' . $key_value . '_tax_names', $tax_names, $cpt_name);
+
+            /**
+             * Register the taxonomy
+             */
+            register_extended_taxonomy($cpt_name . '_tax', $cpt_name, $tax_args, $tax_names);
 
             /**
              * Extend post type 1
              */
-            apply_filters('growtype_' . $key_value . '_extend', $cpt_name);
+            apply_filters('growtype_extended_cpt_' . $key_value . '_extend', $cpt_name);
         }
     }
 
+    /**
+     * @return void
+     */
     function growtype_extended_cpt_template_redirect()
     {
         if (is_single()) {

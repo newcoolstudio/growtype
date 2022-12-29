@@ -8,6 +8,9 @@
 
   .alert-details + .alert-actions {
     padding-top: 20px;
+    @include bp-phone-xl() {
+      padding-top: 0;
+    }
   }
 
   .alert-actions {

@@ -50,7 +50,7 @@ class Custom_WC_Widget_Product_Categories extends WC_Widget
                 'std' => 'name',
                 'label' => __('Order by', 'growtype'),
                 'options' => array (
-                    'order' => __('Category order', 'growtype'),
+                    'menu_order' => __('Menu order', 'growtype'),
                     'name' => __('Name', 'growtype'),
                 ),
             ),
@@ -78,6 +78,11 @@ class Custom_WC_Widget_Product_Categories extends WC_Widget
                 'type' => 'checkbox',
                 'std' => 0,
                 'label' => __('Hide empty categories', 'growtype'),
+            ),
+            'hide_uncategorized' => array (
+                'type' => 'checkbox',
+                'std' => 0,
+                'label' => __('Hide uncategorized', 'growtype'),
             ),
             'allow_multiple' => array (
                 'type' => 'checkbox',
@@ -115,6 +120,7 @@ class Custom_WC_Widget_Product_Categories extends WC_Widget
         $show_children_only = isset($instance['show_children_only']) ? $instance['show_children_only'] : $this->settings['show_children_only']['std'];
         $dropdown = isset($instance['dropdown']) ? $instance['dropdown'] : $this->settings['dropdown']['std'];
         $orderby = isset($instance['orderby']) ? $instance['orderby'] : $this->settings['orderby']['std'];
+        $hide_uncategorized = isset($instance['hide_uncategorized']) ? $instance['hide_uncategorized'] : $this->settings['hide_uncategorized']['std'];
         $hide_empty = isset($instance['hide_empty']) ? $instance['hide_empty'] : $this->settings['hide_empty']['std'];
         $allow_multiple = isset($instance['allow_multiple']) ? $instance['allow_multiple'] : $this->settings['allow_multiple']['std'];
         $multiple_include_parent = isset($instance['multiple_include_parent']) ? $instance['multiple_include_parent'] : $this->settings['multiple_include_parent']['std'];
@@ -133,11 +139,13 @@ class Custom_WC_Widget_Product_Categories extends WC_Widget
         $dropdown_args['depth'] = $max_depth;
         $list_args['depth'] = $max_depth;
 
-        if ('order' === $orderby) {
-            $list_args['orderby'] = 'meta_value_num';
-            $dropdown_args['orderby'] = 'meta_value_num';
-            $list_args['meta_key'] = 'order';
-            $dropdown_args['meta_key'] = 'order';
+        if ('menu_order' === $orderby) {
+            $list_args['menu_order'] = true;
+        }
+
+        if ($hide_uncategorized) {
+            $uncategorized = get_option('default_product_cat');
+            $list_args['exclude'] = $uncategorized;
         }
 
         $this->current_cat = false;
