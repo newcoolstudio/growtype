@@ -90,5 +90,6 @@ Container::getInstance()
             'theme' => require dirname(__DIR__) . '/config/theme.php',
             'view' => require dirname(__DIR__) . '/config/view.php',
             'cache' => require dirname(__DIR__) . '/config/cache.php',
+            'wp' => require dirname(__DIR__) . '/config/wp.php',
         ]);
     }, true);
