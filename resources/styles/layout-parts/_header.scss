@@ -64,6 +64,12 @@
     margin-right: auto;
     margin-left: 0;
   }
+
+  .hamburger[data-type="outer"] {
+    &.is-active {
+      opacity: 0;
+    }
+  }
 }
 
 .b-header {

@@ -10,7 +10,7 @@
             url: ajax_object.ajaxurl,
             type: "post",
             data: {
-                action: 'load_cart_ajax'
+                action: 'growtype_load_cart'
             }
         }).done(function (data) {
             $('.e-cart').attr('data-amount', data.cart_contents_count);

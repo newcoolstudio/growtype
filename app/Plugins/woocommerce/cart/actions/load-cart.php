@@ -3,9 +3,9 @@
 /**
  * Load cart ajax
  */
-add_action('wp_ajax_load_cart_ajax', 'load_cart_ajax_callback');
-add_action('wp_ajax_nopriv_load_cart_ajax', 'load_cart_ajax_callback');
-function load_cart_ajax_callback()
+add_action('wp_ajax_growtype_load_cart', 'growtype_load_cart_callback');
+add_action('wp_ajax_nopriv_growtype_load_cart', 'growtype_load_cart_callback');
+function growtype_load_cart_callback()
 {
     $data = array (
         'fragments' => apply_filters(

@@ -10,7 +10,7 @@
                 </div>
             @endif
 
-            @include('partials.components.hamburger')
+            @include('partials.components.hamburger', ['type' => 'inner'])
         </div>
 
         <div class="main-navigation-mobile-content">
