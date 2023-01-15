@@ -94,6 +94,11 @@ class Custom_WC_Widget_Product_Categories extends WC_Widget
                 'std' => 0,
                 'label' => __('Multiple categories include parent category', 'growtype'),
             ),
+            'allow_children_collapse' => array (
+                'type' => 'checkbox',
+                'std' => 0,
+                'label' => __('Allow children elements collapse', 'growtype'),
+            ),
             'max_depth' => array (
                 'type' => 'text',
                 'std' => '',
@@ -124,6 +129,7 @@ class Custom_WC_Widget_Product_Categories extends WC_Widget
         $hide_empty = isset($instance['hide_empty']) ? $instance['hide_empty'] : $this->settings['hide_empty']['std'];
         $allow_multiple = isset($instance['allow_multiple']) ? $instance['allow_multiple'] : $this->settings['allow_multiple']['std'];
         $multiple_include_parent = isset($instance['multiple_include_parent']) ? $instance['multiple_include_parent'] : $this->settings['multiple_include_parent']['std'];
+        $allow_children_collapse = isset($instance['allow_children_collapse']) && $instance['allow_children_collapse'] ? true : false;
         $dropdown_args = array (
             'hide_empty' => $hide_empty,
         );
@@ -312,7 +318,7 @@ class Custom_WC_Widget_Product_Categories extends WC_Widget
             $list_args['current_category_ancestors'] = $this->cat_ancestors;
             $list_args['max_depth'] = $max_depth;
 
-            echo '<ul class="product-categories" data-multiple="' . ($allow_multiple ? 'true' : 'false') . '" data-multiple-include-parent="' . ($multiple_include_parent ? 'true' : 'false') . '">';
+            echo '<ul class="product-categories" data-children-collapse="' . ($allow_children_collapse ? 'true' : 'false') . '" data-multiple="' . ($allow_multiple ? 'true' : 'false') . '" data-multiple-include-parent="' . ($multiple_include_parent ? 'true' : 'false') . '">';
 
             wp_list_categories(apply_filters('woocommerce_product_categories_widget_args', $list_args));
 

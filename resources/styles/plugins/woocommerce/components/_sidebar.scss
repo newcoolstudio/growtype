@@ -82,4 +82,32 @@
     border: 1px solid;
     font-size: 12px;
   }
+
+  .product-categories[data-children-collapse="true"] {
+    .cat-parent .btn-collapse {
+      position: absolute;
+      font-size: 12px;
+      top: 2px;
+      right: 2px;
+      padding: 0;
+      height: 25px;
+      width: 30px;
+
+      &:before {
+        content: "\f347";
+        font-family: "dashicons";
+        position: absolute;
+        right: 10px;
+        top: 3px;
+      }
+    }
+
+    .cat-parent.is-collapsed {
+      .btn-collapse {
+        &:before {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+  }
 }
