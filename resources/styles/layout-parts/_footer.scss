@@ -3,6 +3,12 @@
 
   .logo-wrapper {
     text-align: center;
+
+    & + .footer-inner-content {
+      .c-footernav {
+        padding-top: 30px;
+      }
+    }
   }
 
   #footer-menu {
@@ -205,7 +211,7 @@
 
 .c-footernav {
   width: 100%;
-  padding-top: 30px;
+  padding-top: 10px;
   padding-bottom: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -297,7 +303,7 @@
   }
 }
 
-#footer_textarea {
+.footer-extra-content {
   @include bp-phone-xl-reverse() {
     padding-top: 30px;
   }
@@ -345,7 +351,7 @@
     }
   }
 
-  #footer_textarea {
+  .footer-extra-content {
     padding-top: 5px;
     padding-left: 20px;
     max-width: 270px;
@@ -455,7 +461,7 @@
 }
 
 .site-footer-type-3 {
-  #footer_textarea {
+  .footer-extra-content {
     display: flex;
     @include bp-phone-xl() {
       flex-direction: column;

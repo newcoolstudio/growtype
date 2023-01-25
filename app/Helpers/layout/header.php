@@ -3,6 +3,16 @@
 /**
  * @return false|mixed
  */
+if (!function_exists('growtype_get_header_type')) {
+    function growtype_get_header_type()
+    {
+        return !empty(get_theme_mod('header_type_select')) ? get_theme_mod('header_type_select') : 'type-1';
+    }
+}
+
+/**
+ * @return false|mixed
+ */
 if (!function_exists('growtype_header_is_absolute')) {
     function growtype_header_is_absolute()
     {
@@ -78,6 +88,18 @@ if (!function_exists('growtype_header_main_menu_is_enabled')) {
         }
 
         return $enabled === true ? true : false;
+    }
+}
+
+/**
+ * @return bool
+ * Check if main menu is enabled
+ */
+if (!function_exists('growtype_mobile_menu_burger_color')) {
+    function growtype_mobile_menu_burger_color()
+    {
+        $colors_scheme = growtype_get_theme_current_colors_scheme();
+        return get_theme_mod('mobile_menu_burger_color', $colors_scheme['mobile_menu_burger_color']);
     }
 }
 

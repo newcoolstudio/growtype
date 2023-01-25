@@ -47,7 +47,7 @@ function growtype_wp_ajax_qtranslate_fields_parse()
         $themeModsValuesArray = [
             'blogname',
             'footer_copyright',
-            'footer_textarea',
+            'footer_extra_content',
             'header_navbar_text',
             'growtype_gdpr_alert_content',
             'growtype_gdpr_alert_agree_btn_text',

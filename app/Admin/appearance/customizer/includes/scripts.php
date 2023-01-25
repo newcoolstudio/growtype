@@ -17,8 +17,8 @@ function growtype_customizer_preview()
 {
     wp_enqueue_script('customizer_preview', get_template_directory_uri() . '/../app/Admin/appearance/customizer/assets/js/customizer-preview.js', array ('jquery'));
 
-    if (function_exists('get_theme_color_schemes')) {
-        wp_localize_script('customizer_preview', 'colorScheme', get_theme_color_schemes()); // color schemes global variable
+    if (function_exists('growtype_get_theme_colors_schemes')) {
+        wp_localize_script('customizer_preview', 'colorScheme', growtype_get_theme_colors_schemes()); // color schemes global variable
     }
 
     wp_localize_script('customizer_preview', 'ajax_object',
@@ -50,8 +50,8 @@ function growtype_customizer_control_colors()
 {
     wp_enqueue_script('customizer_control_colors', get_template_directory_uri() . '/../app/Admin/appearance/customizer/assets/js/customizer-control-colors.js', array ('jquery', 'customize-preview', 'wp-color-picker'));
 
-    if (function_exists('get_theme_color_schemes')) {
-        wp_localize_script('customizer_control_colors', 'colorScheme', get_theme_color_schemes()); // color schemes global variable
+    if (function_exists('growtype_get_theme_colors_schemes')) {
+        wp_localize_script('customizer_control_colors', 'colorScheme', growtype_get_theme_colors_schemes()); // color schemes global variable
     }
 
     wp_localize_script('customizer_control_colors', 'ajax_object',

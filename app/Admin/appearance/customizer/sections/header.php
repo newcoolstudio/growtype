@@ -16,7 +16,7 @@ class Header_Customizer_Register
 
     function customizer_init($wp_customize)
     {
-        $color_scheme = get_theme_color_scheme();
+        $color_scheme = growtype_get_theme_current_colors_scheme();
 
         /**
          * Panel

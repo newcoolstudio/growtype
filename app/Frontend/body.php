@@ -8,7 +8,7 @@ function add_extra_classes_to_body($classes)
 {
     $classes[] = get_theme_mod('header_navbar_switch') == true ? 'has-navbar' : null;
     $classes[] = Growtype_Header::is_fixed() === true ? 'has-fixed-header' : 'has-static-header';
-    $classes[] = 'header-' . get_theme_mod('header_type_select');
+    $classes[] = 'header-' . growtype_get_header_type();
     $classes[] = growtype_header_has_extra_space() === true ? 'has-extraspace-header' : null;
     $classes[] = display_panel() ? 'has-panel' : null;
     $classes[] = display_sidebar_primary() ? 'has-sidebar-primary' : null;

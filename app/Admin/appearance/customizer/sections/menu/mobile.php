@@ -9,7 +9,7 @@ $mobile_menu = !empty(wp_get_nav_menu_object('mobile-menu')) ? wp_get_nav_menu_o
 if (!empty($mobile_menu)) {
     $mobile_menu_section = 'nav_menu[' . $mobile_menu->term_id . ']';
 
-    $color_scheme = get_theme_color_scheme();
+    $color_scheme = growtype_get_theme_current_colors_scheme();
 
     /**
      * Mobile menu text color

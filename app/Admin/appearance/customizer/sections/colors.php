@@ -3,20 +3,15 @@
 /**
  *
  */
-
 add_action("customize_register", "theme_colors_customize_register");
 function theme_colors_customize_register($wp_customize)
 {
-    $color_scheme = get_theme_color_scheme();
+    $color_scheme = growtype_get_theme_current_colors_scheme();
 
     $wp_customize->add_section('theme-colors', array (
         "title" => __("Colors", "growtype"),
         "priority" => 20,
     ));
-
-    /**
-     * Theme general customizer
-     */
 
     $wp_customize->add_setting('theme_colors_simple_notice',
         array (
@@ -43,7 +38,7 @@ function theme_colors_customize_register($wp_customize)
         "label" => __("Color Scheme", "growtype"),
         "section" => "theme-colors",
         "type" => "select",
-        "choices" => get_theme_color_scheme_choices(),
+        "choices" => growtype_get_theme_colors_scheme_choices(),
 //        'priority' => 1,
     ));
 
@@ -97,25 +92,23 @@ function theme_colors_customize_register($wp_customize)
  * @param $checked
  * @return bool
  */
-
-if (!function_exists('get_theme_color_scheme_choices')) :
-    function get_theme_color_scheme_choices()
+if (!function_exists('growtype_get_theme_colors_scheme_choices')) {
+    function growtype_get_theme_colors_scheme_choices()
     {
-        $bg_color_schemes = get_theme_color_schemes();
+        $bg_color_schemes = growtype_get_theme_colors_schemes();
         $bg_color_scheme_control_options = array ();
         foreach ($bg_color_schemes as $color_scheme => $value) {
             $bg_color_scheme_control_options[$color_scheme] = $value['label'];
         }
         return $bg_color_scheme_control_options;
     }
-endif;
+}
 
 /**
- *
+ * Theme colors schemes
  */
-
-if (!function_exists('get_theme_color_schemes')):
-    function get_theme_color_schemes()
+if (!function_exists('growtype_get_theme_colors_schemes')) {
+    function growtype_get_theme_colors_schemes()
     {
         return apply_filters('growtype_color_schemes', array (
             'default' => array (
@@ -131,13 +124,13 @@ if (!function_exists('get_theme_color_schemes')):
                     'header_text_color_home' => '#000000',
                     'header_home_background_color' => '#ffffff',
                     'footer_background_color' => '#1f1c1b',
-                    'footer_text_color' => '#000000',
+                    'footer_text_color' => 'white',
                     'header_navbar_background_color' => '#000000',
                     'header_navbar_elements_color' => '#ffffff',
                     'header_promo_background_color' => '#000000',
                     'header_promo_elements_color' => '#ffffff',
                     'mobile_menu_text_color' => '#ffffff',
-                    'mobile_menu_burger_color' => '#ffffff',
+                    'mobile_menu_burger_color' => '#000000',
                     'mobile_menu_burger_active_color' => '#ffffff',
                     'mobile_menu_bg_color' => '#ffffff',
                 ),
@@ -192,34 +185,35 @@ if (!function_exists('get_theme_color_schemes')):
             ),
         ));
     }
-endif;
+}
 
 /**
  * Handles sanitization color schemes after update theme color
  */
-if (!function_exists('growtype_sanitize_color_scheme')) :
+if (!function_exists('growtype_sanitize_color_scheme')) {
     function growtype_sanitize_color_scheme($value)
     {
-        $color_schemes = get_theme_color_scheme_choices();
+        $color_schemes = growtype_get_theme_colors_scheme_choices();
+
         if (!array_key_exists($value, $color_schemes)) {
             return 'default';
         }
 
         return $value;
     }
-endif;
+}
 
-if (!function_exists('get_theme_color_scheme')) :
-    /**
-     * Retrieves the current color scheme.
-     */
-    function get_theme_color_scheme()
+/**
+ * Retrieves the current color scheme.
+ */
+if (!function_exists('growtype_get_theme_current_colors_scheme')) {
+    function growtype_get_theme_current_colors_scheme()
     {
         $color_scheme_option = get_theme_mod('bg_color_scheme', 'default');
-        $color_schemes = get_theme_color_schemes();
+        $color_schemes = growtype_get_theme_colors_schemes();
         if (array_key_exists($color_scheme_option, $color_schemes)) {
             return $color_schemes[$color_scheme_option]['general'];
         }
         return $color_schemes['default']['general'];
     }
-endif;
+}

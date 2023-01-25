@@ -3,7 +3,7 @@
 add_action("customize_register", "footer_customize_register");
 function footer_customize_register($wp_customize)
 {
-    $color_scheme = get_theme_color_scheme();
+    $color_scheme = growtype_get_theme_current_colors_scheme();
 
     /**
      * Footer explanation
@@ -103,15 +103,15 @@ function footer_customize_register($wp_customize)
      * Footer textarea
      */
 
-    $wp_customize->add_setting('footer_textarea',
+    $wp_customize->add_setting('footer_extra_content',
         array (
             'default' => '',
             'transport' => 'postMessage',
-            'sanitize_callback' => 'footer_textarea_translation'
+            'sanitize_callback' => 'footer_extra_content_translation'
         )
     );
 
-    $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control($wp_customize, 'footer_textarea',
+    $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control($wp_customize, 'footer_extra_content',
         array (
             'label' => __('Extra Content'),
             'description' => __('This is for extra info f.e. contacts'),
@@ -130,10 +130,10 @@ function footer_customize_register($wp_customize)
      * @param $checked
      * Translate text input textarea
      */
-    function footer_textarea_translation($value)
+    function footer_extra_content_translation($value)
     {
         if (class_exists('QTX_Translator')) {
-            $translation = get_theme_mod('footer_textarea');
+            $translation = get_theme_mod('footer_extra_content');
             return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value, true);
         }
 
@@ -230,7 +230,7 @@ function footer_customize_register($wp_customize)
      */
     $wp_customize->add_setting('footer_copyright',
         array (
-            'default' => '© 2020 Company Name. Trademarks and brands are the property of their respective owners.',
+            'default' => '',
             'transport' => 'postMessage',
             'sanitize_callback' => 'footer_copyright_translation'
         )
@@ -314,7 +314,7 @@ function footer_customize_register($wp_customize)
     $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control($wp_customize, 'theme_general_created_by_content',
         array (
             'label' => __('Content'),
-            'description' => __('Created by content.'),
+            'description' => __(''),
             'section' => 'footer',
             'input_attrs' => array (
                 'class' => 'qtranxs-translatable',

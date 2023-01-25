@@ -6,8 +6,8 @@
             </div>
         </div>
         <div class="col-12 col-md-7 col-xl-5">
-            <div id="footer_textarea">
-                {!! get_theme_mod('footer_textarea') !!}
+            <div class="footer-extra-content">
+                {!! get_theme_mod('footer_extra_content') !!}
             </div>
         </div>
     </div>

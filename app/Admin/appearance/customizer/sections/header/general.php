@@ -57,6 +57,7 @@ $wp_customize->add_setting('header_type_select',
         'transport' => 'refresh',
     )
 );
+
 $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'header_type_select',
     array (
         'label' => __('Header Style', 'growtype'),

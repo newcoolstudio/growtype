@@ -151,11 +151,11 @@ $(document).ready(function ($) {
         });
     });
 
-    wp.customize("footer_textarea", function (value) {
+    wp.customize("footer_extra_content", function (value) {
         value.bind(function (newval) {
             var convertedString = replaceBreaksWithParagraphs(newval);
             convertedString = convertedString.replace(/<[^/>][^>]*><\/[^>]+>/, "");
-            $("#footer_textarea").html(convertedString);
+            $(".footer-extra-content").html(convertedString);
         });
     });
 

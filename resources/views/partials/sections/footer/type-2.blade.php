@@ -1,4 +1,4 @@
-@if(has_nav_menu( 'footer' ) || !empty(get_theme_mod('footer_textarea')) || !empty(growtype_get_footer_logo()['url']))
+@if(has_nav_menu( 'footer' ) || !empty(get_theme_mod('footer_extra_content')) || !empty(growtype_get_footer_logo()['url']))
     <div class="footer-inner-top">
         <div class="row">
             <div class="footer-inner-content col-12 flex-wrap">
@@ -7,9 +7,9 @@
                         @php wp_nav_menu(array('theme_location' => 'footer', 'menu_id' => 'footer-menu', 'walker' => new Growtype_Nav_Walker())); @endphp
                     </div>
                 @endif
-                @if(!empty(get_theme_mod('footer_textarea')))
-                    <div id="footer_textarea">
-                        {!! get_theme_mod('footer_textarea') !!}
+                @if(!empty(get_theme_mod('footer_extra_content')))
+                    <div class="footer-extra-content">
+                        {!! get_theme_mod('footer_extra_content') !!}
                     </div>
                 @endif
                 <div class="footer-logo-wrapper">

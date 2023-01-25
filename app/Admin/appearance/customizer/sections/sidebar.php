@@ -3,7 +3,7 @@
 add_action("customize_register", "sidebar_customize_register");
 function sidebar_customize_register($wp_customize)
 {
-    $color_scheme = get_theme_color_scheme();
+    $color_scheme = growtype_get_theme_current_colors_scheme();
 
     /**
      * Sidebar

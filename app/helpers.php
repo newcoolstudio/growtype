@@ -133,10 +133,11 @@ function locate_template($templates)
 /**
  * Include extra helpers
  */
+require_once 'Helpers/layout/header.php';
+require_once 'Helpers/layout/footer.php';
 require_once 'Helpers/images.php';
 require_once 'Helpers/accesses.php';
 require_once 'Helpers/emails.php';
-require_once 'Helpers/headers.php';
 require_once 'Helpers/menus.php';
 require_once 'Helpers/directories.php';
 require_once 'Helpers/time.php';
