@@ -45,7 +45,7 @@ function growtype_render_cart_single_item($cart_item)
         </a>
         <div class="product-details">
             <a href="<?php echo $product_permalink ?>" class="product-name">
-                <div class="product-name-title"><?php echo $cart_item['data']->get_title() ?></div>
+                <div class="product-name-title"><?php echo __($cart_item['data']->get_title()) ?></div>
                 <?php if (isset($product_attributes) && !empty($product_attributes)) { ?>
                     <div class="product-name-summary"><?php echo wc_get_formatted_variation($product_attributes, true) ?></div>
                 <?php } ?>

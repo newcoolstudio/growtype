@@ -50,10 +50,10 @@ $(document).ready(function ($) {
 
     wp.customize("header_text_color_scroll", function (value) {
         value.bind(function (newval) {
-            $(".site-header.is-scroll, .site-header.is-scroll a").css({
+            $(".site-header.is-fixed, .site-header.is-fixed a").css({
                 'color': newval
             });
-            $(".site-header.is-scroll .hamburger-inner").css({
+            $(".site-header.is-fixed .hamburger-inner").css({
                 'background': newval
             });
         });

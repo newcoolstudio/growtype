@@ -1,6 +1,6 @@
 import "../autoload/bootstrap.js";
 
-import {headerScroll} from "../components/header-scroll";
+import {headerFixed} from "../components/header-fixed";
 import {panelBg} from "../components/panel-bg";
 import {notice} from "../components/notice";
 import {menu} from "../components/menu";
@@ -20,7 +20,7 @@ import {qtranslate} from "../plugins/qtranslate/qtranslate.js";
 export default {
     init() {
         select();
-        headerScroll();
+        headerFixed();
         panelBg();
         notice();
         menu();

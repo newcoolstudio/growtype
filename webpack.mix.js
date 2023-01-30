@@ -71,6 +71,11 @@ mix
     .copyDirectory('resources/images', 'public/images')
     .copyDirectory('resources/icons', 'public/icons')
 
+    /**
+     * Woocommerce fonts
+     */
+    .copyDirectory('resources/fonts/plugins/woocommerce', 'public/styles/plugins/fonts')
+
 mix.copy('node_modules/@fancyapps/', 'public/vendor/@fancyapps')
     .copy('node_modules/jquery/', 'public/vendor/jquery')
     .copy('node_modules/slick-carousel/', 'public/vendor/slick-carousel')

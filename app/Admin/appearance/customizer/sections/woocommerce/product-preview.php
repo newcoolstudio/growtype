@@ -84,3 +84,21 @@ $wp_customize->add_control('woocommerce_product_preview_cta_label', array (
     'label' => __('CTA Button Label'),
     'description' => __('Default: "Preview product"')
 ));
+
+/**
+ * Sale flash
+ */
+$wp_customize->add_setting('woocommerce_product_preview_sale_flash_disabled',
+    array (
+        'default' => 0,
+        'transport' => 'refresh',
+    )
+);
+
+$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_product_preview_sale_flash_disabled',
+    array (
+        'label' => esc_html__('Sale flash disabled'),
+        'section' => 'woocommerce_product_preview_page',
+        'description' => __('Enable/disable sale flash (badge).', 'growtype'),
+    )
+));

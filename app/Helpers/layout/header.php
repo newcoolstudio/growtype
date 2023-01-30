@@ -92,14 +92,46 @@ if (!function_exists('growtype_header_main_menu_is_enabled')) {
 }
 
 /**
- * @return bool
- * Check if main menu is enabled
+ *
  */
 if (!function_exists('growtype_mobile_menu_burger_color')) {
     function growtype_mobile_menu_burger_color()
     {
         $colors_scheme = growtype_get_theme_current_colors_scheme();
         return get_theme_mod('mobile_menu_burger_color', $colors_scheme['mobile_menu_burger_color']);
+    }
+}
+
+/**
+ *
+ */
+if (!function_exists('growtype_header_background_color')) {
+    function growtype_header_background_color()
+    {
+        $colors_scheme = growtype_get_theme_current_colors_scheme();
+        return get_theme_mod('header_background_color', $colors_scheme['header_background_color']);
+    }
+}
+
+/**
+ *
+ */
+if (!function_exists('growtype_header_home_background_color')) {
+    function growtype_header_home_background_color()
+    {
+        $colors_scheme = growtype_get_theme_current_colors_scheme();
+        return get_theme_mod('header_home_background_color', $colors_scheme['header_home_background_color']);
+    }
+}
+
+/**
+ *
+ */
+if (!function_exists('header_scroll_background_color')) {
+    function growtype_header_scroll_background_color()
+    {
+        $colors_scheme = growtype_get_theme_current_colors_scheme();
+        return get_theme_mod('header_scroll_background_color', $colors_scheme['header_scroll_background_color']);
     }
 }
 

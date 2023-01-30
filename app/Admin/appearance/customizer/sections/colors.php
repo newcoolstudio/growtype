@@ -118,11 +118,11 @@ if (!function_exists('growtype_get_theme_colors_schemes')) {
                     'body_background_color' => '#ffffff',
                     'body_text_color' => '#212529',
                     'header_background_color' => '',
+                    'header_home_background_color' => '',
                     'header_scroll_background_color' => '#ffffff',
                     'header_text_color' => '#000000',
                     'header_text_color_scroll' => '#000000',
                     'header_text_color_home' => '#000000',
-                    'header_home_background_color' => '#ffffff',
                     'footer_background_color' => '#1f1c1b',
                     'footer_text_color' => 'white',
                     'header_navbar_background_color' => '#000000',
@@ -133,6 +133,9 @@ if (!function_exists('growtype_get_theme_colors_schemes')) {
                     'mobile_menu_burger_color' => '#000000',
                     'mobile_menu_burger_active_color' => '#ffffff',
                     'mobile_menu_bg_color' => '#ffffff',
+                    'primary_button_main_color' => '#000000',
+                    'primary_button_text_color' => '#ffffff',
+                    'primary_button_background_color' => '#000000'
                 ),
             ),
             'dark' => array (
@@ -157,6 +160,9 @@ if (!function_exists('growtype_get_theme_colors_schemes')) {
                     'mobile_menu_burger_color' => '#ffffff',
                     'mobile_menu_burger_active_color' => '#ffffff',
                     'mobile_menu_bg_color' => '#ffffff',
+                    'primary_button_main_color' => '#000000',
+                    'primary_button_text_color' => '#ffffff',
+                    'primary_button_background_color' => '#000000'
                 ),
             ),
             'light' => array (
@@ -181,6 +187,9 @@ if (!function_exists('growtype_get_theme_colors_schemes')) {
                     'mobile_menu_burger_color' => '#ffffff',
                     'mobile_menu_burger_active_color' => '#ffffff',
                     'mobile_menu_bg_color' => '#ffffff',
+                    'primary_button_main_color' => '#000000',
+                    'primary_button_text_color' => '#ffffff',
+                    'primary_button_background_color' => '#000000'
                 ),
             ),
         ));

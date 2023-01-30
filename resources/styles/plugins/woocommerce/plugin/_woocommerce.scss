@@ -530,8 +530,6 @@ p.demo_store,
     position: absolute;
     text-align: center;
     line-height: 3.236;
-    top: -0.5em;
-    left: -0.5em;
     margin: 0;
     border-radius: 100%;
     background-color: $highlight;
@@ -903,20 +901,20 @@ p.demo_store,
         width: 1.2em;
         height: 1.2em;
         line-height: 1;
-        font-family: "WooCommerce";
-        content: "\e021";
+        font-family: "dashicons";
+        content: "\f154";
         text-indent: 0;
         color: gold;
         font-size: 18px;
       }
 
       &:hover ~ a::before {
-        content: "\e021";
+        content: "\f154";
       }
     }
 
     &:hover a::before {
-      content: "\e020";
+      content: "\f154";
     }
 
     &.selected {
@@ -924,16 +922,16 @@ p.demo_store,
       a.active {
 
         &::before {
-          content: "\e020";
+          content: "\f155";
         }
 
         ~ a::before {
-          content: "\e021";
+          content: "\f154";
         }
       }
 
       a:not(.active)::before {
-        content: "\e020";
+        content: "\f155";
       }
     }
   }

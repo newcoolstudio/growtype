@@ -116,12 +116,6 @@ header a:hover {
   }
 }
 
-.has-fixed-header {
-  .site-header {
-    position: fixed;
-  }
-}
-
 .site-header {
   position: relative;
   top: 0;
@@ -129,10 +123,9 @@ header a:hover {
   right: 0;
   width: 100%;
   z-index: 98;
-  transition: all 0.5s;
 
   .language-selector {
-    margin-left: 0;
+    margin-left: 10px;
     margin-right: 0;
     top: 2px;
     display: inline-block;
@@ -158,11 +151,6 @@ header a:hover {
       top: 0;
 
       #qtranslate-chooser {
-        li {
-          border-radius: 20px;
-          border: 1px solid $color-primary;
-        }
-
         a {
           background: none;
           width: initial;
@@ -173,25 +161,10 @@ header a:hover {
           display: flex;
           align-items: center;
           justify-content: center;
-
-          span {
-            font-size: 12px;
-            color: $color-primary;
-          }
         }
 
         span {
           display: block;
-        }
-
-        li.active {
-          background: $color-primary;
-
-          a {
-            span {
-              color: white;
-            }
-          }
         }
       }
     }
@@ -244,7 +217,7 @@ header a:hover {
     }
   }
 
-  &.is-scroll {
+  &.is-fixed {
     transition: all 0.5s;
     box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.08);
 
@@ -283,6 +256,10 @@ header a:hover {
       padding: 10px;
       display: inline-block;
     }
+  }
+
+  &.is-fixed {
+    position: fixed;
   }
 }
 
@@ -463,13 +440,6 @@ header a:hover {
 }
 
 .burger-open {
-  //.site-header:not(.has-fixed-header .site-header) {
-  //  position: fixed;
-  //  top: 0;
-  //  left: 0;
-  //  right: 0;
-  //}
-
   .site-header {
     z-index: 100;
   }

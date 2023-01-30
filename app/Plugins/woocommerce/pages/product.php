@@ -139,3 +139,17 @@ function growtype_woocommerce_variation_option_name($term_name)
 
     return $term_name;
 }
+
+/**
+ * Disable single product page
+ */
+add_filter('woocommerce_register_post_type_product', 'growtype_woocommerce_register_post_type_product', 12, 1);
+function growtype_woocommerce_register_post_type_product($args)
+{
+    if (get_theme_mod('woocommerce_product_page_access_disabled')) {
+        $args["publicly_queryable"] = false;
+        $args["public"] = false;
+    }
+
+    return $args;
+}

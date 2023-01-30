@@ -6,7 +6,6 @@
   top: 0;
   height: 20px;
   display: inline-block;
-  width: 30px;
   margin-left: 9px;
   @include bp-phone-xl() {
     position: relative;
@@ -14,10 +13,14 @@
     bottom: 0;
     top: 0;
   }
+
+  &.text-mode {
+    height: 29px;
+  }
 }
 
 #qtranslate-chooser {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;
@@ -27,7 +30,6 @@
   align-items: center;
   justify-content: center;
   padding: 0;
-  width: 30px;
 
   li {
     transition: all .5s;
@@ -56,7 +58,6 @@
   span {
     font-weight: 400;
     margin-top: 1px;
-    font-size: 16px;
     display: none;
   }
 

@@ -19,6 +19,21 @@ function growtype_get_font_details($font_type)
 }
 
 /**
+ * @param $font_type
+ * @return mixed
+ */
+function growtype_get_primary_font_regular_weight()
+{
+    $regularWeight = growtype_get_font_details('primary_font')->regularweight;
+
+    $font_weight = [
+        'regular' => 500
+    ];
+
+    return $font_weight[$regularWeight] ?? 500;
+}
+
+/**
  * @return mixed
  */
 function growtype_secondary_font_is_active()
@@ -59,4 +74,11 @@ function growtype_get_font_url($font_details)
     }
 
     return $google_font_url . implode(',', $google_font_url_weights);
+}
+
+if (!function_exists('growtype_typography_font_size_p')) {
+    function growtype_typography_font_size_p()
+    {
+        return get_theme_mod('typography_font_size_p', '16');
+    }
 }

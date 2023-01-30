@@ -37,6 +37,7 @@ include('components/product-single-gallery.php');
 include('components/product-single-related-products.php');
 include('components/product-single-button.php');
 include('components/product-single-reviews.php');
+include('components/product-single-sale-flash.php');
 
 /**
  * Product loop

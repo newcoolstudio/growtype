@@ -46,6 +46,6 @@ if (!function_exists('growtype_get_footer_extra_content')) {
 if (!function_exists('growtype_footer_is_enabled')) {
     function growtype_footer_is_enabled()
     {
-        return !empty(get_theme_mod('footer_is_disabled')) ? get_theme_mod('footer_is_disabled') : true;
+        return !empty(get_theme_mod('footer_is_disabled')) && get_theme_mod('footer_is_disabled') ? false : true;
     }
 }

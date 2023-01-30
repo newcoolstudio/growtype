@@ -13,6 +13,42 @@ $wp_customize->add_section(
 );
 
 /**
+ * Access section
+ */
+$wp_customize->add_setting('woocommerce_product_page_access_details',
+    array (
+        'default' => '',
+        'transport' => 'postMessage'
+    )
+);
+
+$wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_customize, 'woocommerce_product_page_access_details',
+    array (
+        'label' => __('Access'),
+        'description' => __('Below you can change access settings'),
+        'section' => 'woocommerce_product_page'
+    )
+));
+
+/**
+ * Access to product single page
+ */
+$wp_customize->add_setting('woocommerce_product_page_access_disabled',
+    array (
+        'default' => 0,
+        'transport' => 'refresh',
+    )
+);
+
+$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_product_page_access_disabled',
+    array (
+        'label' => esc_html__('Access disabled', 'growtype'),
+        'section' => 'woocommerce_product_page',
+        'description' => __('Woocommerce access is disabled', 'growtype'),
+    )
+));
+
+/**
  * Breadcrumb
  */
 $wp_customize->add_setting('woocommerce_product_page_breadcrumb_details',
@@ -300,6 +336,23 @@ $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_custom
     )
 ));
 
+/**
+ * Sale flash
+ */
+$wp_customize->add_setting('woocommerce_product_page_sale_flash_disabled',
+    array (
+        'default' => 0,
+        'transport' => 'refresh',
+    )
+);
+
+$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_product_page_sale_flash_disabled',
+    array (
+        'label' => esc_html__('Sale flash disabled'),
+        'section' => 'woocommerce_product_page',
+        'description' => __('Enable/disable sale flash (badge).', 'growtype'),
+    )
+));
 
 /**
  * Related products

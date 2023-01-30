@@ -1,7 +1,7 @@
 @if(growtype_header_is_enabled())
     <header id="masthead"
             class="site-header"
-            role="banner"
+            role="site-header"
     >
 
         @if(Growtype_Header::has_promo())

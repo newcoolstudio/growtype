@@ -31,16 +31,16 @@ function growtype_customizer_general_css()
 
         <?php } ?>
 
-        <?php if(!empty(get_theme_mod('header_background_color'))){ ?>
-        body:not(.home) .site-header {
-            background-color: <?php echo get_theme_mod('header_background_color'); ?>;
+        <?php if(!empty(growtype_header_background_color())){ ?>
+        body:not(.home) .site-header, body:not(.home) #header-menu .sub-menu {
+            background-color: <?php echo growtype_header_background_color(); ?>;
         }
 
         <?php } ?>
 
-        <?php if(!empty(get_theme_mod('header_home_background_color'))){ ?>
-        body.home .site-header {
-            background: <?php echo get_theme_mod('header_home_background_color') ?>
+        <?php if(!empty(growtype_header_home_background_color())){ ?>
+        body.home .site-header, body.home #header-menu .sub-menu {
+            background: <?php echo growtype_header_home_background_color() ?>
         }
 
         <?php } ?>
@@ -81,22 +81,22 @@ function growtype_customizer_general_css()
         <?php } ?>
 
         <?php if(!empty(get_theme_mod('header_text_color_scroll'))){ ?>
-        .site-header.is-scroll .header-inner a {
+        .site-header.is-fixed .header-inner a {
             color: <?php echo get_theme_mod('header_text_color_scroll') ?>;
         }
 
         <?php } ?>
 
         <?php if(!empty(growtype_mobile_menu_burger_color())){ ?>
-        .site-header.is-scroll .hamburger-inner, .is-pasive .hamburger-inner {
+        .site-header.is-fixed .hamburger-inner, .is-pasive .hamburger-inner {
             background: <?php echo growtype_mobile_menu_burger_color() ?>;
         }
 
         <?php } ?>
 
-        <?php if(!empty(get_theme_mod('header_scroll_background_color'))){ ?>
-        .site-header.is-scroll, .home .site-header.is-scroll {
-            background: <?php echo !empty(get_theme_mod('header_scroll_background_color')) ? get_theme_mod('header_scroll_background_color') : ''; ?>;
+        <?php if(!empty(growtype_header_scroll_background_color())){ ?>
+        .site-header.is-fixed, .home .site-header.is-fixed, .site-header.is-fixed #header-menu .sub-menu {
+            background: <?php echo growtype_header_scroll_background_color(); ?>;
         }
 
         <?php } ?>
@@ -129,7 +129,7 @@ function growtype_customizer_general_css()
         <?php if(!empty(get_theme_mod('mobile_menu_text_color'))){ ?>
         .site-header .main-navigation-mobile .menu li a,
         .main-navigation-mobile-type-2 .menu-item-has-children:before,
-        .site-header.is-scroll .menu-mobile-container .menu li a,
+        .site-header.is-fixed .menu-mobile-container .menu li a,
         .main-navigation-mobile .menu-extra li a,
         .menu-mobile-container .menu li a {
             color: <?php echo get_theme_mod('mobile_menu_text_color') ?>;
@@ -193,7 +193,7 @@ function growtype_customizer_general_css()
         <?php if(!empty(growtype_get_font_details('primary_font'))){ ?>
         body {
             font-family: "<?php echo growtype_get_font_details('primary_font')->font?>", sans-serif;
-            font-weight: <?php echo urlencode(growtype_get_font_details('primary_font')->regularweight)?>;
+            font-weight: <?php echo growtype_get_primary_font_regular_weight() ?>;
         }
 
         <?php }?>
@@ -228,15 +228,15 @@ function growtype_customizer_general_css()
 
         <?php } ?>
 
-        <?php if(!empty(get_theme_mod('primary_button_main_color'))) { ?>
+        <?php if(!empty(growtype_primary_button_main_color())) { ?>
         #sb_instagram .sbi_follow_btn a,
         .btn-primary,
         .wp-block-button:not(.is-style-outline) .wp-block-button__link,
         .woocommerce-cart .woocommerce button.button,
         .woocommerce-Reviews #respond input#submit {
-            background: <?php echo get_theme_mod('primary_button_main_color')?>;
+            background: <?php echo growtype_primary_button_main_color() ?>;
             color: #fff;
-            border: 1px solid<?php echo get_theme_mod('primary_button_main_color')?>;
+            border: 1px solid<?php echo growtype_primary_button_main_color() ?>;
         }
 
         <?php } ?>
@@ -291,9 +291,9 @@ function growtype_customizer_general_css()
 
         <?php } ?>
 
-        <?php if(!empty(get_theme_mod('typography_font_size_p')) && get_theme_mod('typography_font_size_p')) { ?>
+        <?php if(!empty(growtype_typography_font_size_p())) { ?>
         p, li, a {
-            font-size: <?php echo get_theme_mod('typography_font_size_p')?>px;
+            font-size: <?php echo growtype_typography_font_size_p()?>px;
         }
 
         <?php } ?>
@@ -392,18 +392,7 @@ function growtype_customizer_general_css()
         }
 
         <?php } ?>
-    </style>
-    <?php
-}
 
-/**
- *
- */
-add_action('wp_head', 'growtype_customizer_buttons_css');
-function growtype_customizer_buttons_css()
-{
-    ?>
-    <style>
         <?php if(get_theme_mod('primary_button_style_select') === 'button_style_2') { ?>
         .btn-primary,
         #sb_instagram .sbi_follow_btn a,
@@ -479,7 +468,7 @@ function growtype_customizer_buttons_css()
 
         <?php } ?>
 
-        <?php if(!empty(get_theme_mod('primary_button_background_color'))) { ?>
+        <?php if(!empty(growtype_primary_button_background_color())) { ?>
         .btn-primary,
         .btn-primary:hover,
         .btn-primary:active,
@@ -490,13 +479,13 @@ function growtype_customizer_buttons_css()
         .woocommerce-cart .woocommerce button.button,
         .woocommerce-cart .wc-proceed-to-checkout .checkout-button.button.alt,
         .woocommerce-checkout .woocommerce button.button.alt {
-            background: <?php echo get_theme_mod('primary_button_background_color')?>;
-            border: 1px solid<?php echo get_theme_mod('primary_button_background_color')?>;
+            background: <?php echo growtype_primary_button_background_color() ?>;
+            border: 1px solid<?php echo growtype_primary_button_background_color() ?>;
         }
 
         <?php } ?>
 
-        <?php if(!empty(get_theme_mod('primary_button_text_color'))) { ?>
+        <?php if(!empty(growtype_primary_button_text_color())) { ?>
         .btn-primary,
         .btn-primary:hover,
         .btn-primary:active,
@@ -504,8 +493,9 @@ function growtype_customizer_buttons_css()
         input[type=submit],
         input[type=submit]:hover,
         .wp-block-button__link,
+        .wp-block-button__link:hover,
         .woocommerce-cart .woocommerce button.button {
-            color: <?php echo get_theme_mod('primary_button_text_color')?>;
+            color: <?php echo growtype_primary_button_text_color() ?>;
         }
 
         <?php } ?>
