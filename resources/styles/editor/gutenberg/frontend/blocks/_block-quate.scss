@@ -1,0 +1,29 @@
+/* Quote */
+
+.wp-block-quote {
+  margin: 0 3em;
+}
+
+.wp-block-quote:not(.is-large):not(.is-style-large) {
+  border: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.wp-block-quote.is-large p,
+.wp-block-quote.is-style-large p {
+  font-size: 20px;
+}
+
+.wp-block-quote cite {
+  color: #666;
+  font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.wp-block-quote.is-large cite,
+.wp-block-quote.is-style-large cite {
+  font-size: 16px;
+}

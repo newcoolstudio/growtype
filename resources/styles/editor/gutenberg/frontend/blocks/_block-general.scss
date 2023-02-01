@@ -48,3 +48,23 @@ figure[class^="wp-block-"] {
   margin-right: 0;
   right: 10px;
 }
+
+p.has-drop-cap:not(:focus)::first-letter {
+  font-size: 5em;
+  margin-top: 0.1em;
+}
+
+.wp-block {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.container {
+  .content {
+    & > .wp-block-media-text {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

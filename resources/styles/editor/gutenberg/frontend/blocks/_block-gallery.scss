@@ -1,3 +1,20 @@
+/* Gallery */
+
+.wp-block-gallery {
+  margin: 0 0 1.625em;
+}
+
+.wp-block-gallery .blocks-gallery-item figcaption {
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.wp-block-gallery .blocks-gallery-item img {
+  border: 0;
+  padding: 0;
+}
+
 .gallery-middle {
   .blocks-gallery-grid {
     display: flex;
@@ -13,4 +30,14 @@
 
 .wp-block-gallery.has-nested-images figure.wp-block-image img{
   width: fit-content;
+}
+
+.wp-block-gallery {
+  max-width: $max-width-container;
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  &.alignfull {
+    max-width: initial;
+  }
 }

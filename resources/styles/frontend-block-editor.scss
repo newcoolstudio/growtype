@@ -8,19 +8,26 @@ Gutenberg
  */
 @import "editor/gutenberg/frontend/blocks/block-buttons";
 @import "editor/gutenberg/frontend/blocks/block-colors";
+@import "editor/gutenberg/frontend/blocks/block-column";
 @import "editor/gutenberg/frontend/blocks/block-comments";
-@import "editor/gutenberg/frontend/blocks/block-common";
 @import "editor/gutenberg/frontend/blocks/block-cover";
-@import "editor/gutenberg/frontend/blocks/block-embed";
 @import "editor/gutenberg/frontend/blocks/block-custom";
+@import "editor/gutenberg/frontend/blocks/block-embed";
+@import "editor/gutenberg/frontend/blocks/block-file";
 @import "editor/gutenberg/frontend/blocks/block-formatting";
 @import "editor/gutenberg/frontend/blocks/block-gallery";
 @import "editor/gutenberg/frontend/blocks/block-general";
+@import "editor/gutenberg/frontend/blocks/block-group";
+@import "editor/gutenberg/frontend/blocks/block-media";
 @import "editor/gutenberg/frontend/blocks/block-product";
+@import "editor/gutenberg/frontend/blocks/block-quate";
 @import "editor/gutenberg/frontend/blocks/block-separator";
 @import "editor/gutenberg/frontend/blocks/block-slider";
 @import "editor/gutenberg/frontend/blocks/block-table";
 @import "editor/gutenberg/frontend/blocks/block-widgets";
-@import "editor/gutenberg/frontend/blocks/block-group";
+
+/**
+Custom
+ */
 @import "editor/gutenberg/frontend/blocks/custom/columns-categories";
 @import "editor/gutenberg/frontend/blocks/custom/media-text-cover";
