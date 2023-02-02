@@ -19,7 +19,7 @@ if (class_exists('ACF')) {
 /**
  * Qtranslate-x
  */
-if (class_exists('QTX_Modules_Handler')) {
+if (class_exists('QTX_Translator')) {
     include('Plugins/qtranslate-xt/qtranslate.php');
 }
 

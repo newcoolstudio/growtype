@@ -108,7 +108,7 @@ $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_cus
  */
 $wp_customize->add_setting('woocommerce_checkout_order_review_table',
     array (
-        'default' => 0,
+        'default' => 1,
         'transport' => 'refresh',
     )
 );
@@ -147,7 +147,7 @@ $wp_customize->add_control(
  */
 $wp_customize->add_setting('woocommerce_checkout_order_review_heading',
     array (
-        'default' => 0,
+        'default' => 1,
         'transport' => 'refresh',
     )
 );

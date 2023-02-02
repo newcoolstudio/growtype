@@ -42,9 +42,9 @@ $wp_customize->add_setting('woocommerce_product_page_access_disabled',
 
 $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_product_page_access_disabled',
     array (
-        'label' => esc_html__('Access disabled', 'growtype'),
+        'label' => esc_html__('Disabled', 'growtype'),
         'section' => 'woocommerce_product_page',
-        'description' => __('Woocommerce access is disabled', 'growtype'),
+        'description' => __('Product page is disabled', 'growtype'),
     )
 ));
 
@@ -416,7 +416,7 @@ $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_cus
  * Related products amount
  */
 $wp_customize->add_setting('woocommerce_product_page_related_products_amount', array (
-    'default' => '2',
+    'default' => '4',
 ));
 
 $wp_customize->add_control('woocommerce_product_page_related_products_amount', array (

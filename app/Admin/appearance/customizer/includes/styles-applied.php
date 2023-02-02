@@ -248,7 +248,7 @@ function growtype_customizer_general_css()
 
         <?php } ?>
 
-        <?php if(get_theme_mod('woocommerce_checkout_order_review_table') === false) { ?>
+        <?php if(get_theme_mod('woocommerce_checkout_order_review_table', true) === false) { ?>
         .woocommerce-checkout-review-order table.shop_table {
             display: none;
         }

@@ -1,7 +1,6 @@
 <?php
 
 add_action('init', 'alter_qtranslate_xt_config');
-
 function alter_qtranslate_xt_config()
 {
     global $q_config;
