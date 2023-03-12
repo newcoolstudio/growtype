@@ -11,7 +11,7 @@ function productSlider() {
         woocommerceProductGallery.find('.flex-control-nav img').attr('height', woocommerceProductGallery.attr('data-thumbnail-height'));
 
         if (woocommerceProductGallery.hasClass('woocommerce-product-gallery-adaptive-height-enabled') &&
-            woocommerceProductGallery.hasClass('woocommerce-product-gallery-type-2')) {
+            $('body').hasClass('woocommerce-product-gallery-type-2')) {
             setTimeout(function () {
                 let viewportDimentions = $('.woocommerce-product-gallery .flex-viewport');
                 let viewportHeight = viewportDimentions.height();
@@ -47,7 +47,7 @@ function productSlider() {
             }, 100)
         } else {
             setTimeout(function () {
-                if ($('.woocommerce-product-gallery').hasClass('woocommerce-product-gallery-type-2')) {
+                if ($('body').hasClass('woocommerce-product-gallery-type-2')) {
                     if ($('.woocommerce .flex-control-nav li').length > 5) {
                         $(".woocommerce .flex-control-nav").slick({
                             infinite: false,
@@ -83,6 +83,10 @@ function productSlider() {
                                 },
                             }],
                         })
+
+                        $(".woocommerce .flex-control-nav").on('beforeChange', function (event, {slideCount: count}, currentSlide, nextSlide) {
+                            console.log(count, currentSlide, nextSlide, 'currentSlide, nextSlide')
+                        });
                     }
                 }
                 $('.woocommerce-product-gallery__wrapper').resize()

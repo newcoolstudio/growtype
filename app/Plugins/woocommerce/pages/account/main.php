@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Add methods
+ */
 include('subpages/edit-account.php');
 
 function get_account_subpage_intro_details($subpage)

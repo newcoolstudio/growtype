@@ -6,6 +6,34 @@ class Growtype_Extended_Cpt_Admin
     {
         add_action('admin_menu', array ($this, 'growtype_extended_cpt_options_page'));
         add_action('admin_init', array ($this, 'growtype_extended_cpt_register_settings'));
+
+        /**
+         * Admin posts order
+         */
+        add_filter('pre_get_posts', array ($this, 'growtype_extended_cpt_set_default_admin_posts_order'));
+    }
+
+    /**
+     * @param $wp_query
+     * @return void
+     * Default cpt posts order in admin
+     */
+    function growtype_extended_cpt_set_default_admin_posts_order($wp_query)
+    {
+        if (is_admin() && !isset($_GET['orderby'])) {
+            $post_type = $wp_query->query['post_type'];
+
+            $active_post_types = Growtype_Extended_Cpt::get_active_post_types();
+
+            if (!empty($active_post_types)) {
+                $post_types = array_pluck($active_post_types, 'value');
+
+                if (in_array($post_type, $post_types)) {
+                    $wp_query->set('orderby', 'date');
+                    $wp_query->set('order', 'DESC');
+                }
+            }
+        }
     }
 
     function growtype_extended_cpt_options_page()

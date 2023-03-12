@@ -29,10 +29,7 @@
 
   .b-content-main {
     font-size: $font-size-body;
-    width: 76%;
-    @include bp-phone-xl() {
-      width: 100%;
-    }
+    width: 100%;
 
     p {
       font-size: $font-size-body;

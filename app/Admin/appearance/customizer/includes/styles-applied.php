@@ -235,7 +235,7 @@ function growtype_customizer_general_css()
         .woocommerce-cart .woocommerce button.button,
         .woocommerce-Reviews #respond input#submit {
             background: <?php echo growtype_primary_button_main_color() ?>;
-            color: #fff;
+            color: <?php echo growtype_primary_button_text_color() ?>;
             border: 1px solid<?php echo growtype_primary_button_main_color() ?>;
         }
 

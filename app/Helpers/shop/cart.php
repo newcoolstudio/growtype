@@ -122,9 +122,7 @@ function growtype_render_cart_content()
  */
 function cart_page_icon_is_active()
 {
-    $disabled = get_theme_mod('woocommerce_cart_page_icon_disabled') ?? false;
-
-    return class_exists('WooCommerce') && !$disabled ? true : false;
+    return class_exists('WooCommerce') && get_theme_mod('woocommerce_cart_icon', true) ? true : false;
 }
 
 /**

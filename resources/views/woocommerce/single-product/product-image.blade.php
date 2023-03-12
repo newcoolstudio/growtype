@@ -27,16 +27,17 @@ global $product;
 $columns = apply_filters('woocommerce_product_thumbnails_columns', 4);
 $featured_image_id = $product->get_image_id();
 $gallery_image_ids = $product->get_gallery_image_ids();
-$woocommerce_product_page_gallery_type = !empty(get_theme_mod('woocommerce_product_page_gallery_type')) ? get_theme_mod('woocommerce_product_page_gallery_type') : 'woocommerce-product-gallery-type-2';
 $woocommerce_product_page_gallery_thumbnails_adaptive_height = get_theme_mod('woocommerce_product_page_gallery_thumbnails_adaptive_height') ? 'enabled' : 'disabled';
 $woocommerce_product_page_gallery_thumbnails_adaptive_height = 'woocommerce-product-gallery-adaptive-height-' . $woocommerce_product_page_gallery_thumbnails_adaptive_height;
+$woocommerce_product_page_gallery_lightbox = 'woocommerce-product-gallery-lightbox-' . (get_theme_mod('woocommerce_product_page_gallery_lightbox',
+        true) ? 'enabled' : 'disabled');
 
 $wrapper_classes = apply_filters(
     'woocommerce_single_product_image_gallery_classes',
     array (
         'woocommerce-product-gallery',
-        $woocommerce_product_page_gallery_type,
         $woocommerce_product_page_gallery_thumbnails_adaptive_height,
+        $woocommerce_product_page_gallery_lightbox,
         'woocommerce-product-gallery--' . (count($gallery_image_ids) > 0 ? 'with-images' : 'without-images'),
         'woocommerce-product-gallery--columns-' . absint($columns),
         'images',
@@ -44,7 +45,7 @@ $wrapper_classes = apply_filters(
 );
 ?>
 
-@if($woocommerce_product_page_gallery_type === 'woocommerce-product-gallery-type-3')
+@if(get_theme_mod('woocommerce_product_page_gallery_type', 'woocommerce-product-gallery-type-2') === 'woocommerce-product-gallery-type-3')
     <div class="<?php echo esc_attr(implode(' ', array_map('sanitize_html_class',
         $wrapper_classes))); ?>" data-columns="<?php echo esc_attr($columns); ?>"
     >
@@ -95,22 +96,22 @@ $wrapper_classes = apply_filters(
     <div class="<?php echo esc_attr(implode(' ', array_map('sanitize_html_class',
         $wrapper_classes))); ?>" data-columns="<?php echo esc_attr($columns); ?>" data-thumbnail-width="{{growtype_wc_get_product_gallery_sizes()['thumbnail']['width']}}" data-thumbnail-height="{{growtype_wc_get_product_gallery_sizes()['thumbnail']['height']}}" style="opacity: 0; transition: opacity .25s ease-in-out;">
         <figure class="woocommerce-product-gallery__wrapper">
-            <?php
-            if ($featured_image_id) {
-                $html = wc_get_gallery_image_html($featured_image_id, true);
-            } else {
-                $html = '<div class="woocommerce-product-gallery__image--placeholder">';
-                $html .= sprintf('<img src="%s" alt="%s" class="wp-post-image" />',
-                    esc_url(wc_placeholder_img_src('woocommerce_single')),
-                    esc_html__('Awaiting product image', 'growtype'));
-                $html .= '</div>';
-            }
+                <?php
+                if ($featured_image_id) {
+                    $html = wc_get_gallery_image_html($featured_image_id, true);
+                } else {
+                    $html = '<div class="woocommerce-product-gallery__image--placeholder">';
+                    $html .= sprintf('<img src="%s" alt="%s" class="wp-post-image" />',
+                        esc_url(wc_placeholder_img_src('woocommerce_single')),
+                        esc_html__('Awaiting product image', 'growtype'));
+                    $html .= '</div>';
+                }
 
-            echo apply_filters('woocommerce_single_product_image_thumbnail_html', $html,
-                $featured_image_id); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
+                echo apply_filters('woocommerce_single_product_image_thumbnail_html', $html,
+                    $featured_image_id); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
 
-            do_action('woocommerce_product_thumbnails');
-            ?>
+                do_action('woocommerce_product_thumbnails');
+                ?>
         </figure>
     </div>
 @endif

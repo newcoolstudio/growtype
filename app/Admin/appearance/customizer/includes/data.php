@@ -17,7 +17,7 @@ class Customizer_Available_Data
         }
 
         if (class_exists('woocommerce')) {
-            $customizer_available_pages['single_shop_page'] = 'Single shop page (important: no id)';
+            $customizer_available_pages['single_shop_page'] = 'Single product page (important: no id)';
 
             $wc_menu_items = wc_get_account_menu_items();
 
@@ -30,19 +30,12 @@ class Customizer_Available_Data
         $customizer_available_pages['search_results'] = 'Search results (important: no id)';
 
         /**
-         * For cpts #TODO fix this
+         * For Growtype_Extended_Cpt
          */
-        if (get_option('cpt_1_enabled')) {
-            $customizer_available_pages['cpt_1'] = 'CPT - 1';
-        }
-        if (get_option('cpt_2_enabled')) {
-            $customizer_available_pages['cpt_2'] = 'CPT - 2';
-        }
-        if (get_option('cpt_3_enabled')) {
-            $customizer_available_pages['cpt_3'] = 'CPT - 3';
-        }
-        if (get_option('cpt_4_enabled')) {
-            $customizer_available_pages['cpt_4'] = 'CPT - 4';
+        if (class_exists('Growtype_Extended_Cpt')) {
+            foreach (Growtype_Extended_Cpt::get_active_post_types() as $active_post_type) {
+                $customizer_available_pages[$active_post_type['key']] = 'CPT - ' . $active_post_type['label'];
+            }
         }
 
         /**

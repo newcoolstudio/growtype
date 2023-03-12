@@ -102,8 +102,9 @@ class Growtype_Extended_Cpt
 
                 if ($enabled && !empty($value)) {
                     $active_pt[] = [
+                        'key' => $key['value'],
                         'label' => $label,
-                        'value' => $value
+                        'value' => $value,
                     ];
                 }
             }

@@ -145,7 +145,7 @@ add_action('after_setup_theme', function () {
     add_image_size('icon', 200, 200, false);
     add_image_size('thumbnail', 400, 400, false);
     add_image_size('medium', 700, 600, false);
-    add_image_size('large', 1800, 1000, true);
+    add_image_size('large', 1800, 1000, false);
 
     /**
      * Enable HTML5 markup support

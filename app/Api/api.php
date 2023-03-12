@@ -3,10 +3,10 @@
  * Modify default rest url prefix
  */
 if (!empty(getenv('rest_url_prefix'))) {
-    add_filter('rest_url_prefix', 'rest_url_prefix_update');
+    add_filter('rest_url_prefix', 'growtype_rest_url_prefix_update');
 }
 
-function rest_url_prefix_update($slug)
+function growtype_rest_url_prefix_update($slug)
 {
     return 'wp/wp-json';
 }

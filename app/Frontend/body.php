@@ -3,8 +3,8 @@
 /**
  * Add classes to body
  */
-add_filter('body_class', 'add_extra_classes_to_body');
-function add_extra_classes_to_body($classes)
+add_filter('body_class', 'growtype_extend_body_classes');
+function growtype_extend_body_classes($classes)
 {
     $classes[] = get_theme_mod('header_navbar_switch') == true ? 'has-navbar' : null;
     $classes[] = Growtype_Header::is_fixed() === true ? 'has-fixed-header' : 'has-static-header';
@@ -22,17 +22,6 @@ function add_extra_classes_to_body($classes)
 
     if (is_multisite()) {
         $classes[] = Growtype_Site::is_multisite_main_site() ? 'is-main-site' : 'is-child-site';
-    }
-
-    if (class_exists('woocommerce')) {
-        if (is_account_page()) {
-            $url_slug = Growtype_Page::get_url_slug();
-            $classes[] = 'page-' . $url_slug;
-        }
-
-        if (get_option('woocommerce_cart_redirect_after_add') !== 'yes') {
-            $classes[] = 'ajaxcart-enabled';
-        }
     }
 
     return $classes;

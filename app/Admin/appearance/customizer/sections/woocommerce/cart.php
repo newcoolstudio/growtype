@@ -11,16 +11,34 @@ $wp_customize->add_section(
 /**
  *
  */
-$wp_customize->add_setting('woocommerce_cart_page_icon_disabled',
+$wp_customize->add_setting('woocommerce_cart_enabled',
     array (
-        'default' => 0,
+        'default' => 1,
         'transport' => 'refresh',
     )
 );
 
-$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_cart_page_icon_disabled',
+$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_cart_enabled',
     array (
-        'label' => esc_html__('Cart Page Icon Disabled'),
+        'label' => esc_html__('Enabled'),
+        'description' => __('Enable/disable cart.', 'growtype'),
+        'section' => 'woocommerce_cart_page',
+    )
+));
+
+/**
+ *
+ */
+$wp_customize->add_setting('woocommerce_cart_icon',
+    array (
+        'default' => 1,
+        'transport' => 'refresh',
+    )
+);
+
+$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_cart_icon',
+    array (
+        'label' => esc_html__('Cart Page Icon'),
         'description' => __('Enable/disable cart page icon.', 'growtype'),
         'section' => 'woocommerce_cart_page',
     )

@@ -10,7 +10,7 @@ function productGalleryExtend() {
 
             let ProductGalleryExtended = function ($target, args) {
                 this.$target = $target;
-                this.$images = $('.woocommerce-product-gallery-type-3 figure', $target);
+                this.$images = $('.woocommerce-product-gallery-type-3 .woocommerce-product-gallery figure', $target);
 
                 // No images? Abort.
                 if (0 === this.$images.length) {
@@ -30,8 +30,8 @@ function productGalleryExtend() {
              * Init PhotoSwipe.
              */
             ProductGalleryExtended.prototype.initPhotoswipe = function () {
-                this.$target.on('click', '.woocommerce-product-gallery-type-3 .e-img-wrapper a', this.openPhotoswipe);
-                this.$target.on('click', '.woocommerce-product-gallery-type-3 .btn-gallery', this.openPhotoswipe);
+                this.$target.on('click', '.woocommerce-product-gallery-type-3 .woocommerce-product-gallery .e-img-wrapper a', this.openPhotoswipe);
+                this.$target.on('click', '.woocommerce-product-gallery-type-3 .woocommerce-product-gallery .btn-gallery', this.openPhotoswipe);
             };
 
             /**
@@ -88,8 +88,10 @@ function productGalleryExtend() {
                     }
                 }, wc_single_product_params.photoswipe_options);
 
-                var photoswipe = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
-                photoswipe.init();
+                if (typeof PhotoSwipeUI_Default === 'function') {
+                    var photoswipe = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+                    photoswipe.init();
+                }
             };
 
             new ProductGalleryExtended($(document), wc_single_product_params);

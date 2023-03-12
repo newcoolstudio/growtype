@@ -189,10 +189,29 @@ $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_cus
             'multiselect' => false,
         ),
         'choices' => array (
-            'woocommerce-product-gallery-type-1' => __('Type 1', 'growtype'),
-            'woocommerce-product-gallery-type-2' => __('Type 2', 'growtype'),
-            'woocommerce-product-gallery-type-3' => __('Type 3', 'growtype')
+            'woocommerce-product-gallery-type-1' => __('Horizontal', 'growtype'),
+            'woocommerce-product-gallery-type-2' => __('Vertical', 'growtype'),
+            'woocommerce-product-gallery-type-3' => __('Grid', 'growtype'),
+            'woocommerce-product-gallery-type-4' => __('Full width', 'growtype'),
         )
+    )
+));
+
+/**
+ * Photoswipe
+ */
+$wp_customize->add_setting('woocommerce_product_page_gallery_lightbox',
+    array (
+        'default' => 1,
+        'transport' => 'refresh',
+    )
+);
+
+$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_product_page_gallery_lightbox',
+    array (
+        'label' => esc_html__('Lightbox', 'growtype'),
+        'section' => 'woocommerce_product_page',
+        'description' => __('Lightbox enabled/disabled', 'growtype'),
     )
 ));
 
@@ -303,18 +322,36 @@ $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_cus
 /**
  *
  */
-$wp_customize->add_setting('woocommerce_product_page_description_section_title',
+$wp_customize->add_setting('woocommerce_product_page_short_description_section_title',
     array (
         'default' => 1,
         'transport' => 'refresh',
     )
 );
 
-$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_product_page_description_section_title',
+$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_product_page_short_description_section_title',
+    array (
+        'label' => esc_html__('Short Description Title'),
+        'section' => 'woocommerce_product_page',
+        'description' => __('Enable/disable short description section title.', 'growtype'),
+    )
+));
+
+/**
+ *
+ */
+$wp_customize->add_setting('woocommerce_product_page_long_description_section_title',
+    array (
+        'default' => 1,
+        'transport' => 'refresh',
+    )
+);
+
+$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_product_page_long_description_section_title',
     array (
         'label' => esc_html__('Long Description Title'),
         'section' => 'woocommerce_product_page',
-        'description' => __('Enable/disable section title.', 'growtype'),
+        'description' => __('Enable/disable long description section title.', 'growtype'),
     )
 ));
 
@@ -351,6 +388,24 @@ $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_custom
         'label' => esc_html__('Sale flash disabled'),
         'section' => 'woocommerce_product_page',
         'description' => __('Enable/disable sale flash (badge).', 'growtype'),
+    )
+));
+
+/**
+ * Quantity
+ */
+$wp_customize->add_setting('woocommerce_product_page_quantity_selector',
+    array (
+        'default' => 1,
+        'transport' => 'refresh',
+    )
+);
+
+$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'woocommerce_product_page_quantity_selector',
+    array (
+        'label' => esc_html__('Quantity selector'),
+        'section' => 'woocommerce_product_page',
+        'description' => __('Enable/disable quantity selector.', 'growtype'),
     )
 ));
 

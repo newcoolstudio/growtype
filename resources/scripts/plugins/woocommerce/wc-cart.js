@@ -25,6 +25,9 @@
         });
     }
 
+    /**
+     * Load cart details
+     */
     function loadCartDetails() {
         $.ajax({
             url: ajax_object.ajaxurl,
@@ -43,7 +46,9 @@
     }
 
     $(document).ready(function () {
-        loadCartDetails();
+        if ($('body').hasClass('cart-enabled')) {
+            loadCartDetails();
+        }
     });
 
     function initiateChangeProductQuantity(cart_item_key) {
