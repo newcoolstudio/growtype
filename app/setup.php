@@ -7,10 +7,6 @@ use Roots\Sage\Assets\JsonManifest;
 use Roots\Sage\Template\Blade;
 use Roots\Sage\Template\BladeProvider;
 
-if (defined('VENDOR_DIR')) {
-    require_once VENDOR_DIR . '/johnbillion/extended-cpts/extended-cpts.php';
-}
-
 /**
  * Theme assets
  */

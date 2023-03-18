@@ -3,16 +3,6 @@
 /**
  * @return bool
  */
-function user_can_manage_shop()
-{
-    return user_can(get_current_user_id(), 'editor_plus_shop_manager') ||
-        user_can(get_current_user_id(), 'manage_woocommerce') ||
-        user_can(get_current_user_id(), 'administrator');
-}
-
-/**
- * @return bool
- */
 function user_can_edit_frontend()
 {
     return user_can(get_current_user_id(), 'editor') ||
@@ -23,7 +13,7 @@ function user_can_edit_frontend()
 /**
  * Theme redirect. Controlled in customizer "accesses" section.
  */
-function check_and_apply_custom_page_redirect()
+function growtype_custom_page_redirect()
 {
     /**
      * Prevent redirect if
@@ -50,8 +40,8 @@ function check_and_apply_custom_page_redirect()
                 exit();
             }
         } else {
-            if (class_exists('woocommerce')) {
-                $user_has_bought_required_products = Growtype_Product::user_has_bought_required_products();
+            if (class_exists('Growtype_Wc_Product')) {
+                $user_has_bought_required_products = Growtype_Wc_Product::user_has_bought_required_products();
                 $redirect_page = get_theme_mod('theme_access_must_have_products_redirect_page');
                 $redirect_page = !empty($redirect_page) ? get_permalink($redirect_page) : null;
 
@@ -93,27 +83,7 @@ function check_and_apply_custom_page_redirect()
         exit();
     }
 
-    /**
-     * Check if cart page redirect is applied
-     */
-    if (class_exists('woocommerce')) {
-        $woocommerce_skip_cart_page = get_theme_mod('woocommerce_skip_cart_page');
-
-        if ($woocommerce_skip_cart_page && get_permalink() === wc_get_cart_url()) {
-            if (!cart_is_empty()) {
-                wp_redirect(wc_get_checkout_url());
-                exit();
-            }
-
-            /**
-             * Clear cart page notices
-             */
-            wc_clear_notices();
-
-            wp_redirect(get_home_url_custom());
-            exit();
-        }
-    }
+    add_action('growtype_custom_page_redirect');
 }
 
 /**
@@ -150,7 +120,11 @@ function user_has_required_role_to_access_platform($user_id = null)
  */
 function user_can_access_platform()
 {
-    return Growtype_Product::user_has_bought_required_products() && user_has_required_role_to_access_platform();
+    if (class_exists('Growtype_Wc_Product')) {
+        return Growtype_Wc_Product::user_has_bought_required_products() && user_has_required_role_to_access_platform();
+    }
+
+    return user_has_required_role_to_access_platform();
 }
 
 /**
@@ -190,14 +164,8 @@ function page_is_among_enabled_pages($enabled_pages)
      * Check if exists among enabled pages
      */
 
-    if (class_exists('woocommerce') && is_product()) {
-        $page_enabled = in_array('single_shop_page', $enabled_pages);
-    } elseif (!empty($page_id)) {
-        $page_enabled = in_array($page_id, $enabled_pages);
-    }
-
-    if ($page_enabled) {
-        return $page_enabled;
+    if (!empty($page_id)) {
+        return in_array($page_id, $enabled_pages);
     }
 
     /**
@@ -225,17 +193,6 @@ function page_is_among_enabled_pages($enabled_pages)
     }
 
     /**
-     * Cpt
-     */
-    if (in_array('cpt_1', $enabled_pages)) {
-        $cpt_1_value = get_option('cpt_1_value');
-
-        if (!empty($cpt_1_value) && is_single() && get_post_type() === $cpt_1_value) {
-            return true;
-        }
-    }
-
-    /**
      * Posts
      */
     if (in_array('posts', $enabled_pages)) {
@@ -243,6 +200,8 @@ function page_is_among_enabled_pages($enabled_pages)
             return true;
         }
     }
+
+    $page_enabled = apply_filters('growtype_page_is_among_enabled_pages', $enabled_pages);
 
     return $page_enabled;
 }
