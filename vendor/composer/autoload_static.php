@@ -4,14 +4,14 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInite57c24ed8caefdfa1214b27f58f3130f
+class ComposerStaticInit501c55734f530c1cd45494a90c4f9027
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
-        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
+        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
+        '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         '0f0b5ccc1239edeab469d29fee6d51ad' => __DIR__ . '/..' . '/roots/sage-woocommerce/src/woocommerce.php',
@@ -482,10 +482,10 @@ class ComposerStaticInite57c24ed8caefdfa1214b27f58f3130f
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInite57c24ed8caefdfa1214b27f58f3130f::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInite57c24ed8caefdfa1214b27f58f3130f::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInite57c24ed8caefdfa1214b27f58f3130f::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInite57c24ed8caefdfa1214b27f58f3130f::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit501c55734f530c1cd45494a90c4f9027::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit501c55734f530c1cd45494a90c4f9027::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit501c55734f530c1cd45494a90c4f9027::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit501c55734f530c1cd45494a90c4f9027::$classMap;
 
         }, null, ClassLoader::class);
     }

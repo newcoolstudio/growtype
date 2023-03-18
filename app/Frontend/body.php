@@ -12,8 +12,6 @@ function growtype_extend_body_classes($classes)
     $classes[] = growtype_header_has_extra_space() === true ? 'has-extraspace-header' : null;
     $classes[] = display_panel() ? 'has-panel' : null;
     $classes[] = display_sidebar_primary() ? 'has-sidebar-primary' : null;
-    $classes[] = display_shop_catalog_sidebar() ? 'has-sidebar-catalog' : null;
-    $classes[] = Growtype_Product::sidebar() ? 'has-sidebar-product' : null;
     $classes[] = function_exists('growtype_post_is_front_post') && growtype_post_is_front_post() ? 'is-front-post' : null;
     $classes[] = growtype_header_is_absolute() ? 'has-absolute-header' : null;
     $classes[] = Growtype_Header::is_fixed() ? 'has-fixed-header' : null;

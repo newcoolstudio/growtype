@@ -66,8 +66,6 @@
 
         </div>
     </div>
-
-    @include('plugins.acf.flexible-content')
 @endsection
 
 @section('footer')

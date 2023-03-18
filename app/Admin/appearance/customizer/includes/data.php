@@ -16,16 +16,6 @@ class Customizer_Available_Data
             }
         }
 
-        if (class_exists('woocommerce')) {
-            $customizer_available_pages['single_shop_page'] = 'Single product page (important: no id)';
-
-            $wc_menu_items = wc_get_account_menu_items();
-
-            foreach ($wc_menu_items as $key => $menu_item) {
-                $customizer_available_pages[$key] = 'Account - ' . $menu_item;
-            }
-        }
-
         $customizer_available_pages['lost_password_page'] = 'Lost password page (important: no id)';
         $customizer_available_pages['search_results'] = 'Search results (important: no id)';
 
@@ -54,27 +44,6 @@ class Customizer_Available_Data
     /**
      * Wc products
      */
-    function get_available_products()
-    {
-        if (class_exists('woocommerce')) {
-            $wc_products = wc_get_products(array ('limit' => -1));
-
-            $products_map = [];
-            if (!empty($wc_products)) {
-                foreach ($wc_products as $product) {
-                    $products_map[$product->get_id()] = $product->get_title();
-                }
-            }
-
-            return $products_map;
-        }
-
-        return null;
-    }
-
-    /**
-     * Wc products
-     */
     function get_available_roles()
     {
         global $wp_roles;
@@ -86,18 +55,6 @@ class Customizer_Available_Data
         }
 
         return $roles_map;
-    }
-
-    /**
-     * Wc product preview styles
-     */
-    function get_available_product_preview_styles()
-    {
-        return array (
-            'grid' => __('Grid', 'growtype'),
-            'list' => __('List', 'growtype'),
-            'table' => __('Table', 'growtype')
-        );
     }
 
     /**
@@ -121,28 +78,5 @@ class Customizer_Available_Data
         }
 
         return $post_types;
-    }
-
-    /**
-     * Post types
-     */
-    function get_available_wc_coupons()
-    {
-        $args = array (
-            'posts_per_page' => -1,
-            'orderby' => 'title',
-            'order' => 'asc',
-            'post_type' => 'shop_coupon',
-            'post_status' => 'publish',
-        );
-
-        $posts_data = get_posts($args);
-
-        $posts_data_formatted = [];
-        foreach ($posts_data as $post) {
-            $posts_data_formatted[$post->ID] = $post->post_title;
-        }
-
-        return $posts_data_formatted;
     }
 }

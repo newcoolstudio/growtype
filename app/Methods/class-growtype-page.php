@@ -5,22 +5,16 @@
  */
 class Growtype_Page
 {
-    function __construct()
-    {
-    }
-
     /**
      * @return string
      */
     public static function permalink()
     {
-        if (class_exists('woocommerce') && is_shop()) {
-            return get_permalink(wc_get_page_id('shop'));
-        } elseif (is_search()) {
+        if (is_search()) {
             return home_url('/');
         }
 
-        return get_permalink();
+        return apply_filters('growtype_permalink', get_permalink());
     }
 
     /**

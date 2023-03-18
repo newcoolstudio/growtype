@@ -137,7 +137,6 @@ require_once 'Helpers/layout/header.php';
 require_once 'Helpers/layout/footer.php';
 require_once 'Helpers/images.php';
 require_once 'Helpers/accesses.php';
-require_once 'Helpers/emails.php';
 require_once 'Helpers/menus.php';
 require_once 'Helpers/directories.php';
 require_once 'Helpers/time.php';
@@ -149,8 +148,5 @@ require_once 'Helpers/sidebar.php';
 require_once 'Helpers/panel.php';
 require_once 'Helpers/color.php';
 require_once 'Helpers/button.php';
-
-require_once 'Helpers/shop/cart.php';
-require_once 'Helpers/shop/wishlist.php';
 
 require_once 'Helpers/post/content.php';

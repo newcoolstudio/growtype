@@ -73,9 +73,7 @@
             </div>
         </div>
 
-        @if(class_exists( 'woocommerce' ) && cart_page_icon_is_active())
-            @include('partials.components.woocommerce-cart')
-        @endif
+            <?php do_action('growtype_header'); ?>
     </header><!-- #masthead -->
 @endif
 

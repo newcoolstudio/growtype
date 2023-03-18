@@ -12,31 +12,11 @@
         </div>
     @endif
     @if (!empty(get_search_query()))
-        @if(get_post_type() === 'product')
-            <div class="container">
-                <div class="woocommerce b-products">
-                    <?php wc_get_template('loop/loop-start.php'); ?>
-
-                    @if(Growtype_Product::catalog_default_preview_style() === 'table')
-                        @include('woocommerce.components.table.product-table')
-                    @else
-                        @while(have_posts()) @php the_post() @endphp
-                        <?php
-                        wc_get_template_part('content', 'product');
-                        ?>
-                        @endwhile
-                    @endif
-
-                    <?php wc_get_template('loop/loop-end.php'); ?>
-                </div>
-            </div>
-        @else
-            <div class="container">
-                @while(have_posts()) @php the_post() @endphp
-                @include('partials.content.content-search')
-                @endwhile
-            </div>
-        @endif
+        <div class="container">
+            @while(have_posts()) @php the_post() @endphp
+            @include('partials.content.content-search')
+            @endwhile
+        </div>
     @endif
 @endsection
 

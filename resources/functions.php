@@ -59,7 +59,7 @@ array_map(function ($file) use ($sage_error) {
     if (!locate_template($file, true, true)) {
         $sage_error(sprintf(__('Error locating <code>%s</code> for inclusion.', 'growtype'), $file), 'File not found');
     }
-}, ['setup', 'methods', 'helpers', 'filters', 'plugins', 'admin', 'frontend', 'hooks', 'api']);
+}, ['setup', 'methods', 'helpers', 'filters', 'admin', 'frontend', 'hooks', 'api']);
 
 /**
  * Here's what's happening with these hooks:
@@ -83,6 +83,7 @@ array_map(
     ['theme_file_path', 'theme_file_uri', 'parent_theme_file_path', 'parent_theme_file_uri'],
     array_fill(0, 4, 'dirname')
 );
+
 Container::getInstance()
     ->bindIf('config', function () {
         return new Config([
@@ -93,3 +94,12 @@ Container::getInstance()
             'wp' => require dirname(__DIR__) . '/config/wp.php',
         ]);
     }, true);
+
+
+add_action('wp_before_load_template', 'growtype_wc_before_load_template', 101);
+function growtype_wc_before_load_template($template)
+{
+//    if ($template === '/Users/vydi/www/newcool/wp-basic/web/wp/wp-includes/theme-compat/header.php') {
+//        $template = '';
+//    }
+}

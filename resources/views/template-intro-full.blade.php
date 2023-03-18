@@ -11,7 +11,6 @@
 
 @section('content')
     @include('partials.sections.intro.full')
-    @include('plugins.acf.flexible-content')
 @endsection
 
 @section('footer')

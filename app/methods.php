@@ -21,20 +21,6 @@ include('Methods/class-growtype-user-account.php');
 include('Methods/class-growtype-social.php');
 
 /**
- * Shop methods
- */
-if (!class_exists('Growtype_Shop')) {
-    include('Methods/class-growtype-shop.php');
-}
-
-/**
- * Product methods
- */
-if (!class_exists('Growtype_Product')) {
-    include('Methods/class-growtype-product.php');
-}
-
-/**
  * Header methods
  */
 if (!class_exists('Growtype_Header')) {

@@ -29,20 +29,6 @@ function growtype_customizer_preview()
 }
 
 /*
-* Customizer admin control js
-*/
-add_action('customize_controls_enqueue_scripts', 'growtype_customizer_translate');
-function growtype_customizer_translate()
-{
-    wp_enqueue_script('customizer_translate', get_template_directory_uri() . '/../app/Admin/appearance/customizer/assets/js/customizer-translate.js', array ('jquery'), null, true);
-    wp_localize_script('customizer_translate', 'ajax_object',
-        array (
-            'ajaxurl' => admin_url('admin-ajax.php'),
-        )
-    );
-}
-
-/*
 * Customizer admin colors
 */
 add_action('customize_controls_enqueue_scripts', 'growtype_customizer_control_colors');

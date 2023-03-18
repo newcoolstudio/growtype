@@ -1,1 +1,6 @@
-!function(){var t,e;!function(i){"use strict";i("body").on("click",".btn-like .like, .btn-like .unlike",(function(){return t=i(this).attr("id"),e=i(this).attr("class").replace("bp-primary-action ","").replace("button","activity_update").trim(),i(this).addClass("loading"),i.post(buddypress_data.ajaxurl,{action:"activity_like",type:e,id:t},(function(a){i("#"+t).fadeOut(100,(function(){i(this).html(a).removeClass("loading").fadeIn(100)})),"activity_update like"==e?i("#"+t).removeClass("like").addClass("unlike").attr("title",buddypress_data.unlike_msg).attr("id",t.replace("like","unlike")):"activity_update unlike"==e?i("#"+t).removeClass("unlike").addClass("like").attr("title",buddypress_data.like_msg).attr("id",t.replace("unlike","like")):(console.log("Opps. Something went wrong"),console.log("type: "+e),console.log("id: "+t))})),!1}))}(jQuery)}();
+/******/ (function() { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	
+/******/ 	
+/******/ })()
+;

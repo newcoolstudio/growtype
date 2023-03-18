@@ -15,7 +15,6 @@ import editorFrontend, {
 
 import {select} from "../plugins/chosen/select.js";
 import {fancyboxGallery} from "../plugins/fancybox/fancybox.js";
-import {qtranslate} from "../plugins/qtranslate/qtranslate.js";
 
 export default {
     init() {
@@ -26,7 +25,6 @@ export default {
         menu();
         menuBurger();
         fancyboxGallery();
-        qtranslate();
         preventClicksOnEmptyLinks();
         anchorLinkScroll();
         anchorLinkMainNavigation();

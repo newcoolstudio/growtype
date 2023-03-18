@@ -11,7 +11,6 @@
 
 @section('content')
     @include('partials.sections.intro.half-offgrid')
-    @include('plugins.acf.flexible-content')
 @endsection
 
 @section('footer')

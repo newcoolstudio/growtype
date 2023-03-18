@@ -37,7 +37,7 @@ function growtype_get_parent_theme_app_path()
  */
 function growtype_get_child_theme_public_path()
 {
-    return dirname(get_stylesheet_directory_uri()) . '/public';
+    return get_stylesheet_directory_uri() . '/public';
 }
 
 /**
@@ -45,7 +45,7 @@ function growtype_get_child_theme_public_path()
  */
 function growtype_get_child_theme_resource_path()
 {
-    return dirname(get_stylesheet_directory()) . '/resources';
+    return get_stylesheet_directory() . '/resources';
 }
 
 /**
@@ -53,5 +53,5 @@ function growtype_get_child_theme_resource_path()
  */
 function growtype_get_child_theme_app_path()
 {
-    return dirname(get_stylesheet_directory()) . '/app';
+    return get_stylesheet_directory() . '/app';
 }

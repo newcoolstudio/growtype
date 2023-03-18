@@ -45,23 +45,3 @@ function display_sidebar_primary($display = false)
 
     return $display;
 }
-
-/**
- * @return false|mixed
- */
-function display_shop_catalog_sidebar()
-{
-    $display = false;
-
-    if (is_active_sidebar('sidebar-shop')) {
-        $display = true;
-    }
-
-    $catalog_sidebar_disabled = get_theme_mod('catalog_sidebar_disabled') ? get_theme_mod('catalog_sidebar_disabled') : false;
-
-    if (function_exists('is_shop') && is_shop() && !is_product_category() && $catalog_sidebar_disabled) {
-        $display = false;
-    }
-
-    return $display;
-}

@@ -1,1 +1,6 @@
-!function(n){"use strict";function t(){n(".e-discount-trigger").click((function(){n(this).fadeOut((function(){n(".b-coupon").fadeIn()}))}))}t(),n("body").on("applied_coupon",(function(n,o){setTimeout((function(){t()}),1e3)})),n("body").on("updated_cart_totals",(function(){t()}))}(jQuery);
+/******/ (function() { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	
+/******/ 	
+/******/ })()
+;

@@ -3,7 +3,7 @@
 /**
  *
  */
-class Accesses_Customizer_Register
+class Growtype_Customizer_Accesses_Section
 {
     /**
      * Constructor.
@@ -11,7 +11,6 @@ class Accesses_Customizer_Register
     public function __construct()
     {
         $this->customizer_available_pages = null;
-        $this->customizer_available_products = null;
         $this->customizer_available_roles = null;
 
         add_action('init', array ($this, 'load_required_customizer_content'));
@@ -26,7 +25,6 @@ class Accesses_Customizer_Register
         $customizer_available_data = new Customizer_Available_Data();
 
         $this->customizer_available_pages = $customizer_available_data->get_available_pages();
-        $this->customizer_available_products = $customizer_available_data->get_available_products();
         $this->customizer_available_roles = $customizer_available_data->get_available_roles();
     }
 
@@ -145,71 +143,6 @@ class Accesses_Customizer_Register
                 'section' => 'theme-access'
             )
         ));
-
-        if (class_exists('woocommerce')) {
-            /**
-             * Login redirect
-             */
-            $wp_customize->add_setting('theme_access_user_must_have_products',
-                array (
-                    'default' => 0,
-                    'transport' => 'refresh',
-                )
-            );
-
-            $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'theme_access_user_must_have_products',
-                array (
-                    'label' => esc_html__('User Must Have Products'),
-                    'section' => 'theme-access',
-                    'description' => __('User must have specific products before continuing.', 'growtype'),
-                )
-            ));
-
-            /**
-             * Allow access if user has these products
-             */
-            $wp_customize->add_setting('theme_access_user_must_have_products_list',
-                array (
-                    'default' => '',
-                    'transport' => 'refresh',
-                )
-            );
-
-            $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'theme_access_user_must_have_products_list',
-                array (
-                    'label' => __('Must have products', 'growtype'),
-                    'description' => esc_html__('User must order specific products to proceed. ', 'growtype'),
-                    'section' => 'theme-access',
-                    'input_attrs' => array (
-                        'placeholder' => __('Please select products...', 'growtype'),
-                        'multiselect' => true,
-                    ),
-                    'choices' => $this->customizer_available_products
-                )
-            ));
-
-            /**
-             * Redirect page
-             */
-            $wp_customize->add_setting('theme_access_must_have_products_redirect_page',
-                array (
-                    'default' => '',
-                    'transport' => '',
-                )
-            );
-
-            $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'theme_access_must_have_products_redirect_page',
-                array (
-                    'label' => __('"Must have products" redirect page', 'growtype'),
-                    'description' => esc_html__('Redirect to specific page if user does not have specific products.', 'growtype'),
-                    'section' => 'theme-access',
-                    'input_attrs' => array (
-                        'multiselect' => false,
-                    ),
-                    'choices' => $this->customizer_available_pages
-                )
-            ));
-        }
 
         /**
          * Prevented roles from access
@@ -341,7 +274,9 @@ class Accesses_Customizer_Register
                 'section' => 'theme-access',
             )
         ));
+
+        apply_filters('growtype_theme_access_customizer', $wp_customize, $this->customizer_available_pages, $this->customizer_available_roles);
     }
 }
 
-new Accesses_Customizer_Register();
+new Growtype_Customizer_Accesses_Section();

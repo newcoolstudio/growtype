@@ -31,29 +31,11 @@ mix
     .sass('resources/styles/admin.scss', 'styles', sassOptions)
     .sass('resources/styles/backend-standard-editor.scss', 'styles', sassOptions)
 
-    .sass('resources/styles/plugins/woocommerce/woocommerce.scss', 'styles/plugins/woocommerce', sassOptions)
-    .sass('resources/styles/plugins/acf/acf.scss', 'styles/plugins/acf', sassOptions)
-    .sass('resources/styles/plugins/buddypress/buddypress.scss', 'styles/plugins/buddypress', sassOptions)
-
     .version();
 
 mix
     .js('resources/scripts/app.js', 'scripts')
     .js('resources/scripts/frontend-block-editor.js', 'scripts')
-
-    .js('resources/scripts/plugins/woocommerce/wc-cart.js', 'scripts/plugins/woocommerce')
-    .js('resources/scripts/plugins/woocommerce/wc-main.js', 'scripts/plugins/woocommerce')
-    .js('resources/scripts/plugins/woocommerce/wc-widgets.js', 'scripts/plugins/woocommerce')
-    .js('resources/scripts/plugins/woocommerce/wc-wishlist.js', 'scripts/plugins/woocommerce')
-    .js('resources/scripts/plugins/woocommerce/wc-checkout.js', 'scripts/plugins/woocommerce')
-    .js('resources/scripts/plugins/woocommerce/wc-login.js', 'scripts/plugins/woocommerce')
-    .js('resources/scripts/plugins/woocommerce/wc-coupon.js', 'scripts/plugins/woocommerce')
-
-    .js('resources/scripts/plugins/acf/acf.js', 'scripts/plugins/acf')
-    .js('resources/scripts/plugins/slick-carousel/slick-main.js', 'scripts/plugins/slick-carousel')
-
-    .js('resources/scripts/plugins/buddypress/like.js', 'scripts/plugins/buddypress')
-    .js('resources/scripts/plugins/buddypress/general.js', 'scripts/plugins/buddypress')
 
     .version();
 
@@ -63,8 +45,7 @@ mix
 
 mix
     .scripts(['resources/scripts/plugins/flexmenu/flexmenu.js'], 'public/scripts/plugins/flexmenu/flexmenu.js')
-
-mix
+    .scripts('resources/scripts/plugins/slick-carousel/slick-main.js', 'scripts/plugins/slick-carousel/slick-main.js')
     .scripts(['resources/scripts/plugins/cookie/cookie.js'], 'public/scripts/cookie.js')
 
 mix
