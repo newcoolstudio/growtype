@@ -83,7 +83,7 @@ function growtype_custom_page_redirect()
         exit();
     }
 
-    add_action('growtype_custom_page_redirect');
+    add_action('growtype_custom_page_redirect', 2);
 }
 
 /**

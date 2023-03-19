@@ -11,5 +11,5 @@
     }
     ?>
 
-    <?php do_action('growtype_menu_side'); ?>
+    <?php do_action('growtype_side_nav'); ?>
 </div>

@@ -111,9 +111,6 @@ Main content wrapper
   @include bp-phone-xl-reverse() {
     min-height: 650px;
   }
-  @include bp-phone-xl() {
-    padding-top: 20px;
-  }
 }
 
 .home, .page-template-template-nopadding, .single {
