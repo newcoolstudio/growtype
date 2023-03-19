@@ -3,29 +3,16 @@
 /**
  *
  */
-class Growtype_Customizer_Accesses_Section
+class Growtype_Customizer_Accesses_Section extends Growtype_Customizer
 {
     /**
      * Constructor.
      */
     public function __construct()
     {
-        $this->customizer_available_pages = null;
-        $this->customizer_available_roles = null;
+        parent::__construct();
 
-        add_action('init', array ($this, 'load_required_customizer_content'));
         add_action('customize_register', array ($this, 'customizer_init'));
-    }
-
-    /**
-     * Set required resources
-     */
-    function load_required_customizer_content()
-    {
-        $customizer_available_data = new Customizer_Available_Data();
-
-        $this->customizer_available_pages = $customizer_available_data->get_available_pages();
-        $this->customizer_available_roles = $customizer_available_data->get_available_roles();
     }
 
     /**
@@ -108,7 +95,7 @@ class Growtype_Customizer_Accesses_Section
                     'placeholder' => __('Please select pages...', 'growtype'),
                     'multiselect' => true,
                 ),
-                'choices' => $this->customizer_available_pages
+                'choices' => $this->available_pages
             )
         ));
 
@@ -162,7 +149,7 @@ class Growtype_Customizer_Accesses_Section
                 'input_attrs' => array (
                     'multiselect' => true,
                 ),
-                'choices' => $this->customizer_available_roles
+                'choices' => $this->available_roles
             )
         ));
 
@@ -215,7 +202,7 @@ class Growtype_Customizer_Accesses_Section
                 'input_attrs' => array (
                     'multiselect' => false,
                 ),
-                'choices' => $this->customizer_available_pages
+                'choices' => $this->available_pages
             )
         ));
 
@@ -275,7 +262,7 @@ class Growtype_Customizer_Accesses_Section
             )
         ));
 
-        apply_filters('growtype_theme_access_customizer', $wp_customize, $this->customizer_available_pages, $this->customizer_available_roles);
+        apply_filters('growtype_theme_access_customizer', $wp_customize, $this->available_pages, $this->available_roles);
     }
 }
 

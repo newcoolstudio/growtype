@@ -1,6 +1,3 @@
-@include('partials.sections.intro.post')
 @include('partials.sections.content')
 
-@if(!get_theme_mod('post_single_page_related_posts_disabled'))
-    @include('partials.sections.related-posts')
-@endif
+<?php do_action('growtype_single_post_related_posts'); ?>

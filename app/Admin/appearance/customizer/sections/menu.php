@@ -1,14 +1,13 @@
 <?php
 
-class Menu_Customizer_Extension
+class Menu_Customizer_Extension extends Growtype_Customizer
 {
     /**
      * Constructor.
      */
     public function __construct()
     {
-        $customizer_available_data = new Customizer_Available_Data();
-        $this->customizer_available_pages = $customizer_available_data->get_available_pages();
+        parent::__construct();
 
         add_action('customize_register', array ($this, 'customizer_init'));
     }

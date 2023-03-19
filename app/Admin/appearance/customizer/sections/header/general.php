@@ -130,7 +130,7 @@ $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_cus
             'placeholder' => __('Please select pages...', 'growtype'),
             'multiselect' => true,
         ),
-        'choices' => $this->customizer_available_pages
+        'choices' => $this->available_pages
     )
 ));
 
@@ -171,7 +171,7 @@ $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_cus
             'placeholder' => __('Please select pages...', 'growtype'),
             'multiselect' => true,
         ),
-        'choices' => $this->customizer_available_pages
+        'choices' => $this->available_pages
     )
 ));
 
@@ -212,6 +212,6 @@ $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_cus
             'placeholder' => __('Please select pages...', 'growtype'),
             'multiselect' => true,
         ),
-        'choices' => $this->customizer_available_pages
+        'choices' => $this->available_pages
     )
 ));

@@ -371,14 +371,6 @@ function growtype_customizer_general_css()
 
         <?php } ?>
 
-        <?php if(get_theme_mod('sidebar_shop_position') === 'right'){ ?>
-        #sidebar-shop {
-            float: right;
-            border-width: 0px 0px 0px 1px;
-        }
-
-        <?php } ?>
-
         <?php if(!empty(growtype_get_footer_text_color())){ ?>
         .site-footer, .site-footer a, .site-footer a .dashicons {
             color: <?php echo growtype_get_footer_text_color(); ?>;

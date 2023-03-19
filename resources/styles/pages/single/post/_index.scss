@@ -23,6 +23,10 @@
   }
 }
 
+.content-wrapper + .s-posts-related {
+  margin-top: 40px;
+}
+
 .single-post {
   .content {
     padding-bottom: 40px;

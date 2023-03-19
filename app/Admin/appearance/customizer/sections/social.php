@@ -1,172 +1,180 @@
 <?php
 
-add_action("customize_register", "social_customize_register");
-function social_customize_register($wp_customize)
+class Social_Customizer_Register
 {
-
     /**
-     * Social
+     * Constructor.
      */
-    $wp_customize->add_section('social', array (
-        "title" => __("Social", "growtype"),
-        "priority" => 90,
-    ));
+    public function __construct()
+    {
+        add_action('customize_register', array ($this, 'customizer_init'));
+    }
 
-    /**
-     * Social explanation
-     */
+    function customizer_init($wp_customize)
+    {
+        $wp_customize->add_section('social', array (
+            "title" => __("Social", "growtype"),
+            "priority" => 90,
+        ));
 
-    $wp_customize->add_setting('social_simple_notice',
-        array (
-            'default' => '',
-            'transport' => 'postMessage',
-        )
-    );
+        /**
+         * Social explanation
+         */
 
-    $wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_customize, 'social_simple_notice',
-        array (
-            'label' => __('Social Details'),
-            'description' => __('Below you can change social settings'),
-            'section' => 'social'
-        )
-    ));
+        $wp_customize->add_setting('social_simple_notice',
+            array (
+                'default' => '',
+                'transport' => 'postMessage',
+            )
+        );
 
-    /**
-     * Navbar social icon facebook
-     */
+        $wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_customize, 'social_simple_notice',
+            array (
+                'label' => __('Social Details'),
+                'description' => __('Below you can change social settings'),
+                'section' => 'social'
+            )
+        ));
 
-    $wp_customize->add_setting('header_navbar_social_facebook', array (
-        'capability' => 'edit_theme_options',
-    ));
+        /**
+         * Navbar social icon facebook
+         */
 
-    $wp_customize->add_control('header_navbar_social_facebook', array (
-        'type' => 'checkbox',
-        'section' => 'social',
-        'label' => __('Facebook', 'growtype')
-    ));
+        $wp_customize->add_setting('header_navbar_social_facebook', array (
+            'capability' => 'edit_theme_options',
+        ));
 
-    $wp_customize->add_setting("header_navbar_social_facebook_url", array (
-        "default" => "",
-    ));
+        $wp_customize->add_control('header_navbar_social_facebook', array (
+            'type' => 'checkbox',
+            'section' => 'social',
+            'label' => __('Facebook', 'growtype')
+        ));
 
-    $wp_customize->add_control('header_navbar_social_facebook_url', array ( // setting id
-        'label' => __('Facebook Url', 'growtype'),
-        'section' => 'social',
-        'type' => 'text',
-    ));
+        $wp_customize->add_setting("header_navbar_social_facebook_url", array (
+            "default" => "",
+        ));
 
-    /**
-     * Navbar social icon twitter
-     */
-    $wp_customize->add_setting('header_navbar_social_twitter', array (
-        'capability' => 'edit_theme_options',
-    ));
+        $wp_customize->add_control('header_navbar_social_facebook_url', array ( // setting id
+            'label' => __('Facebook Url', 'growtype'),
+            'section' => 'social',
+            'type' => 'text',
+        ));
 
-    $wp_customize->add_control('header_navbar_social_twitter', array (
-        'type' => 'checkbox',
-        'section' => 'social',
-        'label' => __('Twitter', 'growtype')
-    ));
+        /**
+         * Navbar social icon twitter
+         */
+        $wp_customize->add_setting('header_navbar_social_twitter', array (
+            'capability' => 'edit_theme_options',
+        ));
 
-    $wp_customize->add_setting("header_navbar_social_twitter_url", array (
-        "default" => "",
-    ));
+        $wp_customize->add_control('header_navbar_social_twitter', array (
+            'type' => 'checkbox',
+            'section' => 'social',
+            'label' => __('Twitter', 'growtype')
+        ));
 
-    $wp_customize->add_control('header_navbar_social_twitter_url', array ( // setting id
-        'label' => __('Twitter Url', 'growtype'),
-        'section' => 'social',
-        'type' => 'text',
-    ));
+        $wp_customize->add_setting("header_navbar_social_twitter_url", array (
+            "default" => "",
+        ));
 
-    /**
-     * Navbar social icon instagram
-     */
-    $wp_customize->add_setting('header_navbar_social_instagram', array (
-        'capability' => 'edit_theme_options',
-    ));
+        $wp_customize->add_control('header_navbar_social_twitter_url', array ( // setting id
+            'label' => __('Twitter Url', 'growtype'),
+            'section' => 'social',
+            'type' => 'text',
+        ));
 
-    $wp_customize->add_control('header_navbar_social_instagram', array (
-        'type' => 'checkbox',
-        'section' => 'social',
-        'label' => __('Instagram', 'growtype')
-    ));
+        /**
+         * Navbar social icon instagram
+         */
+        $wp_customize->add_setting('header_navbar_social_instagram', array (
+            'capability' => 'edit_theme_options',
+        ));
 
-    $wp_customize->add_setting("header_navbar_social_instagram_url", array (
-        "default" => "",
-    ));
+        $wp_customize->add_control('header_navbar_social_instagram', array (
+            'type' => 'checkbox',
+            'section' => 'social',
+            'label' => __('Instagram', 'growtype')
+        ));
 
-    $wp_customize->add_control('header_navbar_social_instagram_url', array ( // setting id
-        'label' => __('Instagram Url', 'growtype'),
-        'section' => 'social',
-        'type' => 'text',
-    ));
+        $wp_customize->add_setting("header_navbar_social_instagram_url", array (
+            "default" => "",
+        ));
 
-    /**
-     * Navbar social icon pinterest
-     */
-    $wp_customize->add_setting('header_navbar_social_pinterest', array (
-        'capability' => 'edit_theme_options',
-    ));
+        $wp_customize->add_control('header_navbar_social_instagram_url', array ( // setting id
+            'label' => __('Instagram Url', 'growtype'),
+            'section' => 'social',
+            'type' => 'text',
+        ));
 
-    $wp_customize->add_control('header_navbar_social_pinterest', array (
-        'type' => 'checkbox',
-        'section' => 'social',
-        'label' => __('Pinterest', 'growtype')
-    ));
+        /**
+         * Navbar social icon pinterest
+         */
+        $wp_customize->add_setting('header_navbar_social_pinterest', array (
+            'capability' => 'edit_theme_options',
+        ));
 
-    $wp_customize->add_setting("header_navbar_social_pinterest_url", array (
-        "default" => "",
-    ));
+        $wp_customize->add_control('header_navbar_social_pinterest', array (
+            'type' => 'checkbox',
+            'section' => 'social',
+            'label' => __('Pinterest', 'growtype')
+        ));
 
-    $wp_customize->add_control('header_navbar_social_pinterest_url', array ( // setting id
-        'label' => __('Pinterest Url', 'growtype'),
-        'section' => 'social',
-        'type' => 'text',
-    ));
+        $wp_customize->add_setting("header_navbar_social_pinterest_url", array (
+            "default" => "",
+        ));
 
-    /**
-     * Navbar social icon linkedin
-     */
-    $wp_customize->add_setting('header_navbar_social_linkedin', array (
-        'capability' => 'edit_theme_options',
-    ));
+        $wp_customize->add_control('header_navbar_social_pinterest_url', array ( // setting id
+            'label' => __('Pinterest Url', 'growtype'),
+            'section' => 'social',
+            'type' => 'text',
+        ));
 
-    $wp_customize->add_control('header_navbar_social_linkedin', array (
-        'type' => 'checkbox',
-        'section' => 'social',
-        'label' => __('Linkedin', 'growtype')
-    ));
+        /**
+         * Navbar social icon linkedin
+         */
+        $wp_customize->add_setting('header_navbar_social_linkedin', array (
+            'capability' => 'edit_theme_options',
+        ));
 
-    $wp_customize->add_setting("header_navbar_social_linkedin_url", array (
-        "default" => "",
-    ));
+        $wp_customize->add_control('header_navbar_social_linkedin', array (
+            'type' => 'checkbox',
+            'section' => 'social',
+            'label' => __('Linkedin', 'growtype')
+        ));
 
-    $wp_customize->add_control('header_navbar_social_linkedin_url', array ( // setting id
-        'label' => __('Linkedin Url', 'growtype'),
-        'section' => 'social',
-        'type' => 'text',
-    ));
+        $wp_customize->add_setting("header_navbar_social_linkedin_url", array (
+            "default" => "",
+        ));
 
-    /**
-     * Navbar social icon youtube
-     */
-    $wp_customize->add_setting('header_navbar_social_youtube', array (
-        'capability' => 'edit_theme_options',
-    ));
+        $wp_customize->add_control('header_navbar_social_linkedin_url', array ( // setting id
+            'label' => __('Linkedin Url', 'growtype'),
+            'section' => 'social',
+            'type' => 'text',
+        ));
 
-    $wp_customize->add_control('header_navbar_social_youtube', array (
-        'type' => 'checkbox',
-        'section' => 'social',
-        'label' => __('Youtube', 'growtype')
-    ));
+        /**
+         * Navbar social icon youtube
+         */
+        $wp_customize->add_setting('header_navbar_social_youtube', array (
+            'capability' => 'edit_theme_options',
+        ));
 
-    $wp_customize->add_setting("header_navbar_social_youtube_url", array (
-        "default" => "",
-    ));
+        $wp_customize->add_control('header_navbar_social_youtube', array (
+            'type' => 'checkbox',
+            'section' => 'social',
+            'label' => __('Youtube', 'growtype')
+        ));
 
-    $wp_customize->add_control('header_navbar_social_youtube_url', array ( // setting id
-        'label' => __('Youtube Url', 'growtype'),
-        'section' => 'social',
-        'type' => 'text',
-    ));
+        $wp_customize->add_setting("header_navbar_social_youtube_url", array (
+            "default" => "",
+        ));
+
+        $wp_customize->add_control('header_navbar_social_youtube_url', array ( // setting id
+            'label' => __('Youtube Url', 'growtype'),
+            'section' => 'social',
+            'type' => 'text',
+        ));
+    }
 }
+
+new Social_Customizer_Register();

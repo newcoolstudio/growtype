@@ -45,7 +45,7 @@ mix
 
 mix
     .scripts(['resources/scripts/plugins/flexmenu/flexmenu.js'], 'public/scripts/plugins/flexmenu/flexmenu.js')
-    .scripts('resources/scripts/plugins/slick-carousel/slick-main.js', 'scripts/plugins/slick-carousel/slick-main.js')
+    .scripts(['resources/scripts/plugins/slick-carousel/slick-main.js'], 'public/scripts/plugins/slick-carousel/slick-main.js')
     .scripts(['resources/scripts/plugins/cookie/cookie.js'], 'public/scripts/cookie.js')
 
 mix

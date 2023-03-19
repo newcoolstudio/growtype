@@ -7,15 +7,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <?php
-            if (function_exists('growtype_post_render_all')) {
-                echo growtype_post_render_all(get_posts(), [
-                    'preview_style' => 'basic',
-                    'columns' => 3,
-                    'post_link' => true
-                ]);
-            }
-            ?>
+            <?php do_action('growtype_archive'); ?>
 
             <?php
             wp_link_pages(

@@ -3,7 +3,7 @@
         'name' => 'newcoolstudio/growtype',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '2b0ea302e5de54703eb7806d51106792e1b84114',
+        'reference' => '9a5abc8adb5eb1dcbad2a036cdd7bf6bb95010bc',
         'type' => 'wordpress-theme',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -130,7 +130,7 @@
         'newcoolstudio/growtype' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '2b0ea302e5de54703eb7806d51106792e1b84114',
+            'reference' => '9a5abc8adb5eb1dcbad2a036cdd7bf6bb95010bc',
             'type' => 'wordpress-theme',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

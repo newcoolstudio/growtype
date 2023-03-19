@@ -1,7 +1,20 @@
 <?php
 
-class Customizer_Available_Data
+/**
+ *
+ */
+abstract class Growtype_Customizer
 {
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        $this->available_pages = $this->get_available_pages();
+        $this->available_roles = $this->get_available_roles();
+        $this->available_post_types = $this->get_available_post_types();
+    }
+
     /**
      * Pages
      */
@@ -18,15 +31,6 @@ class Customizer_Available_Data
 
         $customizer_available_pages['lost_password_page'] = 'Lost password page (important: no id)';
         $customizer_available_pages['search_results'] = 'Search results (important: no id)';
-
-        /**
-         * For Growtype_Extended_Cpt
-         */
-        if (class_exists('Growtype_Extended_Cpt')) {
-            foreach (Growtype_Extended_Cpt::get_active_post_types() as $active_post_type) {
-                $customizer_available_pages[$active_post_type['key']] = 'CPT - ' . $active_post_type['label'];
-            }
-        }
 
         /**
          * Posts
@@ -80,3 +84,45 @@ class Customizer_Available_Data
         return $post_types;
     }
 }
+
+/**
+ * Controls
+ */
+include('includes/custom-controls.php');
+
+/**
+ * Styles
+ */
+include('includes/styles-applied.php');
+
+/**
+ * Scripts
+ */
+include('includes/scripts.php');
+
+/**
+ * Colors
+ */
+include('includes/colors.php');
+
+/**
+ *
+ */
+include('sections/header.php');
+
+include('sections/footer.php');
+
+include('sections/social.php');
+
+include('sections/general.php');
+
+include('sections/gdpr.php');
+
+include('sections/fonts.php');
+include('sections/buttons.php');
+include('sections/menu.php');
+
+include('sections/sidebar.php');
+include('sections/panel.php');
+include('sections/accesses.php');
+include('sections/profile.php');

@@ -1,14 +1,13 @@
 <?php
 
-class Header_Customizer_Register
+class Header_Customizer_Register extends Growtype_Customizer
 {
     /**
      * Constructor.
      */
     public function __construct()
     {
-        $customizer_available_data = new Customizer_Available_Data();
-        $this->customizer_available_pages = $customizer_available_data->get_available_pages();
+        parent::__construct();
 
         add_action('customize_register', array ($this, 'customizer_init'));
         add_action('customize_controls_print_styles', array ($this, 'growtype_customizer_header_styles'), 999);

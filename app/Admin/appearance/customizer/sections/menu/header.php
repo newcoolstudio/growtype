@@ -92,7 +92,7 @@ if (!empty($header_menu)) {
                 'placeholder' => __('Please select pages...', 'growtype'),
                 'multiselect' => true,
             ),
-            'choices' => $this->customizer_available_pages,
+            'choices' => $this->available_pages,
             'priority' => 1000000,
         )
     ));

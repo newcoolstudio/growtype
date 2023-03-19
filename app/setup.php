@@ -13,7 +13,7 @@ use Roots\Sage\Template\BladeProvider;
 add_action('wp_enqueue_scripts', function () {
     if (!is_admin()) {
         /**
-         * Local Plugins
+         * Fancybox
          */
         wp_enqueue_script('jquery-fancybox-script', growtype_get_parent_theme_public_path() . '/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.js', ['jquery'], null, true);
         wp_enqueue_style('jquery-fancybox-style', growtype_get_parent_theme_public_path() . '/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.css', false, null);
@@ -49,14 +49,6 @@ add_action('wp_enqueue_scripts', function () {
          * Cookie
          */
         wp_enqueue_script('cookie-script', growtype_get_parent_theme_public_path() . '/scripts/cookie.js', ['jquery'], config('theme.version'), true);
-
-        /**
-         * ACF
-         */
-        if (class_exists('ACF')) {
-            wp_enqueue_style('acf-style', growtype_get_parent_theme_public_path() . '/styles/plugins/acf/acf.css', false, config('theme.version'));
-            wp_enqueue_script('acf-script', growtype_get_parent_theme_public_path() . '/scripts/plugins/acf/acf.js', ['jquery'], config('theme.version'), true);
-        }
 
         /**
          * Flexmenu
@@ -284,7 +276,7 @@ add_action('template_redirect', function () {
     /**
      * Check if user should be redirected to specific url.
      */
-    check_and_apply_custom_page_redirect();
+    growtype_custom_page_redirect();
 
     /**
      * Template redirect

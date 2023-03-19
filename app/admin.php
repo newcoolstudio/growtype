@@ -5,49 +5,49 @@ namespace App;
 /**
  * General
  */
-include('Admin/comments.php');
+include_once 'Admin/comments.php';
 
-include('Admin/mail.php');
+include_once 'Admin/mail.php';
 
-include('Admin/system/system.php');
+include_once 'Admin/system/system.php';
 
 /**
  * Settings
  */
-include('Admin/settings/index.php');
+include_once 'Admin/settings/index.php';
 
 /**
  * Theme settings
  */
-include('Admin/theme-settings/index.php');
+include_once 'Admin/theme-settings/index.php';
 
-include('Admin/roles.php');
-include('Admin/scripts.php');
-include('Admin/dashboard.php');
-include('Admin/editor.php');
+include_once 'Admin/roles.php';
+include_once 'Admin/scripts.php';
+include_once 'Admin/dashboard.php';
+include_once 'Admin/editor.php';
 
-include('Admin/pages.php');
-include('Admin/support.php');
-include('Admin/posts.php');
-include('Admin/gallery.php');
+include_once 'Admin/pages.php';
+include_once 'Admin/support.php';
+include_once 'Admin/posts.php';
+include_once 'Admin/gallery.php';
 
-include('Admin/widgets.php');
-include('Admin/navbar.php');
-include('Admin/menu-main.php');
-include('Admin/media.php');
-include('Admin/login.php');
-include('Admin/columns.php');
-include('Admin/reusable-blocks.php');
-include('Admin/user-profile.php');
-include('Admin/users.php');
+include_once 'Admin/widgets.php';
+include_once 'Admin/navbar.php';
+include_once 'Admin/menu-main.php';
+include_once 'Admin/media.php';
+include_once 'Admin/login.php';
+include_once 'Admin/columns.php';
+include_once 'Admin/reusable-blocks.php';
+include_once 'Admin/user-profile.php';
+include_once 'Admin/users.php';
 
 /**
  * Appearance
  */
-include('Admin/appearance/menu/menu-icon.php');
-include('Admin/appearance/menu/custom-walker.php');
+include_once 'Admin/appearance/menu/menu-icon.php';
+include_once 'Admin/appearance/menu/custom-walker.php';
 
 /**
  * Customizer
  */
-include('Admin/appearance/customizer/customizer.php');
+include_once 'Admin/appearance/customizer/index.php';
