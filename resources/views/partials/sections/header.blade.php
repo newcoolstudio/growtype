@@ -3,6 +3,7 @@
             class="site-header"
             role="site-header"
     >
+            <?php do_action('growtype_header_after_open'); ?>
 
         @if(Growtype_Header::has_promo())
             <div class="b-promo">
@@ -25,11 +26,7 @@
 
         <div class="container">
             <div class="header-inner">
-                @if(get_theme_mod('header_mobile_menu_position') === 'left')
-                    @if(!get_theme_mod('mobile_menu_disabled'))
-                        @include('partials.components.hamburger')
-                    @endif
-                @endif
+                    <?php do_action('growtype_header_inner_after_open'); ?>
 
                 @include('partials.components.logo.header')
 
@@ -59,21 +56,11 @@
                     @include('partials.components.user-profile')
                 @endif
 
-                @if (Growtype_Language::selector())
-                    <li class="language-selector <?php echo Growtype_Language::selector_classes() ?>">
-                            <?php echo qtranxf_generateLanguageSelectCode('text') ?>
-                    </li>
-                @endif
-
-                @if(empty(get_theme_mod('header_mobile_menu_position')) || get_theme_mod('header_mobile_menu_position') === 'right')
-                    @if(!get_theme_mod('mobile_menu_disabled'))
-                        @include('partials.components.hamburger')
-                    @endif
-                @endif
+                    <?php do_action('growtype_header_inner_before_close'); ?>
             </div>
         </div>
 
-            <?php do_action('growtype_header'); ?>
+            <?php do_action('growtype_header_before_close'); ?>
     </header><!-- #masthead -->
 @endif
 

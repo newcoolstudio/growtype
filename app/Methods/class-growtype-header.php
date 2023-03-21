@@ -6,6 +6,26 @@
  */
 class Growtype_Header
 {
+    public function __construct()
+    {
+        add_action('growtype_header_inner_after_open', array ($this, 'growtype_header_inner_after_open_extend'), 10);
+        add_action('growtype_header_inner_before_close', array ($this, 'growtype_header_inner_before_close_extend'), 10);
+    }
+
+    function growtype_header_inner_after_open_extend()
+    {
+        if (get_theme_mod('header_mobile_menu_position') === 'left' && !get_theme_mod('mobile_menu_disabled')) {
+            echo App\template('partials.components.hamburger');
+        }
+    }
+
+    function growtype_header_inner_before_close_extend()
+    {
+        if (!get_theme_mod('mobile_menu_disabled') && (empty(get_theme_mod('header_mobile_menu_position')) || get_theme_mod('header_mobile_menu_position') === 'right')) {
+            echo App\template('partials.components.hamburger');
+        }
+    }
+
     /**
      * @return bool
      */
@@ -39,3 +59,5 @@ class Growtype_Header
         return apply_filters('the_content', get_theme_mod('header_promo_content'));
     }
 }
+
+new Growtype_Header();
