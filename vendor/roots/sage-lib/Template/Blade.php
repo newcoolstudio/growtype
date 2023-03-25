@@ -5,7 +5,7 @@ namespace Roots\Sage\Template;
 use Illuminate\Contracts\Container\Container as ContainerContract;
 use Illuminate\Contracts\View\Factory as FactoryContract;
 use Illuminate\View\Engines\CompilerEngine;
-use Illuminate\View\Engines\EngineInterface;
+use Illuminate\Contracts\View\Engine as EngineInterface;
 use Illuminate\View\ViewFinderInterface;
 
 /**
@@ -23,7 +23,7 @@ use Illuminate\View\ViewFinderInterface;
  */
 class Blade
 {
-    /** @var Factory */
+    /** @var FactoryContract */
     protected $env;
 
     public function __construct(FactoryContract $env)
