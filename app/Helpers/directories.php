@@ -37,7 +37,9 @@ function growtype_get_parent_theme_app_path()
  */
 function growtype_get_child_theme_public_path()
 {
-    return dirname(get_stylesheet_directory_uri()) . '/public';
+    $path = str_contains('resources', get_stylesheet_directory_uri()) ? dirname(get_stylesheet_directory_uri()) : get_stylesheet_directory_uri();
+
+    return $path . '/public';
 }
 
 /**
