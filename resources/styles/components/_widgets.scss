@@ -6,13 +6,16 @@ aside.widget-area > .widget .widget-title {
 }
 
 aside.widget-area > .widget .widget-title:after {
-  background: #5561e2;
+  background: #000000;
 }
 
-aside.widget-area>.widget {
+aside.widget-area > .widget {
   background: white;
   box-shadow: $box-shadow-card;
   padding: 1.5rem;
   margin-bottom: 20px;
   border-radius: $border-radius-card;
+  @include bp-phone-xl() {
+    background: none;
+  }
 }

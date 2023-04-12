@@ -4,7 +4,7 @@
   border-width: 0px 1px 0px 0px;
   border-color: $color-light-grey;
   border-style: solid;
-  width: 30%;
+  width: 27%;
   float: right;
   position: sticky;
   top: 0;
@@ -13,7 +13,7 @@
   }
 
   & + .main {
-    width: 70%;
+    width: 73%;
     float: left;
     margin: 0;
     @include bp-tablet-portrait() {
@@ -44,7 +44,7 @@ aside.widget-area ul li {
 
 aside.widget-area > .widget .widget-title:after {
   content: "";
-  background: #5561e2;
+  background: #000000;
   height: 2px;
   width: 40px;
   position: absolute;

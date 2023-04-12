@@ -15,25 +15,25 @@ $(document).ready(function ($) {
 
     wp.customize("header_logo", function (value) {
         value.bind(function (newval) {
-            update_image(newval, 'header_logo');
+            growtypeCustomizerUpdateImage(newval, 'header_logo');
         });
     });
 
     wp.customize("header_logo_scroll", function (value) {
         value.bind(function (newval) {
-            update_image(newval, 'header_logo_scroll');
+            growtypeCustomizerUpdateImage(newval, 'header_logo_scroll');
         });
     });
 
     wp.customize("header_logo_home", function (value) {
         value.bind(function (newval) {
-            update_image(newval, 'header_logo_home');
+            growtypeCustomizerUpdateImage(newval, 'header_logo_home');
         });
     });
 
     wp.customize("mobile_burger_logo", function (value) {
         value.bind(function (newval) {
-            update_image(newval, 'mobile_burger_logo');
+            growtypeCustomizerUpdateImage(newval, 'mobile_burger_logo');
         });
     });
 
@@ -141,7 +141,7 @@ $(document).ready(function ($) {
 
     wp.customize("footer_logo", function (value) {
         value.bind(function (newval) {
-            update_image(newval, 'footer_logo');
+            growtypeCustomizerUpdateImage(newval, 'footer_logo');
         });
     });
 
@@ -215,23 +215,6 @@ $(document).ready(function ($) {
         });
     });
 
-    wp.customize("add_to_cart_button_background_color", function (value) {
-        value.bind(function (newval) {
-            $('.woocommerce-checkout .woocommerce button.button.alt, .woocommerce div.product form.cart .button, .b-shoppingcart .buttons .btn-primary').css({
-                'background-color': newval,
-                'border-color': newval,
-            });
-        });
-    });
-
-    wp.customize("add_to_cart_button_text_color", function (value) {
-        value.bind(function (newval) {
-            $('.woocommerce-checkout .woocommerce button.button.alt, .woocommerce div.product form.cart .button, .b-shoppingcart .buttons .btn-primary').css({
-                'color': newval,
-            });
-        });
-    });
-
     /**
      * Theme colors
      */
@@ -269,91 +252,6 @@ $(document).ready(function ($) {
             $('body').css({
                 'color': newval
             });
-        });
-    });
-
-    /**
-     * Product page payment details
-     */
-    wp.customize("woocommerce_product_page_payment_details", function (value) {
-        value.bind(function (newval) {
-            $(".single-product .b-paymentdetails").html(newval);
-        });
-    });
-
-    /**
-     * Success page extra content
-     */
-    wp.customize("woocommerce_thankyou_page_intro_content", function (value) {
-        value.bind(function (newval) {
-            $(".woocommerce-order .b-intro-content").html(newval);
-        });
-    });
-
-    /**
-     * Success page extra content
-     */
-    wp.customize("woocommerce_thankyou_page_intro_content_access_platform", function (value) {
-        value.bind(function (newval) {
-            $(".woocommerce-order .b-intro-content").html(newval);
-        });
-    });
-
-    /**
-     * Product single
-     */
-    wp.customize("woocommerce_product_page_sidebar_content", function (value) {
-        value.bind(function (newval) {
-            $(".sidebar-product .sidebar-inner").html(newval);
-        });
-    });
-
-    /**
-     * Wc email
-     */
-    wp.customize("wc_email_customer_invoice_successful_main_content", function (value) {
-        value.bind(function (newval) {
-            var convertedString = replaceBreaksWithParagraphs(newval);
-            convertedString = convertedString.replace(/<[^/>][^>]*><\/[^>]+>/, "");
-            $("#body_content_inner .b-intro").html(convertedString);
-        });
-    });
-
-    wp.customize("wc_email_customer_processing_order_main_content", function (value) {
-        value.bind(function (newval) {
-            var convertedString = replaceBreaksWithParagraphs(newval);
-            convertedString = convertedString.replace(/<[^/>][^>]*><\/[^>]+>/, "");
-            $("#body_content_inner .b-intro").html(convertedString);
-        });
-    });
-
-    wp.customize("wc_email_customer_completed_order_main_content", function (value) {
-        value.bind(function (newval) {
-            var convertedString = replaceBreaksWithParagraphs(newval);
-            convertedString = convertedString.replace(/<[^/>][^>]*><\/[^>]+>/, "");
-            $("#body_content_inner .b-intro").html(convertedString);
-        });
-    });
-
-    /**
-     * Checkout intro
-     */
-    wp.customize("woocommerce_checkout_intro_text", function (value) {
-        value.bind(function (newval) {
-            var convertedString = replaceBreaksWithParagraphs(newval);
-            convertedString = convertedString.replace(/<[^/>][^>]*><\/[^>]+>/, "");
-            $(".woocommerce-checkout-intro").html(newval);
-        });
-    });
-
-    /**
-     * Product preview cta label
-     */
-    wp.customize("woocommerce_product_preview_cta_label", function (value) {
-        value.bind(function (newval) {
-            var convertedString = replaceBreaksWithParagraphs(newval);
-            convertedString = convertedString.replace(/<[^/>][^>]*><\/[^>]+>/, "");
-            $(".products .product .button").text(newval);
         });
     });
 
@@ -402,7 +300,7 @@ $(document).ready(function ($) {
  * @param id
  * @param target_id
  */
-function update_image(id, target_id) {
+function growtypeCustomizerUpdateImage(id, target_id) {
     jQuery.ajax({
         url: ajax_object.ajaxurl,
         type: 'post',

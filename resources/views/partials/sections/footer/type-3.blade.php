@@ -5,11 +5,13 @@
                 @php wp_nav_menu(array('theme_location' => 'footer', 'menu_class' => 'menu menu-column-'.count(get_menu_parent_items('footer')).'', 'menu_id' => 'footer-menu', 'walker' => new Growtype_Nav_Walker())); @endphp
             </div>
         </div>
-        <div class="col-12 col-md-7 col-xl-5">
-            <div class="footer-extra-content">
-                {!! get_theme_mod('footer_extra_content') !!}
+        @if(!empty(growtype_get_footer_extra_content()))
+            <div class="col-12 col-md-7 col-xl-5">
+                <div class="footer-extra-content">
+                    {!! growtype_get_footer_extra_content() !!}
+                </div>
             </div>
-        </div>
+        @endif
     </div>
 
     @if(Growtype_Social::icons_enabled() || !empty(growtype_get_footer_logo()['url']))
@@ -26,7 +28,7 @@
     @endif
 </div>
 <div class="footer-inner-bottom">
-    @if(!empty(get_theme_mod('footer_copyright')) && !get_theme_mod('footer_copyright_disabled'))
+    @if(!empty(get_theme_mod('footer_copyright')) && get_theme_mod('footer_copyright_enabled',true))
         <div id="footer_copyright" class="copyright">
                 <?php echo get_theme_mod('footer_copyright'); ?>
         </div>

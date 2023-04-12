@@ -94,12 +94,3 @@ Container::getInstance()
             'wp' => require dirname(__DIR__) . '/config/wp.php',
         ]);
     }, true);
-
-
-add_action('wp_before_load_template', 'growtype_wc_before_load_template', 101);
-function growtype_wc_before_load_template($template)
-{
-//    if ($template === '/Users/vydi/www/newcool/wp-basic/web/wp/wp-includes/theme-compat/header.php') {
-//        $template = '';
-//    }
-}

@@ -29,14 +29,27 @@ if (!function_exists('growtype_get_footer_text_color')) {
 if (!function_exists('growtype_get_footer_copyright')) {
     function growtype_get_footer_copyright()
     {
-        return get_theme_mod('footer_copyright', '© 2020 Company Name. Trademarks and brands are the property of their respective owners.');
+        $copyright = get_theme_mod('footer_copyright', '© 2020 Company Name. Trademarks and brands are the property of their respective owners.');
+        $copyright = str_replace('{year}', date('Y'), $copyright);
+
+        return $copyright;
     }
 }
 
+/**
+ *
+ */
 if (!function_exists('growtype_get_footer_extra_content')) {
     function growtype_get_footer_extra_content()
     {
-        return get_theme_mod('footer_extra_content');
+        return apply_filters('the_content', get_theme_mod('footer_extra_content'));
+    }
+}
+
+if (!function_exists('growtype_get_footer_credits')) {
+    function growtype_get_footer_credits()
+    {
+        return apply_filters('the_content', get_theme_mod('theme_general_credits_content', 'Created by - newcoolstudio.com'));
     }
 }
 
@@ -46,6 +59,6 @@ if (!function_exists('growtype_get_footer_extra_content')) {
 if (!function_exists('growtype_footer_is_enabled')) {
     function growtype_footer_is_enabled()
     {
-        return !empty(get_theme_mod('footer_is_disabled')) && get_theme_mod('footer_is_disabled') ? false : true;
+        return get_theme_mod('footer_is_enabled', true);
     }
 }

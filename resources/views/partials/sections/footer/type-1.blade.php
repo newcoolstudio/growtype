@@ -33,7 +33,7 @@
 </div>
 
 <div class="footer-inner-bottom">
-    @if(!empty(growtype_get_footer_copyright()) && !get_theme_mod('footer_copyright_disabled'))
+    @if(!empty(growtype_get_footer_copyright()) && get_theme_mod('footer_copyright_enabled',true))
         <div id="footer_copyright" class="copyright">
                 <?php echo growtype_get_footer_copyright() ?>
         </div>

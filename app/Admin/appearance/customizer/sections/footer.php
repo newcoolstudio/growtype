@@ -51,18 +51,18 @@ class Footer_Customizer_Register extends Growtype_Customizer
         /**
          * Footer disabled
          */
-        $wp_customize->add_setting('footer_is_disabled',
+        $wp_customize->add_setting('footer_is_enabled',
             array (
-                'default' => 0,
+                'default' => 1,
                 'transport' => 'refresh',
             )
         );
 
-        $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'footer_is_disabled',
+        $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'footer_is_enabled',
             array (
-                'label' => esc_html__('Disabled'),
+                'label' => esc_html__('Enabled'),
                 'section' => 'footer',
-                'description' => __('Enabled/disabled footer.', 'growtype'),
+                'description' => __('Enable/disable footer.', 'growtype'),
             )
         ));
 
@@ -211,16 +211,16 @@ class Footer_Customizer_Register extends Growtype_Customizer
         /**
          * Footer copyright disabled
          */
-        $wp_customize->add_setting('footer_copyright_disabled',
+        $wp_customize->add_setting('footer_copyright_enabled',
             array (
-                'default' => 0,
+                'default' => 1,
                 'transport' => 'refresh',
             )
         );
 
-        $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'footer_copyright_disabled',
+        $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'footer_copyright_enabled',
             array (
-                'label' => esc_html__('Copyright Disabled'),
+                'label' => esc_html__('Copyright'),
                 'section' => 'footer',
                 'description' => __('Disable copyright section.', 'growtype'),
             )
@@ -254,17 +254,17 @@ class Footer_Customizer_Register extends Growtype_Customizer
         /**
          * CREATED BY
          */
-        $wp_customize->add_setting('theme_general_created_by_notice',
+        $wp_customize->add_setting('theme_general_credits_notice',
             array (
                 'default' => '',
                 'transport' => 'postMessage'
             )
         );
 
-        $wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_customize, 'theme_general_created_by_notice',
+        $wp_customize->add_control(new Skyrocket_Simple_Notice_Custom_control($wp_customize, 'theme_general_credits_notice',
             array (
-                'label' => __('Created by'),
-                'description' => __('Below you can change created by details'),
+                'label' => __('Credits'),
+                'description' => __('Below you can change credits details'),
                 'section' => 'footer'
             )
         ));
@@ -272,14 +272,14 @@ class Footer_Customizer_Register extends Growtype_Customizer
         /**
          * Created by switch
          */
-        $wp_customize->add_setting('theme_general_created_by_enabled',
+        $wp_customize->add_setting('theme_general_credits_enabled',
             array (
-                'default' => 0,
+                'default' => 1,
                 'transport' => 'refresh',
             )
         );
 
-        $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'theme_general_created_by_enabled',
+        $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'theme_general_credits_enabled',
             array (
                 'label' => esc_html__('Enabled'),
                 'section' => 'footer',
@@ -290,15 +290,15 @@ class Footer_Customizer_Register extends Growtype_Customizer
         /**
          * Created by content
          */
-        $wp_customize->add_setting('theme_general_created_by_content',
+        $wp_customize->add_setting('theme_general_credits_content',
             array (
                 'default' => '',
                 'transport' => 'postMessage',
-                'sanitize_callback' => array ($this, 'theme_general_created_by_content_translation')
+                'sanitize_callback' => array ($this, 'theme_general_credits_content_translation')
             )
         );
 
-        $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control($wp_customize, 'theme_general_created_by_content',
+        $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control($wp_customize, 'theme_general_credits_content',
             array (
                 'label' => __('Content'),
                 'description' => __(''),
@@ -330,10 +330,10 @@ class Footer_Customizer_Register extends Growtype_Customizer
      * @param $checked
      * Translate text
      */
-    function theme_general_created_by_content_translation($value)
+    function theme_general_credits_content_translation($value)
     {
         if (class_exists('QTX_Translator')) {
-            $translation = get_theme_mods()["theme_general_created_by_content"];
+            $translation = get_theme_mods()["theme_general_credits_content"];
             return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value);
         }
 

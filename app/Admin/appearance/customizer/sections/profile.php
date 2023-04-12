@@ -13,7 +13,7 @@ class Profile_Customizer_Register
     function customizer_init($wp_customize)
     {
         $wp_customize->add_section('profile', array (
-            "title" => __("Profile", "growtype"),
+            "title" => __("User Profile", "growtype"),
             "priority" => 20,
         ));
 
@@ -44,9 +44,9 @@ class Profile_Customizer_Register
 
         $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'profile_menu_enabled',
             array (
-                'label' => esc_html__('Profile Enabled'),
+                'label' => esc_html__('User Profile Menu'),
                 'section' => 'profile',
-                'description' => __('Enable or disable', 'growtype'),
+                'description' => __('Enable or disable user profile menu', 'growtype'),
             )
         ));
 
