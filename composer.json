@@ -39,10 +39,10 @@
     }
   ],
   "require": {
-    "php": "^7.3||^8.0",
+   "php": "^7.3||^8.0",
     "composer/installers": "~2.0",
     "illuminate/support": "^8.0",
-    "growtype/sage-lib": "dev-main",
+    "roots/sage-lib": "dev-master",
     "soberwp/controller": "~2.1.0"
   },
   "require-dev": {
