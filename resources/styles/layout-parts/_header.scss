@@ -451,6 +451,8 @@ header a:hover {
   display: flex;
   flex-wrap: wrap;
   padding-left: 10px;
+  list-style-type: none;
+  gap: 10px;
   @include bp-phone-xl() {
     padding-left: 5px;
     top: 1px;

@@ -30,7 +30,15 @@
                 @include('partials.components.menu.login')
             @endif
 
-            <?php echo do_action('growtype_menu_mobile'); ?>
+            <?php do_action('growtype_menu_mobile'); ?>
+
+            @if(Growtype_User::account_icon_enabled())
+                <li class="e-profile">
+                    <a href="{!! Growtype_User::account_permalink() !!}">
+                        <i class="icon-profile"></i>
+                    </a>
+                </li>
+            @endif
         </div>
 
     </div>
