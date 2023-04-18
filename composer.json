@@ -42,7 +42,7 @@
     "php": "^7.3||^8.0",
     "composer/installers": "~2.0",
     "illuminate/support": "^8.0",
-    "growtype/sage-lib": "dev-master",
+    "growtype/sage-lib": "dev-main",
     "soberwp/controller": "~2.1.0"
   },
   "require-dev": {
