@@ -16,13 +16,6 @@
     "issues": "https://github.com/roots/sage/issues",
     "forum": "https://discourse.roots.io/"
   },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://wpackagist.org",
-      "only": ["wpackagist-plugin/*", "wpackagist-theme/*"]
-    }
-  ],
   "autoload": {
     "psr-4": {
       "App\\": "app/"
