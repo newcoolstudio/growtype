@@ -6,18 +6,7 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <?php do_action('growtype_archive'); ?>
-
-            <?php
-            wp_link_pages(
-                array (
-                    'before' => '<div class="page-link"><span>' . __('Pages:', 'growtype') . '</span>',
-                    'after' => '</div>',
-                )
-            );
-            ?>
-        </div>
+        <?php do_action('growtype_archive'); ?>
     </div>
 @endsection
 

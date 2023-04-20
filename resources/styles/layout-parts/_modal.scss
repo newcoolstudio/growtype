@@ -28,6 +28,10 @@
     padding: 30px;
     font-size: $font-size-body;
     position: relative;
+    @include bp-phone-xl() {
+      padding-left: $padding-left-container;
+      padding-right: $padding-right-container;
+    }
   }
 
   .content-shadow {

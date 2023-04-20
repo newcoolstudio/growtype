@@ -16,8 +16,17 @@ function headerFixed() {
                 }
             })
 
+            let lastScrollTop = 0;
             $(window).scroll(function () {
                 let scroll = $(window).scrollTop();
+
+                if ($('body').hasClass('header-hide-onscroll')) {
+                    if (scroll > 100 && scroll > lastScrollTop) {
+                        $('.site-header.is-fixed').addClass('hide-onscroll')
+                    } else {
+                        $('.site-header:visible').removeClass('hide-onscroll')
+                    }
+                }
 
                 if (scroll > stickyOffset) {
                     scrollableElement.css('opacity', 0);
@@ -26,6 +35,8 @@ function headerFixed() {
                     scrollableElement.css('opacity', 1);
                     clonedScrollableElement.removeClass("is-fixed").hide();
                 }
+
+                lastScrollTop = scroll;
             });
         });
     }

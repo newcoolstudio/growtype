@@ -99,7 +99,7 @@ function growtype_quick_edit_custom_box($column_name, $post_type, $taxonomy)
 add_filter('wp_insert_post_data', 'growtype_wp_insert_post_data', '99', 1);
 function growtype_wp_insert_post_data($data)
 {
-    if (isset($_POST) && isset($_POST['growtype_excerpt'])) {
+    if (function_exists('growtype_format_translation') && isset($_POST) && isset($_POST['growtype_excerpt'])) {
         $data['post_excerpt'] = growtype_format_translation(qtranxf_getLanguage(), $data['post_excerpt'], $_POST['growtype_excerpt']);
     }
 

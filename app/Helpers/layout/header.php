@@ -98,7 +98,11 @@ if (!function_exists('growtype_mobile_menu_burger_color')) {
     function growtype_mobile_menu_burger_color()
     {
         $colors_scheme = growtype_get_theme_current_colors_scheme();
-        return get_theme_mod('mobile_menu_burger_color', $colors_scheme['mobile_menu_burger_color']);
+
+        return [
+            'pasive' => get_theme_mod('mobile_menu_burger_color', $colors_scheme['mobile_menu_burger_color']),
+            'active' => get_theme_mod('mobile_menu_burger_active_color', $colors_scheme['mobile_menu_burger_active_color'])
+        ];
     }
 }
 

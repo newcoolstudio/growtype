@@ -6,6 +6,12 @@
 
 @section('content')
     <article>
+        <?php do_action('growtype_single_post_back'); ?>
+        <?php do_action('growtype_single_post_title'); ?>
+        <?php do_action('growtype_single_post_taxonomy'); ?>
+        <?php do_action('growtype_single_post_reading_time'); ?>
+        <?php do_action('growtype_single_post_featured_image'); ?>
+        <?php do_action('growtype_single_post_cta'); ?>
         @include('partials.content.content-single')
         @php(comments_template())
     </article>

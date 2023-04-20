@@ -55,7 +55,7 @@ class Profile_Customizer_Register
          */
         $wp_customize->add_setting('user_account_icon_enabled',
             array (
-                'default' => 1,
+                'default' => 0,
                 'transport' => 'refresh',
             )
         );

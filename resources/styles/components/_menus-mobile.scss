@@ -35,6 +35,7 @@ $mobilemenu-color-background: black;
         margin-left: 0;
         padding-left: 0;
         padding-right: 0;
+        text-decoration: none;
       }
     }
   }
@@ -63,7 +64,6 @@ $mobilemenu-color-background: black;
 
   &:before {
     content: '';
-    background: $mobilemenu-color-background;
     position: absolute;
     top: 0;
     bottom: 0;

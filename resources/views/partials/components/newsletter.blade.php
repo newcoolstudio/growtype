@@ -2,7 +2,10 @@
     <style>
         .form-newsletter .form-check {
             margin-top: 20px;
-            margin-bottom: 20px;
+        }
+
+        .form-newsletter button[type="submit"] {
+            margin-top: 20px;
         }
     </style>
 @endpush
@@ -14,10 +17,12 @@
             <input id="newsletter_email" name="newsletter_email" type="email" class="form-control" placeholder="{!! isset($email_placeholder) ? $email_placeholder : __('Your email','growtype') !!}" required>
         </div>
 
-        <div class="form-check">
-            <input id="newsletterTermsAndConditions" type="checkbox" name="terms_and_conditions" class="form-check-input" required>
-            <label class="form-check-label" for="newsletterTermsAndConditions">{!! isset($terms_label) ? $terms_label : __('I agree with terms and conditions','growtype') !!}</label>
-        </div>
+        @if(!isset($terms) || $terms === true)
+            <div class="form-check">
+                <input id="newsletterTermsAndConditions" type="checkbox" name="terms_and_conditions" class="form-check-input" required>
+                <label class="form-check-label" for="newsletterTermsAndConditions">{!! isset($terms_label) ? $terms_label : __('I agree with terms and conditions','growtype') !!}</label>
+            </div>
+        @endif
 
         <button type="submit" class="btn btn-primary">{!! isset($submit_label) ? $submit_label : __('Submit','growtype') !!}</button>
     </div>

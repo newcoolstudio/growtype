@@ -87,13 +87,6 @@ function growtype_customizer_general_css()
 
         <?php } ?>
 
-        <?php if(!empty(growtype_mobile_menu_burger_color())){ ?>
-        .site-header.is-fixed .hamburger-inner, .is-pasive .hamburger-inner {
-            background: <?php echo growtype_mobile_menu_burger_color() ?>;
-        }
-
-        <?php } ?>
-
         <?php if(!empty(growtype_header_scroll_background_color())){ ?>
         .site-header.is-fixed, .home .site-header.is-fixed, .site-header.is-fixed #header-menu .sub-menu {
             background: <?php echo growtype_header_scroll_background_color(); ?>;
@@ -101,27 +94,24 @@ function growtype_customizer_general_css()
 
         <?php } ?>
 
-        <?php if(!empty(get_theme_mod('mobile_menu_bg_color'))){ ?>
-        .main-navigation-mobile-inner {
-            background: <?php echo get_theme_mod('mobile_menu_bg_color') ?>
+        .main-navigation-mobile:before {
+            background: <?php echo get_theme_mod('mobile_menu_bg_color','black') ?>;
         }
-
-        <?php } ?>
 
         <?php if(!empty(get_theme_mod('header_text_color'))){ ?>
         .header-inner, .header-inner a {
-            color: <?php echo get_theme_mod('header_text_color') ?>
-        }
-
-        .hamburger-inner {
-            background: <?php echo get_theme_mod('header_text_color') ?>
+            color: <?php echo get_theme_mod('header_text_color') ?>;
         }
 
         <?php } ?>
 
+        .hamburger-inner {
+            background: <?php echo growtype_mobile_menu_burger_color()['pasive'] ?>;
+        }
+
         <?php if(!empty(get_theme_mod('header_text_color_home'))){ ?>
         .home .header-inner, .home .header-inner a {
-            color: <?php echo get_theme_mod('header_text_color_home') ?>
+            color: <?php echo get_theme_mod('header_text_color_home') ?>;
         }
 
         <?php } ?>

@@ -89,7 +89,7 @@ class Growtype_User
      */
     public static function account_icon_enabled()
     {
-        $status = get_theme_mod('user_account_icon_enabled', true);
+        $status = get_theme_mod('user_account_icon_enabled', false);
 
         return $status ? true : false;
     }

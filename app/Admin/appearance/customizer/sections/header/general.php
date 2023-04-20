@@ -112,6 +112,24 @@ $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_custom
 ));
 
 /**
+ * Header is fixed switch
+ */
+$wp_customize->add_setting('header_hide_on_scroll_down',
+    array (
+        'default' => 0,
+        'transport' => 'refresh',
+    )
+);
+
+$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'header_hide_on_scroll_down',
+    array (
+        'label' => esc_html__('Hide on scroll'),
+        'section' => 'header_general',
+        'description' => __('Hide on scroll down.', 'growtype'),
+    )
+));
+
+/**
  * Header fixed pages
  */
 $wp_customize->add_setting('header_fixed_dropdown_control',

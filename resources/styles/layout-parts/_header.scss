@@ -261,6 +261,10 @@ header a:hover {
   &.is-fixed {
     position: fixed;
   }
+
+  &.hide-onscroll {
+    translate: 0 -100%;
+  }
 }
 
 .menu-header-container {

@@ -13,12 +13,10 @@ function growtype_newsletter_submission()
         'email' => $newsletter_email
     ];
 
-    $response = do_action('growtype_newsletter_submission_save_data', $data);
+    $response = apply_filters('growtype_newsletter_submission_save_data', $data);
 
-    if (empty($response)) {
-        if (class_exists('Flamingo_Contact')) {
-            $response = Flamingo_Contact::add($data);
-        }
+    if (class_exists('Flamingo_Contact')) {
+        $response = Flamingo_Contact::add($data);
     }
 
     if (!empty($response) && !$response) {

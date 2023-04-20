@@ -318,7 +318,7 @@ class Footer_Customizer_Register extends Growtype_Customizer
      */
     function footer_copyright_translation($value)
     {
-        if (class_exists('QTX_Translator')) {
+        if (class_exists('QTX_Translator') && function_exists('growtype_format_translation')) {
             $translation = get_theme_mods()["footer_copyright"];
             return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value);
         }
@@ -332,7 +332,7 @@ class Footer_Customizer_Register extends Growtype_Customizer
      */
     function theme_general_credits_content_translation($value)
     {
-        if (class_exists('QTX_Translator')) {
+        if (class_exists('QTX_Translator') && function_exists('growtype_format_translation')) {
             $translation = get_theme_mods()["theme_general_credits_content"];
             return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value);
         }
@@ -346,7 +346,7 @@ class Footer_Customizer_Register extends Growtype_Customizer
      */
     function footer_extra_content_translation($value)
     {
-        if (class_exists('QTX_Translator')) {
+        if (class_exists('QTX_Translator') && function_exists('growtype_format_translation')) {
             $translation = get_theme_mod('footer_extra_content');
             return growtype_format_translation($_COOKIE['qtrans_front_language'], $translation, $value, true);
         }

@@ -6,7 +6,7 @@
 add_filter('body_class', 'growtype_extend_body_classes');
 function growtype_extend_body_classes($classes)
 {
-    $classes[] = get_theme_mod('header_navbar_switch') == true ? 'has-navbar' : null;
+    $classes[] = get_theme_mod('header_navbar_switch') === true ? 'has-navbar' : null;
     $classes[] = Growtype_Header::is_fixed() === true ? 'has-fixed-header' : 'has-static-header';
     $classes[] = 'header-' . growtype_get_header_type();
     $classes[] = growtype_header_has_extra_space() === true ? 'has-extraspace-header' : null;
@@ -17,6 +17,7 @@ function growtype_extend_body_classes($classes)
     $classes[] = Growtype_Header::is_fixed() ? 'has-fixed-header' : null;
     $classes[] = get_theme_mod('burger_always_visible') ? 'has-always-visible-burger' : null;
     $classes[] = Growtype_Header::has_promo() ? 'has-promo-header' : null;
+    $classes[] = get_theme_mod('header_hide_on_scroll_down') === true ? 'header-hide-onscroll' : null;
 
     if (is_multisite()) {
         $classes[] = Growtype_Site::is_multisite_main_site() ? 'is-main-site' : 'is-child-site';
