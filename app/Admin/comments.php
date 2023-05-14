@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Fully disable comments
+ */
 if (get_option('comments_fully_disabled')) {
     add_action('admin_init', 'df_disable_comments_post_types_support');
     add_filter('comments_open', 'df_disable_comments_status', 20, 2);

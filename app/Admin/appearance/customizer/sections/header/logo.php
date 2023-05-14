@@ -50,6 +50,25 @@ $wp_customize->add_control(new WP_Customize_Media_Control(
 ));
 
 /**
+ * Header logo mobile
+ */
+$wp_customize->add_setting("header_logo_mobile", array (
+    "type" => "theme_mod", // or 'option'
+    "capability" => "edit_theme_options",
+    "transport" => "postMessage",
+    'sanitize_callback' => '',
+    'sanitize_js_callback' => '' // Basically to_json.
+));
+
+$wp_customize->add_control(new WP_Customize_Media_Control(
+    $wp_customize, 'header_logo_mobile',
+    array (
+        'label' => __('Logo - Mobile', 'growtype'),
+        'section' => 'header_logo',
+    )
+));
+
+/**
  * Header scroll logo
  */
 $wp_customize->add_setting("header_logo_scroll", array (

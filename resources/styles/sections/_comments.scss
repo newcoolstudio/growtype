@@ -23,6 +23,10 @@
   @extend .btn-primary;
 }
 
+.s-comments {
+  margin-bottom: 50px;
+}
+
 #comments {
   padding-bottom: 50px;
 }
@@ -251,6 +255,10 @@
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   margin: 0 -10px;
+
+  .logged-in-as {
+    margin-bottom: 20px;
+  }
 }
 
 .comment-respond #comment-form > * {
@@ -267,6 +275,12 @@
 
 .comment-respond #comment-form > .comment-form-comment {
   margin-bottom: 20px;
+}
+
+.comment-form-comment {
+  & + .comment-form-cookies-consent {
+    margin-top: 10px !important;
+  }
 }
 
 .comment-respond #comment-form label {
@@ -310,7 +324,13 @@
 
     label {
       margin-left: 10px;
+      position: relative;
+      top: -2px;
     }
+  }
+
+  .comment-notes {
+    margin-bottom: 15px;
   }
 }
 

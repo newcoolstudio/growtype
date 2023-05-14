@@ -66,3 +66,4 @@
     </header><!-- #masthead -->
 @endif
 
+<?php do_action('growtype_header_after_close'); ?>

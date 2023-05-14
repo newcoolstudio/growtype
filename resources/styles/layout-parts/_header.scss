@@ -11,6 +11,21 @@
     padding-left: 0;
     padding-right: 0;
   }
+
+  &.has-mobile-logo {
+    .mainlogo {
+      @include bp-phone-xl() {
+        display: none!important;
+      }
+    }
+
+    .mainlogo-mobile {
+      display: none;
+      @include bp-phone-xl() {
+        display: block!important;
+      }
+    }
+  }
 }
 
 .mainlogo {

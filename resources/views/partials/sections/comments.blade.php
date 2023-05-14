@@ -1,5 +1,5 @@
 @if(!get_option('comments_fully_disabled'))
-    <section class="s-comments mb-5">
+    <section class="s-comments">
         @php
             if (post_password_required()) {
               return;
@@ -59,13 +59,17 @@
             </div>
         @endif
 
-        @php comment_form(
-		array(
-			'id_form'            => 'comment-form',
-			'title_reply_before' => '<div class="block-title"><h3 id="reply-title" class="comment-reply-title">',
-			'title_reply_after'  => '</h3></div>',
-		)
-	); @endphp
+            <?php
+            comment_form(
+                array (
+                    'id_form' => 'comment-form',
+                    'title_reply_before' => '<div class="block-title"><h3 id="reply-title" class="comment-reply-title">',
+                    'title_reply_after' => '</h3></div>',
+                    'title_reply' => __('Leave a comment', 'growtype'),
+                    'label_submit' => __('Submit', 'growtype'),
+                )
+            );
+            ?>
     </section>
 @endif
 

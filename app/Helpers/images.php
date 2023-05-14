@@ -54,7 +54,7 @@ function growtype_get_footer_logo()
  */
 function growtype_get_header_logo()
 {
-    $logo_url = wp_get_attachment_url(get_theme_mod('header_logo')) ?? '';
+    $logo_url = !empty(get_theme_mod('header_logo')) ? wp_get_attachment_url(get_theme_mod('header_logo')) : null;
 
     if (is_child_theme() && empty($logo_url)) {
         $logo_url = dirname(get_template_directory_uri()) . '/public/images/logo/growtype.svg';
@@ -69,12 +69,25 @@ function growtype_get_header_logo()
 /**
  * @return array
  */
+function growtype_get_header_logo_mobile()
+{
+    $logo_url = !empty(get_theme_mod('header_logo_mobile')) ? wp_get_attachment_url(get_theme_mod('header_logo_mobile')) : null;
+
+    return [
+        'id' => get_theme_mod('header_logo'),
+        'url' => $logo_url
+    ];
+}
+
+/**
+ * @return array
+ */
 function growtype_get_login_logo()
 {
-    $logo_url = wp_get_attachment_url(get_theme_mod('login_logo')) ?? '';
+    $logo_url = !empty(get_theme_mod('login_logo')) ? wp_get_attachment_url(get_theme_mod('login_logo')) : null;
 
     if (empty($logo_url)) {
-        $logo_url = wp_get_attachment_url(get_theme_mod('header_logo')) ?? '';
+        $logo_url = growtype_get_header_logo()['url'];
     }
 
     if (empty($logo_url)) {
@@ -92,7 +105,7 @@ function growtype_get_login_logo()
  */
 function growtype_get_header_logo_scroll()
 {
-    $logo_url = wp_get_attachment_url(get_theme_mod('header_logo_scroll')) ?? '';
+    $logo_url = !empty(get_theme_mod('header_logo_scroll')) ? wp_get_attachment_url(get_theme_mod('header_logo_scroll')) : null;
 
     if (is_child_theme() && empty($logo_url)) {
         $logo_url = growtype_get_header_logo()['url'];
@@ -109,12 +122,10 @@ function growtype_get_header_logo_scroll()
  */
 function growtype_get_home_page_header_logo()
 {
-    $logo_url = get_theme_mod('header_logo_home') ? wp_get_attachment_url(get_theme_mod('header_logo_home')) : null;
+    $logo_url = !empty(get_theme_mod('header_logo_home')) ? wp_get_attachment_url(get_theme_mod('header_logo_home')) : null;
 
     if (empty($logo_url)) {
-        $logo_url = get_theme_mod('header_logo') ?
-            wp_get_attachment_url(get_theme_mod('header_logo')) :
-            dirname(get_template_directory_uri()) . '/public/images/logo/growtype.svg';
+        $logo_url = !empty(growtype_get_header_logo()['url']) ? growtype_get_header_logo()['url'] : growtype_get_parent_theme_public_path() . '/images/logo/growtype.svg';
     }
 
     return [
@@ -128,7 +139,7 @@ function growtype_get_home_page_header_logo()
  */
 function growtype_get_mobile_menu_logo()
 {
-    $logo_url = get_theme_mod('mobile_burger_logo') ? wp_get_attachment_url(get_theme_mod('mobile_burger_logo')) : null;
+    $logo_url = !empty(get_theme_mod('mobile_burger_logo')) ? wp_get_attachment_url(get_theme_mod('mobile_burger_logo')) : null;
 
     if (empty($logo_url)) {
         return null;
@@ -145,7 +156,7 @@ function growtype_get_mobile_menu_logo()
  */
 function growtype_get_panel_logo()
 {
-    $logo_url = get_theme_mod('panel_logo') ? wp_get_attachment_url(get_theme_mod('panel_logo')) : null;
+    $logo_url = !empty(get_theme_mod('panel_logo')) ? wp_get_attachment_url(get_theme_mod('panel_logo')) : null;
 
     return [
         'id' => get_theme_mod('panel_logo'),
