@@ -12,6 +12,15 @@ function panelBg() {
         $(window).on("load resize", function () {
             setPanelHeight();
         })
+
+        /**
+         * ResizeSensor plugin
+         */
+        if (typeof window['ResizeSensor'] !== "undefined") {
+            new ResizeSensor(jQuery('body'), function () {
+                setPanelHeight();
+            });
+        }
     }
 
     function setPanelHeight() {
@@ -19,8 +28,8 @@ function panelBg() {
         if ($('#site-footer').length > 0) {
             panelHeight = panelHeight - $('#site-footer').height()
         }
-        if($(window).width() > 992){
-          panelBackground.height(panelHeight)
+        if ($(window).width() > 992) {
+            panelBackground.height(panelHeight)
         }
     }
 }

@@ -1,4 +1,4 @@
-<div id="site-navigation-mobile" class="main-navigation-mobile main-navigation-mobile-{{get_theme_mod('header_mobile_menu_style')}} main-navigation-mobile-animation-{{get_theme_mod('header_mobile_menu_animation')}}" role="navigation">
+<div id="site-navigation-mobile" class="main-navigation-mobile main-navigation-mobile-{{get_theme_mod('header_mobile_menu_style')}} main-navigation-mobile-animation-{{get_theme_mod('header_mobile_menu_animation')}} {!! get_theme_mod('menu_item_parent_disabled', false) ? 'menu-item-parent-disabled' : 'menu-item-parent-enabled' !!}" role="navigation">
     <div class="main-navigation-mobile-inner">
 
         <div class="main-navigation-mobile-top">

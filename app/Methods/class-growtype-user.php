@@ -6,18 +6,6 @@
 class Growtype_User
 {
     /**
-     * @param $user_id
-     * @return void
-     * User has bought products
-     */
-    public static function is_paying_customer($user_id = null)
-    {
-        $user_id = !empty($user_id) ? $user_id : get_current_user_id();
-
-        return get_user_meta($user_id, 'paying_customer', true) == true ? true : false;
-    }
-
-    /**
      * @return array
      */
     public static function meta_details($filtered = true)
@@ -131,13 +119,7 @@ class Growtype_User
     public static function account_permalink()
     {
         $permalink = get_theme_mod('user_account_permalink');
-
-        /**
-         * Check if user can access platform
-         */
-        if (empty($permalink) && class_exists('woocommerce')) {
-            $permalink = wc_get_page_permalink('myaccount');
-        }
+        $permalink = apply_filters('growtype_user_account_permalink', $permalink);
 
         return $permalink;
     }

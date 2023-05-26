@@ -268,5 +268,3 @@ class Growtype_Admin_Theme_Settings_Extra_Scripts
         echo wp_unslash($meta);
     }
 }
-
-new Growtype_Admin_Theme_Settings_Extra_Scripts();

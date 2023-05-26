@@ -43,10 +43,19 @@ class Growtype_Admin_Theme_Settings
     public function load_submenu()
     {
         include_once('mail/index.php');
+        new Growtype_Admin_Theme_Settings_Mail();
+
         include_once('system/index.php');
+        new Growtype_Admin_Theme_Settings_System();
+
         include_once('editor/index.php');
-        include_once('plugin/index.php');
+        new Growtype_Admin_Theme_Settings_Editor();
+
+        include_once('admin/index.php');
+        new Growtype_Admin_Theme_Settings_Admin();
+
         include_once('extra-scripts/index.php');
+        new Growtype_Admin_Theme_Settings_Extra_Scripts();
     }
 }
 

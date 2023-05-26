@@ -158,14 +158,12 @@ function page_is_among_enabled_pages($enabled_pages)
 
     $enabled_pages = explode(",", $enabled_pages);
 
-    $page_enabled = false;
-
     /**
      * Check if exists among enabled pages
      */
 
-    if (!empty($page_id)) {
-        return in_array($page_id, $enabled_pages);
+    if (!empty($page_id) && in_array($page_id, $enabled_pages)) {
+        return true;
     }
 
     /**

@@ -47,6 +47,7 @@ mix
     .scripts(['resources/scripts/plugins/flexmenu/flexmenu.js'], 'public/scripts/plugins/flexmenu/flexmenu.js')
     .scripts(['resources/scripts/plugins/slick-carousel/slick-main.js'], 'public/scripts/plugins/slick-carousel/slick-main.js')
     .scripts(['resources/scripts/plugins/cookie/cookie.js'], 'public/scripts/cookie.js')
+    .scripts(['resources/scripts/plugins/resize/resize-sensor.js'], 'public/scripts/plugins/resize/resize-sensor.js')
 
 mix
     .copyDirectory('resources/images', 'public/images')

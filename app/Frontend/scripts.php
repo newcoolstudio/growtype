@@ -52,6 +52,11 @@ add_action('wp_enqueue_scripts', function () {
         wp_enqueue_script('flexmenu-script', growtype_get_parent_theme_public_path() . '/scripts/plugins/flexmenu/flexmenu.js', ['jquery'], config('theme.version'), true);
 
         /**
+         * Resize
+         */
+        wp_enqueue_script('resize-script', growtype_get_parent_theme_public_path() . '/scripts/plugins/resize/resize-sensor.js', ['jquery'], config('theme.version'), true);
+
+        /**
          * Font awesome
          */
         wp_enqueue_style('growtype-font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css', false, config('theme.version'));

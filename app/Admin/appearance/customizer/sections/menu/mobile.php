@@ -54,7 +54,7 @@ $wp_customize->add_setting('mobile_menu_disabled',
 
 $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'mobile_menu_disabled',
     array (
-        'label' => esc_html__('Menu is disabled'),
+        'label' => esc_html__('Menu Is Disabled'),
         'section' => $mobile_menu_section,
         'description' => __('Enable or disable', 'growtype'),
         'priority' => 1000000,
@@ -76,6 +76,25 @@ $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_custom
         'label' => esc_html__('Burger Always Visible'),
         'section' => $mobile_menu_section,
         'description' => __('Enable or disable', 'growtype'),
+        'priority' => 1000000,
+    )
+));
+
+/**
+ * Menu always visible
+ */
+$wp_customize->add_setting('menu_item_parent_disabled',
+    array (
+        'default' => 0,
+        'transport' => 'refresh',
+    )
+);
+
+$wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'menu_item_parent_disabled',
+    array (
+        'label' => esc_html__('Parent Disabled'),
+        'section' => $mobile_menu_section,
+        'description' => __('Parent menu item disabled', 'growtype'),
         'priority' => 1000000,
     )
 ));

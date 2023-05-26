@@ -6,6 +6,13 @@ body {
   overflow-x: hidden;
 }
 
+/**
+Stop scroll
+ */
+html.stopscroll, body.stopscroll {
+  overflow: hidden;
+}
+
 body {
   .main {
     margin-top: 0;

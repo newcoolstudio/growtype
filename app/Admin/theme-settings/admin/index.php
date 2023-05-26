@@ -1,6 +1,6 @@
 <?php
 
-class Growtype_Admin_Theme_Settings_System
+class Growtype_Admin_Theme_Settings_Admin
 {
     public function __construct()
     {
@@ -13,10 +13,10 @@ class Growtype_Admin_Theme_Settings_System
     {
         add_submenu_page(
             'growtype-theme-settings',
-            __('System', 'growtype'),
-            __('System', 'growtype'),
+            __('Admin', 'growtype'),
+            __('Admin', 'growtype'),
             'manage_options',
-            'growtype-system-settings',
+            'growtype-admin-settings',
             array (__CLASS__, 'menu_page'),
             1
         );
@@ -41,40 +41,37 @@ class Growtype_Admin_Theme_Settings_System
 
     public function admin_settings()
     {
-        /**
-         * Framework
-         */
         add_settings_section(
-            'framework_options_settings', // section ID
-            'Framework', // title (if needed)
+            'admin_options_settings', // section ID
+            'Columns', // title (if needed)
             '', // callback function (if needed)
-            'growtype-system-settings' // page slug
+            'growtype-admin-settings' // page slug
         );
 
         /**
-         * Indexing notice
+         * Gutenberg block editor
          */
         register_setting(
-            'framework_options_settings', // settings group name
-            'bedrock_indexing_notice_enabled', // option name
+            'admin_options_settings', // settings group name
+            'admin_excerpt_enabled', // option name
             'sanitize_text_field' // sanitization function
         );
 
         add_settings_field(
-            'bedrock_indexing_notice_enabled',
-            'Bedrock Indexing Notice Visible',
-            array ($this, 'bedrock_indexing_notice_enabled_callback'),
-            'growtype-system-settings',
-            'framework_options_settings'
+            'admin_excerpt_enabled',
+            'Excerpt column enabled',
+            array ($this, 'admin_excerpt_enabled_callback'),
+            'growtype-admin-settings',
+            'admin_options_settings'
         );
     }
 
     /**
-     * Bedrock status checkbox
+     * Gutenberg block editor
      */
-    function bedrock_indexing_notice_enabled_callback()
+    function admin_excerpt_enabled_callback()
     {
-        $html = '<input type="checkbox" name="bedrock_indexing_notice_enabled" value="1" ' . checked(1, get_option('bedrock_indexing_notice_enabled'), false) . ' />';
+        $html = '<input type="checkbox" name="admin_excerpt_enabled" value="1" ' . checked(1, get_option('admin_excerpt_enabled', false), false) . ' />';
         echo $html;
     }
 }

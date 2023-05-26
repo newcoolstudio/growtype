@@ -26,7 +26,7 @@
     {{--Sidebar--}}
     @yield('sidebar')
 
-    <main id="main" @php post_class('main') @endphp role="main">
+    <main id="main" class="<?php echo growtype_get_main_container_classes() ?>" role="main">
         {{--Search--}}
         @include('partials.components.search.index')
 

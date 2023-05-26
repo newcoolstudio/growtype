@@ -12,7 +12,9 @@ function growtype_manage_posts_columns($columns)
         $columns['slug'] = __('Slug');
     }
 
-    $columns['growtype_excerpt'] = __('Excerpt');
+    if (get_option('admin_excerpt_enabled', false)) {
+        $columns['growtype_excerpt'] = __('Excerpt');
+    }
 
     return $columns;
 }

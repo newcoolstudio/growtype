@@ -101,5 +101,3 @@ class Growtype_Admin_Theme_Settings_Mail
         echo $html;
     }
 }
-
-new Growtype_Admin_Theme_Settings_Mail();

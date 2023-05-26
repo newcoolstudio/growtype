@@ -47,15 +47,15 @@ class Growtype_Page
     /**
      * @return string
      */
-    public static function title_formatted()
+    public static function title_formatted($text)
     {
-        return "<h2 class='page-title'>" . self::title() . "</h2>";
+        return "<h2 class='page-title'>" . $text . "</h2>";
     }
 
     /**
      * @return string
      */
-    public static function title_render()
+    public static function title_render($page_title = '')
     {
         $header_page_title_enabled = get_theme_mod('header_page_title_enabled');
 
@@ -63,11 +63,13 @@ class Growtype_Page
             $header_page_title_pages = get_theme_mod('header_page_title_pages');
 
             if (page_is_among_enabled_pages($header_page_title_pages)) {
-                return self::title_formatted();
+                $page_title = self::title_formatted(self::title());
             }
         }
 
-        return '';
+        $page_title = apply_filters('growtype_page_title', $page_title);
+
+        return $page_title;
     }
 
     /**

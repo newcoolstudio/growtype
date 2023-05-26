@@ -231,5 +231,3 @@ class Growtype_Admin_Theme_Settings_Editor
         echo $html;
     }
 }
-
-new Growtype_Admin_Theme_Settings_Editor();
