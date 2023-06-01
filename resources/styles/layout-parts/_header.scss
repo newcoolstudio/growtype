@@ -15,14 +15,14 @@
   &.has-mobile-logo {
     .mainlogo {
       @include bp-phone-xl() {
-        display: none!important;
+        display: none !important;
       }
     }
 
     .mainlogo-mobile {
       display: none;
       @include bp-phone-xl() {
-        display: block!important;
+        display: block !important;
       }
     }
   }
@@ -573,6 +573,7 @@ header a:hover {
     a {
       padding-left: 40px;
       padding-right: 40px;
+      text-decoration: none;
     }
   }
 }

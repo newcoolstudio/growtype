@@ -1,8 +1,8 @@
-function panelBg() {
+function panel() {
+    let panel = $('.panel');
     let panelBackground = $('.panel .panel-bg');
 
-    if (panelBackground.length > 0) {
-
+    if (panel.length > 0) {
         document.addEventListener('filterProductsByOrder', function () {
             setTimeout(function () {
                 setPanelHeight();
@@ -21,6 +21,25 @@ function panelBg() {
                 setPanelHeight();
             });
         }
+
+        /**
+         * Panel open
+         */
+        $('.btn-panel-open').click(function () {
+            $('.panel-area').addClass('is-active');
+        });
+
+        $('.btn-panel-close').click(function () {
+            $('.panel-area').removeClass('is-active');
+        });
+
+        $('.panel-area').click(function () {
+            $('.panel-area').removeClass('is-active');
+        });
+
+        $('.panel-area .panel-inner').click(function () {
+            event.stopPropagation()
+        });
     }
 
     function setPanelHeight() {
@@ -34,4 +53,4 @@ function panelBg() {
     }
 }
 
-export {panelBg};
+export {panel};

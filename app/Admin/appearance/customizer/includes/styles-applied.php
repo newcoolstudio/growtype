@@ -94,7 +94,8 @@ function growtype_customizer_general_css()
 
         <?php } ?>
 
-        .main-navigation-mobile:before {
+        .main-navigation-mobile:before,
+        .main-navigation-mobile-type-3 .main-navigation-mobile-inner {
             background: <?php echo get_theme_mod('mobile_menu_bg_color','black') ?>;
         }
 
@@ -121,6 +122,8 @@ function growtype_customizer_general_css()
         .main-navigation-mobile-type-2 .menu-item-has-children:before,
         .site-header.is-fixed .menu-mobile-container .menu li a,
         .main-navigation-mobile .menu-extra li a,
+        .main-navigation-mobile-type-2 .menu li a,
+        .main-navigation-mobile-type-3 .menu li a,
         .menu-mobile-container .menu li a {
             color: <?php echo get_theme_mod('mobile_menu_text_color') ?>;
         }

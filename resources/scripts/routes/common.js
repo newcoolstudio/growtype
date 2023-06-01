@@ -1,7 +1,7 @@
 import "../autoload/bootstrap.js";
 
 import {headerFixed} from "../components/header-fixed";
-import {panelBg} from "../components/panel-bg";
+import {panel} from "../components/panel";
 import {notice} from "../components/notice";
 import {menu} from "../components/menu";
 import {menuBurger} from "../components/menu-burger";
@@ -20,7 +20,7 @@ export default {
     init() {
         select();
         headerFixed();
-        panelBg();
+        panel();
         notice();
         menu();
         menuBurger();

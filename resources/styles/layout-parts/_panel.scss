@@ -107,6 +107,63 @@
   z-index: 98;
   margin-top: -90px;
   position: relative;
+  @include bp-tablet() {
+    position: fixed;
+    left: 0;
+    top: 0;
+    min-width: 290px;
+    bottom: 0;
+    height: 100%;
+    margin: 0;
+    transform: translate(-100%);
+    transition: all 0.5s;
+  }
+
+  &.is-active {
+    transform: translate(0);
+    transition: all 0.5s;
+    background: hsl(0deg 0% 100% / 50%);
+
+    .btn-panel-close {
+      display: flex;
+    }
+  }
+
+  .btn-panel-close {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    right: -61px;
+    top: 0;
+    background: white;
+    align-items: center;
+    display: none;
+
+    &:before {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f00d";
+      font-size: 28px;
+      margin: auto;
+    }
+  }
+
+  .panel-inner {
+    border-right: 1px solid #e4e4e4;
+    max-width: 300px;
+    position: relative;
+    height: 100%;
+    @include bp-tablet() {
+      left: 0;
+      top: 0;
+      min-width: 290px;
+      background: white;
+      bottom: 0;
+      height: 100%;
+      margin: 0;
+      width: 80%;
+    }
+  }
 
   .panel-bg {
     position: absolute;
@@ -114,18 +171,10 @@
     left: 0;
     right: 0;
     min-height: 100vh;
-    border-right: 1px solid $color-border;
   }
 
   @include bp-tablet() {
-    width: 28%;
-  }
-  @include bp-tablet-portrait() {
-    width: 35%;
-  }
-  @include bp-phone-xl() {
     width: 100%;
-    display: none;
   }
 
   & + .main {
@@ -313,6 +362,7 @@
           padding: 15px 25px;
           border-radius: 8px;
           font-weight: bold;
+          text-decoration: none;
 
           .dashicons {
             position: relative;
@@ -410,9 +460,10 @@
 
       a {
         padding-bottom: 10px;
+        font-size: 14px;
 
         span {
-          margin-right: 10px;
+          margin-right: 5px;
         }
       }
     }
@@ -430,7 +481,25 @@
     }
 
     .b-support-content-image {
-      max-width: 80px;
+      max-width: 70px;
     }
+  }
+}
+
+.btn-panel-open {
+  display: none;
+  @include bp-tablet() {
+    display: block;
+  }
+
+  svg {
+    height: 35px;
+    width: 35px;
+  }
+}
+
+.header-inner {
+  .btn-panel-open {
+    margin-right: auto;
   }
 }

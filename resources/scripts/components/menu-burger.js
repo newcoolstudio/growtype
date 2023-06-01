@@ -1,6 +1,6 @@
 function menuBurger() {
     let menuWasClicked = false;
-    $('.hamburger').on('click', function () {
+    $('.btn-menu-mobile').on('click', function () {
         if (menuWasClicked == false) {
             menuWasClicked = true;
             setTimeout(function () {
@@ -29,7 +29,7 @@ function menuBurger() {
     });
 
     window.burgerClose = function () {
-        $('.hamburger').addClass('is-pasive').removeClass('is-active');
+        $('.btn-menu-mobile').addClass('is-pasive').removeClass('is-active');
         $('body, html').removeClass('burger-open');
         $('body, html').removeClass('stopscroll');
         $('.main-navigation-mobile').removeClass('is-active').addClass('is-pasive').fadeOut();
@@ -37,7 +37,7 @@ function menuBurger() {
     }
 
     window.burgerOpen = function () {
-        $('.hamburger').removeClass('is-pasive').addClass('is-active');
+        $('.btn-menu-mobile').removeClass('is-pasive').addClass('is-active');
         $('body, html').addClass('stopscroll');
         $('body, html').addClass('burger-open');
 
