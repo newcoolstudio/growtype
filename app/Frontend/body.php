@@ -10,7 +10,7 @@ function growtype_extend_body_classes($classes)
     $classes[] = Growtype_Header::is_fixed() === true ? 'has-fixed-header' : 'has-static-header';
     $classes[] = 'header-' . growtype_get_header_type();
     $classes[] = growtype_header_has_extra_space() === true ? 'has-extraspace-header' : null;
-    $classes[] = display_panel() ? 'has-panel' : null;
+    $classes[] = growtype_display_panel() ? 'has-panel' : null;
     $classes[] = display_sidebar_primary() ? 'has-sidebar-primary' : null;
     $classes[] = function_exists('growtype_post_is_front_post') && growtype_post_is_front_post() ? 'is-front-post' : null;
     $classes[] = growtype_header_is_absolute() ? 'has-absolute-header' : null;

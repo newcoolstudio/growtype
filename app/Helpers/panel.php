@@ -4,7 +4,7 @@
  * Determine whether to show the sidebar
  * @return bool
  */
-function display_panel($display = false)
+function growtype_display_panel()
 {
     $panel_enabled = !empty(get_theme_mod('panel_is_enabled')) ? get_theme_mod('panel_is_enabled') : false;
     $panel_enabled_pages = get_theme_mod('panel_enabled_pages');

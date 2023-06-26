@@ -19,7 +19,7 @@
     @include('partials.components.alert.index')
 
     {{--User panel--}}
-    @if(display_panel())
+    @if(growtype_display_panel())
         @yield('panel')
     @endif
 
