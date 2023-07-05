@@ -365,8 +365,16 @@ function growtype_customizer_general_css()
         <?php } ?>
 
         <?php if(!empty(growtype_get_footer_text_color())){ ?>
-        .site-footer, .site-footer a, .site-footer a .dashicons {
+        .site-footer, .site-footer a,
+        .site-footer a .dashicons {
             color: <?php echo growtype_get_footer_text_color(); ?>;
+        }
+
+        <?php } ?>
+
+        <?php if(!empty(growtype_get_footer_text_color())){ ?>
+        .site-footer li a + .sub-menu {
+            border-color: <?php echo growtype_get_footer_text_color(); ?>;
         }
 
         <?php } ?>

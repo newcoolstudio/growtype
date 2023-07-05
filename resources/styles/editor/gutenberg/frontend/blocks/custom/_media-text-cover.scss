@@ -6,6 +6,8 @@
     position: relative;
     height: 100%;
     width: 100%;
+    overflow: hidden;
+    min-height: 100px;
 
     .wp-block-media-text__media {
       &:before {
@@ -23,22 +25,28 @@
       a {
         height: 100%;
         width: 100%;
-        padding-top: 100%;
         position: absolute;
         left: 0;
         right: 0;
         top: 0;
         bottom: 0;
         z-index: 1;
+        opacity: 1;
+        transition: all 0.5s;
+
+        &:hover {
+          opacity: 0.9;
+          transition: all 0.5s;
+        }
       }
     }
 
     .wp-block-media-text__media, .wp-block-media-text__content {
       margin: 0;
+      position: relative;
     }
 
     .wp-block-media-text__content {
-      @include position-absolute;
       display: flex;
       z-index: 1;
       padding: 25px;

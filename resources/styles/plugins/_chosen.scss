@@ -21,7 +21,7 @@
 .chosen-container-multi .chosen-choices {
   border-radius: 0 !important;
   background: white !important;
-  height: 42px !important;
+  height: initial !important;
   border: 1px solid $border-color-input;
   box-shadow: none;
 
@@ -34,6 +34,6 @@
 
   li.search-choice {
     min-height: 31px;
-    padding-top: 7px!important;
+    padding-top: 7px !important;
   }
 }
