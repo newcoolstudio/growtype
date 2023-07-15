@@ -4,7 +4,7 @@
     </div>
     <div class="alert-actions">
         @if(get_theme_mod('growtype_gdpr_alert_agree_btn_enabled'))
-            <button type="button" class="btn btn-primary" data-bs-dismiss="alert" aria-label="Close">{!! get_theme_mod('growtype_gdpr_alert_agree_btn_text') !!}</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="alert" aria-label="Close">{!! get_theme_mod('growtype_gdpr_alert_agree_btn_text', __('Close and accept','growtype')) !!}</button>
         @endif
     </div>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

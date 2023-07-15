@@ -27,10 +27,10 @@ function growtype_get_primary_font_regular_weight()
     $regularWeight = growtype_get_font_details('primary_font')->regularweight;
 
     $font_weight = [
-        'regular' => 500
+        'regular' => 400
     ];
 
-    return $font_weight[$regularWeight] ?? 500;
+    return isset($font_weight[$regularWeight]) ? $font_weight[$regularWeight] : 400;
 }
 
 /**

@@ -37,7 +37,6 @@ input[type=submit] {
   cursor: pointer;
   text-align: $text-align-btn;
   border-radius: $border-radius-btn;
-  font-weight: bold;
 
   &:hover {
     @include bp-phone-xl-reverse() {

@@ -161,6 +161,20 @@ $mobilemenu-color-background: black;
   padding-right: $padding-right-container;
   padding-left: $padding-left-container;
 
+  .e-profile {
+    text-decoration: none;
+    list-style-type: none;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+
+    a {
+      i {
+        color: white;
+      }
+    }
+  }
+
   .menu-login-menu-container {
     display: block;
     position: relative;

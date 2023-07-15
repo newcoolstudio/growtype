@@ -13,7 +13,9 @@
 <form class="form-newsletter" action="{!! isset($action) ? $action : '' !!}" method="post">
     <div class="form-newsletter-content">
         <div class="input-wrapper">
-            <label for="newsletter_email" class="form-label">{!! __('Email','growtype') !!}</label>
+            @if(!isset($email_label) || !empty($email_label))
+                <label for="newsletter_email" class="form-label">{!! empty($email_label) ? __('Email','growtype') : $email_label !!}</label>
+            @endif
             <input id="newsletter_email" name="newsletter_email" type="email" class="form-control" placeholder="{!! isset($email_placeholder) ? $email_placeholder : __('Your email','growtype') !!}" required>
         </div>
 

@@ -42,7 +42,7 @@ if (!function_exists('growtype_get_footer_copyright')) {
 if (!function_exists('growtype_get_footer_extra_content')) {
     function growtype_get_footer_extra_content()
     {
-        return get_theme_mod('footer_extra_content');
+        return apply_filters('the_content', get_theme_mod('footer_extra_content'));
     }
 }
 

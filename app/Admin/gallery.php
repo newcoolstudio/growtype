@@ -26,16 +26,11 @@ function add_responsive_class($content)
 }
 
 /**
- * Remove default wordpress gallery shortcode
+ * Replace default wordpress gallery shortcode
  */
 remove_shortcode('gallery', 'gallery_shortcode');
-
-/**
- * Add custom gallery shortcode
- */
-add_shortcode('gallery', 'custom_gallery_shortcode');
-
-function custom_gallery_shortcode($attr)
+add_shortcode('gallery', 'growtype_gallery_shortcode');
+function growtype_gallery_shortcode($attr)
 {
     $post = get_post();
     static $instanceId = 0;

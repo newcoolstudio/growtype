@@ -315,13 +315,16 @@
     padding: 0;
     border-bottom: 1px solid #fff;
     width: 100%;
-    font-size: $font-size-body;
     line-height: 22px;
   }
 
   p {
     margin-bottom: 5px;
     padding: 0;
+
+    br {
+      display: none;
+    }
   }
 
   p:empty {

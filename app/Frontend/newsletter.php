@@ -1,6 +1,17 @@
 <?php
 
 /**
+ * Newsletter shortcode
+ */
+add_shortcode('growtype_newsletter', 'growtype_newsletter_shortcode');
+function growtype_newsletter_shortcode($attr = [])
+{
+    $attr = !empty($attr) ? $attr : [];
+
+    return \App\template('partials.components.newsletter', $attr);
+}
+
+/**
  * Catalog product select filter
  */
 add_action('wp_ajax_newsletter_submission', 'growtype_newsletter_submission');

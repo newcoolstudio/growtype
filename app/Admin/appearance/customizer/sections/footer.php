@@ -131,11 +131,9 @@ class Footer_Customizer_Register extends Growtype_Customizer
                 'label' => __('Extra Content'),
                 'description' => __('This is for extra info f.e. contacts'),
                 'section' => 'footer',
-//            'priority' => 10,
                 'input_attrs' => array (
                     'class' => 'qtranxs-translatable',
-                    'toolbar1' => 'bold italic bullist numlist alignleft aligncenter alignright link',
-                    'toolbar2' => 'formatselect',
+                    'toolbar1' => 'formatselect bold italic bullist numlist alignleft aligncenter alignright link',
                     'mediaButtons' => true,
                 )
             )
@@ -244,9 +242,8 @@ class Footer_Customizer_Register extends Growtype_Customizer
                 'section' => 'footer',
                 'input_attrs' => array (
                     'class' => 'qtranxs-translatable',
-                    'toolbar1' => 'bold italic bullist numlist alignleft aligncenter alignright link',
-                    'toolbar2' => 'formatselect',
-                    'mediaButtons' => false,
+                    'toolbar1' => 'formatselect bold italic bullist numlist alignleft aligncenter alignright link',
+                    'mediaButtons' => true,
                 )
             )
         ));
