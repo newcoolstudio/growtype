@@ -54,10 +54,6 @@
       align-items: flex-start;
       justify-content: flex-end;
 
-      &:not(.block-editor-block-list__layout) {
-        pointer-events: none;
-      }
-
       p {
         margin: 0;
       }
