@@ -50,7 +50,13 @@ if (!function_exists('growtype_get_footer_extra_content')) {
 if (!function_exists('growtype_get_footer_credits')) {
     function growtype_get_footer_credits()
     {
-        return apply_filters('the_content', get_theme_mod('theme_general_credits_content', 'Created by - newcoolstudio.com'));
+        $theme_general_credits_content = get_theme_mod('theme_general_credits_content');
+
+        if (!empty($theme_general_credits_content)) {
+            return apply_filters('the_content', $theme_general_credits_content);
+        }
+
+        return __('Created by - newcoolstudio.com', 'growtype');
     }
 }
 

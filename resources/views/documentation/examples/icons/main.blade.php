@@ -9,6 +9,7 @@
 @endsection
 
 @section('content')
+    <p>Include icons here</p>
 @endsection
 
 @section('footer')
