@@ -156,3 +156,14 @@ add_filter('style_loader_tag', function ($html, $handle) {
 
     return $html;
 }, 10, 2);
+
+/**
+ * Alter theme file paths. Keep some paths unchanged
+ */
+add_filter('theme_file_path', function ($url, $path) {
+    if (in_array($path, ['theme.json'])) {
+        return $url;
+    }
+
+    return pathinfo($url, PATHINFO_DIRNAME);
+}, 1, 2);
