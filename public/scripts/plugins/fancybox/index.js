@@ -1,0 +1,1 @@
+jQuery(document).ready((function(){$(".growtype-theme-fancybox").each((function(){if(void 0===$(this).attr("data-fancybox")){var t=void 0!==$(this).attr("data-fancybox-settings")?JSON.parse($(this).attr("data-fancybox-settings")):{};$(this).fancybox(t)}}))}));

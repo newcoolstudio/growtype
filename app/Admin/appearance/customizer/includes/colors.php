@@ -135,7 +135,12 @@ if (!function_exists('growtype_get_theme_colors_schemes')) {
                     'mobile_menu_bg_color' => '#000000',
                     'primary_button_main_color' => '#000000',
                     'primary_button_text_color' => '#ffffff',
-                    'primary_button_background_color' => '#000000'
+                    'primary_button_background_color' => '#000000',
+                    'secondary_button_main_color' => '#000000',
+                    'secondary_button_text_color' => '#ffffff',
+                    'secondary_button_text_color_active' => '#ffffff',
+                    'secondary_button_background_color' => '#000000',
+                    'secondary_button_border_color' => '#000000',
                 ),
             ),
             'dark' => array (
@@ -162,7 +167,12 @@ if (!function_exists('growtype_get_theme_colors_schemes')) {
                     'mobile_menu_bg_color' => '#000000',
                     'primary_button_main_color' => '#000000',
                     'primary_button_text_color' => '#ffffff',
-                    'primary_button_background_color' => '#000000'
+                    'primary_button_background_color' => '#000000',
+                    'secondary_button_main_color' => '#000000',
+                    'secondary_button_text_color' => '#ffffff',
+                    'secondary_button_text_color_active' => '#ffffff',
+                    'secondary_button_background_color' => '#000000',
+                    'secondary_button_border_color' => '#000000',
                 ),
             ),
             'light' => array (
@@ -189,7 +199,12 @@ if (!function_exists('growtype_get_theme_colors_schemes')) {
                     'mobile_menu_bg_color' => '#000000',
                     'primary_button_main_color' => '#000000',
                     'primary_button_text_color' => '#ffffff',
-                    'primary_button_background_color' => '#000000'
+                    'primary_button_background_color' => '#000000',
+                    'secondary_button_main_color' => '#000000',
+                    'secondary_button_text_color' => '#ffffff',
+                    'secondary_button_text_color_active' => '#ffffff',
+                    'secondary_button_background_color' => '#000000',
+                    'secondary_button_border_color' => '#000000',
                 ),
             ),
         ));

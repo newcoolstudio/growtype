@@ -1,5 +1,4 @@
 <section class="container error-404 not-found">
-    <h2 class="page-title"><?php esc_html_e('Oops! That page can&rsquo;t be found.', 'growtype'); ?></h2>
-    <p><?php esc_html_e('It looks like nothing was found at this location. Maybe try one of the links below or a search?',
-            'growtype'); ?></p>
+    <h2 class="page-title"><?php esc_html_e('Oops, The page you were looking for does not exist.', 'growtype'); ?></h2>
+    <p><?php esc_html_e('You may have mistyped the address or the page may have moved.', 'growtype'); ?></p>
 </section><!-- .error-404 -->

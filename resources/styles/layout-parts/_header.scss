@@ -64,8 +64,8 @@
   min-height: 95px;
   transition: all 0.5s;
   flex-wrap: wrap;
-  @include bp-phone-xl() {
-    min-height: 66px;
+  @include bp-tablet-big() {
+    min-height: 70px;
   }
 
   .page-title {
@@ -92,7 +92,7 @@
 }
 
 header, header a, header a:hover {
-  color: #3a3a3a;
+  color: var(--link-color);
 }
 
 header a:hover {
@@ -282,7 +282,7 @@ header a:hover {
 
 .menu-header-container {
   .menu {
-    @include bp-phone-xl() {
+    @include bp-tablet() {
       display: none;
     }
   }
@@ -365,7 +365,6 @@ header a:hover {
   min-height: 130px;
   @include bp-tablet-big() {
     flex-direction: row;
-    min-height: 70px;
   }
 
   .mainlogo {
@@ -550,7 +549,12 @@ header a:hover {
 
 .header-extra-content-wrapper {
   margin-left: 20px;
-  margin-right: auto;
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+  @include bp-phone-xl() {
+    display: none;
+  }
 }
 
 .menu-login-menu-container {

@@ -1,3 +1,30 @@
+:root {
+  --theme-color: black;
+
+  --text-color: black;
+
+  --max-width-container: 1230px;
+
+  --btn-primary-background-color: black;
+  --btn-primary-background-color-active: black;
+  --btn-primary-color: white;
+  --btn-primary-color-active: white;
+  --btn-primary-border-color: black;
+  --btn-primary-border-color-active: black;
+  --btn-primary-border-radius: 5px;
+
+  --btn-secondary-background-color: initial;
+  --btn-secondary-background-color-active: black;
+  --btn-secondary-color: black;
+  --btn-secondary-color-active: white;
+  --btn-secondary-border-color: black;
+  --btn-secondary-border-color-active: black;
+  --btn-secondary-border-radius: 5px;
+
+  --link-color: var(--theme-color);
+  --link-color-active: var(--theme-color);
+}
+
 /**
 Colors
  */
@@ -125,7 +152,6 @@ $section-margin-top: 60px;
 /**
 Container
  */
-$max-width-container: 1230px;
 $padding-left-container: 15px;
 $padding-right-container: $padding-left-container;
 

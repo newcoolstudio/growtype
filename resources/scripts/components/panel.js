@@ -1,6 +1,5 @@
 function panel() {
     let panel = $('.panel');
-    let panelBackground = $('.panel .panel-bg');
 
     if (panel.length > 0) {
         document.addEventListener('filterProductsByOrder', function () {
@@ -43,6 +42,11 @@ function panel() {
     }
 
     function setPanelHeight() {
+        if (!panel.attr('data-auto-height')) {
+            return;
+        }
+
+        let panelBackground = $('.panel .panel-bg');
         let panelHeight = $('body').height();
         if ($('#site-footer').length > 0) {
             panelHeight = panelHeight - $('#site-footer').height()

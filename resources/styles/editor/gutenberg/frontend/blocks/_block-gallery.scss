@@ -33,7 +33,7 @@
 }
 
 .wp-block-gallery {
-  max-width: $max-width-container;
+  max-width: var(--max-width-container);
   margin-left: auto !important;
   margin-right: auto !important;
 

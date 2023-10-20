@@ -1,5 +1,5 @@
 .wp-block-media-text {
-  max-width: $max-width-container;
+  max-width: var(--max-width-container);
   padding-left: $padding-left-container;
   padding-right: $padding-right-container;
   margin: auto;

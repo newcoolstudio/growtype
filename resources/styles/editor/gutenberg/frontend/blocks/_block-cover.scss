@@ -24,7 +24,7 @@
   }
 
   .wp-block-cover__inner-container {
-    max-width: $max-width-container;
+    max-width: var(--max-width-container);
     padding-left: $padding-left-container;
     padding-right: $padding-right-container;
 

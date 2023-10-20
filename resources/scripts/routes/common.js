@@ -14,7 +14,6 @@ import editorFrontend, {
 } from "../editor/gutenberg/frontend/main"
 
 import {select} from "../plugins/chosen/select.js";
-import {fancyboxGallery} from "../plugins/fancybox/fancybox.js";
 
 export default {
     init() {
@@ -24,12 +23,9 @@ export default {
         notice();
         menu();
         menuBurger();
-        fancyboxGallery();
         preventClicksOnEmptyLinks();
         anchorLinkScroll();
         anchorLinkMainNavigation();
         editorFrontend();
-    },
-    finalize() {
-    },
+    }
 };

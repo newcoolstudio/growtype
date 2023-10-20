@@ -69,6 +69,19 @@ class Profile_Customizer_Register
         ));
 
         /**
+         * Profile name
+         */
+        $wp_customize->add_setting("user_account_name", array (
+            "default" => "#user_display_name",
+        ));
+
+        $wp_customize->add_control('user_account_name', array (
+            'label' => esc_html__('User Account Name'),
+            'section' => 'profile',
+            'description' => __('User account name', 'growtype'),
+        ));
+
+        /**
          * Redirect after login
          */
         $wp_customize->add_setting("user_account_permalink", array (

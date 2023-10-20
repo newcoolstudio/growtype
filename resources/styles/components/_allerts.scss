@@ -38,7 +38,7 @@
   left: $padding-left-container;
   right: $padding-right-container;
   margin: auto;
-  max-width: $max-width-container;
+  max-width: var(--max-width-container);
   z-index: 100;
 }
 
@@ -48,7 +48,7 @@
   left: $padding-left-container;
   right: $padding-right-container;
   margin: auto;
-  max-width: $max-width-container;
+  max-width: var(--max-width-container);
   z-index: 100;
 }
 
@@ -68,7 +68,7 @@
   }
 
   a {
-    font-size: $font-size-body;
+    font-size: inherit;
   }
 }
 

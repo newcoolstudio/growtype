@@ -79,7 +79,7 @@ html.wp-toolbar :where(.editor-styles-wrapper) {
 
   .block-editor__container {
     .wp-block {
-      max-width: $max-width-container;
+      max-width: var(--max-width-container);
     }
 
     .wp-block-column {
@@ -93,7 +93,7 @@ html.wp-toolbar :where(.editor-styles-wrapper) {
     }
 
     .wp-block-cover__inner-container {
-      max-width: $max-width-container;
+      max-width: var(--max-width-container);
     }
 
     .wp-block[data-align="wide"] {

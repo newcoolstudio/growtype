@@ -12,14 +12,19 @@
     font-size: $font-size-body;
     display: flex;
     align-items: center;
+    color: white;
+
+    &:after {
+      margin-left: 10px;
+    }
 
     img {
-      margin-right: 10px;
       border-radius: 30px;
     }
   }
 
   .account-name {
+    margin-left: 10px;
     @include bp-phone-xl() {
       display: none;
     }
@@ -28,6 +33,7 @@
   .dropdown-menu {
     padding: 0;
     margin: 0;
+    overflow: hidden;
 
     ul {
       padding: 0;

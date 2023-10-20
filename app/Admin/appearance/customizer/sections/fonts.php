@@ -205,7 +205,7 @@ function typography_customize_register($wp_customize)
 
     $wp_customize->add_control(new Skyrocket_Slider_Custom_Control($wp_customize, 'typography_font_size_p',
         array (
-            'label' => esc_html__('p size (px)'),
+            'label' => esc_html__('p, li, a size (px)'),
             'section' => 'typography',
             'input_attrs' => array (
                 'min' => 8, // Required. Minimum value for the slider

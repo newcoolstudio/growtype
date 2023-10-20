@@ -1,4 +1,6 @@
 .modal {
+  color: $color-text;
+
   .modal-header {
     .btn-close {
       position: absolute;
@@ -56,10 +58,13 @@
 
   .modal-footer {
     background: $color-extra-light-grey;
-  }
+    gap: 10px;
+    justify-content: center;
 
-  .btn-secondary {
-    background: white;
+    .btn {
+      margin: 0;
+      width: calc(50% - 5px);
+    }
   }
 }
 

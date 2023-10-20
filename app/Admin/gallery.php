@@ -3,26 +3,27 @@
  * @param $content
  * @return false|string
  */
-add_filter('the_content', 'add_responsive_class');
-
-function add_responsive_class($content)
+add_filter('the_content', 'growtype_format_content');
+function growtype_format_content($content)
 {
-    $content = mb_convert_encoding($content, 'HTML-ENTITIES', "UTF-8");
+    $content = !empty($content) ? mb_convert_encoding($content, 'HTML-ENTITIES', "UTF-8") : '';
 
     if (!empty($content)) {
         $document = new DOMDocument();
         libxml_use_internal_errors(true);
         $document->loadHTML(utf8_decode($content));
 
-        $imgs = $document->getElementsByTagName('img');
-        foreach ($imgs as $img) {
+        $images = $document->getElementsByTagName('img');
+
+        foreach ($images as $img) {
             $existing_class = $img->getAttribute('class');
             $img->setAttribute('class', "img-fluid $existing_class");
         }
 
-        $html = $document->saveHTML();
-        return $html;
+        $content = $document->saveHTML();
     }
+
+    return $content;
 }
 
 /**
@@ -106,7 +107,7 @@ function growtype_gallery_shortcode($attr)
     if (is_feed()) {
         $output = "\n";
         foreach ($attachments as $galleryItemId => $attachment) {
-            $output .= custom_wp_get_attachment_link($instanceId, $galleryItemId, $galleryData['size'], true) . "\n";
+            $output .= growtype_get_attachment_link($instanceId, $galleryItemId, $galleryData['size'], true) . "\n";
         }
         return $output;
     }
@@ -168,7 +169,7 @@ function growtype_gallery_shortcode($attr)
     $i = 0;
 
     foreach ($attachments as $galleryItemId => $attachment) {
-        $image_output = custom_wp_get_attachment_link($instanceId, $galleryItemId, $galleryData['size'], true, false);
+        $image_output = growtype_get_attachment_link($instanceId, $galleryItemId, $galleryData['size'], true, false);
 
         $image_meta = wp_get_attachment_metadata($galleryItemId);
         $orientation = '';
@@ -193,39 +194,4 @@ function growtype_gallery_shortcode($attr)
 		</div>\n";
 
     return $output;
-}
-
-function custom_wp_get_attachment_link($instanceId, $galleryItemId = 0, $size = 'thumbnail', $permalink = true, $icon = false, $text = false)
-{
-    $id = intval($galleryItemId);
-    $_post = get_post($id);
-
-    if (empty($_post) || ('attachment' != $_post->post_type) || !$url = wp_get_attachment_url($_post->ID)) {
-        return __('Missing Attachment');
-    }
-
-    if ($permalink)
-        // $url = get_attachment_link( $_post->ID ); // we want the "large" version!!
-        // FIX!! ask for large URL
-    {
-        $image_attributes = wp_get_attachment_image_src($_post->ID, 'large');
-    }
-
-    $url = $image_attributes[0];
-    //		$url = wp_get_attachment_image( $_post->ID, 'large' );
-    $post_title = esc_attr($_post->post_title);
-
-    if ($text) {
-        $link_text = $text;
-    } elseif ($size && 'none' != $size) {
-        $link_text = wp_get_attachment_image($id, $size, $icon);
-    } else {
-        $link_text = '';
-    }
-
-    if (trim($link_text) == '') {
-        $link_text = $_post->post_title;
-    }
-
-    return apply_filters('wp_get_attachment_link', "<a class='fancybox' href='$url' rel='gallery-nr-$instanceId'>$link_text</a>", $id, $size, $permalink, $icon, $text);
 }

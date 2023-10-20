@@ -7,7 +7,8 @@ add_filter('manage_posts_columns', 'growtype_manage_posts_columns', 5);
 add_filter('manage_pages_columns', 'growtype_manage_posts_columns', 5);
 function growtype_manage_posts_columns($columns)
 {
-    if (!class_exists('WooCommerce') || get_post_type() !== 'product') {
+    $post_types = ['page', 'post'];
+    if (in_array(get_post_type(), $post_types)) {
         $columns['featured_image'] = __('Featured image');
         $columns['slug'] = __('Slug');
     }

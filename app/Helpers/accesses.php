@@ -3,7 +3,7 @@
 /**
  * @return bool
  */
-function user_can_edit_frontend()
+function growtype_user_can_edit_frontend()
 {
     return user_can(get_current_user_id(), 'editor') ||
         user_can(get_current_user_id(), 'editor_plus_shop_manager') ||
@@ -132,11 +132,13 @@ function user_can_access_platform()
  */
 function get_home_url_custom()
 {
+    $home_url = get_home_url();
+
     if (is_user_logged_in() && !empty(get_theme_mod('theme_access_home_page_id_after_login')) && user_can_access_platform()) {
-        return get_permalink(get_theme_mod('theme_access_home_page_id_after_login'));
+        $home_url = get_permalink(get_theme_mod('theme_access_home_page_id_after_login'));
     }
 
-    return get_home_url();
+    return apply_filters('growtype_get_home_url_custom', $home_url);
 }
 
 /**
@@ -199,7 +201,7 @@ function page_is_among_enabled_pages($enabled_pages)
         }
     }
 
-    $page_enabled = apply_filters('growtype_page_is_among_enabled_pages', $enabled_pages);
+    $page_enabled = apply_filters('growtype_page_is_among_enabled_pages', false, $enabled_pages);
 
     return $page_enabled;
 }

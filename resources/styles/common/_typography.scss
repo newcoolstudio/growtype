@@ -4,9 +4,10 @@ body {
 
 a {
   font-size: $font-size-body;
+  color: var(--link-color);
 
   &:hover {
-    opacity: 0.7;
+    color: var(--link-color-active);
   }
 }
 
@@ -16,7 +17,7 @@ p {
   margin-bottom: 6px;
 
   &:empty {
-    display: none;
+    display: inline-block;
   }
 }
 

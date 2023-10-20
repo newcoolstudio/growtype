@@ -87,13 +87,15 @@ class Growtype_User
      */
     public static function login_name()
     {
-        $current_user = wp_get_current_user();
+        $user_account_name = get_theme_mod('user_account_name', '#user_display_name');
 
-        if (isset($current_user->display_name) && !empty($current_user->display_name)) {
-            return $current_user->display_name;
+        switch ($user_account_name) {
+            case '#user_display_name':
+                $user_account_name = self::display_name();
+                break;
         }
 
-        return false;
+        return $user_account_name;
     }
 
     /**

@@ -1,1 +1,6 @@
-import{photoSlider}from"./sliders/photo.js";jQuery(document).ready((()=>{photoSlider()}));
+/******/ (function() { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	
+/******/ 	
+/******/ })()
+;

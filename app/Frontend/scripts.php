@@ -14,6 +14,8 @@ add_action('wp_enqueue_scripts', function () {
         wp_enqueue_script('jquery-fancybox-script', growtype_get_parent_theme_public_path() . '/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.js', ['jquery'], null, true);
         wp_enqueue_style('jquery-fancybox-style', growtype_get_parent_theme_public_path() . '/vendor/@fancyapps/fancybox/dist/jquery.fancybox.min.css');
 
+        wp_enqueue_script('jquery-fancybox', growtype_get_parent_theme_public_path() . '/scripts/plugins/fancybox/index.js', ['jquery'], config('theme.version'), true);
+
         /**
          * Chosen css
          */
@@ -26,6 +28,8 @@ add_action('wp_enqueue_scripts', function () {
         wp_enqueue_script('slick.min.js', growtype_get_parent_theme_public_path() . '/vendor/slick-carousel/slick/slick.min.js', ['jquery'], null, true);
         wp_enqueue_style('slick.css', growtype_get_parent_theme_public_path() . '/vendor/slick-carousel/slick/slick.css');
         wp_enqueue_style('slick-theme.css', growtype_get_parent_theme_public_path() . '/vendor/slick-carousel/slick/slick-theme.css');
+
+        wp_enqueue_script('slick-carousel', growtype_get_parent_theme_public_path() . '/scripts/plugins/slick-carousel/index.js', ['jquery'], config('theme.version'), true);
 
         /**
          * Gutenberg scripts
@@ -90,7 +94,7 @@ add_action('wp_enqueue_scripts', function () {
 add_action('wp_footer', function () { ?>
     <script type="text/javascript">
         let growtype_params = {
-            page_nr: <?php echo get_query_var('paged') ?>,
+            page_nr: '<?php echo empty(get_query_var('paged')) ? 1 : get_query_var('paged') ?>',
             text_more: '<?php echo __('More', 'growtype') ?>',
             text_read_close: '<?php echo __('Read close', 'growtype') ?>',
             text_read_more: '<?php echo __('Read more', 'growtype') ?>',

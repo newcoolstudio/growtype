@@ -79,6 +79,24 @@ class Panel_Customizer_Register extends Growtype_Customizer
         ));
 
         /**
+         * Auto height
+         */
+        $wp_customize->add_setting('panel_auto_adjust_height',
+            array (
+                'default' => 1,
+                'transport' => 'refresh',
+            )
+        );
+
+        $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'panel_auto_adjust_height',
+            array (
+                'label' => esc_html__('Panel Auto Height'),
+                'section' => 'panel',
+                'description' => __('Panel auto adjust height', 'growtype'),
+            )
+        ));
+
+        /**
          * Panel has header
          */
         $wp_customize->add_setting('panel_has_header',

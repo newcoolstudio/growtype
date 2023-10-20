@@ -27,7 +27,7 @@
 
     .wp-block-group__inner-container {
       > .wp-block-group:not(.alignfull) {
-        max-width: $max-width-container;
+        max-width: var(--max-width-container);
         margin: auto;
         padding-left: $padding-left-container;
         padding-right: $padding-right-container;
@@ -38,11 +38,6 @@
         }
       }
     }
-  }
-
-  .wp-block-group:where(.has-background) {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
   }
 }
 
@@ -77,7 +72,7 @@
 }
 
 .wp-block-group__inner-container {
-  max-width: $max-width-container;
+  max-width: var(--max-width-container);
 
   .alignfull & {
     margin: auto;

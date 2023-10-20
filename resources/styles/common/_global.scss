@@ -38,7 +38,7 @@ main.main, main#main {
 }
 
 .container {
-  max-width: 1230px;
+  max-width: var(--max-width-container);
   padding-left: $padding-left-container;
   padding-right: $padding-right-container;
 }
@@ -112,7 +112,7 @@ b, strong {
 Main content wrapper
  */
 .main-content-wrapper {
-  max-width: $max-width-container;
+  max-width: var(--max-width-container);
   margin: auto;
   padding-bottom: 50px;
   @include bp-phone-xl-reverse() {
@@ -149,7 +149,6 @@ Adjusting for navbar and header fixed main content
 body.has-fixed-header {
   &.has-extraspace-header {
     .main-content-wrapper {
-      //margin-top: 130px;
       margin-bottom: 0;
       @include bp-tablet-portrait() {
         margin-top: 70px;

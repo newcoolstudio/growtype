@@ -11,6 +11,9 @@
   @include bp-tablet-portrait() {
     width: 100%;
   }
+  @include bp-tablet() {
+    display: none;
+  }
 
   & + .main {
     width: 73%;

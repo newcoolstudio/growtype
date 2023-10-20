@@ -17,6 +17,12 @@
       margin-right: 0px;
       margin-bottom: 0;
     }
+
+    .header-extra-content-wrapper {
+      & + .main-navigation {
+        margin-left: 0;
+      }
+    }
   }
 
   .side-nav {

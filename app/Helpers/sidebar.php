@@ -20,28 +20,8 @@ function display_sidebar_primary($display = false)
             $sidebar_enabled = in_array('single', $sidebar_primary_pages);
         }
 
-        /**
-         * Bbpress check if forum page included
-         */
-
-        if (class_exists('bbpress')) {
-            $forum_slug = explode('/', bbp_get_forum_slug())[0] ?? null;
-            $forum_page = get_page_by_path($forum_slug);
-
-            if (!empty($forum_page)) {
-                $forum_page_enabled = in_array($forum_page->ID, $sidebar_primary_pages);
-                if ($forum_page_enabled && str_contains($_SERVER['PHP_SELF'], $forum_slug)) {
-                    $sidebar_enabled = true;
-                }
-            }
-        }
+        $sidebar_enabled = apply_filters('growtype_sidebar_primary_enabled', $sidebar_enabled, $sidebar_primary_pages);
     }
 
-    $condition = [
-        $sidebar_enabled
-    ];
-
-    $display = in_array(true, $condition);
-
-    return $display;
+    return $sidebar_enabled;
 }

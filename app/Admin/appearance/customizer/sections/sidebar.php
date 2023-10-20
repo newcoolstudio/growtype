@@ -77,10 +77,9 @@ class Sidebar_Customizer_Register
             }
         }
 
-        /**
-         * Single pages
-         */
         $sidebar_primary_pages['single'] = 'Single pages';
+
+        $sidebar_primary_pages = apply_filters('growtype_sidebar_primary_pages', $sidebar_primary_pages);
 
         $wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'sidebar_primary_pages',
             array (
@@ -100,7 +99,7 @@ class Sidebar_Customizer_Register
          */
         $wp_customize->add_setting('sidebar_primary_position',
             array (
-                'default' => 'left',
+                'default' => 'right',
                 'transport' => 'refresh',
             )
         );

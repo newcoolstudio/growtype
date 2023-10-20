@@ -5,12 +5,14 @@
  * @param $request
  * @return null
  */
-function growtype_get_featured_image($post, $size = 'full')
-{
-    if (is_array($post)) {
-        return isset($post['id']) ? get_the_post_thumbnail_url($post['id'], 'full') : null;
-    } else {
-        return get_the_post_thumbnail_url($post->ID, 'full');
+if (!function_exists('growtype_get_featured_image')) {
+    function growtype_get_featured_image($post, $size = 'full')
+    {
+        if (is_array($post)) {
+            return isset($post['id']) ? get_the_post_thumbnail_url($post['id'], 'full') : null;
+        } else {
+            return get_the_post_thumbnail_url($post->ID, 'full');
+        }
     }
 }
 
@@ -21,147 +23,165 @@ function growtype_get_featured_image($post, $size = 'full')
  * @param string $extraStyle
  * @return string
  */
-function growtype_get_featured_image_tag($post, $size = 'full', $style = 'background-position: center;background-size: cover;background-repeat: no-repeat;')
-{
-    $feat_img = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), $size);
-    $feat_img = $feat_img ? $feat_img[0] : '';
-
-    if (empty($feat_img)) {
+if (!function_exists('growtype_get_featured_image_tag')) {
+    function growtype_get_featured_image_tag($post, $size = 'full', $style = 'background-position: center;background-size: cover;background-repeat: no-repeat;')
+    {
+        $feat_img = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), $size);
         $feat_img = $feat_img ? $feat_img[0] : '';
-    }
 
-    if (empty($feat_img)) {
-        $img_tag = '';
-    } else {
-        $img_tag = 'background: url(' . $feat_img . ');' . $style;
+        if (empty($feat_img)) {
+            $feat_img = $feat_img ? $feat_img[0] : '';
+        }
+
+        if (empty($feat_img)) {
+            $img_tag = '';
+        } else {
+            $img_tag = 'background: url(' . $feat_img . ');' . $style;
+        }
+        return $img_tag;
     }
-    return $img_tag;
 }
 
 /**
  * @return array
  */
-function growtype_get_footer_logo()
-{
-    return [
-        'id' => get_theme_mod('footer_logo'),
-        'url' => wp_get_attachment_url(get_theme_mod('footer_logo')) ?? ''
-    ];
+if (!function_exists('growtype_get_footer_logo')) {
+    function growtype_get_footer_logo()
+    {
+        return [
+            'id' => get_theme_mod('footer_logo'),
+            'url' => wp_get_attachment_url(get_theme_mod('footer_logo')) ?? ''
+        ];
+    }
 }
 
 /**
  * @return array
  */
-function growtype_get_header_logo()
-{
-    $logo_url = !empty(get_theme_mod('header_logo')) ? wp_get_attachment_url(get_theme_mod('header_logo')) : null;
+if (!function_exists('growtype_get_header_logo')) {
+    function growtype_get_header_logo()
+    {
+        $logo_url = !empty(get_theme_mod('header_logo')) ? wp_get_attachment_url(get_theme_mod('header_logo')) : null;
 
-    if (is_child_theme() && empty($logo_url)) {
-        $logo_url = dirname(get_template_directory_uri()) . '/public/images/logo/growtype.svg';
+        if (is_child_theme() && empty($logo_url)) {
+            $logo_url = dirname(get_template_directory_uri()) . '/public/images/logo/growtype.svg';
+        }
+
+        return [
+            'id' => get_theme_mod('header_logo'),
+            'url' => $logo_url
+        ];
     }
-
-    return [
-        'id' => get_theme_mod('header_logo'),
-        'url' => $logo_url
-    ];
 }
 
 /**
  * @return array
  */
-function growtype_get_header_logo_mobile()
-{
-    $logo_url = !empty(get_theme_mod('header_logo_mobile')) ? wp_get_attachment_url(get_theme_mod('header_logo_mobile')) : null;
+if (!function_exists('growtype_get_header_logo_mobile')) {
+    function growtype_get_header_logo_mobile()
+    {
+        $logo_url = !empty(get_theme_mod('header_logo_mobile')) ? wp_get_attachment_url(get_theme_mod('header_logo_mobile')) : null;
 
-    return [
-        'id' => get_theme_mod('header_logo'),
-        'url' => $logo_url
-    ];
+        return [
+            'id' => get_theme_mod('header_logo'),
+            'url' => $logo_url
+        ];
+    }
 }
 
 /**
  * @return array
  */
-function growtype_get_login_logo()
-{
-    $logo_url = !empty(get_theme_mod('login_logo')) ? wp_get_attachment_url(get_theme_mod('login_logo')) : null;
+if (!function_exists('growtype_get_login_logo')) {
+    function growtype_get_login_logo()
+    {
+        $logo_url = !empty(get_theme_mod('login_logo')) ? wp_get_attachment_url(get_theme_mod('login_logo')) : null;
 
-    if (empty($logo_url)) {
-        $logo_url = growtype_get_header_logo()['url'];
+        if (empty($logo_url)) {
+            $logo_url = growtype_get_header_logo()['url'];
+        }
+
+        if (empty($logo_url)) {
+            $logo_url = growtype_get_parent_theme_public_path() . '/images/logo/growtype.svg';
+        }
+
+        return [
+            'id' => get_theme_mod('login_logo'),
+            'url' => $logo_url
+        ];
     }
-
-    if (empty($logo_url)) {
-        $logo_url = growtype_get_parent_theme_public_path() . '/images/logo/growtype.svg';
-    }
-
-    return [
-        'id' => get_theme_mod('login_logo'),
-        'url' => $logo_url
-    ];
 }
 
 /**
  * @return array
  */
-function growtype_get_header_logo_scroll()
-{
-    $logo_url = !empty(get_theme_mod('header_logo_scroll')) ? wp_get_attachment_url(get_theme_mod('header_logo_scroll')) : null;
+if (!function_exists('growtype_get_header_logo_scroll')) {
+    function growtype_get_header_logo_scroll()
+    {
+        $logo_url = !empty(get_theme_mod('header_logo_scroll')) ? wp_get_attachment_url(get_theme_mod('header_logo_scroll')) : null;
 
-    if (is_child_theme() && empty($logo_url)) {
-        $logo_url = growtype_get_header_logo()['url'];
+        if (is_child_theme() && empty($logo_url)) {
+            $logo_url = growtype_get_header_logo()['url'];
+        }
+
+        return [
+            'id' => get_theme_mod('header_logo_scroll'),
+            'url' => $logo_url
+        ];
     }
-
-    return [
-        'id' => get_theme_mod('header_logo_scroll'),
-        'url' => $logo_url
-    ];
 }
 
 /**
  * @return array
  */
-function growtype_get_home_page_header_logo()
-{
-    $logo_url = !empty(get_theme_mod('header_logo_home')) ? wp_get_attachment_url(get_theme_mod('header_logo_home')) : null;
+if (!function_exists('growtype_get_home_page_header_logo')) {
+    function growtype_get_home_page_header_logo()
+    {
+        $logo_url = !empty(get_theme_mod('header_logo_home')) ? wp_get_attachment_url(get_theme_mod('header_logo_home')) : null;
 
-    if (empty($logo_url)) {
-        $logo_url = !empty(growtype_get_header_logo()['url']) ? growtype_get_header_logo()['url'] : growtype_get_parent_theme_public_path() . '/images/logo/growtype.svg';
+        if (empty($logo_url)) {
+            $logo_url = !empty(growtype_get_header_logo()['url']) ? growtype_get_header_logo()['url'] : growtype_get_parent_theme_public_path() . '/images/logo/growtype.svg';
+        }
+
+        return [
+            'id' => get_theme_mod('header_logo_home'),
+            'url' => $logo_url
+        ];
     }
-
-    return [
-        'id' => get_theme_mod('header_logo_home'),
-        'url' => $logo_url
-    ];
 }
 
 /**
  * @return array
  */
-function growtype_get_mobile_menu_logo()
-{
-    $logo_url = !empty(get_theme_mod('mobile_burger_logo')) ? wp_get_attachment_url(get_theme_mod('mobile_burger_logo')) : null;
+if (!function_exists('growtype_get_mobile_menu_logo')) {
+    function growtype_get_mobile_menu_logo()
+    {
+        $logo_url = !empty(get_theme_mod('mobile_burger_logo')) ? wp_get_attachment_url(get_theme_mod('mobile_burger_logo')) : null;
 
-    if (empty($logo_url)) {
-        return null;
+        if (empty($logo_url)) {
+            return null;
+        }
+
+        return [
+            'id' => get_theme_mod('mobile_burger_logo'),
+            'url' => $logo_url
+        ];
     }
-
-    return [
-        'id' => get_theme_mod('mobile_burger_logo'),
-        'url' => $logo_url
-    ];
 }
 
 /**
  * Get panel (sidebar alternative) main logo
  */
-function growtype_get_panel_logo()
-{
-    $logo_url = !empty(get_theme_mod('panel_logo')) ? wp_get_attachment_url(get_theme_mod('panel_logo')) : null;
+if (!function_exists('growtype_get_panel_logo')) {
+    function growtype_get_panel_logo()
+    {
+        $logo_url = !empty(get_theme_mod('panel_logo')) ? wp_get_attachment_url(get_theme_mod('panel_logo')) : null;
 
-    return [
-        'id' => get_theme_mod('panel_logo'),
-        'url' => $logo_url
-    ];
+        return [
+            'id' => get_theme_mod('panel_logo'),
+            'url' => $logo_url
+        ];
+    }
 }
 
 /**
@@ -216,5 +236,45 @@ if (!function_exists('growtype_get_icon')) {
             <?php } ?>
         </div>
         <?php
+    }
+}
+
+/**
+ * Get attachment link
+ */
+if (!function_exists('growtype_get_attachment_link')) {
+    function growtype_get_attachment_link($instanceId, $galleryItemId = 0, $size = 'thumbnail', $permalink = true, $icon = false, $text = false)
+    {
+        $id = intval($galleryItemId);
+        $_post = get_post($id);
+
+        if (empty($_post) || ('attachment' != $_post->post_type) || !$url = wp_get_attachment_url($_post->ID)) {
+            return __('Missing Attachment');
+        }
+
+        if ($permalink)
+            // $url = get_attachment_link( $_post->ID ); // we want the "large" version!!
+            // FIX!! ask for large URL
+        {
+            $image_attributes = wp_get_attachment_image_src($_post->ID, 'large');
+        }
+
+        $url = $image_attributes[0];
+        //		$url = wp_get_attachment_image( $_post->ID, 'large' );
+        $post_title = esc_attr($_post->post_title);
+
+        if ($text) {
+            $link_text = $text;
+        } elseif ($size && 'none' != $size) {
+            $link_text = wp_get_attachment_image($id, $size, $icon);
+        } else {
+            $link_text = '';
+        }
+
+        if (trim($link_text) == '') {
+            $link_text = $_post->post_title;
+        }
+
+        return apply_filters('wp_get_attachment_link', "<a class='fancybox' href='$url' rel='gallery-nr-$instanceId'>$link_text</a>", $id, $size, $permalink, $icon, $text);
     }
 }

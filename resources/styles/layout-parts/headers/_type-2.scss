@@ -5,9 +5,6 @@ Header type 2
   .header-inner {
     flex-direction: row;
     min-height: 75px;
-    @include bp-phone-xl() {
-      min-height: 70px;
-    }
 
     .mainlogo {
       margin: 0;

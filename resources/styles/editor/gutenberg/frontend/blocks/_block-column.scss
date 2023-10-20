@@ -1,5 +1,5 @@
 .wp-block-columns {
-  max-width: $max-width-container;
+  max-width: var(--max-width-container);
   margin: auto;
 
   &.alignfull {
@@ -25,10 +25,6 @@
   }
 
   .wp-block-column {
-    @include bp-phone-xl() {
-      margin-bottom: 20px;
-    }
-
     &.is-vertically-aligned-center {
       display: flex;
       flex-direction: column;

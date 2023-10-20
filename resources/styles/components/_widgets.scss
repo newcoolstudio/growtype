@@ -15,6 +15,7 @@ aside.widget-area > .widget {
   padding: 1.5rem;
   margin-bottom: 20px;
   border-radius: $border-radius-card;
+  color: $color-primary;
   @include bp-phone-xl() {
     background: none;
   }
