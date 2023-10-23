@@ -3,6 +3,13 @@
 namespace App;
 
 /**
+ * Php error message
+ */
+add_filter('wp_php_error_message', function ($message, $error) {
+    return sprintf(__('Something has gone wrong on our website, and it is currently experiencing a critical issue. Please inform us at <a href="mailto:%1$s">%1$s</a>. We appreciate your understanding and support.', 'growtype'), getenv('ADMIN_EMAIL', 'info@growtype.com'));
+}, 10, 2);
+
+/**
  * Add <body> classes
  */
 add_filter('body_class', function (array $classes) {
@@ -113,8 +120,6 @@ add_filter('comments_template', function ($comments_template) {
 add_filter('script_loader_tag', function ($tag, $handle, $src) {
     $async_loading = array (
         'gutenberg-block-editor-scripts',
-//        'jquery-core',
-//        'jquery-migrate',
         'swiperJS',
         'easyTicker',
         'ap-block-posts-script',
