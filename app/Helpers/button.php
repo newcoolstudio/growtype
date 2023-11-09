@@ -56,6 +56,17 @@ if (!function_exists('growtype_primary_button_background_color')) {
 }
 
 /**
+ * Primary button border color
+ */
+if (!function_exists('growtype_primary_button_border_color')) {
+    function growtype_primary_button_border_color()
+    {
+        $colors_scheme = growtype_get_theme_current_colors_scheme();
+        return get_theme_mod('primary_button_border_color', $colors_scheme['primary_button_border_color']);
+    }
+}
+
+/**
  * Secondary button main color
  */
 if (!function_exists('growtype_secondary_button_background_color')) {

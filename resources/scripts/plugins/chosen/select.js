@@ -4,18 +4,17 @@ function select() {
             window.select = jQuery('select');
 
             window.select.map(function (index, element) {
+                let params = jQuery(element).attr('data-params') === undefined ? {} : JSON.parse(jQuery(element).attr('data-params'));
 
-                let searchThreshold = jQuery(element).attr('data-search-threshold') ? jQuery(element).attr('data-search-threshold') : 20;
-
-                window.selectArgs = {
-                    disable_search_threshold: searchThreshold,
-                };
-
-                if (!jQuery(element).is(':visible')) {
-                    window.selectArgs.width = '100%';
+                if (params.searchThreshold === undefined) {
+                    params.disable_search_threshold = 20;
                 }
 
-                jQuery(element).chosen(window.selectArgs);
+                if (!jQuery(element).is(':visible')) {
+                    params.width = '100%';
+                }
+
+                jQuery(element).chosen(params);
             });
         })
     })(jQuery);

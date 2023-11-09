@@ -1,6 +1,6 @@
 label {
   margin-bottom: 3px;
-  font-size: $font-size-body;
+  font-size: var(--body-text-font-size);
 
   &.error {
     color: $color-error;
@@ -10,6 +10,6 @@ label {
 
   a {
     color: $color-active;
-    font-size: $font-size-body;
+    font-size: var(--body-text-font-size);
   }
 }

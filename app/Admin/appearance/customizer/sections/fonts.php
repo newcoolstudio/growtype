@@ -93,6 +93,42 @@ function typography_customize_register($wp_customize)
     ));
 
     /**
+     * Font size unit
+     */
+    $wp_customize->add_setting("typography_font_size_unit", array (
+        "default" => "px",
+    ));
+
+    $wp_customize->add_control('typography_font_size_unit', array (
+        'label' => esc_html__('Font size unit'),
+        'section' => 'typography',
+        'description' => __('What units should be used.', 'growtype'),
+    ));
+
+    /**
+     * Body font size
+     */
+    $wp_customize->add_setting('typography_font_size_body',
+        array (
+            'default' => '16',
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'skyrocket_sanitize_integer'
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control($wp_customize, 'typography_font_size_body',
+        array (
+            'label' => esc_html__('Body font size'),
+            'section' => 'typography',
+            'input_attrs' => array (
+                'min' => 0.01,
+                'max' => 90,
+                'step' => 0.01,
+            ),
+        )
+    ));
+
+    /**
      * Font sizes
      */
     $wp_customize->add_setting('typography_font_size_h1',
@@ -108,9 +144,9 @@ function typography_customize_register($wp_customize)
             'label' => esc_html__('h1 size (px)'),
             'section' => 'typography',
             'input_attrs' => array (
-                'min' => 8, // Required. Minimum value for the slider
-                'max' => 90, // Required. Maximum value for the slider
-                'step' => 1, // Required. The size of each interval or step the slider takes between the minimum and maximum values
+                'min' => 0.01,
+                'max' => 90,
+                'step' => 0.01,
             ),
         )
     ));
@@ -128,9 +164,9 @@ function typography_customize_register($wp_customize)
             'label' => esc_html__('h2 size (px)'),
             'section' => 'typography',
             'input_attrs' => array (
-                'min' => 8, // Required. Minimum value for the slider
-                'max' => 90, // Required. Maximum value for the slider
-                'step' => 1, // Required. The size of each interval or step the slider takes between the minimum and maximum values
+                'min' => 0.01,
+                'max' => 90,
+                'step' => 0.01,
             ),
         )
     ));
@@ -148,9 +184,9 @@ function typography_customize_register($wp_customize)
             'label' => esc_html__('h3 size (px)'),
             'section' => 'typography',
             'input_attrs' => array (
-                'min' => 8, // Required. Minimum value for the slider
-                'max' => 90, // Required. Maximum value for the slider
-                'step' => 1, // Required. The size of each interval or step the slider takes between the minimum and maximum values
+                'min' => 0.01,
+                'max' => 90,
+                'step' => 0.01,
             ),
         )
     ));
@@ -168,9 +204,9 @@ function typography_customize_register($wp_customize)
             'label' => esc_html__('h4 size (px)'),
             'section' => 'typography',
             'input_attrs' => array (
-                'min' => 8, // Required. Minimum value for the slider
-                'max' => 90, // Required. Maximum value for the slider
-                'step' => 1, // Required. The size of each interval or step the slider takes between the minimum and maximum values
+                'min' => 0.01,
+                'max' => 90,
+                'step' => 0.01,
             ),
         )
     ));
@@ -188,29 +224,9 @@ function typography_customize_register($wp_customize)
             'label' => esc_html__('h5 size (px)'),
             'section' => 'typography',
             'input_attrs' => array (
-                'min' => 8, // Required. Minimum value for the slider
-                'max' => 90, // Required. Maximum value for the slider
-                'step' => 1, // Required. The size of each interval or step the slider takes between the minimum and maximum values
-            ),
-        )
-    ));
-
-    $wp_customize->add_setting('typography_font_size_p',
-        array (
-            'default' => 16,
-            'transport' => 'postMessage',
-            'sanitize_callback' => 'skyrocket_sanitize_integer'
-        )
-    );
-
-    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control($wp_customize, 'typography_font_size_p',
-        array (
-            'label' => esc_html__('p, li, a size (px)'),
-            'section' => 'typography',
-            'input_attrs' => array (
-                'min' => 8, // Required. Minimum value for the slider
-                'max' => 90, // Required. Maximum value for the slider
-                'step' => 1, // Required. The size of each interval or step the slider takes between the minimum and maximum values
+                'min' => 0.01,
+                'max' => 90,
+                'step' => 0.01,
             ),
         )
     ));

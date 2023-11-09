@@ -12,7 +12,7 @@
 
   a {
     padding-left: 20px;
-    font-size: $font-size-body;
+    font-size: var(--body-text-font-size);
     border-bottom: none;
     text-decoration: none;
 

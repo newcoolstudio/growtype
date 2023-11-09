@@ -14,7 +14,7 @@
   .e-title {
     color: $color-text;
     padding-top: 10px;
-    font-size: $font-size-body;
+    font-size: var(--body-text-font-size);
   }
 
   .fancybox-title-float-wrap {
@@ -51,7 +51,7 @@
 
   .btn {
     padding: 10px 30px;
-    font-size: $font-size-body;
+    font-size: var(--body-text-font-size);
     line-height: 18px;
     min-width: 200px;
     @include bp-phone-xl() {

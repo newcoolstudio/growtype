@@ -8,18 +8,32 @@
   float: right;
   position: sticky;
   top: 0;
-  @include bp-tablet-portrait() {
-    width: 100%;
-  }
+  left: 0;
+  transition: all 0.3s;
+  margin-right: 0;
   @include bp-tablet() {
-    display: none;
+    width: 0;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    margin-right: 0;
+    left: 0;
+    background: white;
+
+    > * {
+      display: none;
+    }
+  }
+
+  a {
+    word-wrap: break-word;
   }
 
   & + .main {
     width: 73%;
     float: left;
     margin: 0;
-    @include bp-tablet-portrait() {
+    @include bp-tablet() {
       width: 100%;
     }
     @include bp-phone-xl() {
@@ -28,16 +42,60 @@
       width: 100%;
     }
   }
+
+  .btn-close-sidebar {
+    padding: 0;
+    margin-bottom: 15px;
+    display: none;
+    @include bp-tablet() {
+      display: block;
+      width: 20px;
+      height: 20px;
+      left: -40px;
+      position: absolute;
+      top: 15px;
+    }
+
+    i {
+      transform: rotate(180deg);
+      transition: all 0.3s;
+    }
+  }
+}
+
+.sidebar-is-open {
+  @include bp-tablet() {
+    .sidebar {
+      width: 32%;
+      padding: 20px;
+      margin-right: -32%;
+      left: -32%;
+      position: relative;
+      z-index: 1;
+      transition: all 0.3s;
+      @include bp-phone-xl() {
+        width: 70%;
+        margin-right: -70%;
+        left: -70%;
+      }
+
+      & > * {
+        display: block;
+      }
+    }
+  }
+
+  .btn-close-sidebar {
+    i {
+      transform: rotate(0);
+      transition: all 0.3s;
+    }
+  }
 }
 
 /**
 
  */
-
-.buddypress.widget img.avatar {
-  width: 40px;
-}
-
 aside.widget-area ul li {
   list-style: none;
   padding-top: .25rem;
@@ -69,14 +127,5 @@ aside.widget-area .widget {
 
   .s-mainintro {
     margin: 0;
-  }
-
-  &.single {
-    .main-content-wrapper {
-      @include bp-tablet-portrait() {
-        flex-direction: column-reverse;
-        display: flex;
-      }
-    }
   }
 }

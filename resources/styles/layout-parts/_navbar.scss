@@ -22,7 +22,7 @@
   .e-text {
     margin: auto;
     margin-left: 0;
-    font-size: $font-size-body;
+    font-size: var(--body-text-font-size);
     @include bp-phone-xl() {
       font-size: 12px;
       line-height: 16px;

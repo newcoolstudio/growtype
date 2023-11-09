@@ -17,7 +17,7 @@ function display_sidebar_primary($display = false)
         $sidebar_enabled = in_array($post_id, $sidebar_primary_pages);
 
         if (is_single()) {
-            $sidebar_enabled = in_array('single', $sidebar_primary_pages);
+            $sidebar_enabled = in_array('single', $sidebar_primary_pages) || in_array(get_post_type() . '_single', $sidebar_primary_pages);
         }
 
         $sidebar_enabled = apply_filters('growtype_sidebar_primary_enabled', $sidebar_enabled, $sidebar_primary_pages);

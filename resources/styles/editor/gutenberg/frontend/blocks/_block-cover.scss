@@ -1,3 +1,8 @@
+.wp-block-cover {
+  padding-left: $padding-left-container;
+  padding-right: $padding-right-container;
+}
+
 .wp-block-cover-image.aligncenter,
 .wp-block-cover.aligncenter {
   clear: both;
@@ -28,12 +33,15 @@
     padding-left: $padding-left-container;
     padding-right: $padding-right-container;
 
-    .wp-block-group__inner-container {
-      padding-left: 0;
-      padding-right: 0;
-      @include bp-phone-xl() {
-        padding-left: 15px;
-        padding-right: 15px;
+    .wp-block-group-wrapper{
+      .wp-block-group__inner-container {
+        padding-left: 0;
+        padding-right: 0;
+
+        & > .wp-block-group:not(.alignfull) {
+          padding-left: 0;
+          padding-right: 0;
+        }
       }
     }
   }

@@ -24,7 +24,7 @@ class Growtype_Admin_Settings_Discussion
 
         add_settings_field(
             'comments_fully_disabled',
-            'Comments fully disabled',
+            __('Comments fully disabled', 'growtype'),
             array ($this, 'show_settings'),
             'discussion',
             'comments_fully_disabled_id',

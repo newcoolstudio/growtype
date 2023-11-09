@@ -148,9 +148,9 @@ function admin_enqueue_custom_scripts()
         }';
         }
 
-        if (get_theme_mod('typography_font_size_p')) {
+        if (get_theme_mod('typography_font_size_body')) {
             $inlineCss .= 'body.wp-admin .block-editor-block-list__layout p {
-    font-size:' . get_theme_mod('typography_font_size_p') . 'px;
+    font-size:' . get_theme_mod('typography_font_size_body') . 'px;
         }';
         }
 

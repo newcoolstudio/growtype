@@ -76,9 +76,9 @@ function growtype_get_font_url($font_details)
     return $google_font_url . implode(',', $google_font_url_weights);
 }
 
-if (!function_exists('growtype_typography_font_size_p')) {
-    function growtype_typography_font_size_p()
+if (!function_exists('growtype_typography_font_size_body')) {
+    function growtype_typography_font_size_body()
     {
-        return get_theme_mod('typography_font_size_p', '16');
+        return get_theme_mod('typography_font_size_body', '14') . get_theme_mod('typography_font_size_unit', 'px');
     }
 }

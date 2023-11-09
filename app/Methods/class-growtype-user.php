@@ -79,6 +79,10 @@ class Growtype_User
     {
         $status = get_theme_mod('user_account_icon_enabled', false);
 
+        if (Growtype_User::profile_menu_is_enabled()) {
+            $status = false;
+        }
+
         return $status ? true : false;
     }
 

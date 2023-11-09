@@ -166,6 +166,23 @@ class Growtype_Admin_Theme_Settings_Editor
             'growtype-editor-settings',
             'editor_options_settings'
         );
+
+        /**
+         * Reusable blocks bar in admin nav
+         */
+        register_setting(
+            'editor_options_settings', // settings group name
+            'growtype_disable_layout_styles', // option name
+            'sanitize_text_field' // sanitization function
+        );
+
+        add_settings_field(
+            'growtype_disable_layout_styles',
+            'Disable layout styles',
+            array ($this, 'growtype_disable_layout_styles_callback'),
+            'growtype-editor-settings',
+            'editor_options_settings'
+        );
     }
 
     /**
@@ -228,6 +245,15 @@ class Growtype_Admin_Theme_Settings_Editor
     function reusable_blocks_in_admin_enabled_callback()
     {
         $html = '<input type="checkbox" name="reusable_blocks_in_admin_enabled" value="1" ' . checked(1, get_option('reusable_blocks_in_admin_enabled'), false) . ' />';
+        echo $html;
+    }
+
+    /**
+     * Reusable blocks in admin
+     */
+    function growtype_disable_layout_styles_callback()
+    {
+        $html = '<input type="checkbox" name="growtype_disable_layout_styles" value="1" ' . checked(1, get_option('growtype_disable_layout_styles'), false) . ' />';
         echo $html;
     }
 }

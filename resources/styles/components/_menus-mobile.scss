@@ -114,7 +114,7 @@ $mobilemenu-color-background: black;
       position: relative;
       color: #3e3e3e;
       text-transform: uppercase;
-      font-size: $font-size-body;
+      font-size: var(--body-text-font-size);
 
       a {
         color: #3e3e3e;

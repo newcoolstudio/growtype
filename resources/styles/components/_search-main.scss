@@ -39,7 +39,7 @@
   .e-label {
     color: grey;
     margin-bottom: 8px;
-    font-size: $font-size-body;
+    font-size: var(--body-text-font-size);
   }
 
   .btn-close {

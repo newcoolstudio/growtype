@@ -11,7 +11,7 @@
   }
 
   span {
-    font-size: $font-size-body;
+    font-size: var(--body-text-font-size);
     min-height: 40px;
     display: flex;
     align-items: center;
@@ -26,7 +26,7 @@
   box-shadow: none;
 
   .search-field {
-    font-size: $font-size-body;
+    font-size: var(--body-text-font-size);
     min-height: 40px;
     display: flex;
     align-items: center;

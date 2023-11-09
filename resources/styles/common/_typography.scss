@@ -3,7 +3,7 @@ body {
 }
 
 a {
-  font-size: $font-size-body;
+  font-size: var(--body-text-font-size);
   color: var(--link-color);
 
   &:hover {
@@ -13,7 +13,7 @@ a {
 
 p {
   line-height: 145%;
-  font-size: $font-size-body;
+  font-size: var(--body-text-font-size);
   margin-bottom: 6px;
 
   &:empty {
@@ -74,14 +74,14 @@ h6 {
 }
 
 li {
-  font-size: $font-size-body;
+  font-size: var(--body-text-font-size);
 }
 
 ul {
   padding-left: 18px;
   margin-top: 20px;
   margin-bottom: 20px;
-  font-size: $font-size-body;
+  font-size: var(--body-text-font-size);
 
   li {
     margin-bottom: 5px;
@@ -112,7 +112,7 @@ ul + p {
 }
 
 legend {
-  font-size: $font-size-body;
+  font-size: var(--body-text-font-size);
 }
 
 .wp-block-quote.is-style-large {
@@ -123,14 +123,14 @@ legend {
 }
 
 em {
-  font-size: $font-size-body;
+  font-size: var(--body-text-font-size);
   font-style: italic;
 }
 
 table {
-  font-size: $font-size-body;
+  font-size: var(--body-text-font-size);
 }
 
 figure {
-  font-size: $font-size-body;
+  font-size: var(--body-text-font-size);
 }

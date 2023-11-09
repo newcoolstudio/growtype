@@ -15,7 +15,7 @@
 .comment-form input[type="url"],
 .comment-form textarea {
   @extend .form-control;
-  font-size: $font-size-body;
+  font-size: var(--body-text-font-size);
 }
 
 .comment-form input[type="submit"] {
@@ -203,7 +203,7 @@
   text-align: center;
   text-decoration: none;
   border-radius: 2px;
-  font-size: $font-size-body;
+  font-size: var(--body-text-font-size);
 }
 
 .comments-pagination .nav-links .page-numbers:hover, .comments-pagination .nav-links .page-numbers:active, .comments-pagination .nav-links .page-numbers:focus {

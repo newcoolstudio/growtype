@@ -78,7 +78,7 @@ class Profile_Customizer_Register
         $wp_customize->add_control('user_account_name', array (
             'label' => esc_html__('User Account Name'),
             'section' => 'profile',
-            'description' => __('User account name', 'growtype'),
+            'description' => __('F.e. can use #user_display_name', 'growtype'),
         ));
 
         /**

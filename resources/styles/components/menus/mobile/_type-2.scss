@@ -72,7 +72,7 @@
 
   .menu li a {
     color: #3e3e3e;
-    font-size: $font-size-body;
+    font-size: var(--body-text-font-size);
     text-transform: uppercase;
     display: inline-block;
     z-index: 1;

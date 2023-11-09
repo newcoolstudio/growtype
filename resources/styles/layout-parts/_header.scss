@@ -91,12 +91,13 @@
   padding: 0;
 }
 
-header, header a, header a:hover {
-  color: var(--link-color);
+header, header a {
+  color: var(--text-color);
 }
 
 header a:hover {
   opacity: 0.8;
+  color: var(--link-color-active);
 }
 
 #header_logo_scroll {
@@ -188,7 +189,7 @@ header a:hover {
 
     p {
       margin: 0;
-      font-size: $font-size-body;
+      font-size: var(--body-text-font-size);
     }
   }
 

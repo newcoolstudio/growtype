@@ -3,6 +3,12 @@
   margin-right: calc(-50vw + 50%);
 }
 
+.single.has-sidebar-primary {
+  .s-posts {
+    margin: 0;
+  }
+}
+
 .s-posts-related {
   padding-top: 50px;
   padding-bottom: 30px;

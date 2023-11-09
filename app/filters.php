@@ -6,7 +6,7 @@ namespace App;
  * Php error message
  */
 add_filter('wp_php_error_message', function ($message, $error) {
-    return sprintf(__('Something has gone wrong on our website, and it is currently experiencing a critical issue. Please inform us at <a href="mailto:%1$s">%1$s</a>. We appreciate your understanding and support.', 'growtype'), getenv('ADMIN_EMAIL', 'info@growtype.com'));
+    return sprintf(__('Something has gone wrong on our website, and it is currently experiencing a critical issue. Please inform us at <a href="mailto:%1$s">%1$s</a>. We appreciate your understanding and support.', 'growtype'), get_option('admin_email'));
 }, 10, 2);
 
 /**

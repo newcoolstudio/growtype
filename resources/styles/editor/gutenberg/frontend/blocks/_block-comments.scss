@@ -17,7 +17,7 @@
 .wp-block-latest-comments__comment,
 .wp-block-latest-comments__comment-excerpt,
 .wp-block-latest-comments__comment-excerpt p {
-  font-size: 15px;
+  font-size: var(--body-text-font-size);
 }
 
 .wp-block-latest-comments__comment-excerpt p:last-child {
@@ -27,7 +27,7 @@
 .wp-block-latest-comments__comment-meta,
 .wp-block-latest-comments__comment-date {
   color: #666;
-  font-size: 12px;
+  font-size: var(--text-font-size-sm);
   line-height: 2.2em;
 }
 

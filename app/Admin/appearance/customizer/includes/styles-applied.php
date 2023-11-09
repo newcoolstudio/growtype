@@ -14,8 +14,8 @@ function growtype_customizer_general_css()
             --btn-primary-background-color-active: <?php echo growtype_secondary_button_background_color() ?>;
             --btn-primary-color: <?php echo growtype_primary_button_text_color() ?>;
             --btn-primary-color-active: <?php echo growtype_secondary_button_text_color() ?>;
-            --btn-primary-border-color: <?php echo growtype_primary_button_background_color() ?>;
-            --btn-primary-border-color-active: <?php echo growtype_secondary_button_background_color() ?>;
+            --btn-primary-border-color: <?php echo growtype_primary_button_border_color() ?>;
+            --btn-primary-border-color-active: <?php echo growtype_primary_button_border_color() ?>;
             --btn-primary-border-radius: <?php echo growtype_primary_button_border_radius() ?>;
 
             --btn-secondary-background-color: <?php echo growtype_secondary_button_background_color() ?>;
@@ -28,6 +28,10 @@ function growtype_customizer_general_css()
 
             --link-color: <?php echo growtype_theme_color() ?>;
             --link-color-active: <?php echo growtype_theme_color() ?>;
+
+            --footer-text-color: <?php echo growtype_get_footer_text_color() ?>;
+
+            --body-text-font-size: <?php echo growtype_typography_font_size_body() ?>;
         }
 
         <?php if(!empty(get_theme_mod('main_color'))){ ?>
@@ -298,13 +302,6 @@ function growtype_customizer_general_css()
 
         <?php } ?>
 
-        <?php if(!empty(growtype_typography_font_size_p())) { ?>
-        p, li, a {
-            font-size: <?php echo growtype_typography_font_size_p()?>px;
-        }
-
-        <?php } ?>
-
         <?php if(!get_theme_mod('woocommerce_checkout_optional_label')) { ?>
         .woocommerce form .form-row .optional {
             display: none;
@@ -374,14 +371,6 @@ function growtype_customizer_general_css()
         #sidebar-primary {
             float: right;
             border-width: 0px 0px 0px 1px;
-        }
-
-        <?php } ?>
-
-        <?php if(!empty(growtype_get_footer_text_color())){ ?>
-        .site-footer, .site-footer a,
-        .site-footer a .dashicons {
-            color: <?php echo growtype_get_footer_text_color(); ?>;
         }
 
         <?php } ?>

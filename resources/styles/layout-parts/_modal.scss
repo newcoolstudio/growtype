@@ -28,7 +28,7 @@
 
   .modal-body {
     padding: 30px;
-    font-size: $font-size-body;
+    font-size: var(--body-text-font-size);
     position: relative;
     @include bp-phone-xl() {
       padding-left: $padding-left-container;

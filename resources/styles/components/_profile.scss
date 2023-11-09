@@ -9,10 +9,9 @@
     box-shadow: none;
     background: none;
     padding: 10px;
-    font-size: $font-size-body;
+    font-size: var(--body-text-font-size);
     display: flex;
     align-items: center;
-    color: white;
 
     &:after {
       margin-left: 10px;
@@ -41,7 +40,7 @@
 
       li {
         margin: 0;
-        font-size: $font-size-body;
+        font-size: var(--body-text-font-size);
         border-bottom: 1px solid $color-light-grey;
         list-style-type: none;
 

@@ -288,7 +288,7 @@ $(document).ready(function ($) {
         });
     });
 
-    wp.customize("typography_font_size_p", function (value) {
+    wp.customize("typography_font_size_body", function (value) {
         value.bind(function (newval) {
             $("p").css('font-size', newval + 'px');
         });

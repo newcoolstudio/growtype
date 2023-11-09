@@ -6,7 +6,7 @@
 
 @section('content')
     @if (!have_posts() || empty(get_search_query()))
-        <div class="container text-center mt-5 mb-5">
+        <div class="container text-center mb-5">
             <h3>{{ __('Sorry, no results were found.', 'growtype') }}</h3>
             <p>{{ __("But don't give up – check the spelling or try less specific search terms.", "growtype") }}</p>
         </div>

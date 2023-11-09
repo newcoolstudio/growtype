@@ -4,6 +4,7 @@ import {headerFixed} from "../components/header-fixed";
 import {panel} from "../components/panel";
 import {notice} from "../components/notice";
 import {menu} from "../components/menu";
+import {sidebar} from "../components/sidebar";
 import {menuBurger} from "../components/menu-burger";
 import {preventClicksOnEmptyLinks} from "../components/empty-links";
 import {anchorLinkScroll} from "../components/anchor-link-scroll";
@@ -22,6 +23,7 @@ export default {
         panel();
         notice();
         menu();
+        sidebar();
         menuBurger();
         preventClicksOnEmptyLinks();
         anchorLinkScroll();
