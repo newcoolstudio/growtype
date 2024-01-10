@@ -21,12 +21,14 @@ function growtype_render_block($block_content, $block)
 
         if (isset($block['attrs']['position'])) {
             if ($block['attrs']['position'] === 'left') {
-                $inlineCss .= 'margin-right:auto;';
+                $inlineCss .= 'margin-right:auto!important;';
+                $inlineCss .= 'margin-left:0!important;';
             } elseif ($block['attrs']['position'] === 'right') {
-                $inlineCss .= 'margin-left:auto;';
+                $inlineCss .= 'margin-left:auto!important;';
+                $inlineCss .= 'margin-right:0!important;';
             } elseif ($block['attrs']['position'] === 'auto') {
-                $inlineCss .= 'margin-left:auto;';
-                $inlineCss .= 'margin-right:auto;';
+                $inlineCss .= 'margin-left:auto!important;';
+                $inlineCss .= 'margin-right:auto!important;';
             }
         }
 

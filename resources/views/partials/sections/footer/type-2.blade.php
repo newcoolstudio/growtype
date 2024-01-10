@@ -20,9 +20,6 @@
                             <img class="img-fluid" src="{{growtype_get_footer_logo()['url']}}" alt="footer_logo">
                         </a>
                     @endif
-                    @if(Growtype_Social::icons_enabled())
-                        @include('partials.components.social-icons')
-                    @endif
                 </div>
             </div>
         </div>
@@ -30,13 +27,11 @@
 @endif
 
 <div class="footer-inner-bottom">
-    @if(!empty(get_theme_mod('footer_copyright')) && get_theme_mod('footer_copyright_enabled',true))
+    @if(!empty(growtype_get_footer_copyright()) && get_theme_mod('footer_copyright_enabled',true))
         <div id="footer_copyright" class="copyright">
-                <?php echo get_theme_mod('footer_copyright'); ?>
+                <?php echo growtype_get_footer_copyright() ?>
         </div>
     @endif
-    @if(Growtype_Social::icons_enabled())
-        @include('partials.components.social-icons')
-    @endif
+
     @include('partials.components.credits')
 </div>

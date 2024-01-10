@@ -302,7 +302,7 @@ $(document).ready(function ($) {
  */
 function growtypeCustomizerUpdateImage(id, target_id) {
     jQuery.ajax({
-        url: ajax_object.ajaxurl,
+        url: growtype_customizer_preview_ajax.url,
         type: 'post',
         data: {
             action: 'update-logo-customizer',

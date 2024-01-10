@@ -201,7 +201,7 @@ function page_is_among_enabled_pages($enabled_pages)
         }
     }
 
-    $page_enabled = apply_filters('growtype_page_is_among_enabled_pages', $enabled_pages);
+    $page_enabled = apply_filters('growtype_page_is_among_enabled_pages', false, $enabled_pages);
 
     return $page_enabled;
 }

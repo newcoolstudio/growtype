@@ -30,6 +30,7 @@
 @import "components/tables";
 @import "components/badges";
 @import "components/search-main";
+@import "components/mark";
 
 @import "components/profile";
 
@@ -55,14 +56,8 @@
 @import "pages/template";
 
 /** SECTIONS */
-@import "sections/intro";
 @import "sections/comments";
-@import "sections/content";
-@import "sections/about";
-@import "sections/posts";
 @import "sections/gallery";
-@import "sections/icons";
-@import "sections/benefits";
 
 /** CONTENT */
 @import "content/404";

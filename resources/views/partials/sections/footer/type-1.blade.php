@@ -39,7 +39,5 @@
         </div>
     @endif
 
-    @include('partials.components.social-icons')
-
     @include('partials.components.credits')
 </div>

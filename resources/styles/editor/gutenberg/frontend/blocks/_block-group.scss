@@ -32,6 +32,11 @@
         padding-left: $padding-left-container;
         padding-right: $padding-right-container;
 
+        .wp-block-group {
+          padding-left: 0;
+          padding-right: 0;
+        }
+
         .wp-block-group__inner-container {
           padding-left: 0;
           padding-right: 0;
@@ -88,4 +93,8 @@
     padding-left: 0;
     padding-right: 0;
   }
+}
+
+:where(.wp-block-group.has-background) {
+  padding: 0;
 }

@@ -73,8 +73,8 @@ add_action('wp_enqueue_scripts', function () {
 
             wp_enqueue_script('growtype-app-child-script', growtype_get_child_theme_public_path() . '/scripts/app-child.js', false, config('wp.env') !== 'production' ? time() : config('theme.version'), true);
 
-            wp_localize_script('growtype-app-child-script', 'ajax_object', array (
-                    'ajaxurl' => admin_url('admin-ajax.php')
+            wp_localize_script('growtype-app-child-script', 'growtype_child_ajax', array (
+                    'url' => admin_url('admin-ajax.php')
                 )
             );
         }

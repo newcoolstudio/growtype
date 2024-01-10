@@ -41,9 +41,32 @@ $wp_customize->add_setting('header_navbar_switch',
 
 $wp_customize->add_control(new Skyrocket_Toggle_Switch_Custom_control($wp_customize, 'header_navbar_switch',
     array (
-        'label' => esc_html__('Navbar Enabled'),
+        'label' => esc_html__('Status'),
         'section' => 'header_navbar',
         'description' => __('Enable or disable navbar', 'growtype'),
+    )
+));
+
+/**
+ * Disabled pages
+ */
+$wp_customize->add_setting('header_navbar_enabled_pages',
+    array (
+        'default' => '',
+        'transport' => 'postMessage'
+    )
+);
+
+$wp_customize->add_control(new Skyrocket_Dropdown_Select2_Custom_Control($wp_customize, 'header_navbar_enabled_pages',
+    array (
+        'label' => __('Specific pages', 'growtype'),
+        'description' => esc_html__('In which pages navbar should be enabled. If empty, every page will have navbar.', 'growtype'),
+        'section' => 'header_navbar',
+        'input_attrs' => array (
+            'placeholder' => __('Please select pages...', 'growtype'),
+            'multiselect' => true,
+        ),
+        'choices' => $this->available_pages
     )
 ));
 
@@ -60,7 +83,7 @@ $wp_customize->add_setting('header_navbar_text',
 
 $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control($wp_customize, 'header_navbar_text',
     array (
-        'label' => __('Header - Navbar Message', 'growtype'),
+        'label' => __('Content', 'growtype'),
         'description' => __('This is short navbar message', 'growtype'),
         'section' => 'header_navbar',
         'input_attrs' => array (

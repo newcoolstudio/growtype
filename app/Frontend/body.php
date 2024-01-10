@@ -6,7 +6,7 @@
 add_filter('body_class', 'growtype_extend_body_classes');
 function growtype_extend_body_classes($classes)
 {
-    $classes[] = get_theme_mod('header_navbar_switch') === true ? 'has-navbar' : null;
+    $classes[] = Growtype_Header::has_navbar() ? 'has-navbar' : null;
     $classes[] = 'header-' . growtype_get_header_type();
     $classes[] = growtype_header_has_extra_space() === true ? 'has-extraspace-header' : null;
     $classes[] = growtype_display_panel() ? 'has-panel' : null;

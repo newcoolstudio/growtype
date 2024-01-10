@@ -29,10 +29,10 @@ if (!function_exists('growtype_get_footer_text_color')) {
 if (!function_exists('growtype_get_footer_copyright')) {
     function growtype_get_footer_copyright()
     {
-        $copyright = get_theme_mod('footer_copyright', '© 2020 Company Name. Trademarks and brands are the property of their respective owners.');
-        $copyright = str_replace('{year}', date('Y'), $copyright);
+        $content = get_theme_mod('footer_copyright', '© 2020 Company Name. Trademarks and brands are the property of their respective owners.');
+        $content = str_replace('{year}', date('Y'), $content);
 
-        return $copyright;
+        return !empty($content) ? apply_filters('the_content', $content) : $content;
     }
 }
 

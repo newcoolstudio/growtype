@@ -21,9 +21,9 @@ function growtype_customizer_preview()
         wp_localize_script('customizer_preview', 'colorScheme', growtype_get_theme_colors_schemes()); // color schemes global variable
     }
 
-    wp_localize_script('customizer_preview', 'ajax_object',
+    wp_localize_script('customizer_preview', 'growtype_customizer_preview_ajax',
         array (
-            'ajaxurl' => admin_url('admin-ajax.php'),
+            'url' => admin_url('admin-ajax.php'),
         )
     );
 }
@@ -40,9 +40,9 @@ function growtype_customizer_control_colors()
         wp_localize_script('customizer_control_colors', 'colorScheme', growtype_get_theme_colors_schemes()); // color schemes global variable
     }
 
-    wp_localize_script('customizer_control_colors', 'ajax_object',
+    wp_localize_script('customizer_control_colors', 'growtype_customizer_control_colors_ajax',
         array (
-            'ajaxurl' => admin_url('admin-ajax.php'),
+            'url' => admin_url('admin-ajax.php'),
         )
     );
 }

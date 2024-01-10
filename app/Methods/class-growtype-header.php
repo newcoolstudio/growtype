@@ -50,9 +50,24 @@ class Growtype_Header
      */
     public static function has_promo(): bool
     {
-        $promo_enabled = !empty(get_theme_mod('header_promo_enabled')) ? get_theme_mod('header_promo_enabled') : false;
+        $enabled = !empty(get_theme_mod('header_promo_enabled')) ? get_theme_mod('header_promo_enabled') : false;
 
-        return $promo_enabled;
+        return $enabled;
+    }
+
+    /**
+     * @return bool
+     */
+    public static function has_navbar(): bool
+    {
+        $enabled = !empty(get_theme_mod('header_navbar_switch')) ? get_theme_mod('header_navbar_switch') : false;
+        $enabled_pages = get_theme_mod('header_navbar_enabled_pages');
+
+        if ($enabled && !empty($enabled_pages)) {
+            $enabled = page_is_among_enabled_pages($enabled_pages);
+        }
+
+        return $enabled;
     }
 
     /**

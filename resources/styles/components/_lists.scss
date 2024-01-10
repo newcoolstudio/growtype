@@ -24,6 +24,16 @@ ul {
   }
 }
 
+ol {
+  > li {
+    padding-top: 10px;
+
+    > ul {
+      margin-top: 10px;
+    }
+  }
+}
+
 a {
   ul {
     li {

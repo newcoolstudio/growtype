@@ -15,13 +15,6 @@ if (!class_exists('Growtype_Cache')) {
 }
 
 /**
- * Social
- */
-if (!class_exists('Growtype_Social')) {
-    include_once 'Methods/class-growtype-social.php';
-}
-
-/**
  * User
  */
 if (!class_exists('Growtype_User')) {

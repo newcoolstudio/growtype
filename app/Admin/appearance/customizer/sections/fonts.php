@@ -145,7 +145,7 @@ function typography_customize_register($wp_customize)
             'section' => 'typography',
             'input_attrs' => array (
                 'min' => 0.01,
-                'max' => 90,
+                'max' => 200,
                 'step' => 0.01,
             ),
         )
@@ -165,7 +165,7 @@ function typography_customize_register($wp_customize)
             'section' => 'typography',
             'input_attrs' => array (
                 'min' => 0.01,
-                'max' => 90,
+                'max' => 200,
                 'step' => 0.01,
             ),
         )
@@ -185,7 +185,7 @@ function typography_customize_register($wp_customize)
             'section' => 'typography',
             'input_attrs' => array (
                 'min' => 0.01,
-                'max' => 90,
+                'max' => 200,
                 'step' => 0.01,
             ),
         )
@@ -205,7 +205,7 @@ function typography_customize_register($wp_customize)
             'section' => 'typography',
             'input_attrs' => array (
                 'min' => 0.01,
-                'max' => 90,
+                'max' => 200,
                 'step' => 0.01,
             ),
         )
@@ -225,7 +225,7 @@ function typography_customize_register($wp_customize)
             'section' => 'typography',
             'input_attrs' => array (
                 'min' => 0.01,
-                'max' => 90,
+                'max' => 200,
                 'step' => 0.01,
             ),
         )

@@ -2,6 +2,9 @@ function panel() {
     let panel = $('.panel');
 
     if (panel.length > 0) {
+        /**
+         * Growtype-wc
+         */
         document.addEventListener('filterProductsByOrder', function () {
             setTimeout(function () {
                 setPanelHeight();

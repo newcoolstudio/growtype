@@ -23,7 +23,7 @@ function menuBurger() {
     });
 
     $('.main-navigation-mobile a').on('click', function () {
-        if ($(this).text().indexOf("#") === -1 && !$(this).closest('li').hasClass('active')) {
+        if ($(this).text().indexOf("#") === -1 && !$(this).closest('li').hasClass('active') && $(this).closest('.menu-item-parent-disabled').length === 0) {
             window.burgerClose();
         }
     });

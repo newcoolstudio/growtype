@@ -26,7 +26,11 @@ function anchorLinkScroll() {
                 window.location.href = $.attr(this, 'href');
             }
         } catch (err) {
-            window.history.pushState(null, null, $(this).attr('href'));
+            try {
+                window.history.pushState(null, null, $(this).attr('href'));
+            } catch (err) {
+                window.location.href = $(this).attr('href');
+            }
         }
     });
 

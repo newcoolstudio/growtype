@@ -45,7 +45,7 @@
         height: 23px;
         width: 20px;
         position: absolute;
-        right: 12%;
+        right: 15px;
         top: 0;
         bottom: 0;
         margin: auto;
@@ -99,17 +99,20 @@
       &.btn {
         padding: 0;
         min-width: initial;
-        width: initial;
-        margin-left: 70px;
         margin-top: 10px;
         margin-bottom: 20px;
+        padding-right: 15px;
+        padding-left: 15px;
+        width: 100%;
         @include bp-phone-xl() {
-          margin-left: 25px;
+          margin-left: 10px;
+          margin-right: 10px;
         }
 
         a {
           padding: 15px 40px;
           min-width: 180px;
+          padding-left: 0;
 
           &:hover {
             border: none;
@@ -124,7 +127,7 @@
       text-decoration: none;
       display: inline-block;
       width: 100%;
-      padding-left: 20px;
+      padding-left: 10px;
 
       &:hover {
         border-left: 1px solid $color-primary;

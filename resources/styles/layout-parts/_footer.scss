@@ -9,7 +9,7 @@
       color: var(--footer-text-color);
     }
 
-    &:hover {
+    &:not(.btn):hover {
       color: var(--link-color-active);
     }
   }
@@ -88,6 +88,14 @@
     &.menu-column-3 {
       > li {
         width: calc(100% / 3);
+        @include bp-phone-xl() {
+          width: 100%;
+        }
+      }
+    }
+    &.menu-column-4 {
+      > li {
+        width: calc(100% / 4);
         @include bp-phone-xl() {
           width: 100%;
         }
@@ -229,6 +237,10 @@
     display: flex;
     flex-wrap: wrap;
 
+    .menu-main-menu-container {
+      width: 100%;
+    }
+
     .e-img {
       max-width: 240px;
       margin-top: 40px;
@@ -333,10 +345,6 @@
     p {
       margin-bottom: 5px;
       padding: 0;
-
-      br {
-        display: none;
-      }
     }
 
     p:empty {

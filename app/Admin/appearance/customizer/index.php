@@ -112,8 +112,6 @@ include('sections/header.php');
 
 include('sections/footer.php');
 
-include('sections/social.php');
-
 include('sections/general.php');
 
 include('sections/gdpr.php');

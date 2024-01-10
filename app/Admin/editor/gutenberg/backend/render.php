@@ -46,7 +46,7 @@ function growtype_enqueue_block_editor_assets()
 
         wp_enqueue_script('growtype-block-editor-scripts',
             growtype_get_parent_theme_public_path() . '/scripts/backend-block-editor.js',
-            ['wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor'],
+            ['wp-blocks', 'wp-i18n', 'lodash', 'wp-element', 'wp-editor'],
             '0.1.0'
         );
     }

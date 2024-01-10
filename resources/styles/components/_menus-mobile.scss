@@ -37,6 +37,17 @@ $mobilemenu-color-background: black;
         text-decoration: none;
         width: 100%;
       }
+
+      &.btn {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        margin-top: 15px;
+
+        a {
+          padding-left: 0;
+        }
+      }
     }
   }
 
