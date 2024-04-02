@@ -1,20 +1,4 @@
 <?php
-/**
- * @param $object
- * @param $field_name
- * @param $request
- * @return null
- */
-if (!function_exists('growtype_get_featured_image')) {
-    function growtype_get_featured_image($post, $size = 'full')
-    {
-        if (is_array($post)) {
-            return isset($post['id']) ? get_the_post_thumbnail_url($post['id'], 'full') : null;
-        } else {
-            return get_the_post_thumbnail_url($post->ID, 'full');
-        }
-    }
-}
 
 /**
  * @param $post
@@ -24,9 +8,9 @@ if (!function_exists('growtype_get_featured_image')) {
  * @return string
  */
 if (!function_exists('growtype_get_featured_image_tag')) {
-    function growtype_get_featured_image_tag($post, $size = 'full', $style = 'background-position: center;background-size: cover;background-repeat: no-repeat;')
+    function growtype_get_featured_image_tag($post_id, $size = 'full', $style = 'background-position: center;background-size: cover;background-repeat: no-repeat;')
     {
-        $feat_img = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), $size);
+        $feat_img = wp_get_attachment_image_src(get_post_thumbnail_id($post_id), $size);
         $feat_img = $feat_img ? $feat_img[0] : '';
 
         if (empty($feat_img)) {
@@ -145,7 +129,7 @@ if (!function_exists('growtype_get_home_page_header_logo')) {
 
         return [
             'id' => get_theme_mod('header_logo_home'),
-            'url' => $logo_url
+            'url' => apply_filters('growtype_home_page_header_logo_url', $logo_url)
         ];
     }
 }

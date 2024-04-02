@@ -129,11 +129,11 @@ function typography_customize_register($wp_customize)
     ));
 
     /**
-     * Font sizes
+     * Font h1
      */
     $wp_customize->add_setting('typography_font_size_h1',
         array (
-            'default' => 48,
+            'default' => 56,
             'transport' => 'postMessage',
             'sanitize_callback' => 'skyrocket_sanitize_integer'
         )
@@ -151,9 +151,32 @@ function typography_customize_register($wp_customize)
         )
     ));
 
+    /**
+     * Font h1 mobile
+     */
+    $wp_customize->add_setting('typography_font_size_h1_mobile',
+        array (
+            'default' => 36,
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'skyrocket_sanitize_integer'
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control($wp_customize, 'typography_font_size_h1_mobile',
+        array (
+            'label' => esc_html__('h1 size (px) - mobile'),
+            'section' => 'typography',
+            'input_attrs' => array (
+                'min' => 0.01,
+                'max' => 200,
+                'step' => 0.01,
+            ),
+        )
+    ));
+
     $wp_customize->add_setting('typography_font_size_h2',
         array (
-            'default' => 37,
+            'default' => 48,
             'transport' => 'postMessage',
             'sanitize_callback' => 'skyrocket_sanitize_integer'
         )
@@ -171,9 +194,32 @@ function typography_customize_register($wp_customize)
         )
     ));
 
+    /**
+     * Font h2 mobile
+     */
+    $wp_customize->add_setting('typography_font_size_h2_mobile',
+        array (
+            'default' => 32,
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'skyrocket_sanitize_integer'
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control($wp_customize, 'typography_font_size_h2_mobile',
+        array (
+            'label' => esc_html__('h2 size (px) - mobile'),
+            'section' => 'typography',
+            'input_attrs' => array (
+                'min' => 0.01,
+                'max' => 200,
+                'step' => 0.01,
+            ),
+        )
+    ));
+
     $wp_customize->add_setting('typography_font_size_h3',
         array (
-            'default' => 24,
+            'default' => 36,
             'transport' => 'postMessage',
             'sanitize_callback' => 'skyrocket_sanitize_integer'
         )
@@ -191,9 +237,32 @@ function typography_customize_register($wp_customize)
         )
     ));
 
+    /**
+     * Font h3 mobile
+     */
+    $wp_customize->add_setting('typography_font_size_h3_mobile',
+        array (
+            'default' => 28,
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'skyrocket_sanitize_integer'
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control($wp_customize, 'typography_font_size_h3_mobile',
+        array (
+            'label' => esc_html__('h3 size (px) - mobile'),
+            'section' => 'typography',
+            'input_attrs' => array (
+                'min' => 0.01,
+                'max' => 200,
+                'step' => 0.01,
+            ),
+        )
+    ));
+
     $wp_customize->add_setting('typography_font_size_h4',
         array (
-            'default' => 18,
+            'default' => 28,
             'transport' => 'postMessage',
             'sanitize_callback' => 'skyrocket_sanitize_integer'
         )
@@ -211,9 +280,32 @@ function typography_customize_register($wp_customize)
         )
     ));
 
+    /**
+     * Font h4 mobile
+     */
+    $wp_customize->add_setting('typography_font_size_h4_mobile',
+        array (
+            'default' => 22,
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'skyrocket_sanitize_integer'
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control($wp_customize, 'typography_font_size_h4_mobile',
+        array (
+            'label' => esc_html__('h4 size (px) - mobile'),
+            'section' => 'typography',
+            'input_attrs' => array (
+                'min' => 0.01,
+                'max' => 200,
+                'step' => 0.01,
+            ),
+        )
+    ));
+
     $wp_customize->add_setting('typography_font_size_h5',
         array (
-            'default' => 16,
+            'default' => 22,
             'transport' => 'postMessage',
             'sanitize_callback' => 'skyrocket_sanitize_integer'
         )
@@ -222,6 +314,29 @@ function typography_customize_register($wp_customize)
     $wp_customize->add_control(new Skyrocket_Slider_Custom_Control($wp_customize, 'typography_font_size_h5',
         array (
             'label' => esc_html__('h5 size (px)'),
+            'section' => 'typography',
+            'input_attrs' => array (
+                'min' => 0.01,
+                'max' => 200,
+                'step' => 0.01,
+            ),
+        )
+    ));
+
+    /**
+     * Font h5 mobile
+     */
+    $wp_customize->add_setting('typography_font_size_h5_mobile',
+        array (
+            'default' => 18,
+            'transport' => 'postMessage',
+            'sanitize_callback' => 'skyrocket_sanitize_integer'
+        )
+    );
+
+    $wp_customize->add_control(new Skyrocket_Slider_Custom_Control($wp_customize, 'typography_font_size_h5_mobile',
+        array (
+            'label' => esc_html__('h5 size (px) - mobile'),
             'section' => 'typography',
             'input_attrs' => array (
                 'min' => 0.01,

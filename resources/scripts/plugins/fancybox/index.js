@@ -1,8 +1,7 @@
+import {initFancybox} from "./initFancybox";
+
 jQuery(document).ready(() => {
-    $('.growtype-theme-fancybox').each(function () {
-        if ($(this).attr('data-fancybox') === undefined) {
-            let settings = $(this).attr('data-fancybox-settings') !== undefined ? JSON.parse($(this).attr('data-fancybox-settings')) : {};
-            $(this).fancybox(settings);
-        }
+    jQuery('.growtype-theme-fancybox').each(function (index, element) {
+        initFancybox(jQuery(element))
     });
 });

@@ -4,29 +4,39 @@
  * @return string|string[]
  * Change page title
  */
-function custom_login_title($login_title)
+add_filter('login_title', 'growtype_login_title');
+function growtype_login_title($login_title)
 {
     return str_replace(array (' &lsaquo;', ' &#8212; WordPress'), array (' &bull;', ''), $login_title);
 }
-
-add_filter('login_title', 'custom_login_title');
 
 /**
  * @return string
  * Login logo url
  */
-add_filter('login_headerurl', 'login_headerurl_custom');
-function login_headerurl_custom()
+add_filter('login_headerurl', 'growtype_login_headerurl');
+function growtype_login_headerurl()
 {
-    return get_home_url_custom();
+    return growtype_get_home_url();
 }
 
+/**
+ *
+ */
+add_action('login_head', 'growtype_login_head');
+function growtype_login_head()
+{
+    if (!empty(get_theme_mod('body_background_color'))) {
+        echo '<style type="text/css">body{background-color:' . get_theme_mod('body_background_color') . ';</style>';
+    }
+}
 
 /**
  * @return false
  * Scripts
  */
-function custom_login_enqueue_scripts()
+add_action('login_enqueue_scripts', 'growtype_login_enqueue_scripts');
+function growtype_login_enqueue_scripts()
 {
     if (!isset(growtype_get_login_logo()['url']) || empty(growtype_get_login_logo()['url'])) {
         return false;
@@ -43,5 +53,3 @@ function custom_login_enqueue_scripts()
     </style>
     <?php
 }
-
-add_action('login_enqueue_scripts', 'custom_login_enqueue_scripts');

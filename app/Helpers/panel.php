@@ -10,7 +10,7 @@ function growtype_display_panel()
     $panel_enabled_pages = get_theme_mod('panel_enabled_pages');
 
     if ($panel_enabled && !empty($panel_enabled_pages)) {
-        $panel_enabled = page_is_among_enabled_pages($panel_enabled_pages);
+        $panel_enabled = growtype_page_is_among_enabled_pages($panel_enabled_pages);
     }
 
     /**

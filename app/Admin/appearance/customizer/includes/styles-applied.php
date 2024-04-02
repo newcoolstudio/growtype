@@ -178,7 +178,7 @@ function growtype_customizer_general_css()
         <?php } ?>
 
         <?php if(!empty(get_theme_mod('header_logo_size_mobile'))){ ?>
-        @media only screen and (max-width: 640px) {
+        @media only screen and (max-width: 768px) {
             .header-logo-wrapper {
                 max-width: <?php echo get_theme_mod('header_logo_size_mobile') ?>px;
             }
@@ -187,7 +187,7 @@ function growtype_customizer_general_css()
         <?php } ?>
 
         <?php if(!empty(get_theme_mod('header_logo_position_vertical_mobile'))){ ?>
-        @media only screen and (max-width: 640px) {
+        @media only screen and (max-width: 768px) {
             .header-logo-wrapper {
                 top: <?php echo get_theme_mod('header_logo_position_vertical_mobile') ?>px;
             }
@@ -273,9 +273,27 @@ function growtype_customizer_general_css()
 
         <?php } ?>
 
+        <?php if(get_theme_mod('typography_font_size_h1_mobile')) { ?>
+        @media only screen and (max-width: 768px) {
+            h1 {
+                font-size: <?php echo get_theme_mod('typography_font_size_h1_mobile')?>px;
+            }
+        }
+
+        <?php } ?>
+
         <?php if(get_theme_mod('typography_font_size_h2')) { ?>
         h2 {
             font-size: <?php echo get_theme_mod('typography_font_size_h2')?>px;
+        }
+
+        <?php } ?>
+
+        <?php if(get_theme_mod('typography_font_size_h2_mobile')) { ?>
+        @media only screen and (max-width: 768px) {
+            h2 {
+                font-size: <?php echo get_theme_mod('typography_font_size_h2_mobile')?>px;
+            }
         }
 
         <?php } ?>
@@ -288,6 +306,15 @@ function growtype_customizer_general_css()
 
         <?php } ?>
 
+        <?php if(get_theme_mod('typography_font_size_h3_mobile')) { ?>
+        @media only screen and (max-width: 768px) {
+            h3 {
+                font-size: <?php echo get_theme_mod('typography_font_size_h3_mobile')?>px;
+            }
+        }
+
+        <?php } ?>
+
         <?php if(get_theme_mod('typography_font_size_h4')) { ?>
         h4 {
             font-size: <?php echo get_theme_mod('typography_font_size_h4')?>px;
@@ -295,9 +322,27 @@ function growtype_customizer_general_css()
 
         <?php } ?>
 
+        <?php if(get_theme_mod('typography_font_size_h4_mobile')) { ?>
+        @media only screen and (max-width: 768px) {
+            h4 {
+                font-size: <?php echo get_theme_mod('typography_font_size_h4_mobile')?>px;
+            }
+        }
+
+        <?php } ?>
+
         <?php if(get_theme_mod('typography_font_size_h5')) { ?>
         h5 {
             font-size: <?php echo get_theme_mod('typography_font_size_h5')?>px;
+        }
+
+        <?php } ?>
+
+        <?php if(get_theme_mod('typography_font_size_h5_mobile')) { ?>
+        @media only screen and (max-width: 768px) {
+            h5 {
+                font-size: <?php echo get_theme_mod('typography_font_size_h5_mobile')?>px;
+            }
         }
 
         <?php } ?>
@@ -312,8 +357,6 @@ function growtype_customizer_general_css()
         <?php if(!empty(get_theme_mod('add_to_cart_button_background_color'))) { ?>
         .woocommerce ul.products li.product .button,
         .woocommerce ul.products li.product .button:hover,
-            /*.woocommerce-cart .wc-proceed-to-checkout .checkout-button.button.alt,*/
-            /*.woocommerce-cart .wc-proceed-to-checkout .checkout-button.button.alt:hover,*/
         .woocommerce div.product form.cart .button,
         .woocommerce div.product form.cart .button:hover,
         .wc-block-grid__product-add-to-cart.wp-block-button .wp-block-button__link,

@@ -39,7 +39,7 @@ class Growtype_Header
         $fixed_header_pages = get_theme_mod('header_fixed_dropdown_control');
 
         if ($fixed_header && !empty($fixed_header_pages)) {
-            $fixed_header = page_is_among_enabled_pages($fixed_header_pages);
+            $fixed_header = growtype_page_is_among_enabled_pages($fixed_header_pages);
         }
 
         return $fixed_header === true ? true : false;
@@ -64,7 +64,7 @@ class Growtype_Header
         $enabled_pages = get_theme_mod('header_navbar_enabled_pages');
 
         if ($enabled && !empty($enabled_pages)) {
-            $enabled = page_is_among_enabled_pages($enabled_pages);
+            $enabled = growtype_page_is_among_enabled_pages($enabled_pages);
         }
 
         return $enabled;

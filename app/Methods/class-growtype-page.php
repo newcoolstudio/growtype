@@ -62,7 +62,7 @@ class Growtype_Page
         if ($header_page_title_enabled) {
             $header_page_title_pages = get_theme_mod('header_page_title_pages');
 
-            if (page_is_among_enabled_pages($header_page_title_pages)) {
+            if (growtype_page_is_among_enabled_pages($header_page_title_pages)) {
                 $page_title = self::title_formatted(self::title());
             }
         }
@@ -127,6 +127,10 @@ class Growtype_Page
      */
     public static function content_limited($initial_content, $length = 125)
     {
+        if (empty($initial_content)) {
+            return $initial_content;
+        }
+
         $content = $initial_content;
         $content = strip_shortcodes($content);
         $content = strip_tags($content);

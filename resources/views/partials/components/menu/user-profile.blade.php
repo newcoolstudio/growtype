@@ -1,7 +1,7 @@
 <div class="dropdown user-profile">
     <button class="dropdown-toggle" type="button" id="user-profile-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
         <div class="account-img">
-            <?php echo get_avatar(get_current_user_id(), 30); ?>
+            <?php echo get_avatar(get_current_user_id(), 30, '', 'user-profile-avatar'); ?>
         </div>
         <div class="account-details">
             <?php if (!empty(Growtype_User::login_name())) : ?>
@@ -10,7 +10,7 @@
         </div>
     </button>
     <ul class="dropdown-menu" aria-labelledby="user-profile-dropdown">
-        @if(user_can_access_platform())
+        @if(growtype_user_can_access_platform())
                 <?php
                 wp_nav_menu(
                     array (

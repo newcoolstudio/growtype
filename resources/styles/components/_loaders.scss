@@ -1,15 +1,20 @@
+.spinner-wrapper {
+  position: relative;
+  min-height: 20px;
+}
+
 .spinner-grow, .spinner-border {
   position: absolute;
   left: 0;
   right: 0;
-  top: 35%;
+  top: 0;
   margin: auto;
   z-index: 11;
   width: 20px;
   height: 20px;
 }
 
-.spinner-border{
+.spinner-border {
   border-width: 2px;
   border-color: $color-primary;
   border-right-color: transparent;

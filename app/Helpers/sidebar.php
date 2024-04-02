@@ -4,7 +4,7 @@
  * Determine whether to show the sidebar
  * @return bool
  */
-function display_sidebar_primary($display = false)
+function growtype_display_sidebar_primary($display = false)
 {
     $sidebar_enabled = !empty(get_theme_mod('sidebar_primary_is_enabled')) ? get_theme_mod('sidebar_primary_is_enabled') : false;
     $sidebar_primary_pages = get_theme_mod('sidebar_primary_pages');

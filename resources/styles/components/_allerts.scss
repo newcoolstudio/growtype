@@ -73,7 +73,6 @@
 }
 
 .alert-danger {
-  box-shadow: 0px 2px 10px 0px #f0f0f0;
   background: white;
   font-size: var(--body-text-font-size);
   color: black;
@@ -92,9 +91,39 @@
     height: 20px;
     position: absolute;
     left: 20px;
-    top: 0;
+    top: 1px;
     bottom: 0;
     margin: auto;
     color: $color-error;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.alert-success {
+  background: white;
+  font-size: var(--body-text-font-size);
+  color: black;
+  padding: 1em 3.5em 1em 3.5em;
+  border: none;
+  border-radius: 0;
+  border-top: 3px solid $color-success;
+  position: relative;
+
+  &:before {
+    content: "\f534";
+    font-family: "Dashicons";
+    font-size: 18px;
+    line-height: 100%;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 20px;
+    top: 1px;
+    bottom: 0;
+    margin: auto;
+    color: $color-success;
+    display: flex;
+    align-items: center;
   }
 }

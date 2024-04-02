@@ -6,10 +6,16 @@ select {
   font-size: var(--body-text-font-size);
   box-sizing: border-box;
   background-repeat: no-repeat;
-  background-position-x: 100%;
-  background-position-y: 7px;
   border: 1px solid #dfdfdf;
   border-radius: 2px;
-  padding-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
   background: white;
+  color: var(--text-color);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 99%;
+  background-position-y: 10px;
 }

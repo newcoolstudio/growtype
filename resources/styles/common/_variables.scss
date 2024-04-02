@@ -3,7 +3,7 @@
 
   --text-color: black;
 
-  --body-text-font-size: 14px;
+  --body-text-font-size: 16px;
 
   --footer-text-color: black;
 
@@ -30,6 +30,8 @@
 
   --link-color: var(--theme-color);
   --link-color-active: var(--theme-color);
+
+  --btn-text-font-size: --body-text-font-size;
 }
 
 /**
@@ -125,7 +127,6 @@ $min-width-btn: 200px;
 $border-btn: none;
 $text-align-btn: center;
 $transition-btn: all 0.5s;
-$font-size-btn: 14px;
 $border-radius-btn: 5px;
 
 /**

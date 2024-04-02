@@ -1,4 +1,4 @@
-@if(display_sidebar_primary())
+@if(growtype_display_sidebar_primary())
     <aside id="sidebar-primary" class="sidebar sidebar-primary widget-area">
         <div class="btn btn-close-sidebar">
             <i class="fa-solid fa-arrow-right"></i>

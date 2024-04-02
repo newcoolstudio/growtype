@@ -44,7 +44,7 @@ if (!function_exists('growtype_header_has_extra_space')) {
         $extra_space_disabled_pages = get_theme_mod('extra_space_disabled_dropdown_control');
 
         if ($has_extra_space && !empty($extra_space_disabled_pages)) {
-            $has_extra_space = page_is_among_enabled_pages($extra_space_disabled_pages) ? false : true;
+            $has_extra_space = growtype_page_is_among_enabled_pages($extra_space_disabled_pages) ? false : true;
         }
 
         return $has_extra_space === true ? true : false;
@@ -84,7 +84,7 @@ if (!function_exists('growtype_header_main_menu_is_enabled')) {
         $header_menu_enabled_pages = get_theme_mod('header_menu_enabled_pages');
 
         if ($enabled && !empty($header_menu_enabled_pages)) {
-            $enabled = page_is_among_enabled_pages($header_menu_enabled_pages);
+            $enabled = growtype_page_is_among_enabled_pages($header_menu_enabled_pages);
         }
 
         return $enabled === true ? true : false;
@@ -139,3 +139,16 @@ if (!function_exists('header_scroll_background_color')) {
     }
 }
 
+/**
+ * @return false|string|WP_Error
+ */
+function growtype_get_home_url()
+{
+    $home_url = get_home_url();
+
+    if (is_user_logged_in() && !empty(get_theme_mod('theme_access_home_page_id_after_login')) && growtype_user_can_access_platform()) {
+        $home_url = get_permalink(get_theme_mod('theme_access_home_page_id_after_login'));
+    }
+
+    return apply_filters('growtype_get_home_url', $home_url);
+}

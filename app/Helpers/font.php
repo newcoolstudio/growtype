@@ -79,6 +79,6 @@ function growtype_get_font_url($font_details)
 if (!function_exists('growtype_typography_font_size_body')) {
     function growtype_typography_font_size_body()
     {
-        return get_theme_mod('typography_font_size_body', '14') . get_theme_mod('typography_font_size_unit', 'px');
+        return get_theme_mod('typography_font_size_body', '16') . get_theme_mod('typography_font_size_unit', 'px');
     }
 }

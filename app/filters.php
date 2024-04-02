@@ -21,7 +21,7 @@ add_filter('body_class', function (array $classes) {
     }
 
     /** Add class if sidebar is active */
-    if (display_sidebar_primary()) {
+    if (growtype_display_sidebar_primary()) {
         $classes[] = 'sidebar-primary';
     }
 

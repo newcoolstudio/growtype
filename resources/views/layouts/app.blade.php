@@ -27,11 +27,15 @@
     @yield('sidebar')
 
     <main id="main" class="<?php echo growtype_get_main_container_classes() ?>" role="main">
+        <?php do_action('growtype_after_main_content_open') ?>
+
         {{--Search--}}
         @include('partials.components.search.index')
 
         {{--Main content--}}
         @yield('content')
+
+        <?php do_action('growtype_before_main_content_close') ?>
     </main>
 </div>
 

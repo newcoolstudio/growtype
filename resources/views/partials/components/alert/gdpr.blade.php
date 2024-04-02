@@ -2,11 +2,11 @@
     <div class="alert-details">
         {!! wpautop( get_theme_mod('growtype_gdpr_alert_content'), true ) !!}
     </div>
-    <div class="alert-actions">
-        @if(get_theme_mod('growtype_gdpr_alert_agree_btn_enabled'))
+    @if(get_theme_mod('growtype_gdpr_alert_agree_btn_enabled'))
+        <div class="alert-actions">
             <button type="button" class="btn btn-primary" data-bs-dismiss="alert" aria-label="Close">{!! get_theme_mod('growtype_gdpr_alert_agree_btn_text', __('Close and accept','growtype')) !!}</button>
-        @endif
-    </div>
+        </div>
+    @endif
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 

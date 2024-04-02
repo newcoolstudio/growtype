@@ -264,9 +264,25 @@ $(document).ready(function ($) {
         });
     });
 
+    wp.customize("typography_font_size_h1_mobile", function (value) {
+        value.bind(function (newval) {
+            if (window.innerWidth < 768) {
+                $("h1").css('font-size', newval + 'px');
+            }
+        });
+    });
+
     wp.customize("typography_font_size_h2", function (value) {
         value.bind(function (newval) {
             $("h2").css('font-size', newval + 'px');
+        });
+    });
+
+    wp.customize("typography_font_size_h2_mobile", function (value) {
+        value.bind(function (newval) {
+            if (window.innerWidth < 768) {
+                $("h2").css('font-size', newval + 'px');
+            }
         });
     });
 
@@ -276,15 +292,39 @@ $(document).ready(function ($) {
         });
     });
 
+    wp.customize("typography_font_size_h3_mobile", function (value) {
+        value.bind(function (newval) {
+            if (window.innerWidth < 768) {
+                $("h3").css('font-size', newval + 'px');
+            }
+        });
+    });
+
     wp.customize("typography_font_size_h4", function (value) {
         value.bind(function (newval) {
             $("h4").css('font-size', newval + 'px');
         });
     });
 
+    wp.customize("typography_font_size_h4_mobile", function (value) {
+        value.bind(function (newval) {
+            if (window.innerWidth < 768) {
+                $("h4").css('font-size', newval + 'px');
+            }
+        });
+    });
+
     wp.customize("typography_font_size_h5", function (value) {
         value.bind(function (newval) {
             $("h5").css('font-size', newval + 'px');
+        });
+    });
+
+    wp.customize("typography_font_size_h5_mobile", function (value) {
+        value.bind(function (newval) {
+            if (window.innerWidth < 768) {
+                $("h5").css('font-size', newval + 'px');
+            }
         });
     });
 

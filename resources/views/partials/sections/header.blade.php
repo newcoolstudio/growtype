@@ -3,7 +3,7 @@
 @if(growtype_header_is_enabled())
     <header id="masthead"
             class="site-header"
-            role="site-header"
+            role="banner"
     >
             <?php do_action('growtype_header_after_open'); ?>
 

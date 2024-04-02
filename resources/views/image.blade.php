@@ -1,3 +1,3 @@
 <?php
-wp_redirect(get_home_url_custom());
+wp_redirect(growtype_get_home_url());
 ?>

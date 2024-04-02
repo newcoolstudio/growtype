@@ -24,7 +24,7 @@ div[class^='btn-'], button[class^='btn-'], a[class^='btn-'] {
 .btn-secondary,
 input[type=submit] {
   min-width: $min-width-btn;
-  font-size: $font-size-btn;
+  font-size: var(--btn-text-font-size);
   border: $border-btn;
   line-height: $line-height-btn;
   padding: $padding-btn;

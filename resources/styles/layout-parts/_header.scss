@@ -112,7 +112,7 @@ header a:hover {
   display: none;
 }
 
-.home {
+.is-home-page {
   #header_logo {
     display: none;
   }
@@ -231,8 +231,11 @@ header a:hover {
     }
   }
 
-  &.is-fixed {
+  &.has-transition {
     transition: all 0.5s;
+  }
+
+  &.is-fixed {
     box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.08);
 
     .main-navigation {
@@ -279,6 +282,10 @@ header a:hover {
   &.hide-onscroll {
     translate: 0 -100%;
   }
+
+  &.hide-onscroll, &.show-onscroll {
+    transition: all 0.5s;
+  }
 }
 
 .menu-header-container {
@@ -321,7 +328,6 @@ header a:hover {
     a {
       padding-top: 5px;
       padding-bottom: 5px;
-      font-size: 13px;
     }
   }
 

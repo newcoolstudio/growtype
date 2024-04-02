@@ -31,7 +31,11 @@ class Growtype_Cache
             $time = config('cache.default_expiration_time');
         }
 
-        set_transient($name, $data, $time);
+        $name = substr($name, 0, 150);
+
+        if (!empty($name) && !empty($data) && !empty($time)) {
+            return set_transient($name, $data, $time);
+        }
     }
 
     /**

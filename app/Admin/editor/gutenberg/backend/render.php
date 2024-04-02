@@ -3,14 +3,14 @@
 /**
  * Disable widget block editor
  */
-if (!widget_block_editor_is_active()) {
+if (!growtype_widget_block_editor_is_active()) {
     add_filter('use_widgets_block_editor', '__return_false');
 }
 
 /**
  * Disable gutenberg block editor
  */
-if (!gutenberg_block_editor_is_active()) {
+if (!growtype_gutenberg_block_editor_is_active()) {
     add_filter('use_block_editor_for_post', '__return_false');
 }
 
@@ -169,4 +169,62 @@ function admin_enqueue_custom_scripts()
     }
 
     wp_add_inline_style('gutenberg-block-editor-styles', $inlineCss);
+}
+
+/**
+ * Add new color palette
+ */
+add_action('after_setup_theme', 'growtype_gutenberg_editor_add_extra_colors');
+function growtype_gutenberg_editor_add_extra_colors()
+{
+    $existingColors = current((array)get_theme_support('editor-color-palette'));
+    if (false === $existingColors && class_exists('WP_Theme_JSON_Resolver')) {
+        $settings = WP_Theme_JSON_Resolver::get_core_data()->get_settings();
+        if (isset($settings['color']['palette']['default'])) {
+            $existingColors = $settings['color']['palette']['default'];
+        }
+    }
+
+    $extraColors = growtype_gutenberg_editor_get_extra_colors();
+
+    if (!empty($existingColors)) {
+        $extraColors = array_merge($existingColors, $extraColors);
+    }
+
+    add_theme_support('editor-color-palette', $extraColors);
+}
+
+function growtype_gutenberg_editor_get_extra_colors()
+{
+    $theme_colors = [
+        [
+            'name' => 'Theme Main',
+            'slug' => 'theme-main',
+            'color' => growtype_theme_color(),
+        ],
+    ];
+
+    return apply_filters('growtype_gutenberg_editor_extra_colors', $theme_colors);
+}
+
+add_action('wp_head', 'growtype_gutenberg_editor_add_extra_colors_styles');
+add_action('admin_head', 'growtype_gutenberg_editor_add_extra_colors_styles');
+function growtype_gutenberg_editor_add_extra_colors_styles()
+{
+    $extraColors = growtype_gutenberg_editor_get_extra_colors();
+
+    if (!empty($extraColors)) { ?>
+        <style>
+            <?php foreach ($extraColors as $color) {
+            $class_name = '.has-' . $color['slug'] . '-color';
+            $value = $color['color'];
+            ?>
+            .editor-styles-wrapper <?php echo $class_name ?>,<?php echo $class_name ?> {
+                color: <?php echo $value ?> !important;
+            }
+
+            <?php } ?>
+        </style>
+        <?php
+    }
 }

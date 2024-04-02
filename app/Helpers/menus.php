@@ -5,7 +5,7 @@
  * @return array
  * Get menu parent items
  */
-function get_menu_parent_items($menu_location)
+function growtype_get_menu_parent_items($menu_location)
 {
     $locations = get_nav_menu_locations();
 
