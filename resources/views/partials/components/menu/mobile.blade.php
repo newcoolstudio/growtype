@@ -1,6 +1,5 @@
 <div id="site-navigation-mobile" class="main-navigation-mobile main-navigation-mobile-{{get_theme_mod('header_mobile_menu_style')}} main-navigation-mobile-animation-{{get_theme_mod('header_mobile_menu_animation')}} {!! get_theme_mod('menu_item_parent_disabled', false) ? 'menu-item-parent-disabled' : 'menu-item-parent-enabled' !!}" role="navigation">
     <div class="main-navigation-mobile-inner">
-
         <div class="main-navigation-mobile-top">
             @if(!empty(growtype_get_mobile_menu_logo()))
                 <div class="header-logo-wrapper">
@@ -39,7 +38,10 @@
                     </a>
                 </li>
             @endif
+
+            <?php do_action('growtype_main_navigation_mobile_content_before_close'); ?>
         </div>
 
+        <?php do_action('growtype_main_navigation_mobile_before_close'); ?>
     </div>
 </div>

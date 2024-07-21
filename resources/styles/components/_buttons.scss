@@ -293,4 +293,10 @@ Block
       border: none !important;
     }
   }
+
+  &.w-100 {
+    .wp-element-button {
+      width: 100% !important;
+    }
+  }
 }

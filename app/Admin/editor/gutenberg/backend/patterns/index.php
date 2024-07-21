@@ -15,19 +15,9 @@ function growtype_wp_block_patterns()
         array (
             'title' => __('Categories', 'growtype'),
             'description' => _x('A block to present categories.', 'Block pattern description', 'page-intro-block'),
-            'content' => file_get_contents(__DIR__ . '/patterns/categories.php'),
+            'content' => file_get_contents(__DIR__ . '/partials/categories.php'),
             'categories' => array ('growtype-patterns'),
             'keywords' => array ('category'),
         )
     );
 }
-
-/**
- * Teaser element
- */
-add_action('init', function () {
-    register_block_style('core/media-text', [
-        'name' => 'cover-element',
-        'label' => __('Cover', 'growtype'),
-    ]);
-});

@@ -100,3 +100,8 @@
 :where(.wp-block-group.has-background) {
   padding: 0;
 }
+
+body .is-layout-constrained .wp-block-group .wp-block-group__inner-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+  margin-left: initial !important;
+  margin-right: initial !important;
+}

@@ -98,6 +98,20 @@ function buttons_customize_register($wp_customize)
     )));
 
     /**
+     * Active color
+     */
+    $wp_customize->add_setting('primary_button_text_color_active', array (
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'postMessage',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'primary_button_text_color_active', array (
+        'label' => __('"Primary" button text color active', 'growtype'),
+        'section' => 'buttons',
+        'alpha' => true,
+    )));
+
+    /**
      * Border
      */
     $wp_customize->add_setting('primary_button_border_color', array (

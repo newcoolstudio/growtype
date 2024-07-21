@@ -121,6 +121,12 @@ html.wp-toolbar :where(.editor-styles-wrapper) {
     }
   }
 
+  :where(.wp-block)[data-align=full] {
+    .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+      max-width: 840px;
+    }
+  }
+
   .edit-post-visual-editor .block-editor-writing-flow__click-redirect {
     min-height: 10vh;
   }

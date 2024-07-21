@@ -38,11 +38,13 @@ function growtype_enqueue_block_editor_assets()
             false,
         );
 
-        wp_enqueue_style(
-            'growtype-block-editor-styles-child',
-            growtype_get_child_theme_public_path() . '/styles/backend-block-editor-child.css',
-            false
-        );
+        if (get_option('theme_styles_enabled')) {
+            wp_enqueue_style(
+                'growtype-block-editor-styles-child',
+                growtype_get_child_theme_public_path() . '/styles/backend-block-editor-child.css',
+                false
+            );
+        }
 
         wp_enqueue_script('growtype-block-editor-scripts',
             growtype_get_parent_theme_public_path() . '/scripts/backend-block-editor.js',
@@ -219,7 +221,7 @@ function growtype_gutenberg_editor_add_extra_colors_styles()
             $class_name = '.has-' . $color['slug'] . '-color';
             $value = $color['color'];
             ?>
-            .editor-styles-wrapper <?php echo $class_name ?>,<?php echo $class_name ?> {
+            .editor-styles-wrapper <?php echo $class_name ?>, <?php echo $class_name ?> {
                 color: <?php echo $value ?> !important;
             }
 

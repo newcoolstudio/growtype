@@ -10,6 +10,18 @@
   .main-navigation-mobile-inner {
     width: 85%;
     max-width: 500px;
+
+    .main-navigation-mobile-top {
+      @include bp-phone-xl() {
+        padding-left: 5px;
+      }
+    }
+
+    .main-navigation-mobile-content {
+      @include bp-phone-xl() {
+        padding-left: 10px;
+      }
+    }
   }
 
   .menu-mobile-container {
@@ -89,8 +101,9 @@
       }
 
       &.is-active {
-        .sub-menu {
+        > .sub-menu {
           display: block;
+          padding-left: 20px;
         }
 
         > a {
@@ -132,10 +145,6 @@
       display: inline-block;
       width: 100%;
       padding-left: 10px;
-
-      &:hover {
-        border-left: 1px solid $color-primary;
-      }
     }
   }
 

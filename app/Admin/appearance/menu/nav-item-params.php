@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) {
 /**
  * Class Menu_Icon
  */
-class Growtype_Nav_Item
+class Growtype_Nav_Item_Params
 {
     protected static $fields = array ();
 
@@ -22,8 +22,18 @@ class Growtype_Nav_Item
         add_filter('manage_nav-menus_columns', array (__CLASS__, '_columns'), 99);
 
         self::$fields = array (
-            'icon-class' => esc_html__('Icon Class', 'growtype'),
-            'custom-attributes' => esc_html__('Custom Attributes', 'growtype'),
+            'icon-class' => [
+                'label' => esc_html__('Icon Class', 'growtype'),
+                'type' => 'text',
+            ],
+            'custom-attributes' => [
+                'label' => esc_html__('Custom Attributes', 'growtype'),
+                'type' => 'text',
+            ],
+            'custom-html' => [
+                'label' => esc_html__('Custom HTML', 'growtype'),
+                'type' => 'textarea',
+            ],
         );
     }
 
@@ -44,7 +54,7 @@ class Growtype_Nav_Item
 
         check_admin_referer('update-nav_menu', 'update-nav-menu-nonce');
 
-        foreach (self::$fields as $_key => $label) {
+        foreach (self::$fields as $_key => $element) {
             $key = sprintf('menu-item-%s', $_key);
 
             if (!empty($_POST[$key][$menu_item_db_id])) {
@@ -71,7 +81,7 @@ class Growtype_Nav_Item
      */
     public static function _fields($id, $item, $depth, $args)
     {
-        foreach (self::$fields as $_key => $label) :
+        foreach (self::$fields as $_key => $element) :
             $key = sprintf('menu-item-%s', $_key);
             $id = sprintf('edit-%s-%s', $key, $item->ID);
             $name = sprintf('%s[%s]', $key, $item->ID);
@@ -80,13 +90,24 @@ class Growtype_Nav_Item
             ?>
             <p class="description description-wide <?php echo esc_attr($class); ?>">
                 <?php
-                printf(
-                    '<label for="%1$s">%2$s<br /><input type="text" id="%1$s" class="widefat %1$s" name="%3$s" value="%4$s" /></label>',
-                    esc_attr($id),
-                    esc_html($label),
-                    esc_attr($name),
-                    esc_attr($value)
-                )
+                if ($element['type'] === 'textarea') {
+                    printf(
+                        '<label for="%1$s">%2$s<br /><textarea id="%1$s" name="%3$s" style="%4$s" cols="30" rows="5">%5$s</textarea>',
+                        esc_attr($id),
+                        esc_html($element['label']),
+                        esc_attr($name),
+                        'width: 100%!important;',
+                        esc_attr($value)
+                    );
+                } else {
+                    printf(
+                        '<label for="%1$s">%2$s<br /><input type="text" id="%1$s" class="widefat %1$s" name="%3$s" value="%4$s" /></label>',
+                        esc_attr($id),
+                        esc_html($element['label']),
+                        esc_attr($name),
+                        esc_attr($value)
+                    );
+                }
                 ?>
             </p>
         <?php
@@ -107,4 +128,4 @@ class Growtype_Nav_Item
     }
 }
 
-Growtype_Nav_Item::init();
+Growtype_Nav_Item_Params::init();

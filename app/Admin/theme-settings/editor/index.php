@@ -41,9 +41,11 @@ class Growtype_Admin_Theme_Settings_Editor
 
     public function admin_settings()
     {
+        global $wp_version;
+
         add_settings_section(
             'editor_options_settings', // section ID
-            'Gutenberg editor', // title (if needed)
+            'Block editor', // title (if needed)
             '', // callback function (if needed)
             'growtype-editor-settings' // page slug
         );
@@ -59,7 +61,7 @@ class Growtype_Admin_Theme_Settings_Editor
 
         add_settings_field(
             'gutenberg_block_editor_enabled',
-            'Gutenberg Block Editor',
+            'Block Editor is Active',
             array ($this, 'gutenberg_block_editor_enabled_callback'),
             'growtype-editor-settings',
             'editor_options_settings'
@@ -76,7 +78,7 @@ class Growtype_Admin_Theme_Settings_Editor
 
         add_settings_field(
             'growtype_gutenberg_block_editor_load_remote_block_patterns',
-            'Load Remote Block Patterns',
+            'Load Remote Block Patterns <br><a href="https://developer.wordpress.org/themes/features/block-patterns/" target="_blank">Learn more</a>',
             array ($this, 'growtype_gutenberg_block_editor_load_remote_block_patterns_callback'),
             'growtype-editor-settings',
             'editor_options_settings'
@@ -127,7 +129,7 @@ class Growtype_Admin_Theme_Settings_Editor
 
         add_settings_field(
             'theme_styles_enabled',
-            'Apply Theme Styles',
+            'Apply Child Theme Styles',
             array ($this, 'theme_styles_enabled_callback'),
             'growtype-editor-settings',
             'editor_options_settings'
@@ -144,7 +146,7 @@ class Growtype_Admin_Theme_Settings_Editor
 
         add_settings_field(
             'theme_font_enabled',
-            'Apply Theme Font',
+            'Apply Child Theme Fonts',
             array ($this, 'theme_font_enabled_callback'),
             'growtype-editor-settings',
             'editor_options_settings'
@@ -153,19 +155,21 @@ class Growtype_Admin_Theme_Settings_Editor
         /**
          * Reusable blocks bar in admin nav
          */
-        register_setting(
-            'editor_options_settings', // settings group name
-            'reusable_blocks_in_admin_enabled', // option name
-            'sanitize_text_field' // sanitization function
-        );
+        if ($wp_version < '6.5') {
+            register_setting(
+                'editor_options_settings', // settings group name
+                'reusable_blocks_in_admin_enabled', // option name
+                'sanitize_text_field' // sanitization function
+            );
 
-        add_settings_field(
-            'reusable_blocks_in_admin_enabled',
-            'Show Reusable blocks nav tab in admin',
-            array ($this, 'reusable_blocks_in_admin_enabled_callback'),
-            'growtype-editor-settings',
-            'editor_options_settings'
-        );
+            add_settings_field(
+                'reusable_blocks_in_admin_enabled',
+                'Show Reusable blocks nav tab in admin',
+                array ($this, 'reusable_blocks_in_admin_enabled_callback'),
+                'growtype-editor-settings',
+                'editor_options_settings'
+            );
+        }
 
         /**
          * Reusable blocks bar in admin nav
@@ -178,7 +182,7 @@ class Growtype_Admin_Theme_Settings_Editor
 
         add_settings_field(
             'growtype_disable_layout_styles',
-            'Disable layout styles',
+            'Disable layout styles <br><a href="https://developer.wordpress.org/block-editor/explanations/architecture/styles/#layout-styles" target="_blank">Learn more</a>',
             array ($this, 'growtype_disable_layout_styles_callback'),
             'growtype-editor-settings',
             'editor_options_settings'

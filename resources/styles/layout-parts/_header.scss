@@ -318,16 +318,25 @@ header a:hover {
     background: white;
     border: 1px solid whitesmoke;
     border-top: 2px solid black;
-    padding: 10px;
+    padding: 0;
     position: absolute;
-    top: 40px;
+    //top: 40px;
     left: 0;
     display: none;
     min-width: 180px;
 
     a {
+      padding-left: 10px;
+      padding-right: 10px;
       padding-top: 5px;
       padding-bottom: 5px;
+      width: 100%;
+    }
+
+    .sub-menu {
+      right: -100%;
+      left: initial;
+      top: 0px;
     }
   }
 

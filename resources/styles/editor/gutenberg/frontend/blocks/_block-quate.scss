@@ -1,7 +1,8 @@
 /* Quote */
 
 .wp-block-quote {
-  margin: 0 3em;
+  margin: 0;
+  font-style: italic;
 }
 
 .wp-block-quote:not(.is-large):not(.is-style-large) {

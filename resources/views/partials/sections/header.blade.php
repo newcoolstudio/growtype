@@ -53,10 +53,6 @@
                     @include('partials.components.menu.login')
                 @endif
 
-                @if(Growtype_User::profile_menu_is_enabled())
-                    @include('partials.components.menu.user-profile')
-                @endif
-
                     <?php do_action('growtype_header_inner_before_close'); ?>
             </div>
         </div>

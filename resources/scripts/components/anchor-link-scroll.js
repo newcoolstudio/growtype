@@ -16,7 +16,7 @@ function anchorLinkScroll() {
                  * Check if mobile menu
                  */
                 if ($(this).closest('.main-navigation-mobile').length > 0) {
-                    window.burgerClose();
+                    window.growtypeBurgerClose();
                 }
 
                 $('html, body').animate({

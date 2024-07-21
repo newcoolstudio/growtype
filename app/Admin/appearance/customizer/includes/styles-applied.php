@@ -13,7 +13,7 @@ function growtype_customizer_general_css()
             --btn-primary-background-color: <?php echo growtype_primary_button_background_color() ?>;
             --btn-primary-background-color-active: <?php echo growtype_secondary_button_background_color() ?>;
             --btn-primary-color: <?php echo growtype_primary_button_text_color() ?>;
-            --btn-primary-color-active: <?php echo growtype_secondary_button_text_color() ?>;
+            --btn-primary-color-active: <?php echo growtype_primary_button_text_color_active() ?>;
             --btn-primary-border-color: <?php echo growtype_primary_button_border_color() ?>;
             --btn-primary-border-color-active: <?php echo growtype_primary_button_border_color() ?>;
             --btn-primary-border-radius: <?php echo growtype_primary_button_border_radius() ?>;
@@ -22,7 +22,7 @@ function growtype_customizer_general_css()
             --btn-secondary-background-color-active: <?php echo growtype_primary_button_background_color() ?>;
             --btn-secondary-color: <?php echo growtype_secondary_button_text_color() ?>;
             --btn-secondary-color-active: <?php echo growtype_primary_button_text_color() ?>;
-            --btn-secondary-border-color: <?php echo growtype_primary_button_background_color() ?>;
+            --btn-secondary-border-color: <?php echo growtype_secondary_button_border_color() ?>;
             --btn-secondary-border-color-active: <?php echo growtype_primary_button_background_color() ?>;
             --btn-secondary-border-radius: <?php echo growtype_primary_button_border_radius() ?>;
 
@@ -40,10 +40,6 @@ function growtype_customizer_general_css()
         .woocommerce-account .b-info-header,
         .woocommerce nav.woocommerce-pagination ul li span.current {
             background-color: <?php echo get_theme_mod('main_color'); ?>;
-        }
-
-        .main-navigation-mobile-type-3 .menu-mobile-container .menu a:hover {
-            border-left: 1px solid<?php echo get_theme_mod('main_color'); ?>;
         }
 
         .spinner-border {

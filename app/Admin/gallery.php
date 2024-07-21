@@ -6,21 +6,23 @@
 add_filter('the_content', 'growtype_format_content');
 function growtype_format_content($content)
 {
-    $content = !empty($content) ? mb_convert_encoding($content, 'HTML-ENTITIES', "UTF-8") : '';
+    if (strpos($content, '<img') !== false) {
+        $content = !empty($content) ? mb_convert_encoding($content, 'HTML-ENTITIES', "UTF-8") : '';
 
-    if (!empty($content)) {
-        $document = new DOMDocument();
-        libxml_use_internal_errors(true);
-        $document->loadHTML(utf8_decode($content));
+        if (!empty($content)) {
+            $document = new DOMDocument();
+            libxml_use_internal_errors(true);
+            $document->loadHTML(utf8_decode($content));
 
-        $images = $document->getElementsByTagName('img');
+            $images = $document->getElementsByTagName('img');
 
-        foreach ($images as $img) {
-            $existing_class = $img->getAttribute('class');
-            $img->setAttribute('class', "img-fluid $existing_class");
+            foreach ($images as $img) {
+                $existing_class = $img->getAttribute('class');
+                $img->setAttribute('class', "img-fluid $existing_class");
+            }
+
+            $content = $document->saveHTML();
         }
-
-        $content = $document->saveHTML();
     }
 
     return $content;

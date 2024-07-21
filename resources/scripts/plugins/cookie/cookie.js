@@ -21,8 +21,8 @@ class Cookie {
     }
 
     eraseCookie(name) {
-        document.cookie = name + '=; Max-Age=-99999999;';
+        document.cookie = name + "=;expires=" + new Date(0).toUTCString()
     }
 }
 
-window.cookieCustom = new Cookie;
+window.cookieCustom = window.growtypeCookie = new Cookie;

@@ -1,5 +1,6 @@
 function headerFixed() {
     let scrollableElements = $('.has-fixed-header .site-header');
+    let clonedScrollableElements = {};
 
     if (scrollableElements.length > 0) {
         scrollableElements.each(function (index, element) {
@@ -8,7 +9,10 @@ function headerFixed() {
                 .clone()
                 .removeAttr('id')
                 .hide();
+
             $(clonedScrollableElement).insertAfter(scrollableElement);
+
+            clonedScrollableElements[index] = clonedScrollableElement;
 
             let stickyOffset = scrollableElement.offset().top;
 
@@ -68,6 +72,13 @@ function headerFixed() {
 
                 lastScrollTop = scroll;
             });
+        }).promise().done(function () {
+            document.dispatchEvent(new CustomEvent("growtypeHeaderFixedLoaded", {
+                detail: {
+                    scrollableElements: scrollableElements,
+                    clonedScrollableElements: clonedScrollableElements,
+                },
+            }));
         });
     }
 }

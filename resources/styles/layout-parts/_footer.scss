@@ -64,43 +64,6 @@
         padding-left: 15px;
       }
     }
-
-    &.menu-column-1 {
-      > li {
-        width: calc(100% / 2);
-        @include bp-phone-xl() {
-          width: 100%;
-        }
-      }
-    }
-
-    &.menu-column-2 {
-      max-width: 500px;
-
-      > li {
-        width: calc(100% / 2);
-        @include bp-phone-xl() {
-          width: 100%;
-        }
-      }
-    }
-
-    &.menu-column-3 {
-      > li {
-        width: calc(100% / 3);
-        @include bp-phone-xl() {
-          width: 100%;
-        }
-      }
-    }
-    &.menu-column-4 {
-      > li {
-        width: calc(100% / 4);
-        @include bp-phone-xl() {
-          width: 100%;
-        }
-      }
-    }
   }
 
   .mainlogo {
@@ -261,7 +224,7 @@
     padding-bottom: 25px;
     @include bp-phone-xl() {
       padding-top: 20px;
-      padding-bottom: 50px;
+      padding-bottom: 20px;
     }
 
     p {
@@ -288,6 +251,10 @@
     padding-bottom: 15px;
     display: flex;
     justify-content: space-between;
+    @include bp-phone-xl() {
+      flex-direction: column;
+      gap: 15px;
+    }
     @include bp-phone-large() {
       font-size: 12px;
     }
@@ -349,6 +316,12 @@
 
     p:empty {
       display: none;
+    }
+  }
+
+  .current-menu-item {
+    a {
+      font-weight: bold;
     }
   }
 }

@@ -15,7 +15,6 @@
         <?php do_action('growtype_single_post_cta'); ?>
         @include('partials.content.content-single')
         @php(comments_template())
-
         <?php do_action('growtype_single_post_before_close'); ?>
     </article>
 @endsection

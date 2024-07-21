@@ -20,8 +20,15 @@ class Growtype_Nav_Walker extends Walker_Nav_Menu
 
         $custom_attributes = get_post_meta($menu_item->ID, 'menu-item-custom-attributes', true);
 
-        $class_names = $value = '';
+        $custom_html = get_post_meta($menu_item->ID, 'menu-item-custom-html', true);
+
+        $value = '';
         $classes = empty($menu_item->classes) ? array () : (array)$menu_item->classes;
+
+        if (!empty($custom_html)) {
+            array_push($classes, 'menu-item-html');
+        }
+
         $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $menu_item));
         $class_names = ' class="' . esc_attr($class_names) . '"';
 
@@ -37,11 +44,16 @@ class Growtype_Nav_Walker extends Walker_Nav_Menu
 
         if (!empty($args) && is_object($args)) {
             $menu_item_output = $args->before;
-            $menu_item_output .= '<a' . $attributes . '>';
-            $menu_item_output .= !empty($menu_icon) ? '<i class="' . $menu_icon . '"></i>' : '';
-            $menu_item_output .= $args->link_before . '<span>' . apply_filters('the_title', $menu_item->title, $menu_item->ID) . '</span>';
-            $menu_item_output .= $args->link_after;
-            $menu_item_output .= '</a>';
+            if (!empty($custom_html)) {
+                $menu_item_output .= nl2br($custom_html);
+            } else {
+                $menu_item_output .= '<a' . $attributes . '>';
+                $menu_item_output .= !empty($menu_icon) ? '<i class="' . $menu_icon . '"></i>' : '';
+                $menu_item_output .= $args->link_before . '<span>' . apply_filters('the_title', $menu_item->title, $menu_item->ID) . '</span>';
+                $menu_item_output .= $args->link_after;
+                $menu_item_output .= '</a>';
+            }
+
             if (isset($extraContent) && !empty($extraContent)) {
                 $menu_item_output .= '<ul class="sub-menu">' . $extraContent . '</ul>';
             }

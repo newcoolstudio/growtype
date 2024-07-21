@@ -7,15 +7,15 @@ function menuBurger() {
                 menuWasClicked = false;
             }, 700);
             if ($(this).hasClass('is-pasive')) {
-                window.burgerOpen()
+                window.growtypeBurgerOpen()
             } else {
-                window.burgerClose()
+                window.growtypeBurgerClose()
             }
         }
     })
 
     $('.main-navigation-mobile').on('click', function () {
-        window.burgerClose();
+        window.growtypeBurgerClose();
     });
 
     $('.main-navigation-mobile .main-navigation-mobile-inner').on('click', function () {
@@ -24,11 +24,11 @@ function menuBurger() {
 
     $('.main-navigation-mobile a').on('click', function () {
         if ($(this).text().indexOf("#") === -1 && !$(this).closest('li').hasClass('active') && $(this).closest('.menu-item-parent-disabled').length === 0) {
-            window.burgerClose();
+            window.growtypeBurgerClose();
         }
     });
 
-    window.burgerClose = function () {
+    window.growtypeBurgerClose = function () {
         $('.btn-menu-mobile').addClass('is-pasive').removeClass('is-active');
         $('body, html').removeClass('burger-open');
         $('body, html').removeClass('stopscroll');
@@ -36,7 +36,7 @@ function menuBurger() {
         $('body').unbind('touchmove');
     }
 
-    window.burgerOpen = function () {
+    window.growtypeBurgerOpen = function () {
         $('.btn-menu-mobile').removeClass('is-pasive').addClass('is-active');
         $('body, html').addClass('stopscroll');
         $('body, html').addClass('burger-open');

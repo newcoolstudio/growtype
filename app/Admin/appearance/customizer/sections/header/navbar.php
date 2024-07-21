@@ -90,7 +90,7 @@ $wp_customize->add_control(new Skyrocket_TinyMCE_Custom_control($wp_customize, '
             'class' => 'qtranxs-translatable',
             'toolbar1' => 'bold italic bullist numlist alignleft aligncenter alignright link',
             'toolbar2' => 'formatselect',
-            'mediaButtons' => false,
+            'mediaButtons' => true,
         )
     )
 ));

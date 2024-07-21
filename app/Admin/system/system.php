@@ -23,24 +23,12 @@ function growtype_hide_update_notice_to_all_but_admin_users()
 /**
  * Page is under construction
  */
-add_action('wp', 'growtype_website_is_under_construction');
+add_action('wp_body_open', 'growtype_website_is_under_construction');
 function growtype_website_is_under_construction()
 {
-    $is_wp_json = isset($_SERVER['REQUEST_URI']) ? strpos($_SERVER['REQUEST_URI'], 'wp-json') : false;
-    $is_login_page = isset($_SERVER['REQUEST_URI']) ? strpos($_SERVER['REQUEST_URI'], 'wp-login.php') : false;
-
-    if (!$is_login_page
-        &&
-        !$is_wp_json
-        &&
-        !is_user_logged_in()
-        &&
-        get_theme_mod('growtype_is_under_construction')
-    ) {
-
-        $content = get_theme_mod('growtype_is_under_construction_content');
-        ?>
-        <div style="display: inline-block;width: 100%;text-align: center;padding-top: 4vh;">
+    if (growtype_page_is_under_construction()) {
+        $content = get_theme_mod('growtype_is_under_construction_content'); ?>
+        <div class="main-content">
             <?php if (empty($content)) { ?>
                 <h1><?php echo __('404', 'growtype') ?></h1>
                 <p><?php echo __("What you are looking for doesn't exists.", 'growtype') ?></p>
@@ -51,4 +39,22 @@ function growtype_website_is_under_construction()
         <?php
         die();
     }
+}
+
+add_filter('body_class', 'growtype_website_is_under_construction_body_class');
+function growtype_website_is_under_construction_body_class($classes)
+{
+    if (growtype_page_is_under_construction()) {
+        $classes[] = 'page-under-construction';
+    }
+
+    return $classes;
+}
+
+add_filter('wp_die_handler', 'growtype_wp_die_message');
+function growtype_wp_die_message()
+{
+    $custom_message = 'Oops! Something went wrong. Please try again later.';
+
+    wp_die($custom_message, 'Error');
 }

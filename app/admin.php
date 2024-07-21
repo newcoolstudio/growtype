@@ -44,8 +44,8 @@ include_once 'Admin/users.php';
 /**
  * Appearance
  */
-include_once 'Admin/appearance/menu/menu-icon.php';
-include_once 'Admin/appearance/menu/custom-walker.php';
+include_once 'Admin/appearance/menu/nav-item-params.php';
+include_once 'Admin/appearance/menu/nav-walker.php';
 
 /**
  * Customizer
