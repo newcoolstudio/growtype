@@ -1,4 +1,4 @@
-@if(has_nav_menu('header-side') || do_action('growtype_side_nav') || Growtype_User::account_icon_enabled())
+@if(has_nav_menu('header-side') || Growtype_User::account_icon_enabled())
     <div class="side-nav-wrapper">
             <?php if (has_nav_menu('header-side')) {
             wp_nav_menu(array (
@@ -9,7 +9,9 @@
                 'walker' => new Growtype_Nav_Walker()
             ));
         } ?>
-            <?php do_action('growtype_side_nav'); ?>
+
+        <?php do_action('growtype_side_nav'); ?>
+
         @if(Growtype_User::account_icon_enabled())
             <li class="e-profile">
                 <a href="{!! Growtype_User::account_permalink() !!}">

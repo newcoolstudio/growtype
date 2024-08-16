@@ -31,7 +31,7 @@ if (!get_option('growtype_gutenberg_block_editor_load_remote_block_patterns')) {
 add_action('enqueue_block_editor_assets', 'growtype_enqueue_block_editor_assets', 10);
 function growtype_enqueue_block_editor_assets()
 {
-    if (get_post_type()) {
+    if (get_post_type() || (isset($_GET['postType']) && $_GET['postType'] === 'wp_block')) {
         wp_enqueue_style(
             'growtype-block-editor-styles',
             growtype_get_parent_theme_public_path() . '/styles/backend-block-editor.css',

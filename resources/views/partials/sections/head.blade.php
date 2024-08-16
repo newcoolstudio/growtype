@@ -1,7 +1,8 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+
+    <?php do_action('growtype_head_viewport') ?>
 
     @php wp_head() @endphp
 
@@ -19,5 +20,5 @@
         <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="<?php echo growtype_get_font_url(growtype_get_font_details('secondary_font')) ?>">
     @endif
 
-    <?php echo do_action('growtype_head') ?>
+    <?php do_action('growtype_head') ?>
 </head>

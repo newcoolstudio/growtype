@@ -6,7 +6,7 @@
 
 @section('content')
     <article>
-        <?php do_action('growtype_single_post_back'); ?>
+        <?php do_action('growtype_single_post_breadcrumbs'); ?>
         <?php do_action('growtype_single_post_title'); ?>
         <?php do_action('growtype_single_post_taxonomy'); ?>
         <?php do_action('growtype_single_post_reading_time'); ?>

@@ -10,9 +10,13 @@ abstract class Growtype_Customizer
      */
     public function __construct()
     {
-        $this->available_pages = $this->get_available_pages();
+        $this->available_pages = [];
         $this->available_roles = $this->get_available_roles();
         $this->available_post_types = $this->get_available_post_types();
+
+        add_action('init', function () {
+            $this->available_pages = $this->get_available_pages();
+        });
     }
 
     /**
@@ -20,6 +24,12 @@ abstract class Growtype_Customizer
      */
     function get_available_pages()
     {
+        $login_redirect_enabled = get_theme_mod('theme_access_login_redirect');
+
+        if (!$login_redirect_enabled) {
+            return [];
+        }
+
         $customizer_available_pages = [];
         $available_pages = get_pages();
 
@@ -36,6 +46,35 @@ abstract class Growtype_Customizer
          * Posts
          */
         $customizer_available_pages['posts'] = 'CPT - Posts';
+
+        /**
+         * Custom Post Types
+         */
+        $args = array (
+            'public' => true,
+            '_builtin' => false
+        );
+
+        $custom_post_types = get_post_types($args, 'objects');
+
+        foreach ($custom_post_types as $post_type) {
+            $customizer_available_pages['cpt_' . $post_type->name] = 'CPT - ' . $post_type->labels->name;
+            $customizer_available_pages['cpt_single_' . $post_type->name] = 'CPT Single - ' . $post_type->labels->name;
+        }
+
+        /**
+         * Custom taxonomies
+         */
+        $args = array (
+            'public' => true,
+            '_builtin' => false,
+        );
+
+        $custom_taxonomies = get_taxonomies($args, 'objects');
+
+        foreach ($custom_taxonomies as $custom_tax) {
+            $customizer_available_pages['tax_' . $custom_tax->name] = 'Tax - ' . $custom_tax->labels->name;
+        }
 
         /**
          * External pages

@@ -1,3 +1,15 @@
+.chosen-container-single .chosen-single abbr {
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
+  .chosen-container.chosen-container-active .chosen-search input[type=text] {
+    background: none!important;
+  }
+}
+
 .chosen-container-single .chosen-single {
   border-radius: $border-radius-input !important;
   background: white !important;
@@ -35,5 +47,25 @@
   li.search-choice {
     min-height: 31px;
     padding-top: 7px !important;
+  }
+}
+
+.chosen-container-single .chosen-search input[type=text] {
+  background: none;
+  position: relative;
+}
+
+.chosen-container-single .chosen-search {
+  &:before {
+    content: "\f179";
+    font-family: Dashicons;
+    height: 20px;
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    width: 20px;
+    font-size: 22px;
+    color: #aaaaaa;
+    z-index: 1;
   }
 }

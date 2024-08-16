@@ -105,6 +105,15 @@
     transition: none;
 }
 
+li#accordion-section-woocommerce_checkout .accordion-section-title {
+    background: #f1f1f1!important;
+    color: black!important;
+}
+
+li#accordion-section-woocommerce_checkout .accordion-section-title:after {
+    background-color: #f1f1f1!important;
+}
+
 .customize-section-title,
 .customize-section-back {
     border: none;

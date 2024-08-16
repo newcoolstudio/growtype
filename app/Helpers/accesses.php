@@ -181,6 +181,23 @@ function growtype_page_is_among_enabled_pages($enabled_pages)
         }
     }
 
+    /**
+     * Cpt pages
+     */
+    foreach ($enabled_pages as $enabled_page) {
+        if (strpos($enabled_page, 'cpt_') !== false) {
+            $cpt_name = str_replace('cpt_', '', $enabled_page);
+            $cpt_single_name = str_replace('single_', '', $cpt_name);
+
+            $queries_object = get_queried_object();
+
+            if ($queries_object->post_type === $cpt_name || $queries_object->post_type === $cpt_single_name) {
+                $page_enabled = true;
+                break;
+            }
+        }
+    }
+
     $page_enabled = apply_filters('growtype_page_is_among_enabled_pages', $page_enabled, $enabled_pages);
 
     return $page_enabled;

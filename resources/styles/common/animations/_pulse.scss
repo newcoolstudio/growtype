@@ -1,7 +1,6 @@
 $color-red: #ff9000;
 
 .anim-pulse {
-  border-radius: 50%;
   box-shadow: 0 0 0 $color-red;
   animation: pulse 2s infinite;
 }
