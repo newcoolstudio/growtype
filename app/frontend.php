@@ -2,5 +2,5 @@
 
 namespace App;
 
-include('Frontend/body.php');
+include('Frontend/layout.php');
 include('Frontend/scripts.php');

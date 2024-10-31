@@ -17,13 +17,7 @@
             </div>
         @endif
 
-        @if(Growtype_Header::has_navbar())
-            <div class="b-navbar">
-                <div class="container">
-                    <div class="e-text">{!! apply_filters( 'the_content', get_theme_mod('header_navbar_text') ) !!}</div>
-                </div>
-            </div>
-        @endif
+            <?php do_action('growtype_navbar_html'); ?>
 
         <div class="container">
             <div class="header-inner">

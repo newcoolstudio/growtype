@@ -22,6 +22,8 @@ class Growtype_Nav_Walker extends Walker_Nav_Menu
 
         $custom_html = get_post_meta($menu_item->ID, 'menu-item-custom-html', true);
 
+        $icon_html = get_post_meta($menu_item->ID, 'menu-item-icon-html', true);
+
         $value = '';
         $classes = empty($menu_item->classes) ? array () : (array)$menu_item->classes;
 
@@ -49,6 +51,7 @@ class Growtype_Nav_Walker extends Walker_Nav_Menu
             } else {
                 $menu_item_output .= '<a' . $attributes . '>';
                 $menu_item_output .= !empty($menu_icon) ? '<i class="' . $menu_icon . '"></i>' : '';
+                $menu_item_output .= !empty($icon_html) ? $icon_html : '';
                 $menu_item_output .= $args->link_before . '<span>' . apply_filters('the_title', $menu_item->title, $menu_item->ID) . '</span>';
                 $menu_item_output .= $args->link_after;
                 $menu_item_output .= '</a>';

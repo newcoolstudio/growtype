@@ -6,7 +6,12 @@ const {Fragment, useState, cloneElement} = wp.element;
 const {InspectorControls} = wp.blockEditor;
 const {PanelBody, RangeControl, SelectControl} = wp.components;
 
-const enableMaxWidthControlOnBlocks = ['core/paragraph', 'core/heading', 'core/image', 'core/group'];
+const enableMaxWidthControlOnBlocks = [
+    'core/paragraph',
+    'core/heading',
+    'core/image',
+    'core/group'
+];
 
 /**
  * Create attributes
@@ -72,9 +77,9 @@ const createInspectorControls = createHigherOrderComponent((BlockEdit) => {
             return (
                 <Fragment>
                     <BlockEdit {...props} />
-                    <InspectorControls>
+                    <InspectorControls __experimentalGroup="styles">
                         <PanelBody
-                            title={__('Growtype - Maximum width')}
+                            title={__('Maximum Width (Growtype)')}
                             initialOpen={true}
                         >
                             <RangeControl
@@ -86,7 +91,7 @@ const createInspectorControls = createHigherOrderComponent((BlockEdit) => {
                                 max={2000}
                             />
                             <SelectControl
-                                label={__('Select position:')}
+                                label={__('Content position:')}
                                 value={position} // e.g: value = [ 'a', 'c' ]
                                 onChange={(value) => {
                                     setPosition(value)

@@ -5,12 +5,3 @@
     padding-top: 20px;
   }
 }
-
-.error404.has-extraspace-header.has-fixed-header {
-  .main-content-wrapper {
-    padding-top: 110px;
-    @include bp-phone-xl() {
-      padding-top: 70px;
-    }
-  }
-}

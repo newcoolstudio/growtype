@@ -22,6 +22,66 @@ ul {
       }
     }
   }
+
+  &.list-none {
+    list-style-type: none;
+    padding-left: 0px;
+
+    li {
+      list-style-type: none;
+    }
+  }
+
+  &.list-icons {
+    list-style-type: none;
+    padding-left: 0px;
+
+    li {
+      list-style-type: none;
+      padding-left: 45px;
+      position: relative;
+
+      img {
+        max-width: 30px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    }
+  }
+
+  &.list-numbers {
+    counter-reset: list-counter;
+    list-style-type: none;
+    padding-left: 0px;
+
+    li {
+      counter-increment: list-counter;
+      position: relative;
+      padding-left: 30px;
+      list-style-type: none;
+    }
+
+    li::before {
+      content: counter(list-counter);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+      background: var(--theme-color);
+      padding: 0px 5px;
+      border-radius: 30px;
+      font-size: 13px;
+      text-align: center;
+      color: white;
+      width: 20px;
+      height: 20px;
+      top: -1px;
+      bottom: 0;
+      margin: auto;
+    }
+  }
 }
 
 ol {

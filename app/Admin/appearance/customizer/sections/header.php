@@ -5,6 +5,8 @@ class Header_Customizer_Register extends Growtype_Customizer
     /**
      * Constructor.
      */
+    public $available_pages;
+
     public function __construct()
     {
         parent::__construct();

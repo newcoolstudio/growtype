@@ -26,6 +26,10 @@ class Growtype_Nav_Item_Params
                 'label' => esc_html__('Icon Class', 'growtype'),
                 'type' => 'text',
             ],
+            'icon-html' => [
+                'label' => esc_html__('Icon HTML', 'growtype'),
+                'type' => 'text',
+            ],
             'custom-attributes' => [
                 'label' => esc_html__('Custom Attributes', 'growtype'),
                 'type' => 'text',

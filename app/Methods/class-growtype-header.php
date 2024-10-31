@@ -26,7 +26,10 @@ class Growtype_Header
 
     function growtype_header_inner_hamburger()
     {
-        if (!get_theme_mod('mobile_menu_disabled') && (empty(get_theme_mod('header_mobile_menu_position')) || get_theme_mod('header_mobile_menu_position') === 'right')) {
+        $hamburger_visible = !get_theme_mod('mobile_menu_disabled') && (empty(get_theme_mod('header_mobile_menu_position')) || get_theme_mod('header_mobile_menu_position') === 'right');
+        $hamburger_visible = apply_filters('growtype_header_inner_hamburger_visible', $hamburger_visible);
+
+        if ($hamburger_visible) {
             echo App\template('partials.components.hamburger');
         }
     }

@@ -6,6 +6,10 @@
 
 $header_menu = wp_get_nav_menu_object('header-menu');
 
+if (empty($header_menu)) {
+    $header_menu = wp_get_nav_menu_object('main-menu');
+}
+
 if (!empty($header_menu)) {
     $header_menu_section = 'nav_menu[' . $header_menu->term_id . ']';
 

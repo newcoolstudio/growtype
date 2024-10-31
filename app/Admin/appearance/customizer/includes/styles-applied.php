@@ -103,7 +103,7 @@ function growtype_customizer_general_css()
         <?php } ?>
 
         <?php if(!empty(get_theme_mod('header_text_color_scroll'))){ ?>
-        .site-header.is-fixed .header-inner a {
+        .site-header.is-fixed .header-inner li a {
             color: <?php echo get_theme_mod('header_text_color_scroll') ?>;
         }
 

@@ -41,7 +41,7 @@ if (!function_exists('growtype_header_has_extra_space')) {
     function growtype_header_has_extra_space()
     {
         $has_extra_space = !empty(get_theme_mod('header_extra_space_switch')) ? get_theme_mod('header_extra_space_switch') : false;
-        $extra_space_disabled_pages = get_theme_mod('extra_space_disabled_dropdown_control');
+        $extra_space_disabled_pages = get_theme_mod('extra_space_disabled_dropdown_control', get_option('page_on_front'));
 
         if ($has_extra_space && !empty($extra_space_disabled_pages)) {
             $has_extra_space = growtype_page_is_among_enabled_pages($extra_space_disabled_pages) ? false : true;
@@ -87,7 +87,9 @@ if (!function_exists('growtype_header_main_menu_is_enabled')) {
             $enabled = growtype_page_is_among_enabled_pages($header_menu_enabled_pages);
         }
 
-        return $enabled === true ? true : false;
+        $enabled = $enabled === true ? true : false;
+
+        return apply_filters('growtype_header_main_menu_is_enabled', $enabled);
     }
 }
 

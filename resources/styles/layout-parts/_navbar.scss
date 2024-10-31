@@ -23,6 +23,7 @@
     margin: auto;
     margin-left: 0;
     font-size: var(--body-text-font-size);
+    width: 100%;
     @include bp-phone-xl() {
       font-size: 12px;
       line-height: 16px;

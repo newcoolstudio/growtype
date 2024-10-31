@@ -6,22 +6,33 @@
 add_filter('the_content', 'growtype_format_content');
 function growtype_format_content($content)
 {
+    /**
+     * Add extra classes to img tags
+     */
     if (strpos($content, '<img') !== false) {
-        $content = !empty($content) ? mb_convert_encoding($content, 'HTML-ENTITIES', "UTF-8") : '';
 
         if (!empty($content)) {
+            // Initialize DOMDocument
             $document = new DOMDocument();
-            libxml_use_internal_errors(true);
-            $document->loadHTML(utf8_decode($content));
+            libxml_use_internal_errors(true); // Suppress parsing errors due to malformed HTML
 
+            // Load HTML content as UTF-8
+            $document->loadHTML('<?xml encoding="utf-8" ?>' . $content);
+
+            // Get all <img> tags
             $images = $document->getElementsByTagName('img');
 
+            // Loop through each <img> tag and add the "img-fluid" class
             foreach ($images as $img) {
                 $existing_class = $img->getAttribute('class');
-                $img->setAttribute('class', "img-fluid $existing_class");
+                $img->setAttribute('class', trim("img-fluid $existing_class"));
             }
 
+            // Save the modified HTML content
             $content = $document->saveHTML();
+
+            // Clear libxml errors
+            libxml_clear_errors();
         }
     }
 

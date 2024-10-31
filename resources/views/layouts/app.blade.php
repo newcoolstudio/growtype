@@ -12,9 +12,6 @@
 @yield('header')
 
 <div class="main-content-wrapper">
-    {{--Modal--}}
-    @include('partials.components.modal.index')
-
     {{--Alert--}}
     @include('partials.components.alert.index')
 
@@ -38,6 +35,9 @@
         <?php do_action('growtype_before_main_content_close') ?>
     </main>
 </div>
+
+{{--Modal--}}
+@include('partials.components.modal.index')
 
 @yield('footer')
 

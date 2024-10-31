@@ -88,6 +88,7 @@ class Footer_Customizer_Register extends Growtype_Customizer
                     'type-1' => __('Style - Vertical', 'growtype'),
                     'type-2' => __('Style - Horizontal', 'growtype'),
                     'type-3' => __('Style - Vertical reverse', 'growtype'),
+                    'type-4' => __('Style - Horizontal 2', 'growtype'),
                 )
             )
         ));

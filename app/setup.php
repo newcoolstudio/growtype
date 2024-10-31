@@ -35,6 +35,7 @@ add_action('after_setup_theme', function () {
         'header' => esc_html__('Header', 'growtype'),
         'footer' => esc_html__('Footer', 'growtype'),
         'mobile' => esc_html__('Mobile', 'growtype'),
+        'mobile-bottom' => esc_html__('Mobile - Bottom', 'growtype'),
         'header-side' => esc_html__('Header - Side', 'growtype'),
         'header-login' => esc_html__('Header - Login', 'growtype'),
         'user-profile' => esc_html__('User Profile', 'growtype'),

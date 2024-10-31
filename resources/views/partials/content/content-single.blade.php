@@ -3,3 +3,5 @@
 <?php do_action('growtype_single_content_after_close') ?>
 
 <?php do_action('growtype_single_post_related_posts'); ?>
+
+<?php do_action('growtype_single_post_after_related_posts'); ?>

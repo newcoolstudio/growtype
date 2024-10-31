@@ -1,3 +1,7 @@
+@import "headers/type-1";
+@import "headers/type-2";
+@import "headers/type-3";
+
 .header-logo-wrapper {
   padding: 5px;
   max-width: 190px;
@@ -12,17 +16,29 @@
     padding-right: 0;
   }
 
-  &.has-mobile-logo {
-    .mainlogo {
-      @include bp-phone-xl() {
-        display: none !important;
-      }
-    }
-
+  &.has-scroll-logo {
     .mainlogo-mobile {
       display: none;
-      @include bp-phone-xl() {
-        display: block !important;
+    }
+  }
+}
+
+.site-header {
+  &:not(.is-fixed) {
+    .header-logo-wrapper {
+      &.has-mobile-logo {
+        .mainlogo {
+          @include bp-phone-xl() {
+            display: none !important;
+          }
+        }
+
+        .mainlogo-mobile {
+          display: none;
+          @include bp-phone-xl() {
+            display: block !important;
+          }
+        }
       }
     }
   }
@@ -104,26 +120,8 @@ header a:hover {
   display: none;
 }
 
-#header_logo_home {
-  display: none;
-}
-
 .header_logo:empty {
   display: none;
-}
-
-.is-home-page {
-  #header_logo {
-    display: none;
-  }
-
-  #header_logo_home:empty {
-    display: none;
-  }
-
-  #header_logo_home {
-    display: block;
-  }
 }
 
 .has-absolute-header {
@@ -249,10 +247,6 @@ header a:hover {
     }
 
     #header_logo {
-      display: none;
-    }
-
-    #header_logo_home {
       display: none;
     }
 
@@ -597,6 +591,65 @@ header a:hover {
   }
 }
 
-@import "headers/type-1";
-@import "headers/type-2";
-@import "headers/type-3";
+/**
+Adjusting for navbar and header fixed main content
+ */
+.has-extraspace-header {
+  .main-content-wrapper {
+    margin-top: 90px;
+    padding-top: 0;
+    @include bp-phone-xl() {
+      margin-top: 70px;
+    }
+  }
+
+  &.has-navbar {
+    .main-content-wrapper {
+      margin-top: 123px;
+    }
+  }
+}
+
+body.has-fixed-header {
+  &.has-extraspace-header {
+    .main-content-wrapper {
+      margin-bottom: 0;
+      @include bp-tablet-portrait() {
+        margin-top: 70px;
+      }
+      @include bp-phone-xl() {
+        margin-top: 70px;
+      }
+    }
+
+    &.header-type-2 {
+      .main-content-wrapper {
+        margin-top: 75px;
+        margin-bottom: 0;
+        @include bp-phone-xl() {
+          margin-top: 70px;
+        }
+      }
+    }
+  }
+}
+
+body.has-fixed-header.has-navbar {
+  &.has-extraspace-header, &.has-extraspace-header:not(.home) {
+    .main-content-wrapper {
+      margin-top: 135px;
+      @include bp-phone-xl() {
+        margin-top: 130px;
+      }
+    }
+
+    &.header-type-2, &.header-type-3 {
+      .main-content-wrapper {
+        margin-top: 108px;
+        @include bp-phone-xl() {
+          margin-top: 104px;
+        }
+      }
+    }
+  }
+}

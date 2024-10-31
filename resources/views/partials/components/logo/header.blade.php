@@ -1,33 +1,34 @@
-<div class="header-logo-wrapper {!! !empty(growtype_get_header_logo_mobile()['url']) ? 'has-mobile-logo' : '' !!}">
-    @if(growtype_is_home_page())
-        @if(!empty(growtype_get_home_page_header_logo()['url']))
-            <a id="header_logo_home" href="<?php echo growtype_get_home_url() ?>" class="mainlogo">
-                <img class="img-fluid" src="{{growtype_get_home_page_header_logo()['url']}}" alt="website logo">
-            </a>
-        @endif
-    @else
-        @if(!empty(growtype_get_header_logo()['url']))
-            <a id="header_logo" href="<?php echo growtype_get_home_url() ?>" class="mainlogo">
-                <img class="img-fluid"
-                     fetchpriority="high"
-                     src="{{growtype_get_header_logo()['url']}}"
-                     srcset=""
-                     sizes=""
-                     alt="Website logo"
-                />
-            </a>
-        @endif
-    @endif
-
-    @if(!empty(growtype_get_header_logo_mobile()['url']))
-        <a id="header_logo_mobile" href="<?php echo growtype_get_home_url() ?>" class="mainlogo mainlogo-mobile">
-            <img class="img-fluid" src="{{growtype_get_header_logo_mobile()['url']}}" alt="website logo">
+<div class="header-logo-wrapper {!! !empty(growtype_get_header_logo_mobile_url()) ? 'has-mobile-logo' : '' !!} {!! !empty(growtype_get_header_logo_scroll_url()) ? 'has-scroll-logo' : '' !!}">
+    @if(!empty(growtype_get_header_logo_url()))
+        <a id="header_logo" href="<?php echo growtype_get_home_url() ?>" class="mainlogo">
+            <img class="img-fluid"
+                 fetchpriority="high"
+                 src="{{growtype_get_header_logo_url()}}"
+                 srcset=""
+                 sizes=""
+                 title="<?php echo !empty(get_bloginfo('description')) ? get_bloginfo('description') : 'Website logo' ?>"
+                 alt="<?php echo !empty(get_bloginfo('description')) ? get_bloginfo('description') : 'Website logo' ?>"
+            />
         </a>
     @endif
 
-    @if(Growtype_Header::is_fixed() && !empty(growtype_get_header_logo_scroll()['url']))
-        <a id="header_logo_scroll" href="<?php echo growtype_get_home_url() ?>" class="mainlogo">
-            <img class="img-fluid" src="{{growtype_get_header_logo_scroll()['url']}}" alt="website logo">
+    @if(!empty(growtype_get_header_logo_mobile_url()))
+        <a id="header_logo_mobile" href="<?php echo growtype_get_home_url() ?>" class="mainlogo mainlogo-mobile">
+            <img class="img-fluid"
+                 src="{{growtype_get_header_logo_mobile_url()}}"
+                 title="<?php echo !empty(get_bloginfo('description')) ? get_bloginfo('description') : 'Website logo' ?>"
+                 alt="<?php echo !empty(get_bloginfo('description')) ? get_bloginfo('description') : 'Website logo' ?>"
+            >
+        </a>
+    @endif
+
+    @if(Growtype_Header::is_fixed() && !empty(growtype_get_header_logo_scroll_url()))
+        <a id="header_logo_scroll" href="<?php echo growtype_get_home_url() ?>" class="mainlogo mainlogo-scroll">
+            <img class="img-fluid"
+                 src="{{growtype_get_header_logo_scroll_url()}}"
+                 title="<?php echo !empty(get_bloginfo('description')) ? get_bloginfo('description') : 'Website logo' ?>"
+                 alt="<?php echo !empty(get_bloginfo('description')) ? get_bloginfo('description') : 'Website logo' ?>"
+            >
         </a>
     @endif
 </div>

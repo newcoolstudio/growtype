@@ -5,9 +5,10 @@
  */
 abstract class Growtype_Customizer
 {
-    /**
-     * Constructor.
-     */
+    public $available_pages;
+    public $available_roles;
+    public $available_post_types;
+
     public function __construct()
     {
         $this->available_pages = [];
@@ -24,12 +25,6 @@ abstract class Growtype_Customizer
      */
     function get_available_pages()
     {
-        $login_redirect_enabled = get_theme_mod('theme_access_login_redirect');
-
-        if (!$login_redirect_enabled) {
-            return [];
-        }
-
         $customizer_available_pages = [];
         $available_pages = get_pages();
 

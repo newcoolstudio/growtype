@@ -7,6 +7,14 @@ class Growtype_Admin_Theme_Settings_Extra_Scripts
 {
     const PLUGIN_SLUG = 'growtype-extra-scripts';
 
+    private $body_open_supported;
+
+    private $plugin;
+
+    private $message;
+
+    private $settings;
+
     /**
      * Constructor
      */
@@ -20,6 +28,7 @@ class Growtype_Admin_Theme_Settings_Extra_Scripts
         $this->plugin->folder = plugin_dir_path(__FILE__);
         $this->plugin->url = plugin_dir_url(__FILE__);
         $this->plugin->db_welcome_dismissed_key = $this->plugin->slug . '_welcome_dismissed_key';
+
         $this->body_open_supported = function_exists('wp_body_open') && version_compare(get_bloginfo('version'), '5.2', '>=');
 
         // Hooks

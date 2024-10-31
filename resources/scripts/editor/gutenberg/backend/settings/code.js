@@ -65,11 +65,11 @@ const createInspectorControls = createHigherOrderComponent((BlockEdit) => {
                     <BlockEdit {...props} />
                     <InspectorControls>
                         <PanelBody
-                            title={__('Growtype - Code')}
+                            title={__('Custom CSS (Growtype)')}
                             initialOpen={true}
                         >
                             <TextareaControl
-                                label="Styles"
+                                label="CSS code"
                                 value={customStyles}
                                 onChange={(value) => setCustomStyles(value)}
                             />

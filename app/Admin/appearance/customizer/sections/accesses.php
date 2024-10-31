@@ -8,6 +8,9 @@ class Growtype_Customizer_Accesses_Section extends Growtype_Customizer
     /**
      * Constructor.
      */
+    public $available_pages;
+    public $available_roles;
+
     public function __construct()
     {
         parent::__construct();

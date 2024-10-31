@@ -44,12 +44,42 @@
   @extend .btn-primary;
 }
 
-.wc-block-grid__product-add-to-cart.wp-block-button .wp-block-button__link {
-  padding: 15px 30px;
-  font-size: var(--body-text-font-size);
-  min-width: initial;
+.wc-block-grid__product-add-to-cart.wp-block-button {
+  .wp-block-button__link {
+    padding: 15px 30px;
+    font-size: var(--body-text-font-size);
+    min-width: initial;
+    @include bp-phone-xl() {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+}
+
+.wp-block-button.is-style-outline {
+  .wp-block-button__link {
+    padding: 15px 30px;
+  }
+}
+
+.wp-block-buttons, .wp-block-buttons.is-layout-flex {
+  &:not([data-button-count="1"]) {
+    .wp-block-button__link {
+      min-width: initial;
+    }
+  }
+}
+
+.wp-block-buttons.alignfull.is-horizontal {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+
   @include bp-phone-xl() {
-    padding-left: 15px;
-    padding-right: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  }
+
+  .wp-block-button {
+    width: 100%;
   }
 }

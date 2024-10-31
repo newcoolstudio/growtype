@@ -8,10 +8,35 @@
 add_filter('render_block', 'growtype_extend_blocks', 10, 2);
 function growtype_extend_blocks($block_content, $block)
 {
-    $max_width_blocks = ['core/paragraph', 'core/heading', 'core/image', 'core/group'];
-    $code_blocks = ['core/group'];
-    $custom_attributes_blocks = ['core/button'];
-    $div_wrapper_blocks = ['core/columns'];
+    $max_width_blocks = [
+        'core/paragraph',
+        'core/heading',
+        'core/image',
+        'core/group'
+    ];
+
+    $code_blocks = [
+        'core/group'
+    ];
+
+    $custom_attributes_blocks = [
+        'core/button'
+    ];
+
+    $div_wrapper_blocks = [
+        'core/columns'
+    ];
+
+    $typography_blocks = [
+        'core/paragraph',
+        'core/heading',
+        'core/list',
+        'core/list-item',
+        'core/quote',
+        'core/button',
+        'core/code',
+        'core/preformatted'
+    ];
 
     /**
      * Add max-width attribute
@@ -69,6 +94,71 @@ function growtype_extend_blocks($block_content, $block)
         $block_css = $block['attrs']['customStyles'];
         $block_css = growtype_add_parent_class_to_css_classes($block_css, $block_parent_class);
         $block_content = '<!-- Custom css for block ' . $block_parent_class . ' --><style>' . $block_css . '</style>' . '<div class="' . $block_parent_class . '">' . $block_content . '</div>';
+    }
+
+    /**
+     * Buttons
+     */
+    if ('core/buttons' === $block['blockName']) {
+        $dom = new DOMDocument('1.0', 'UTF-8');
+
+        // Wrap content in a full HTML structure to avoid issues with DOMDocument
+        $html = '<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body>' . $block_content . '</body></html>';
+
+        // Suppress warnings when loading HTML, in case the HTML isn't perfect
+        libxml_use_internal_errors(true);
+        $dom->loadHTML($html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+
+        // Get all the <a> tags inside the buttons block
+        $buttons = $dom->getElementsByTagName('a');
+        $button_count = $buttons->length;
+
+        // Add a data-attribute to the wrapper div with the count of buttons
+        $divs = $dom->getElementsByTagName('div');
+        if ($divs->length > 0) {
+            $divs->item(0)->setAttribute('data-button-count', $button_count);
+        }
+
+        // Extract back only the body content (without the added <html> and <body> tags)
+        $body = $dom->getElementsByTagName('body')->item(0);
+        $block_content = '';
+        foreach ($body->childNodes as $child) {
+            $block_content .= $dom->saveHTML($child);
+        }
+
+        // Clean up any generated HTML errors
+        libxml_clear_errors();
+    }
+
+    /**
+     * Typography
+     */
+    if (in_array($block['blockName'], $typography_blocks)) {
+        $font_size = isset($block['attrs']['mobile_font_size']) ? esc_attr($block['attrs']['mobile_font_size']) : '';
+
+        if ($font_size) {
+            $dom = new DOMDocument();
+            @$dom->loadHTML(mb_convert_encoding($block_content, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $xpath = new DOMXPath($dom);
+            $tags = $xpath->query('//h1 | //h2 | //h3 | //h4 | //h5 | //h6 | //p | //ul | //ol | //li | //blockquote | //button | //code | //pre');
+
+            foreach ($tags as $tag) {
+                $unique_class = 'responsive-typography-' . wp_generate_password(8, false);
+                $existing_class = $tag->getAttribute('class');
+                $new_class = trim($existing_class . ' ' . $unique_class);
+                $tag->setAttribute('class', $new_class);
+            }
+
+            if ($tags instanceof DOMNodeList && $tags->length > 0) {
+                $mobile_css = '@media only screen and (max-width: 768px) {';
+                foreach ($tags as $tag) {
+                    $mobile_css .= '.' . str_replace(' ', '.', $tag->getAttribute('class')) . ' { font-size: ' . $font_size . '!important; }';
+                }
+                $mobile_css .= '}';
+
+                $block_content = $dom->saveHTML() . '<style>' . $mobile_css . '</style>';
+            }
+        }
     }
 
     return $block_content;

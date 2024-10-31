@@ -1,0 +1,39 @@
+/**
+Alignment
+ */
+.aligncenter {
+  margin: auto;
+  display: flex;
+}
+
+.d-flex-inner {
+  > div {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+  }
+}
+
+.d-flex-inner-gap-10 {
+  > div {
+    gap: 10px;
+  }
+}
+
+.d-flex-inner-gap-15 {
+  > div {
+    gap: 15px;
+  }
+}
+
+.d-flex-inner-end {
+  > div {
+    justify-content: flex-end;
+  }
+}
+
+.d-flex-inner-center {
+  > div {
+    align-items: center;
+  }
+}

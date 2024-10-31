@@ -5,6 +5,8 @@ class Menu_Customizer_Extension extends Growtype_Customizer
     /**
      * Constructor.
      */
+    public $available_pages;
+
     public function __construct()
     {
         parent::__construct();
