@@ -20,7 +20,7 @@ function anchorLinkScroll() {
                 }
 
                 $('html, body').animate({
-                    scrollTop: ($(hashAttribute).offset().top - 100)
+                    scrollTop: ($(hashAttribute).offset().top - 10)
                 }, 500);
             } else {
                 window.location.href = $.attr(this, 'href');

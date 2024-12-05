@@ -8,9 +8,9 @@ class Growtype_Header
 {
     public function __construct()
     {
-        add_action('growtype_header_inner_after_open', array ($this, 'growtype_header_inner_after_open_extend'), 10);
-        add_action('growtype_header_inner_before_close', array ($this, 'growtype_header_inner_profile_menu'), 10);
-        add_action('growtype_header_inner_before_close', array ($this, 'growtype_header_inner_hamburger'), 10);
+        add_action('growtype_header_inner_after_open', array ($this, 'growtype_header_inner_after_open_extend'), 20);
+        add_action('growtype_header_inner_before_close', array ($this, 'growtype_header_inner_profile_menu'), 20);
+        add_action('growtype_header_inner_before_close', array ($this, 'growtype_header_inner_hamburger'), 20);
     }
 
     function growtype_header_inner_after_open_extend()
@@ -87,6 +87,16 @@ class Growtype_Header
     public static function promo_content(): string
     {
         return apply_filters('the_content', get_theme_mod('header_promo_content'));
+    }
+
+    /**
+     * @return bool
+     */
+    public static function extra_content(): string
+    {
+        $extra_content = apply_filters('the_content', get_theme_mod('header_extra_content'));
+
+        return apply_filters('growtype_header_extra_content', $extra_content);
     }
 }
 

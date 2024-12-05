@@ -283,6 +283,116 @@ Add remove
   }
 }
 
+.btn-toggle, .btn-toggle-sm {
+  position: relative;
+  display: inline-block;
+
+  .knobs,
+  .layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .btn-toggle-inner {
+    position: relative;
+    width: 65px;
+    height: 36px;
+    overflow: hidden;
+  }
+
+  .checkbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+  }
+
+  .knobs {
+    z-index: 2;
+  }
+
+  .layer {
+    width: 100%;
+    background-color: #fcebeb;
+    transition: 0.3s ease all;
+    z-index: 1;
+  }
+
+  .btn-toggle-inner,
+  .btn-toggle-inner .layer {
+    border-radius: 100px;
+  }
+
+  .btn-toggle-inner .knobs:before {
+    content: attr(data-label-off);
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 28px;
+    height: 28px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    padding: 9px 4px;
+    border-radius: 50%;
+    transition: 0.3s ease all, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+    background-color: #f44336;
+    text-transform: uppercase;
+  }
+
+  .btn-toggle-inner .checkbox:active + .knobs:before {
+    width: 46px;
+    border-radius: 100px;
+  }
+
+  .btn-toggle-inner .checkbox:checked:active + .knobs:before {
+    margin-left: -26px;
+  }
+
+  .btn-toggle-inner .checkbox:checked + .knobs:before {
+    content: attr(data-label-on);
+    left: 32px;
+    background-color: #33cd26;
+  }
+
+  .btn-toggle-inner .checkbox:checked ~ .layer {
+    background-color: rgb(215 246 224);
+  }
+}
+
+.btn-toggle-sm {
+  .btn-toggle-inner .checkbox:checked + .knobs:before {
+    left: 26px;
+  }
+
+  .btn-toggle-inner {
+    width: 53px;
+    height: 30px;
+  }
+
+  .btn-toggle-inner .knobs:before {
+    width: 23px;
+    height: 23px;
+    padding: 6px 1px;
+  }
+}
+
+.btn-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+}
+
 /**
 Block
  */

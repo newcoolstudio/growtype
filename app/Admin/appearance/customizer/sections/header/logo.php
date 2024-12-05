@@ -89,6 +89,26 @@ $wp_customize->add_control(new WP_Customize_Media_Control(
 ));
 
 /**
+ * Header scroll mobile logo
+ */
+$wp_customize->add_setting("header_logo_mobile_scroll", array (
+    "type" => "theme_mod", // or 'option'
+    "capability" => "edit_theme_options",
+    "default" => get_template_directory_uri() . '/assets/images/logo/simple.svg',
+    "transport" => "postMessage",
+    'sanitize_callback' => '',
+    'sanitize_js_callback' => '' // Basically to_json.
+));
+
+$wp_customize->add_control(new WP_Customize_Media_Control(
+    $wp_customize, 'header_logo_mobile_scroll',
+    array (
+        'label' => __('Logo Mobile - Scrolling Header', 'growtype'),
+        'section' => 'header_logo',
+    )
+));
+
+/**
  * Home main logo
  */
 $wp_customize->add_setting("header_logo_home", array (

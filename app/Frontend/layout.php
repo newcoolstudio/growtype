@@ -8,6 +8,7 @@ function growtype_extend_body_classes($classes)
 {
     $classes[] = Growtype_Header::has_navbar() ? 'has-navbar' : null;
     $classes[] = 'header-' . growtype_get_header_type();
+    $classes[] = 'footer-' . growtype_get_footer_type();
     $classes[] = growtype_header_has_extra_space() === true ? 'has-extraspace-header' : null;
     $classes[] = growtype_display_panel() ? 'has-panel' : null;
     $classes[] = growtype_display_sidebar_primary() ? 'has-sidebar-primary' : null;
@@ -29,12 +30,26 @@ function growtype_extend_body_classes($classes)
     return $classes;
 }
 
+/**
+ * Footer inner content
+ */
 add_action('growtype_footer_inner_content', 'growtype_footer_inner_content_callback');
 function growtype_footer_inner_content_callback()
 {
-    $footer_html = App\template('partials.sections.footer.' . growtype_get_footer_type());
+    $footer_html = App\template('partials.sections.footer.content');
 
-    echo apply_filters('growtype_footer_inner_html', $footer_html);
+    echo apply_filters('growtype_footer_inner_content_html', $footer_html);
+}
+
+/**
+ * Header inner content
+ */
+add_action('growtype_header_inner_content', 'growtype_header_inner_content_callback');
+function growtype_header_inner_content_callback()
+{
+    $header_html = App\template('partials.sections.header.content');
+
+    echo apply_filters('growtype_header_inner_content_html', $header_html);
 }
 
 /**

@@ -1,6 +1,5 @@
 @import "headers/type-1";
 @import "headers/type-2";
-@import "headers/type-3";
 
 .header-logo-wrapper {
   padding: 5px;
@@ -116,7 +115,8 @@ header a:hover {
   color: var(--link-color-active);
 }
 
-#header_logo_scroll {
+#header_logo_scroll,
+#header_logo_mobile_scroll {
   display: none;
 }
 
@@ -256,6 +256,16 @@ header a:hover {
 
     #header_logo_scroll {
       display: block;
+      @include bp-phone-xl() {
+        display: none;
+      }
+    }
+
+    #header_logo_mobile_scroll {
+      display: none;
+      @include bp-phone-xl() {
+        display: block;
+      }
     }
   }
 

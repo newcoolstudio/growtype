@@ -503,3 +503,7 @@ body.adding-widget .add-new-widget:hover {
 .wrap .customize-widgets-welcome-guide__heading {
     color: white;
 }
+
+.accordion-section-title button.accordion-trigger{
+    height: initial;
+}

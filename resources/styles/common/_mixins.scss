@@ -37,6 +37,12 @@
   }
 }
 
+@mixin bp-tablet-portrait-reverse($bp:">=767") {
+  @media only screen and (min-width: 767px) {
+    @content;
+  }
+}
+
 @mixin bp-phone-xl-reverse($bp:">=640") {
   @media only screen and (min-width: 640px) {
     @content;

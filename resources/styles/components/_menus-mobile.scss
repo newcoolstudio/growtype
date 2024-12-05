@@ -249,6 +249,9 @@ $mobilemenu-color-background: black;
     gap: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    @include bp-phone-xl() {
+      gap: 10px;
+    }
 
     li {
       padding: 5px;

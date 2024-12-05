@@ -7,14 +7,13 @@
  * Application passwords section availability
  */
 add_filter('wp_is_application_passwords_available_for_user', 'growtype_wp_is_application_passwords_available_for_user', 10, 2);
-function growtype_wp_is_application_passwords_available_for_user($available)
+function growtype_wp_is_application_passwords_available_for_user($available, $user)
 {
-    $user = wp_get_current_user();
+    if (isset($_GET['rest_route'])) {
+        return $available;
+    }
 
-    /**
-     * Allow only for administator
-     */
-    if (!user_can($user, 'manage_options')) {
+    if (isset($user->roles) && !in_array('administrator', $user->roles)) {
         $available = false;
     }
 

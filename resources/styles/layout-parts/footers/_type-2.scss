@@ -1,132 +1,134 @@
-.site-footer-type-2 {
-  .footer-logo-wrapper {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    margin-right: 10%;
-    flex-direction: column;
-    justify-content: center;
-
-    .s-icons {
-      margin-top: 10px;
-      margin-left: auto;
-    }
-  }
-
-  .footer-extra-content {
-    padding-top: 5px;
-    padding-left: 20px;
-    max-width: 270px;
-    @include bp-phone-xl() {
-      padding-left: 0;
-    }
-
-    ul {
+.footer-type-2 {
+  .site-footer {
+    .footer-logo-wrapper {
       margin: 0;
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      margin-right: 10%;
+      flex-direction: column;
+      justify-content: center;
+
+      .s-icons {
+        margin-top: 10px;
+        margin-left: auto;
+      }
+    }
+
+    .footer-extra-content {
+      padding-top: 5px;
+      padding-left: 20px;
+      max-width: 270px;
       @include bp-phone-xl() {
         padding-left: 0;
       }
-    }
-  }
 
-  .footer-inner-top {
-    padding-top: 20px;
-    padding-bottom: 10px;
-    min-height: initial;
-
-    .col-12 {
-      display: flex;
-    }
-
-    .c-footernav {
-      width: initial;
-      margin-left: initial;
-    }
-  }
-
-  #footer_logo {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    margin-right: 10%;
-    @include bp-phone-xl() {
-      max-width: 50%;
-      margin: auto;
-      margin-top: 15px;
-    }
-
-    img {
-      padding-top: 5px;
-      padding-bottom: 9px;
-    }
-  }
-
-  .c-footernav {
-    max-width: 70%;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-    @include bp-phone-xl() {
-      max-width: 100%;
-    }
-  }
-
-  #footer_logo {
-    & + .c-footernav {
-      @include bp-phone-xl() {
-        max-width: 50%;
-      }
-
-      a {
+      ul {
+        margin: 0;
         @include bp-phone-xl() {
-          text-align: right;
+          padding-left: 0;
         }
       }
     }
-  }
 
-  .footer-inner-bottom {
-    flex-direction: row;
-    gap: 10px;
-    @include bp-phone-xl() {
-      flex-direction: column;
+    .footer-inner-top {
+      padding-top: 20px;
+      padding-bottom: 10px;
+      min-height: initial;
+
+      .col-12 {
+        display: flex;
+      }
+
+      .c-footernav {
+        width: initial;
+        margin-left: initial;
+      }
     }
 
-    .copyright {
-      margin-left: 0;
-    }
-  }
+    #footer_logo {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      margin-right: 10%;
+      @include bp-phone-xl() {
+        max-width: 50%;
+        margin: auto;
+        margin-top: 15px;
+      }
 
-  #footer_copyright {
-    width: 50%;
-    @include bp-phone-xl() {
-      width: 100%;
-    }
-  }
-
-  .c-footernav {
-    padding-top: 5px;
-    @include bp-phone-xl() {
-      padding-bottom: 0px;
-    }
-  }
-
-  .s-icons {
-    text-align: right;
-    display: flex;
-
-    a {
-      margin-left: 10px;
+      img {
+        padding-top: 5px;
+        padding-bottom: 9px;
+      }
     }
 
-    span {
-      font-size: 24px;
+    .c-footernav {
+      max-width: 70%;
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: auto;
+      @include bp-phone-xl() {
+        max-width: 100%;
+      }
     }
 
-    @include bp-phone-xl() {
-      text-align: center;
+    #footer_logo {
+      & + .c-footernav {
+        @include bp-phone-xl() {
+          max-width: 50%;
+        }
+
+        a {
+          @include bp-phone-xl() {
+            text-align: right;
+          }
+        }
+      }
+    }
+
+    .footer-inner-bottom {
+      flex-direction: row;
+      gap: 10px;
+      @include bp-phone-xl() {
+        flex-direction: column;
+      }
+
+      .copyright {
+        margin-left: 0;
+      }
+    }
+
+    #footer_copyright {
+      width: 50%;
+      @include bp-phone-xl() {
+        width: 100%;
+      }
+    }
+
+    .c-footernav {
+      padding-top: 5px;
+      @include bp-phone-xl() {
+        padding-bottom: 0px;
+      }
+    }
+
+    .s-icons {
+      text-align: right;
+      display: flex;
+
+      a {
+        margin-left: 10px;
+      }
+
+      span {
+        font-size: 24px;
+      }
+
+      @include bp-phone-xl() {
+        text-align: center;
+      }
     }
   }
 }

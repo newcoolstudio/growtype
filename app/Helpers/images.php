@@ -176,12 +176,43 @@ if (!function_exists('growtype_get_header_logo_scroll')) {
 }
 
 /**
+ * @return array
+ */
+if (!function_exists('growtype_get_header_logo_mobile_scroll')) {
+    function growtype_get_header_logo_mobile_scroll()
+    {
+        $logo_url = !empty(get_theme_mod('header_logo_mobile_scroll')) ? wp_get_attachment_url(get_theme_mod('header_logo_mobile_scroll')) : null;
+
+        if (is_child_theme() && empty($logo_url)) {
+            $logo_url = growtype_get_header_logo_mobile()['url'];
+        }
+
+        $logo_details = [
+            'id' => get_theme_mod('header_logo_mobile_scroll'),
+            'url' => $logo_url
+        ];
+
+        return apply_filters('growtype_header_logo_mobile_scroll', $logo_details);
+    }
+}
+
+/**
  * @return string
  */
 if (!function_exists('growtype_get_header_logo_scroll_url')) {
     function growtype_get_header_logo_scroll_url()
     {
         return growtype_get_header_logo_scroll()['url'] ?? '';
+    }
+}
+
+/**
+ * @return string
+ */
+if (!function_exists('growtype_get_header_logo_mobile_scroll_url')) {
+    function growtype_get_header_logo_mobile_scroll_url()
+    {
+        return growtype_get_header_logo_mobile_scroll()['url'] ?? '';
     }
 }
 

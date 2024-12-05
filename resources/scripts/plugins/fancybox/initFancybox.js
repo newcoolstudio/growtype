@@ -26,7 +26,7 @@ export function initFancybox(element) {
             current.$content.find('.fancybox-custom-html').remove();
 
             if (individualSettings['customHtml']) {
-                const wrappedHtml = $('<div class="fancybox-custom-html"></div>').html(settings.customHtml);
+                const wrappedHtml = $('<div class="fancybox-custom-html"></div>').html(individualSettings['customHtml']);
                 current.$content.append(wrappedHtml);
 
                 document.dispatchEvent(new CustomEvent("growtypeFancyboxShowCustomHtml", {

@@ -2,33 +2,44 @@
 Header type 2
  */
 .header-type-2 {
-  .header-inner {
-    flex-direction: row;
-    min-height: 75px;
-
-    .mainlogo {
-      margin: 0;
+  .side-nav-wrapper {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 15px;
+    margin: auto;
+    height: 40px;
+    bottom: 0;
+    @include bp-tablet-big-reverse() {
+      top: -25px;
     }
 
-    .main-navigation {
-      margin-left: 20px;
-      margin-right: auto;
-      margin-bottom: 0;
+    @include bp-tablet-big() {
+      right: 50px;
+      top: 0;
+    }
+
+    .side-nav {
+      position: relative;
+      right: 0;
+
+      .menu {
+        position: relative;
+        top: 0;
+        margin-right: 0;
+        //margin-left: 10px;
+      }
     }
   }
 
-  .side-nav {
-    position: relative;
-    margin-right: 0;
-    margin-left: 0px;
-    right: 0;
-
-    #header-side-menu {
-      margin-right: 0;
+  &.has-extraspace-header .main-content-wrapper {
+    margin-top: 130px;
+    @include bp-tablet-portrait() {
+      margin-top: 70px;
     }
   }
 
-  .side-nav .menu {
-    margin: auto 10px auto 10px;
+  .header-logo-wrapper {
+    padding: 10px;
   }
 }
