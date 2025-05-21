@@ -100,8 +100,9 @@ function growtype_user_has_required_role_to_access_platform($user_id = null)
 
     $user = get_user_by('id', $user_id);
 
-    $roles = ( array )$user->roles;
-    $prevented_roles = !empty(get_theme_mod('theme_access_disabled_roles')) ? explode(',', get_theme_mod('theme_access_disabled_roles')) : [];
+    $roles = (array)$user->roles;
+    $prevented_roles = get_theme_mod('theme_access_disabled_roles', []);
+    $prevented_roles = !empty($prevented_roles) ? explode(',', $prevented_roles) : [];
 
     if (!empty($prevented_roles)) {
         foreach ($roles as $role) {

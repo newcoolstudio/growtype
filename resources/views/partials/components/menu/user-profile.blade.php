@@ -1,4 +1,6 @@
 <div class="dropdown user-profile">
+    <?php do_action('growtype_user_profile_after_open'); ?>
+
     <button class="dropdown-toggle" type="button" id="user-profile-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
         <div class="account-img">
             <?php echo get_avatar(get_current_user_id(), 30, '', 'user-profile-avatar'); ?>
@@ -30,4 +32,6 @@
             </ul>
         @endif
     </ul>
+
+    <?php do_action('growtype_user_profile_before_close'); ?>
 </div>

@@ -1,4 +1,8 @@
-<div id="panel" class="panel panel-area panel-<?php echo esc_html(get_theme_mod('panel_style')) ?>" data-auto-height="<?php echo get_theme_mod('panel_auto_adjust_height',true) ?>">
+<div id="panel"
+     class="panel panel-area panel-<?php echo esc_html(get_theme_mod('panel_style')) ?>"
+     data-auto-height="<?php echo get_theme_mod('panel_auto_adjust_height',true) ?>"
+     data-sticky="<?php echo get_theme_mod('panel_is_sticky',true) ?>"
+>
     <div class="panel-inner">
         <div class="btn-panel-close"></div>
 

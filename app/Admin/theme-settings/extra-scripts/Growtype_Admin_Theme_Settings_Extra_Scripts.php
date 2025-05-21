@@ -8,11 +8,8 @@ class Growtype_Admin_Theme_Settings_Extra_Scripts
     const PLUGIN_SLUG = 'growtype-extra-scripts';
 
     private $body_open_supported;
-
     private $plugin;
-
     private $message;
-
     private $settings;
 
     /**

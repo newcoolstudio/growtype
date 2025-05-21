@@ -12,6 +12,16 @@
 }
 
 .has-panel {
+  @include bp-phone-xl-reverse() {
+    overflow: initial;
+  }
+
+  .panel-area {
+    @include bp-phone-xl-reverse() {
+      position: sticky;
+    }
+  }
+
   .site-header {
     width: initial;
     padding-left: $padding-left-container;
@@ -191,8 +201,8 @@
 
   & + .main {
     width: 78%;
-    float: left;
     margin: 0;
+    margin-left: 22%;
     padding-left: 15px;
     padding-right: 15px;
     @include bp-tablet() {
@@ -353,7 +363,7 @@
         }
 
         &.current-menu-item {
-          a {
+          > a {
             background: #F5F6F7;
 
             span {
@@ -375,6 +385,7 @@
           border-radius: 8px;
           font-weight: bold;
           text-decoration: none;
+          gap: 5px;
 
           .dashicons {
             position: relative;
@@ -410,11 +421,12 @@
         top: 0;
         left: 30px;
         z-index: 1;
+        margin-top: 5px;
 
         a {
           padding-top: 5px;
           padding-bottom: 5px;
-          font-size: 13px;
+          font-size: 14px;
         }
 
         li {

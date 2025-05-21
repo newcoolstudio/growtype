@@ -282,7 +282,7 @@ if (class_exists('WP_Customize_Control')) {
             ?>
             <div class="simple-notice-custom-control">
                 <?php if (!empty($this->label)) { ?>
-                    <span class="customize-control-title" style="margin: 0;font-size: 18px;color: white;margin-bottom: 5px;"><?php echo esc_html($this->label); ?></span>
+                    <span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
                 <?php } ?>
                 <?php if (!empty($this->description)) { ?>
                     <span class="customize-control-description"><?php echo wp_kses($this->description, $allowed_html); ?></span>
@@ -909,11 +909,14 @@ if (class_exists('WP_Customize_Control')) {
          */
         public function skyrocket_getFontIndex($haystack, $needle)
         {
+            $haystack = !empty($haystack) ? $haystack : array ();
+
             foreach ($haystack as $key => $value) {
                 if ($value->family == $needle) {
                     return $key;
                 }
             }
+
             return false;
         }
 
@@ -941,6 +944,10 @@ if (class_exists('WP_Customize_Control')) {
             $body = wp_remote_retrieve_body($request);
 
             $content = json_decode($body);
+
+            if (empty($content)) {
+                return "";
+            }
 
             if ($count == 'all') {
                 return $content->items;

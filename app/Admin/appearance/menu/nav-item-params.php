@@ -126,7 +126,9 @@ class Growtype_Nav_Item_Params
      */
     public static function _columns($columns)
     {
-        $columns = array_merge($columns, self::$fields);
+        foreach (self::$fields as $key => $field) {
+            $columns[$key] = $field['label'];
+        }
 
         return $columns;
     }

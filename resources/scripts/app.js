@@ -1,4 +1,3 @@
-// import local dependencies
 import Router from './util/router';
 import common from './routes/common';
 
@@ -9,7 +8,6 @@ const routes = new Router({
 
 $=jQuery
 
-// Load Events
 jQuery(document).ready(() => routes.loadEvents());
 
 

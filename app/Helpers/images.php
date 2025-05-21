@@ -81,7 +81,7 @@ if (!function_exists('growtype_get_default_header_logo')) {
 
         return [
             'id' => get_theme_mod('header_logo'),
-            'url' => $logo_url
+            'url' => apply_filters('growtype_default_header_logo_url', $logo_url)
         ];
     }
 }
@@ -185,6 +185,10 @@ if (!function_exists('growtype_get_header_logo_mobile_scroll')) {
 
         if (is_child_theme() && empty($logo_url)) {
             $logo_url = growtype_get_header_logo_mobile()['url'];
+
+            if (empty($logo_url)) {
+                $logo_url = growtype_get_header_logo()['url'];
+            }
         }
 
         $logo_details = [

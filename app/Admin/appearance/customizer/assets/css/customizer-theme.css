@@ -106,12 +106,12 @@
 }
 
 li#accordion-section-woocommerce_checkout .accordion-section-title {
-    background: #f1f1f1!important;
-    color: black!important;
+    background: #f1f1f1 !important;
+    color: black !important;
 }
 
 li#accordion-section-woocommerce_checkout .accordion-section-title:after {
-    background-color: #f1f1f1!important;
+    background-color: #f1f1f1 !important;
 }
 
 .customize-section-title,
@@ -485,9 +485,6 @@ body.adding-widget .add-new-widget:hover {
     border: none;
 }
 
-/*body {*/
-/*    color: #d7d8d8;*/
-/*}*/
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
     color: #4c4c4c;
 }
@@ -504,6 +501,20 @@ body.adding-widget .add-new-widget:hover {
     color: white;
 }
 
-.accordion-section-title button.accordion-trigger{
+.accordion-section-title button.accordion-trigger {
     height: initial;
+}
+
+#customize-controls .customize-info .preview-notice {
+    color: #ffffff;
+}
+
+#customize-controls .control-section:hover > .accordion-section-title, #customize-controls .control-section .accordion-section-title button:hover, #customize-controls .control-section.open .accordion-section-title, #customize-controls .control-section .accordion-section-title button:focus {
+    color: #02b9eb;
+    background: #191e24;
+}
+
+.accordion-section-title button.accordion-trigger:focus, .nav-menus-php .metabox-holder .accordion-section-title button.accordion-trigger:focus {
+    box-shadow: none;
+    outline: none;
 }

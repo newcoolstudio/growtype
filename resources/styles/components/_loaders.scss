@@ -16,6 +16,6 @@
 
 .spinner-border {
   border-width: 2px;
-  border-color: $color-primary;
+  border-color: var(--theme-color);
   border-right-color: transparent;
 }

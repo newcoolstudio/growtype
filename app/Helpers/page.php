@@ -53,8 +53,15 @@ function growtype_the_content_callback($content)
 
 function growtype_page_is_under_construction()
 {
-    $is_wp_json = isset($_SERVER['REQUEST_URI']) ? strpos($_SERVER['REQUEST_URI'], 'wp-json') : false;
-    $is_login_page = isset($_SERVER['REQUEST_URI']) ? strpos($_SERVER['REQUEST_URI'], 'wp-login.php') : false;
+    $under_construction_enabled = get_theme_mod('growtype_is_under_construction');
 
-    return !$is_login_page && !$is_wp_json && !is_user_logged_in() && get_theme_mod('growtype_is_under_construction');
+    if ($under_construction_enabled) {
+        $is_wp_json = isset($_SERVER['REQUEST_URI']) ? strpos($_SERVER['REQUEST_URI'], 'wp-json') : false;
+        $is_login_page = isset($_SERVER['REQUEST_URI']) ? strpos($_SERVER['REQUEST_URI'], 'wp-login.php') : false;
+        $is_callback = isset($_SERVER['REQUEST_URI']) ? strpos($_SERVER['REQUEST_URI'], 'callback') : false;
+
+        return !$is_login_page && !$is_wp_json && !$is_callback && !is_user_logged_in();
+    }
+
+    return false;
 }

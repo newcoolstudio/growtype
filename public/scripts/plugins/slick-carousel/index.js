@@ -1,1 +1,1 @@
-jQuery(document).ready((function(){$(".growtype-theme-slider").each((function(){var t=$(this).attr("data-slick");$(this).slick(JSON.parse(t))}))}));
+jQuery(document).ready((function(){$(".growtype-theme-slider").each((function(){var t=$(this).attr("data-gslick");t&&(t=JSON.parse(t),$(this).slick(t))}))}));

@@ -1,21 +1,30 @@
 /* Table */
 
 .wp-block-table {
-  border-bottom: 1px solid #ddd;
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
+
+  table {
+    font-size: .875em;
+
+    thead {
+      border-bottom-color: #d1d5db;
+      border-bottom-width: 1px;
+    }
+  }
 }
 
 .wp-block-table th {
-  border: 0;
-  font-weight: bold;
-  padding: 6px 10px 6px 0;
-  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, .3);
+  border-bottom-width: 1px;
+  border-color: rgba(0, 0, 0, .15);
+  border-top-width: 1px;
+  padding: .25rem .75rem;
 }
 
 .wp-block-table td {
-  border: 0;
-  border-top: 1px solid #ddd;
-  padding: 6px 10px 6px 0;
+  border-bottom-width: 1px;
+  border-color: rgba(0, 0, 0, .15);
+  padding: .25rem .75rem;
 }
