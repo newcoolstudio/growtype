@@ -28,7 +28,7 @@ if (!get_option('growtype_gutenberg_block_editor_load_remote_block_patterns')) {
 /**
  * Gutenberg styles support
  */
-add_action('enqueue_block_editor_assets', 'growtype_enqueue_block_editor_assets', 10);
+add_action('enqueue_block_assets', 'growtype_enqueue_block_editor_assets', 10);
 function growtype_enqueue_block_editor_assets()
 {
     if (get_post_type() || (isset($_GET['postType']) && $_GET['postType'] === 'wp_block')) {
@@ -48,7 +48,7 @@ function growtype_enqueue_block_editor_assets()
 
         wp_enqueue_script('growtype-block-editor-scripts',
             growtype_get_parent_theme_public_path() . '/scripts/backend-block-editor.js',
-            ['wp-blocks', 'wp-i18n', 'lodash', 'wp-element', 'wp-editor'],
+            ['wp-blocks', 'wp-i18n', 'lodash', 'wp-element', 'wp-editor', 'jquery'],
             '0.1.0'
         );
     }

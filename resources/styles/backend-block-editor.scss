@@ -1,8 +1,6 @@
-html.wp-toolbar :where(.editor-styles-wrapper) {
-  font-family: Arial;
-}
-
 .editor-styles-wrapper {
+  font-family: Arial;
+
   @import "autoload/bootstrap/bootstrap";
   @import "common/variables";
   @import "common/mixins";
