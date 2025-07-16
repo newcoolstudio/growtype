@@ -10,6 +10,12 @@
   }
 }
 
+.btn-flex {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 div[class^='btn-'], button[class^='btn-'], a[class^='btn-'] {
   cursor: pointer;
   z-index: 1;

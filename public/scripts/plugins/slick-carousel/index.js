@@ -1,1 +1,1 @@
-jQuery(document).ready((function(){$(".growtype-theme-slider").each((function(){var t=$(this).attr("data-gslick");t&&(t=JSON.parse(t),$(this).slick(t))}))}));
+jQuery((function(i){i(".growtype-theme-slider").each((function(){var r=i(this),e=r.attr("data-gslick");if(e){var a;try{a=JSON.parse(e)}catch(i){return void console.error("Failed to parse data-gslick JSON on",this,i)}if(r.hasClass("slick-initialized"))console.warn("Slider already initialized, skipping:",this);else try{r.slick(a)}catch(i){console.error("Error initializing slick slider on",this,i)}}}))}));

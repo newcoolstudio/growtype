@@ -51,17 +51,27 @@ function growtype_the_content_callback($content)
     return $content;
 }
 
-function growtype_page_is_under_construction()
-{
-    $under_construction_enabled = get_theme_mod('growtype_is_under_construction');
-
-    if ($under_construction_enabled) {
-        $is_wp_json = isset($_SERVER['REQUEST_URI']) ? strpos($_SERVER['REQUEST_URI'], 'wp-json') : false;
-        $is_login_page = isset($_SERVER['REQUEST_URI']) ? strpos($_SERVER['REQUEST_URI'], 'wp-login.php') : false;
-        $is_callback = isset($_SERVER['REQUEST_URI']) ? strpos($_SERVER['REQUEST_URI'], 'callback') : false;
-
-        return !$is_login_page && !$is_wp_json && !$is_callback && !is_user_logged_in();
+function growtype_page_is_under_construction() {
+    // Feature toggle in Customizer
+    if ( ! get_theme_mod( 'growtype_is_under_construction', false ) ) {
+        return false;
     }
 
-    return false;
+    // Let administrators through
+    if ( current_user_can( 'manage_options' ) ) {
+        return false;
+    }
+
+    // Don’t break JSON endpoints, login, or OAuth callbacks
+    $uri = $_SERVER['REQUEST_URI'] ?? '';
+    if (
+        strpos( $uri, 'wp-login.php' ) !== false ||
+        strpos( $uri, 'wp-json' )     !== false ||
+        strpos( $uri, 'callback' )    !== false
+    ) {
+        return false;
+    }
+
+    // Everyone else sees “under construction”
+    return true;
 }

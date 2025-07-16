@@ -15,10 +15,6 @@ function growtype_extend_blocks($block_content, $block)
         'core/group'
     ];
 
-    $code_blocks = [
-        'core/group'
-    ];
-
     $custom_attributes_blocks = [
         'core/button'
     ];
@@ -84,16 +80,6 @@ function growtype_extend_blocks($block_content, $block)
      */
     if (in_array($block['blockName'], $div_wrapper_blocks)) {
         $block_content = '<div class="wp-block">' . $block_content . '</div>';
-    }
-
-    /**
-     * Add inline custom block styles
-     */
-    if (in_array($block['blockName'], $code_blocks) && isset($block['attrs']['customStyles']) && !empty($block['attrs']['customStyles'])) {
-        $block_parent_class = 'growtype-customcss-' . wp_generate_password(12, false);
-        $block_css = $block['attrs']['customStyles'];
-        $block_css = growtype_add_parent_class_to_css_classes($block_css, $block_parent_class);
-        $block_content = '<!-- Custom css for block ' . $block_parent_class . ' --><style>' . $block_css . '</style>' . '<div class="' . $block_parent_class . '">' . $block_content . '</div>';
     }
 
     /**
@@ -194,3 +180,40 @@ function growtype_add_parent_class_to_css_classes($css_string, $parent_class)
 
     return $modified_css;
 }
+
+/**
+ * Add inline custom block styles
+ */
+add_filter('render_block', function ($block_content, $block) {
+    $code_blocks = ['core/group'];
+
+    if (
+        in_array($block['blockName'], $code_blocks, true) &&
+        !empty($block['attrs']['customStyles'])
+    ) {
+        $block_parent_class = 'growtype-customcss-' . sanitize_html_class(wp_generate_password(12, false));
+        $block_css = growtype_add_parent_class_to_css_classes(
+            $block['attrs']['customStyles'],
+            $block_parent_class
+        );
+
+        // Check if first tag is suitable for injection
+        if (preg_match('/^<([a-z0-9\-]+)([^>]*)>/i', $block_content, $matches)) {
+            $first_tag = $matches[0];
+            $new_tag = preg_replace(
+                '/^<([a-z0-9\-]+)([^>]*)>/i',
+                '<$1 class="' . esc_attr($block_parent_class) . '"$2>',
+                $first_tag
+            );
+            $block_content = str_replace($first_tag, $new_tag, $block_content);
+        } else {
+            // fallback if content is raw or lacks wrapper
+            $block_content = '<div class="' . esc_attr($block_parent_class) . '">' . $block_content . '</div>';
+        }
+
+        // Append style tag after block (outside content flow)
+        $block_content .= '<style>' . wp_strip_all_tags($block_css) . '</style>';
+    }
+
+    return $block_content;
+}, 10, 2);

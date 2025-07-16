@@ -133,7 +133,7 @@ add_action('admin_print_footer_scripts-edit.php', function ($page) { ?>
                 const edit_row = $('#edit-' + post_id)
                 const post_row = $('#post-' + post_id)
 
-                $('textarea[name="growtype_excerpt"]', edit_row).val($('.growtype_excerpt', post_row).text());
+                $('textarea[name="growtype_excerpt"]', edit_row).val($('.growtype_excerpt', post_row).html());
             }
         });
     </script>
