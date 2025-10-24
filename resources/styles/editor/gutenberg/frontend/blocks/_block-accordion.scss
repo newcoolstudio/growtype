@@ -1,0 +1,54 @@
+.wp-block-growtype-accordion-details {
+  .wp-block-growtype-detail-item {
+    border: 1px solid #e6dcc7;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: white;
+    color: black;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+
+    &.is-open {
+      border-color: black;
+      transition: border-color 0.3s ease;
+
+      .details-summary {
+        &:before {
+          transform: rotate(0);
+        }
+      }
+    }
+
+    .details-summary {
+      padding: 20px;
+      list-style: none;
+      font-size: 18px;
+      font-weight: bold;
+      position: relative;
+      padding-right: 50px;
+
+      &:before {
+        content: "\f343";
+        font-family: "dashicons";
+        position: absolute;
+        right: 20px;
+        top: 0;
+        font-size: 20px;
+        transform: rotate(180deg);
+        transition: all 0.3s ease;
+        bottom: 0;
+        margin: auto;
+        height: 30px;
+      }
+    }
+
+    .detail-content {
+      padding: 20px;
+      padding-top: 0;
+
+      p {
+        font-size: 18px;
+      }
+    }
+  }
+}
