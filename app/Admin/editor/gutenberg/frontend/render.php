@@ -124,9 +124,9 @@ function growtype_extend_blocks($block_content, $block)
 
         if ($font_size) {
             $dom = new DOMDocument();
-            @$dom->loadHTML(mb_convert_encoding($block_content, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            @$dom->loadHTML('<?xml encoding="utf-8" ?>' . $block_content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
             $xpath = new DOMXPath($dom);
-            $tags = $xpath->query('//h1 | //h2 | //h3 | //h4 | //h5 | //h6 | //p | //ul | //ol | //li | //blockquote | //button | //code | //pre');
+            $tags = $xpath->query('//h1 | //h2 | //h3 | //h4 | //h5 | //a | //h6 | //p | //ul | //ol | //li | //blockquote | //button | //code | //pre');
 
             foreach ($tags as $tag) {
                 $unique_class = 'responsive-typography-' . wp_generate_password(8, false);

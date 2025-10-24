@@ -51,10 +51,27 @@ function growtype_website_is_under_construction_body_class($classes)
     return $classes;
 }
 
-add_filter('wp_die_handler', 'growtype_wp_die_message');
-function growtype_wp_die_message()
-{
-    $custom_message = 'Oops! Something went wrong. Please try again later.';
+/**
+ * Custom die message
+ */
+add_filter('wp_die_handler', function () {
+    return 'growtype_wp_die_message';
+});
 
-    wp_die($custom_message, 'Error');
+function growtype_wp_die_message($message, $title = '', $args = array ())
+{
+    $intro_message = 'Oops! Something went wrong. Please try again.';
+
+    error_log(sprintf('Growtype die message - %s', print_r([
+        $message,
+        $title,
+        $args
+    ], true)));
+
+    echo '<div style="text-align:center; padding:50px;">';
+    echo '<h1>' . esc_html($intro_message) . '</h1>';
+    echo '<p>' . esc_html($message) . '</p>';
+    echo '</div>';
+
+    exit;
 }

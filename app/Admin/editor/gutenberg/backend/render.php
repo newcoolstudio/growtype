@@ -31,49 +31,66 @@ if (!get_option('growtype_gutenberg_block_editor_load_remote_block_patterns')) {
 add_action('enqueue_block_assets', 'growtype_enqueue_block_editor_assets', 10);
 function growtype_enqueue_block_editor_assets()
 {
-    if (get_post_type() || (isset($_GET['postType']) && $_GET['postType'] === 'wp_block')) {
+    if (!is_admin()) {
+        return; // Only run in admin
+    }
+
+    // Detect if we're in block editor
+    $is_block_editor = (
+        get_post_type() ||
+        (isset($_GET['postType']) && $_GET['postType'] === 'wp_block') ||
+        (isset($_GET['canvas']) && $_GET['canvas'] === 'edit' && !empty($_GET['p']) && strpos($_GET['p'], 'wp_block') !== false)
+    );
+
+    if ($is_block_editor) {
+        // Parent theme block editor CSS
         wp_enqueue_style(
             'growtype-block-editor-styles',
             growtype_get_parent_theme_public_path() . '/styles/backend-block-editor.css',
-            false,
+            [],
+            null
         );
 
+        // Child theme block editor CSS if theme_styles_enabled
         if (get_option('theme_styles_enabled')) {
             wp_enqueue_style(
                 'growtype-block-editor-styles-child',
                 growtype_get_child_theme_public_path() . '/styles/backend-block-editor-child.css',
-                false
+                [],
+                null
             );
         }
 
-        wp_enqueue_script('growtype-block-editor-scripts',
+        // Parent theme block editor JS
+        wp_enqueue_script(
+            'growtype-block-editor-scripts',
             growtype_get_parent_theme_public_path() . '/scripts/backend-block-editor.js',
             ['wp-blocks', 'wp-i18n', 'lodash', 'wp-element', 'wp-editor', 'jquery'],
-            '0.1.0'
+            '0.1.1',
+            true
         );
     }
 
-    if (!empty(growtype_get_font_details('primary_font'))) {
+    // Primary font
+    $primary_font = growtype_get_font_details('primary_font');
+    if (!empty($primary_font)) {
         wp_enqueue_style(
             'body-primary-font',
-            growtype_get_font_url(growtype_get_font_details('primary_font')),
-            false
+            growtype_get_font_url($primary_font),
+            [],
+            null
         );
     }
 
+    // Secondary font (only if different from primary)
     if (growtype_secondary_font_is_active()) {
-        $skip_seccondary_font = false;
-        if (!empty(growtype_get_font_details('primary_font'))) {
-            if (growtype_get_font_details('primary_font')->font === growtype_get_font_details('secondary_font')->font) {
-                $skip_seccondary_font = true;
-            }
-        }
-
-        if (!$skip_seccondary_font) {
+        $secondary_font = growtype_get_font_details('secondary_font');
+        if (!empty($secondary_font) && (empty($primary_font) || $primary_font->font !== $secondary_font->font)) {
             wp_enqueue_style(
                 'body-secondary-font',
-                growtype_get_font_url(growtype_get_font_details('secondary_font')),
-                false
+                growtype_get_font_url($secondary_font),
+                [],
+                null
             );
         }
     }

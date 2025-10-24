@@ -69,6 +69,10 @@ function growtype_get_font_url($font_details)
         $google_font_url_weights[] = urlencode($font_details->boldweight);
     }
 
+    if (isset(growtype_get_font_details('primary_font')->extraboldweight) && growtype_get_font_details('primary_font')->extraboldweight !== 'none' && isset($font_details->extraboldweight)) {
+        $google_font_url_weights[] = urlencode($font_details->extraboldweight);
+    }
+
     if (isset(growtype_get_font_details('primary_font')->italicweight) && growtype_get_font_details('primary_font')->italicweight !== 'none' && isset($font_details->italicweight)) {
         $google_font_url_weights[] = urlencode($font_details->italicweight);
     }

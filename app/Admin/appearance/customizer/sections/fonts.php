@@ -16,7 +16,7 @@ function typography_customize_register($wp_customize)
      */
     $wp_customize->add_setting('primary_font_select',
         array (
-            'default' => '{"font":"Open Sans","lightweight":"300","regularweight":"regular","italicweight":"italic","medium":"500", "semiboldweight":"600","boldweight":"700","category":"sans-serif"}',
+            'default' => '{"font":"Open Sans","lightweight":"300","regularweight":"regular","italicweight":"italic","medium":"500", "semiboldweight":"600","boldweight":"700","extraboldweight":"800","category":"sans-serif"}',
             'sanitize_callback' => 'skyrocket_google_font_sanitization'
         )
     );
@@ -56,7 +56,7 @@ function typography_customize_register($wp_customize)
      */
     $wp_customize->add_setting('secondary_font_select',
         array (
-            'default' => '{"font":"Open Sans","lightweight":"300","regularweight":"regular","italicweight":"italic","medium":"500","semiboldweight":"600","boldweight":"700","category":"sans-serif"}',
+            'default' => '{"font":"Open Sans","lightweight":"300","regularweight":"regular","italicweight":"italic","medium":"500","semiboldweight":"600","boldweight":"700","extraboldweight":"800","category":"sans-serif"}',
             'sanitize_callback' => 'skyrocket_google_font_sanitization'
         )
     );

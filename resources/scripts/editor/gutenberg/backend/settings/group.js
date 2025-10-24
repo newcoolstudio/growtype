@@ -2,8 +2,6 @@
     let addCustomClassToEmptyBlocksOnly = false;
     let addClassIfInputIsNotEmpty = false;
 
-    console.log('Experimental: growtype_add_custom_admin_editor_block_scripts')
-
     function generateUniqueClassName() {
         let selectedBlockClientId = wp.data.select('core/block-editor').getSelectedBlockClientId();
         selectedBlockClientId = selectedBlockClientId.substring(0, 10).replace(/-/g, "");

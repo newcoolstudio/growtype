@@ -34,8 +34,7 @@
   "require": {
     "php": "^7.3||^8.0",
     "composer/installers": "~2.0",
-    "illuminate/support": "^8.0",
-    "soberwp/controller": "~2.1.0"
+    "illuminate/support": "^8.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.8.0",

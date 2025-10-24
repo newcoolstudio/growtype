@@ -7,3 +7,5 @@ import "./settings/typography";
 
 // import "./settings/background";
 // import "./settings/spacing";
+
+import "./blocks/details";

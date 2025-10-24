@@ -874,6 +874,7 @@ if (class_exists('WP_Customize_Control')) {
                             ?>
                         </select>
                     </div>
+
                     <div class="customize-control-description">
                         <?php esc_html_e('Select weight for', 'growtype') ?>
                         <strong><?php esc_html_e('bold text', 'skyrocket') ?></strong>
@@ -898,6 +899,32 @@ if (class_exists('WP_Customize_Control')) {
                             ?>
                         </select>
                     </div>
+
+                    <div class="customize-control-description">
+                        <?php esc_html_e('Select weight for', 'growtype') ?>
+                        <strong><?php esc_html_e('extra bold text', 'skyrocket') ?></strong>
+                    </div>
+                    <div class="weight-style">
+                        <select class="google-fonts-extraboldweight-style">
+                            <?php
+                            echo '<option value="none" ' . selected($this->fontValues->extraboldweight, 'none', false) . '>none</option>';
+
+                            $optionCount = 0;
+                            foreach ($this->fontList[$this->fontListIndex]->variants as $key => $value) {
+                                // Only add options that aren't italic
+                                if (strpos($value, 'italic') === false) {
+                                    echo '<option value="' . $value . '" ' . selected($this->fontValues->extraboldweight, $value, false) . '>' . $value . '</option>';
+                                    $optionCount++;
+                                }
+                            }
+                            // This should never evaluate as there'll always be at least a 'regular' weight
+                            if ($optionCount == 0) {
+                                echo '<option value="">Not Available for this font</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+
                     <input type="hidden" class="google-fonts-category" value="<?php echo $this->fontValues->category; ?>">
                 </div>
                 <?php

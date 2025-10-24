@@ -12,7 +12,8 @@ jQuery(document).ready(function ($) {
     // Update the values for all our input fields and initialise the sortable repeater
     $('.sortable_repeater_control').each(function () {
         // If there is an existing customizer value, populate our rows
-        var defaultValuesArray = $(this).find('.customize-control-sortable-repeater').val().split(',');
+        var value = $(this).find('.customize-control-sortable-repeater').val();
+        var defaultValuesArray = value ? value.split(',') : [];
         var numRepeaterItems = defaultValuesArray.length;
 
         if (numRepeaterItems > 0) {
@@ -26,13 +27,13 @@ jQuery(document).ready(function ($) {
                 }
             }
         }
-    });
 
-    // Make our Repeater fields sortable
-    $(this).find('.sortable_repeater.sortable').sortable({
-        update: function (event, ui) {
-            skyrocketGetAllInputs($(this).parent());
-        }
+        // Make our Repeater fields sortable
+        $(this).find('.sortable_repeater.sortable').sortable({
+            update: function (event, ui) {
+                skyrocketGetAllInputs($(this).parent());
+            }
+        });
     });
 
     // Remove item starting from it's parent element
@@ -256,98 +257,36 @@ jQuery(document).ready(function ($) {
     });
 
     $('.google-fonts-list').on('change', function () {
-        var elementLightWeight = $(this).parent().parent().find('.google-fonts-lightweight-style');
-        var elementRegularWeight = $(this).parent().parent().find('.google-fonts-regularweight-style');
-        var elementItalicWeight = $(this).parent().parent().find('.google-fonts-italicweight-style');
-        var elementMediumWeight = $(this).parent().parent().find('.google-fonts-mediumweight-style');
-        var elementSemiBoldWeight = $(this).parent().parent().find('.google-fonts-semiboldweight-style');
-        var elementBoldWeight = $(this).parent().parent().find('.google-fonts-boldweight-style');
-        var selectedFont = $(this).val();
-        var customizerControlName = $(this).attr('control-name');
-        var elementItalicWeightCount = 0;
-        var elementMediumWeightCount = 0;
-        var elementSemiBoldWeightCount = 0;
-        var elementBoldWeightCount = 0;
+        const $this = $(this);
+        const font = $this.val();
+        const controlName = $this.attr('control-name');
+        const fontControl = _wpCustomizeSettings.controls[controlName];
+        const fontObj = fontControl.skyrocketfontslist.find(f => f.family === font);
 
-        // Clear Weight/Style dropdowns
-        elementLightWeight.empty();
-        elementRegularWeight.empty();
-        elementItalicWeight.empty();
-        elementMediumWeight.empty();
-        elementSemiBoldWeight.empty();
-        elementBoldWeight.empty();
-        // Make sure Italic & Bold dropdowns are enabled
-        elementItalicWeight.prop('disabled', false);
-        elementMediumWeight.prop('disabled', false);
-        elementSemiBoldWeight.prop('disabled', false);
-        elementBoldWeight.prop('disabled', false);
+        const $container = $this.closest('.google_fonts_select_control');
 
-        // Get the Google Fonts control object
-        var bodyfontcontrol = _wpCustomizeSettings.controls[customizerControlName];
-
-        // Find the index of the selected font
-        var indexes = $.map(bodyfontcontrol.skyrocketfontslist, function (obj, index) {
-            if (obj.family === selectedFont) {
-                return index;
-            }
-        });
-        var index = indexes[0];
-
-        // For the selected Google font show the available weight/style variants
-        $.each(bodyfontcontrol.skyrocketfontslist[index].variants, function (val, text) {
-            elementRegularWeight.append(
-                $('<option></option>').val(text).html(text)
-            );
-            if (text.indexOf("italic") >= 0) {
-                elementItalicWeight.append(
-                    $('<option></option>').val(text).html(text)
-                );
-                elementItalicWeightCount++;
+        const updateSelect = (selector, variants, isItalic = false) => {
+            const $el = $container.find(selector);
+            $el.empty().prop('disabled', false);
+            const filtered = variants.filter(v => isItalic ? v.includes('italic') : !v.includes('italic'));
+            if (filtered.length === 0) {
+                $el.append($('<option></option>').val('').text('Not Available for this font')).prop('disabled', true);
             } else {
-                elementMediumWeight.append(
-                    $('<option></option>').val(text).html(text)
-                );
-                elementSemiBoldWeight.append(
-                    $('<option></option>').val(text).html(text)
-                );
-                elementBoldWeight.append(
-                    $('<option></option>').val(text).html(text)
-                );
-                elementMediumWeightCount++;
-                elementSemiBoldWeightCount++;
-                elementBoldWeightCount++;
+                filtered.forEach(variant => {
+                    $el.append($('<option></option>').val(variant).text(variant));
+                });
             }
-        });
+        };
 
-        if (elementItalicWeightCount == 0) {
-            elementItalicWeight.append(
-                $('<option></option>').val('').html('Not Available for this font')
-            );
-            elementItalicWeight.prop('disabled', 'disabled');
-        }
-        if (elementMediumWeightCount == 0) {
-            elementMediumWeight.append(
-                $('<option></option>').val('').html('Not Available for this font')
-            );
-            elementMediumWeight.prop('disabled', 'disabled');
-        }
-        if (elementSemiBoldWeightCount == 0) {
-            elementSemiBoldWeight.append(
-                $('<option></option>').val('').html('Not Available for this font')
-            );
-            elementSemiBoldWeight.prop('disabled', 'disabled');
-        }
-        if (elementBoldWeightCount == 0) {
-            elementBoldWeight.append(
-                $('<option></option>').val('').html('Not Available for this font')
-            );
-            elementBoldWeight.prop('disabled', 'disabled');
-        }
+        updateSelect('.google-fonts-regularweight-style', fontObj.variants);
+        updateSelect('.google-fonts-italicweight-style', fontObj.variants, true);
+        updateSelect('.google-fonts-mediumweight-style', fontObj.variants);
+        updateSelect('.google-fonts-semiboldweight-style', fontObj.variants);
+        updateSelect('.google-fonts-boldweight-style', fontObj.variants);
+        updateSelect('.google-fonts-extraboldweight-style', fontObj.variants);
 
-        // Update the font category based on the selected font
-        $(this).parent().parent().find('.google-fonts-category').val(bodyfontcontrol.skyrocketfontslist[index].category);
-
-        skyrocketGetAllSelects($(this).parent().parent());
+        $container.find('.google-fonts-category').val(fontObj.category);
+        skyrocketGetAllSelects($container);
     });
 
     $('.google_fonts_select_control select').on('change', function () {
@@ -363,6 +302,7 @@ jQuery(document).ready(function ($) {
             mediumweight: $element.find('.google-fonts-mediumweight-style').val(),
             semiboldweight: $element.find('.google-fonts-semiboldweight-style').val(),
             boldweight: $element.find('.google-fonts-boldweight-style').val(),
+            extraboldweight: $element.find('.google-fonts-extraboldweight-style').val(),
             category: $element.find('.google-fonts-category').val()
         };
 
