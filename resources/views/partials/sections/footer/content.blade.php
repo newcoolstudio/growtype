@@ -14,13 +14,13 @@
                         </div>
                     </div>
                 @endif
-                <div class="footer-logo-wrapper">
-                    @if(!empty(growtype_get_footer_logo()['url']))
+                @if(!empty(growtype_get_footer_logo()['url']))
+                    <div class="footer-logo-wrapper">
                         <a id="footer_logo" href="<?php echo growtype_get_home_url() ?>" class="mainlogo">
                             <img class="img-fluid" src="{{growtype_get_footer_logo()['url']}}" alt="footer_logo">
                         </a>
-                    @endif
-                </div>
+                    </div>
+                @endif
             </div>
         </div>
     </div>

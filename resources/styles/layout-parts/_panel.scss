@@ -17,7 +17,7 @@
   }
 
   .panel-area {
-    @include bp-phone-xl-reverse() {
+    @include bp-tablet-reverse() {
       position: sticky;
     }
   }
@@ -525,5 +525,8 @@
 .header-inner {
   .btn-panel-open {
     margin-right: 20px;
+    @include bp-phone-xl() {
+      margin-right: auto;
+    }
   }
 }

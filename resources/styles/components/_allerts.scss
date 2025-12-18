@@ -60,6 +60,22 @@
   border-radius: $border-radius-card;
   font-size: var(--body-text-font-size);
 
+  @include bp-phone-xl() {
+    padding-right: 15px;
+  }
+
+  .alert-details {
+    @include bp-phone-xl() {
+      padding-right: 30px;
+    }
+
+    p {
+      @include bp-phone-xl() {
+        font-size: 14px;
+      }
+    }
+  }
+
   .btn-close {
     top: 15px;
     height: 20px;

@@ -22,8 +22,16 @@
     }
   }
 
-  .account-name {
+  .account-img {
+    cursor: pointer;
+  }
+
+  .account-details {
     margin-left: 10px;
+    text-align: left;
+  }
+
+  .account-name {
     @include bp-phone-xl() {
       display: none;
     }

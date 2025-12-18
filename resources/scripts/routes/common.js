@@ -15,6 +15,7 @@ import editorFrontend, {
 } from "../editor/gutenberg/frontend/main"
 
 import {select} from "../plugins/chosen/select.js";
+import {infoWindow} from "../components/infoWindow";
 
 export default {
     init() {
@@ -29,5 +30,6 @@ export default {
         anchorLinkScroll();
         anchorLinkMainNavigation();
         editorFrontend();
+        infoWindow();
     }
 };

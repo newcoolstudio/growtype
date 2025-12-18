@@ -67,6 +67,25 @@ if (!function_exists('growtype_primary_button_background_color')) {
 }
 
 /**
+ * Primary button background color active
+ */
+if (!function_exists('growtype_primary_button_background_color_active')) {
+    function growtype_primary_button_background_color_active()
+    {
+        $colors_scheme = growtype_get_theme_current_colors_scheme();
+        return get_theme_mod('primary_button_background_color_active', $colors_scheme['primary_button_background_color_active']);
+    }
+}
+
+if (!function_exists('growtype_primary_button_border_color_active')) {
+    function growtype_primary_button_border_color_active()
+    {
+        $colors_scheme = growtype_get_theme_current_colors_scheme();
+        return get_theme_mod('primary_button_border_color_active', $colors_scheme['primary_button_border_color_active']);
+    }
+}
+
+/**
  * Primary button border color
  */
 if (!function_exists('growtype_primary_button_border_color')) {

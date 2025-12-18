@@ -58,19 +58,31 @@ add_filter('wp_die_handler', function () {
     return 'growtype_wp_die_message';
 });
 
-function growtype_wp_die_message($message, $title = '', $args = array ())
+function growtype_wp_die_message($message, $title = '', $args = [])
 {
+    // Default message for normal users
     $intro_message = 'Oops! Something went wrong. Please try again.';
 
-    error_log(sprintf('Growtype die message - %s', print_r([
-        $message,
-        $title,
-        $args
-    ], true)));
+    // Log full error for debugging
+    error_log(sprintf(
+        'Growtype die message - %s',
+        print_r([
+            'message' => $message,
+            'title' => $title,
+            'args' => $args
+        ], true)
+    ));
 
-    echo '<div style="text-align:center; padding:50px;">';
-    echo '<h1>' . esc_html($intro_message) . '</h1>';
-    echo '<p>' . esc_html($message) . '</p>';
+    // Default subtitle for normal users
+    $subtitle = !empty($message) ? $message : 'We are currently experiencing technical issues. Please try again or contact our support.';
+
+    // Output HTML
+    echo '<div style="text-align:center; padding:50px; font-family:Arial,sans-serif;">';
+    if (!empty($title)) {
+        echo '<h1 style="font-size:2em; margin-bottom:20px;">' . $title . '</h1>';
+    }
+    echo '<h2 style="font-size:1.4em; margin-bottom:10px;">' . $intro_message . '</h2>';
+    echo '<p style="font-size:1.2em; color:#555;">' . $subtitle . '</p>';
     echo '</div>';
 
     exit;

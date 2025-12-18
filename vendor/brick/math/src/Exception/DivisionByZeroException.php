@@ -7,10 +7,12 @@ namespace Brick\Math\Exception;
 /**
  * Exception thrown when a division by zero occurs.
  */
-final class DivisionByZeroException extends MathException
+class DivisionByZeroException extends MathException
 {
     /**
-     * @pure
+     * @return DivisionByZeroException
+     *
+     * @psalm-pure
      */
     public static function divisionByZero() : DivisionByZeroException
     {
@@ -18,7 +20,9 @@ final class DivisionByZeroException extends MathException
     }
 
     /**
-     * @pure
+     * @return DivisionByZeroException
+     *
+     * @psalm-pure
      */
     public static function modulusMustNotBeZero() : DivisionByZeroException
     {
@@ -26,7 +30,9 @@ final class DivisionByZeroException extends MathException
     }
 
     /**
-     * @pure
+     * @return DivisionByZeroException
+     *
+     * @psalm-pure
      */
     public static function denominatorMustNotBeZero() : DivisionByZeroException
     {

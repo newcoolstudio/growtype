@@ -89,8 +89,12 @@ class Growtype_User
     /**
      * @return false|string
      */
-    public static function login_name()
+    public static function account_name($user_id = null)
     {
+        if (!$user_id) {
+            $user_id = get_current_user_id();
+        }
+
         $user_account_name = get_theme_mod('user_account_name', '#user_display_name');
 
         switch ($user_account_name) {
@@ -99,7 +103,7 @@ class Growtype_User
                 break;
         }
 
-        return $user_account_name;
+        return apply_filters('growtype_user_account_name', $user_account_name, $user_id);
     }
 
     /**

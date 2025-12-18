@@ -6,8 +6,8 @@
             <?php echo get_avatar(get_current_user_id(), 30, '', 'user-profile-avatar'); ?>
         </div>
         <div class="account-details">
-            <?php if (!empty(Growtype_User::login_name())) : ?>
-            <span class="account-name"><?php echo esc_html(Growtype_User::login_name()); ?></span>
+            <?php if (!empty(Growtype_User::account_name())) : ?>
+            <span class="account-name"><?php echo esc_html(Growtype_User::account_name()); ?></span>
             <?php endif; ?>
         </div>
     </button>

@@ -18,7 +18,7 @@ function panel() {
         /**
          * ResizeSensor plugin
          */
-        if (typeof window['ResizeSensor'] !== "undefined") {
+        if (typeof window['ResizeSensor'] !== "undefined" && panel.hasClass('resize-sensor-enabled')) {
             new ResizeSensor(jQuery('body'), function () {
                 setPanelHeight();
             });

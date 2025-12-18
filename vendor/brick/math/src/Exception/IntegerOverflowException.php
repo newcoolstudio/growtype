@@ -9,10 +9,14 @@ use Brick\Math\BigInteger;
 /**
  * Exception thrown when an integer overflow occurs.
  */
-final class IntegerOverflowException extends MathException
+class IntegerOverflowException extends MathException
 {
     /**
-     * @pure
+     * @param BigInteger $value
+     *
+     * @return IntegerOverflowException
+     *
+     * @psalm-pure
      */
     public static function toIntOverflow(BigInteger $value) : IntegerOverflowException
     {

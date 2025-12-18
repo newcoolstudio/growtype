@@ -27,14 +27,14 @@
     .header-logo-wrapper {
       &.has-mobile-logo {
         .mainlogo {
-          @include bp-phone-xl() {
+          @include bp-tablet-portrait() {
             display: none !important;
           }
         }
 
         .mainlogo-mobile {
           display: none;
-          @include bp-phone-xl() {
+          @include bp-tablet-portrait() {
             display: block !important;
           }
         }

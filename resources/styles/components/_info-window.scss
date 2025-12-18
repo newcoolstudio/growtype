@@ -1,0 +1,224 @@
+// Info Window Backdrop
+.g-infowindow-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Info Window
+.g-infowindow {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  max-width: 200px;
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  padding: 10px 15px;
+  min-width: 170px;
+  display: none;
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  // When positioned relative to parent
+  &.is-positioned-to-parent {
+    position: absolute;
+    top: var(--info-top, 50%);
+    left: var(--info-left, 50%);
+    transform: var(--info-transform, translate(-50%, -50%)) scale(0.9);
+
+    &.is-active {
+      transform: var(--info-transform, translate(-50%, -50%)) scale(1);
+    }
+
+    // Arrow indicators
+    &::before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+
+    // Top-right position - arrow pointing down-left to parent
+    &.position-top-right::before {
+      bottom: -8px;
+      right: 10px;
+      border-width: 8px 8px 0 8px;
+      border-color: white transparent transparent transparent;
+    }
+
+    // Right position - arrow on left
+    &.position-right::before {
+      left: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 10px 10px 10px 0;
+      border-color: transparent white transparent transparent;
+    }
+
+    // Left position - arrow on right
+    &.position-left::before {
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 10px 0 10px 10px;
+      border-color: transparent transparent transparent white;
+    }
+
+    // Bottom position - arrow on top
+    &.position-bottom::before {
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 0 10px 10px 10px;
+      border-color: transparent transparent white transparent;
+    }
+
+    // Top position - arrow on bottom
+    &.position-top::before {
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 10px 10px 0 10px;
+      border-color: white transparent transparent transparent;
+    }
+  }
+
+  // Close button
+  &-close {
+    position: absolute;
+    top: -17px;
+    right: -17px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 23px;
+    line-height: 1;
+    color: #666;
+    transition: all 0.2s ease;
+    user-select: none;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+      color: #000;
+      transform: rotate(90deg);
+    }
+  }
+
+  // Content
+  &-content {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 5px;
+    text-align: center;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      color: #000;
+      font-size: 16px;
+    }
+
+    p {
+      margin: 0 0 8px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    strong {
+      font-weight: 600;
+      color: #000;
+    }
+
+    code {
+      background: rgba(0, 0, 0, 0.05);
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 12px;
+    }
+  }
+
+  // Navigation
+  &-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 9px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  &-counter {
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
+    //min-width: 50px;
+    text-align: center;
+  }
+
+  &-arrow {
+    width: 25px;
+    height: 25px;
+    min-height: 25px;
+    min-width: 25px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #333;
+    transition: all 0.2s ease;
+    user-select: none;
+    padding: 0;
+    font-size: 10px;
+
+    &:hover {
+      border-color: #000;
+      background: #000;
+      color: white;
+      transform: scale(1.1);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}

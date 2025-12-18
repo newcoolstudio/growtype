@@ -54,12 +54,15 @@ function growtype_custom_page_redirect()
                         exit();
                     }
                 } else {
-                    if (!$page_is_available_when_not_logged_in) {
-                        if (!growtype_user_has_required_role_to_access_platform()) {
-                            wp_redirect($prevented_roles_redirect_url);
-                            exit();
-                        }
-                    } elseif (!$page_is_available_when_not_logged_in || $redirect_page === get_permalink()) {
+
+                    if (strpos($prevented_roles_redirect_url, '/checkout/order-received/') !== false && class_exists('Growtype_Wc_Order')) {
+                        $prevented_roles_redirect_url = Growtype_Wc_Order::get_user_last_thank_you_url();
+                    }
+
+                    if (!$page_is_available_when_not_logged_in && !growtype_user_has_required_role_to_access_platform()) {
+                        wp_redirect($prevented_roles_redirect_url);
+                        exit();
+                    } elseif (!$page_is_available_when_not_logged_in && $redirect_page === get_permalink()) {
                         wp_redirect(growtype_get_home_url());
                         exit();
                     }

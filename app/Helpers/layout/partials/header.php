@@ -29,8 +29,9 @@ if (!function_exists('growtype_header_is_enabled')) {
     function growtype_header_is_enabled()
     {
         $disabled = !empty(get_theme_mod('header_is_disabled')) ? get_theme_mod('header_is_disabled') : false;
+        $disabled = $disabled === true ? false : true;
 
-        return $disabled === true ? false : true;
+        return apply_filters('growtype_header_is_enabled', $disabled);
     }
 }
 

@@ -907,13 +907,13 @@ if (class_exists('WP_Customize_Control')) {
                     <div class="weight-style">
                         <select class="google-fonts-extraboldweight-style">
                             <?php
-                            echo '<option value="none" ' . selected($this->fontValues->extraboldweight, 'none', false) . '>none</option>';
+                            echo '<option value="none" ' . selected($this->fontValues->extraboldweight ?? 'none', 'none', false) . '>none</option>';
 
                             $optionCount = 0;
                             foreach ($this->fontList[$this->fontListIndex]->variants as $key => $value) {
                                 // Only add options that aren't italic
                                 if (strpos($value, 'italic') === false) {
-                                    echo '<option value="' . $value . '" ' . selected($this->fontValues->extraboldweight, $value, false) . '>' . $value . '</option>';
+                                    echo '<option value="' . $value . '" ' . selected($this->fontValues->extraboldweight ?? 'none', $value, false) . '>' . $value . '</option>';
                                     $optionCount++;
                                 }
                             }
