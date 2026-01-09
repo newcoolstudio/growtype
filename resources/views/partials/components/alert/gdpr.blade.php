@@ -12,11 +12,11 @@
 
 @push('footerScripts')
     <script>
-        if (typeof cookieCustom !== 'undefined' && cookieCustom.getCookie('growtype_gdpr_was_showed') !== 'true') {
+        if (typeof cookieCustom !== 'undefined' && growtypeCookie.getCookie('growtype_gdpr_was_showed') !== 'true') {
             $('.growtype-gdpr-alert').fadeIn();
         }
         $('.growtype-gdpr-alert').on('closed.bs.alert', function () {
-            cookieCustom.setCookie('growtype_gdpr_was_showed', true)
+            growtypeCookie.setCookie('growtype_gdpr_was_showed', true)
         })
     </script>
 @endpush

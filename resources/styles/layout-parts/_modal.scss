@@ -31,8 +31,7 @@
     font-size: var(--body-text-font-size);
     position: relative;
     @include bp-phone-xl() {
-      padding-left: $padding-left-container;
-      padding-right: $padding-right-container;
+      padding: 15px;
     }
   }
 
