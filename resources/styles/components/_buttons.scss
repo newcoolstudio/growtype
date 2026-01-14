@@ -416,3 +416,17 @@ Block
     }
   }
 }
+
+.btn {
+  &.is-loading {
+    position: relative;
+
+    .spinner-border {
+      left: 0;
+      right: 0;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+    }
+  }
+}

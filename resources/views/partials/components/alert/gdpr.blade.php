@@ -15,8 +15,11 @@
         if (typeof cookieCustom !== 'undefined' && growtypeCookie.getCookie('growtype_gdpr_was_showed') !== 'true') {
             $('.growtype-gdpr-alert').fadeIn();
         }
-        $('.growtype-gdpr-alert').on('closed.bs.alert', function () {
-            growtypeCookie.setCookie('growtype_gdpr_was_showed', true)
-        })
+
+        if(typeof jQuery !== 'undefined'){
+            jQuery('.growtype-gdpr-alert').on('closed.bs.alert', function () {
+                growtypeCookie.setCookie('growtype_gdpr_was_showed', true)
+            })
+        }
     </script>
 @endpush
