@@ -74,7 +74,12 @@ function growtype_wp_die_message($message, $title = '', $args = [])
     ));
 
     // Default subtitle for normal users
-    $subtitle = !empty($message) ? $message : 'We are currently experiencing technical issues. Please try again or contact our support.';
+    $subtitle = $message;
+    if (is_wp_error($message)) {
+        $subtitle = $message->get_error_message();
+    } elseif (empty($message)) {
+        $subtitle = 'We are currently experiencing technical issues. Please try again or contact our support.';
+    }
 
     // Output HTML
     echo '<div style="text-align:center; padding:50px; font-family:Arial,sans-serif;">';

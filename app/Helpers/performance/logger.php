@@ -16,7 +16,7 @@
  */
 
 // Only activate when explicitly enabled
-if (!defined('GROWTYPE_PERFORMANCE_LOG') || !GROWTYPE_PERFORMANCE_LOG) {
+if (!filter_var(getenv('GROWTYPE_PERFORMANCE_LOG'), FILTER_VALIDATE_BOOLEAN)) {
     return;
 }
 

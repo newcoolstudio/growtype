@@ -29,7 +29,7 @@ if (!function_exists('growtype_log')) {
      * @param mixed $data Data to log
      * @param string $filename Filename to log to
      */
-    function growtype_log($data, $filename = 'general.log')
+    function growtype_log($data, $filename = 'general')
     {
         $logs_dir = defined('WP_CONTENT_DIR') ? WP_CONTENT_DIR . '/logs' : dirname(__DIR__, 4) . '/logs';
 
