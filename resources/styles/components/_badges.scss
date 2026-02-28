@@ -1,20 +1,22 @@
 .badge {
-  &[data-status="active"] {
+  background-color: grey;
+
+  &[data-status="active"], &.badge-active {
     color: #0091E6;
     background-color: #D9EFFB;
   }
 
-  &[data-status="success"] {
+  &[data-status="success"], &.badge-success {
     color: #18DA4E;
     background-color: #E8FBED;
   }
 
-  &[data-status="pending"] {
+  &[data-status="pending"], &.badge-pending {
     color: #EF8354;
     background-color: #FDECE5;
   }
 
-  &[data-status="pasive"] {
+  &[data-status="pasive"], &.badge-pasive {
     color: #9A9EA7;
     background-color: #F5F6F7;
   }

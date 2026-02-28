@@ -10,8 +10,16 @@ function anchorLinkScroll() {
                 hashAttribute = '#' + hash;
             }
 
-            if (hashAttribute !== '#' && typeof $(hashAttribute) !== 'undefined' && typeof $(hashAttribute).offset() !== 'undefined') {
+            let $target = null;
+            if (hashAttribute.length > 1 && !hashAttribute.includes('=') && !hashAttribute.includes(':')) {
+                try {
+                    $target = $(hashAttribute);
+                } catch (e) {
+                    $target = null;
+                }
+            }
 
+            if ($target && $target.length > 0 && typeof $target.offset() !== 'undefined') {
                 /**
                  * Check if mobile menu
                  */
@@ -20,10 +28,12 @@ function anchorLinkScroll() {
                 }
 
                 $('html, body').animate({
-                    scrollTop: ($(hashAttribute).offset().top - 10)
+                    scrollTop: ($target.offset().top - 10)
                 }, 500);
             } else {
-                window.location.href = $.attr(this, 'href');
+                if (hashAttribute.length > 1 && !hashAttribute.includes('=')) {
+                    window.location.href = $.attr(this, 'href');
+                }
             }
         } catch (err) {
             try {
@@ -37,19 +47,28 @@ function anchorLinkScroll() {
     /**
      * Update initial position
      */
-    if (window.location.hash) {
+    if (window.location.hash && window.location.hash !== '#') {
         try {
             let hash = window.location.hash;
-            if ($(decodeURI(hash)).length > 1 && typeof $(hash).offset() !== "undefined") {
+
+            // Skip complex hashes that aren't simple element IDs (e.g., our tab state)
+            if (hash.includes('=') || hash.includes(':') || hash.includes('[') || hash.includes('(')) {
+                return;
+            }
+
+            let $target = $(hash);
+            if ($target.length > 0 && typeof $target.offset() !== "undefined") {
                 setTimeout(function () {
                     let offset = screen.width < 600 ? 80 : 90;
-                    document.documentElement.scrollTop = $(window.location.hash).offset().top - offset
-                }, 100)
+                    $('html, body').animate({
+                        scrollTop: $target.offset().top - offset
+                    }, 100);
+                }, 100);
             }
         } catch (err) {
-            console.log(err)
+            // Ignore errors for invalid selectors
         }
     }
 }
 
-export {anchorLinkScroll};
+export { anchorLinkScroll };

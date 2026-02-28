@@ -7,14 +7,15 @@ use function App\sage;
  */
 add_filter('generate_rewrite_rules', function ($wp_rewrite) {
     $wp_rewrite->rules = array_merge(
-        ['^growtype/documentation/examples/([^/]*)/?/([^/]*)/?' => 'index.php?example_category=$matches[1]&example_type=$matches[2]'],
+        ['^growtype/documentation/?$' => 'index.php?growtype_documentation=1'],
+        ['^growtype/documentation/([^/]+)/?' => 'index.php?growtype_documentation=1&doc_page=$matches[1]'],
         $wp_rewrite->rules
     );
 });
 
 add_filter('query_vars', function ($query_vars) {
-    $query_vars[] = 'example_category';
-    $query_vars[] = 'example_type';
+    $query_vars[] = 'growtype_documentation';
+    $query_vars[] = 'doc_page';
     return $query_vars;
 });
 
@@ -27,20 +28,20 @@ add_action('template_redirect', function () {
      */
     growtype_custom_page_redirect();
 
-    /**
-     * Load example templates
-     */
-    $example_category = get_query_var('example_category');
-    $example_type = get_query_var('example_type');
-    if ($example_category && $example_type) {
-        $url_path = trim(parse_url(add_query_arg(array ()), PHP_URL_PATH), '/');
-        $url_path = str_replace('growtype/', '', $url_path);
+    if (get_query_var('growtype_documentation')) {
+        $doc_page = get_query_var('doc_page');
 
-        try {
-            echo sage('blade')->render($url_path, []);
-        } catch (\Exception $ex) {
-            wp_redirect(home_url());
+        if (!empty($doc_page)) {
+            try {
+                echo sage('blade')->render("documentation.content.{$doc_page}.main", []);
+            } catch (\Exception $ex) {
+                wp_redirect(home_url('growtype/documentation'));
+                exit;
+            }
+        } else {
+            echo sage('blade')->render('documentation.index', []);
         }
+
         exit;
     }
 });

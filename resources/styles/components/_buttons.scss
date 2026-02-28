@@ -16,7 +16,9 @@
   gap: 5px;
 }
 
-div[class^='btn-'], button[class^='btn-'], a[class^='btn-'] {
+div[class^='btn-'],
+button[class^='btn-'],
+a[class^='btn-'] {
   cursor: pointer;
   z-index: 1;
   position: relative;
@@ -28,6 +30,7 @@ div[class^='btn-'], button[class^='btn-'], a[class^='btn-'] {
 
 .btn-primary,
 .btn-secondary,
+.btn-outline-light,
 input[type=submit] {
   min-width: $min-width-btn;
   font-size: var(--btn-text-font-size);
@@ -42,6 +45,10 @@ input[type=submit] {
   cursor: pointer;
   text-align: $text-align-btn;
   border-radius: $border-radius-btn;
+
+  i {
+    color: $color-btn-text;
+  }
 
   &:hover {
     @include bp-phone-xl-reverse() {
@@ -68,6 +75,13 @@ input[type=submit] {
       opacity: 1;
     }
   }
+
+  &.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.2rem;
+    min-width: initial;
+  }
 }
 
 .btn-primary,
@@ -89,7 +103,9 @@ input[type=submit],
     color: var(--btn-primary-color);
   }
 
-  &:hover, &:focus, &:active {
+  &:hover,
+  &:focus,
+  &:active {
     background: var(--btn-primary-background-color-active);
     color: var(--btn-primary-color-active);
     border-color: var(--btn-primary-border-color-active);
@@ -112,6 +128,10 @@ input[type=submit],
   }
 }
 
+.btn-outline-light {
+  border: 1px solid white;
+}
+
 .btn-secondary,
 .wp-block-button.is-style-outline .wp-block-button__link {
   background: var(--btn-secondary-background-color);
@@ -123,7 +143,9 @@ input[type=submit],
     color: var(--btn-secondary-color);
   }
 
-  &:hover, &:focus, &:active {
+  &:hover,
+  &:focus,
+  &:active {
     background: var(--btn-secondary-background-color-active);
     color: var(--btn-secondary-color-active);
     border: 1px solid var(--btn-secondary-border-color-active);
@@ -216,7 +238,8 @@ Add remove
   }
 }
 
-.btn-back, .btn-back-bg {
+.btn-back,
+.btn-back-bg {
   background: none;
   width: 20px;
   height: 20px;
@@ -289,7 +312,8 @@ Add remove
   }
 }
 
-.btn-toggle, .btn-toggle-sm {
+.btn-toggle,
+.btn-toggle-sm {
   position: relative;
   display: inline-block;
 

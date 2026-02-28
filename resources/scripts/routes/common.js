@@ -9,6 +9,7 @@ import {menuBurger} from "../components/menu-burger";
 import {preventClicksOnEmptyLinks} from "../components/empty-links";
 import {anchorLinkScroll} from "../components/anchor-link-scroll";
 import {anchorLinkMainNavigation} from "../components/anchor-link-main-navigation";
+import {tabs} from "../components/tabs";
 
 import editorFrontend, {
     videoCover,
@@ -31,5 +32,6 @@ export default {
         anchorLinkMainNavigation();
         editorFrontend();
         infoWindow();
+        tabs();
     }
 };

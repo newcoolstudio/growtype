@@ -20,6 +20,22 @@ jQuery(function ($) {
         }
 
         try {
+            $slider.on('init', function () {
+                // Let lazy re-scan after slick clones slides
+                if (window.lazyLoadInstance) {
+                    window.lazyLoadInstance.destroy();
+                    window.lazyLoadInstance = null;
+                }
+                if ($.fn.Lazy) {
+                    window.lazyLoadInstance = $(".lazy-load").Lazy({
+                        scrollDirection: 'vertical',
+                        effect: 'fadeIn',
+                        visibleOnly: true,
+                        chainable: false,
+                        threshold: 500
+                    });
+                }
+            });
             $slider.slick(opts);
         } catch (err) {
             console.error('Error initializing slick slider on', this, err);

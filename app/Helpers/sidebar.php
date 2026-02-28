@@ -10,6 +10,7 @@ function growtype_display_sidebar_primary($display = false)
     $sidebar_primary_pages = get_theme_mod('sidebar_primary_pages');
 
     if ($sidebar_enabled && !empty($sidebar_primary_pages)) {
+
         global $wp_query;
         $post_id = !empty($wp_query->get_queried_object_id()) ? $wp_query->get_queried_object_id() : (!empty($wp_query->query_vars['page_id']) ? $wp_query->query_vars['page_id'] : get_the_ID());
 
@@ -21,5 +22,13 @@ function growtype_display_sidebar_primary($display = false)
         }
     }
 
-    return apply_filters('growtype_sidebar_primary_enabled', $sidebar_enabled, $sidebar_primary_pages);
+    $sidebar_enabled = apply_filters('growtype_sidebar_primary_enabled', $sidebar_enabled, $sidebar_primary_pages);
+
+//    error_log('Sidebar enabled:' . print_r([
+//            $_SERVER['REQUEST_URI'] ?? '-',
+//            $sidebar_enabled ? 'sidebar enabled' : 'sidebar disabled',
+//            $sidebar_primary_pages
+//        ], true));
+
+    return $sidebar_enabled;
 }

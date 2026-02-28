@@ -2,12 +2,14 @@
   display: flex;
   gap: 15px;
   align-items: center;
+
   @include bp-phone-xl() {
     flex-wrap: wrap;
   }
 
-  .alert-details + .alert-actions {
+  .alert-details+.alert-actions {
     padding-top: 20px;
+
     @include bp-phone-xl() {
       padding-top: 0;
     }
@@ -15,6 +17,7 @@
 
   .alert-actions {
     padding: 20px;
+
     @include bp-phone-xl() {
       padding: 0;
       width: 100%;
@@ -28,7 +31,7 @@
   }
 }
 
-.alert-details + .alert-actions {
+.alert-details+.alert-actions {
   padding-top: 10px;
 }
 
@@ -94,7 +97,6 @@
   color: black;
   padding: 1em 2em 1em 3.5em;
   border: none;
-  border-radius: 0;
   border-top: 3px solid $color-error;
   position: relative;
 
@@ -122,7 +124,6 @@
   color: black;
   padding: 1em 3.5em 1em 3.5em;
   border: none;
-  border-radius: 0;
   border-top: 3px solid $color-success;
   position: relative;
 
@@ -139,6 +140,60 @@
     bottom: 0;
     margin: auto;
     color: $color-success;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.alert-info {
+  background: white;
+  font-size: var(--body-text-font-size);
+  color: black;
+  padding: 1em 3.5em 1em 3.5em;
+  border: none;
+  border-top: 3px solid $color-info;
+  position: relative;
+
+  &:before {
+    content: "\f348";
+    font-family: "Dashicons";
+    font-size: 18px;
+    line-height: 100%;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 20px;
+    top: 1px;
+    bottom: 0;
+    margin: auto;
+    color: $color-info;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.alert-warning {
+  background: white;
+  font-size: var(--body-text-font-size);
+  color: black;
+  padding: 1em 3.5em 1em 3.5em;
+  border: none;
+  border-top: 3px solid #ffb900;
+  position: relative;
+
+  &:before {
+    content: "\f534";
+    font-family: "Dashicons";
+    font-size: 18px;
+    line-height: 100%;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 20px;
+    top: 1px;
+    bottom: 0;
+    margin: auto;
+    color: #ffb900;
     display: flex;
     align-items: center;
   }

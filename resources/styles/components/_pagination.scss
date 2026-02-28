@@ -4,6 +4,17 @@
   width: 100%;
   padding-top: 30px;
 
+  .page-item {
+    &.active .page-link {
+      background-color: var(--theme-color);
+      border-color: var(--theme-color);
+    }
+
+    &:not(.active) .page-link {
+      color: var(--theme-color);
+    }
+  }
+
   .page-numbers {
     list-style-type: none;
     display: flex;
@@ -19,7 +30,8 @@
       justify-content: center;
       margin: 0;
 
-      > a, > span {
+      >a,
+      >span {
         padding: 10px 18px;
         min-width: 44px;
         font-weight: bold;
@@ -40,7 +52,8 @@
         border-radius: 40px;
       }
 
-      .prev, .next {
+      .prev,
+      .next {
         opacity: 0.6;
         margin: 0 !important;
         padding-left: 5px !important;
