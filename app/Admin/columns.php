@@ -45,7 +45,7 @@ function grotype_manage_posts_custom_column($column_name)
 /**
  * Column style
  */
-add_action('admin_head', 'growtype_admin_manage_posts_columns');
+//add_action('admin_head', 'growtype_admin_manage_posts_columns');
 function growtype_admin_manage_posts_columns()
 {
     echo '<style>';
