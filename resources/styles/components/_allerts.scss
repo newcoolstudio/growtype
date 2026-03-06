@@ -7,7 +7,7 @@
     flex-wrap: wrap;
   }
 
-  .alert-details+.alert-actions {
+  .alert-details + .alert-actions {
     padding-top: 20px;
 
     @include bp-phone-xl() {
@@ -31,7 +31,7 @@
   }
 }
 
-.alert-details+.alert-actions {
+.alert-details + .alert-actions {
   padding-top: 10px;
 }
 
@@ -84,6 +84,9 @@
     height: 20px;
     padding: 0;
     margin-right: 20px;
+    @include bp-phone-xl() {
+      margin-right: 15px;
+    }
   }
 
   a {
