@@ -79,7 +79,9 @@ add_action('wp_enqueue_scripts', function () {
         wp_enqueue_script('growtype-child-app-script', growtype_get_child_theme_public_path() . '/scripts/app-child.js', false, config('wp.env') !== 'production' ? time() : config('theme.version'), true);
 
         $growtype_child_app_script_args = apply_filters('growtype_child_app_script_args', [
-            'url' => admin_url('admin-ajax.php')
+            'url'         => admin_url('admin-ajax.php'),
+            'wp_env'      => config('wp.env') ?: 'production',
+            'pwa_pub_key' => \Env\env('PWA_VAPID_PUBLIC_KEY'),
         ]);
 
         wp_localize_script('growtype-child-app-script', 'growtype_child_ajax', $growtype_child_app_script_args);

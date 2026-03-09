@@ -1,4 +1,5 @@
 <?php
+include_once __DIR__ . '/pwa.php';
 /**
  * Modify default rest url prefix
  */
@@ -22,21 +23,21 @@ function add_custom_fields()
     register_rest_field(
         'post',
         'reading_time',
-        array (
-            'get_callback' => 'growtype_rest_api_get_post_reading_time',
-            'update_callback' => null,
-            'schema' => null,
-        )
+        array(
+        'get_callback' => 'growtype_rest_api_get_post_reading_time',
+        'update_callback' => null,
+        'schema' => null,
+    )
     );
 
     register_rest_field(
         'post',
         'featured_image',
-        array (
-            'get_callback' => 'get_the_post_thumbnail_url',
-            'update_callback' => null,
-            'schema' => null,
-        )
+        array(
+        'get_callback' => 'get_the_post_thumbnail_url',
+        'update_callback' => null,
+        'schema' => null,
+    )
     );
 
     /**
