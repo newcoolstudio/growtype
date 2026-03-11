@@ -57,8 +57,11 @@ function growtype_send_pwa_notification($user_id, $title, $body, $data = [])
 {
     $subscription_data = get_user_meta($user_id, 'pwa_push_subscription', true);
     if (!$subscription_data) {
+        error_log("PWA: Cannot send push to User $user_id. No subscription token found in user_meta.");
         return false;
     }
+
+    error_log("PWA: Attempting to send push to User $user_id...");
 
     $auth = [
         'VAPID' => [

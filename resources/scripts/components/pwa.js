@@ -1,10 +1,17 @@
 /**
  * Core PWA Logic - Parent Theme (Growtype)
+ * Includes installation banner and manual instruction modal
  */
 
-export const VAPID_PUBLIC_KEY = 'BDm6Rf2Lh_HF7t3LhpB3HQUiMi5Pi7J3epFerpJTweR-PkO7P2YSyRv9-wnbKwzwXMh9tI9e6KZskLb95fgSIkg';
+export const VAPID_PUBLIC_KEY = window.growtype_theme_data?.pwa_pub_key || window.growtype_child_ajax?.pwa_pub_key || 'BDm6Rf2Lh_HF7t3LhpB3HQUiMi5Pi7J3epFerpJTweR-PkO7P2YSyRv9-wnbKwzwXMh9tI9e6KZskLb95fgSIkg';
 let deferredPrompt;
 let badgeCount = 0;
+
+let pwaConfig = {
+    appName: 'App',
+    appIcon: '/app/themes/growtype-child/public/icons/favicon/web-app-manifest-192x192.png'
+};
+
 
 /**
  * Register Service Worker and initialize PWA enhancements
@@ -12,15 +19,21 @@ let badgeCount = 0;
  */
 export const registerServiceWorker = (options = {}) => {
     const {
-        showBannerCallback,
-        hideBannerCallback,
-        ajaxUrl = window.growtype_child_ajax?.url,
-        env = window.growtype_child_ajax?.wp_env || 'production'
+        showBannerCallback = (isIosMode) => showInstallBanner(isIosMode),
+        hideBannerCallback = () => hideInstallBanner(),
+        ajaxUrl = window.growtype_theme_data?.url || window.growtype_child_ajax?.url,
+        env = window.growtype_theme_data?.wp_env || window.growtype_child_ajax?.wp_env || 'production',
+        appName = window.growtype_theme_data?.app_title || window.growtype_child_ajax?.app_title || pwaConfig.appName,
+        appIcon = window.growtype_theme_data?.app_icon || window.growtype_child_ajax?.app_icon || pwaConfig.appIcon,
+        cacheVersion = window.growtype_theme_data?.cache_version || window.growtype_child_ajax?.cache_version || '1.0.0'
     } = options;
+
+    pwaConfig.appName = appName;
+    pwaConfig.appIcon = appIcon;
 
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register(`/service-worker.js?env=${env}`)
+            navigator.serviceWorker.register(`/service-worker.js?env=${env}&v=${cacheVersion}`)
                 .then(registration => {
                     console.log('SW registered: ', registration);
 
@@ -124,10 +137,141 @@ const initManualTriggers = () => {
             } else if (window.matchMedia('(display-mode: standalone)').matches) {
                 alert('App is already installed!');
             } else {
-                alert('To install: click the browser menu and select "Add to Home Screen".');
+                showPwaInfoModal();
             }
         }
     });
+};
+
+/**
+ * UI Components: Install Banner and Modal
+ */
+const showInstallBanner = (isIosMode = false, force = false) => {
+    if (!force && (document.querySelector('.pwa-install-banner') || window.matchMedia('(display-mode: standalone)').matches)) return;
+
+    const banner = document.createElement('div');
+    banner.className = 'pwa-install-banner';
+    banner.innerHTML = `
+        <div class="pwa-install-banner__content">
+            <div class="pwa-install-banner__icon">
+                <img src="${pwaConfig.appIcon}" alt="${pwaConfig.appName}">
+            </div>
+            <div class="pwa-install-banner__info">
+                <h4>${pwaConfig.appName} App</h4>
+                <p>
+                    ${isIosMode
+            ? `Unlock the full ${pwaConfig.appName} experience! <a href="#" class="pwa-install-banner__link d-none">Learn how to install</a>`
+            : `Experience ${pwaConfig.appName} at its best! <a href="#" class="pwa-install-banner__link d-none">Learn how</a>`}
+                </p>
+            </div>
+        </div>
+        <div class="pwa-install-banner__actions">
+            <button class="pwa-install-banner__btn-install">Install</button>
+            <button class="pwa-install-banner__btn-close">&times;</button>
+        </div>
+    `;
+
+    document.body.appendChild(banner);
+    setTimeout(() => banner.classList.add('is-visible'), 100);
+
+    const installBtn = banner.querySelector('.pwa-install-banner__btn-install');
+    if (installBtn) {
+        installBtn.addEventListener('click', () => {
+            // If mobile, show modal. If desktop, trigger native prompt.
+            if (window.innerWidth <= 576) {
+                showPwaInfoModal();
+            } else {
+                triggerInstallPrompt().then(() => hideInstallBanner());
+            }
+        });
+    }
+
+    const learnMoreLinks = banner.querySelectorAll('.pwa-install-banner__link');
+    learnMoreLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            showPwaInfoModal();
+        });
+    });
+
+    banner.querySelector('.pwa-install-banner__btn-close').addEventListener('click', () => {
+        const storageKey = isIosMode ? 'pwa_ios_install_dismissed_at' : 'pwa_install_dismissed_at';
+        localStorage.setItem(storageKey, Date.now().toString());
+        hideInstallBanner();
+    });
+};
+
+const showPwaInfoModal = () => {
+    const modal = document.createElement('div');
+    modal.className = 'pwa-info-modal';
+
+    modal.innerHTML = `
+        <div class="pwa-info-modal__overlay"></div>
+        <div class="pwa-info-modal__container">
+            <div class="pwa-info-modal__header">
+                <h3>Install ${pwaConfig.appName}</h3>
+                <button class="pwa-info-modal__close">&times;</button>
+            </div>
+            <div class="pwa-info-modal__content">
+                <p>Add ${pwaConfig.appName} to your home screen for instant access and a seamless experience.</p>
+                
+                <div class="pwa-info-modal__platform">
+                    <div class="pwa-info-modal__platform-header">
+                        <span class="pwa-info-modal__platform-icon">🍎</span>
+                        <h4>iPhone / iOS</h4>
+                    </div>
+                    <div class="pwa-info-modal__steps">
+                        <ol>
+                            <li>Tap the <strong>Share</strong> icon (square with up arrow)</li>
+                            <li>Scroll down and select <strong>'Add to Home Screen'</strong></li>
+                        </ol>
+                    </div>
+                    <div class="pwa-info-modal__image">
+                        <img src="/app/themes/growtype/public/images/pwa/iphone-addtohomescreen.png" alt="iPhone Installation">
+                    </div>
+                </div>
+
+                <div class="pwa-info-modal__platform">
+                    <div class="pwa-info-modal__platform-header">
+                        <span class="pwa-info-modal__platform-icon">🤖</span>
+                        <h4>Android</h4>
+                    </div>
+                    <div class="pwa-info-modal__steps">
+                        <ol>
+                            <li>Tap the <strong>Menu</strong> icon (three dots)</li>
+                            <li>Select <strong>'Install App'</strong> or <strong>'Add to Home Screen'</strong></li>
+                        </ol>
+                    </div>
+                    <div class="pwa-info-modal__image">
+                        <img src="/app/themes/growtype/public/images/pwa/android-addtohomescreen.png" alt="Android Installation">
+                    </div>
+                </div>
+            </div>
+            <div class="pwa-info-modal__footer">
+                <button class="pwa-info-modal__btn-got-it">Got it!</button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+    setTimeout(() => modal.classList.add('is-visible'), 10);
+
+    const closeModal = () => {
+        modal.classList.remove('is-visible');
+        setTimeout(() => modal.remove(), 300);
+    };
+
+    modal.querySelector('.pwa-info-modal__close').addEventListener('click', closeModal);
+    modal.querySelector('.pwa-info-modal__overlay').addEventListener('click', closeModal);
+    modal.querySelector('.pwa-info-modal__btn-got-it').addEventListener('click', closeModal);
+};
+
+const hideInstallBanner = () => {
+    const banner = document.querySelector('.pwa-install-banner');
+    if (banner) {
+        banner.classList.remove('is-visible');
+        setTimeout(() => banner.remove(), 500);
+    }
 };
 
 /**
@@ -207,10 +351,20 @@ function urlBase64ToUint8Array(base64String) {
     return outputArray;
 }
 
+/**
+ * Debug helper
+ */
+window.forceShowPwaBanner = (isIosMode = false) => {
+    hideInstallBanner();
+    showInstallBanner(isIosMode, true);
+};
+
 // Expose these globally so plugins can use them
 window.growtypePwa = {
     clearBadge,
     updateBadge,
     triggerInstallPrompt,
-    subscribeUserToPush
+    subscribeUserToPush,
+    showPwaInfoModal,
+    forceShowPwaBanner
 };
