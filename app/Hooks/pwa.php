@@ -21,8 +21,17 @@ function growtype_pwa_process_pending_subscription($user_id)
     $pending_subscription = $_COOKIE['pwa_pending_subscription'] ?? '';
 
     if (!empty($pending_subscription)) {
-        // Clean and update meta
-        update_user_meta($user_id, 'pwa_push_subscription', stripslashes($pending_subscription));
+        $subscription_payload = function_exists('growtype_pwa_decode_subscription_payload')
+            ? growtype_pwa_decode_subscription_payload($pending_subscription)
+            : json_decode(stripslashes($pending_subscription), true);
+
+        if (function_exists('growtype_pwa_upsert_user_subscription') && !empty($subscription_payload)) {
+            // Attach the pending device subscription without overwriting other devices.
+            growtype_pwa_upsert_user_subscription($user_id, $subscription_payload);
+        } else {
+            // Fallback for legacy environments.
+            update_user_meta($user_id, 'pwa_push_subscription', stripslashes($pending_subscription));
+        }
 
         // Remove cookie
         setcookie('pwa_pending_subscription', '', time() - 3600, '/');

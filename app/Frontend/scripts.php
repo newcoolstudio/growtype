@@ -78,7 +78,7 @@ add_action('wp_enqueue_scripts', function () {
         'wp_env'        => config('wp.env') ?: 'production',
         'pwa_pub_key'   => \Env\env('PWA_VAPID_PUBLIC_KEY'),
         'asset_version' => \Env\env('ASSET_VERSION') ?: '1.0.0',
-        'cache_version' => \Env\env('CACHE_VERSION') ?: (\Env\env('ASSET_VERSION') ?: (\Env\env('THEME_VERSION') ?: '1.0.0')),
+        'cache_version' => (config('wp.env') === 'development') ? time() : (\Env\env('CACHE_VERSION') ?: (\Env\env('ASSET_VERSION') ?: (\Env\env('THEME_VERSION') ?: '1.0.0'))),
         'theme_version' => \Env\env('THEME_VERSION') ?: '1.0.0',
         'app_title'     => \Env\env('APP_TITLE') ?: get_bloginfo('name'),
         'app_icon'      => '/app/themes/growtype-child/public/icons/favicon/web-app-manifest-192x192.png',

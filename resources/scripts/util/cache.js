@@ -13,13 +13,17 @@ export const forceClearCache = (version) => {
 
     if (version && lastVersion !== version) {
         if ('caches' in window) {
-            console.warn(`Cache: Version mismatch detected (${lastVersion} -> ${version}). Clearing all caches...`);
             caches.keys().then(names => {
                 return Promise.all(names.map(name => caches.delete(name)));
             }).then(() => {
                 localStorage.setItem('site_cache_version', version);
-                console.log(`Cache: Global flush for version ${version} complete. Reloading page...`);
-                window.location.reload();
+
+                const wpEnv = window.growtype_theme_data?.wp_env || window.growtype_child_ajax?.wp_env;
+                const isDev = ['development', 'dev', 'local', 'test'].includes(wpEnv);
+
+                if (!isDev) {
+                    window.location.reload();
+                }
             });
         }
     }
