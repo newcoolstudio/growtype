@@ -37,22 +37,22 @@
 
 .alert-position-bottom {
   position: fixed;
-  bottom: 10px;
+  bottom: 15px;
   left: $padding-left-container;
   right: $padding-right-container;
   margin: auto;
   max-width: var(--max-width-container);
-  z-index: 100;
+  z-index: 9999;
 }
 
 .alert-position-top {
   position: fixed;
-  top: 100px;
+  top: 15px;
   left: $padding-left-container;
   right: $padding-right-container;
   margin: auto;
   max-width: var(--max-width-container);
-  z-index: 100;
+  z-index: 9999;
 }
 
 .alert-font-sm {
@@ -84,6 +84,7 @@
     height: 20px;
     padding: 0;
     margin-right: 20px;
+
     @include bp-phone-xl() {
       margin-right: 15px;
     }

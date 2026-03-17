@@ -3,7 +3,7 @@
  * Includes installation banner and manual instruction modal
  */
 
-export const VAPID_PUBLIC_KEY = window.growtype_theme_data?.pwa_pub_key || window.growtype_child_ajax?.pwa_pub_key || 'BDm6Rf2Lh_HF7t3LhpB3HQUiMi5Pi7J3epFerpJTweR-PkO7P2YSyRv9-wnbKwzwXMh9tI9e6KZskLb95fgSIkg';
+export const VAPID_PUBLIC_KEY = window.growtype_ajax?.pwa_pub_key || window.growtype_child_ajax?.pwa_pub_key || 'BDm6Rf2Lh_HF7t3LhpB3HQUiMi5Pi7J3epFerpJTweR-PkO7P2YSyRv9-wnbKwzwXMh9tI9e6KZskLb95fgSIkg';
 let deferredPrompt;
 let badgeCount = 0;
 
@@ -21,11 +21,11 @@ export const registerServiceWorker = (options = {}) => {
     const {
         showBannerCallback = (isIosMode) => showInstallBanner(isIosMode),
         hideBannerCallback = () => hideInstallBanner(),
-        ajaxUrl = window.growtype_theme_data?.url || window.growtype_child_ajax?.url,
-        env = window.growtype_theme_data?.wp_env || window.growtype_child_ajax?.wp_env || 'production',
-        appName = window.growtype_theme_data?.app_title || window.growtype_child_ajax?.app_title || pwaConfig.appName,
-        appIcon = window.growtype_theme_data?.app_icon || window.growtype_child_ajax?.app_icon || pwaConfig.appIcon,
-        cacheVersion = window.growtype_theme_data?.cache_version || window.growtype_child_ajax?.cache_version || '1.0.0'
+        ajaxUrl = window.growtype_ajax?.url || window.growtype_child_ajax?.url,
+        env = window.growtype_ajax?.wp_env || window.growtype_child_ajax?.wp_env || 'production',
+        appName = window.growtype_ajax?.app_title || window.growtype_child_ajax?.app_title || pwaConfig.appName,
+        appIcon = window.growtype_ajax?.app_icon || window.growtype_child_ajax?.app_icon || pwaConfig.appIcon,
+        cacheVersion = window.growtype_ajax?.cache_version || window.growtype_child_ajax?.cache_version || '1.0.0'
     } = options;
 
     pwaConfig.appName = appName;
@@ -309,8 +309,14 @@ export const subscribeUserToPush = async (registration, ajaxUrl) => {
             applicationServerKey: urlBase64ToUint8Array(publicKey)
         };
 
-        const subscription = await registration.pushManager.subscribe(subscribeOptions);
-        console.log('PWA: User subscribed:', subscription);
+        let subscription = await registration.pushManager.getSubscription();
+
+        if (!subscription) {
+            subscription = await registration.pushManager.subscribe(subscribeOptions);
+            console.log('PWA: User subscribed:', subscription);
+        } else {
+            console.log('PWA: Existing subscription reused:', subscription);
+        }
 
         if (ajaxUrl) {
             await sendSubscriptionToServer(subscription, ajaxUrl);
@@ -322,16 +328,30 @@ export const subscribeUserToPush = async (registration, ajaxUrl) => {
 
 const sendSubscriptionToServer = async (subscription, ajaxUrl) => {
     try {
+        const serializedSubscription = JSON.stringify(subscription);
+        const subscriptionFingerprint = createSubscriptionFingerprint(serializedSubscription);
+        const storageKey = 'growtype_pwa_subscription_fingerprint';
+        const previousFingerprint = localStorage.getItem(storageKey);
+
+        if (previousFingerprint && previousFingerprint === subscriptionFingerprint) {
+            console.log('PWA: Subscription unchanged, skipping save.');
+            return;
+        }
+
         const response = await fetch(ajaxUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams({
                 action: 'growtype_save_pwa_subscription',
-                subscription: JSON.stringify(subscription)
+                subscription: serializedSubscription
             })
         });
         const data = await response.json();
         console.log('PWA: Subscription saved:', data);
+
+        if (data?.success) {
+            localStorage.setItem(storageKey, subscriptionFingerprint);
+        }
     } catch (error) {
         console.error('PWA: Error sending subscription to server:', error);
     }
@@ -349,6 +369,17 @@ function urlBase64ToUint8Array(base64String) {
         outputArray[i] = rawData.charCodeAt(i);
     }
     return outputArray;
+}
+
+function createSubscriptionFingerprint(serializedSubscription) {
+    let hash = 0;
+
+    for (let i = 0; i < serializedSubscription.length; i++) {
+        hash = (hash << 5) - hash + serializedSubscription.charCodeAt(i);
+        hash |= 0;
+    }
+
+    return String(hash);
 }
 
 /**

@@ -84,7 +84,7 @@ add_action('wp_enqueue_scripts', function () {
         'app_icon'      => '/app/themes/growtype-child/public/icons/favicon/web-app-manifest-192x192.png',
     ]);
 
-    wp_localize_script('growtype-app-script', 'growtype_theme_data', $growtype_theme_args);
+    wp_localize_script('growtype-app-script', 'growtype_ajax', $growtype_theme_args);
 
     /**
      * Child Theme Scripts
