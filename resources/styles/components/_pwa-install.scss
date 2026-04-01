@@ -87,13 +87,19 @@
     }
 
     &__btn-close {
-        background: transparent;
-        border: none;
         color: rgba(255, 255, 255, 0.5);
         font-size: 20px;
         cursor: pointer;
-        padding: 5px;
         line-height: 1;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        top: -15px;
+        background: rgba(28, 28, 28, 0.95);
+        border-radius: 30px;
+        min-width: 25px;
+        min-height: 25px;
+        border: 1px solid rgba(255, 144, 0, .3);
 
         &:hover {
             color: #fff;

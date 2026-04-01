@@ -35,8 +35,6 @@ export const registerServiceWorker = (options = {}) => {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register(`/service-worker.js?env=${env}&v=${cacheVersion}`)
                 .then(registration => {
-                    console.log('SW registered: ', registration);
-
                     // Request notification permission and subscribe
                     handlePushSubscription(registration, ajaxUrl);
                 })
@@ -70,10 +68,7 @@ const handlePushSubscription = (registration, ajaxUrl) => {
  * Custom Install UI Logic - Listeners
  */
 const initInstallPrompt = (showBannerCallback, hideBannerCallback) => {
-    console.log('PWA: Initializing install prompt listeners...');
-
     window.addEventListener('beforeinstallprompt', (e) => {
-        console.log('PWA: beforeinstallprompt event fired!');
         e.preventDefault();
         deferredPrompt = e;
 

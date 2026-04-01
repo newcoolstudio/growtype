@@ -24,7 +24,7 @@ import { forceClearCache } from "../util/cache";
 export default {
     init() {
         const cacheVersion = window.growtype_ajax?.cache_version || window.growtype_child_ajax?.cache_version;
-        console.log(`PWA: Initializing cache version check: ${cacheVersion}`);
+
         forceClearCache(cacheVersion);
 
         select();

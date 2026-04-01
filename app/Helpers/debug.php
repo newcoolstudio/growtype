@@ -38,12 +38,12 @@ if (!function_exists('growtype_log')) {
         }
 
         // Add date to filename
-        $date = date('Y-m-d');
+        $date = wp_date('Y-m-d');
         $file_info = pathinfo($filename);
         $filename = ($file_info['filename'] ?? 'debug') . '-' . $date . '.' . ($file_info['extension'] ?? 'log');
 
         $log_file = $logs_dir . '/' . $filename;
-        $timestamp = date('Y-m-d H:i:s');
+        $timestamp = wp_date('Y-m-d H:i:s');
         $formatted_data = is_array($data) || is_object($data) ? var_export($data, true) : $data;
 
         $log_entry = "[$timestamp] $formatted_data" . PHP_EOL . "------------------------------------------------------------" . PHP_EOL;
