@@ -38,8 +38,8 @@ include_once 'Admin/media.php';
 include_once 'Admin/login.php';
 include_once 'Admin/columns.php';
 include_once 'Admin/reusable-blocks.php';
-include_once 'Admin/user-profile.php';
-include_once 'Admin/users.php';
+
+include_once 'Admin/users/index.php';
 
 /**
  * Appearance

@@ -47,13 +47,19 @@ export function modal() {
 
         $trigger.prop('disabled', true);
 
+        const extraData = {};
+        document.dispatchEvent(new CustomEvent('growtypeModalBeforeLoad', {
+            detail: { trigger, target, extraData }
+        }));
+
         $.ajax({
             url: ajaxUrl,
             type: 'POST',
             data: {
                 action: 'growtype_get_modal',
                 modal_id: target,
-                ...$trigger.data()
+                ...$trigger.data(),
+                ...extraData
             },
             success: function (response) {
                 console.log('Growtype Modal: AJAX success', {
