@@ -74,6 +74,21 @@ class Growtype_Cache
         $name = substr($name, 0, 150);
 
         if (!empty($name) && !empty($data) && !empty($time)) {
+            // Log large transients so we can identify Redis memory hogs.
+            // Threshold: 50 KB — tune GROWTYPE_CACHE_LOG_THRESHOLD_KB as needed.
+            $threshold_kb = defined('GROWTYPE_CACHE_LOG_THRESHOLD_KB') ? GROWTYPE_CACHE_LOG_THRESHOLD_KB : 50;
+            $serialized   = is_string($data) ? $data : serialize($data);
+            $size_kb       = strlen($serialized) / 1024;
+
+            if ($size_kb >= $threshold_kb) {
+                growtype_log(sprintf(
+                    'Large transient: key="%s" size=%.1f KB expiry=%ds',
+                    $name,
+                    $size_kb,
+                    $time
+                ), 'growtype-cache');
+            }
+
             return set_transient($name, $data, $time);
         }
     }
