@@ -16,6 +16,15 @@ export function infoWindow(options = {}) {
 
     log('[InfoWindow] Function called, isProcessing:', isProcessing);
 
+    if (options.enabled === undefined) {
+        options.enabled = window.growtype_ajax?.infowindow_enabled !== 'false';
+    }
+
+    if (options.enabled === false) {
+        log('[InfoWindow] Disabled by backend (options.enabled:', options.enabled, ')');
+        return getAPI();
+    }
+
     // Prevent concurrent execution
     if (isProcessing) {
         log('[InfoWindow] Already processing, returning existing API');
