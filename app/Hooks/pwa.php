@@ -41,3 +41,33 @@ function growtype_pwa_process_pending_subscription($user_id)
         }
     }
 }
+
+/**
+ * PWA Install Banner Configuration & Visibility
+ */
+add_filter('growtype_theme_args', function ($args) {
+    $args['pwa_show_banner'] = growtype_pwa_should_show_install_banner();
+    return $args;
+});
+
+function growtype_pwa_should_show_install_banner() {
+    if (!apply_filters('growtype_pwa_install_banner_enabled', true)) {
+        return false;
+    }
+
+    $allowed_pages = apply_filters('growtype_pwa_install_banner_pages', ['front_page']);
+    $is_allowed = false;
+    
+    foreach ($allowed_pages as $page) {
+        if ($page === 'all') {
+            $is_allowed = true;
+            break;
+        }
+        if ($page === 'front_page' && is_front_page()) {
+            $is_allowed = true;
+            break;
+        }
+    }
+
+    return apply_filters('growtype_pwa_install_banner_should_show', $is_allowed);
+}

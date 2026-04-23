@@ -9,7 +9,8 @@ let badgeCount = 0;
 
 let pwaConfig = {
     appName: 'App',
-    appIcon: '/app/themes/growtype-child/public/icons/favicon/web-app-manifest-192x192.png'
+    appIcon: '/app/themes/growtype-child/public/icons/favicon/web-app-manifest-192x192.png',
+    showBanner: true
 };
 
 
@@ -25,11 +26,13 @@ export const registerServiceWorker = (options = {}) => {
         env = window.growtype_ajax?.wp_env || window.growtype_child_ajax?.wp_env || 'production',
         appName = window.growtype_ajax?.app_title || window.growtype_child_ajax?.app_title || pwaConfig.appName,
         appIcon = window.growtype_ajax?.app_icon || window.growtype_child_ajax?.app_icon || pwaConfig.appIcon,
+        showBanner = window.growtype_ajax?.pwa_show_banner ?? window.growtype_child_ajax?.pwa_show_banner ?? true,
         cacheVersion = window.growtype_ajax?.cache_version || window.growtype_child_ajax?.cache_version || '1.0.0'
     } = options;
 
     pwaConfig.appName = appName;
     pwaConfig.appIcon = appIcon;
+    pwaConfig.showBanner = showBanner;
 
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
@@ -72,6 +75,8 @@ const initInstallPrompt = (showBannerCallback, hideBannerCallback) => {
         e.preventDefault();
         deferredPrompt = e;
 
+        if (!pwaConfig.showBanner) return;
+
         // Show the custom install banner if not dismissed recently
         const dismissedAt = localStorage.getItem('pwa_install_dismissed_at');
         const oneDay = 24 * 60 * 60 * 1000;
@@ -89,6 +94,7 @@ const initInstallPrompt = (showBannerCallback, hideBannerCallback) => {
     const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
 
     if (isIOS && !isStandalone) {
+        if (!pwaConfig.showBanner) return;
         const dismissedAt = localStorage.getItem('pwa_ios_install_dismissed_at');
         const oneDay = 24 * 60 * 60 * 1000;
 
